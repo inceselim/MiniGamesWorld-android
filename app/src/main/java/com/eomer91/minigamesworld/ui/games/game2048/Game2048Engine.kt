@@ -17,8 +17,11 @@ class Game2048Engine(
 
     fun initialBoard(): Board = (1..INITIAL_TILES).fold(emptyBoard()) { board, _ -> addRandomTile(board) }
 
-    fun emptyCells(board: Board): List<Pair<Int, Int>> = buildList {
-        for (r in 0 until size) for (c in 0 until size) if (board[r][c] == 0) add(r to c)
+    fun emptyCells(board: Board): List<Pair<Int, Int>> {
+        // Not: buildList { } icinde "size" listenin kendi boyutunu (0) gosterir; bu yuzden disarida tutuyoruz.
+        val cells = mutableListOf<Pair<Int, Int>>()
+        for (r in 0 until size) for (c in 0 until size) if (board[r][c] == 0) cells += r to c
+        return cells
     }
 
     fun addRandomTile(board: Board): Board {
