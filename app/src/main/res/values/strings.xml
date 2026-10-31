@@ -68,4 +68,14 @@
     <string name="game_tower_defense_desc">Build towers and defend your base from enemy waves.</string>
     <string name="game_snake_name">Snake</string>
     <string name="game_snake_desc">Eat food, grow longer and avoid hitting yourself.</string>
+
+    <string name="game_score">SCORE</string>
+    <string name="game_best">BEST</string>
+    <string name="game_restart">Restart</string>
+    <string name="game_play_again">Play again</string>
+    <string name="game_over">GAME OVER</string>
+    <string name="game_final_score">Final score: %1$d</string>
+    <string name="game_new_record">New record!</string>
+    <string name="g2048_hint">Swipe to move the tiles</string>
+    <string name="g2048_win">You reached 2048! Keep going for a higher score.</string>
 </resources>

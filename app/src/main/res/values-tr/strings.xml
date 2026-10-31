@@ -66,4 +66,14 @@
     <string name="game_tower_defense_desc">Kuleler kur, üssünü düşman dalgalarına karşı savun.</string>
     <string name="game_snake_name">Yılan</string>
     <string name="game_snake_desc">Yemi ye, uza ve kendine çarpmaktan kaçın.</string>
+
+    <string name="game_score">SKOR</string>
+    <string name="game_best">EN İYİ</string>
+    <string name="game_restart">Yeniden başla</string>
+    <string name="game_play_again">Tekrar oyna</string>
+    <string name="game_over">OYUN BİTTİ</string>
+    <string name="game_final_score">Skorun: %1$d</string>
+    <string name="game_new_record">Yeni rekor!</string>
+    <string name="g2048_hint">Taşları kaydırmak için parmağını sürükle</string>
+    <string name="g2048_win">2048\'e ulaştın! Daha yüksek skor için devam et.</string>
 </resources>
