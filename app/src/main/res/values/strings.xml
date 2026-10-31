@@ -80,4 +80,8 @@
     <string name="g2048_win">You reached 2048! Keep going for a higher score.</string>
     <string name="snake_hint_start">Swipe in any direction to start</string>
     <string name="snake_hint">Swipe to change direction</string>
+    <string name="game_moves">MOVES</string>
+    <string name="memory_hint">Find all the pairs with as few moves as you can</string>
+    <string name="memory_completed">COMPLETED!</string>
+    <string name="memory_result">Moves: %1$d · Score: %2$d</string>
 </resources>

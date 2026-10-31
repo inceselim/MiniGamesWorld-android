@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.sp
 import com.eomer91.minigamesworld.R
 import com.eomer91.minigamesworld.data.GameCatalog
 import com.eomer91.minigamesworld.ui.games.game2048.Game2048Screen
+import com.eomer91.minigamesworld.ui.games.memory.MemoryScreen
 import com.eomer91.minigamesworld.ui.games.snake.SnakeScreen
 import com.eomer91.minigamesworld.ui.theme.AppColors
 
@@ -57,6 +58,7 @@ fun PlayScreen(gameId: String, onBack: () -> Unit) {
             when (gameId) {
                 "2048" -> Game2048Screen()
                 "snake" -> SnakeScreen()
+                "memory-card" -> MemoryScreen()
                 else -> ComingSoon()
             }
         }

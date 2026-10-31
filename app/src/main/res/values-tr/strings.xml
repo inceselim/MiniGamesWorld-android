@@ -78,4 +78,8 @@
     <string name="g2048_win">2048\'e ulaştın! Daha yüksek skor için devam et.</string>
     <string name="snake_hint_start">Başlamak için herhangi bir yöne kaydır</string>
     <string name="snake_hint">Yön değiştirmek için kaydır</string>
+    <string name="game_moves">HAMLE</string>
+    <string name="memory_hint">Tüm çiftleri olabildiğince az hamlede bul</string>
+    <string name="memory_completed">TAMAMLANDI!</string>
+    <string name="memory_result">Hamle: %1$d · Skor: %2$d</string>
 </resources>

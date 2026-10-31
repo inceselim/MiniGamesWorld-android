@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -25,11 +26,18 @@ import com.eomer91.minigamesworld.ui.theme.AppColors
 
 /** Oyunlarin ust kismi: skor, en iyi skor ve yeniden baslat. */
 @Composable
-fun ScoreHeader(score: Int, best: Int, onRestart: () -> Unit, modifier: Modifier = Modifier) {
+fun ScoreHeader(
+    score: Int,
+    best: Int,
+    onRestart: () -> Unit,
+    modifier: Modifier = Modifier,
+    scoreLabel: String = stringResource(R.string.game_score),
+    showBestAsMax: Boolean = true,
+) {
     Row(modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-        ScoreBox(stringResource(R.string.game_score), score)
+        ScoreBox(scoreLabel, score)
         Spacer(Modifier.width(10.dp))
-        ScoreBox(stringResource(R.string.game_best), maxOf(score, best))
+        ScoreBox(stringResource(R.string.game_best), if (showBestAsMax) maxOf(score, best) else best)
         Spacer(Modifier.weight(1f))
         Button(
             onClick = onRestart,
@@ -58,7 +66,15 @@ private fun ScoreBox(label: String, value: Int) {
 
 /** Oyun bitti paneli. */
 @Composable
-fun GameOverPanel(score: Int, isNewRecord: Boolean, onRestart: () -> Unit, modifier: Modifier = Modifier) {
+fun GameOverPanel(
+    score: Int,
+    isNewRecord: Boolean,
+    onRestart: () -> Unit,
+    modifier: Modifier = Modifier,
+    title: String = stringResource(R.string.game_over),
+    titleColor: Color = AppColors.Danger,
+    detail: String = stringResource(R.string.game_final_score, score),
+) {
     Column(
         modifier
             .fillMaxWidth()
@@ -67,8 +83,8 @@ fun GameOverPanel(score: Int, isNewRecord: Boolean, onRestart: () -> Unit, modif
             .padding(18.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(stringResource(R.string.game_over), color = AppColors.Danger, fontSize = 26.sp, fontWeight = FontWeight.Black)
-        Text(stringResource(R.string.game_final_score, score), color = AppColors.TextMuted, modifier = Modifier.padding(top = 6.dp))
+        Text(title, color = titleColor, fontSize = 26.sp, fontWeight = FontWeight.Black)
+        Text(detail, color = AppColors.TextMuted, modifier = Modifier.padding(top = 6.dp))
         if (isNewRecord) {
             Text(stringResource(R.string.game_new_record), color = AppColors.Gold, fontWeight = FontWeight.Black, modifier = Modifier.padding(top = 4.dp))
         }
