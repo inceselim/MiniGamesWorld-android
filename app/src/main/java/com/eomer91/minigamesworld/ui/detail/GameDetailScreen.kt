@@ -45,6 +45,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.eomer91.minigamesworld.R
+import com.eomer91.minigamesworld.ads.rememberInterstitialLauncher
 import com.eomer91.minigamesworld.ui.components.EmptyState
 import com.eomer91.minigamesworld.ui.components.GoldBadge
 import com.eomer91.minigamesworld.ui.theme.AppColors
@@ -58,11 +59,13 @@ fun GameDetailScreen(
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val snackbar = remember { SnackbarHostState() }
     val context = LocalContext.current
+    val showInterstitial = rememberInterstitialLauncher()
 
     LaunchedEffect(Unit) {
         viewModel.events.collect { event ->
             when (event) {
-                is GameDetailEvent.StartGame -> onPlay(event.gameId)
+                is GameDetailEvent.StartGame ->
+                    if (event.showAd) showInterstitial { onPlay(event.gameId) } else onPlay(event.gameId)
                 GameDetailEvent.NotEnoughGold -> snackbar.showSnackbar(context.getString(R.string.not_enough_gold))
             }
         }

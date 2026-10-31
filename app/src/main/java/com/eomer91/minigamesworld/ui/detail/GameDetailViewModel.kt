@@ -26,7 +26,8 @@ data class GameDetailUiState(
 )
 
 sealed interface GameDetailEvent {
-    data class StartGame(val gameId: String) : GameDetailEvent
+    /** [showAd]: oyun gercekten oynanabiliyorsa once gecis reklami gosterilir. */
+    data class StartGame(val gameId: String, val showAd: Boolean) : GameDetailEvent
     data object NotEnoughGold : GameDetailEvent
 }
 
@@ -59,7 +60,7 @@ class GameDetailViewModel @Inject constructor(
         viewModelScope.launch {
             // Henuz tasinmamis oyunlar icin altin harcanmaz, "Cok yakinda" acilir.
             val canStart = !game.isPlayable || prefs.spendGold(game.entryCost)
-            _events.send(if (canStart) GameDetailEvent.StartGame(game.id) else GameDetailEvent.NotEnoughGold)
+            _events.send(if (canStart) GameDetailEvent.StartGame(game.id, showAd = game.isPlayable) else GameDetailEvent.NotEnoughGold)
         }
     }
 }
