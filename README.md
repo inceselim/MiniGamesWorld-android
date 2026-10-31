@@ -5,20 +5,77 @@ Eski React Native/Expo kodu referans için `MiniGamesWorldincesoy` reposunda dur
 
 ## Teknoloji
 
-- Kotlin, Jetpack Compose (Material 3), tek Activity
-- MVVM + Hilt (DI), Navigation Compose (type-safe route'lar)
+- Kotlin 2.3, Jetpack Compose (Material 3), tek Activity
+- MVVM + Hilt (KSP), Navigation Compose (type-safe route'lar)
 - DataStore: altın, favoriler, rekorlar, ayarlar
-- AdMob + UMP (GDPR onay ekranı)
+- AdMob (banner + geçiş reklamı) + UMP (GDPR onay ekranı)
+- SoundPool ile ses efektleri, titreşim
 - Uygulama içi dil seçimi (AppCompat per-app locales)
+- Derleme: AGP 9.1 (built-in Kotlin), Gradle 9.4.1, Java 21 veya 25
 
 ## Projeyi açma
 
-1. Android Studio'da **Open** ile bu klasörü aç, Gradle senkronizasyonunu bekle.
+1. Android Studio'da **Open** ile bu klasörü aç ve Gradle senkronizasyonunu bekle.
    Gereksinimler: Android Studio Panda 2 (2025.3.2) veya üstü, Gradle JDK 21 ya da 25.
-2. Android Studio kütüphaneler için daha yeni sürüm önerirse (sarı uyarılar) güncelleyebilirsin.
-3. `app` konfigürasyonunu bir emülatörde ya da telefonda çalıştır.
+2. `app` konfigürasyonunu bir emülatörde ya da telefonda çalıştır.
+3. Değişiklikleri GitHub'dan almak için **Git → Pull** kullan. Bu bir *pull request* değildir.
 
 Debug build `com.eomer91.MiniGamesWorldincesoy.debug` paket adıyla kurulur. Böylece telefondaki mağaza sürümüyle yan yana durur ve Google'ın test reklamlarını gösterir.
+
+## Oyunlar
+
+| Oyun | Durum | Not |
+|---|---|---|
+| Block Puzzle | ✅ Native | Sürükle-bırak, renkli parçalar, satır + sütun temizleme |
+| 2048 | ✅ Native | Kaydırma, 2048'e ulaşınca devam |
+| Snake | ✅ Native | İlk kaydırmada başlar, yem yedikçe hızlanır, arka planda durur |
+| Memory Card | ✅ Native | 3D kart çevirme; hamle sayısı skora çevrilir (kusursuz = 1000) |
+| Match 3, Sudoku, Stack, Bubble Shooter, Tower Defense | ⏳ Çok yakında | Detay ekranında altın harcanmaz, reklam gösterilmez |
+
+Her oyunun kuralları ekrandan ayrı, saf Kotlin bir `…Engine` sınıfında durur ve `app/src/test` altında unit testleri vardır. Testleri çalıştırmak için test dosyasını açıp sınıf adının yanındaki yeşil oka bas ya da `./gradlew test` komutunu çalıştır.
+
+Rekorlar oyun sırasında, rekor geçildiği anda kaydedilir. Oyuncu oyunun ortasında çıksa da rekor kaybolmaz.
+
+## Reklamlar
+
+| Tür | Nerede |
+|---|---|
+| Banner | Ana sekmelerin altında (Oyunlar, Ara, Favoriler, Profil, Ayarlar) |
+| Geçiş (Interstitial) | Oynanabilir bir oyunun detay ekranında **Play**, oyun içinde **Restart** ve **Tekrar oyna** |
+
+- İki geçiş reklamı arasında en az **60 saniye** olur ve bu süre tüm butonlar için ortaktır. Çok sık geçiş reklamı oyuncuyu kaçırır ve AdMob politikalarına takılabilir. Değiştirmek için: `ads/InterstitialAdManager.kt` → `MIN_INTERVAL_MS`.
+- Reklam hazır değilse (internet yok, yüklenemedi) oyun beklemeden devam eder.
+- Reklam gösterilirken Snake gibi gerçek zamanlı oyunlar kendiliğinden durur.
+- Yeni bir oyuna geçiş reklamı eklemek tek satır: `val show = rememberInterstitialLauncher()` → `show { viewModel.restart() }`.
+
+**AdMob ayarları**
+
+- App ID manifest'e `app/build.gradle.kts` içinden giriyor (`admobAppId`).
+- Release reklam birimi ID'lerini `gradle.properties` dosyasındaki `ADMOB_BANNER_ID` ve `ADMOB_INTERSTITIAL_ID` satırlarına yaz (`ADMOB_REWARDED_ID` ileride kullanılacak). Boş kalırsa release sürümde o reklam gösterilmez.
+- Debug her zaman Google'ın test ID'lerini kullanır. Kendi reklamına kendin tıklama, AdMob hesabı kapanabilir.
+
+## Ses efektleri ve titreşim
+
+Dosyalar `res/raw/sfx_*.ogg` altında. RN projesindeki sesler OGG'ye çevrildi, toplamı yaklaşık 75 KB. Hepsi `feedback/GameFeedback.kt` üzerinden çalınır.
+
+| Oyun | Olay | Ses | Titreşim |
+|---|---|---|---|
+| 2048 | Birleşmesiz kaydırma | drop (kısık) | – |
+| | Birleşme | block | – |
+| | 128+ taş oluşması | combo | hafif |
+| | 2048'e ulaşma | clear | güçlü |
+| | Oyun sonu | game over | güçlü |
+| Snake | Yem | drop | hafif |
+| | Ölüm | game over | güçlü |
+| Memory | Kart açma | swipe (kısık) | – |
+| | Eşleşme | block | hafif |
+| | Bitiş | clear | güçlü |
+| Block Puzzle | Parça yerleştirme | block | hafif |
+| | 1 satır/sütun temizleme | clear | hafif |
+| | 2+ satır/sütun (kombo) | combo | güçlü |
+| | Oyun sonu | game over | güçlü |
+
+**Ayarlar** ekranındaki **Ses efektleri** ve **Titreşim** anahtarları bunları anında açıp kapatır. Emülatörde titreşim hissedilmez, gerçek telefonda denenmeli.
 
 ## Değişmemesi gerekenler
 
@@ -28,6 +85,7 @@ Debug build `com.eomer91.MiniGamesWorldincesoy.debug` paket adıyla kurulur. Bö
 | İmza anahtarı | Mevcut keystore | Güncelleme ancak aynı upload key ile yüklenebilir |
 | `versionCode` | Her yüklemede +1 (şu an 4) | Play daha küçük ya da eşit versionCode'u kabul etmez |
 | `targetSdk` | 36 | 31 Ağustos 2026'dan beri güncellemelerde zorunlu |
+| Oyun id'leri (`block-puzzle`, `2048`…) | Sabit | Rekorlar bu anahtarlarla saklanır |
 
 ## Release imzası
 
@@ -42,19 +100,11 @@ keyPassword=...
 
 `storeFile`, proje köküne göre yoldur. Keystore dosyasını repoya **koyma**, yedeğini güvenli bir yerde tut.
 
-Expo projesinde bu bilgiler genelde `android/app/` altındaki `.keystore` dosyasında ve `android/gradle.properties` içindeki `MYAPP_UPLOAD_*` satırlarında bulunur.
-
-## AdMob
-
-- App ID manifest'e `app/build.gradle.kts` içinden giriyor (`admobAppId`).
-- Release reklam birimi ID'lerini `gradle.properties` dosyasındaki `ADMOB_BANNER_ID`, `ADMOB_INTERSTITIAL_ID` ve `ADMOB_REWARDED_ID` satırlarına yaz. Boş kalırsa release'de reklam gösterilmez.
-- Debug her zaman test ID'lerini kullanır. Kendi reklamına kendin tıklama, AdMob hesabı kapanabilir.
-
 ## Eski sürümden veri aktarımı
 
 React Native sürümü sadece Block Puzzle rekorunu kaydediyordu (AsyncStorage → `RKStorage` SQLite). `LegacyDataMigrator`, güncellemeden sonraki ilk açılışta bu değeri okuyup yeni depoya aktarır. Eski dosyaya dokunmaz.
 
-Bu aktarım sadece **release** paket adıyla test edilebilir, çünkü debug'ın paket adı farklı. Test için:
+Bu aktarım sadece **release** paket adıyla test edilebilir, çünkü debug'ın paket adı farklı:
 
 1. Telefonda mağaza sürümü (v3) kurulu olsun. Block Puzzle'da bir rekor yap.
 2. Yeni sürümün AAB'sini Play Console → **Internal testing**'e yükle.
@@ -68,17 +118,20 @@ Bu aktarım sadece **release** paket adıyla test edilebilir, çünkü debug'ın
 
 ## Yeni oyun eklemek / taşımak
 
-1. `data/GameCatalog.kt` içindeki oyunu `isPlayable = true` yap.
-2. Oyunu `ui/games/<oyun>/` altına yaz: motor (saf Kotlin, test edilebilir) + Compose ekranı.
-3. `ui/play/PlayScreen.kt` içindeki `when` bloğuna ekle.
-4. Metinleri `res/values/strings.xml` ve çeviri dosyalarına koy.
+1. Oyunu `ui/games/<oyun>/` altına yaz: `…Engine` (saf Kotlin + test), `…ViewModel`, `…Screen`.
+2. Ortak parçaları kullan: `ScoreHeader`, `GameOverPanel`, `swipeGestures`, `rememberInterstitialLauncher`, `GameFeedback`.
+3. `data/GameCatalog.kt` içinde oyunu `isPlayable = true` yap.
+4. `ui/play/PlayScreen.kt` içindeki `when` bloğuna ekle.
+5. Metinleri `res/values/strings.xml` ve çeviri dosyalarına koy.
 
 ## Yol haritası
 
 - [x] İskelet: sekmeler, katalog, detay, altın/favori/rekor, dil, AdMob + onay
-- [ ] Oyunları taşı: 2048 → Snake → Memory Card → Block Puzzle
-- [ ] Ödüllü reklamla altın kazanma, oyun sonu geçiş reklamı
-- [ ] Ses ve titreşim
+- [x] Oyunları taşı: 2048, Snake, Memory Card, Block Puzzle
+- [x] Geçiş reklamı (Play / Restart / Tekrar oyna)
+- [x] Ses efektleri ve titreşim
+- [ ] İlk sürüm: Internal testing → Production
+- [ ] Ödüllü reklamla altın kazanma
 - [ ] Diğer diller: fr, es, de, it, ja, ru, da, hu …
 - [ ] Yeni oyunlar: Match 3, Sudoku, Stack, Bubble Shooter, Tower Defense
 - [ ] Google ile giriş, kendi sunucu (Ktor + WebSocket), online/multiplayer

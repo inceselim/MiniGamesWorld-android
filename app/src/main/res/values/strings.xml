@@ -84,4 +84,5 @@
     <string name="memory_hint">Find all the pairs with as few moves as you can</string>
     <string name="memory_completed">COMPLETED!</string>
     <string name="memory_result">Moves: %1$d · Score: %2$d</string>
+    <string name="block_hint">Drag pieces onto the board. Fill rows or columns to clear them.</string>
 </resources>

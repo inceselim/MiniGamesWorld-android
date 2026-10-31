@@ -5,7 +5,7 @@ import com.eomer91.minigamesworld.R
 object GameCatalog {
 
     val games: List<Game> = listOf(
-        Game("block-puzzle", R.string.game_block_puzzle_name, R.string.game_block_puzzle_desc, GameCategory.PUZZLE, R.drawable.game_block_puzzle, entryCost = 20, isFeatured = true),
+        Game("block-puzzle", R.string.game_block_puzzle_name, R.string.game_block_puzzle_desc, GameCategory.PUZZLE, R.drawable.game_block_puzzle, entryCost = 20, isFeatured = true, isPlayable = true),
         Game("match-3", R.string.game_match_3_name, R.string.game_match_3_desc, GameCategory.PUZZLE, R.drawable.game_match_3, entryCost = 25),
         Game("sudoku", R.string.game_sudoku_name, R.string.game_sudoku_desc, GameCategory.CLASSIC, R.drawable.game_sudoku, entryCost = 15),
         Game("memory-card", R.string.game_memory_card_name, R.string.game_memory_card_desc, GameCategory.CARD, R.drawable.game_memory_card, entryCost = 25, isPlayable = true),

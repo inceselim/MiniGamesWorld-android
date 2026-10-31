@@ -1,0 +1,116 @@
+package com.eomer91.minigamesworld.ui.games.blockpuzzle
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.eomer91.minigamesworld.data.UserPrefsRepository
+import com.eomer91.minigamesworld.feedback.GameFeedback
+import com.eomer91.minigamesworld.feedback.Haptic
+import com.eomer91.minigamesworld.feedback.Sfx
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+data class BlockPuzzleUiState(
+    val board: BlockBoard,
+    /** Sabit 3 yuva; kullanilan parca null olur. */
+    val pieces: List<BlockPiece?>,
+    /** Her yuvadaki parca tahtada bir yere sigiyor mu (sigmayanlar soluk cizilir). */
+    val placeable: List<Boolean>,
+    val score: Int = 0,
+    val best: Int = 0,
+    val bestAtStart: Int = -1,
+    val gameOver: Boolean = false,
+) {
+    val isNewRecord: Boolean get() = score > 0 && bestAtStart >= 0 && score > bestAtStart
+}
+
+@HiltViewModel
+class BlockPuzzleViewModel @Inject constructor(
+    private val prefs: UserPrefsRepository,
+    private val feedback: GameFeedback,
+) : ViewModel() {
+
+    private val engine = BlockPuzzleEngine()
+    val boardSize: Int get() = engine.boardSize
+
+    private val _state = MutableStateFlow(newState())
+    val state: StateFlow<BlockPuzzleUiState> = _state.asStateFlow()
+
+    init {
+        viewModelScope.launch {
+            prefs.highScore(GAME_ID).collect { best ->
+                _state.update { it.copy(best = best, bestAtStart = if (it.bestAtStart < 0) best else it.bestAtStart) }
+            }
+        }
+    }
+
+    fun canPlace(shape: Shape, row: Int, col: Int): Boolean =
+        engine.canPlace(_state.value.board, shape, row, col)
+
+    /** Parcayi yerlestirir. Gecersizse false doner ve hicbir sey degismez. */
+    fun place(slot: Int, row: Int, col: Int): Boolean {
+        val s = _state.value
+        if (s.gameOver) return false
+        val piece = s.pieces.getOrNull(slot) ?: return false
+        if (!engine.canPlace(s.board, piece.shape, row, col)) return false
+
+        val cleared = engine.clearLines(engine.place(s.board, piece, row, col))
+        val remaining = s.pieces.mapIndexed { i, p -> if (i == slot) null else p }
+        val pieces = if (remaining.all { it == null }) engine.randomPieces() else remaining
+        val score = s.score + engine.scoreFor(cleared.linesCleared)
+        val gameOver = engine.isGameOver(cleared.board, pieces)
+
+        _state.value = s.copy(
+            board = cleared.board,
+            pieces = pieces,
+            placeable = placeableFor(cleared.board, pieces),
+            score = score,
+            gameOver = gameOver,
+        )
+
+        when {
+            gameOver -> {
+                feedback.play(Sfx.GAME_OVER)
+                feedback.vibrate(Haptic.HEAVY)
+            }
+            cleared.linesCleared >= 2 -> {
+                feedback.play(Sfx.COMBO)
+                feedback.vibrate(Haptic.HEAVY)
+            }
+            cleared.linesCleared == 1 -> {
+                feedback.play(Sfx.CLEAR, volume = 0.8f)
+                feedback.vibrate(Haptic.LIGHT)
+            }
+            else -> {
+                feedback.play(Sfx.BLOCK)
+                feedback.vibrate(Haptic.LIGHT)
+            }
+        }
+
+        // RN surumu rekoru son hamlenin puani eklenmeden kaydediyordu; burada guncel skor kaydedilir.
+        if (score > s.best) viewModelScope.launch { prefs.submitScore(GAME_ID, score) }
+        return true
+    }
+
+    fun restart() {
+        _state.update { newState().copy(best = it.best, bestAtStart = it.best) }
+    }
+
+    private fun newState(): BlockPuzzleUiState {
+        val board = engine.emptyBoard()
+        val pieces = engine.randomPieces()
+        return BlockPuzzleUiState(board = board, pieces = pieces, placeable = placeableFor(board, pieces))
+    }
+
+    private fun placeableFor(board: BlockBoard, pieces: List<BlockPiece?>): List<Boolean> =
+        pieces.map { it != null && engine.canPlaceAnywhere(board, it.shape) }
+
+    companion object {
+        /** RN surumundeki rekor bu id'ye aktarilir (LegacyDataMigrator). */
+        const val GAME_ID = "block-puzzle"
+    }
+}
