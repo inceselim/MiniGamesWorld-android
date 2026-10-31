@@ -8,6 +8,8 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.eomer91.minigamesworld.ads.AdsManager
+import com.eomer91.minigamesworld.ads.InterstitialAdManager
+import com.eomer91.minigamesworld.ads.LocalInterstitialAds
 import com.eomer91.minigamesworld.ads.LocalAdsReady
 import com.eomer91.minigamesworld.ui.navigation.MiniGamesAppRoot
 import com.eomer91.minigamesworld.ui.theme.MiniGamesTheme
@@ -21,6 +23,9 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var adsManager: AdsManager
 
+    @Inject
+    lateinit var interstitialAds: InterstitialAdManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
@@ -32,7 +37,10 @@ class MainActivity : AppCompatActivity() {
             val privacyRequired by adsManager.privacyOptionsRequired.collectAsStateWithLifecycle()
 
             MiniGamesTheme {
-                CompositionLocalProvider(LocalAdsReady provides adsReady) {
+                CompositionLocalProvider(
+                    LocalAdsReady provides adsReady,
+                    LocalInterstitialAds provides interstitialAds,
+                ) {
                     MiniGamesAppRoot(
                         privacyOptionsRequired = privacyRequired,
                         onShowPrivacyOptions = { adsManager.showPrivacyOptions(this@MainActivity) },

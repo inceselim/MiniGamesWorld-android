@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.eomer91.minigamesworld.R
+import com.eomer91.minigamesworld.ads.rememberInterstitialLauncher
 import com.eomer91.minigamesworld.ui.games.common.GameOverPanel
 import com.eomer91.minigamesworld.ui.games.common.ScoreHeader
 import com.eomer91.minigamesworld.ui.theme.AppColors
@@ -44,6 +45,8 @@ private val CellGap = 10.dp
 @Composable
 fun Game2048Screen(viewModel: Game2048ViewModel = hiltViewModel()) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val showInterstitial = rememberInterstitialLauncher()
+    val restartWithAd = { showInterstitial { viewModel.restart() } }
 
     Column(
         Modifier
@@ -53,7 +56,7 @@ fun Game2048Screen(viewModel: Game2048ViewModel = hiltViewModel()) {
             .verticalScroll(rememberScrollState())
             .padding(16.dp),
     ) {
-        ScoreHeader(score = state.score, best = state.best, onRestart = viewModel::restart)
+        ScoreHeader(score = state.score, best = state.best, onRestart = restartWithAd)
 
         GameBoard(
             board = state.board,
@@ -65,7 +68,7 @@ fun Game2048Screen(viewModel: Game2048ViewModel = hiltViewModel()) {
             state.gameOver -> GameOverPanel(
                 score = state.score,
                 isNewRecord = state.isNewRecord,
-                onRestart = viewModel::restart,
+                onRestart = restartWithAd,
                 modifier = Modifier.padding(top = 20.dp),
             )
             state.reachedWinTile -> Hint(stringResource(R.string.g2048_win), AppColors.Gold)
