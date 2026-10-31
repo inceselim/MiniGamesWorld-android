@@ -87,6 +87,7 @@ fun SnakeScreen(viewModel: SnakeViewModel = hiltViewModel()) {
             GameOverPanel(
                 score = state.game.score,
                 isNewRecord = state.isNewRecord,
+                goldEarned = state.goldEarned,
                 onRestart = restartWithAd,
                 modifier = Modifier.padding(top = 20.dp),
             )

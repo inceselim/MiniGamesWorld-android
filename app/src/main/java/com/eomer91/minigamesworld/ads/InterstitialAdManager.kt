@@ -100,6 +100,11 @@ class InterstitialAdManager @Inject constructor(
         current.show(activity)
     }
 
+    /** Baska bir tam ekran reklam (ornek: odullu) gosterildi; bekleme suresi buradan baslar. */
+    fun markFullScreenAdShown() {
+        lastShownAt = SystemClock.elapsedRealtime()
+    }
+
     private companion object {
         const val TAG = "InterstitialAdManager"
 

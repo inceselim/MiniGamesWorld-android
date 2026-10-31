@@ -36,14 +36,34 @@ Her oyunun kuralları ekrandan ayrı, saf Kotlin bir `…Engine` sınıfında du
 
 Rekorlar oyun sırasında, rekor geçildiği anda kaydedilir. Oyuncu oyunun ortasında çıksa da rekor kaybolmaz.
 
+## Altın (oyun parası)
+
+- Başlangıç: 500 altın. Her oyuna giriş, detay ekranındaki ücret kadar altın harcar.
+- **Her 100 puan = 1 altın.** Altın, puan 100'ün katlarını geçtiği anda verilir (oyunun ortasında çıksan da kaybolmaz). Oyun bitince panelde "+N altın kazandın" yazar.
+- Memory Card'da puan oyun bitince hesaplandığı için altın da bitişte verilir (kusursuz oyun = 1000 puan = 10 altın).
+- Hesap, o oyunda ulaşılan **en yüksek** puana göre yapılır. Block Puzzle'da geri alınan hamleler tekrar oynanınca aynı altın ikinci kez verilmez.
+- Kural tek yerde: `data/GameEconomy.kt` (`POINTS_PER_GOLD`).
+
+## Block Puzzle ödüllü reklam
+
+Tahtanın altında iki buton var, ikisi de ödüllü (rewarded) reklam izletir:
+
+| Buton | Ödül |
+|---|---|
+| **Parçaları değiştir** | Eldeki 3 parça yenileriyle değişir. Oyun bittiyse ve yeni parçalardan biri sığıyorsa oyun devam eder. |
+| **Geri al** | Son yerleştirme geri alınır (tahta, parçalar, skor). Tek seviye; yeni bir hamle yapılınca tekrar açılır. Oyun bittiğinde de kullanılabilir. |
+
+Ödül, reklam sonuna kadar izlenip kapatıldığında verilir. Reklam hazır değilse "Reklam henüz hazır değil" mesajı çıkar ve hiçbir şey değişmez.
+
 ## Reklamlar
 
 | Tür | Nerede |
 |---|---|
 | Banner | Ana sekmelerin altında (Oyunlar, Ara, Favoriler, Profil, Ayarlar) |
 | Geçiş (Interstitial) | Oynanabilir bir oyunun detay ekranında **Play**, oyun içinde **Restart** ve **Tekrar oyna** |
+| Ödüllü (Rewarded) | Block Puzzle: **Parçaları değiştir**, **Geri al** |
 
-- İki geçiş reklamı arasında en az **60 saniye** olur ve bu süre tüm butonlar için ortaktır. Çok sık geçiş reklamı oyuncuyu kaçırır ve AdMob politikalarına takılabilir. Değiştirmek için: `ads/InterstitialAdManager.kt` → `MIN_INTERVAL_MS`.
+- İki geçiş reklamı arasında en az **60 saniye** olur ve bu süre tüm butonlar için ortaktır. Ödüllü reklam izlendiğinde de bu süre yeniden başlar (art arda iki tam ekran reklam çıkmaz). Çok sık geçiş reklamı oyuncuyu kaçırır ve AdMob politikalarına takılabilir. Değiştirmek için: `ads/InterstitialAdManager.kt` → `MIN_INTERVAL_MS`.
 - Reklam hazır değilse (internet yok, yüklenemedi) oyun beklemeden devam eder.
 - Reklam gösterilirken Snake gibi gerçek zamanlı oyunlar kendiliğinden durur.
 - Yeni bir oyuna geçiş reklamı eklemek tek satır: `val show = rememberInterstitialLauncher()` → `show { viewModel.restart() }`.
@@ -51,7 +71,7 @@ Rekorlar oyun sırasında, rekor geçildiği anda kaydedilir. Oyuncu oyunun orta
 **AdMob ayarları**
 
 - App ID manifest'e `app/build.gradle.kts` içinden giriyor (`admobAppId`).
-- Release reklam birimi ID'lerini `gradle.properties` dosyasındaki `ADMOB_BANNER_ID` ve `ADMOB_INTERSTITIAL_ID` satırlarına yaz (`ADMOB_REWARDED_ID` ileride kullanılacak). Boş kalırsa release sürümde o reklam gösterilmez.
+- Release reklam birimi ID'leri `gradle.properties` dosyasında: `ADMOB_BANNER_ID`, `ADMOB_INTERSTITIAL_ID`, `ADMOB_REWARDED_ID`. Boş bırakılan reklam release sürümde gösterilmez.
 - Debug her zaman Google'ın test ID'lerini kullanır. Kendi reklamına kendin tıklama, AdMob hesabı kapanabilir.
 
 ## Ses efektleri ve titreşim
@@ -131,7 +151,9 @@ Bu aktarım sadece **release** paket adıyla test edilebilir, çünkü debug'ın
 - [x] Geçiş reklamı (Play / Restart / Tekrar oyna)
 - [x] Ses efektleri ve titreşim
 - [ ] İlk sürüm: Internal testing → Production
-- [ ] Ödüllü reklamla altın kazanma
+- [x] Her 100 puan = 1 altın
+- [x] Block Puzzle: ödüllü reklamla parça değiştirme ve geri alma
+- [ ] Ödüllü reklamla altın kazanma (altın bitince)
 - [ ] Diğer diller: fr, es, de, it, ja, ru, da, hu …
 - [ ] Yeni oyunlar: Match 3, Sudoku, Stack, Bubble Shooter, Tower Defense
 - [ ] Google ile giriş, kendi sunucu (Ktor + WebSocket), online/multiplayer

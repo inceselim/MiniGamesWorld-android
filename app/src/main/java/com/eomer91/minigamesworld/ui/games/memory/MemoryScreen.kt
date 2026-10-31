@@ -83,6 +83,7 @@ fun MemoryScreen(viewModel: MemoryViewModel = hiltViewModel()) {
             GameOverPanel(
                 score = state.finalScore,
                 isNewRecord = state.isNewRecord,
+                goldEarned = state.goldEarned,
                 onRestart = restartWithAd,
                 title = stringResource(R.string.memory_completed),
                 titleColor = MatchedColor,

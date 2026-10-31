@@ -2,6 +2,7 @@ package com.eomer91.minigamesworld.ui.games.blockpuzzle
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.eomer91.minigamesworld.data.GoldTracker
 import com.eomer91.minigamesworld.data.UserPrefsRepository
 import com.eomer91.minigamesworld.feedback.GameFeedback
 import com.eomer91.minigamesworld.feedback.Haptic
@@ -24,6 +25,9 @@ data class BlockPuzzleUiState(
     val best: Int = 0,
     val bestAtStart: Int = -1,
     val gameOver: Boolean = false,
+    val goldEarned: Int = 0,
+    /** Son hamle geri alinabilir mi (odullu reklamla, tek seviye). */
+    val canUndo: Boolean = false,
 ) {
     val isNewRecord: Boolean get() = score > 0 && bestAtStart >= 0 && score > bestAtStart
 }
@@ -36,6 +40,17 @@ class BlockPuzzleViewModel @Inject constructor(
 
     private val engine = BlockPuzzleEngine()
     val boardSize: Int get() = engine.boardSize
+
+    private val goldTracker = GoldTracker()
+
+    /** Son yerlestirmeden onceki durum; "Geri al" bunu geri yukler. */
+    private var undoSnapshot: BlockPuzzleUiState? = null
+
+    private fun awardGold(score: Int): Int {
+        val delta = goldTracker.onScore(score)
+        if (delta > 0) viewModelScope.launch { prefs.addGold(delta) }
+        return goldTracker.awarded
+    }
 
     private val _state = MutableStateFlow(newState())
     val state: StateFlow<BlockPuzzleUiState> = _state.asStateFlow()
@@ -64,12 +79,15 @@ class BlockPuzzleViewModel @Inject constructor(
         val score = s.score + engine.scoreFor(cleared.linesCleared)
         val gameOver = engine.isGameOver(cleared.board, pieces)
 
+        undoSnapshot = s
         _state.value = s.copy(
             board = cleared.board,
             pieces = pieces,
             placeable = placeableFor(cleared.board, pieces),
             score = score,
             gameOver = gameOver,
+            goldEarned = awardGold(score),
+            canUndo = true,
         )
 
         when {
@@ -96,7 +114,43 @@ class BlockPuzzleViewModel @Inject constructor(
         return true
     }
 
+    /**
+     * Odullu reklam sonrasi: son hamleyi geri alir (tahta, parcalar, skor).
+     * Kazanilan altin ve rekor geri alinmaz; GoldTracker en yuksek skoru hatirladigi icin
+     * ayni puanlar tekrar kazanilinca ikinci kez altin verilmez.
+     */
+    fun undo() {
+        val snapshot = undoSnapshot ?: return
+        undoSnapshot = null
+        _state.update { current ->
+            snapshot.copy(
+                best = current.best,
+                bestAtStart = current.bestAtStart,
+                goldEarned = current.goldEarned,
+                canUndo = false,
+            )
+        }
+        feedback.play(Sfx.SWIPE)
+    }
+
+    /** Odullu reklam sonrasi: eldeki 3 parcayi yenileriyle degistirir. Oyun bittiyse devam ettirebilir. */
+    fun rerollPieces() {
+        undoSnapshot = null
+        _state.update { current ->
+            val pieces = engine.randomPieces()
+            current.copy(
+                pieces = pieces,
+                placeable = placeableFor(current.board, pieces),
+                gameOver = engine.isGameOver(current.board, pieces),
+                canUndo = false,
+            )
+        }
+        feedback.play(Sfx.DROP)
+    }
+
     fun restart() {
+        undoSnapshot = null
+        goldTracker.reset()
         _state.update { newState().copy(best = it.best, bestAtStart = it.best) }
     }
 

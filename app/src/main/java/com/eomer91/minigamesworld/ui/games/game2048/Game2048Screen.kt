@@ -68,6 +68,7 @@ fun Game2048Screen(viewModel: Game2048ViewModel = hiltViewModel()) {
             state.gameOver -> GameOverPanel(
                 score = state.score,
                 isNewRecord = state.isNewRecord,
+                goldEarned = state.goldEarned,
                 onRestart = restartWithAd,
                 modifier = Modifier.padding(top = 20.dp),
             )

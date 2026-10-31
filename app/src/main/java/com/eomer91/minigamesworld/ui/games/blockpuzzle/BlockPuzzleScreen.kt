@@ -13,7 +13,23 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.Undo
+import androidx.compose.material.icons.rounded.OndemandVideo
+import androidx.compose.material.icons.rounded.Refresh
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
+import kotlinx.coroutines.launch
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -39,6 +55,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.eomer91.minigamesworld.R
 import com.eomer91.minigamesworld.ads.rememberInterstitialLauncher
+import com.eomer91.minigamesworld.ads.rememberRewardedLauncher
 import com.eomer91.minigamesworld.ui.games.common.GameOverPanel
 import com.eomer91.minigamesworld.ui.games.common.ScoreHeader
 import com.eomer91.minigamesworld.ui.theme.AppColors
@@ -78,6 +95,14 @@ fun BlockPuzzleScreen(viewModel: BlockPuzzleViewModel = hiltViewModel()) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val showInterstitial = rememberInterstitialLauncher()
     val restartWithAd = { showInterstitial { viewModel.restart() } }
+
+    val showRewarded = rememberRewardedLauncher()
+    val snackbar = remember { SnackbarHostState() }
+    val scope = rememberCoroutineScope()
+    val context = LocalContext.current
+    val adNotReady: () -> Unit = {
+        scope.launch { snackbar.showSnackbar(context.getString(R.string.ad_not_ready)) }
+    }
 
     val density = LocalDensity.current
     val gapPx = with(density) { BoardGap.toPx() }
@@ -171,19 +196,27 @@ fun BlockPuzzleScreen(viewModel: BlockPuzzleViewModel = hiltViewModel()) {
                 }
             }
 
+            RewardActions(
+                canUndo = state.canUndo,
+                onReroll = { showRewarded({ viewModel.rerollPieces() }, adNotReady) },
+                onUndo = { showRewarded({ viewModel.undo() }, adNotReady) },
+                modifier = Modifier.padding(top = 12.dp),
+            )
+
             if (state.gameOver) {
                 GameOverPanel(
                     score = state.score,
                     isNewRecord = state.isNewRecord,
                     onRestart = restartWithAd,
-                    modifier = Modifier.padding(top = 16.dp),
+                    goldEarned = state.goldEarned,
+                    modifier = Modifier.padding(top = 12.dp),
                 )
             } else {
                 Row(
                     Modifier
                         .fillMaxWidth()
-                        .padding(top = 20.dp)
-                        .height(120.dp),
+                        .padding(top = 12.dp)
+                        .height(104.dp),
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     state.pieces.forEachIndexed { slot, piece ->
@@ -236,10 +269,12 @@ fun BlockPuzzleScreen(viewModel: BlockPuzzleViewModel = hiltViewModel()) {
                     color = AppColors.TextSecondary,
                     textAlign = TextAlign.Center,
                     fontWeight = FontWeight.SemiBold,
-                    modifier = Modifier.fillMaxWidth().padding(top = 12.dp),
+                    modifier = Modifier.fillMaxWidth().padding(top = 10.dp),
                 )
             }
         }
+
+        SnackbarHost(snackbar, Modifier.align(Alignment.BottomCenter))
 
         // Surukelenen parca: tum ekranin ustunde, parmagin biraz yukarisinda tam boyutta cizilir.
         if (currentDrag != null && currentGeometry != null) {
@@ -253,6 +288,45 @@ fun BlockPuzzleScreen(viewModel: BlockPuzzleViewModel = hiltViewModel()) {
                 )
             }
         }
+    }
+}
+
+/** Odullu reklamla calisan iki buton: parcalari degistir, son hamleyi geri al. */
+@Composable
+private fun RewardActions(
+    canUndo: Boolean,
+    onReroll: () -> Unit,
+    onUndo: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Row(modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+        RewardButton(stringResource(R.string.block_reroll), Icons.Rounded.Refresh, enabled = true, onClick = onReroll, modifier = Modifier.weight(1f))
+        RewardButton(stringResource(R.string.block_undo), Icons.AutoMirrored.Rounded.Undo, enabled = canUndo, onClick = onUndo, modifier = Modifier.weight(1f))
+    }
+}
+
+@Composable
+private fun RewardButton(
+    label: String,
+    icon: ImageVector,
+    enabled: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    OutlinedButton(
+        onClick = onClick,
+        enabled = enabled,
+        modifier = modifier.height(44.dp),
+        shape = RoundedCornerShape(14.dp),
+        colors = ButtonDefaults.outlinedButtonColors(contentColor = AppColors.Gold),
+        contentPadding = ButtonDefaults.TextButtonContentPadding,
+    ) {
+        Icon(icon, contentDescription = null, modifier = Modifier.size(18.dp))
+        Spacer(Modifier.width(6.dp))
+        Text(label, fontWeight = FontWeight.Bold, maxLines = 1)
+        Spacer(Modifier.width(6.dp))
+        // Reklam izlenecegini gosteren kucuk ikon
+        Icon(Icons.Rounded.OndemandVideo, contentDescription = null, modifier = Modifier.size(16.dp))
     }
 }
 

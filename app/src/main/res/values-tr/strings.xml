@@ -83,4 +83,8 @@
     <string name="memory_completed">TAMAMLANDI!</string>
     <string name="memory_result">Hamle: %1$d · Skor: %2$d</string>
     <string name="block_hint">Parçaları tahtaya sürükle. Satır ya da sütun doldurarak temizle.</string>
+    <string name="game_gold_earned">+%1$d altın kazandın</string>
+    <string name="block_reroll">Parçaları değiştir</string>
+    <string name="block_undo">Geri al</string>
+    <string name="ad_not_ready">Reklam henüz hazır değil. Birkaç saniye sonra tekrar dene.</string>
 </resources>

@@ -2,6 +2,7 @@ package com.eomer91.minigamesworld.ui.games.snake
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.eomer91.minigamesworld.data.GoldTracker
 import com.eomer91.minigamesworld.data.UserPrefsRepository
 import com.eomer91.minigamesworld.feedback.GameFeedback
 import com.eomer91.minigamesworld.feedback.Haptic
@@ -20,6 +21,7 @@ data class SnakeUiState(
     val started: Boolean = false,
     val best: Int = 0,
     val bestAtStart: Int = -1,
+    val goldEarned: Int = 0,
 ) {
     val isNewRecord: Boolean get() = game.score > 0 && bestAtStart >= 0 && game.score > bestAtStart
 }
@@ -31,6 +33,15 @@ class SnakeViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val engine = SnakeEngine()
+
+    private val goldTracker = GoldTracker()
+
+    /** Puan 100'un katlarini gectikce altin verir; bu oyunda toplam kazanilan altini dondurur. */
+    private fun awardGold(score: Int): Int {
+        val delta = goldTracker.onScore(score)
+        if (delta > 0) viewModelScope.launch { prefs.addGold(delta) }
+        return goldTracker.awarded
+    }
     val gridSize: Int get() = engine.gridSize
 
     private val _state = MutableStateFlow(SnakeUiState(engine.newGame()))
@@ -68,7 +79,7 @@ class SnakeViewModel @Inject constructor(
 
         val direction = pendingTurns.removeFirstOrNull() ?: current.game.direction
         val next = engine.step(current.game, direction)
-        _state.value = current.copy(game = next)
+        _state.value = current.copy(game = next, goldEarned = awardGold(next.score))
 
         when {
             next.gameOver -> {
@@ -87,6 +98,7 @@ class SnakeViewModel @Inject constructor(
     }
 
     fun restart() {
+        goldTracker.reset()
         pendingTurns.clear()
         _state.update { SnakeUiState(engine.newGame(), best = it.best, bestAtStart = it.best) }
     }

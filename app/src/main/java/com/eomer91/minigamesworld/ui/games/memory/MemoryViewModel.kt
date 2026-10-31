@@ -2,6 +2,7 @@ package com.eomer91.minigamesworld.ui.games.memory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.eomer91.minigamesworld.data.GoldTracker
 import com.eomer91.minigamesworld.data.UserPrefsRepository
 import com.eomer91.minigamesworld.feedback.GameFeedback
 import com.eomer91.minigamesworld.feedback.Haptic
@@ -26,6 +27,7 @@ data class MemoryUiState(
     val finalScore: Int = 0,
     val best: Int = 0,
     val bestAtStart: Int = -1,
+    val goldEarned: Int = 0,
 ) {
     val isNewRecord: Boolean get() = completed && bestAtStart >= 0 && finalScore > bestAtStart
 }
@@ -37,6 +39,15 @@ class MemoryViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val engine = MemoryEngine()
+
+    private val goldTracker = GoldTracker()
+
+    /** Puan 100'un katlarini gectikce altin verir; bu oyunda toplam kazanilan altini dondurur. */
+    private fun awardGold(score: Int): Int {
+        val delta = goldTracker.onScore(score)
+        if (delta > 0) viewModelScope.launch { prefs.addGold(delta) }
+        return goldTracker.awarded
+    }
     private val _state = MutableStateFlow(MemoryUiState(cards = engine.newDeck()))
     val state: StateFlow<MemoryUiState> = _state.asStateFlow()
 
@@ -73,7 +84,14 @@ class MemoryViewModel @Inject constructor(
             val matched = engine.markMatched(cards, selected)
             val completed = engine.allMatched(matched)
             val score = if (completed) engine.scoreFor(moves) else 0
-            _state.value = s.copy(cards = matched, moves = moves, selected = emptyList(), completed = completed, finalScore = score)
+            _state.value = s.copy(
+                cards = matched,
+                moves = moves,
+                selected = emptyList(),
+                completed = completed,
+                finalScore = score,
+                goldEarned = if (completed) awardGold(score) else s.goldEarned,
+            )
             if (completed) {
                 feedback.play(Sfx.CLEAR)
                 feedback.vibrate(Haptic.HEAVY)
@@ -95,6 +113,7 @@ class MemoryViewModel @Inject constructor(
     }
 
     fun restart() {
+        goldTracker.reset()
         flipBackJob?.cancel()
         _state.update { MemoryUiState(cards = engine.newDeck(), best = it.best, bestAtStart = it.best) }
     }

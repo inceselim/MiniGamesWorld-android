@@ -2,6 +2,7 @@ package com.eomer91.minigamesworld.ui.games.game2048
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.eomer91.minigamesworld.data.GoldTracker
 import com.eomer91.minigamesworld.data.UserPrefsRepository
 import com.eomer91.minigamesworld.feedback.GameFeedback
 import com.eomer91.minigamesworld.feedback.Haptic
@@ -23,6 +24,8 @@ data class Game2048State(
     val bestAtStart: Int = -1,
     val gameOver: Boolean = false,
     val reachedWinTile: Boolean = false,
+    /** Bu oyunda kazanilan altin. */
+    val goldEarned: Int = 0,
 ) {
     val isNewRecord: Boolean get() = score > 0 && bestAtStart >= 0 && score > bestAtStart
 }
@@ -34,6 +37,15 @@ class Game2048ViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val engine = Game2048Engine()
+
+    private val goldTracker = GoldTracker()
+
+    /** Puan 100'un katlarini gectikce altin verir; bu oyunda toplam kazanilan altini dondurur. */
+    private fun awardGold(score: Int): Int {
+        val delta = goldTracker.onScore(score)
+        if (delta > 0) viewModelScope.launch { prefs.addGold(delta) }
+        return goldTracker.awarded
+    }
 
     private val _state = MutableStateFlow(Game2048State(board = engine.initialBoard()))
     val state: StateFlow<Game2048State> = _state.asStateFlow()
@@ -59,6 +71,7 @@ class Game2048ViewModel @Inject constructor(
         val next = current.copy(
             board = result.board,
             score = score,
+            goldEarned = awardGold(score),
             gameOver = !engine.canMove(result.board),
             reachedWinTile = current.reachedWinTile || engine.hasTile(result.board, Game2048Engine.WIN_TILE),
         )
@@ -92,6 +105,7 @@ class Game2048ViewModel @Inject constructor(
     }
 
     fun restart() {
+        goldTracker.reset()
         _state.update { Game2048State(board = engine.initialBoard(), best = it.best, bestAtStart = it.best) }
     }
 

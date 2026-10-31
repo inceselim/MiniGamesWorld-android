@@ -25,3 +25,25 @@ fun rememberInterstitialLauncher(): (onFinished: () -> Unit) -> Unit {
         }
     }
 }
+
+/** MainActivity tarafindan saglanir. */
+val LocalRewardedAds = staticCompositionLocalOf<RewardedAdManager?> { null }
+
+/**
+ * Odullu reklam gosterir. Kullanim:
+ * ```
+ * val showRewarded = rememberRewardedLauncher()
+ * showRewarded(onReward = { viewModel.undo() }, onUnavailable = { /* "reklam hazir degil" */ })
+ * ```
+ */
+@Composable
+fun rememberRewardedLauncher(): (onReward: () -> Unit, onUnavailable: () -> Unit) -> Unit {
+    val manager = LocalRewardedAds.current
+    val activity = LocalActivity.current
+    return remember(manager, activity) {
+        { onReward: () -> Unit, onUnavailable: () -> Unit ->
+            val shown = manager != null && activity != null && manager.show(activity, onReward)
+            if (!shown) onUnavailable()
+        }
+    }
+}
