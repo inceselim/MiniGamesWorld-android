@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tab_games">Oyunlar</string>
+    <string name="tab_search">Ara</string>
+    <string name="tab_favorites">Favoriler</string>
+    <string name="tab_profile">Profil</string>
+    <string name="tab_settings">Ayarlar</string>
+
+    <string name="home_title">Mini Oyunlar</string>
+    <string name="home_subtitle">Mini oyunları ara, keşfet ve oyna</string>
+    <string name="search_hint">Oyun ara</string>
+
+    <string name="category_all">Tümü</string>
+    <string name="category_puzzle">Bulmaca</string>
+    <string name="category_arcade">Arcade</string>
+    <string name="category_card">Kart</string>
+    <string name="category_strategy">Strateji</string>
+    <string name="category_classic">Klasik</string>
+
+    <string name="featured_label">ÖNE ÇIKAN OYUN</string>
+    <string name="featured_cta">Hemen oynamak için dokun</string>
+    <string name="empty_title">Oyun bulunamadı</string>
+    <string name="empty_subtitle">Başka bir arama ya da kategori dene</string>
+    <string name="favorites_empty_title">Henüz favorin yok</string>
+    <string name="favorites_empty_subtitle">Bir oyunun kalbine dokunarak buraya ekle</string>
+
+    <string name="gold_balance">Altının: %1$d</string>
+    <string name="play_now">Şimdi oyna · %1$d altın</string>
+    <string name="not_enough_gold">Yeterli altının yok</string>
+    <string name="best_score">En iyi: %1$d</string>
+    <string name="coming_soon_title">Çok yakında</string>
+    <string name="coming_soon_body">Bu oyun yolda. Bir sonraki güncellemeden sonra tekrar bak!</string>
+    <string name="back">Geri</string>
+    <string name="favorite_add">Favorilere ekle</string>
+    <string name="favorite_remove">Favorilerden çıkar</string>
+
+    <string name="profile_guest">Misafir oyuncu</string>
+    <string name="profile_guest_body">Tek kişilik oyunlar hesapsız oynanır. Online oynamak ve ilerlemeni cihazlar arasında korumak için Google ile giriş yap.</string>
+    <string name="profile_sign_in">Google ile giriş yap</string>
+    <string name="soon">Yakında</string>
+    <string name="profile_best_scores">En iyi skorlar</string>
+    <string name="profile_no_scores">İlk rekorunu kırmak için bir oyun oyna.</string>
+
+    <string name="settings_language">Dil</string>
+    <string name="language_system">Sistem varsayılanı</string>
+    <string name="settings_sound">Ses efektleri</string>
+    <string name="settings_vibration">Titreşim</string>
+    <string name="settings_privacy">Reklam gizlilik seçenekleri</string>
+    <string name="settings_version">Sürüm %1$s</string>
+
+    <string name="game_block_puzzle_name">Blok Bulmaca</string>
+    <string name="game_block_puzzle_desc">Blokları yerleştir, satırları temizle ve en yüksek skora ulaş.</string>
+    <string name="game_match_3_name">Üçlü Eşleştir</string>
+    <string name="game_match_3_desc">Renkli taşları eşleştir, güçlü kombolar yap.</string>
+    <string name="game_sudoku_name">Sudoku</string>
+    <string name="game_sudoku_desc">Sade ve modern sudoku bulmacalarıyla beynini çalıştır.</string>
+    <string name="game_memory_card_name">Hafıza Kartları</string>
+    <string name="game_memory_card_desc">Kartları çevir, yerlerini aklında tut ve tüm çiftleri bul.</string>
+    <string name="game_stack_name">Kule</string>
+    <string name="game_stack_desc">Blokları kusursuz üst üste koy, en yüksek kuleyi yap.</string>
+    <string name="game_bubble_shooter_name">Balon Patlat</string>
+    <string name="game_bubble_shooter_desc">Nişan al, at ve renkli balonları patlat.</string>
+    <string name="game_2048_name">2048</string>
+    <string name="game_2048_desc">Sayı karelerini birleştir ve 2048\'e ulaş.</string>
+    <string name="game_tower_defense_name">Kule Savunması</string>
+    <string name="game_tower_defense_desc">Kuleler kur, üssünü düşman dalgalarına karşı savun.</string>
+    <string name="game_snake_name">Yılan</string>
+    <string name="game_snake_desc">Yemi ye, uza ve kendine çarpmaktan kaçın.</string>
+</resources>
