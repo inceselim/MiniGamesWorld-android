@@ -59,7 +59,7 @@ Tahtanın altında iki buton var, ikisi de ödüllü (rewarded) reklam izletir:
 
 | Tür | Nerede |
 |---|---|
-| Banner | Ana sekmelerin altında (Oyunlar, Ara, Favoriler, Profil, Ayarlar) |
+| Banner | Ara, Favoriler, Profil ve Ayarlar sekmelerinin altında. Ana sayfada (Oyunlar) ve oyun ekranlarında yok. |
 | Geçiş (Interstitial) | Oynanabilir bir oyunun detay ekranında **Play**, oyun içinde **Restart** ve **Tekrar oyna** |
 | Ödüllü (Rewarded) | Block Puzzle: **Parçaları değiştir**, **Geri al** |
 

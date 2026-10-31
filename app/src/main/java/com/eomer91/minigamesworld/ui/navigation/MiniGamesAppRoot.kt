@@ -42,6 +42,9 @@ fun MiniGamesAppRoot(
         currentDestination?.hierarchy?.any { it.hasRoute(top.route::class) } == true
     }
 
+    // Banner reklam ana sayfada (Oyunlar) gosterilmez; diger sekmelerde gosterilir.
+    val onHome = currentDestination?.hierarchy?.any { it.hasRoute(HomeRoute::class) } == true
+
     val openGame: (String) -> Unit = { id -> navController.navigate(GameDetailRoute(id)) }
 
     Scaffold(
@@ -49,7 +52,7 @@ fun MiniGamesAppRoot(
         bottomBar = {
             if (showBottomBar) {
                 Column {
-                    AdBanner()
+                    if (!onHome) AdBanner()
                     NavigationBar(containerColor = AppColors.Surface) {
                         topLevelRoutes.forEach { top ->
                             val selected = currentDestination?.hierarchy
