@@ -3,6 +3,9 @@ package com.eomer91.minigamesworld.ui.games.snake
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.eomer91.minigamesworld.data.UserPrefsRepository
+import com.eomer91.minigamesworld.feedback.GameFeedback
+import com.eomer91.minigamesworld.feedback.Haptic
+import com.eomer91.minigamesworld.feedback.Sfx
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -24,6 +27,7 @@ data class SnakeUiState(
 @HiltViewModel
 class SnakeViewModel @Inject constructor(
     private val prefs: UserPrefsRepository,
+    private val feedback: GameFeedback,
 ) : ViewModel() {
 
     private val engine = SnakeEngine()
@@ -65,6 +69,17 @@ class SnakeViewModel @Inject constructor(
         val direction = pendingTurns.removeFirstOrNull() ?: current.game.direction
         val next = engine.step(current.game, direction)
         _state.value = current.copy(game = next)
+
+        when {
+            next.gameOver -> {
+                feedback.play(Sfx.GAME_OVER)
+                feedback.vibrate(Haptic.HEAVY)
+            }
+            next.foodsEaten > current.game.foodsEaten -> {
+                feedback.play(Sfx.DROP)
+                feedback.vibrate(Haptic.LIGHT)
+            }
+        }
 
         if (next.score > current.best) {
             viewModelScope.launch { prefs.submitScore(GAME_ID, next.score) }

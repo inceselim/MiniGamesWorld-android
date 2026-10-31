@@ -3,6 +3,9 @@ package com.eomer91.minigamesworld.ui.games.memory
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.eomer91.minigamesworld.data.UserPrefsRepository
+import com.eomer91.minigamesworld.feedback.GameFeedback
+import com.eomer91.minigamesworld.feedback.Haptic
+import com.eomer91.minigamesworld.feedback.Sfx
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -30,6 +33,7 @@ data class MemoryUiState(
 @HiltViewModel
 class MemoryViewModel @Inject constructor(
     private val prefs: UserPrefsRepository,
+    private val feedback: GameFeedback,
 ) : ViewModel() {
 
     private val engine = MemoryEngine()
@@ -58,6 +62,7 @@ class MemoryViewModel @Inject constructor(
 
         if (selected.size < 2) {
             _state.value = s.copy(cards = cards, selected = selected)
+            feedback.play(Sfx.SWIPE, volume = 0.5f)
             return
         }
 
@@ -69,9 +74,17 @@ class MemoryViewModel @Inject constructor(
             val completed = engine.allMatched(matched)
             val score = if (completed) engine.scoreFor(moves) else 0
             _state.value = s.copy(cards = matched, moves = moves, selected = emptyList(), completed = completed, finalScore = score)
-            if (completed) viewModelScope.launch { prefs.submitScore(GAME_ID, score) }
+            if (completed) {
+                feedback.play(Sfx.CLEAR)
+                feedback.vibrate(Haptic.HEAVY)
+                viewModelScope.launch { prefs.submitScore(GAME_ID, score) }
+            } else {
+                feedback.play(Sfx.BLOCK)
+                feedback.vibrate(Haptic.LIGHT)
+            }
         } else {
             _state.value = s.copy(cards = cards, moves = moves, selected = selected, locked = true)
+            feedback.play(Sfx.SWIPE, volume = 0.5f)
             flipBackJob = viewModelScope.launch {
                 delay(FLIP_BACK_DELAY_MS)
                 _state.update {

@@ -3,6 +3,9 @@ package com.eomer91.minigamesworld.ui.games.game2048
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.eomer91.minigamesworld.data.UserPrefsRepository
+import com.eomer91.minigamesworld.feedback.GameFeedback
+import com.eomer91.minigamesworld.feedback.Haptic
+import com.eomer91.minigamesworld.feedback.Sfx
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -27,6 +30,7 @@ data class Game2048State(
 @HiltViewModel
 class Game2048ViewModel @Inject constructor(
     private val prefs: UserPrefsRepository,
+    private val feedback: GameFeedback,
 ) : ViewModel() {
 
     private val engine = Game2048Engine()
@@ -59,10 +63,31 @@ class Game2048ViewModel @Inject constructor(
             reachedWinTile = current.reachedWinTile || engine.hasTile(result.board, Game2048Engine.WIN_TILE),
         )
         _state.value = next
+        playMoveFeedback(current, next, result.gainedScore)
 
         // Rekor gecildiginde aninda kaydet: oyuncu oyunun ortasinda cikarsa da kaybolmaz.
         if (score > current.best) {
             viewModelScope.launch { prefs.submitScore(GAME_ID, score) }
+        }
+    }
+
+    private fun playMoveFeedback(before: Game2048State, after: Game2048State, gained: Int) {
+        when {
+            after.gameOver -> {
+                feedback.play(Sfx.GAME_OVER)
+                feedback.vibrate(Haptic.HEAVY)
+            }
+            after.reachedWinTile && !before.reachedWinTile -> {
+                feedback.play(Sfx.CLEAR)
+                feedback.vibrate(Haptic.HEAVY)
+            }
+            // 128 ve ustu bir tas olustuysa "kombo" sesi
+            gained >= BIG_MERGE -> {
+                feedback.play(Sfx.COMBO)
+                feedback.vibrate(Haptic.LIGHT)
+            }
+            gained > 0 -> feedback.play(Sfx.BLOCK, volume = 0.8f)
+            else -> feedback.play(Sfx.DROP, volume = 0.5f)
         }
     }
 
@@ -72,5 +97,6 @@ class Game2048ViewModel @Inject constructor(
 
     companion object {
         const val GAME_ID = "2048"
+        private const val BIG_MERGE = 128
     }
 }
