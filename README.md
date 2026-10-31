@@ -14,6 +14,7 @@ Eski React Native/Expo kodu referans için `MiniGamesWorldincesoy` reposunda dur
 ## Projeyi açma
 
 1. Android Studio'da **Open** ile bu klasörü aç, Gradle senkronizasyonunu bekle.
+   Gereksinimler: Android Studio Panda 2 (2025.3.2) veya üstü, Gradle JDK 21 ya da 25.
 2. Android Studio kütüphaneler için daha yeni sürüm önerirse (sarı uyarılar) güncelleyebilirsin.
 3. `app` konfigürasyonunu bir emülatörde ya da telefonda çalıştır.
 
