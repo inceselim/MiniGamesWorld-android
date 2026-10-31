@@ -78,4 +78,6 @@
     <string name="game_new_record">New record!</string>
     <string name="g2048_hint">Swipe to move the tiles</string>
     <string name="g2048_win">You reached 2048! Keep going for a higher score.</string>
+    <string name="snake_hint_start">Swipe in any direction to start</string>
+    <string name="snake_hint">Swipe to change direction</string>
 </resources>

@@ -76,4 +76,6 @@
     <string name="game_new_record">Yeni rekor!</string>
     <string name="g2048_hint">Taşları kaydırmak için parmağını sürükle</string>
     <string name="g2048_win">2048\'e ulaştın! Daha yüksek skor için devam et.</string>
+    <string name="snake_hint_start">Başlamak için herhangi bir yöne kaydır</string>
+    <string name="snake_hint">Yön değiştirmek için kaydır</string>
 </resources>
