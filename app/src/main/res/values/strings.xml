@@ -89,4 +89,7 @@
     <string name="block_reroll">New pieces</string>
     <string name="block_undo">Undo</string>
     <string name="ad_not_ready">The ad isn\'t ready yet. Please try again in a few seconds.</string>
+    <string name="gold_offer_body">You need %1$d gold to play, but you have %2$d. Watch a short ad to get %3$d gold.</string>
+    <string name="gold_offer_watch">Watch ad (+%1$d)</string>
+    <string name="gold_rewarded">+%1$d gold added!</string>
 </resources>

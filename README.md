@@ -39,10 +39,11 @@ Rekorlar oyun sırasında, rekor geçildiği anda kaydedilir. Oyuncu oyunun orta
 ## Altın (oyun parası)
 
 - Başlangıç: 500 altın. Her oyuna giriş, detay ekranındaki ücret kadar altın harcar.
-- **Her 100 puan = 1 altın.** Altın, puan 100'ün katlarını geçtiği anda verilir (oyunun ortasında çıksan da kaybolmaz). Oyun bitince panelde "+N altın kazandın" yazar.
-- Memory Card'da puan oyun bitince hesaplandığı için altın da bitişte verilir (kusursuz oyun = 1000 puan = 10 altın).
+- **Her 200 puan = 1 altın.** Altın, puan 200'ün katlarını geçtiği anda verilir (oyunun ortasında çıksan da kaybolmaz). Oyun bitince panelde "+N altın kazandın" yazar.
+- Memory Card'da puan oyun bitince hesaplandığı için altın da bitişte verilir (kusursuz oyun = 1000 puan = 5 altın).
 - Hesap, o oyunda ulaşılan **en yüksek** puana göre yapılır. Block Puzzle'da geri alınan hamleler tekrar oynanınca aynı altın ikinci kez verilmez.
-- Kural tek yerde: `data/GameEconomy.kt` (`POINTS_PER_GOLD`).
+- **Altın yetmezse:** Detay ekranında Play'e basınca yeterli altın yoksa bir pencere açılır: "Reklam izle (+50)". Ödüllü reklam sonuna kadar izlenirse **50 altın** eklenir, oyuncu tekrar Play'e basarak oyuna girer.
+- Kurallar tek yerde: `data/GameEconomy.kt` (`POINTS_PER_GOLD`, `AD_REWARD_GOLD`).
 
 ## Block Puzzle ödüllü reklam
 
@@ -61,7 +62,7 @@ Tahtanın altında iki buton var, ikisi de ödüllü (rewarded) reklam izletir:
 |---|---|
 | Banner | Ara, Favoriler, Profil ve Ayarlar sekmelerinin altında. Ana sayfada (Oyunlar) ve oyun ekranlarında yok. |
 | Geçiş (Interstitial) | Oynanabilir bir oyunun detay ekranında **Play**, oyun içinde **Restart** ve **Tekrar oyna** |
-| Ödüllü (Rewarded) | Block Puzzle: **Parçaları değiştir**, **Geri al** |
+| Ödüllü (Rewarded) | Altın yetmeyince **Reklam izle (+50 altın)**; Block Puzzle: **Parçaları değiştir**, **Geri al** |
 
 - İki geçiş reklamı arasında en az **60 saniye** olur ve bu süre tüm butonlar için ortaktır. Ödüllü reklam izlendiğinde de bu süre yeniden başlar (art arda iki tam ekran reklam çıkmaz). Çok sık geçiş reklamı oyuncuyu kaçırır ve AdMob politikalarına takılabilir. Değiştirmek için: `ads/InterstitialAdManager.kt` → `MIN_INTERVAL_MS`.
 - Reklam hazır değilse (internet yok, yüklenemedi) oyun beklemeden devam eder.
@@ -151,9 +152,9 @@ Bu aktarım sadece **release** paket adıyla test edilebilir, çünkü debug'ın
 - [x] Geçiş reklamı (Play / Restart / Tekrar oyna)
 - [x] Ses efektleri ve titreşim
 - [ ] İlk sürüm: Internal testing → Production
-- [x] Her 100 puan = 1 altın
+- [x] Her 200 puan = 1 altın
 - [x] Block Puzzle: ödüllü reklamla parça değiştirme ve geri alma
-- [ ] Ödüllü reklamla altın kazanma (altın bitince)
+- [x] Altın yetmeyince ödüllü reklamla +50 altın
 - [ ] Diğer diller: fr, es, de, it, ja, ru, da, hu …
 - [ ] Yeni oyunlar: Match 3, Sudoku, Stack, Bubble Shooter, Tower Defense
 - [ ] Google ile giriş, kendi sunucu (Ktor + WebSocket), online/multiplayer

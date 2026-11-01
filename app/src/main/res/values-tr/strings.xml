@@ -87,4 +87,7 @@
     <string name="block_reroll">Parçaları değiştir</string>
     <string name="block_undo">Geri al</string>
     <string name="ad_not_ready">Reklam henüz hazır değil. Birkaç saniye sonra tekrar dene.</string>
+    <string name="gold_offer_body">Oynamak için %1$d altın gerekiyor, sende %2$d var. Kısa bir reklam izleyerek %3$d altın kazan.</string>
+    <string name="gold_offer_watch">Reklam izle (+%1$d)</string>
+    <string name="gold_rewarded">+%1$d altın eklendi!</string>
 </resources>

@@ -3,13 +3,16 @@ package com.eomer91.minigamesworld.data
 /** Oyun ekonomisi kurallari tek yerde. */
 object GameEconomy {
     /** Her bu kadar puan icin 1 altin. */
-    const val POINTS_PER_GOLD = 100
+    const val POINTS_PER_GOLD = 200
+
+    /** Altin yetmediginde odullu reklam izleyince verilen altin. */
+    const val AD_REWARD_GOLD = 50
 
     fun goldFor(score: Int): Int = (score / POINTS_PER_GOLD).coerceAtLeast(0)
 }
 
 /**
- * Bir oyun boyunca puan -> altin donusumunu takip eder. Altin, puan 100'un katlarini
+ * Bir oyun boyunca puan -> altin donusumunu takip eder. Altin, puan 200'un katlarini
  * gectikce aninda verilir (oyuncu oyunun ortasinda ciksa da kaybolmaz).
  * Oyun icinde ulasilan EN YUKSEK puana gore hesaplanir: geri alma (undo) ile
  * puan dusup tekrar yukselirse ayni altin ikinci kez verilmez.

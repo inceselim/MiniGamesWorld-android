@@ -6,30 +6,31 @@ import org.junit.Test
 class GoldTrackerTest {
 
     @Test
-    fun awardsOneGoldPerHundredPoints() {
+    fun awardsOneGoldPerTwoHundredPoints() {
+        assertEquals(200, GameEconomy.POINTS_PER_GOLD)
         val t = GoldTracker()
-        assertEquals(0, t.onScore(90))
-        assertEquals(1, t.onScore(110))
-        assertEquals(0, t.onScore(150))
-        assertEquals(3, t.onScore(420))
+        assertEquals(0, t.onScore(190))
+        assertEquals(1, t.onScore(210))
+        assertEquals(0, t.onScore(390))
+        assertEquals(3, t.onScore(820))
         assertEquals(4, t.awarded)
     }
 
     @Test
     fun undoDoesNotPayTwice() {
         val t = GoldTracker()
-        assertEquals(2, t.onScore(250))
+        assertEquals(2, t.onScore(450))
         // Geri alma: skor dustu, sonra ayni seviyeye tekrar cikti
-        assertEquals(0, t.onScore(180))
-        assertEquals(0, t.onScore(260))
-        assertEquals(1, t.onScore(300))
+        assertEquals(0, t.onScore(350))
+        assertEquals(0, t.onScore(460))
+        assertEquals(1, t.onScore(600))
     }
 
     @Test
     fun resetStartsNewGame() {
         val t = GoldTracker()
-        t.onScore(500)
+        t.onScore(1000)
         t.reset()
-        assertEquals(1, t.onScore(100))
+        assertEquals(1, t.onScore(200))
     }
 }

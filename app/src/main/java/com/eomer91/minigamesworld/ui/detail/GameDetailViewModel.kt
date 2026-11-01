@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.eomer91.minigamesworld.data.Game
 import com.eomer91.minigamesworld.data.GameCatalog
+import com.eomer91.minigamesworld.data.GameEconomy
 import com.eomer91.minigamesworld.data.UserPrefsRepository
 import com.eomer91.minigamesworld.ui.navigation.GameDetailRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -28,7 +29,9 @@ data class GameDetailUiState(
 sealed interface GameDetailEvent {
     /** [showAd]: oyun gercekten oynanabiliyorsa once gecis reklami gosterilir. */
     data class StartGame(val gameId: String, val showAd: Boolean) : GameDetailEvent
-    data object NotEnoughGold : GameDetailEvent
+    /** Altin yetmiyor: odullu reklam teklif edilir. */
+    data class NotEnoughGold(val required: Int) : GameDetailEvent
+    data class GoldRewarded(val amount: Int) : GameDetailEvent
 }
 
 @HiltViewModel
@@ -60,7 +63,15 @@ class GameDetailViewModel @Inject constructor(
         viewModelScope.launch {
             // Henuz tasinmamis oyunlar icin altin harcanmaz, "Cok yakinda" acilir.
             val canStart = !game.isPlayable || prefs.spendGold(game.entryCost)
-            _events.send(if (canStart) GameDetailEvent.StartGame(game.id, showAd = game.isPlayable) else GameDetailEvent.NotEnoughGold)
+            _events.send(if (canStart) GameDetailEvent.StartGame(game.id, showAd = game.isPlayable) else GameDetailEvent.NotEnoughGold(game.entryCost))
+        }
+    }
+
+    /** Odullu reklam sonuna kadar izlendi: altin ver. */
+    fun grantAdReward() {
+        viewModelScope.launch {
+            prefs.addGold(GameEconomy.AD_REWARD_GOLD)
+            _events.send(GameDetailEvent.GoldRewarded(GameEconomy.AD_REWARD_GOLD))
         }
     }
 }

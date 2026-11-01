@@ -40,7 +40,7 @@ class Game2048ViewModel @Inject constructor(
 
     private val goldTracker = GoldTracker()
 
-    /** Puan 100'un katlarini gectikce altin verir; bu oyunda toplam kazanilan altini dondurur. */
+    /** Puan 200'un katlarini gectikce altin verir; bu oyunda toplam kazanilan altini dondurur. */
     private fun awardGold(score: Int): Int {
         val delta = goldTracker.onScore(score)
         if (delta > 0) viewModelScope.launch { prefs.addGold(delta) }

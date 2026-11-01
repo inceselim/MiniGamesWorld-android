@@ -46,6 +46,15 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.eomer91.minigamesworld.R
 import com.eomer91.minigamesworld.ads.rememberInterstitialLauncher
+import com.eomer91.minigamesworld.ads.rememberRewardedLauncher
+import com.eomer91.minigamesworld.data.GameEconomy
+import androidx.compose.material.icons.rounded.OndemandVideo
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
+import kotlinx.coroutines.launch
 import com.eomer91.minigamesworld.ui.components.EmptyState
 import com.eomer91.minigamesworld.ui.components.GoldBadge
 import com.eomer91.minigamesworld.ui.theme.AppColors
@@ -60,13 +69,19 @@ fun GameDetailScreen(
     val snackbar = remember { SnackbarHostState() }
     val context = LocalContext.current
     val showInterstitial = rememberInterstitialLauncher()
+    val showRewarded = rememberRewardedLauncher()
+    val scope = rememberCoroutineScope()
+    /** Altin yetmediginde gosterilen "reklam izle" penceresi; gereken altin miktari. */
+    var goldOffer by remember { mutableStateOf<Int?>(null) }
 
     LaunchedEffect(Unit) {
         viewModel.events.collect { event ->
             when (event) {
                 is GameDetailEvent.StartGame ->
                     if (event.showAd) showInterstitial { onPlay(event.gameId) } else onPlay(event.gameId)
-                GameDetailEvent.NotEnoughGold -> snackbar.showSnackbar(context.getString(R.string.not_enough_gold))
+                is GameDetailEvent.NotEnoughGold -> goldOffer = event.required
+                is GameDetailEvent.GoldRewarded ->
+                    snackbar.showSnackbar(context.getString(R.string.gold_rewarded, event.amount))
             }
         }
     }
@@ -139,6 +154,34 @@ fun GameDetailScreen(
             }
         }
         SnackbarHost(snackbar, Modifier.align(Alignment.BottomCenter))
+    }
+
+    goldOffer?.let { required ->
+        AlertDialog(
+            onDismissRequest = { goldOffer = null },
+            icon = { Icon(Icons.Rounded.OndemandVideo, contentDescription = null, tint = AppColors.Gold) },
+            title = { Text(stringResource(R.string.not_enough_gold)) },
+            text = {
+                Text(stringResource(R.string.gold_offer_body, required, state.gold, GameEconomy.AD_REWARD_GOLD))
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        goldOffer = null
+                        showRewarded(
+                            { viewModel.grantAdReward() },
+                            { scope.launch { snackbar.showSnackbar(context.getString(R.string.ad_not_ready)) } },
+                        )
+                    },
+                    colors = ButtonDefaults.buttonColors(containerColor = AppColors.Gold, contentColor = AppColors.OnPrimary),
+                ) {
+                    Text(stringResource(R.string.gold_offer_watch, GameEconomy.AD_REWARD_GOLD), fontWeight = FontWeight.Bold)
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { goldOffer = null }) { Text(stringResource(android.R.string.cancel)) }
+            },
+        )
     }
 }
 
