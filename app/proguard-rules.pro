@@ -3,3 +3,10 @@
 -keepclassmembers class com.eomer91.minigamesworld.** {
     *** Companion;
 }
+
+# --- Room / WorkManager ---
+# AdMob arka planda WorkManager kullanir; WorkManager veritabanini Room ile kurar.
+# Room, uretilen *_Impl sinifini adiyla (reflection) bulur. R8 bu sinifi ya da bos
+# kurucusunu silerse uygulama acilista "Failed to create an instance of WorkDatabase" ile coker.
+-keep class * extends androidx.room.RoomDatabase { <init>(); }
+-keep class androidx.work.impl.WorkDatabase_Impl { *; }

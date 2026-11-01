@@ -107,6 +107,7 @@ dependencies {
 
     implementation(libs.play.services.ads)
     implementation(libs.ump)
+    implementation(libs.androidx.work.runtime)
 
     testImplementation(libs.junit)
 }
