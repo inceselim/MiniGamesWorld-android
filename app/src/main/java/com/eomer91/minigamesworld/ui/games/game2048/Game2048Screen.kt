@@ -48,6 +48,16 @@ fun Game2048Screen(viewModel: Game2048ViewModel = hiltViewModel()) {
     val showInterstitial = rememberInterstitialLauncher()
     val restartWithAd = { showInterstitial { viewModel.restart() } }
 
+    if (state.isLoading) {
+        Box(
+            Modifier
+                .fillMaxSize()
+                .clip(RoundedCornerShape(24.dp))
+                .background(AppColors.Surface),
+        )
+        return
+    }
+
     Column(
         Modifier
             .fillMaxSize()
