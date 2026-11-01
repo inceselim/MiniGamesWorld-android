@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.core.intPreferencesKey
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -27,6 +28,7 @@ class UserPrefsRepository @Inject constructor(
         val VIBRATION = booleanPreferencesKey("vibration_enabled")
         val LEGACY_MIGRATED = booleanPreferencesKey("legacy_migrated")
         fun highScore(gameId: String) = intPreferencesKey(HIGH_SCORE_PREFIX + gameId)
+        fun savedGame(gameId: String) = stringPreferencesKey("saved_game_$gameId")
     }
 
     private val prefs: Flow<Preferences> = dataStore.data.catch { e ->
@@ -85,6 +87,19 @@ class UserPrefsRepository @Inject constructor(
 
     suspend fun setVibrationEnabled(enabled: Boolean) {
         dataStore.edit { it[Keys.VIBRATION] = enabled }
+    }
+
+    /** Yarim kalan oyunun kaydi (JSON). Oyun kendi formatini belirler. */
+    fun savedGame(gameId: String): Flow<String?> = prefs.map { it[Keys.savedGame(gameId)] }
+
+    fun hasSavedGame(gameId: String): Flow<Boolean> = savedGame(gameId).map { it != null }
+
+    suspend fun saveGame(gameId: String, json: String) {
+        dataStore.edit { it[Keys.savedGame(gameId)] = json }
+    }
+
+    suspend fun clearSavedGame(gameId: String) {
+        dataStore.edit { it.remove(Keys.savedGame(gameId)) }
     }
 
     suspend fun isLegacyMigrated(): Boolean = prefs.first()[Keys.LEGACY_MIGRATED] ?: false

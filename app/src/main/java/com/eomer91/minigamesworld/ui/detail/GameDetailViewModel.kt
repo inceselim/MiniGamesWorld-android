@@ -24,6 +24,8 @@ data class GameDetailUiState(
     val gold: Int = UserPrefsRepository.STARTING_GOLD,
     val isFavorite: Boolean = false,
     val bestScore: Int = 0,
+    /** Yarim kalan bir oyun kaydi var mi (ornek: Block Puzzle). */
+    val hasSavedGame: Boolean = false,
 )
 
 sealed interface GameDetailEvent {
@@ -47,8 +49,9 @@ class GameDetailViewModel @Inject constructor(
         prefs.gold,
         prefs.favorites,
         prefs.highScore(gameId),
-    ) { gold, favorites, best ->
-        GameDetailUiState(game, gold, gameId in favorites, best)
+        prefs.hasSavedGame(gameId),
+    ) { gold, favorites, best, hasSave ->
+        GameDetailUiState(game, gold, gameId in favorites, best, hasSave && game?.isPlayable == true)
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), GameDetailUiState(game))
 
     private val _events = Channel<GameDetailEvent>(Channel.BUFFERED)
@@ -63,8 +66,16 @@ class GameDetailViewModel @Inject constructor(
         viewModelScope.launch {
             // Henuz tasinmamis oyunlar icin altin harcanmaz, "Cok yakinda" acilir.
             val canStart = !game.isPlayable || prefs.spendGold(game.entryCost)
+            // Yeni oyun: varsa yarim kalan kayit silinir.
+            if (canStart && game.isPlayable) prefs.clearSavedGame(game.id)
             _events.send(if (canStart) GameDetailEvent.StartGame(game.id, showAd = game.isPlayable) else GameDetailEvent.NotEnoughGold(game.entryCost))
         }
+    }
+
+    /** Yarim kalan oyuna devam: altin harcanmaz. */
+    fun continueGame() {
+        val game = game ?: return
+        viewModelScope.launch { _events.send(GameDetailEvent.StartGame(game.id, showAd = true)) }
     }
 
     /** Odullu reklam sonuna kadar izlendi: altin ver. */

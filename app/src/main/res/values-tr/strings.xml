@@ -90,4 +90,6 @@
     <string name="gold_offer_body">Oynamak için %1$d altın gerekiyor, sende %2$d var. Kısa bir reklam izleyerek %3$d altın kazan.</string>
     <string name="gold_offer_watch">Reklam izle (+%1$d)</string>
     <string name="gold_rewarded">+%1$d altın eklendi!</string>
+    <string name="continue_game">Kaldığın yerden devam et</string>
+    <string name="new_game">Yeni oyun · %1$d altın</string>
 </resources>

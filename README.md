@@ -26,7 +26,7 @@ Debug build `com.eomer91.MiniGamesWorldincesoy.debug` paket adıyla kurulur. Bö
 
 | Oyun | Durum | Not |
 |---|---|---|
-| Block Puzzle | ✅ Native | Sürükle-bırak, renkli parçalar, satır + sütun temizleme |
+| Block Puzzle | ✅ Native | Sürükle-bırak, renkli parçalar, satır + sütun temizleme, **kaldığı yerden devam** |
 | 2048 | ✅ Native | Kaydırma, 2048'e ulaşınca devam |
 | Snake | ✅ Native | İlk kaydırmada başlar, yem yedikçe hızlanır, arka planda durur |
 | Memory Card | ✅ Native | 3D kart çevirme; hamle sayısı skora çevrilir (kusursuz = 1000) |
@@ -44,6 +44,14 @@ Rekorlar oyun sırasında, rekor geçildiği anda kaydedilir. Oyuncu oyunun orta
 - Hesap, o oyunda ulaşılan **en yüksek** puana göre yapılır. Block Puzzle'da geri alınan hamleler tekrar oynanınca aynı altın ikinci kez verilmez.
 - **Altın yetmezse:** Detay ekranında Play'e basınca yeterli altın yoksa bir pencere açılır: "Reklam izle (+50)". Ödüllü reklam sonuna kadar izlenirse **50 altın** eklenir, oyuncu tekrar Play'e basarak oyuna girer.
 - Kurallar tek yerde: `data/GameEconomy.kt` (`POINTS_PER_GOLD`, `AD_REWARD_GOLD`).
+
+## Block Puzzle: kaldığı yerden devam
+
+- Her hamleden sonra oyun (tahta, eldeki parçalar, skor, o oyunda kazanılan altın) cihaza kaydedilir. Oyundan çıkınca, uygulama kapansa bile kayıt durur.
+- Detay ekranında kayıt varsa iki buton çıkar: **Kaldığın yerden devam et** (altın harcanmaz) ve **Yeni oyun · 20 altın** (kayıt silinir).
+- Oyun bitince kayıt silinir, bir dahaki giriş yeni oyun olur.
+- Geri alma hakkı kaydedilmez; devam edilen oyunda "Geri al" yeni bir hamleden sonra açılır.
+- Kayıt formatı: `ui/games/blockpuzzle/BlockPuzzleSave.kt` (JSON, sürüm numaralı). Bozuk ya da eski bir kayıt sessizce yok sayılır ve yeni oyun başlar.
 
 ## Block Puzzle ödüllü reklam
 

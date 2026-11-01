@@ -138,6 +138,16 @@ fun BlockPuzzleScreen(viewModel: BlockPuzzleViewModel = hiltViewModel()) {
     val currentGeometry = geometry
     val placement = if (currentDrag != null && currentGeometry != null) placementFor(currentDrag, currentGeometry) else null
 
+    if (state.isLoading) {
+        Box(
+            Modifier
+                .fillMaxSize()
+                .clip(RoundedCornerShape(24.dp))
+                .background(AppColors.Surface),
+        )
+        return
+    }
+
     Box(
         Modifier
             .fillMaxSize()

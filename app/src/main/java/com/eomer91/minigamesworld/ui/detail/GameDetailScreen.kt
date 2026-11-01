@@ -50,6 +50,7 @@ import com.eomer91.minigamesworld.ads.rememberRewardedLauncher
 import com.eomer91.minigamesworld.data.GameEconomy
 import androidx.compose.material.icons.rounded.OndemandVideo
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.rememberCoroutineScope
@@ -141,15 +142,36 @@ fun GameDetailScreen(
                     lineHeight = 25.sp,
                     modifier = Modifier.padding(top = 16.dp),
                 )
-                Button(
-                    onClick = viewModel::play,
-                    modifier = Modifier.fillMaxWidth().padding(top = 28.dp).height(58.dp),
-                    shape = RoundedCornerShape(20.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = AppColors.Primary, contentColor = AppColors.OnPrimary),
-                ) {
-                    Icon(Icons.Rounded.PlayArrow, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text(stringResource(R.string.play_now, game.entryCost), fontWeight = FontWeight.Black, fontSize = 15.sp)
+                if (state.hasSavedGame) {
+                    // Yarim kalan oyun: once "Devam et" (ucretsiz), altinda "Yeni oyun".
+                    Button(
+                        onClick = viewModel::continueGame,
+                        modifier = Modifier.fillMaxWidth().padding(top = 28.dp).height(58.dp),
+                        shape = RoundedCornerShape(20.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = AppColors.Primary, contentColor = AppColors.OnPrimary),
+                    ) {
+                        Icon(Icons.Rounded.PlayArrow, contentDescription = null)
+                        Spacer(Modifier.width(8.dp))
+                        Text(stringResource(R.string.continue_game), fontWeight = FontWeight.Black, fontSize = 15.sp)
+                    }
+                    OutlinedButton(
+                        onClick = viewModel::play,
+                        modifier = Modifier.fillMaxWidth().padding(top = 12.dp).height(52.dp),
+                        shape = RoundedCornerShape(20.dp),
+                    ) {
+                        Text(stringResource(R.string.new_game, game.entryCost), fontWeight = FontWeight.Bold)
+                    }
+                } else {
+                    Button(
+                        onClick = viewModel::play,
+                        modifier = Modifier.fillMaxWidth().padding(top = 28.dp).height(58.dp),
+                        shape = RoundedCornerShape(20.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = AppColors.Primary, contentColor = AppColors.OnPrimary),
+                    ) {
+                        Icon(Icons.Rounded.PlayArrow, contentDescription = null)
+                        Spacer(Modifier.width(8.dp))
+                        Text(stringResource(R.string.play_now, game.entryCost), fontWeight = FontWeight.Black, fontSize = 15.sp)
+                    }
                 }
             }
         }

@@ -11,6 +11,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -28,6 +29,8 @@ data class BlockPuzzleUiState(
     val goldEarned: Int = 0,
     /** Son hamle geri alinabilir mi (odullu reklamla, tek seviye). */
     val canUndo: Boolean = false,
+    /** Kayitli oyun yuklenirken true; bu sirada tahta cizilmez. */
+    val isLoading: Boolean = true,
 ) {
     val isNewRecord: Boolean get() = score > 0 && bestAtStart >= 0 && score > bestAtStart
 }
@@ -56,6 +59,7 @@ class BlockPuzzleViewModel @Inject constructor(
     val state: StateFlow<BlockPuzzleUiState> = _state.asStateFlow()
 
     init {
+        viewModelScope.launch { restoreSavedGame() }
         viewModelScope.launch {
             prefs.highScore(GAME_ID).collect { best ->
                 _state.update { it.copy(best = best, bestAtStart = if (it.bestAtStart < 0) best else it.bestAtStart) }
@@ -109,6 +113,8 @@ class BlockPuzzleViewModel @Inject constructor(
             }
         }
 
+        persist()
+
         // RN surumu rekoru son hamlenin puani eklenmeden kaydediyordu; burada guncel skor kaydedilir.
         if (score > s.best) viewModelScope.launch { prefs.submitScore(GAME_ID, score) }
         return true
@@ -130,6 +136,7 @@ class BlockPuzzleViewModel @Inject constructor(
                 canUndo = false,
             )
         }
+        persist()
         feedback.play(Sfx.SWIPE)
     }
 
@@ -145,13 +152,54 @@ class BlockPuzzleViewModel @Inject constructor(
                 canUndo = false,
             )
         }
+        persist()
         feedback.play(Sfx.DROP)
     }
 
     fun restart() {
         undoSnapshot = null
         goldTracker.reset()
-        _state.update { newState().copy(best = it.best, bestAtStart = it.best) }
+        _state.update { newState().copy(best = it.best, bestAtStart = it.best, isLoading = false) }
+        persist()
+    }
+
+    /** Oyundan cikilip geri gelindiginde kaldigi yerden devam: kayitli oyunu yukler. */
+    private suspend fun restoreSavedGame() {
+        val save = prefs.savedGame(GAME_ID).first()?.let(BlockPuzzleSave::fromJson)
+        val valid = save != null &&
+            save.board.size == engine.boardSize &&
+            save.board.all { it.size == engine.boardSize } &&
+            save.pieces.size == BlockPuzzleEngine.PIECES_PER_ROUND
+
+        if (save == null || !valid) {
+            _state.update { it.copy(isLoading = false) }
+            return
+        }
+
+        val pieces = save.piecesAsDomain().let { if (it.all { p -> p == null }) engine.randomPieces() else it }
+        goldTracker.restore(save.goldAwarded)
+        _state.update {
+            it.copy(
+                board = save.board,
+                pieces = pieces,
+                placeable = placeableFor(save.board, pieces),
+                score = save.score,
+                gameOver = engine.isGameOver(save.board, pieces),
+                goldEarned = save.goldAwarded,
+                canUndo = false,
+                isLoading = false,
+            )
+        }
+    }
+
+    /** Her hamleden sonra oyunu kaydeder; oyun bittiyse kaydi siler (bir dahaki giris yeni oyun). */
+    private fun persist() {
+        val s = _state.value
+        if (s.isLoading) return
+        val json = if (s.gameOver) null else BlockPuzzleSave.from(s, goldTracker.awarded).toJson()
+        viewModelScope.launch {
+            if (json == null) prefs.clearSavedGame(GAME_ID) else prefs.saveGame(GAME_ID, json)
+        }
     }
 
     private fun newState(): BlockPuzzleUiState {

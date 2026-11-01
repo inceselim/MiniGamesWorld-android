@@ -92,4 +92,6 @@
     <string name="gold_offer_body">You need %1$d gold to play, but you have %2$d. Watch a short ad to get %3$d gold.</string>
     <string name="gold_offer_watch">Watch ad (+%1$d)</string>
     <string name="gold_rewarded">+%1$d gold added!</string>
+    <string name="continue_game">Continue</string>
+    <string name="new_game">New game · %1$d gold</string>
 </resources>

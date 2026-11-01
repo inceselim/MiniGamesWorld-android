@@ -33,4 +33,9 @@ class GoldTracker {
     fun reset() {
         awarded = 0
     }
+
+    /** Kayitli bir oyuna devam ederken daha once verilen altini geri yukler. */
+    fun restore(alreadyAwarded: Int) {
+        awarded = alreadyAwarded.coerceAtLeast(0)
+    }
 }
