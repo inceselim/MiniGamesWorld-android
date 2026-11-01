@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Sol ust: mavi + oynat ucgeni -->
+    <path android:fillColor="#FF38BDF8" android:pathData="M37,32h10a5,5 0,0 1,5 5v10a5,5 0,0 1,-5 5h-10a5,5 0,0 1,-5 -5v-10a5,5 0,0 1,5 -5z" />
+    <path android:fillColor="#FFFFFFFF" android:pathData="M39,36.5L47.5,42L39,47.5Z" />
+    <!-- Sag ust: altin -->
+    <path android:fillColor="#FFFACC15" android:pathData="M61,32h10a5,5 0,0 1,5 5v10a5,5 0,0 1,-5 5h-10a5,5 0,0 1,-5 -5v-10a5,5 0,0 1,5 -5z" />
+    <!-- Sol alt: pembe -->
+    <path android:fillColor="#FFF472B6" android:pathData="M37,56h10a5,5 0,0 1,5 5v10a5,5 0,0 1,-5 5h-10a5,5 0,0 1,-5 -5v-10a5,5 0,0 1,5 -5z" />
+    <!-- Sag alt: yesil -->
+    <path android:fillColor="#FF34D399" android:pathData="M61,56h10a5,5 0,0 1,5 5v10a5,5 0,0 1,-5 5h-10a5,5 0,0 1,-5 -5v-10a5,5 0,0 1,5 -5z" />
+</vector>
