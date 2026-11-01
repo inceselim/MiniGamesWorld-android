@@ -92,4 +92,22 @@
     <string name="gold_rewarded">+%1$d altın eklendi!</string>
     <string name="continue_game">Kaldığın yerden devam et</string>
     <string name="new_game">Yeni oyun · %1$d altın</string>
+    <string name="sudoku_easy">Kolay</string>
+    <string name="sudoku_normal">Normal</string>
+    <string name="sudoku_hard">Zor</string>
+    <string name="sudoku_choose">Zorluk seç</string>
+    <string name="sudoku_difficulty_info">%1$d ipucu · taban puan %2$d</string>
+    <string name="sudoku_generating">Bulmacan hazırlanıyor…</string>
+    <string name="sudoku_mistakes">Hata %1$d/%2$d</string>
+    <string name="sudoku_new">Yeni</string>
+    <string name="sudoku_erase">Sil</string>
+    <string name="sudoku_notes_on">Not: açık</string>
+    <string name="sudoku_notes_off">Not: kapalı</string>
+    <string name="sudoku_hint">İpucu</string>
+    <string name="sudoku_solved">ÇÖZÜLDÜ!</string>
+    <string name="sudoku_result">Süre %1$s · Hata %2$d · Puan %3$d</string>
+    <string name="sudoku_lost_title">3 HATA</string>
+    <string name="sudoku_lost_body">Reklam izleyip devam edebilirsin (yanlış rakamların silinir) ya da yeni bir bulmacaya başla.</string>
+    <string name="sudoku_continue">Reklam izle ve devam et</string>
+    <string name="sudoku_new_puzzle">Yeni bulmaca</string>
 </resources>

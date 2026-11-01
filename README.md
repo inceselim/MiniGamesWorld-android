@@ -30,7 +30,8 @@ Debug build `com.eomer91.MiniGamesWorldincesoy.debug` paket adıyla kurulur. Bö
 | 2048 | ✅ Native | Kaydırma, 2048'e ulaşınca devam, **kaldığı yerden devam** |
 | Snake | ✅ Native | İlk kaydırmada başlar, yem yedikçe hızlanır, arka planda durur |
 | Memory Card | ✅ Native | 3D kart çevirme; hamle sayısı skora çevrilir (kusursuz = 1000) |
-| Match 3, Sudoku, Stack, Bubble Shooter, Tower Defense | ⏳ Çok yakında | Detay ekranında altın harcanmaz, reklam gösterilmez |
+| Sudoku | ✅ Native | Kolay/Normal/Zor, her seferinde yeni tek çözümlü bulmaca, notlar, 3 hata hakkı, süre, **kaldığı yerden devam** |
+| Match 3, Stack, Bubble Shooter, Tower Defense | ⏳ Çok yakında | Detay ekranında altın harcanmaz, reklam gösterilmez |
 
 Her oyunun kuralları ekrandan ayrı, saf Kotlin bir `…Engine` sınıfında durur ve `app/src/test` altında unit testleri vardır. Testleri çalıştırmak için test dosyasını açıp sınıf adının yanındaki yeşil oka bas ya da `./gradlew test` komutunu çalıştır.
 
@@ -45,13 +46,23 @@ Rekorlar oyun sırasında, rekor geçildiği anda kaydedilir. Oyuncu oyunun orta
 - **Altın yetmezse:** Detay ekranında Play'e basınca yeterli altın yoksa bir pencere açılır: "Reklam izle (+50)". Ödüllü reklam sonuna kadar izlenirse **50 altın** eklenir, oyuncu tekrar Play'e basarak oyuna girer.
 - Kurallar tek yerde: `data/GameEconomy.kt` (`POINTS_PER_GOLD`, `AD_REWARD_GOLD`).
 
-## Kaldığı yerden devam (Block Puzzle, 2048)
+## Kaldığı yerden devam (Block Puzzle, 2048, Sudoku)
 
 - Her hamleden sonra oyun (tahta, skor, o oyunda kazanılan altın; Block Puzzle'da ayrıca eldeki parçalar) cihaza kaydedilir. Oyundan çıkınca, uygulama kapansa bile kayıt durur.
 - Detay ekranında kayıt varsa iki buton çıkar: **Kaldığın yerden devam et** (altın harcanmaz) ve **Yeni oyun · N altın** (kayıt silinir). Devam etmede de geçiş reklamı kuralı geçerlidir.
 - Oyun bitince kayıt silinir, bir dahaki giriş yeni oyun olur.
 - Block Puzzle'da geri alma hakkı kaydedilmez; devam edilen oyunda "Geri al" yeni bir hamleden sonra açılır.
-- Kayıt formatları: `BlockPuzzleSave.kt`, `Game2048Save.kt` (JSON, sürüm numaralı). Bozuk ya da eski bir kayıt sessizce yok sayılır ve yeni oyun başlar.
+- Kayıt formatları: `BlockPuzzleSave.kt`, `Game2048Save.kt`, `SudokuSave.kt` (JSON, sürüm numaralı). Bozuk ya da eski bir kayıt sessizce yok sayılır ve yeni oyun başlar.
+
+## Sudoku
+
+- **Akış:** Zorluk seçimi (Kolay 40 / Normal 32 / Zor 26 ipucu) → bulmaca cihazda üretilir (tek çözümlü, her seferinde farklı) → oyun.
+- **Tahta:** Seçili hücre, aynı satır/sütun/kutu ve aynı rakamlar vurgulanır. Hazır rakamlar beyaz, doğru girilenler mavi, yanlışlar kırmızı.
+- **Araçlar:** Sil, Not modu (doğru rakam girilince ilgili notlar otomatik silinir), İpucu (ödüllü reklam: seçili ya da ilk boş hücre doğru rakamla dolar).
+- **3 hata** → oyun biter; ödüllü reklamla devam (hata 2'ye iner, yanlış rakamlar silinir) ya da yeni bulmaca.
+- **Puan:** taban (600 / 1200 / 2400) − hata×100 − ipucu×150 − hedef süreyi (6 / 12 / 20 dk) aşan her saniye; en az tabanın 1/5'i. Altın oyun bitince verilir.
+- **Süre** sadece ekran açıkken işler; arka planda ve reklam sırasında durur.
+- Kayıt: her hamlede ve 10 saniyede bir (`SudokuSave.kt`).
 
 ## Block Puzzle ödüllü reklam
 
@@ -70,7 +81,7 @@ Tahtanın altında iki buton var, ikisi de ödüllü (rewarded) reklam izletir:
 |---|---|
 | Banner | Ara, Favoriler, Profil ve Ayarlar sekmelerinin altında. Ana sayfada (Oyunlar) ve oyun ekranlarında yok. |
 | Geçiş (Interstitial) | Oynanabilir bir oyunun detay ekranında **Play**, oyun içinde **Restart** ve **Tekrar oyna** |
-| Ödüllü (Rewarded) | Altın yetmeyince **Reklam izle (+50 altın)**; Block Puzzle: **Parçaları değiştir**, **Geri al** |
+| Ödüllü (Rewarded) | Altın yetmeyince **Reklam izle (+50 altın)**; Block Puzzle: **Parçaları değiştir**, **Geri al**; Sudoku: **İpucu**, **3 hatadan sonra devam** |
 
 - İki geçiş reklamı arasında en az **60 saniye** olur ve bu süre tüm butonlar için ortaktır. Ödüllü reklam izlendiğinde de bu süre yeniden başlar (art arda iki tam ekran reklam çıkmaz). Çok sık geçiş reklamı oyuncuyu kaçırır ve AdMob politikalarına takılabilir. Değiştirmek için: `ads/InterstitialAdManager.kt` → `MIN_INTERVAL_MS`.
 - Reklam hazır değilse (internet yok, yüklenemedi) oyun beklemeden devam eder.

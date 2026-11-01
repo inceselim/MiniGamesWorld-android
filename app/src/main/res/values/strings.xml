@@ -94,4 +94,22 @@
     <string name="gold_rewarded">+%1$d gold added!</string>
     <string name="continue_game">Continue</string>
     <string name="new_game">New game · %1$d gold</string>
+    <string name="sudoku_easy">Easy</string>
+    <string name="sudoku_normal">Normal</string>
+    <string name="sudoku_hard">Hard</string>
+    <string name="sudoku_choose">Choose difficulty</string>
+    <string name="sudoku_difficulty_info">%1$d clues · base score %2$d</string>
+    <string name="sudoku_generating">Creating your puzzle…</string>
+    <string name="sudoku_mistakes">Mistakes %1$d/%2$d</string>
+    <string name="sudoku_new">New</string>
+    <string name="sudoku_erase">Erase</string>
+    <string name="sudoku_notes_on">Notes: on</string>
+    <string name="sudoku_notes_off">Notes: off</string>
+    <string name="sudoku_hint">Hint</string>
+    <string name="sudoku_solved">SOLVED!</string>
+    <string name="sudoku_result">Time %1$s · Mistakes %2$d · Score %3$d</string>
+    <string name="sudoku_lost_title">3 MISTAKES</string>
+    <string name="sudoku_lost_body">Watch an ad to keep playing (your wrong numbers are cleared), or start a new puzzle.</string>
+    <string name="sudoku_continue">Watch ad &amp; continue</string>
+    <string name="sudoku_new_puzzle">New puzzle</string>
 </resources>
