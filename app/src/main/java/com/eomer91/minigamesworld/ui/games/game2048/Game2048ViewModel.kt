@@ -11,6 +11,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -26,6 +27,8 @@ data class Game2048State(
     val reachedWinTile: Boolean = false,
     /** Bu oyunda kazanilan altin. */
     val goldEarned: Int = 0,
+    /** Kayitli oyun yuklenirken true; bu sirada tahta cizilmez. */
+    val isLoading: Boolean = true,
 ) {
     val isNewRecord: Boolean get() = score > 0 && bestAtStart >= 0 && score > bestAtStart
 }
@@ -51,6 +54,7 @@ class Game2048ViewModel @Inject constructor(
     val state: StateFlow<Game2048State> = _state.asStateFlow()
 
     init {
+        viewModelScope.launch { restoreSavedGame() }
         viewModelScope.launch {
             prefs.highScore(GAME_ID).collect { best ->
                 _state.update {
@@ -62,7 +66,7 @@ class Game2048ViewModel @Inject constructor(
 
     fun move(direction: Direction) {
         val current = _state.value
-        if (current.gameOver) return
+        if (current.gameOver || current.isLoading) return
 
         val result = engine.move(current.board, direction)
         if (!result.moved) return
@@ -76,6 +80,7 @@ class Game2048ViewModel @Inject constructor(
             reachedWinTile = current.reachedWinTile || engine.hasTile(result.board, Game2048Engine.WIN_TILE),
         )
         _state.value = next
+        persist()
         playMoveFeedback(current, next, result.gainedScore)
 
         // Rekor gecildiginde aninda kaydet: oyuncu oyunun ortasinda cikarsa da kaybolmaz.
@@ -106,7 +111,44 @@ class Game2048ViewModel @Inject constructor(
 
     fun restart() {
         goldTracker.reset()
-        _state.update { Game2048State(board = engine.initialBoard(), best = it.best, bestAtStart = it.best) }
+        _state.update { Game2048State(board = engine.initialBoard(), best = it.best, bestAtStart = it.best, isLoading = false) }
+        persist()
+    }
+
+    /** Oyundan cikilip geri gelindiginde kaldigi yerden devam: kayitli oyunu yukler. */
+    private suspend fun restoreSavedGame() {
+        val save = prefs.savedGame(GAME_ID).first()?.let(Game2048Save::fromJson)
+        val valid = save != null &&
+            save.board.size == engine.size &&
+            save.board.all { it.size == engine.size } &&
+            engine.canMove(save.board)
+
+        if (save == null || !valid) {
+            _state.update { it.copy(isLoading = false) }
+            return
+        }
+
+        goldTracker.restore(save.goldAwarded)
+        _state.update {
+            it.copy(
+                board = save.board,
+                score = save.score,
+                reachedWinTile = save.reachedWinTile,
+                goldEarned = save.goldAwarded,
+                gameOver = false,
+                isLoading = false,
+            )
+        }
+    }
+
+    /** Her hamleden sonra oyunu kaydeder; oyun bittiyse kaydi siler (bir dahaki giris yeni oyun). */
+    private fun persist() {
+        val s = _state.value
+        if (s.isLoading) return
+        val json = if (s.gameOver) null else Game2048Save.from(s, goldTracker.awarded).toJson()
+        viewModelScope.launch {
+            if (json == null) prefs.clearSavedGame(GAME_ID) else prefs.saveGame(GAME_ID, json)
+        }
     }
 
     companion object {
