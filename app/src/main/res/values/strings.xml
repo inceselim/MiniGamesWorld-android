@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Mini Games World</string>
+    <string name="app_name" translatable="false">Mini Games Hub</string>
 
     <string name="tab_games">Games</string>
     <string name="tab_search">Search</string>

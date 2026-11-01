@@ -1,6 +1,6 @@
 # Mini Games World (Android)
 
-Play Store'daki `com.eomer91.MiniGamesWorldincesoy` uygulamasının Kotlin + Jetpack Compose ile yeniden yazılmış hali.
+Play Store'daki **Mini Games Hub** (`com.eomer91.MiniGamesWorldincesoy`) uygulamasının Kotlin + Jetpack Compose ile yeniden yazılmış hali.
 Eski React Native/Expo kodu referans için `MiniGamesWorldincesoy` reposunda duruyor.
 
 ## Teknoloji
