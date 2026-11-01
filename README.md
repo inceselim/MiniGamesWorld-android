@@ -108,7 +108,7 @@ Dosyalar `res/raw/sfx_*.ogg` altında. RN projesindeki sesler OGG'ye çevrildi, 
 
 ## Uygulama ikonu
 
-- Uyarlanabilir (adaptive) ikon, vektör olarak: `res/drawable/ic_launcher_background.xml` (lacivert gradyan), `ic_launcher_foreground.xml` (dört renkli kare + oynat), `ic_launcher_monochrome.xml` (Android 13+ tema ikonları).
+- Uyarlanabilir (adaptive) ikon, vektör olarak: `res/drawable/ic_launcher_background.xml` (lacivert gradyan), `ic_launcher_foreground.xml` (oyun kolu, tuşlar uygulamanın dört renginde), `ic_launcher_monochrome.xml` (Android 13+ tema ikonları).
 - Android 7 cihazlar için: `res/mipmap-nodpi/ic_launcher.png`.
 - **Play Store mağaza ikonu** (512×512): `store/play_store_icon_512.png`. Play Console → **Mağaza varlığı → Ana mağaza girişi → Uygulama simgesi** bölümüne yüklenir; uygulama içindeki ikondan ayrı olarak güncellenmesi gerekir.
 

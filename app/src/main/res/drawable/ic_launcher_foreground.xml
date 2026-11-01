@@ -4,13 +4,13 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- Sol ust: mavi + oynat ucgeni -->
-    <path android:fillColor="#FF38BDF8" android:pathData="M37,32h10a5,5 0,0 1,5 5v10a5,5 0,0 1,-5 5h-10a5,5 0,0 1,-5 -5v-10a5,5 0,0 1,5 -5z" />
-    <path android:fillColor="#FFFFFFFF" android:pathData="M39,36.5L47.5,42L39,47.5Z" />
-    <!-- Sag ust: altin -->
-    <path android:fillColor="#FFFACC15" android:pathData="M61,32h10a5,5 0,0 1,5 5v10a5,5 0,0 1,-5 5h-10a5,5 0,0 1,-5 -5v-10a5,5 0,0 1,5 -5z" />
-    <!-- Sol alt: pembe -->
-    <path android:fillColor="#FFF472B6" android:pathData="M37,56h10a5,5 0,0 1,5 5v10a5,5 0,0 1,-5 5h-10a5,5 0,0 1,-5 -5v-10a5,5 0,0 1,5 -5z" />
-    <!-- Sag alt: yesil -->
-    <path android:fillColor="#FF34D399" android:pathData="M61,56h10a5,5 0,0 1,5 5v10a5,5 0,0 1,-5 5h-10a5,5 0,0 1,-5 -5v-10a5,5 0,0 1,5 -5z" />
+    <!-- Oyun kolu -->
+    <path android:fillColor="#FFF1F5F9" android:pathData="M38,41L70,41C78,41 81,46 82,54C83,63 82,70 76,71C72,72 68,66 64,62L44,62C40,66 36,72 32,71C26,70 25,63 26,54C27,46 30,41 38,41Z" />
+    <!-- Yon tusu -->
+    <path android:fillColor="#FF1E293B" android:pathData="M39,44h4v4h4v4h-4v4h-4v-4h-4v-4h4z" />
+    <!-- Dort tus: uygulamanin dort rengi -->
+    <path android:fillColor="#FF38BDF8" android:pathData="M67,42.7a2.8,2.8 0,1 1,0 5.6a2.8,2.8 0,1 1,0 -5.6z" />
+    <path android:fillColor="#FFFACC15" android:pathData="M71.5,47.2a2.8,2.8 0,1 1,0 5.6a2.8,2.8 0,1 1,0 -5.6z" />
+    <path android:fillColor="#FF34D399" android:pathData="M67,51.7a2.8,2.8 0,1 1,0 5.6a2.8,2.8 0,1 1,0 -5.6z" />
+    <path android:fillColor="#FFF472B6" android:pathData="M62.5,47.2a2.8,2.8 0,1 1,0 5.6a2.8,2.8 0,1 1,0 -5.6z" />
 </vector>

@@ -4,10 +4,7 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- Tema ikonlari (Android 13+): tek renk; oynat ucgeni bosluk olarak kesilir -->
+    <!-- Tema ikonlari (Android 13+): tek renk oyun kolu; yon tusu ve tuslar bosluk olarak kesilir -->
     <path android:fillColor="#FF000000" android:fillType="evenOdd"
-        android:pathData="M37,32h10a5,5 0,0 1,5 5v10a5,5 0,0 1,-5 5h-10a5,5 0,0 1,-5 -5v-10a5,5 0,0 1,5 -5z M39,36.5L39,47.5L47.5,42Z" />
-    <path android:fillColor="#FF000000" android:pathData="M61,32h10a5,5 0,0 1,5 5v10a5,5 0,0 1,-5 5h-10a5,5 0,0 1,-5 -5v-10a5,5 0,0 1,5 -5z" />
-    <path android:fillColor="#FF000000" android:pathData="M37,56h10a5,5 0,0 1,5 5v10a5,5 0,0 1,-5 5h-10a5,5 0,0 1,-5 -5v-10a5,5 0,0 1,5 -5z" />
-    <path android:fillColor="#FF000000" android:pathData="M61,56h10a5,5 0,0 1,5 5v10a5,5 0,0 1,-5 5h-10a5,5 0,0 1,-5 -5v-10a5,5 0,0 1,5 -5z" />
+        android:pathData="M38,41L70,41C78,41 81,46 82,54C83,63 82,70 76,71C72,72 68,66 64,62L44,62C40,66 36,72 32,71C26,70 25,63 26,54C27,46 30,41 38,41Z M39,44h4v4h4v4h-4v4h-4v-4h-4v-4h4z M67,42.7a2.8,2.8 0,1 1,0 5.6a2.8,2.8 0,1 1,0 -5.6z M71.5,47.2a2.8,2.8 0,1 1,0 5.6a2.8,2.8 0,1 1,0 -5.6z M67,51.7a2.8,2.8 0,1 1,0 5.6a2.8,2.8 0,1 1,0 -5.6z M62.5,47.2a2.8,2.8 0,1 1,0 5.6a2.8,2.8 0,1 1,0 -5.6z" />
 </vector>
