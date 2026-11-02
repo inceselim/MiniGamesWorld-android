@@ -114,4 +114,10 @@
     <string name="stack_perfect">KUSURSUZ!</string>
     <string name="stack_perfect_combo">KUSURSUZ ×%1$d</string>
     <string name="stack_result">Yükseklik %1$d · Puan %2$d</string>
+    <string name="match3_moves">Hamle: %1$d</string>
+    <string name="match3_chain">ZİNCİR ×%1$d</string>
+    <string name="match3_shuffling">Hamle kalmadı, karıştırılıyor…</string>
+    <string name="match3_hint">3 veya daha fazlasını eşleştirmek için bir taşı kaydır ya da yan yana iki taşa dokun</string>
+    <string name="match3_out_of_moves">HAMLELER BİTTİ</string>
+    <string name="match3_bonus_moves">Reklam izle: +%1$d hamle</string>
 </resources>

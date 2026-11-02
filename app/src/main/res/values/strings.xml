@@ -116,4 +116,10 @@
     <string name="stack_perfect">PERFECT!</string>
     <string name="stack_perfect_combo">PERFECT ×%1$d</string>
     <string name="stack_result">Height %1$d · Score %2$d</string>
+    <string name="match3_moves">Moves: %1$d</string>
+    <string name="match3_chain">CHAIN ×%1$d</string>
+    <string name="match3_shuffling">No moves left, shuffling…</string>
+    <string name="match3_hint">Swipe a gem, or tap two neighbours, to match 3 or more</string>
+    <string name="match3_out_of_moves">OUT OF MOVES</string>
+    <string name="match3_bonus_moves">Watch ad: +%1$d moves</string>
 </resources>

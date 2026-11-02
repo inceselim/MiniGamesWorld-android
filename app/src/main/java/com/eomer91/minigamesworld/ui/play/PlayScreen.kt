@@ -29,6 +29,7 @@ import com.eomer91.minigamesworld.R
 import com.eomer91.minigamesworld.data.GameCatalog
 import com.eomer91.minigamesworld.ui.games.blockpuzzle.BlockPuzzleScreen
 import com.eomer91.minigamesworld.ui.games.game2048.Game2048Screen
+import com.eomer91.minigamesworld.ui.games.match3.Match3Screen
 import com.eomer91.minigamesworld.ui.games.memory.MemoryScreen
 import com.eomer91.minigamesworld.ui.games.snake.SnakeScreen
 import com.eomer91.minigamesworld.ui.games.stack.StackScreen
@@ -65,6 +66,7 @@ fun PlayScreen(gameId: String, onBack: () -> Unit) {
                 "block-puzzle" -> BlockPuzzleScreen()
                 "sudoku" -> SudokuScreen()
                 "stack" -> StackScreen()
+                "match-3" -> Match3Screen()
                 else -> ComingSoon()
             }
         }
