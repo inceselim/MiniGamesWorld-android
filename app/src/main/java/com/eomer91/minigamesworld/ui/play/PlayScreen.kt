@@ -35,6 +35,7 @@ import com.eomer91.minigamesworld.ui.games.memory.MemoryScreen
 import com.eomer91.minigamesworld.ui.games.snake.SnakeScreen
 import com.eomer91.minigamesworld.ui.games.stack.StackScreen
 import com.eomer91.minigamesworld.ui.games.sudoku.SudokuScreen
+import com.eomer91.minigamesworld.ui.games.tower.TowerScreen
 import com.eomer91.minigamesworld.ui.theme.AppColors
 
 /** Oyun kabugu: ust bar + oyunun kendisi. Tasinan her oyun buradaki when'e eklenir. */
@@ -69,6 +70,7 @@ fun PlayScreen(gameId: String, onBack: () -> Unit) {
                 "stack" -> StackScreen()
                 "match-3" -> Match3Screen()
                 "bubble-shooter" -> BubbleScreen()
+                "tower-defense" -> TowerScreen()
                 else -> ComingSoon()
             }
         }

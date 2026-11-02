@@ -126,4 +126,26 @@
     <string name="bubble_new_row_in">New row in %1$d shots</string>
     <string name="bubble_hint">Drag to aim, release to shoot · tap your bubble to swap</string>
     <string name="bubble_continue">Watch ad: clear 3 rows &amp; continue</string>
+    <string name="td_damage">Damage</string>
+    <string name="td_attack_speed">Attack speed</string>
+    <string name="td_range">Range</string>
+    <string name="td_health">Health</string>
+    <string name="td_regen">Regen</string>
+    <string name="td_silver_bonus">Silver bonus</string>
+    <string name="td_start_silver">Starting silver</string>
+    <string name="td_workshop">Workshop</string>
+    <string name="td_workshop_info">Permanent upgrades, paid with gold. They stay forever.</string>
+    <string name="td_start">Start</string>
+    <string name="td_level">Lv %1$d</string>
+    <string name="td_max">MAX</string>
+    <string name="td_wave">Wave %1$d</string>
+    <string name="td_score">Score %1$d</string>
+    <string name="td_silver">%1$d silver</string>
+    <string name="td_speed">%1$d×</string>
+    <string name="td_back_workshop">Workshop</string>
+    <string name="td_next_wave">Next wave in %1$d…</string>
+    <string name="td_in_run_upgrades">UPGRADES (SILVER, THIS RUN ONLY)</string>
+    <string name="td_tower_destroyed">TOWER DESTROYED</string>
+    <string name="td_result">Wave %1$d · Kills %2$d · Score %3$d</string>
+    <string name="td_revive">Watch ad: revive with half health</string>
 </resources>

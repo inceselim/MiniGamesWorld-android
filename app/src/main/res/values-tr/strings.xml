@@ -124,4 +124,26 @@
     <string name="bubble_new_row_in">%1$d atış sonra yeni sıra</string>
     <string name="bubble_hint">Nişan için sürükle, atmak için bırak · değiştirmek için balonuna dokun</string>
     <string name="bubble_continue">Reklam izle: 3 sırayı temizle ve devam et</string>
+    <string name="td_damage">Hasar</string>
+    <string name="td_attack_speed">Atış hızı</string>
+    <string name="td_range">Menzil</string>
+    <string name="td_health">Can</string>
+    <string name="td_regen">Yenilenme</string>
+    <string name="td_silver_bonus">Gümüş bonusu</string>
+    <string name="td_start_silver">Başlangıç gümüşü</string>
+    <string name="td_workshop">Atölye</string>
+    <string name="td_workshop_info">Kalıcı yükseltmeler, altınla alınır ve hiç sıfırlanmaz.</string>
+    <string name="td_start">Başla</string>
+    <string name="td_level">Sv %1$d</string>
+    <string name="td_max">MAKS</string>
+    <string name="td_wave">Dalga %1$d</string>
+    <string name="td_score">Puan %1$d</string>
+    <string name="td_silver">%1$d gümüş</string>
+    <string name="td_speed">%1$d×</string>
+    <string name="td_back_workshop">Atölye</string>
+    <string name="td_next_wave">Sıradaki dalga %1$d…</string>
+    <string name="td_in_run_upgrades">YÜKSELTMELER (GÜMÜŞ, SADECE BU OYUN)</string>
+    <string name="td_tower_destroyed">KULE YIKILDI</string>
+    <string name="td_result">Dalga %1$d · Öldürülen %2$d · Puan %3$d</string>
+    <string name="td_revive">Reklam izle: yarı canla devam et</string>
 </resources>

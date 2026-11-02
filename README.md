@@ -34,7 +34,7 @@ Debug build `com.eomer91.MiniGamesWorldincesoy.debug` paket adıyla kurulur. Bö
 | Stack | ✅ Native | Tek dokunuş; taşan kısım kesilir, kusursuz bırakışta kombo ve blok büyümesi, giderek hızlanır |
 | Match 3 | ✅ Native | 8×8, 6 taş (renk + şekil), kaydır ya da dokun, zincirleme patlama, 30 hamle, hamle bitince ödüllü +5 |
 | Bubble Shooter | ✅ Native | Bal peteği tahta, duvardan seken nişan çizgisi, 3+ patlatma, kopanlar düşer, 5 boş atışta yeni sıra, seviyeler |
-| Tower Defense | ⏳ Çok yakında | Detay ekranında altın harcanmaz, reklam gösterilmez |
+| Tower Defense | ✅ Native | Tek kule savunması: dalgalar, 4 düşman türü + boss, gümüşle oyun içi, altınla kalıcı (Atölye) yükseltmeler, 2× hız | Detay ekranında altın harcanmaz, reklam gösterilmez |
 
 Her oyunun kuralları ekrandan ayrı, saf Kotlin bir `…Engine` sınıfında durur ve `app/src/test` altında unit testleri vardır. Testleri çalıştırmak için test dosyasını açıp sınıf adının yanındaki yeşil oka bas ya da `./gradlew test` komutunu çalıştır.
 
@@ -67,6 +67,16 @@ Rekorlar oyun sırasında, rekor geçildiği anda kaydedilir. Oyuncu oyunun orta
 - **Süre** sadece ekran açıkken işler; arka planda ve reklam sırasında durur.
 - Kayıt: her hamlede ve 10 saniyede bir (`SudokuSave.kt`).
 
+## Tower Defense (tek kule)
+
+- Ortada tek kule, düşmanlar her yönden dalgalar halinde gelir; kule menzildeki en yakın düşmana otomatik ateş eder. Kuleye değen düşman can götürür.
+- Düşmanlar: Normal, Hızlı (3. dalgadan), Zırhlı (5. dalgadan), her 10 dalgada Boss. Düşman canı her dalgada ~%13 artar.
+- **Gümüş (oyun içi):** Öldürme ve dalga sonu bonusuyla kazanılır; Hasar, Atış hızı, Menzil, Can, Yenilenme alınır. Oyun bitince sıfırlanır.
+- **Altın (kalıcı, Atölye):** Aynı 5 özellik + Gümüş bonusu + Başlangıç gümüşü; 20 seviyeye kadar, hiç sıfırlanmaz (DataStore'da `td_perm_*`).
+- Fiyatlar: gümüş `10 × 1.32^seviye`, altın `15 × 1.45^seviye`. Denge `TowerBalance` içinde; bir Python simülasyonuyla ayarlandı (yükseltmesiz ~5. dalga).
+- 1×/2× hız; oyun arka planda ve reklam sırasında durur.
+- Ödüllü reklam: kule yıkılınca **yarı canla devam** (oyun başına bir kez). Atölye'ye dönüşte geçiş reklamı.
+
 ## Block Puzzle ödüllü reklam
 
 Tahtanın altında iki buton var, ikisi de ödüllü (rewarded) reklam izletir:
@@ -84,7 +94,7 @@ Tahtanın altında iki buton var, ikisi de ödüllü (rewarded) reklam izletir:
 |---|---|
 | Banner | Ara, Favoriler, Profil ve Ayarlar sekmelerinin altında. Ana sayfada (Oyunlar) ve oyun ekranlarında yok. |
 | Geçiş (Interstitial) | Oynanabilir bir oyunun detay ekranında **Play**, oyun içinde **Restart** ve **Tekrar oyna** |
-| Ödüllü (Rewarded) | Altın yetmeyince **Reklam izle (+50 altın)**; Block Puzzle: **Parçaları değiştir**, **Geri al**; Sudoku: **İpucu**, **3 hatadan sonra devam**; Match 3: **+5 hamle**; Bubble Shooter: **3 sırayı temizle ve devam et** (ikisi de oyun başına bir kez) |
+| Ödüllü (Rewarded) | Altın yetmeyince **Reklam izle (+50 altın)**; Block Puzzle: **Parçaları değiştir**, **Geri al**; Sudoku: **İpucu**, **3 hatadan sonra devam**; Match 3: **+5 hamle**; Bubble Shooter: **3 sırayı temizle ve devam et**; Tower Defense: **yarı canla devam** (hepsi oyun başına bir kez) |
 
 - İki geçiş reklamı arasında en az **60 saniye** olur ve bu süre tüm butonlar için ortaktır. Ödüllü reklam izlendiğinde de bu süre yeniden başlar (art arda iki tam ekran reklam çıkmaz). Çok sık geçiş reklamı oyuncuyu kaçırır ve AdMob politikalarına takılabilir. Değiştirmek için: `ads/InterstitialAdManager.kt` → `MIN_INTERVAL_MS`.
 - Reklam hazır değilse (internet yok, yüklenemedi) oyun beklemeden devam eder.

@@ -102,6 +102,29 @@ class UserPrefsRepository @Inject constructor(
         dataStore.edit { it.remove(Keys.savedGame(gameId)) }
     }
 
+    /** Tower Defense kalici yukseltme seviyeleri (anahtar: yukseltme adi). */
+    val towerUpgradeLevels: Flow<Map<String, Int>> = prefs.map { p ->
+        p.asMap().entries
+            .filter { (key, value) -> key.name.startsWith(TOWER_UPGRADE_PREFIX) && value is Int }
+            .associate { (key, value) -> key.name.removePrefix(TOWER_UPGRADE_PREFIX) to value as Int }
+    }
+
+    /** Altinla kalici yukseltme: tek islemde altini duser ve seviyeyi artirir. Basarisizsa false. */
+    suspend fun buyTowerUpgrade(name: String, cost: Int, maxLevel: Int): Boolean {
+        var bought = false
+        dataStore.edit { p ->
+            val gold = p[Keys.GOLD] ?: STARTING_GOLD
+            val key = intPreferencesKey(TOWER_UPGRADE_PREFIX + name)
+            val level = p[key] ?: 0
+            bought = gold >= cost && level < maxLevel
+            if (bought) {
+                p[Keys.GOLD] = gold - cost
+                p[key] = level + 1
+            }
+        }
+        return bought
+    }
+
     suspend fun isLegacyMigrated(): Boolean = prefs.first()[Keys.LEGACY_MIGRATED] ?: false
 
     suspend fun completeLegacyMigration(highScores: Map<String, Int>) {
@@ -117,5 +140,6 @@ class UserPrefsRepository @Inject constructor(
     companion object {
         const val STARTING_GOLD = 500
         private const val HIGH_SCORE_PREFIX = "high_score_"
+        private const val TOWER_UPGRADE_PREFIX = "td_perm_"
     }
 }
