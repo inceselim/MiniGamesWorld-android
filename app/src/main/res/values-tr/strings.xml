@@ -252,4 +252,37 @@
     <string name="fish_not_enough_pearls">Yeterli incin yok.</string>
     <string name="fish_hub_pending">%1$d inci toplanmayı bekliyor</string>
     <string name="fish_hub_hungry">%1$d balık aç</string>
+
+    <!-- Borsa Ustasi -->
+    <string name="game_stock_market_name">Borsa Ustası</string>
+    <string name="game_stock_market_desc">1.000 $ ile başla, 60 gün boyunca dört hissede al-sat yap. Haberleri oku, trendleri yakala, servetini büyüt!</string>
+    <string name="stock_net_worth">NET DEĞER</string>
+    <string name="stock_day">Gün %1$d/%2$d</string>
+    <string name="stock_day_short">%1$d. gün</string>
+    <string name="stock_cash">Nakit %1$s</string>
+    <string name="stock_how_to">Saati başlatmak için ▶\'e bas. Haberleri takip et: trendler ve söylentiler ne zaman alıp satacağını söyler.</string>
+    <string name="stock_position">%1$d adet · ort. %2$s · %3$s</string>
+    <string name="stock_no_position">Bu hisseden sende yok.</string>
+    <string name="stock_buy">Al</string>
+    <string name="stock_sell">Sat</string>
+    <string name="stock_max">Maks</string>
+    <string name="stock_all">Hepsi</string>
+    <string name="stock_fee" formatted="false">Her işlemde %0,5 komisyon</string>
+    <string name="stock_tip">Reklam izle: içeriden bilgi (%1$d gün)</string>
+    <string name="stock_tip_active">İçeriden bilgi: trend okları %1$d gün daha görünür</string>
+    <string name="stock_market_closed">Piyasa kapandı!</string>
+    <string name="stock_result">Son net değer %1$s (%2$s)</string>
+    <string name="stock_news">Haberler</string>
+    <string name="stock_no_news">Henüz haber yok.</string>
+    <string name="stock_news_trend_up">%1$s yükseliş trendinde.</string>
+    <string name="stock_news_trend_flat">%1$s yatay seyrediyor.</string>
+    <string name="stock_news_trend_down">%1$s düşüş trendinde.</string>
+    <string name="stock_news_rumor_up">Söylenti: analistler %1$s için yakında yükseliş bekliyor.</string>
+    <string name="stock_news_rumor_down">Söylenti: analistler %1$s için yakında düşüş bekliyor.</string>
+    <string name="stock_news_earnings_good">%1$s beklentilerin üzerinde kâr açıkladı!</string>
+    <string name="stock_news_earnings_bad">%1$s beklentilerin altında kaldı.</string>
+    <string name="stock_news_market_bull">Borsa yükseliş trendinde.</string>
+    <string name="stock_news_market_bear">Borsa düşüş trendinde.</string>
+    <string name="stock_not_enough_cash">Yeterli nakit yok.</string>
+    <string name="stock_not_enough_shares">Yeterli hissen yok.</string>
 </resources>

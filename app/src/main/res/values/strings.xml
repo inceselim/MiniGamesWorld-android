@@ -254,4 +254,37 @@
     <string name="fish_not_enough_pearls">Not enough pearls.</string>
     <string name="fish_hub_pending">%1$d pearls ready</string>
     <string name="fish_hub_hungry">%1$d hungry fish</string>
+
+    <!-- Borsa Ustasi -->
+    <string name="game_stock_market_name">Stock Trader</string>
+    <string name="game_stock_market_desc">Start with $1,000 and trade four stocks for 60 days. Read the news, ride the trends and grow your fortune!</string>
+    <string name="stock_net_worth">NET WORTH</string>
+    <string name="stock_day">Day %1$d/%2$d</string>
+    <string name="stock_day_short">Day %1$d</string>
+    <string name="stock_cash">Cash %1$s</string>
+    <string name="stock_how_to">Press ▶ to start the clock. Watch the news: trends and rumors tell you what to buy and when to sell.</string>
+    <string name="stock_position">%1$d shares · avg %2$s · %3$s</string>
+    <string name="stock_no_position">You don\'t own this stock.</string>
+    <string name="stock_buy">Buy</string>
+    <string name="stock_sell">Sell</string>
+    <string name="stock_max">Max</string>
+    <string name="stock_all">All</string>
+    <string name="stock_fee" formatted="false">0.5% commission on every trade</string>
+    <string name="stock_tip">Watch ad: insider tip (%1$d days)</string>
+    <string name="stock_tip_active">Insider tip: trend arrows visible for %1$d more days</string>
+    <string name="stock_market_closed">Market closed!</string>
+    <string name="stock_result">Final net worth %1$s (%2$s)</string>
+    <string name="stock_news">News</string>
+    <string name="stock_no_news">No news yet.</string>
+    <string name="stock_news_trend_up">%1$s is in an uptrend.</string>
+    <string name="stock_news_trend_flat">%1$s is moving sideways.</string>
+    <string name="stock_news_trend_down">%1$s is in a downtrend.</string>
+    <string name="stock_news_rumor_up">Rumor: analysts expect %1$s to rise soon.</string>
+    <string name="stock_news_rumor_down">Rumor: analysts expect %1$s to fall soon.</string>
+    <string name="stock_news_earnings_good">%1$s beat earnings expectations!</string>
+    <string name="stock_news_earnings_bad">%1$s missed earnings expectations.</string>
+    <string name="stock_news_market_bull">The market is in a bull run.</string>
+    <string name="stock_news_market_bear">The market is in a bear market.</string>
+    <string name="stock_not_enough_cash">Not enough cash.</string>
+    <string name="stock_not_enough_shares">You don\'t have enough shares.</string>
 </resources>

@@ -36,6 +36,7 @@ import com.eomer91.minigamesworld.ui.games.memory.MemoryScreen
 import com.eomer91.minigamesworld.ui.games.mines.MinesScreen
 import com.eomer91.minigamesworld.ui.games.fish.FishWorldScreen
 import com.eomer91.minigamesworld.ui.games.rocket.RocketScreen
+import com.eomer91.minigamesworld.ui.games.stocks.StockMarketScreen
 import com.eomer91.minigamesworld.ui.games.snake.SnakeScreen
 import com.eomer91.minigamesworld.ui.games.solitaire.SolitaireScreen
 import com.eomer91.minigamesworld.ui.games.stack.StackScreen
@@ -81,6 +82,7 @@ fun PlayScreen(gameId: String, onBack: () -> Unit) {
                 "connect-four" -> Connect4Screen()
                 "rocket-hop" -> RocketScreen()
                 "fish-world" -> FishWorldScreen()
+                "stock-market" -> StockMarketScreen()
                 else -> ComingSoon()
             }
         }
