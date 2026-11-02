@@ -104,6 +104,14 @@ fun StockMarketScreen(viewModel: StockMarketViewModel = hiltViewModel()) {
         }
     }
 
+    // Her ~3 dk aktif oyunda bir, gun degisiminde gecis reklami.
+    LaunchedEffect(state.adDue) {
+        if (state.adDue) {
+            viewModel.adShown()
+            showInterstitial {}
+        }
+    }
+
     // Gun sayaci: sadece on planda ilerler.
     val lifecycle = LocalLifecycleOwner.current.lifecycle
     LaunchedEffect(Unit) {

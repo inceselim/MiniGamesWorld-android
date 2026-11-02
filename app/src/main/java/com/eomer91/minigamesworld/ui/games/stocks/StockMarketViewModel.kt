@@ -2,6 +2,7 @@ package com.eomer91.minigamesworld.ui.games.stocks
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.eomer91.minigamesworld.ads.PlaytimeAdTimer
 import com.eomer91.minigamesworld.data.GoldTracker
 import com.eomer91.minigamesworld.data.UserPrefsRepository
 import com.eomer91.minigamesworld.feedback.GameFeedback
@@ -30,6 +31,8 @@ data class StockUiState(
     val bestAtStart: Int = -1,
     val goldEarned: Int = 0,
     val notice: StockNotice? = null,
+    /** Oyun suresi doldu: gun arasinda gecis reklami goster. */
+    val adDue: Boolean = false,
 ) {
     val isNewRecord: Boolean get() = game != null && game.over && bestAtStart >= 0 && game.score > bestAtStart
 }
@@ -43,6 +46,7 @@ class StockMarketViewModel @Inject constructor(
     private val engine = StockEngine()
     private val goldTracker = GoldTracker()
     private var dayTimer = 0f
+    private val adTimer = PlaytimeAdTimer()
 
     private val _state = MutableStateFlow(StockUiState())
     val state: StateFlow<StockUiState> = _state.asStateFlow()
@@ -62,6 +66,7 @@ class StockMarketViewModel @Inject constructor(
     fun restart() {
         goldTracker.reset()
         dayTimer = 0f
+        adTimer.reset()
         _state.update { it.copy(game = engine.newGame(), playing = false, goldEarned = 0, bestAtStart = it.best, notice = null) }
         viewModelScope.launch { prefs.clearSavedGame(GAME_ID) }
     }
@@ -75,12 +80,16 @@ class StockMarketViewModel @Inject constructor(
         val s = _state.value
         if (!s.playing || s.game == null || s.game.over) return
         dayTimer += dt
+        adTimer.onPlay(dt)
         val interval = if (s.fast) FAST_DAY_SECONDS else DAY_SECONDS
         if (dayTimer >= interval) {
             dayTimer = 0f
             advance()
+            if (_state.value.game?.over == false && adTimer.consumeIfDue()) _state.update { it.copy(adDue = true) }
         }
     }
+
+    fun adShown() = _state.update { it.copy(adDue = false) }
 
     /** Duraklatilmisken elle bir sonraki gune gec. */
     fun nextDay() {

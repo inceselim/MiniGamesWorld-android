@@ -120,6 +120,14 @@ fun CountriesScreen(viewModel: CountriesViewModel = hiltViewModel()) {
         }
     }
 
+    // Her ~3 dk aktif oyunda bir, tur degisiminde gecis reklami.
+    LaunchedEffect(state.adDue) {
+        if (state.adDue) {
+            viewModel.adShown()
+            showInterstitial {}
+        }
+    }
+
     // Tur sayaci: sadece on planda ilerler.
     val lifecycle = LocalLifecycleOwner.current.lifecycle
     LaunchedEffect(Unit) {

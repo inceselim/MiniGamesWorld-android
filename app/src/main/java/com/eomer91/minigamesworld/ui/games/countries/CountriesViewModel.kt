@@ -2,6 +2,7 @@ package com.eomer91.minigamesworld.ui.games.countries
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.eomer91.minigamesworld.ads.PlaytimeAdTimer
 import com.eomer91.minigamesworld.data.GoldTracker
 import com.eomer91.minigamesworld.data.UserPrefsRepository
 import com.eomer91.minigamesworld.feedback.GameFeedback
@@ -36,6 +37,8 @@ data class CwUiState(
     /** Gosterilen savas raporu (diyalog). */
     val report: BattleReport? = null,
     val notice: CwNotice? = null,
+    /** Oyun suresi doldu: tur arasinda gecis reklami goster. */
+    val adDue: Boolean = false,
     val best: Int = 0,
     val bestAtStart: Int = -1,
     val goldEarned: Int = 0,
@@ -52,6 +55,7 @@ class CountriesViewModel @Inject constructor(
     val engine = CountriesEngine()
     private val goldTracker = GoldTracker()
     private var timer = 0f
+    private val adTimer = PlaytimeAdTimer()
 
     private val _state = MutableStateFlow(CwUiState())
     val state: StateFlow<CwUiState> = _state.asStateFlow()
@@ -81,6 +85,7 @@ class CountriesViewModel @Inject constructor(
         val s = _state.value
         goldTracker.reset()
         timer = 0f
+        adTimer.reset()
         val g = engine.newGame(s.setupDifficulty, s.setupName.ifBlank { defaultName }, s.setupPolity)
         _state.update {
             it.copy(phase = CwPhase.PLAYING, game = g, tab = CwTab.OVERVIEW, paused = false, turnProgress = 0f,
@@ -102,17 +107,20 @@ class CountriesViewModel @Inject constructor(
     fun setTab(t: CwTab) = _state.update { it.copy(tab = t) }
     fun consumeNotice() = _state.update { it.copy(notice = null) }
     fun dismissReport() = _state.update { it.copy(report = null) }
+    fun adShown() = _state.update { it.copy(adDue = false) }
 
     fun onFrame(dt: Float) {
         val s = _state.value
         val g = s.game ?: return
         if (s.phase != CwPhase.PLAYING || s.paused || g.over || s.report != null) return
         timer += dt
+        adTimer.onPlay(dt)
         if (timer >= CountriesEngine.TURN_SECONDS) {
             timer = 0f
             val next = engine.tick(g)
             val botBattle = next.lastBattle?.takeIf { it !== g.lastBattle && it.defender == g.player.name }
-            _state.value = s.copy(game = next, turnProgress = 0f, report = botBattle ?: s.report)
+            val adDue = !next.over && botBattle == null && adTimer.consumeIfDue()
+            _state.value = s.copy(game = next, turnProgress = 0f, report = botBattle ?: s.report, adDue = s.adDue || adDue)
             if (botBattle != null) {
                 feedback.play(if (botBattle.won) Sfx.GAME_OVER else Sfx.COMBO)
                 feedback.vibrate(Haptic.HEAVY)
