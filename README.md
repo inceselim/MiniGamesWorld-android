@@ -31,7 +31,8 @@ Debug build `com.eomer91.MiniGamesWorldincesoy.debug` paket adıyla kurulur. Bö
 | Snake | ✅ Native | İlk kaydırmada başlar, yem yedikçe hızlanır, arka planda durur |
 | Memory Card | ✅ Native | 3D kart çevirme; hamle sayısı skora çevrilir (kusursuz = 1000) |
 | Sudoku | ✅ Native | Kolay/Normal/Zor, her seferinde yeni tek çözümlü bulmaca, notlar, 3 hata hakkı, süre, **kaldığı yerden devam** |
-| Match 3, Stack, Bubble Shooter, Tower Defense | ⏳ Çok yakında | Detay ekranında altın harcanmaz, reklam gösterilmez |
+| Stack | ✅ Native | Tek dokunuş; taşan kısım kesilir, kusursuz bırakışta kombo ve blok büyümesi, giderek hızlanır |
+| Match 3, Bubble Shooter, Tower Defense | ⏳ Çok yakında | Detay ekranında altın harcanmaz, reklam gösterilmez |
 
 Her oyunun kuralları ekrandan ayrı, saf Kotlin bir `…Engine` sınıfında durur ve `app/src/test` altında unit testleri vardır. Testleri çalıştırmak için test dosyasını açıp sınıf adının yanındaki yeşil oka bas ya da `./gradlew test` komutunu çalıştır.
 
@@ -105,6 +106,9 @@ Dosyalar `res/raw/sfx_*.ogg` altında. RN projesindeki sesler OGG'ye çevrildi, 
 | | 128+ taş oluşması | combo | hafif |
 | | 2048'e ulaşma | clear | güçlü |
 | | Oyun sonu | game over | güçlü |
+| Stack | Blok bırakma | block | – |
+| | Kusursuz bırakış | combo (3+ seride clear) | hafif |
+| | Boşluğa düşme | game over | güçlü |
 | Snake | Yem | drop | hafif |
 | | Ölüm | game over | güçlü |
 | Memory | Kart açma | swipe (kısık) | – |

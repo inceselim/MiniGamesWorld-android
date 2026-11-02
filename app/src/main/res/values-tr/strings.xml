@@ -110,4 +110,8 @@
     <string name="sudoku_lost_body">Reklam izleyip devam edebilirsin (yanlış rakamların silinir) ya da yeni bir bulmacaya başla.</string>
     <string name="sudoku_continue">Reklam izle ve devam et</string>
     <string name="sudoku_new_puzzle">Yeni bulmaca</string>
+    <string name="stack_tap_to_start">Başlamak için ekrana dokun.\nHer bloğu bırakmak için tekrar dokun!</string>
+    <string name="stack_perfect">KUSURSUZ!</string>
+    <string name="stack_perfect_combo">KUSURSUZ ×%1$d</string>
+    <string name="stack_result">Yükseklik %1$d · Puan %2$d</string>
 </resources>

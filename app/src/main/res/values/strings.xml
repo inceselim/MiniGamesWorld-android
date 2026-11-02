@@ -112,4 +112,8 @@
     <string name="sudoku_lost_body">Watch an ad to keep playing (your wrong numbers are cleared), or start a new puzzle.</string>
     <string name="sudoku_continue">Watch ad &amp; continue</string>
     <string name="sudoku_new_puzzle">New puzzle</string>
+    <string name="stack_tap_to_start">Tap anywhere to start.\nTap again to drop each block!</string>
+    <string name="stack_perfect">PERFECT!</string>
+    <string name="stack_perfect_combo">PERFECT ×%1$d</string>
+    <string name="stack_result">Height %1$d · Score %2$d</string>
 </resources>
