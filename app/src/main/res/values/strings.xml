@@ -169,4 +169,20 @@
     <string name="solitaire_moves">%1$d moves</string>
     <string name="solitaire_auto_finish">Auto finish</string>
     <string name="solitaire_won">YOU WIN!</string>
+    <string name="game_connect_four_name">Connect Four</string>
+    <string name="game_connect_four_desc">Drop your discs and line up four in a row before your opponent. Play the computer or a friend.</string>
+    <string name="c4_vs_bot">Vs computer · %1$s</string>
+    <string name="c4_level_info">Win: %1$d points</string>
+    <string name="c4_two_players">2 players</string>
+    <string name="c4_two_players_info">Take turns on the same phone</string>
+    <string name="c4_series">You %1$d – %2$d Computer</string>
+    <string name="c4_your_turn">Your turn</string>
+    <string name="c4_bot_thinking">Computer is thinking…</string>
+    <string name="c4_player_turn">Player %1$d\'s turn</string>
+    <string name="c4_you_win">YOU WIN!</string>
+    <string name="c4_bot_wins">COMPUTER WINS</string>
+    <string name="c4_player_wins">PLAYER %1$d WINS!</string>
+    <string name="c4_draw">DRAW</string>
+    <string name="c4_result">Score %1$d</string>
+    <string name="c4_change_mode">Change mode</string>
 </resources>

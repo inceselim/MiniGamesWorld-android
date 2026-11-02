@@ -29,6 +29,7 @@ import com.eomer91.minigamesworld.R
 import com.eomer91.minigamesworld.data.GameCatalog
 import com.eomer91.minigamesworld.ui.games.blockpuzzle.BlockPuzzleScreen
 import com.eomer91.minigamesworld.ui.games.bubble.BubbleScreen
+import com.eomer91.minigamesworld.ui.games.connect4.Connect4Screen
 import com.eomer91.minigamesworld.ui.games.game2048.Game2048Screen
 import com.eomer91.minigamesworld.ui.games.match3.Match3Screen
 import com.eomer91.minigamesworld.ui.games.memory.MemoryScreen
@@ -75,6 +76,7 @@ fun PlayScreen(gameId: String, onBack: () -> Unit) {
                 "tower-defense" -> TowerScreen()
                 "minesweeper" -> MinesScreen()
                 "solitaire" -> SolitaireScreen()
+                "connect-four" -> Connect4Screen()
                 else -> ComingSoon()
             }
         }

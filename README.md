@@ -37,6 +37,7 @@ Debug build `com.eomer91.MiniGamesWorldincesoy.debug` paket adıyla kurulur. Bö
 | Tower Defense | ✅ Native | Tek kule savunması: dalgalar, 4 düşman türü + boss, gümüşle oyun içi, altınla kalıcı (Atölye) yükseltmeler, 2× hız | Detay ekranında altın harcanmaz, reklam gösterilmez |
 | Mayın Tarlası | ✅ Native | Kolay/Normal/Zor, ilk dokunuş güvenli, Kaz/Bayrak modu, basılı tut = bayrak, sayıya dokun = komşuları aç, ikinci şans (reklam), **kaldığı yerden devam** |
 | Solitaire | ✅ Native | Klondike, 1 ya da 3 kart çekme, dokun = otomatik taşı, sürükle-bırak, sınırsız geri al, ipucu (reklam), otomatik bitir, **kaldığı yerden devam** |
+| Dört Bağla | ✅ Native | Bilgisayara karşı (Kolay/Normal/Zor, negamax + alfa-beta) ya da 2 oyuncu, düşme animasyonu, seri skoru, hamle geri al (reklam) |
 
 Her oyunun kuralları ekrandan ayrı, saf Kotlin bir `…Engine` sınıfında durur ve `app/src/test` altında unit testleri vardır. Testleri çalıştırmak için test dosyasını açıp sınıf adının yanındaki yeşil oka bas ya da `./gradlew test` komutunu çalıştır.
 
@@ -96,7 +97,7 @@ Tahtanın altında iki buton var, ikisi de ödüllü (rewarded) reklam izletir:
 |---|---|
 | Banner | Ara, Favoriler, Profil ve Ayarlar sekmelerinin altında. Ana sayfada (Oyunlar) ve oyun ekranlarında yok. |
 | Geçiş (Interstitial) | Oynanabilir bir oyunun detay ekranında **Play**, oyun içinde **Restart** ve **Tekrar oyna** |
-| Ödüllü (Rewarded) | Altın yetmeyince **Reklam izle (+50 altın)**; Block Puzzle: **Parçaları değiştir**, **Geri al**; Sudoku: **İpucu**, **3 hatadan sonra devam**; Match 3: **+5 hamle**; Bubble Shooter: **3 sırayı temizle ve devam et**; Tower Defense: **yarı canla devam**; Mayın Tarlası: **ikinci şans** (hepsi oyun başına bir kez); Solitaire: **ipucu** |
+| Ödüllü (Rewarded) | Altın yetmeyince **Reklam izle (+50 altın)**; Block Puzzle: **Parçaları değiştir**, **Geri al**; Sudoku: **İpucu**, **3 hatadan sonra devam**; Match 3: **+5 hamle**; Bubble Shooter: **3 sırayı temizle ve devam et**; Tower Defense: **yarı canla devam**; Mayın Tarlası: **ikinci şans** (hepsi oyun başına bir kez); Solitaire: **ipucu**; Dört Bağla: **hamle geri al** (oyun başına bir kez) |
 
 - İki geçiş reklamı arasında en az **60 saniye** olur ve bu süre tüm butonlar için ortaktır. Ödüllü reklam izlendiğinde de bu süre yeniden başlar (art arda iki tam ekran reklam çıkmaz). Çok sık geçiş reklamı oyuncuyu kaçırır ve AdMob politikalarına takılabilir. Değiştirmek için: `ads/InterstitialAdManager.kt` → `MIN_INTERVAL_MS`.
 - Reklam hazır değilse (internet yok, yüklenemedi) oyun beklemeden devam eder.

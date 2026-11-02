@@ -167,4 +167,20 @@
     <string name="solitaire_moves">%1$d hamle</string>
     <string name="solitaire_auto_finish">Otomatik bitir</string>
     <string name="solitaire_won">KAZANDIN!</string>
+    <string name="game_connect_four_name">Dört Bağla</string>
+    <string name="game_connect_four_desc">Taşlarını bırak, rakibinden önce dördünü yan yana getir. Bilgisayara ya da arkadaşına karşı oyna.</string>
+    <string name="c4_vs_bot">Bilgisayara karşı · %1$s</string>
+    <string name="c4_level_info">Galibiyet: %1$d puan</string>
+    <string name="c4_two_players">2 oyuncu</string>
+    <string name="c4_two_players_info">Aynı telefonda sırayla oynayın</string>
+    <string name="c4_series">Sen %1$d – %2$d Bilgisayar</string>
+    <string name="c4_your_turn">Sıra sende</string>
+    <string name="c4_bot_thinking">Bilgisayar düşünüyor…</string>
+    <string name="c4_player_turn">Sıra %1$d. oyuncuda</string>
+    <string name="c4_you_win">KAZANDIN!</string>
+    <string name="c4_bot_wins">BİLGİSAYAR KAZANDI</string>
+    <string name="c4_player_wins">%1$d. OYUNCU KAZANDI!</string>
+    <string name="c4_draw">BERABERE</string>
+    <string name="c4_result">Puan %1$d</string>
+    <string name="c4_change_mode">Modu değiştir</string>
 </resources>
