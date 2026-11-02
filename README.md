@@ -41,6 +41,7 @@ Debug build `com.eomer91.MiniGamesWorldincesoy.debug` paket adıyla kurulur. Bö
 | Roket Zıpla | ✅ Native | Özgün Flappy tarzı: dokunarak it, asteroit kapıları, yıldız bonusu, hızlanma, kalkanla devam (reklam) |
 | Balık Dünyası | ✅ Native | Olta at, kancayı sürükle, denizanalarından kaç; 9 balık türü, inciyle olta yükseltmeleri; tutulanlar akvaryuma: yem at, büyüt, inci topla, sat, akvaryumu büyüt, süsle; ekstra atış ve yem (reklam) |
 | Borsa Ustası | ✅ Native | Eski "io stock trade" oyunundan (com.stockgameincesoy): 1.000 $ ile 60 gün, 4 hisse (AA, CCA, XAH, GLD), trend/söylenti/bilanço haberleri, %0,5 komisyon, içeriden bilgi (reklam), **kaldığı yerden devam** |
+| Ülkeler Savaşı | ✅ Native | Eski "CountriesWar" oyunundan (com.countriesincesoyselim): 5 sn'lik otomatik turlar, 11 bina, 6 birlik, vergi/odak/yönetim biçimi, pazar, 1-7 bot, ilk 10 tur barış, casus ağı, Altın Çağ (elmas), elmas (reklam), **kaldığı yerden devam** |
 
 Her oyunun kuralları ekrandan ayrı, saf Kotlin bir `…Engine` sınıfında durur ve `app/src/test` altında unit testleri vardır. Testleri çalıştırmak için test dosyasını açıp sınıf adının yanındaki yeşil oka bas ya da `./gradlew test` komutunu çalıştır.
 
@@ -55,7 +56,7 @@ Rekorlar oyun sırasında, rekor geçildiği anda kaydedilir. Oyuncu oyunun orta
 - **Altın yetmezse:** Detay ekranında Play'e basınca yeterli altın yoksa bir pencere açılır: "Reklam izle (+50)". Ödüllü reklam sonuna kadar izlenirse **50 altın** eklenir, oyuncu tekrar Play'e basarak oyuna girer.
 - Kurallar tek yerde: `data/GameEconomy.kt` (`POINTS_PER_GOLD`, `AD_REWARD_GOLD`).
 
-## Kaldığı yerden devam (Block Puzzle, 2048, Sudoku, Mayın Tarlası, Solitaire, Borsa Ustası)
+## Kaldığı yerden devam (Block Puzzle, 2048, Sudoku, Mayın Tarlası, Solitaire, Borsa Ustası, Ülkeler Savaşı)
 
 - Her hamleden sonra oyun (tahta, skor, o oyunda kazanılan altın; Block Puzzle'da ayrıca eldeki parçalar) cihaza kaydedilir. Oyundan çıkınca, uygulama kapansa bile kayıt durur.
 - Detay ekranında kayıt varsa iki buton çıkar: **Kaldığın yerden devam et** (altın harcanmaz) ve **Yeni oyun · N altın** (kayıt silinir). Devam etmede de geçiş reklamı kuralı geçerlidir.
@@ -103,6 +104,17 @@ Rekorlar oyun sırasında, rekor geçildiği anda kaydedilir. Oyuncu oyunun orta
 - Her hissenin 6-14 gün süren gizli trendi var (yükseliş/yatay/düşüş); trend değişince haber çıkar. Değişimden 2 gün önce %80 ihtimalle söylenti çıkar (%80 doğru). Günde %4 ihtimalle bilanço sürprizi (±%10-25). Piyasa 10-20 günde bir boğa/ayı arasında döner.
 - Denge Python simülasyonuyla kontrol edildi: rastgele al-sat ≈ 1.000 $, trendi takip eden ≈ 2.300 $ (medyan).
 
+## Ülkeler Savaşı
+
+- Değerler eski oyundan (`CountriesData.kt`): bina/birlik fiyatları, bakım, üretim, yönetim biçimi etkileri. Kurallar `CountriesEngine` içinde.
+- Tur 5 sn'de bir ilerler (duraklatılabilir, savaş raporu açıkken durur). İlk 10 tur barış: kimse saldıramaz.
+- Gelir: vergi (nüfus/1000 × 30 × vergi% × meclis verimi) + binalar; bakım düşülür. Ordu altın tüketmez, odun/kil/demir tüketir. Bir kaynak eksiye düşerse kıtlık: her birlikten %3 kaçar.
+- Nüfus: çiftlik başına 1.000 kapasite; vergi yükseldikçe artış yavaşlar. Kışla başına 100 asker yeri.
+- Savaş: saldırı gücü > savunma gücü ise kazanılır; yenilen ülke yok olur, altın ve nüfusunun %10-30'u alınır. Kazanan gönderdiği birliklerin bir kısmını, kaybeden hepsini kaybeder.
+- Botlar: her tur kaynak toplar, eksi veren kaynağın binasını kurar, asker alır; barıştan sonra zorluğa göre %3-6 ihtimalle saldırır (ordusunun %60'ıyla, umutsuzsa saldırmaz).
+- Elmas: reklamla +3. Casus ağı 5, Büyük çarşı 1, Altın Çağ (5 tur +%100 saldırı/savunma/nüfus) 5 elmas.
+- Skor: zafer = 1000 × rakip + (3000 − 15 × tur) + nüfus/20; yenilgi = 300 × fethedilen + 5 × tur.
+
 ## Block Puzzle ödüllü reklam
 
 Tahtanın altında iki buton var, ikisi de ödüllü (rewarded) reklam izletir:
@@ -120,7 +132,7 @@ Tahtanın altında iki buton var, ikisi de ödüllü (rewarded) reklam izletir:
 |---|---|
 | Banner | Ara, Favoriler, Profil ve Ayarlar sekmelerinin altında. Ana sayfada (Oyunlar) ve oyun ekranlarında yok. |
 | Geçiş (Interstitial) | Oynanabilir bir oyunun detay ekranında **Play**, oyun içinde **Restart** ve **Tekrar oyna** |
-| Ödüllü (Rewarded) | Altın yetmeyince **Reklam izle (+50 altın)**; Block Puzzle: **Parçaları değiştir**, **Geri al**; Sudoku: **İpucu**, **3 hatadan sonra devam**; Match 3: **+5 hamle**; Bubble Shooter: **3 sırayı temizle ve devam et**; Tower Defense: **yarı canla devam**; Mayın Tarlası: **ikinci şans** (hepsi oyun başına bir kez); Solitaire: **ipucu**; Dört Bağla: **hamle geri al**; Roket Zıpla: **kalkanla devam** (oyun başına bir kez); Balık Dünyası: **bir atış daha** (oturum başına bir kez), **+10 yem**; Borsa Ustası: **içeriden bilgi** (5 gün trend okları, oyun başına bir kez) |
+| Ödüllü (Rewarded) | Altın yetmeyince **Reklam izle (+50 altın)**; Block Puzzle: **Parçaları değiştir**, **Geri al**; Sudoku: **İpucu**, **3 hatadan sonra devam**; Match 3: **+5 hamle**; Bubble Shooter: **3 sırayı temizle ve devam et**; Tower Defense: **yarı canla devam**; Mayın Tarlası: **ikinci şans** (hepsi oyun başına bir kez); Solitaire: **ipucu**; Dört Bağla: **hamle geri al**; Roket Zıpla: **kalkanla devam** (oyun başına bir kez); Balık Dünyası: **bir atış daha** (oturum başına bir kez), **+10 yem**; Borsa Ustası: **içeriden bilgi** (5 gün trend okları, oyun başına bir kez); Ülkeler Savaşı: **+3 elmas** |
 
 - İki geçiş reklamı arasında en az **60 saniye** olur ve bu süre tüm butonlar için ortaktır. Ödüllü reklam izlendiğinde de bu süre yeniden başlar (art arda iki tam ekran reklam çıkmaz). Çok sık geçiş reklamı oyuncuyu kaçırır ve AdMob politikalarına takılabilir. Değiştirmek için: `ads/InterstitialAdManager.kt` → `MIN_INTERVAL_MS`.
 - Reklam hazır değilse (internet yok, yüklenemedi) oyun beklemeden devam eder.
