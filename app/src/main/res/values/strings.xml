@@ -210,7 +210,6 @@
     <string name="fish_rod_shop">Rod shop</string>
     <string name="fish_aquarium">Aquarium</string>
     <string name="fish_aquarium_count">%1$d/%2$d fish</string>
-    <string name="fish_aquarium_soon">Coming soon: feed your fish, watch them grow and collect pearls!</string>
     <string name="fish_rod_summary">Your rod: %1$d m deep · %2$d fish per cast</string>
     <string name="fish_how_to">Tap to cast. Drag to steer the hook. The first fish you touch stops the line; catch more on the way up and avoid jellyfish!</string>
     <string name="fish_casts_left">Casts %1$d</string>
@@ -231,4 +230,28 @@
     <string name="fish_stat_reel">%1$d%% speed</string>
     <string name="fish_collection">Collection %1$d/%2$d</string>
     <string name="fish_species_info">From %1$d m · %2$d pearls</string>
+    <string name="fish_food">Food %1$d/%2$d</string>
+    <string name="fish_collect">+%1$d</string>
+    <string name="fish_tank_hint">Tap the water to drop food · tap a fish for details</string>
+    <string name="fish_tank_empty">Your aquarium is empty. Go fishing!</string>
+    <string name="fish_growth">Growth %1$d%%</string>
+    <string name="fish_hunger_full">Full</string>
+    <string name="fish_hunger_hungry">Hungry – drop some food!</string>
+    <string name="fish_hunger_starving">Starving – not making pearls</string>
+    <string name="fish_rate">%1$s pearls/hour</string>
+    <string name="fish_sell">Sell for %1$d pearls</string>
+    <string name="fish_ad_food">Watch ad: +%1$d food</string>
+    <string name="fish_aquarium_shop">Aquarium shop</string>
+    <string name="fish_capacity_up">Bigger aquarium</string>
+    <string name="fish_capacity_info">%1$d → %2$d fish</string>
+    <string name="fish_owned">OWNED</string>
+    <string name="fish_deco_plant">Seaweed</string>
+    <string name="fish_deco_coral">Coral</string>
+    <string name="fish_deco_castle">Castle</string>
+    <string name="fish_deco_treasure">Treasure chest</string>
+    <string name="fish_deco_bonus">+%1$d%% pearl production</string>
+    <string name="fish_no_food">Out of food! Wait a bit or watch an ad.</string>
+    <string name="fish_not_enough_pearls">Not enough pearls.</string>
+    <string name="fish_hub_pending">%1$d pearls ready</string>
+    <string name="fish_hub_hungry">%1$d hungry fish</string>
 </resources>

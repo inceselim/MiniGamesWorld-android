@@ -208,7 +208,6 @@
     <string name="fish_rod_shop">Olta dükkânı</string>
     <string name="fish_aquarium">Akvaryum</string>
     <string name="fish_aquarium_count">%1$d/%2$d balık</string>
-    <string name="fish_aquarium_soon">Yakında: balıklarını besle, büyümelerini izle ve inci topla!</string>
     <string name="fish_rod_summary">Oltan: %1$d m derinlik · atış başına %2$d balık</string>
     <string name="fish_how_to">Atmak için dokun. Kancayı sürükleyerek yönlendir. İlk dokunduğun balık misinayı durdurur; yukarı çıkarken daha fazlasını yakala, denizanalarından kaç!</string>
     <string name="fish_casts_left">Atış %1$d</string>
@@ -229,4 +228,28 @@
     <string name="fish_stat_reel">%%%1$d hız</string>
     <string name="fish_collection">Koleksiyon %1$d/%2$d</string>
     <string name="fish_species_info">%1$d m\'den itibaren · %2$d inci</string>
+    <string name="fish_food">Yem %1$d/%2$d</string>
+    <string name="fish_collect">+%1$d</string>
+    <string name="fish_tank_hint">Yem atmak için suya dokun · bilgi için balığa dokun</string>
+    <string name="fish_tank_empty">Akvaryumun boş. Balık tutmaya git!</string>
+    <string name="fish_growth">Büyüme %%%1$d</string>
+    <string name="fish_hunger_full">Tok</string>
+    <string name="fish_hunger_hungry">Aç – biraz yem at!</string>
+    <string name="fish_hunger_starving">Çok aç – inci üretmiyor</string>
+    <string name="fish_rate">Saatte %1$s inci</string>
+    <string name="fish_sell">Sat: %1$d inci</string>
+    <string name="fish_ad_food">Reklam izle: +%1$d yem</string>
+    <string name="fish_aquarium_shop">Akvaryum dükkânı</string>
+    <string name="fish_capacity_up">Akvaryumu büyüt</string>
+    <string name="fish_capacity_info">%1$d → %2$d balık</string>
+    <string name="fish_owned">SENİN</string>
+    <string name="fish_deco_plant">Deniz yosunu</string>
+    <string name="fish_deco_coral">Mercan</string>
+    <string name="fish_deco_castle">Kale</string>
+    <string name="fish_deco_treasure">Hazine sandığı</string>
+    <string name="fish_deco_bonus">+%%%1$d inci üretimi</string>
+    <string name="fish_no_food">Yem bitti! Biraz bekle ya da reklam izle.</string>
+    <string name="fish_not_enough_pearls">Yeterli incin yok.</string>
+    <string name="fish_hub_pending">%1$d inci toplanmayı bekliyor</string>
+    <string name="fish_hub_hungry">%1$d balık aç</string>
 </resources>

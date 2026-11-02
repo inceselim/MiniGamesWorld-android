@@ -18,6 +18,9 @@ import javax.inject.Inject
 
 enum class FishScreen { LOADING, HUB, FISHING, SHOP, AQUARIUM }
 
+/** Kisa bilgi mesajlari (snackbar). */
+enum class FishNotice { NO_FOOD, NOT_ENOUGH_PEARLS }
+
 data class FishWorldState(
     val screen: FishScreen = FishScreen.LOADING,
     val profile: FishProfile = FishProfile(),
@@ -35,7 +38,13 @@ data class FishWorldState(
     val best: Int = 0,
     val bestAtStart: Int = -1,
     val goldEarned: Int = 0,
+    // ---- Akvaryum ----
+    val tank: TankState = TankState(),
+    val now: Long = System.currentTimeMillis(),
+    val selectedFishId: Long? = null,
+    val notice: FishNotice? = null,
 ) {
+    val selectedFish: OwnedFish? get() = selectedFishId?.let { id -> profile.aquarium.firstOrNull { it.id == id } }
     val isNewRecord: Boolean get() = sessionOver && bestAtStart >= 0 && sessionScore > bestAtStart
 }
 
@@ -47,14 +56,17 @@ class FishWorldViewModel @Inject constructor(
 
     private val engine = FishingEngine()
     private val goldTracker = GoldTracker()
+    private val tankSim = TankSim()
+    private var tickAccum = 0f
 
     private val _state = MutableStateFlow(FishWorldState())
     val state: StateFlow<FishWorldState> = _state.asStateFlow()
 
     init {
         viewModelScope.launch {
-            val profile = FishProfile.fromJson(prefs.savedGame(PROFILE_KEY).first())
-            _state.update { it.copy(screen = FishScreen.HUB, profile = profile) }
+            val now = System.currentTimeMillis()
+            val profile = Aquarium.refillFood(FishProfile.fromJson(prefs.savedGame(PROFILE_KEY).first()), now)
+            _state.update { it.copy(screen = FishScreen.HUB, profile = profile, now = now) }
         }
         viewModelScope.launch {
             prefs.highScore(GAME_ID).collect { best ->
@@ -65,9 +77,17 @@ class FishWorldViewModel @Inject constructor(
 
     // ---------- Gezinme ----------
 
-    fun openHub() = _state.update { it.copy(screen = FishScreen.HUB, cast = null) }
+    fun openHub() = _state.update { it.copy(screen = FishScreen.HUB, cast = null, selectedFishId = null) }
     fun openShop() = _state.update { it.copy(screen = FishScreen.SHOP) }
-    fun openAquarium() = _state.update { it.copy(screen = FishScreen.AQUARIUM) }
+    fun openAquarium() {
+        val now = System.currentTimeMillis()
+        _state.update {
+            val profile = Aquarium.refillFood(it.profile, now)
+            it.copy(screen = FishScreen.AQUARIUM, profile = profile, now = now, tank = tankSim.build(profile, now, it.tank))
+        }
+    }
+
+    fun consumeNotice() = _state.update { it.copy(notice = null) }
 
     /** Yeni balik tutma oturumu (3 atis). */
     fun startFishing() {
@@ -119,6 +139,15 @@ class FishWorldViewModel @Inject constructor(
     }
 
     fun onFrame(dt: Float) {
+        tickAccum += dt
+        if (tickAccum >= 1f) {
+            tickAccum = 0f
+            secondTick()
+        }
+        if (_state.value.screen == FishScreen.AQUARIUM) {
+            aquariumFrame(dt)
+            return
+        }
         val s = _state.value
         val cast = s.cast ?: return
         if (s.screen != FishScreen.FISHING) return
@@ -189,6 +218,118 @@ class FishWorldViewModel @Inject constructor(
             if (!it.sessionOver || it.extraCastUsed) it
             else it.copy(sessionOver = false, castsLeft = 1, extraCastUsed = true, cast = newCast(it.profile))
         }
+    }
+
+    // ---------- Akvaryum ----------
+
+    /** Saniyede bir: saat, yem dolumu ve aclik durumlari. */
+    private fun secondTick() {
+        val now = System.currentTimeMillis()
+        _state.update {
+            val profile = Aquarium.refillFood(it.profile, now)
+            val tank = if (it.screen == FishScreen.AQUARIUM) tankSim.build(profile, now, it.tank) else it.tank
+            it.copy(now = now, profile = profile, tank = tank)
+        }
+    }
+
+    private fun aquariumFrame(dt: Float) {
+        val s = _state.value
+        val (tank, eaten) = tankSim.update(s.tank, dt.coerceAtMost(0.05f))
+        if (eaten.isEmpty()) {
+            _state.value = s.copy(tank = tank)
+            return
+        }
+        val now = System.currentTimeMillis()
+        var profile = s.profile
+        eaten.forEach { profile = Aquarium.feed(profile, it, now) }
+        // Buyume degisti: tanki guncelle
+        _state.value = s.copy(profile = profile, tank = tankSim.build(profile, now, tank))
+        saveProfile(profile)
+        feedback.play(Sfx.DROP, volume = 0.6f)
+        feedback.vibrate(Haptic.LIGHT)
+    }
+
+    /** Tanka dokunus (tank birimleriyle): baliga dokunduysa sec, degilse yem at. */
+    fun onTankTap(x: Float, y: Float) {
+        val s = _state.value
+        val hit = tankSim.fishAt(s.tank, x, y)
+        if (hit != null) {
+            _state.value = s.copy(selectedFishId = if (s.selectedFishId == hit.id) null else hit.id)
+            feedback.play(Sfx.SWIPE, volume = 0.4f)
+            return
+        }
+        val now = System.currentTimeMillis()
+        val profile = Aquarium.useFood(s.profile, now)
+        if (profile == null) {
+            _state.value = s.copy(notice = FishNotice.NO_FOOD)
+            return
+        }
+        _state.value = s.copy(profile = profile, tank = tankSim.drop(s.tank, x))
+        saveProfile(profile)
+        feedback.play(Sfx.DROP, volume = 0.3f)
+    }
+
+    fun closeFishInfo() = _state.update { it.copy(selectedFishId = null) }
+
+    fun collectPearls() {
+        val s = _state.value
+        val now = System.currentTimeMillis()
+        val (profile, gained) = Aquarium.collect(s.profile, now)
+        if (gained <= 0) return
+        _state.value = s.copy(profile = profile, now = now)
+        saveProfile(profile)
+        feedback.play(Sfx.COMBO)
+        feedback.vibrate(Haptic.LIGHT)
+    }
+
+    fun sellSelected() {
+        val s = _state.value
+        val id = s.selectedFishId ?: return
+        val (profile, price) = Aquarium.sell(s.profile, id)
+        if (price <= 0) return
+        _state.value = s.copy(profile = profile, selectedFishId = null, tank = tankSim.build(profile, s.now, s.tank))
+        saveProfile(profile)
+        feedback.play(Sfx.CLEAR, volume = 0.7f)
+    }
+
+    /** Odullu reklam sonrasi yem. */
+    fun adFood() {
+        val now = System.currentTimeMillis()
+        _state.update { it.copy(profile = Aquarium.addFood(it.profile, Aquarium.AD_FOOD, now)) }
+        saveProfile(_state.value.profile)
+        feedback.play(Sfx.BLOCK)
+    }
+
+    fun buyCapacity() {
+        val s = _state.value
+        val cost = Aquarium.capacityCost(s.profile) ?: return
+        if (s.profile.pearls < cost) {
+            _state.value = s.copy(notice = FishNotice.NOT_ENOUGH_PEARLS)
+            return
+        }
+        val profile = s.profile.copy(
+            pearls = s.profile.pearls - cost,
+            aquariumCapacity = s.profile.aquariumCapacity + Aquarium.CAPACITY_STEP,
+        )
+        _state.value = s.copy(profile = profile)
+        saveProfile(profile)
+        feedback.play(Sfx.BLOCK)
+    }
+
+    fun buyDecoration(d: Decoration) {
+        val s = _state.value
+        if (d.name in s.profile.decorations) return
+        if (s.profile.pearls < d.cost) {
+            _state.value = s.copy(notice = FishNotice.NOT_ENOUGH_PEARLS)
+            return
+        }
+        // Once biriken inciyi eski bonusla topla ki yeni bonus gecmise uygulanmasin
+        val now = System.currentTimeMillis()
+        val (collected, _) = Aquarium.collect(s.profile, now)
+        val profile = collected.copy(pearls = collected.pearls - d.cost, decorations = collected.decorations + d.name)
+        _state.value = s.copy(profile = profile)
+        saveProfile(profile)
+        feedback.play(Sfx.COMBO)
     }
 
     // ---------- Dukkan ----------

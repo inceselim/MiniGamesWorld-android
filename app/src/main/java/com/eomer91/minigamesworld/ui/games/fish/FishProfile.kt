@@ -30,6 +30,11 @@ data class FishProfile(
     /** Tur basina toplam tutulan sayisi (koleksiyon). */
     val caughtTotals: Map<String, Int> = emptyMap(),
     val nextFishId: Long = 1,
+    /** Yem kabi (Aquarium.MAX_FOOD'a kadar zamanla dolar). */
+    val food: Int = Aquarium.MAX_FOOD,
+    val foodUpdatedAt: Long = 0L,
+    /** Satin alinan susler (Decoration.name). */
+    val decorations: List<String> = emptyList(),
 ) {
     fun toJson(): String = json.encodeToString(serializer(), this)
 

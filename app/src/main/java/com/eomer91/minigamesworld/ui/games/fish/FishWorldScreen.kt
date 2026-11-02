@@ -5,6 +5,7 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -74,6 +75,7 @@ import com.eomer91.minigamesworld.ui.games.common.ScoreHeader
 import com.eomer91.minigamesworld.ui.theme.AppColors
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
+import kotlin.math.abs
 import kotlin.math.floor
 import kotlin.math.roundToInt
 import kotlin.math.sin
@@ -97,6 +99,18 @@ fun FishWorldScreen(viewModel: FishWorldViewModel = hiltViewModel()) {
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
     val adNotReady: () -> Unit = { scope.launch { snackbar.showSnackbar(context.getString(R.string.ad_not_ready)) } }
+
+    val noticeText = when (state.notice) {
+        FishNotice.NO_FOOD -> stringResource(R.string.fish_no_food)
+        FishNotice.NOT_ENOUGH_PEARLS -> stringResource(R.string.fish_not_enough_pearls)
+        null -> null
+    }
+    LaunchedEffect(state.notice) {
+        if (noticeText != null) {
+            viewModel.consumeNotice()
+            snackbar.showSnackbar(noticeText)
+        }
+    }
 
     // Geri tusu: alt ekranlardan limana (hub) dondurur.
     BackHandler(enabled = state.screen != FishScreen.HUB && state.screen != FishScreen.LOADING) { viewModel.openHub() }
@@ -136,7 +150,11 @@ fun FishWorldScreen(viewModel: FishWorldViewModel = hiltViewModel()) {
                 onExtraCast = { showRewarded({ viewModel.extraCast() }, adNotReady) },
             )
             FishScreen.SHOP -> ShopContent(state.profile, onBuy = viewModel::buy, onBack = viewModel::openHub)
-            FishScreen.AQUARIUM -> AquariumSoonContent(state.profile, onBack = viewModel::openHub)
+            FishScreen.AQUARIUM -> AquariumContent(
+                state = state,
+                viewModel = viewModel,
+                onAdFood = { showRewarded({ viewModel.adFood() }, adNotReady) },
+            )
         }
         SnackbarHost(snackbar, Modifier.align(Alignment.BottomCenter))
     }
@@ -187,6 +205,20 @@ private fun HubContent(state: FishWorldState, onFish: () -> Unit, onShop: () -> 
                     stringResource(R.string.fish_aquarium_count, p.aquarium.size, p.aquariumCapacity),
                 color = AppColors.TextPrimary,
                 fontWeight = FontWeight.Bold,
+            )
+        }
+        val pending = Aquarium.pendingTotal(p, state.now)
+        val hungry = p.aquarium.count { Aquarium.canEat(it, state.now) }
+        if (pending > 0 || hungry > 0) {
+            Text(
+                listOfNotNull(
+                    if (pending > 0) stringResource(R.string.fish_hub_pending, pending) else null,
+                    if (hungry > 0) stringResource(R.string.fish_hub_hungry, hungry) else null,
+                ).joinToString("  ·  "),
+                color = AppColors.Gold,
+                fontSize = 13.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(top = 6.dp),
             )
         }
 
@@ -577,23 +609,206 @@ private fun statText(up: RodUpgrade, level: Int): String = when (up) {
     RodUpgrade.REEL -> stringResource(R.string.fish_stat_reel, (RodStats.speedFactor(level) * 100).roundToInt())
 }
 
-// ---------------------------------------------------------------- Akvaryum (adim 2'de gelecek)
+// ---------------------------------------------------------------- Akvaryum
 
 @Composable
-private fun AquariumSoonContent(profile: FishProfile, onBack: () -> Unit) {
+private fun AquariumContent(state: FishWorldState, viewModel: FishWorldViewModel, onAdFood: () -> Unit) {
+    val profile = state.profile
+    val now = state.now
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp)) {
-        HeaderRow(stringResource(R.string.fish_aquarium), profile.pearls, onBack)
+        HeaderRow(stringResource(R.string.fish_aquarium), profile.pearls, viewModel::openHub)
+
+        Row(Modifier.fillMaxWidth().padding(top = 8.dp), verticalAlignment = Alignment.CenterVertically) {
+            val next = Aquarium.nextFoodIn(profile, now)
+            InfoChip(
+                stringResource(R.string.fish_food, profile.food, Aquarium.MAX_FOOD) +
+                    (next?.let { "  (+1 " + formatMs(it) + ")" } ?: ""),
+            )
+            Spacer(Modifier.width(6.dp))
+            InfoChip(stringResource(R.string.fish_aquarium_count, profile.aquarium.size, profile.aquariumCapacity))
+            Spacer(Modifier.weight(1f))
+            val pending = Aquarium.pendingTotal(profile, now)
+            Button(
+                onClick = viewModel::collectPearls,
+                enabled = pending > 0,
+                shape = RoundedCornerShape(12.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = AppColors.Gold, contentColor = AppColors.OnPrimary),
+                modifier = Modifier.height(36.dp),
+            ) {
+                PearlDot(12.dp)
+                Spacer(Modifier.width(4.dp))
+                Text(stringResource(R.string.fish_collect, pending), fontWeight = FontWeight.Black, fontSize = 13.sp)
+            }
+        }
+
+        Box(
+            Modifier
+                .padding(top = 10.dp)
+                .fillMaxWidth()
+                .aspectRatio(TankSim.WIDTH / TankSim.HEIGHT)
+                .clip(RoundedCornerShape(18.dp))
+                .pointerInput(Unit) {
+                    detectTapGestures { off ->
+                        val unit = size.width / TankSim.WIDTH
+                        viewModel.onTankTap(off.x / unit, off.y / unit)
+                    }
+                },
+        ) {
+            Canvas(Modifier.fillMaxSize()) { drawTank(state.tank, profile.decorations, state.selectedFishId) }
+            if (profile.aquarium.isEmpty()) {
+                Text(
+                    stringResource(R.string.fish_tank_empty),
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.align(Alignment.Center).padding(16.dp),
+                )
+            }
+        }
         Text(
-            stringResource(R.string.fish_aquarium_soon),
-            color = AppColors.Gold,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(top = 12.dp),
-        )
-        Text(
-            stringResource(R.string.fish_aquarium_count, profile.aquarium.size, profile.aquariumCapacity),
+            stringResource(R.string.fish_tank_hint),
             color = AppColors.TextSecondary,
-            modifier = Modifier.padding(top = 4.dp, bottom = 12.dp),
+            fontSize = 12.sp,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth().padding(top = 6.dp),
         )
+
+        state.selectedFish?.let { FishInfoPanel(it, profile, now, onSell = viewModel::sellSelected, onClose = viewModel::closeFishInfo) }
+
+        Button(
+            onClick = onAdFood,
+            shape = RoundedCornerShape(14.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = AppColors.SurfaceHigh, contentColor = AppColors.TextPrimary),
+            modifier = Modifier.fillMaxWidth().padding(top = 10.dp).height(46.dp),
+        ) {
+            Icon(Icons.Rounded.OndemandVideo, contentDescription = null, modifier = Modifier.size(18.dp), tint = AppColors.Gold)
+            Spacer(Modifier.width(8.dp))
+            Text(stringResource(R.string.fish_ad_food, Aquarium.AD_FOOD), fontWeight = FontWeight.Bold)
+        }
+
+        // ---- Akvaryum dukkani ----
+        Text(
+            stringResource(R.string.fish_aquarium_shop),
+            color = AppColors.TextPrimary,
+            fontWeight = FontWeight.Black,
+            fontSize = 17.sp,
+            modifier = Modifier.padding(top = 18.dp, bottom = 8.dp),
+        )
+        val capCost = Aquarium.capacityCost(profile)
+        ShopRow(
+            title = stringResource(R.string.fish_capacity_up),
+            subtitle = if (capCost == null) stringResource(R.string.fish_aquarium_count, profile.aquariumCapacity, profile.aquariumCapacity)
+            else stringResource(R.string.fish_capacity_info, profile.aquariumCapacity, profile.aquariumCapacity + Aquarium.CAPACITY_STEP),
+            cost = capCost,
+            owned = false,
+            canAfford = capCost != null && profile.pearls >= capCost,
+            onBuy = viewModel::buyCapacity,
+        )
+        Decoration.entries.forEach { d ->
+            ShopRow(
+                title = stringResource(d.nameRes),
+                subtitle = stringResource(R.string.fish_deco_bonus, (d.bonus * 100).roundToInt()),
+                cost = d.cost,
+                owned = d.name in profile.decorations,
+                canAfford = profile.pearls >= d.cost,
+                onBuy = { viewModel.buyDecoration(d) },
+            )
+        }
+
+        Spacer(Modifier.height(10.dp))
+        CollectionList(profile)
+    }
+}
+
+private fun formatMs(ms: Long): String {
+    val sec = (ms / 1000).toInt()
+    return "%d:%02d".format(sec / 60, sec % 60)
+}
+
+@Composable
+private fun FishInfoPanel(fish: OwnedFish, profile: FishProfile, now: Long, onSell: () -> Unit, onClose: () -> Unit) {
+    val sp = Aquarium.species(fish)
+    val hunger = Aquarium.hunger(fish, now)
+    Column(
+        Modifier
+            .fillMaxWidth()
+            .padding(top = 10.dp)
+            .clip(RoundedCornerShape(16.dp))
+            .background(AppColors.SurfaceHigh)
+            .padding(14.dp),
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Canvas(Modifier.size(width = 48.dp, height = 30.dp)) {
+                drawFish(Offset(size.width / 2f, size.height / 2f), sp, 1, size.width * 0.8f, 0f)
+            }
+            Spacer(Modifier.width(10.dp))
+            Text(stringResource(sp.nameRes), color = AppColors.TextPrimary, fontWeight = FontWeight.Black, fontSize = 17.sp, modifier = Modifier.weight(1f))
+            TextButton(onClick = onClose) { Text("✕", color = AppColors.TextSecondary) }
+        }
+        Text(stringResource(R.string.fish_growth, (fish.growth * 100).roundToInt()), color = AppColors.TextMuted, fontSize = 14.sp)
+        Text(
+            when (hunger) {
+                Hunger.FULL -> stringResource(R.string.fish_hunger_full)
+                Hunger.HUNGRY -> stringResource(R.string.fish_hunger_hungry)
+                Hunger.STARVING -> stringResource(R.string.fish_hunger_starving)
+            },
+            color = if (hunger == Hunger.STARVING) AppColors.Danger else if (hunger == Hunger.HUNGRY) AppColors.Gold else AppColors.Primary,
+            fontSize = 14.sp,
+            fontWeight = FontWeight.Bold,
+        )
+        Text(
+            stringResource(R.string.fish_rate, "%.1f".format(Aquarium.pearlRate(fish, Aquarium.decorationBonus(profile)))),
+            color = AppColors.TextMuted,
+            fontSize = 14.sp,
+        )
+        OutlinedButton(
+            onClick = onSell,
+            shape = RoundedCornerShape(12.dp),
+            modifier = Modifier.fillMaxWidth().padding(top = 8.dp).height(42.dp),
+        ) {
+            Text(stringResource(R.string.fish_sell, Aquarium.sellPrice(fish)), color = AppColors.TextPrimary, fontWeight = FontWeight.Bold)
+        }
+    }
+}
+
+@Composable
+private fun ShopRow(title: String, subtitle: String, cost: Int?, owned: Boolean, canAfford: Boolean, onBuy: () -> Unit) {
+    Row(
+        Modifier
+            .fillMaxWidth()
+            .padding(bottom = 8.dp)
+            .clip(RoundedCornerShape(14.dp))
+            .background(AppColors.SurfaceHigh)
+            .padding(horizontal = 12.dp, vertical = 10.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Column(Modifier.weight(1f)) {
+            Text(title, color = AppColors.TextPrimary, fontWeight = FontWeight.Bold)
+            Text(subtitle, color = AppColors.TextSecondary, fontSize = 12.sp)
+        }
+        when {
+            owned -> Text(stringResource(R.string.fish_owned), color = AppColors.Primary, fontWeight = FontWeight.Black)
+            cost == null -> Text(stringResource(R.string.fish_max), color = AppColors.Primary, fontWeight = FontWeight.Black)
+            else -> Button(
+                onClick = onBuy,
+                shape = RoundedCornerShape(10.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = if (canAfford) AppColors.Primary else AppColors.Surface,
+                    contentColor = if (canAfford) AppColors.OnPrimary else AppColors.TextSecondary,
+                ),
+                modifier = Modifier.height(38.dp),
+            ) {
+                PearlDot(12.dp)
+                Spacer(Modifier.width(4.dp))
+                Text(cost.toString(), fontWeight = FontWeight.Black)
+            }
+        }
+    }
+}
+
+@Composable
+private fun CollectionList(profile: FishProfile) {
+    Column {
         val discovered = FishSpecies.entries.count { (profile.caughtTotals[it.name] ?: 0) > 0 }
         Text(
             stringResource(R.string.fish_collection, discovered, FishSpecies.entries.size),
@@ -635,6 +850,127 @@ private fun AquariumSoonContent(profile: FishProfile, onBack: () -> Unit) {
             }
         }
     }
+}
+
+private fun DrawScope.drawTank(tank: TankState, decorations: List<String>, selectedId: Long?) {
+    val unit = size.width / TankSim.WIDTH
+    val t = tank.time
+    drawRect(Brush.verticalGradient(listOf(Color(0xFF67E8F9), Color(0xFF0891B2), Color(0xFF155E75))))
+    // Isik huzmeleri
+    listOf(1.5f, 4.5f, 7.5f).forEachIndexed { i, x ->
+        val sway = sin(t * 0.4f + i) * unit * 0.3f
+        val ray = Path().apply {
+            moveTo(x * unit + sway, 0f)
+            lineTo((x + 0.8f) * unit + sway, 0f)
+            lineTo((x + 1.6f) * unit, size.height)
+            lineTo((x + 0.4f) * unit, size.height)
+            close()
+        }
+        drawPath(ray, Color.White.copy(alpha = 0.07f))
+    }
+    // Kum
+    val floorY = TankSim.FLOOR * unit
+    val sand = Path().apply {
+        moveTo(0f, floorY)
+        var x = 0f
+        while (x <= size.width) {
+            lineTo(x, floorY + sin(x / unit * 1.3f) * unit * 0.08f)
+            x += unit * 0.25f
+        }
+        lineTo(size.width, size.height)
+        lineTo(0f, size.height)
+        close()
+    }
+    drawPath(sand, Brush.verticalGradient(listOf(Color(0xFFFDE68A), Color(0xFFD97706)), startY = floorY, endY = size.height))
+
+    // Susler (arkada)
+    if (Decoration.CASTLE.name in decorations) drawCastle(Offset(7.6f * unit, floorY + unit * 0.1f), unit)
+    if (Decoration.PLANT.name in decorations) {
+        drawPlant(Offset(1.0f * unit, floorY + unit * 0.15f), unit, t)
+        drawPlant(Offset(1.6f * unit, floorY + unit * 0.2f), unit * 0.8f, t + 1f)
+    }
+    if (Decoration.CORAL.name in decorations) drawCoral(Offset(3.6f * unit, floorY + unit * 0.15f), unit)
+    if (Decoration.TREASURE.name in decorations) drawTreasure(Offset(5.6f * unit, floorY + unit * 0.2f), unit, t)
+
+    // Kabarciklar
+    for (k in 0 until 8) {
+        val speed = 0.6f + (k % 3) * 0.25f
+        val y = size.height - ((t * speed + k * 0.77f) % 1f) * size.height
+        val x = (8.8f + sin(t * 2f + k) * 0.15f + (k % 2) * 0.3f) * unit
+        drawCircle(Color.White.copy(alpha = 0.5f), unit * (0.05f + (k % 3) * 0.03f), Offset(x, y), style = Stroke(1.5.dp.toPx()))
+    }
+
+    // Yemler
+    tank.pellets.forEach { pl ->
+        val fade = if (pl.age > TankSim.PELLET_LIFE - 2f) (TankSim.PELLET_LIFE - pl.age) / 2f else 1f
+        drawCircle(Color(0xFF92400E).copy(alpha = fade.coerceIn(0f, 1f)), unit * 0.09f, Offset(pl.x * unit, pl.y * unit))
+    }
+
+    // Baliklar
+    tank.fish.forEach { f ->
+        val len = f.species.size * (0.9f + f.growth * 0.8f) * unit
+        val c = Offset(f.x * unit, f.y * unit)
+        if (f.id == selectedId) {
+            drawCircle(Color.White.copy(alpha = 0.8f), len * 0.65f, c, style = Stroke(2.dp.toPx()))
+        }
+        drawFish(c, f.species, f.dir, len, t + f.id)
+        if (f.hungry) {
+            // Ac balik: basinin ustunde kucuk yem balonu
+            val b = Offset(c.x + f.dir * len * 0.3f, c.y - len * 0.45f - unit * 0.12f + sin(t * 3f + f.id) * unit * 0.04f)
+            drawCircle(Color.White.copy(alpha = 0.85f), unit * 0.11f, b)
+            drawCircle(Color(0xFF92400E), unit * 0.045f, b)
+        }
+    }
+}
+
+private fun DrawScope.drawPlant(base: Offset, unit: Float, t: Float) {
+    for (k in -1..1) {
+        val sway = sin(t * 1.2f + k) * unit * 0.25f
+        val path = Path().apply {
+            moveTo(base.x + k * unit * 0.12f, base.y)
+            quadraticTo(base.x + k * unit * 0.3f + sway, base.y - unit * 0.9f, base.x + k * unit * 0.2f + sway * 1.5f, base.y - unit * (1.6f - abs(k) * 0.4f))
+        }
+        drawPath(path, Color(0xFF16A34A), style = Stroke(unit * 0.12f))
+    }
+}
+
+private fun DrawScope.drawCoral(base: Offset, unit: Float) {
+    val c = Color(0xFFFB7185)
+    drawLine(c, base, Offset(base.x, base.y - unit * 0.9f), unit * 0.16f)
+    drawLine(c, Offset(base.x, base.y - unit * 0.4f), Offset(base.x - unit * 0.4f, base.y - unit * 0.8f), unit * 0.13f)
+    drawLine(c, Offset(base.x, base.y - unit * 0.55f), Offset(base.x + unit * 0.45f, base.y - unit * 1.0f), unit * 0.13f)
+    listOf(Offset(0f, -0.9f), Offset(-0.4f, -0.8f), Offset(0.45f, -1.0f)).forEach { o ->
+        drawCircle(c, unit * 0.1f, Offset(base.x + o.x * unit, base.y + o.y * unit))
+    }
+}
+
+private fun DrawScope.drawCastle(base: Offset, unit: Float) {
+    val stone = Color(0xFF94A3B8)
+    val dark = Color(0xFF475569)
+    val w = unit * 1.6f
+    val h = unit * 1.2f
+    drawRect(stone, Offset(base.x - w / 2f, base.y - h), Size(w, h))
+    // Kuleler
+    drawRect(stone, Offset(base.x - w / 2f - unit * 0.15f, base.y - h * 1.5f), Size(unit * 0.5f, h * 1.5f))
+    drawRect(stone, Offset(base.x + w / 2f - unit * 0.35f, base.y - h * 1.5f), Size(unit * 0.5f, h * 1.5f))
+    for (k in 0..1) {
+        val x = if (k == 0) base.x - w / 2f - unit * 0.15f else base.x + w / 2f - unit * 0.35f
+        drawRect(dark, Offset(x + unit * 0.05f, base.y - h * 1.5f - unit * 0.15f), Size(unit * 0.12f, unit * 0.15f))
+        drawRect(dark, Offset(x + unit * 0.33f, base.y - h * 1.5f - unit * 0.15f), Size(unit * 0.12f, unit * 0.15f))
+    }
+    // Kapi
+    drawArc(dark, 180f, 180f, true, Offset(base.x - unit * 0.3f, base.y - unit * 0.75f), Size(unit * 0.6f, unit * 0.6f))
+    drawRect(dark, Offset(base.x - unit * 0.3f, base.y - unit * 0.45f), Size(unit * 0.6f, unit * 0.45f))
+}
+
+private fun DrawScope.drawTreasure(base: Offset, unit: Float, t: Float) {
+    val w = unit * 0.9f
+    val h = unit * 0.5f
+    drawRect(Color(0xFF92400E), Offset(base.x - w / 2f, base.y - h), Size(w, h))
+    drawArc(Color(0xFFB45309), 180f, 180f, true, Offset(base.x - w / 2f, base.y - h - h * 0.6f), Size(w, h * 1.2f))
+    drawRect(Color(0xFFFACC15), Offset(base.x - unit * 0.07f, base.y - h * 1.05f), Size(unit * 0.14f, unit * 0.2f))
+    val glow = 0.4f + 0.4f * sin(t * 3f)
+    drawCircle(Color(0xFFFDE68A).copy(alpha = glow), unit * 0.08f, Offset(base.x + w * 0.3f, base.y - h * 1.3f))
 }
 
 // ---------------------------------------------------------------- Ortak parcalar

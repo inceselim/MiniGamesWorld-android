@@ -39,7 +39,7 @@ Debug build `com.eomer91.MiniGamesWorldincesoy.debug` paket adıyla kurulur. Bö
 | Solitaire | ✅ Native | Klondike, 1 ya da 3 kart çekme, dokun = otomatik taşı, sürükle-bırak, sınırsız geri al, ipucu (reklam), otomatik bitir, **kaldığı yerden devam** |
 | Dört Bağla | ✅ Native | Bilgisayara karşı (Kolay/Normal/Zor, negamax + alfa-beta) ya da 2 oyuncu, düşme animasyonu, seri skoru, hamle geri al (reklam) |
 | Roket Zıpla | ✅ Native | Özgün Flappy tarzı: dokunarak it, asteroit kapıları, yıldız bonusu, hızlanma, kalkanla devam (reklam) |
-| Balık Dünyası | ✅ Native (adım 1) | Olta at, kancayı sürükle, denizanalarından kaç; 9 balık türü, inciyle olta yükseltmeleri (misina/kanca/makara), tutulanlar akvaryuma; ekstra atış (reklam). Akvaryum besleme: adım 2 |
+| Balık Dünyası | ✅ Native | Olta at, kancayı sürükle, denizanalarından kaç; 9 balık türü, inciyle olta yükseltmeleri; tutulanlar akvaryuma: yem at, büyüt, inci topla, sat, akvaryumu büyüt, süsle; ekstra atış ve yem (reklam) |
 
 Her oyunun kuralları ekrandan ayrı, saf Kotlin bir `…Engine` sınıfında durur ve `app/src/test` altında unit testleri vardır. Testleri çalıştırmak için test dosyasını açıp sınıf adının yanındaki yeşil oka bas ya da `./gradlew test` komutunu çalıştır.
 
@@ -84,11 +84,16 @@ Rekorlar oyun sırasında, rekor geçildiği anda kaydedilir. Oyuncu oyunun orta
 
 ## Balık Dünyası
 
-- **Liman** ekranı: Balık tut, Olta dükkânı, Akvaryum (adım 2'de besleme gelecek; şimdilik koleksiyon listesi).
+- **Liman** ekranı: Balık tut, Olta dükkânı, Akvaryum (bekleyen inci ve aç balık sayısı gösterilir).
 - **Atış**: dokun → kanca iner; sürükleyerek yönlendir. İnerken ilk dokunulan balık misinayı yukarı çevirir; çıkarken kapasite kadar balık daha tutulur. Denizanası: inerken çarparsa misina geri döner, çıkarken son balık kaçar. Oturum = 3 atış.
 - **İnci**: tutulan balıkların değeri (sardalya 2 … altın balık 100). Puan = inci × 10 → altın (200 puan = 1 altın) ve rekor.
 - **Yükseltmeler** (`RodUpgrade`): misina 30 m + 15 m/sv (7 sv, `40 × 1.7^sv`), kanca 2 + 1 balık/sv (5 sv, `60 × 1.9^sv`), makara +%15 hız/sv (5 sv, `35 × 1.6^sv`).
 - Kalıcı profil `FishProfile` (JSON) `saved_game_fish-world-profile` anahtarında; katalog id'sinden farklı olduğu için detay ekranında "Devam" çıkmaz. Akvaryum kapasitesi 12; dolunca fazla balıklar denize bırakılır (inciler yine kazanılır).
+- **Akvaryum** (`Aquarium`, `TankSim`): suya dokun = yem düşer, aç balıklar yeme yüzer. Yem kabı 10, 6 dakikada +1 (reklamla +10, en fazla 20).
+  - Balık yedikten sonra 45 dk toktur; her öğün +%10 büyüme (10 öğünde yetişkin, boyu büyür).
+  - İnci üretimi saatte `değer × 0.08 × (0.5 + büyüme) × (1 + süs bonusu)`; en fazla 8 saat birikir, 12 saattir aç olan üretmez. Ölüm yok.
+  - Sat: `değer × (2 + 4 × büyüme)` inci. Akvaryumu büyüt: +4 yer (40'a kadar), `120 × 1.7^sv`.
+  - Süsler: Yosun 60 (+%5), Mercan 150 (+%8), Kale 400 (+%12), Hazine 900 (+%20).
 
 ## Block Puzzle ödüllü reklam
 
@@ -107,7 +112,7 @@ Tahtanın altında iki buton var, ikisi de ödüllü (rewarded) reklam izletir:
 |---|---|
 | Banner | Ara, Favoriler, Profil ve Ayarlar sekmelerinin altında. Ana sayfada (Oyunlar) ve oyun ekranlarında yok. |
 | Geçiş (Interstitial) | Oynanabilir bir oyunun detay ekranında **Play**, oyun içinde **Restart** ve **Tekrar oyna** |
-| Ödüllü (Rewarded) | Altın yetmeyince **Reklam izle (+50 altın)**; Block Puzzle: **Parçaları değiştir**, **Geri al**; Sudoku: **İpucu**, **3 hatadan sonra devam**; Match 3: **+5 hamle**; Bubble Shooter: **3 sırayı temizle ve devam et**; Tower Defense: **yarı canla devam**; Mayın Tarlası: **ikinci şans** (hepsi oyun başına bir kez); Solitaire: **ipucu**; Dört Bağla: **hamle geri al**; Roket Zıpla: **kalkanla devam** (oyun başına bir kez); Balık Dünyası: **bir atış daha** (oturum başına bir kez) |
+| Ödüllü (Rewarded) | Altın yetmeyince **Reklam izle (+50 altın)**; Block Puzzle: **Parçaları değiştir**, **Geri al**; Sudoku: **İpucu**, **3 hatadan sonra devam**; Match 3: **+5 hamle**; Bubble Shooter: **3 sırayı temizle ve devam et**; Tower Defense: **yarı canla devam**; Mayın Tarlası: **ikinci şans** (hepsi oyun başına bir kez); Solitaire: **ipucu**; Dört Bağla: **hamle geri al**; Roket Zıpla: **kalkanla devam** (oyun başına bir kez); Balık Dünyası: **bir atış daha** (oturum başına bir kez), **+10 yem** |
 
 - İki geçiş reklamı arasında en az **60 saniye** olur ve bu süre tüm butonlar için ortaktır. Ödüllü reklam izlendiğinde de bu süre yeniden başlar (art arda iki tam ekran reklam çıkmaz). Çok sık geçiş reklamı oyuncuyu kaçırır ve AdMob politikalarına takılabilir. Değiştirmek için: `ads/InterstitialAdManager.kt` → `MIN_INTERVAL_MS`.
 - Reklam hazır değilse (internet yok, yüklenemedi) oyun beklemeden devam eder.
