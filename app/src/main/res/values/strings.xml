@@ -159,4 +159,14 @@
     <string name="mines_lost">BOOM!</string>
     <string name="mines_lost_body">You hit a mine.</string>
     <string name="mines_second_chance">Watch ad: second chance</string>
+    <string name="game_solitaire_name">Solitaire</string>
+    <string name="game_solitaire_desc">Classic Klondike. Build each suit from Ace to King. Tap a card to auto-move or drag it.</string>
+    <string name="solitaire_choose">Choose a mode</string>
+    <string name="solitaire_draw1">Draw 1</string>
+    <string name="solitaire_draw1_info">One card at a time · relaxed</string>
+    <string name="solitaire_draw3">Draw 3</string>
+    <string name="solitaire_draw3_info">Three cards at a time · classic challenge</string>
+    <string name="solitaire_moves">%1$d moves</string>
+    <string name="solitaire_auto_finish">Auto finish</string>
+    <string name="solitaire_won">YOU WIN!</string>
 </resources>
