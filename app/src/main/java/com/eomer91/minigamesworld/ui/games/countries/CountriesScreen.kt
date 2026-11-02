@@ -212,16 +212,17 @@ private fun SetupContent(state: CwUiState, viewModel: CountriesViewModel) {
 
 @Composable
 private fun polityEffects(p: Polity): String {
-    val parts = ArrayList<String>()
-    fun add(v: Float, res: Int) {
-        if (v != 0f) parts += (if (v > 0) "+" else "") + (v * 100).roundToInt() + "% " + stringResource(res)
+    // stringResource sadece @Composable icinde cagrilabilir: etiketleri once cozumle.
+    val labels = listOf(
+        p.attack to stringResource(R.string.cw_attack),
+        p.defence to stringResource(R.string.cw_defence),
+        p.income to stringResource(R.string.cw_income),
+        p.population to stringResource(R.string.cw_population),
+        p.buildPrice to stringResource(R.string.cw_build_discount),
+    )
+    return labels.filter { it.first != 0f }.joinToString(" · ") { (v, label) ->
+        (if (v > 0) "+" else "") + (v * 100).roundToInt() + "% " + label
     }
-    add(p.attack, R.string.cw_attack)
-    add(p.defence, R.string.cw_defence)
-    add(p.income, R.string.cw_income)
-    add(p.population, R.string.cw_population)
-    add(p.buildPrice, R.string.cw_build_discount)
-    return parts.joinToString(" · ")
 }
 
 @Composable
