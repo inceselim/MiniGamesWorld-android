@@ -12,6 +12,7 @@ object GameCatalog {
         Game("solitaire", R.string.game_solitaire_name, R.string.game_solitaire_desc, GameCategory.CARD, R.drawable.game_solitaire, entryCost = 20, isPlayable = true),
         Game("stack", R.string.game_stack_name, R.string.game_stack_desc, GameCategory.ARCADE, R.drawable.game_stack, entryCost = 10, isPlayable = true),
         Game("bubble-shooter", R.string.game_bubble_shooter_name, R.string.game_bubble_shooter_desc, GameCategory.ARCADE, R.drawable.game_bubble_shooter, entryCost = 5, isPlayable = true),
+        Game("rocket-hop", R.string.game_rocket_hop_name, R.string.game_rocket_hop_desc, GameCategory.ARCADE, R.drawable.game_rocket_hop, entryCost = 5, isPlayable = true),
         Game("2048", R.string.game_2048_name, R.string.game_2048_desc, GameCategory.PUZZLE, R.drawable.game_2048, entryCost = 10, isPlayable = true),
         Game("connect-four", R.string.game_connect_four_name, R.string.game_connect_four_desc, GameCategory.STRATEGY, R.drawable.game_connect_four, entryCost = 10, isPlayable = true),
         Game("tower-defense", R.string.game_tower_defense_name, R.string.game_tower_defense_desc, GameCategory.STRATEGY, R.drawable.game_tower_defense, entryCost = 15, isPlayable = true),

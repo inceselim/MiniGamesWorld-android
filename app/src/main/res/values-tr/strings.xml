@@ -183,4 +183,9 @@
     <string name="c4_draw">BERABERE</string>
     <string name="c4_result">Puan %1$d</string>
     <string name="c4_change_mode">Modu değiştir</string>
+    <string name="game_rocket_hop_name">Roket Zıpla</string>
+    <string name="game_rocket_hop_desc">Dokunarak roketini it, asteroitlerin arasından geçir. Bonus puan için yıldızları topla!</string>
+    <string name="rocket_tap_to_start">Fırlatmak için dokun!</string>
+    <string name="rocket_revive">Reklam izle: kalkanla devam et</string>
+    <string name="rocket_result">Kapı %1$d · Yıldız %2$d · Puan %3$d</string>
 </resources>

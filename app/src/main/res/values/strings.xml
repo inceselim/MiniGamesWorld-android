@@ -185,4 +185,9 @@
     <string name="c4_draw">DRAW</string>
     <string name="c4_result">Score %1$d</string>
     <string name="c4_change_mode">Change mode</string>
+    <string name="game_rocket_hop_name">Rocket Hop</string>
+    <string name="game_rocket_hop_desc">Tap to boost your rocket through the asteroid gaps. Grab stars for bonus points!</string>
+    <string name="rocket_tap_to_start">Tap to launch!</string>
+    <string name="rocket_revive">Watch ad: continue with a shield</string>
+    <string name="rocket_result">Gates %1$d · Stars %2$d · Score %3$d</string>
 </resources>
