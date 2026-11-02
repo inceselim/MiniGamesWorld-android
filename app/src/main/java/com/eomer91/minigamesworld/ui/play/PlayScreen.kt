@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.sp
 import com.eomer91.minigamesworld.R
 import com.eomer91.minigamesworld.data.GameCatalog
 import com.eomer91.minigamesworld.ui.games.blockpuzzle.BlockPuzzleScreen
+import com.eomer91.minigamesworld.ui.games.bubble.BubbleScreen
 import com.eomer91.minigamesworld.ui.games.game2048.Game2048Screen
 import com.eomer91.minigamesworld.ui.games.match3.Match3Screen
 import com.eomer91.minigamesworld.ui.games.memory.MemoryScreen
@@ -67,6 +68,7 @@ fun PlayScreen(gameId: String, onBack: () -> Unit) {
                 "sudoku" -> SudokuScreen()
                 "stack" -> StackScreen()
                 "match-3" -> Match3Screen()
+                "bubble-shooter" -> BubbleScreen()
                 else -> ComingSoon()
             }
         }

@@ -120,4 +120,8 @@
     <string name="match3_hint">3 veya daha fazlasını eşleştirmek için bir taşı kaydır ya da yan yana iki taşa dokun</string>
     <string name="match3_out_of_moves">HAMLELER BİTTİ</string>
     <string name="match3_bonus_moves">Reklam izle: +%1$d hamle</string>
+    <string name="bubble_level">Seviye %1$d</string>
+    <string name="bubble_new_row_in">%1$d atış sonra yeni sıra</string>
+    <string name="bubble_hint">Nişan için sürükle, atmak için bırak · değiştirmek için balonuna dokun</string>
+    <string name="bubble_continue">Reklam izle: 3 sırayı temizle ve devam et</string>
 </resources>

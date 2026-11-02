@@ -33,7 +33,8 @@ Debug build `com.eomer91.MiniGamesWorldincesoy.debug` paket adıyla kurulur. Bö
 | Sudoku | ✅ Native | Kolay/Normal/Zor, her seferinde yeni tek çözümlü bulmaca, notlar, 3 hata hakkı, süre, **kaldığı yerden devam** |
 | Stack | ✅ Native | Tek dokunuş; taşan kısım kesilir, kusursuz bırakışta kombo ve blok büyümesi, giderek hızlanır |
 | Match 3 | ✅ Native | 8×8, 6 taş (renk + şekil), kaydır ya da dokun, zincirleme patlama, 30 hamle, hamle bitince ödüllü +5 |
-| Bubble Shooter, Tower Defense | ⏳ Çok yakında | Detay ekranında altın harcanmaz, reklam gösterilmez |
+| Bubble Shooter | ✅ Native | Bal peteği tahta, duvardan seken nişan çizgisi, 3+ patlatma, kopanlar düşer, 5 boş atışta yeni sıra, seviyeler |
+| Tower Defense | ⏳ Çok yakında | Detay ekranında altın harcanmaz, reklam gösterilmez |
 
 Her oyunun kuralları ekrandan ayrı, saf Kotlin bir `…Engine` sınıfında durur ve `app/src/test` altında unit testleri vardır. Testleri çalıştırmak için test dosyasını açıp sınıf adının yanındaki yeşil oka bas ya da `./gradlew test` komutunu çalıştır.
 
@@ -83,7 +84,7 @@ Tahtanın altında iki buton var, ikisi de ödüllü (rewarded) reklam izletir:
 |---|---|
 | Banner | Ara, Favoriler, Profil ve Ayarlar sekmelerinin altında. Ana sayfada (Oyunlar) ve oyun ekranlarında yok. |
 | Geçiş (Interstitial) | Oynanabilir bir oyunun detay ekranında **Play**, oyun içinde **Restart** ve **Tekrar oyna** |
-| Ödüllü (Rewarded) | Altın yetmeyince **Reklam izle (+50 altın)**; Block Puzzle: **Parçaları değiştir**, **Geri al**; Sudoku: **İpucu**, **3 hatadan sonra devam**; Match 3: **+5 hamle** (oyun başına bir kez) |
+| Ödüllü (Rewarded) | Altın yetmeyince **Reklam izle (+50 altın)**; Block Puzzle: **Parçaları değiştir**, **Geri al**; Sudoku: **İpucu**, **3 hatadan sonra devam**; Match 3: **+5 hamle**; Bubble Shooter: **3 sırayı temizle ve devam et** (ikisi de oyun başına bir kez) |
 
 - İki geçiş reklamı arasında en az **60 saniye** olur ve bu süre tüm butonlar için ortaktır. Ödüllü reklam izlendiğinde de bu süre yeniden başlar (art arda iki tam ekran reklam çıkmaz). Çok sık geçiş reklamı oyuncuyu kaçırır ve AdMob politikalarına takılabilir. Değiştirmek için: `ads/InterstitialAdManager.kt` → `MIN_INTERVAL_MS`.
 - Reklam hazır değilse (internet yok, yüklenemedi) oyun beklemeden devam eder.
@@ -107,6 +108,11 @@ Dosyalar `res/raw/sfx_*.ogg` altında. RN projesindeki sesler OGG'ye çevrildi, 
 | | 128+ taş oluşması | combo | hafif |
 | | 2048'e ulaşma | clear | güçlü |
 | | Oyun sonu | game over | güçlü |
+| Bubble Shooter | Boş atış | drop (kısık) | – |
+| | Patlatma | block | – |
+| | 5+ patlatma ya da düşen balonlar | combo | hafif |
+| | Tahta temizlendi | clear | güçlü |
+| | Çizgiye ulaştı | game over | güçlü |
 | Match 3 | 3'lü eşleşme | block | – |
 | | 4'lü ya da 2. zincir | clear | hafif |
 | | 5'li ya da 3+ zincir | combo | güçlü |

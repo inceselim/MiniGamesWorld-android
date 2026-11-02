@@ -122,4 +122,8 @@
     <string name="match3_hint">Swipe a gem, or tap two neighbours, to match 3 or more</string>
     <string name="match3_out_of_moves">OUT OF MOVES</string>
     <string name="match3_bonus_moves">Watch ad: +%1$d moves</string>
+    <string name="bubble_level">Level %1$d</string>
+    <string name="bubble_new_row_in">New row in %1$d shots</string>
+    <string name="bubble_hint">Drag to aim, release to shoot · tap your bubble to swap</string>
+    <string name="bubble_continue">Watch ad: clear 3 rows &amp; continue</string>
 </resources>
