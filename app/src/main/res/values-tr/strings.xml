@@ -146,4 +146,15 @@
     <string name="td_tower_destroyed">KULE YIKILDI</string>
     <string name="td_result">Dalga %1$d · Öldürülen %2$d · Puan %3$d</string>
     <string name="td_revive">Reklam izle: yarı canla devam et</string>
+    <string name="game_minesweeper_name">Mayın Tarlası</string>
+    <string name="game_minesweeper_desc">Mayınlara basmadan tüm güvenli kareleri aç. Sayılar yakındaki mayın sayısını gösterir.</string>
+    <string name="mines_difficulty_info">%1$d×%2$d · %3$d mayın</string>
+    <string name="mines_dig">Kaz</string>
+    <string name="mines_flag">Bayrak</string>
+    <string name="mines_hint">Açmak için dokun · bayrak için basılı tut · komşuları açmak için sayıya dokun</string>
+    <string name="mines_won">TEMİZLENDİ!</string>
+    <string name="mines_result">Süre %1$s · Puan %2$d</string>
+    <string name="mines_lost">BOOM!</string>
+    <string name="mines_lost_body">Bir mayına bastın.</string>
+    <string name="mines_second_chance">Reklam izle: ikinci şans</string>
 </resources>

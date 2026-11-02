@@ -148,4 +148,15 @@
     <string name="td_tower_destroyed">TOWER DESTROYED</string>
     <string name="td_result">Wave %1$d · Kills %2$d · Score %3$d</string>
     <string name="td_revive">Watch ad: revive with half health</string>
+    <string name="game_minesweeper_name">Minesweeper</string>
+    <string name="game_minesweeper_desc">Open every safe square without hitting a mine. Numbers tell you how many mines are nearby.</string>
+    <string name="mines_difficulty_info">%1$d×%2$d · %3$d mines</string>
+    <string name="mines_dig">Dig</string>
+    <string name="mines_flag">Flag</string>
+    <string name="mines_hint">Tap to open · long-press to flag · tap a number to open its neighbours</string>
+    <string name="mines_won">CLEARED!</string>
+    <string name="mines_result">Time %1$s · Score %2$d</string>
+    <string name="mines_lost">BOOM!</string>
+    <string name="mines_lost_body">You hit a mine.</string>
+    <string name="mines_second_chance">Watch ad: second chance</string>
 </resources>

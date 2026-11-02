@@ -32,6 +32,7 @@ import com.eomer91.minigamesworld.ui.games.bubble.BubbleScreen
 import com.eomer91.minigamesworld.ui.games.game2048.Game2048Screen
 import com.eomer91.minigamesworld.ui.games.match3.Match3Screen
 import com.eomer91.minigamesworld.ui.games.memory.MemoryScreen
+import com.eomer91.minigamesworld.ui.games.mines.MinesScreen
 import com.eomer91.minigamesworld.ui.games.snake.SnakeScreen
 import com.eomer91.minigamesworld.ui.games.stack.StackScreen
 import com.eomer91.minigamesworld.ui.games.sudoku.SudokuScreen
@@ -71,6 +72,7 @@ fun PlayScreen(gameId: String, onBack: () -> Unit) {
                 "match-3" -> Match3Screen()
                 "bubble-shooter" -> BubbleScreen()
                 "tower-defense" -> TowerScreen()
+                "minesweeper" -> MinesScreen()
                 else -> ComingSoon()
             }
         }
