@@ -190,4 +190,45 @@
     <string name="rocket_tap_to_start">Tap to launch!</string>
     <string name="rocket_revive">Watch ad: continue with a shield</string>
     <string name="rocket_result">Gates %1$d · Stars %2$d · Score %3$d</string>
+
+    <!-- Balik Dunyasi -->
+    <string name="game_fish_world_name">Fish World</string>
+    <string name="game_fish_world_desc">Cast your line, steer the hook past jellyfish and reel in rare fish. Upgrade your rod with pearls and fill your aquarium!</string>
+    <string name="fish_sardine">Sardine</string>
+    <string name="fish_clownfish">Clownfish</string>
+    <string name="fish_blue_tang">Blue Tang</string>
+    <string name="fish_mackerel">Mackerel</string>
+    <string name="fish_pufferfish">Pufferfish</string>
+    <string name="fish_angelfish">Angelfish</string>
+    <string name="fish_swordfish">Swordfish</string>
+    <string name="fish_anglerfish">Anglerfish</string>
+    <string name="fish_goldfish">Golden Fish</string>
+    <string name="fish_up_depth">Longer line</string>
+    <string name="fish_up_capacity">Bigger hook</string>
+    <string name="fish_up_reel">Faster reel</string>
+    <string name="fish_go_fishing">Go fishing</string>
+    <string name="fish_rod_shop">Rod shop</string>
+    <string name="fish_aquarium">Aquarium</string>
+    <string name="fish_aquarium_count">%1$d/%2$d fish</string>
+    <string name="fish_aquarium_soon">Coming soon: feed your fish, watch them grow and collect pearls!</string>
+    <string name="fish_rod_summary">Your rod: %1$d m deep · %2$d fish per cast</string>
+    <string name="fish_how_to">Tap to cast. Drag to steer the hook. The first fish you touch stops the line; catch more on the way up and avoid jellyfish!</string>
+    <string name="fish_casts_left">Casts %1$d</string>
+    <string name="fish_depth">%1$d/%2$d m</string>
+    <string name="fish_hooked">🐟 %1$d/%2$d</string>
+    <string name="fish_tap_to_cast">Tap to cast!</string>
+    <string name="fish_cast_result">+%1$d</string>
+    <string name="fish_session_over">Back to the harbor!</string>
+    <string name="fish_session_detail">%1$d fish · %2$d pearls</string>
+    <string name="fish_overflow">Aquarium full: %1$d fish released back to the sea</string>
+    <string name="fish_extra_cast">Watch ad: one more cast</string>
+    <string name="fish_back_to_harbor">Harbor</string>
+    <string name="fish_level">Lv %1$d/%2$d</string>
+    <string name="fish_max">MAX</string>
+    <string name="fish_buy">%1$d pearls</string>
+    <string name="fish_stat_depth">%1$d m</string>
+    <string name="fish_stat_capacity">%1$d fish</string>
+    <string name="fish_stat_reel">%1$d%% speed</string>
+    <string name="fish_collection">Collection %1$d/%2$d</string>
+    <string name="fish_species_info">From %1$d m · %2$d pearls</string>
 </resources>

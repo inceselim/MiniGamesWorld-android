@@ -188,4 +188,45 @@
     <string name="rocket_tap_to_start">Fırlatmak için dokun!</string>
     <string name="rocket_revive">Reklam izle: kalkanla devam et</string>
     <string name="rocket_result">Kapı %1$d · Yıldız %2$d · Puan %3$d</string>
+
+    <!-- Balik Dunyasi -->
+    <string name="game_fish_world_name">Balık Dünyası</string>
+    <string name="game_fish_world_desc">Oltanı at, kancayı denizanalarından kaçırarak yönlendir ve nadir balıkları yakala. İncilerle oltanı geliştir, akvaryumunu doldur!</string>
+    <string name="fish_sardine">Sardalya</string>
+    <string name="fish_clownfish">Palyaço Balığı</string>
+    <string name="fish_blue_tang">Mavi Cerrah</string>
+    <string name="fish_mackerel">Uskumru</string>
+    <string name="fish_pufferfish">Balon Balığı</string>
+    <string name="fish_angelfish">Melek Balığı</string>
+    <string name="fish_swordfish">Kılıç Balığı</string>
+    <string name="fish_anglerfish">Fener Balığı</string>
+    <string name="fish_goldfish">Altın Balık</string>
+    <string name="fish_up_depth">Uzun misina</string>
+    <string name="fish_up_capacity">Büyük kanca</string>
+    <string name="fish_up_reel">Hızlı makara</string>
+    <string name="fish_go_fishing">Balık tut</string>
+    <string name="fish_rod_shop">Olta dükkânı</string>
+    <string name="fish_aquarium">Akvaryum</string>
+    <string name="fish_aquarium_count">%1$d/%2$d balık</string>
+    <string name="fish_aquarium_soon">Yakında: balıklarını besle, büyümelerini izle ve inci topla!</string>
+    <string name="fish_rod_summary">Oltan: %1$d m derinlik · atış başına %2$d balık</string>
+    <string name="fish_how_to">Atmak için dokun. Kancayı sürükleyerek yönlendir. İlk dokunduğun balık misinayı durdurur; yukarı çıkarken daha fazlasını yakala, denizanalarından kaç!</string>
+    <string name="fish_casts_left">Atış %1$d</string>
+    <string name="fish_depth">%1$d/%2$d m</string>
+    <string name="fish_hooked">🐟 %1$d/%2$d</string>
+    <string name="fish_tap_to_cast">Atmak için dokun!</string>
+    <string name="fish_cast_result">+%1$d</string>
+    <string name="fish_session_over">Limana dönüş!</string>
+    <string name="fish_session_detail">%1$d balık · %2$d inci</string>
+    <string name="fish_overflow">Akvaryum dolu: %1$d balık denize bırakıldı</string>
+    <string name="fish_extra_cast">Reklam izle: bir atış daha</string>
+    <string name="fish_back_to_harbor">Liman</string>
+    <string name="fish_level">Sv %1$d/%2$d</string>
+    <string name="fish_max">MAKS</string>
+    <string name="fish_buy">%1$d inci</string>
+    <string name="fish_stat_depth">%1$d m</string>
+    <string name="fish_stat_capacity">%1$d balık</string>
+    <string name="fish_stat_reel">%%%1$d hız</string>
+    <string name="fish_collection">Koleksiyon %1$d/%2$d</string>
+    <string name="fish_species_info">%1$d m\'den itibaren · %2$d inci</string>
 </resources>

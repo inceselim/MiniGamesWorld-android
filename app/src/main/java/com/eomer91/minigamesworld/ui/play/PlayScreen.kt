@@ -34,6 +34,7 @@ import com.eomer91.minigamesworld.ui.games.game2048.Game2048Screen
 import com.eomer91.minigamesworld.ui.games.match3.Match3Screen
 import com.eomer91.minigamesworld.ui.games.memory.MemoryScreen
 import com.eomer91.minigamesworld.ui.games.mines.MinesScreen
+import com.eomer91.minigamesworld.ui.games.fish.FishWorldScreen
 import com.eomer91.minigamesworld.ui.games.rocket.RocketScreen
 import com.eomer91.minigamesworld.ui.games.snake.SnakeScreen
 import com.eomer91.minigamesworld.ui.games.solitaire.SolitaireScreen
@@ -79,6 +80,7 @@ fun PlayScreen(gameId: String, onBack: () -> Unit) {
                 "solitaire" -> SolitaireScreen()
                 "connect-four" -> Connect4Screen()
                 "rocket-hop" -> RocketScreen()
+                "fish-world" -> FishWorldScreen()
                 else -> ComingSoon()
             }
         }
