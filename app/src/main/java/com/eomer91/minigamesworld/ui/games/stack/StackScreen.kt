@@ -110,19 +110,11 @@ fun StackScreen(viewModel: StackViewModel = hiltViewModel()) {
                 drawTower(state.game, camera)
             }
 
-            AnimatedVisibility(
+            PerfectBanner(
                 visible = showPerfect && !state.game.gameOver,
-                enter = fadeIn() + scaleIn(initialScale = 0.7f),
-                exit = fadeOut(),
+                combo = state.game.combo,
                 modifier = Modifier.align(Alignment.TopCenter).padding(top = 24.dp),
-            ) {
-                Text(
-                    if (state.game.combo > 1) stringResource(R.string.stack_perfect_combo, state.game.combo) else stringResource(R.string.stack_perfect),
-                    color = AppColors.Gold,
-                    fontSize = 26.sp,
-                    fontWeight = FontWeight.Black,
-                )
-            }
+            )
 
             if (!state.started) {
                 Text(
@@ -146,6 +138,27 @@ fun StackScreen(viewModel: StackViewModel = hiltViewModel()) {
                 )
             }
         }
+    }
+}
+
+/**
+ * "KUSURSUZ" yazisi. Ayri fonksiyonda: Column icindeki Box'ta dogrudan cagrilinca
+ * Kotlin ColumnScope.AnimatedVisibility'yi secip derleme hatasi veriyor.
+ */
+@Composable
+private fun PerfectBanner(visible: Boolean, combo: Int, modifier: Modifier = Modifier) {
+    AnimatedVisibility(
+        visible = visible,
+        enter = fadeIn() + scaleIn(initialScale = 0.7f),
+        exit = fadeOut(),
+        modifier = modifier,
+    ) {
+        Text(
+            if (combo > 1) stringResource(R.string.stack_perfect_combo, combo) else stringResource(R.string.stack_perfect),
+            color = AppColors.Gold,
+            fontSize = 26.sp,
+            fontWeight = FontWeight.Black,
+        )
     }
 }
 
