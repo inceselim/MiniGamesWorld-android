@@ -1,0 +1,42 @@
+=== TITLE (max 30) ===
+Mini Games Hub: Offline Games
+
+=== SHORT DESCRIPTION (max 80) ===
+17 fun games in one app: puzzles, arcade, cards, strategy. Play offline!
+
+=== FULL DESCRIPTION (max 4000) ===
+Mini Games Hub brings 17 fun games together in one small app. No account needed, most games play offline, and every game saves your best score.
+
+🧩 PUZZLE
+• Block Puzzle – place blocks, clear rows and columns
+• 2048 – merge the tiles and reach 2048
+• Sudoku – Easy, Normal and Hard, a new puzzle every time, notes and hints
+• Match 3 – match colorful gems and chain combos
+• Minesweeper – three board sizes, flag mode and a safe first tap
+
+🕹 ARCADE
+• Snake – the classic, smooth and fast
+• Stack – drop the blocks perfectly and build the tallest tower
+• Bubble Shooter – aim, bounce and pop the bubbles
+• Rocket Hop – fly your rocket through the asteroid gaps
+• Fish World – go fishing, upgrade your rod and raise fish in your own aquarium
+
+🃏 CARDS & CLASSICS
+• Solitaire – Klondike with Draw 1 or Draw 3, undo and auto finish
+• Memory – flip the cards and find all pairs
+• Connect Four – play the computer (three levels) or a friend
+
+♟ STRATEGY
+• Tower Defense – one tower, endless waves, permanent upgrades
+• Stock Trader – trade four stocks for 60 days, read the news and grow your fortune
+• Countries War – build your country, raise armies and conquer your rivals
+
+⭐ FEATURES
+• Earn gold in every game and use it to play
+• Continue unfinished games where you left off
+• Sound effects and vibration (can be turned off)
+• Favorites, search and categories
+• 10 languages: English, Türkçe, Deutsch, Español, Français, Italiano, 日本語, Русский, Dansk, Magyar
+• Small download, quick to open
+
+New games are added with every update. Have fun!

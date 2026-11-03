@@ -1,0 +1,42 @@
+=== TITLE (max 30) ===
+Mini Games Hub: giochi offline
+
+=== SHORT DESCRIPTION (max 80) ===
+17 giochi in un'app: rompicapo, arcade, carte, strategia. Gioca offline!
+
+=== FULL DESCRIPTION (max 4000) ===
+Mini Games Hub riunisce 17 giochi divertenti in un'unica app leggera. Nessun account richiesto, la maggior parte dei giochi funziona offline e ogni gioco salva il tuo record.
+
+🧩 ROMPICAPO
+• Block Puzzle – posiziona i blocchi, libera righe e colonne
+• 2048 – unisci le tessere e arriva a 2048
+• Sudoku – Facile, Normale e Difficile, un nuovo sudoku ogni volta, note e suggerimenti
+• Match 3 – abbina gemme colorate e concatena combo
+• Campo minato – tre dimensioni, modalità bandiera e primo tocco sicuro
+
+🕹 ARCADE
+• Snake – il classico, fluido e veloce
+• Stack – impila i blocchi alla perfezione e costruisci la torre più alta
+• Bubble Shooter – mira, fai rimbalzare e scoppia le bolle
+• Rocket Hop – guida il razzo tra gli asteroidi
+• Mondo dei pesci – pesca, potenzia la canna e alleva pesci nel tuo acquario
+
+🃏 CARTE E CLASSICI
+• Solitario – Klondike pescando 1 o 3 carte, annulla e completamento automatico
+• Memory – gira le carte e trova tutte le coppie
+• Forza Quattro – contro il computer (tre livelli) o un amico
+
+♟ STRATEGIA
+• Tower Defense – una torre, ondate infinite, potenziamenti permanenti
+• Trader di Borsa – scambia quattro azioni per 60 giorni e segui le notizie
+• Guerra delle Nazioni – costruisci il tuo paese, arruola eserciti e conquista i rivali
+
+⭐ CARATTERISTICHE
+• Guadagna oro in ogni gioco e usalo per giocare
+• Riprendi le partite da dove le avevi lasciate
+• Effetti sonori e vibrazione (disattivabili)
+• Preferiti, ricerca e categorie
+• 10 lingue: Italiano, English, Türkçe, Deutsch, Español, Français, 日本語, Русский, Dansk, Magyar
+• Download leggero, avvio rapido
+
+A ogni aggiornamento arrivano nuovi giochi. Buon divertimento!

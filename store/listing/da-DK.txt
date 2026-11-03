@@ -1,0 +1,42 @@
+=== TITLE (max 30) ===
+Mini Games Hub: Offlinespil
+
+=== SHORT DESCRIPTION (max 80) ===
+17 sjove spil i én app: puslespil, arkade, kort og strategi. Spil offline!
+
+=== FULL DESCRIPTION (max 4000) ===
+Mini Games Hub samler 17 sjove spil i én lille app. Ingen konto nødvendig, de fleste spil kan spilles offline, og hvert spil gemmer din rekord.
+
+🧩 PUSLESPIL
+• Block Puzzle – placér blokke, ryd rækker og kolonner
+• 2048 – saml brikkerne og nå 2048
+• Sudoku – Let, Normal og Svær, en ny opgave hver gang, noter og hjælp
+• Match 3 – match farverige ædelsten og lav kædereaktioner
+• Minestryger – tre brætstørrelser, flagtilstand og et sikkert første tryk
+
+🕹 ARKADE
+• Snake – klassikeren, glidende og hurtig
+• Stack – stabl blokkene præcist og byg det højeste tårn
+• Bubble Shooter – sigt, lad den prelle af og spræng boblerne
+• Rocket Hop – flyv din raket gennem hullerne mellem asteroiderne
+• Fiskeverden – fisk, opgradér din stang og opdræt fisk i dit eget akvarium
+
+🃏 KORT OG KLASSIKERE
+• Kabale – Klondike med 1 eller 3 kort, fortryd og automatisk afslutning
+• Vendespil – vend kortene og find alle par
+• Fire på stribe – mod computeren (tre niveauer) eller en ven
+
+♟ STRATEGI
+• Tower Defense – ét tårn, uendelige bølger, permanente opgraderinger
+• Aktiehandler – handl med fire aktier i 60 dage og følg nyhederne
+• Landenes Krig – byg dit land, opstil hære og erobr dine rivaler
+
+⭐ FUNKTIONER
+• Tjen guld i hvert spil, og brug det til at spille
+• Fortsæt ufærdige spil, hvor du slap
+• Lydeffekter og vibration (kan slås fra)
+• Favoritter, søgning og kategorier
+• 10 sprog: Dansk, English, Türkçe, Deutsch, Español, Français, Italiano, 日本語, Русский, Magyar
+• Lille download, hurtig opstart
+
+Nye spil kommer med hver opdatering. God fornøjelse!

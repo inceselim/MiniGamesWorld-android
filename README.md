@@ -126,6 +126,15 @@ Tahtanın altında iki buton var, ikisi de ödüllü (rewarded) reklam izletir:
 
 Ödül, reklam sonuna kadar izlenip kapatıldığında verilir. Reklam hazır değilse "Reklam henüz hazır değil" mesajı çıkar ve hiçbir şey değişmez.
 
+## Mağaza sayfası (Play Console)
+
+`store/` klasörü:
+- `listing/<dil>.txt` – 10 dilde başlık (≤30), kısa (≤80) ve tam açıklama (≤4000). Play Console > Grow users > Store presence > Main store listing; diller "Manage translations > Add your own translations" ile eklenir.
+- `release-notes-2.1.0.txt` – sürüm notları (`<en-US>…</en-US>` biçiminde, doğrudan yapıştırılır).
+- `play_store_icon_512.png` – uygulama ikonu (512×512).
+- `feature_graphic_1024x500.png` – tanıtım görseli.
+- Ekran görüntüleri: telefondan en az 2, tercihen 4-8 (9:16), oyun içinden.
+
 ## Diller
 
 Uygulama 10 dilde: İngilizce (varsayılan, `values/`), Türkçe, Almanca, İspanyolca, Fransızca, İtalyanca, Japonca, Rusça, Danca, Macarca (`values-xx/`). Dil, Ayarlar > Dil'den uygulama içinde seçilir (AppCompat per-app locales; Android 13+ sistem ayarlarında da görünür).
