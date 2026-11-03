@@ -126,6 +126,12 @@ Tahtanın altında iki buton var, ikisi de ödüllü (rewarded) reklam izletir:
 
 Ödül, reklam sonuna kadar izlenip kapatıldığında verilir. Reklam hazır değilse "Reklam henüz hazır değil" mesajı çıkar ve hiçbir şey değişmez.
 
+## Diller
+
+Uygulama 10 dilde: İngilizce (varsayılan, `values/`), Türkçe, Almanca, İspanyolca, Fransızca, İtalyanca, Japonca, Rusça, Danca, Macarca (`values-xx/`). Dil, Ayarlar > Dil'den uygulama içinde seçilir (AppCompat per-app locales; Android 13+ sistem ayarlarında da görünür).
+
+Yeni metin eklerken: önce `values/strings.xml`'e ekle, sonra **tüm** `values-xx/strings.xml` dosyalarına. Eksik çeviride Android İngilizceye düşer. Yeni dil eklerken `res/xml/locales_config.xml` ve `SettingsScreen.kt` içindeki `SUPPORTED_LANGUAGES` listesini de güncelle.
+
 ## Reklamlar
 
 | Tür | Nerede |

@@ -268,6 +268,7 @@
     <string name="stock_buy">Buy</string>
     <string name="stock_sell">Sell</string>
     <string name="stock_max">Max</string>
+    <string name="stock_half" formatted="false">50%</string>
     <string name="stock_all">All</string>
     <string name="stock_fee" formatted="false">0.5% commission on every trade</string>
     <string name="stock_tip">Watch ad: insider tip (%1$d days)</string>

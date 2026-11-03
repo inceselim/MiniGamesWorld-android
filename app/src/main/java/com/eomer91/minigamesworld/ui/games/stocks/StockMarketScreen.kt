@@ -258,14 +258,14 @@ fun StockMarketScreen(viewModel: StockMarketViewModel = hiltViewModel()) {
                 TradeRow(
                     label = stringResource(R.string.stock_buy),
                     color = Up,
-                    options = listOf(Qty.ONE to "1", Qty.TEN to "10", Qty.HALF to "%50", Qty.MAX to stringResource(R.string.stock_max)),
+                    options = listOf(Qty.ONE to "1", Qty.TEN to "10", Qty.HALF to stringResource(R.string.stock_half), Qty.MAX to stringResource(R.string.stock_max)),
                     enabled = { viewModel.quantity(it, buying = true) > 0 },
                     onClick = viewModel::buy,
                 )
                 TradeRow(
                     label = stringResource(R.string.stock_sell),
                     color = Down,
-                    options = listOf(Qty.ONE to "1", Qty.TEN to "10", Qty.HALF to "%50", Qty.MAX to stringResource(R.string.stock_all)),
+                    options = listOf(Qty.ONE to "1", Qty.TEN to "10", Qty.HALF to stringResource(R.string.stock_half), Qty.MAX to stringResource(R.string.stock_all)),
                     enabled = { viewModel.quantity(it, buying = false) > 0 },
                     onClick = viewModel::sell,
                 )

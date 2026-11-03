@@ -266,6 +266,7 @@
     <string name="stock_buy">Al</string>
     <string name="stock_sell">Sat</string>
     <string name="stock_max">Maks</string>
+    <string name="stock_half" formatted="false">%50</string>
     <string name="stock_all">Hepsi</string>
     <string name="stock_fee" formatted="false">Her işlemde %0,5 komisyon</string>
     <string name="stock_tip">Reklam izle: içeriden bilgi (%1$d gün)</string>
