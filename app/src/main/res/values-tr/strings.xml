@@ -506,4 +506,26 @@
     <string name="invite_friend">Arkadaşını davet et</string>
     <string name="invite_message">Mini Games Hub\'da 17 eğlenceli mini oyun oynuyorum. Sen de gel! %1$s</string>
     <string name="rate_app">Bizi değerlendir</string>
+    <string name="game_fox_name">Tilki Macerası</string>
+    <string name="game_fox_desc">Klasik bir platform oyunu! Koş, zıpla, düşmanların üstüne bas ve çayır, mağara ve kaledeki 15 bölümde 3 yıldızı topla.</string>
+    <string name="fx_world_meadow">Güneşli Çayır</string>
+    <string name="fx_world_cave">Kristal Mağara</string>
+    <string name="fx_world_castle">Lav Kalesi</string>
+    <string name="fx_level">Bölüm %1$d-%2$d</string>
+    <string name="fx_how_to">← → ile yürü, butonla zıpla; basılı tutarsan daha yükseğe zıplarsın. Salyangoz ve arıların üstüne bas ama dikenli kirpilere asla! ? bloklarına alttan vur.</string>
+    <string name="fx_locked">Kilitli</string>
+    <string name="fx_best_time">En iyi %1$s</string>
+    <string name="fx_paused">Duraklatıldı</string>
+    <string name="fx_resume">Devam et</string>
+    <string name="fx_restart">Bölümü yeniden başlat</string>
+    <string name="fx_to_levels">Bölümler</string>
+    <string name="fx_dead">Eyvah!</string>
+    <string name="fx_revive">Burada devam et (reklam izle)</string>
+    <string name="fx_from_checkpoint">Kontrol noktasından devam et</string>
+    <string name="fx_from_start">Başlangıçtan devam et</string>
+    <string name="fx_complete">Bölüm Tamamlandı!</string>
+    <string name="fx_result">Altın %1$d · Süre %2$s</string>
+    <string name="fx_next">Sonraki bölüm</string>
+    <string name="fx_retry">Tekrar oyna</string>
+    <string name="fx_all_done">Tüm bölümleri bitirdin! Bütün yıldızları toplamayı dene.</string>
 </resources>

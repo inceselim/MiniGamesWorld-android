@@ -508,4 +508,26 @@
     <string name="invite_friend">Invite a friend</string>
     <string name="invite_message">I\'m playing 17 fun mini games in Mini Games Hub. Join me! %1$s</string>
     <string name="rate_app">Rate us</string>
+    <string name="game_fox_name">Fox Adventure</string>
+    <string name="game_fox_desc">A classic side-scrolling platformer! Run, jump, stomp enemies and collect the 3 stars in 15 handmade levels across meadow, cave and castle.</string>
+    <string name="fx_world_meadow">Sunny Meadow</string>
+    <string name="fx_world_cave">Crystal Cave</string>
+    <string name="fx_world_castle">Lava Castle</string>
+    <string name="fx_level">Level %1$d-%2$d</string>
+    <string name="fx_how_to">Move with ← →, jump with the button — hold it to jump higher. Stomp snails and bees, but never the spiky hedgehogs! Hit ? blocks from below.</string>
+    <string name="fx_locked">Locked</string>
+    <string name="fx_best_time">Best %1$s</string>
+    <string name="fx_paused">Paused</string>
+    <string name="fx_resume">Resume</string>
+    <string name="fx_restart">Restart level</string>
+    <string name="fx_to_levels">Levels</string>
+    <string name="fx_dead">Ouch!</string>
+    <string name="fx_revive">Continue here (watch ad)</string>
+    <string name="fx_from_checkpoint">Continue from checkpoint</string>
+    <string name="fx_from_start">Continue from start</string>
+    <string name="fx_complete">Level Complete!</string>
+    <string name="fx_result">Coins %1$d · Time %2$s</string>
+    <string name="fx_next">Next level</string>
+    <string name="fx_retry">Play again</string>
+    <string name="fx_all_done">You finished every level! Try to collect all the stars.</string>
 </resources>

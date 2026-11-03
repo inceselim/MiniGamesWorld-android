@@ -492,4 +492,26 @@
     <string name="invite_friend">Invita un amico</string>
     <string name="invite_message">Sto giocando a 17 minigiochi divertenti su Mini Games Hub. Unisciti a me! %1$s</string>
     <string name="rate_app">Valutaci</string>
+    <string name="game_fox_name">L\'Avventura della Volpe</string>
+    <string name="game_fox_desc">Un classico platform! Corri, salta, schiaccia i nemici e raccogli le 3 stelle in 15 livelli fatti a mano tra prato, grotta e castello.</string>
+    <string name="fx_world_meadow">Prato Soleggiato</string>
+    <string name="fx_world_cave">Grotta di Cristallo</string>
+    <string name="fx_world_castle">Castello di Lava</string>
+    <string name="fx_level">Livello %1$d-%2$d</string>
+    <string name="fx_how_to">Muoviti con ← →, salta con il pulsante: tienilo premuto per saltare più in alto. Schiaccia lumache e api, ma mai i ricci spinosi! Colpisci i blocchi ? da sotto.</string>
+    <string name="fx_locked">Bloccato</string>
+    <string name="fx_best_time">Migliore %1$s</string>
+    <string name="fx_paused">In pausa</string>
+    <string name="fx_resume">Riprendi</string>
+    <string name="fx_restart">Ricomincia il livello</string>
+    <string name="fx_to_levels">Livelli</string>
+    <string name="fx_dead">Ahi!</string>
+    <string name="fx_revive">Continua qui (guarda annuncio)</string>
+    <string name="fx_from_checkpoint">Riprendi dal checkpoint</string>
+    <string name="fx_from_start">Riprendi dall\'inizio</string>
+    <string name="fx_complete">Livello completato!</string>
+    <string name="fx_result">Monete %1$d · Tempo %2$s</string>
+    <string name="fx_next">Livello successivo</string>
+    <string name="fx_retry">Gioca ancora</string>
+    <string name="fx_all_done">Hai finito tutti i livelli! Prova a raccogliere tutte le stelle.</string>
 </resources>

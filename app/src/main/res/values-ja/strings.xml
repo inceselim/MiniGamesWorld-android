@@ -492,4 +492,26 @@
     <string name="invite_friend">友だちを招待</string>
     <string name="invite_message">Mini Games Hub で 17 種類のミニゲームを遊んでるよ。一緒に遊ぼう！ %1$s</string>
     <string name="rate_app">評価する</string>
+    <string name="game_fox_name">キツネの大冒険</string>
+    <string name="game_fox_desc">王道の横スクロールアクション！走って跳んで敵を踏みつけ、草原・洞窟・お城の手作り15ステージで3つの星を集めよう。</string>
+    <string name="fx_world_meadow">ひだまり草原</string>
+    <string name="fx_world_cave">クリスタル洞窟</string>
+    <string name="fx_world_castle">溶岩の城</string>
+    <string name="fx_level">ステージ %1$d-%2$d</string>
+    <string name="fx_how_to">← → で移動、ボタンでジャンプ。長押しで高く跳べるよ。カタツムリとハチは踏めるけど、トゲトゲのハリネズミは踏んじゃダメ！？ブロックは下から叩こう。</string>
+    <string name="fx_locked">ロック中</string>
+    <string name="fx_best_time">ベスト %1$s</string>
+    <string name="fx_paused">一時停止</string>
+    <string name="fx_resume">再開</string>
+    <string name="fx_restart">ステージをやり直す</string>
+    <string name="fx_to_levels">ステージ選択</string>
+    <string name="fx_dead">いたた！</string>
+    <string name="fx_revive">ここから再開（広告を見る）</string>
+    <string name="fx_from_checkpoint">チェックポイントから再開</string>
+    <string name="fx_from_start">スタートから再開</string>
+    <string name="fx_complete">ステージクリア！</string>
+    <string name="fx_result">コイン %1$d · タイム %2$s</string>
+    <string name="fx_next">次のステージ</string>
+    <string name="fx_retry">もう一度</string>
+    <string name="fx_all_done">全ステージクリア！すべての星を集めよう。</string>
 </resources>

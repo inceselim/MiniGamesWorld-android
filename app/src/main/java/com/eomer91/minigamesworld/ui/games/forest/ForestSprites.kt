@@ -5,7 +5,7 @@ import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
 
 /**
- * Orman Muhafizi piksel art cizimleri (32x32 karakterler, golgeli). Her harf bir renk, '.' saydam.
+ * Piksel art cizimleri (golgeli). Her harf bir renk, '.' saydam.
  * Bu dosya bir Python betigiyle (sekil + otomatik golge + dis hat) uretildi; elle de duzenlenebilir.
  * Bir kez Bitmap'e cevrilir ve FilterQuality.None ile keskin buyutulur.
  */

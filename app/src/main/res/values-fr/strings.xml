@@ -492,4 +492,26 @@
     <string name="invite_friend">Inviter un ami</string>
     <string name="invite_message">Je joue à 17 mini-jeux amusants dans Mini Games Hub. Rejoins-moi ! %1$s</string>
     <string name="rate_app">Notez-nous</string>
+    <string name="game_fox_name">L\'Aventure du Renard</string>
+    <string name="game_fox_desc">Un jeu de plateforme classique ! Cours, saute, écrase les ennemis et récupère les 3 étoiles dans 15 niveaux faits main : prairie, grotte et château.</string>
+    <string name="fx_world_meadow">Prairie Ensoleillée</string>
+    <string name="fx_world_cave">Grotte de Cristal</string>
+    <string name="fx_world_castle">Château de Lave</string>
+    <string name="fx_level">Niveau %1$d-%2$d</string>
+    <string name="fx_how_to">Avance avec ← →, saute avec le bouton – maintiens-le pour sauter plus haut. Écrase escargots et abeilles, mais jamais les hérissons ! Frappe les blocs ? par en dessous.</string>
+    <string name="fx_locked">Verrouillé</string>
+    <string name="fx_best_time">Record %1$s</string>
+    <string name="fx_paused">Pause</string>
+    <string name="fx_resume">Reprendre</string>
+    <string name="fx_restart">Recommencer le niveau</string>
+    <string name="fx_to_levels">Niveaux</string>
+    <string name="fx_dead">Aïe !</string>
+    <string name="fx_revive">Continuer ici (voir une pub)</string>
+    <string name="fx_from_checkpoint">Reprendre au point de contrôle</string>
+    <string name="fx_from_start">Reprendre au départ</string>
+    <string name="fx_complete">Niveau terminé !</string>
+    <string name="fx_result">Pièces %1$d · Temps %2$s</string>
+    <string name="fx_next">Niveau suivant</string>
+    <string name="fx_retry">Rejouer</string>
+    <string name="fx_all_done">Tu as terminé tous les niveaux ! Essaie de récupérer toutes les étoiles.</string>
 </resources>

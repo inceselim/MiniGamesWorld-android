@@ -15,6 +15,7 @@ object GameCatalog {
         Game("rocket-hop", R.string.game_rocket_hop_name, R.string.game_rocket_hop_desc, GameCategory.ARCADE, R.drawable.game_rocket_hop, entryCost = 5, isPlayable = true),
         Game("fish-world", R.string.game_fish_world_name, R.string.game_fish_world_desc, GameCategory.ARCADE, R.drawable.game_fish_world, entryCost = 5, isPlayable = true),
         Game("stock-market", R.string.game_stock_market_name, R.string.game_stock_market_desc, GameCategory.STRATEGY, R.drawable.game_stock_market, entryCost = 5, isPlayable = true),
+        Game("fox-adventure", R.string.game_fox_name, R.string.game_fox_desc, GameCategory.ARCADE, R.drawable.game_fox_adventure, entryCost = 5, isPlayable = true),
         Game("forest-guardian", R.string.game_forest_name, R.string.game_forest_desc, GameCategory.ARCADE, R.drawable.game_forest_guardian, entryCost = 5, isPlayable = true),
         Game("countries-war", R.string.game_countries_war_name, R.string.game_countries_war_desc, GameCategory.STRATEGY, R.drawable.game_countries_war, entryCost = 5, isPlayable = true),
         Game("2048", R.string.game_2048_name, R.string.game_2048_desc, GameCategory.PUZZLE, R.drawable.game_2048, entryCost = 10, isPlayable = true),

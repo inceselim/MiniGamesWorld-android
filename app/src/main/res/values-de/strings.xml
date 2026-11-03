@@ -492,4 +492,26 @@
     <string name="invite_friend">Freund einladen</string>
     <string name="invite_message">Ich spiele 17 lustige Minispiele in Mini Games Hub. Spiel mit! %1$s</string>
     <string name="rate_app">Bewerte uns</string>
+    <string name="game_fox_name">Fuchs-Abenteuer</string>
+    <string name="game_fox_desc">Ein klassisches Jump-’n’-Run! Lauf, spring, stampf Gegner platt und sammle die 3 Sterne in 15 handgemachten Levels auf Wiese, in Höhle und Burg.</string>
+    <string name="fx_world_meadow">Sonnige Wiese</string>
+    <string name="fx_world_cave">Kristallhöhle</string>
+    <string name="fx_world_castle">Lavaburg</string>
+    <string name="fx_level">Level %1$d-%2$d</string>
+    <string name="fx_how_to">Mit ← → laufen, mit dem Knopf springen – gedrückt halten für höhere Sprünge. Stampf Schnecken und Bienen platt, aber nie die stacheligen Igel! Schlag ?-Blöcke von unten.</string>
+    <string name="fx_locked">Gesperrt</string>
+    <string name="fx_best_time">Beste %1$s</string>
+    <string name="fx_paused">Pause</string>
+    <string name="fx_resume">Weiter</string>
+    <string name="fx_restart">Level neu starten</string>
+    <string name="fx_to_levels">Levels</string>
+    <string name="fx_dead">Autsch!</string>
+    <string name="fx_revive">Hier weitermachen (Werbung)</string>
+    <string name="fx_from_checkpoint">Ab Checkpoint weiter</string>
+    <string name="fx_from_start">Vom Start weiter</string>
+    <string name="fx_complete">Level geschafft!</string>
+    <string name="fx_result">Münzen %1$d · Zeit %2$s</string>
+    <string name="fx_next">Nächstes Level</string>
+    <string name="fx_retry">Nochmal</string>
+    <string name="fx_all_done">Du hast alle Levels geschafft! Sammle jetzt alle Sterne.</string>
 </resources>

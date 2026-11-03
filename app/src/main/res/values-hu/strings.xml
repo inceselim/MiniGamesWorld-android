@@ -492,4 +492,26 @@
     <string name="invite_friend">Barát meghívása</string>
     <string name="invite_message">17 szórakoztató minijátékkal játszom a Mini Games Hubban. Gyere te is! %1$s</string>
     <string name="rate_app">Értékelj minket</string>
+    <string name="game_fox_name">Rókakaland</string>
+    <string name="game_fox_desc">Klasszikus platformjáték! Fuss, ugorj, taposd el az ellenfeleket, és gyűjtsd össze a 3 csillagot 15 kézzel készített pályán: mező, barlang és vár.</string>
+    <string name="fx_world_meadow">Napos Mező</string>
+    <string name="fx_world_cave">Kristálybarlang</string>
+    <string name="fx_world_castle">Lávavár</string>
+    <string name="fx_level">%1$d-%2$d. pálya</string>
+    <string name="fx_how_to">Mozogj ← → gombokkal, ugorj a gombbal – tartsd lenyomva a magasabb ugráshoz. Taposd el a csigákat és méheket, de a tüskés sünöket soha! Üsd a ? blokkokat alulról.</string>
+    <string name="fx_locked">Zárolva</string>
+    <string name="fx_best_time">Legjobb %1$s</string>
+    <string name="fx_paused">Szünet</string>
+    <string name="fx_resume">Folytatás</string>
+    <string name="fx_restart">Pálya újrakezdése</string>
+    <string name="fx_to_levels">Pályák</string>
+    <string name="fx_dead">Jaj!</string>
+    <string name="fx_revive">Folytatás itt (reklám)</string>
+    <string name="fx_from_checkpoint">Folytatás az ellenőrzőpontról</string>
+    <string name="fx_from_start">Folytatás az elejéről</string>
+    <string name="fx_complete">Pálya teljesítve!</string>
+    <string name="fx_result">Érmék %1$d · Idő %2$s</string>
+    <string name="fx_next">Következő pálya</string>
+    <string name="fx_retry">Újra</string>
+    <string name="fx_all_done">Minden pályát teljesítettél! Próbáld összegyűjteni az összes csillagot.</string>
 </resources>

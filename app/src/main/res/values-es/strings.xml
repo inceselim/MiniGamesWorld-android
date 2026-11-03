@@ -492,4 +492,26 @@
     <string name="invite_friend">Invitar a un amigo</string>
     <string name="invite_message">Estoy jugando 17 minijuegos divertidos en Mini Games Hub. ¡Únete! %1$s</string>
     <string name="rate_app">Valóranos</string>
+    <string name="game_fox_name">Aventura del Zorro</string>
+    <string name="game_fox_desc">¡Un plataformas clásico! Corre, salta, aplasta enemigos y consigue las 3 estrellas en 15 niveles hechos a mano en la pradera, la cueva y el castillo.</string>
+    <string name="fx_world_meadow">Pradera Soleada</string>
+    <string name="fx_world_cave">Cueva de Cristal</string>
+    <string name="fx_world_castle">Castillo de Lava</string>
+    <string name="fx_level">Nivel %1$d-%2$d</string>
+    <string name="fx_how_to">Muévete con ← → y salta con el botón; mantenlo pulsado para saltar más alto. Aplasta caracoles y abejas, ¡pero nunca a los erizos! Golpea los bloques ? desde abajo.</string>
+    <string name="fx_locked">Bloqueado</string>
+    <string name="fx_best_time">Mejor %1$s</string>
+    <string name="fx_paused">En pausa</string>
+    <string name="fx_resume">Continuar</string>
+    <string name="fx_restart">Reiniciar nivel</string>
+    <string name="fx_to_levels">Niveles</string>
+    <string name="fx_dead">¡Ay!</string>
+    <string name="fx_revive">Continuar aquí (ver anuncio)</string>
+    <string name="fx_from_checkpoint">Continuar desde el punto de control</string>
+    <string name="fx_from_start">Continuar desde el inicio</string>
+    <string name="fx_complete">¡Nivel completado!</string>
+    <string name="fx_result">Monedas %1$d · Tiempo %2$s</string>
+    <string name="fx_next">Siguiente nivel</string>
+    <string name="fx_retry">Jugar de nuevo</string>
+    <string name="fx_all_done">¡Has superado todos los niveles! Intenta conseguir todas las estrellas.</string>
 </resources>

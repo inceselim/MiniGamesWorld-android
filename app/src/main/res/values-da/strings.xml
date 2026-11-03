@@ -492,4 +492,26 @@
     <string name="invite_friend">Inviter en ven</string>
     <string name="invite_message">Jeg spiller 17 sjove minispil i Mini Games Hub. Spil med! %1$s</string>
     <string name="rate_app">Bedøm os</string>
+    <string name="game_fox_name">Rævens Eventyr</string>
+    <string name="game_fox_desc">Et klassisk platformspil! Løb, hop, tramp på fjender og saml de 3 stjerner i 15 håndlavede baner på eng, i hule og på slot.</string>
+    <string name="fx_world_meadow">Solrig Eng</string>
+    <string name="fx_world_cave">Krystalhulen</string>
+    <string name="fx_world_castle">Lavaslottet</string>
+    <string name="fx_level">Bane %1$d-%2$d</string>
+    <string name="fx_how_to">Gå med ← →, hop med knappen – hold den inde for at hoppe højere. Tramp på snegle og bier, men aldrig på de stikkende pindsvin! Slå ?-blokke nedefra.</string>
+    <string name="fx_locked">Låst</string>
+    <string name="fx_best_time">Bedste %1$s</string>
+    <string name="fx_paused">Pause</string>
+    <string name="fx_resume">Fortsæt</string>
+    <string name="fx_restart">Start banen forfra</string>
+    <string name="fx_to_levels">Baner</string>
+    <string name="fx_dead">Av!</string>
+    <string name="fx_revive">Fortsæt her (se reklame)</string>
+    <string name="fx_from_checkpoint">Fortsæt fra checkpoint</string>
+    <string name="fx_from_start">Fortsæt fra start</string>
+    <string name="fx_complete">Bane klaret!</string>
+    <string name="fx_result">Mønter %1$d · Tid %2$s</string>
+    <string name="fx_next">Næste bane</string>
+    <string name="fx_retry">Spil igen</string>
+    <string name="fx_all_done">Du har klaret alle baner! Prøv at samle alle stjernerne.</string>
 </resources>

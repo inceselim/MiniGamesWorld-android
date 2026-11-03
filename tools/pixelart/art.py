@@ -259,3 +259,107 @@ def meat():
     a=Art(14,12); a.ell(6,6,6,5,'meat'); a.rect(10,5,13,7,'bone'); a.ell(13,5,1.2,1.2,'bone'); a.ell(13,8,1.2,1.2,'bone'); return a
 def chest():
     a=Art(24,20); a.rect(1,8,22,19,'chestw'); a.ell(11.5,8,11,6,'chestw'); a.rect(1,10,22,11,'gold'); a.rect(10,9,13,14,'gold'); a.px(11,12,'eye',True); return a
+
+# ======================= Tilki Macerasi =======================
+M.update({
+ 'fox':((255,170,90),(238,120,40),(176,76,24)),
+ 'foxW':((255,255,250),(240,236,226),(200,194,180)),
+ 'snail':((255,214,120),(230,170,70),(170,110,40)),
+ 'shell':((200,140,230),(160,90,200),(100,50,140)),
+ 'bee':((255,232,90),(240,200,40),(180,140,20)),
+ 'wing':((235,250,255),(200,230,250),(150,190,220)),
+ 'spike':((150,110,80),(110,76,50),(70,46,28)),
+ 'dirt':((196,134,82),(158,102,58),(112,70,38)),
+ 'grass':((150,220,90),(96,180,64),(60,130,44)),
+ 'brick':((226,120,80),(190,84,50),(130,52,30)),
+ 'qblock':((255,222,110),(240,180,50),(180,120,20)),
+ 'used':((200,170,130),(160,130,95),(110,86,60)),
+ 'cave':((140,130,170),(100,92,130),(64,58,88)),
+ 'castle':((170,170,180),(124,124,136),(80,80,92)),
+ 'lava':((255,200,90),(250,120,40),(200,50,30)),
+ 'flag':((120,240,140),(60,200,90),(30,140,60)),
+ 'pole':((240,240,245),(200,200,210),(140,140,155)),
+})
+def fox(frame=0):
+    """frame: 0 dur, 1-2 kos, 3 zipla"""
+    a=Art(32,32)
+    # kuyruk
+    if frame==3: a.poly([(5,13),(1,7),(4,6),(9,14)],'fox'); a.ell(2,7,2,2,'foxW')
+    else: a.poly([(8,19),(1,15),(2,11),(9,16)],'fox'); a.ell(2,12,2,2,'foxW')
+    # bacaklar
+    legs={0:((12,15),(19,22)),1:((10,13),(20,23)),2:((14,17),(17,20)),3:((11,14),(20,23))}[frame]
+    ly=26 if frame!=3 else 24
+    for (x0,x1) in legs: a.rect(x0,ly-4,x1-1,ly,'fox'); a.rect(x0,ly,x1-1,ly+1,'eye')
+    # govde
+    a.ell(16,19,8,5.5,'fox'); a.ell(17,21,5,3,'foxW')
+    # bas
+    a.ell(21,11,6.5,5.5,'fox')
+    a.poly([(25,11),(30,13),(25,15)],'fox')   # burun
+    a.ell(23,14,3.5,2,'foxW')
+    a.px(30,13,'eye',True)
+    a.poly([(16,8),(17,1),(21,6)],'fox'); a.poly([(22,6),(25,1),(26,8)],'fox')  # kulaklar
+    a.px(18,4,'eye',True); a.px(24,4,'eye',True)
+    a.rect(23,9,24,10,'eye',True); a.px(23,9,'white',True)
+    return a
+def snail(frame=0):
+    a=Art(32,32)
+    o=0 if frame==0 else 1
+    a.poly([(4,28),(26,28),(28,24),(6,23)],'snail')
+    a.ell(9+o,20,4,5,'snail'); a.line(8+o,15,6+o,10,'snail'); a.line(11+o,15,12+o,10,'snail')
+    a.px(6+o,9,'eye',True); a.px(12+o,9,'eye',True)
+    a.ell(19,18,8,8,'shell'); a.ell(19,18,4.5,4.5,'shell'); a.ell(19,18,1.5,1.5,'shell')
+    return a
+def bee(frame=0):
+    a=Art(32,32)
+    if frame==0: a.ell(14,8,5,4,'wing'); a.ell(20,7,4,3.5,'wing')
+    else: a.ell(13,12,5,2.5,'wing'); a.ell(20,12,4,2.5,'wing')
+    a.ell(16,17,9,6,'bee')
+    a.rect(12,12,13,23,'eye',True); a.rect(18,12,19,23,'eye',True)
+    a.ell(25,15,4,4,'bee'); a.rect(26,13,27,14,'eye',True)
+    a.poly([(6,17),(2,18),(6,19)],'eye')
+    return a
+def hedgehog(frame=0):
+    a=Art(32,32)
+    o=0 if frame==0 else 1
+    for i in range(6):
+        x=6+i*3.5; a.poly([(x,18),(x+2,8+(i%2)*2),(x+4,18)],'spike')
+    a.ell(16,20,11,7,'spike')
+    a.ell(25,22,5,4,'snail'); a.px(28,21,'eye',True); a.px(30,23,'eye',True)
+    a.rect(9+o,26,11+o,28,'eye'); a.rect(19-o,26,21-o,28,'eye')
+    return a
+def tile(kind):
+    a=Art(16,16)
+    if kind=='grass': a.rect(0,0,15,15,'dirt'); a.rect(0,0,15,4,'grass'); [a.px(x,5,'grass') for x in range(0,16,3)]
+    elif kind=='dirt': a.rect(0,0,15,15,'dirt'); a.px(4,5,'stone',True); a.px(11,10,'stone',True)
+    elif kind=='brick':
+        a.rect(0,0,15,15,'brick')
+        for y in (5,10,15): a.line(0,y,15,y,'used',True)
+        for (x,y0,y1) in ((7,0,5),(3,6,10),(11,6,10),(7,11,15)): a.line(x,y0,x,y1,'used',True)
+    elif kind=='q': a.rect(0,0,15,15,'qblock'); a.rect(6,3,9,4,'white',True); a.rect(9,4,10,7,'white',True); a.rect(7,7,8,9,'white',True); a.rect(7,11,8,12,'white',True)
+    elif kind=='used': a.rect(0,0,15,15,'used'); [a.px(x,y,'eye',True) for (x,y) in ((2,2),(13,2),(2,13),(13,13))]
+    elif kind=='cave': a.rect(0,0,15,15,'cave'); a.px(5,4,'gemB',True); a.px(11,11,'cave',True)
+    elif kind=='caveTop': a.rect(0,0,15,15,'cave'); a.rect(0,0,15,2,'gem')
+    elif kind=='castle':
+        a.rect(0,0,15,15,'castle')
+        for y in (7,15): a.line(0,y,15,y,'stone',True)
+        a.line(7,0,7,7,'stone',True); a.line(3,8,3,15,'stone',True); a.line(11,8,11,15,'stone',True)
+    elif kind=='spikes':
+        for i in range(4): a.poly([(i*4,15),(i*4+2,6),(i*4+4,15)],'iron')
+    elif kind=='spring': a.rect(2,10,13,15,'iron'); a.rect(4,5,11,9,'red'); a.rect(1,3,14,5,'iron')
+    elif kind=='plat': a.rect(0,0,15,5,'bark'); a.px(4,2,'leather',True); a.px(11,3,'leather',True)
+    elif kind=='lava': a.rect(0,3,15,15,'lava'); [a.ell(x,4,2,1.5,'lava') for x in (3,10)]
+    return a
+def flagpole():
+    a=Art(16,48); a.rect(7,4,8,47,'pole'); a.ell(7.5,3,2.5,2.5,'gold'); a.poly([(9,6),(15,9),(9,13)],'flag'); return a
+def star():
+    a=Art(16,16)
+    import math
+    pts=[]
+    for k in range(10):
+        r=7.5 if k%2==0 else 3.2; ang=-math.pi/2+k*math.pi/5
+        pts.append((7.5+r*math.cos(ang),8+r*math.sin(ang)))
+    a.poly(pts,'gold'); a.px(6,7,'eye',True); a.px(9,7,'eye',True); return a
+def heart():
+    a=Art(12,11); a.ell(3.5,3.5,3,3,'red'); a.ell(8,3.5,3,3,'red'); a.poly([(0.5,4),(11,4),(5.75,10.5)],'red'); return a
+def checkpoint(active):
+    a=Art(16,32); a.rect(7,4,8,31,'pole'); a.poly([(9,4),(15,7),(9,10)],'flag' if active else 'used'); return a
