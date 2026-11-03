@@ -2,10 +2,10 @@
 Mini Games Hub: Offline Games
 
 === SHORT DESCRIPTION (max 80) ===
-17 fun games in one app: puzzles, arcade, cards, strategy. Play offline!
+19 fun games in one app: puzzles, arcade, cards, strategy. Play offline!
 
 === FULL DESCRIPTION (max 4000) ===
-Mini Games Hub brings 17 fun games together in one small app. No account needed, most games play offline, and every game saves your best score.
+Mini Games Hub brings 19 fun games together in one small app. No account needed, most games play offline, and every game saves your best score.
 
 🧩 PUZZLE
 • Block Puzzle – place blocks, clear rows and columns
@@ -20,6 +20,8 @@ Mini Games Hub brings 17 fun games together in one small app. No account needed,
 • Bubble Shooter – aim, bounce and pop the bubbles
 • Rocket Hop – fly your rocket through the asteroid gaps
 • Fish World – go fishing, upgrade your rod and raise fish in your own aquarium
+• Forest Guardian – survive monster waves, level up and evolve your weapons
+• Fox Adventure – run, jump and stomp across 15 levels, collect every star
 
 🃏 CARDS & CLASSICS
 • Solitaire – Klondike with Draw 1 or Draw 3, undo and auto finish

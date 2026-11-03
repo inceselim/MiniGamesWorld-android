@@ -2,10 +2,10 @@
 Mini Games Hub: offline játék
 
 === SHORT DESCRIPTION (max 80) ===
-17 játék egy appban: logikai, ügyességi, kártya, stratégia. Játssz offline!
+19 játék egy appban: logikai, ügyességi, kártya, stratégia. Játssz offline!
 
 === FULL DESCRIPTION (max 4000) ===
-A Mini Games Hub 17 szórakoztató játékot gyűjt egyetlen kis alkalmazásba. Nem kell fiók, a legtöbb játék internet nélkül is működik, és minden játék elmenti a rekordodat.
+A Mini Games Hub 19 szórakoztató játékot gyűjt egyetlen kis alkalmazásba. Nem kell fiók, a legtöbb játék internet nélkül is működik, és minden játék elmenti a rekordodat.
 
 🧩 LOGIKAI
 • Block Puzzle – rakd le a blokkokat, töröld a sorokat és oszlopokat
@@ -20,6 +20,8 @@ A Mini Games Hub 17 szórakoztató játékot gyűjt egyetlen kis alkalmazásba. 
 • Bubble Shooter – célozz, pattints a falról, pukkaszd ki a buborékokat
 • Rocket Hop – repítsd a rakétát az aszteroidák között
 • Halvilág – horgássz, fejleszd a botod, és nevelj halakat a saját akváriumodban
+• Erdő őrzője – éld túl a szörnyhullámokat, lépj szintet és fejleszd a fegyvereidet
+• Rókakaland – fuss, ugorj és taposs 15 pályán át, gyűjtsd össze az összes csillagot
 
 🃏 KÁRTYA ÉS KLASSZIKUSOK
 • Pasziánsz – Klondike 1 vagy 3 lap húzással, visszavonás, automatikus befejezés

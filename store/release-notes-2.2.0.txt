@@ -1,0 +1,70 @@
+<en-US>
+2 new games – now 19 games!
+• Forest Guardian: survive monster waves, level up and evolve your weapons (landscape)
+• Fox Adventure: a classic platformer with 15 levels across meadow, cave and castle – collect all the stars!
+• Tower Defense: not enough gold? Watch an ad to get the upgrade
+• Invite your friends and rate the app from Settings
+</en-US>
+<tr-TR>
+2 yeni oyun, toplam 19 oyun!
+• Orman Muhafızı: canavar dalgalarına dayan, seviye atla, silahlarını evrimleştir (yatay ekran)
+• Tilki Macerası: çayır, mağara ve kalede 15 bölümlük klasik platform oyunu, tüm yıldızları topla!
+• Tower Defense: altının yetmiyorsa reklam izleyip güçlendirmeyi al
+• Ayarlar'dan arkadaşlarını davet et ve uygulamaya puan ver
+</tr-TR>
+<de-DE>
+2 neue Spiele – jetzt 19 Spiele!
+• Waldwächter: überstehe Monsterwellen, steige auf und entwickle deine Waffen (Querformat)
+• Fuchs-Abenteuer: klassisches Jump-’n’-Run mit 15 Levels auf Wiese, in Höhle und Burg – sammle alle Sterne!
+• Tower Defense: zu wenig Gold? Sieh dir eine Werbung an und hol dir das Upgrade
+• Lade Freunde ein und bewerte die App in den Einstellungen
+</de-DE>
+<es-ES>
+¡2 juegos nuevos, ya son 19!
+• Guardián del Bosque: resiste oleadas de monstruos, sube de nivel y evoluciona tus armas (horizontal)
+• Aventura del Zorro: plataformas clásico con 15 niveles en pradera, cueva y castillo. ¡Consigue todas las estrellas!
+• Tower Defense: ¿no te alcanza el oro? Mira un anuncio y consigue la mejora
+• Invita a tus amigos y valora la app desde Ajustes
+</es-ES>
+<fr-FR>
+2 nouveaux jeux – 19 jeux au total !
+• Gardien de la forêt : survis aux vagues de monstres, monte de niveau et fais évoluer tes armes (paysage)
+• L'Aventure du Renard : un jeu de plateforme classique en 15 niveaux (prairie, grotte, château) – récupère toutes les étoiles !
+• Tower Defense : pas assez d'or ? Regarde une pub pour obtenir l'amélioration
+• Invite tes amis et note l'application depuis les Paramètres
+</fr-FR>
+<it-IT>
+2 nuovi giochi, ora sono 19!
+• Guardiano della foresta: resisti alle ondate di mostri, sali di livello ed evolvi le armi (orizzontale)
+• L'Avventura della Volpe: un platform classico con 15 livelli tra prato, grotta e castello – raccogli tutte le stelle!
+• Tower Defense: oro insufficiente? Guarda un annuncio e ottieni il potenziamento
+• Invita gli amici e valuta l'app dalle Impostazioni
+</it-IT>
+<ja-JP>
+新しいゲームが2つ登場、全19ゲームに！
+• 森の守護者：モンスターの大群を生き抜き、レベルアップして武器を進化（横画面）
+• キツネの大冒険：草原・洞窟・お城の15ステージで遊ぶ王道アクション。星を全部集めよう！
+• タワーディフェンス：ゴールドが足りなくても広告を見て強化できる
+• 設定から友だちを招待＆アプリを評価
+</ja-JP>
+<ru-RU>
+2 новые игры — теперь их 19!
+• Страж леса: выживай под натиском монстров, прокачивайся и улучшай оружие (горизонтально)
+• Приключения Лиса: классический платформер, 15 уровней — луг, пещера и замок. Собери все звёзды!
+• Tower Defense: не хватает золота? Посмотри рекламу и получи улучшение
+• Приглашай друзей и оценивай приложение в Настройках
+</ru-RU>
+<da-DK>
+2 nye spil – nu 19 spil!
+• Skovens vogter: overlev monsterbølger, stig i niveau og udvikl dine våben (liggende)
+• Rævens Eventyr: klassisk platformspil med 15 baner på eng, i hule og på slot – saml alle stjernerne!
+• Tower Defense: for lidt guld? Se en reklame og få opgraderingen
+• Inviter venner og bedøm appen under Indstillinger
+</da-DK>
+<hu-HU>
+2 új játék – már 19 játék!
+• Erdő őrzője: éld túl a szörnyhullámokat, lépj szintet és fejleszd a fegyvereidet (fekvő)
+• Rókakaland: klasszikus platformjáték 15 pályával mezőn, barlangban és várban – gyűjtsd össze az összes csillagot!
+• Tower Defense: kevés az arany? Nézz meg egy reklámot, és megkapod a fejlesztést
+• Hívd meg a barátaidat és értékeld az alkalmazást a Beállításokban
+</hu-HU>

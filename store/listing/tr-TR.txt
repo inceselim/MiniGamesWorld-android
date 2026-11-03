@@ -2,10 +2,10 @@
 Mini Games Hub - Offline Oyun
 
 === SHORT DESCRIPTION (max 80) ===
-Tek uygulamada 17 eğlenceli oyun: bulmaca, arcade, kart, strateji. İnternetsiz!
+Tek uygulamada 19 eğlenceli oyun: bulmaca, arcade, kart, strateji. İnternetsiz!
 
 === FULL DESCRIPTION (max 4000) ===
-Mini Games Hub, 17 eğlenceli oyunu tek ve küçük bir uygulamada topluyor. Hesap gerekmez, oyunların çoğu internetsiz oynanır ve her oyun en iyi skorunu kaydeder.
+Mini Games Hub, 19 eğlenceli oyunu tek ve küçük bir uygulamada topluyor. Hesap gerekmez, oyunların çoğu internetsiz oynanır ve her oyun en iyi skorunu kaydeder.
 
 🧩 BULMACA
 • Block Puzzle – blokları yerleştir, satır ve sütunları temizle
@@ -20,6 +20,8 @@ Mini Games Hub, 17 eğlenceli oyunu tek ve küçük bir uygulamada topluyor. Hes
 • Bubble Shooter – nişan al, duvardan sektir, balonları patlat
 • Roket Zıpla – roketini asteroitlerin arasından geçir
 • Balık Dünyası – balık tut, oltanı geliştir, kendi akvaryumunda balık besle
+• Orman Muhafızı – canavar dalgalarına dayan, seviye atla, silahlarını evrimleştir
+• Tilki Macerası – koş, zıpla, düşmanlara bas; 15 bölümde tüm yıldızları topla
 
 🃏 KART VE KLASİKLER
 • Solitaire – 1 ya da 3 kart çekmeli Klondike, geri al, otomatik bitir
