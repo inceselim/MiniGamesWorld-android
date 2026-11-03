@@ -649,4 +649,5 @@
     <string name="pl_groups_set">組が決まった！</string>
     <string name="pl_hint">台の上をドラッグして狙い、パワーバーを下に引いて離すとショット。</string>
     <string name="pl_power">パワー</string>
+    <string name="settings_music">音楽</string>
 </resources>

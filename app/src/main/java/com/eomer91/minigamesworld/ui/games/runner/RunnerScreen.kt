@@ -53,6 +53,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.repeatOnLifecycle
 import com.eomer91.minigamesworld.R
+import com.eomer91.minigamesworld.feedback.GameMusicEffect
 import com.eomer91.minigamesworld.ads.rememberInterstitialLauncher
 import com.eomer91.minigamesworld.ads.rememberRewardedLauncher
 import com.eomer91.minigamesworld.ui.games.common.GameOverPanel
@@ -70,6 +71,7 @@ import kotlin.math.sin
 @Composable
 fun RunnerScreen(viewModel: RunnerViewModel = hiltViewModel()) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    GameMusicEffect(R.raw.music_mine_run, playing = state.phase == RunnerPhase.PLAYING)
     val showInterstitial = rememberInterstitialLauncher()
     val showRewarded = rememberRewardedLauncher()
     val snackbar = remember { SnackbarHostState() }

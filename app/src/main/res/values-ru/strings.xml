@@ -649,4 +649,5 @@
     <string name="pl_groups_set">Группы определены!</string>
     <string name="pl_hint">Веди по столу, чтобы целиться, потяни шкалу силы вниз и отпусти для удара.</string>
     <string name="pl_power">СИЛА</string>
+    <string name="settings_music">Музыка</string>
 </resources>

@@ -95,6 +95,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.repeatOnLifecycle
 import com.eomer91.minigamesworld.R
+import com.eomer91.minigamesworld.feedback.GameMusicEffect
 import com.eomer91.minigamesworld.ads.rememberInterstitialLauncher
 import com.eomer91.minigamesworld.ads.rememberRewardedLauncher
 import com.eomer91.minigamesworld.ui.theme.AppColors
@@ -118,6 +119,7 @@ private val XpPurple = Color(0xFFA66EE0)
 fun ForestScreen(onBack: () -> Unit, viewModel: ForestViewModel = hiltViewModel()) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     LandscapeImmersive()
+    GameMusicEffect(R.raw.music_forest, playing = state.phase == ForestPhase.PLAYING || state.phase == ForestPhase.LEVEL_UP)
 
     val showInterstitial = rememberInterstitialLauncher()
     val showRewarded = rememberRewardedLauncher()

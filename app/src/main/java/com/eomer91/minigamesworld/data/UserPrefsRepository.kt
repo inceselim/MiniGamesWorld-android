@@ -26,6 +26,7 @@ class UserPrefsRepository @Inject constructor(
         val FAVORITES = stringSetPreferencesKey("favorites")
         val SOUND = booleanPreferencesKey("sound_enabled")
         val VIBRATION = booleanPreferencesKey("vibration_enabled")
+        val MUSIC = booleanPreferencesKey("music_enabled")
         val LEGACY_MIGRATED = booleanPreferencesKey("legacy_migrated")
         fun highScore(gameId: String) = intPreferencesKey(HIGH_SCORE_PREFIX + gameId)
         fun savedGame(gameId: String) = stringPreferencesKey("saved_game_$gameId")
@@ -39,6 +40,7 @@ class UserPrefsRepository @Inject constructor(
     val favorites: Flow<Set<String>> = prefs.map { it[Keys.FAVORITES] ?: emptySet() }
     val soundEnabled: Flow<Boolean> = prefs.map { it[Keys.SOUND] ?: true }
     val vibrationEnabled: Flow<Boolean> = prefs.map { it[Keys.VIBRATION] ?: true }
+    val musicEnabled: Flow<Boolean> = prefs.map { it[Keys.MUSIC] ?: true }
 
     val highScores: Flow<Map<String, Int>> = prefs.map { p ->
         p.asMap().entries
@@ -87,6 +89,10 @@ class UserPrefsRepository @Inject constructor(
 
     suspend fun setVibrationEnabled(enabled: Boolean) {
         dataStore.edit { it[Keys.VIBRATION] = enabled }
+    }
+
+    suspend fun setMusicEnabled(enabled: Boolean) {
+        dataStore.edit { it[Keys.MUSIC] = enabled }
     }
 
     /** Yarim kalan oyunun kaydi (JSON). Oyun kendi formatini belirler. */

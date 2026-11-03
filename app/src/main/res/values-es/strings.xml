@@ -649,4 +649,5 @@
     <string name="pl_groups_set">¡Grupos asignados!</string>
     <string name="pl_hint">Arrastra en la mesa para apuntar, baja la barra de fuerza y suelta para tirar.</string>
     <string name="pl_power">FUERZA</string>
+    <string name="settings_music">Música</string>
 </resources>

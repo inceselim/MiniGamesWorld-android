@@ -649,4 +649,5 @@
     <string name="pl_groups_set">Gruppi assegnati!</string>
     <string name="pl_hint">Trascina sul tavolo per mirare, tira giù la barra della potenza e rilascia per tirare.</string>
     <string name="pl_power">POTENZA</string>
+    <string name="settings_music">Musica</string>
 </resources>

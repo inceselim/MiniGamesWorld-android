@@ -649,4 +649,5 @@
     <string name="pl_groups_set">Csoportok kiosztva!</string>
     <string name="pl_hint">Húzd az ujjad az asztalon a célzáshoz, húzd le az erőt, és engedd el a lökéshez.</string>
     <string name="pl_power">ERŐ</string>
+    <string name="settings_music">Zene</string>
 </resources>

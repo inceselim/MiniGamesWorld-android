@@ -649,4 +649,5 @@
     <string name="pl_groups_set">Groupes attribués !</string>
     <string name="pl_hint">Glisse sur la table pour viser, tire la barre de puissance vers le bas et relâche pour jouer.</string>
     <string name="pl_power">PUISSANCE</string>
+    <string name="settings_music">Musique</string>
 </resources>

@@ -663,4 +663,5 @@
     <string name="pl_groups_set">Gruplar belirlendi!</string>
     <string name="pl_hint">Nişan almak için masada sürükle, gücü aşağı çek ve bırakınca vur.</string>
     <string name="pl_power">GÜÇ</string>
+    <string name="settings_music">Müzik</string>
 </resources>

@@ -649,4 +649,5 @@
     <string name="pl_groups_set">Gruppen verteilt!</string>
     <string name="pl_hint">Ziehe auf dem Tisch zum Zielen, ziehe die Stärke nach unten und lass los zum Stoßen.</string>
     <string name="pl_power">STÄRKE</string>
+    <string name="settings_music">Musik</string>
 </resources>

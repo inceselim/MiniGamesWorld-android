@@ -665,4 +665,5 @@
     <string name="pl_groups_set">Groups assigned!</string>
     <string name="pl_hint">Drag on the table to aim, pull the power bar down and release to shoot.</string>
     <string name="pl_power">POWER</string>
+    <string name="settings_music">Music</string>
 </resources>

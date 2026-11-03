@@ -82,6 +82,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.repeatOnLifecycle
 import com.eomer91.minigamesworld.R
+import com.eomer91.minigamesworld.feedback.GameMusicEffect
 import com.eomer91.minigamesworld.ads.rememberInterstitialLauncher
 import com.eomer91.minigamesworld.ads.rememberRewardedLauncher
 import com.eomer91.minigamesworld.ui.theme.AppColors
@@ -105,6 +106,7 @@ private val Red = Color(0xFFE04848)
 fun FoxScreen(onBack: () -> Unit, viewModel: FoxViewModel = hiltViewModel()) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     LandscapeImmersive()
+    GameMusicEffect(R.raw.music_fox, playing = state.phase == FoxPhase.PLAYING)
 
     val showInterstitial = rememberInterstitialLauncher()
     val showRewarded = rememberRewardedLauncher()

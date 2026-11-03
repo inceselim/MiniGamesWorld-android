@@ -54,6 +54,7 @@ fun SettingsScreen(
 ) {
     val sound by viewModel.soundEnabled.collectAsStateWithLifecycle()
     val vibration by viewModel.vibrationEnabled.collectAsStateWithLifecycle()
+    val music by viewModel.musicEnabled.collectAsStateWithLifecycle()
     var showLanguageDialog by remember { mutableStateOf(false) }
 
     val currentTag = AppCompatDelegate.getApplicationLocales().get(0)?.language
@@ -71,6 +72,9 @@ fun SettingsScreen(
         }
         SettingRow(stringResource(R.string.settings_sound), onClick = { viewModel.setSound(!sound) }) {
             Switch(checked = sound, onCheckedChange = viewModel::setSound, colors = switchColors())
+        }
+        SettingRow(stringResource(R.string.settings_music), onClick = { viewModel.setMusic(!music) }) {
+            Switch(checked = music, onCheckedChange = viewModel::setMusic, colors = switchColors())
         }
         SettingRow(stringResource(R.string.settings_vibration), onClick = { viewModel.setVibration(!vibration) }) {
             Switch(checked = vibration, onCheckedChange = viewModel::setVibration, colors = switchColors())
