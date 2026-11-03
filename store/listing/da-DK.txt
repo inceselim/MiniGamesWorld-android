@@ -2,10 +2,10 @@
 Mini Games Hub: Offlinespil
 
 === SHORT DESCRIPTION (max 80) ===
-19 sjove spil i én app: puslespil, arkade, kort og strategi. Spil offline!
+30 sjove spil i én app: puslespil, arkade, kort og strategi. Spil offline!
 
 === FULL DESCRIPTION (max 4000) ===
-Mini Games Hub samler 19 sjove spil i én lille app. Ingen konto nødvendig, de fleste spil kan spilles offline, og hvert spil gemmer din rekord.
+Mini Games Hub samler 30 sjove spil i én lille app. Ingen konto nødvendig, de fleste spil kan spilles offline, og hvert spil gemmer din rekord.
 
 🧩 PUSLESPIL
 • Block Puzzle – placér blokke, ryd rækker og kolonner
@@ -13,6 +13,8 @@ Mini Games Hub samler 19 sjove spil i én lille app. Ingen konto nødvendig, de 
 • Sudoku – Let, Normal og Svær, en ny opgave hver gang, noter og hjælp
 • Match 3 – match farverige ædelsten og lav kædereaktioner
 • Minestryger – tre brætstørrelser, flagtilstand og et sikkert første tryk
+• Blokregn – drej faldende blokke, ryd rækker, gem og spøgelsesbrik
+• Puslespil – 12, 24 eller 40 brikker med farverige billeder
 
 🕹 ARKADE
 • Snake – klassikeren, glidende og hurtig
@@ -22,21 +24,34 @@ Mini Games Hub samler 19 sjove spil i én lille app. Ingen konto nødvendig, de 
 • Fiskeverden – fisk, opgradér din stang og opdræt fisk i dit eget akvarium
 • Skovens vogter – overlev monsterbølger, stig i niveau og udvikl dine våben
 • Rævens Eventyr – løb, hop og tramp dig gennem 15 baner, saml alle stjerner
+• Mineløb – kør i minevogn på tre spor, undvig og saml
 
 🃏 KORT OG KLASSIKERE
 • Kabale – Klondike med 1 eller 3 kort, fortryd og automatisk afslutning
 • Vendespil – vend kortene og find alle par
 • Fire på stribe – mod computeren (tre niveauer) eller en ven
+• Skak – alle regler, tre computerniveauer eller mod en ven
+• Dam – tyrkisk dam mod computeren eller en ven
+• 8-Ball Pool – realistisk fysik mod computeren
 
 ♟ STRATEGI
 • Tower Defense – ét tårn, uendelige bølger, permanente opgraderinger
 • Aktiehandler – handl med fire aktier i 60 dage og følg nyhederne
 • Landenes Krig – byg dit land, opstil hære og erobr dine rivaler
+• Fabriksmagnat – byg produktionskæder, sælg på markedet og lever ordrer
+
+🎨 KREATIVT & BØRN
+• Modeshow – klæd modellen på efter temaet
+• Makeupsalon – lav den makeup, hver kunde ønsker
+• Kagebutik – bag og pynt kager efter bestilling
+• Malebog – tryk for at farvelægge, zoom og gem billeder
+• Dyrevenner – dyrebilleder, navne og lyde for de mindste
 
 ⭐ FUNKTIONER
 • Tjen guld i hvert spil, og brug det til at spille
 • Fortsæt ufærdige spil, hvor du slap
 • Lydeffekter og vibration (kan slås fra)
+• Baggrundsmusik (kan slås fra)
 • Favoritter, søgning og kategorier
 • 10 sprog: Dansk, English, Türkçe, Deutsch, Español, Français, Italiano, 日本語, Русский, Magyar
 • Lille download, hurtig opstart

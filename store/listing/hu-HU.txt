@@ -2,10 +2,10 @@
 Mini Games Hub: offline játék
 
 === SHORT DESCRIPTION (max 80) ===
-19 játék egy appban: logikai, ügyességi, kártya, stratégia. Játssz offline!
+30 játék egy appban: logikai, ügyességi, kártya, stratégia. Játssz offline!
 
 === FULL DESCRIPTION (max 4000) ===
-A Mini Games Hub 19 szórakoztató játékot gyűjt egyetlen kis alkalmazásba. Nem kell fiók, a legtöbb játék internet nélkül is működik, és minden játék elmenti a rekordodat.
+A Mini Games Hub 30 szórakoztató játékot gyűjt egyetlen kis alkalmazásba. Nem kell fiók, a legtöbb játék internet nélkül is működik, és minden játék elmenti a rekordodat.
 
 🧩 LOGIKAI
 • Block Puzzle – rakd le a blokkokat, töröld a sorokat és oszlopokat
@@ -13,6 +13,8 @@ A Mini Games Hub 19 szórakoztató játékot gyűjt egyetlen kis alkalmazásba. 
 • Sudoku – Könnyű, Normál és Nehéz, mindig új rejtvény, jegyzetek és tippek
 • Match 3 – párosíts színes drágaköveket, és láncolj kombókat
 • Aknakereső – három táblaméret, zászló mód és biztonságos első koppintás
+• Blokkeső – forgasd a hulló blokkokat, tüntesd el a sorokat, tartás és szellemelem
+• Kirakós – 12, 24 vagy 40 darab színes képekből
 
 🕹 ÜGYESSÉGI
 • Kígyó – a klasszikus, gördülékenyen és gyorsan
@@ -22,21 +24,34 @@ A Mini Games Hub 19 szórakoztató játékot gyűjt egyetlen kis alkalmazásba. 
 • Halvilág – horgássz, fejleszd a botod, és nevelj halakat a saját akváriumodban
 • Erdő őrzője – éld túl a szörnyhullámokat, lépj szintet és fejleszd a fegyvereidet
 • Rókakaland – fuss, ugorj és taposs 15 pályán át, gyűjtsd össze az összes csillagot
+• Bányafutam – száguldj csillében három sávon, térj ki és gyűjts
 
 🃏 KÁRTYA ÉS KLASSZIKUSOK
 • Pasziánsz – Klondike 1 vagy 3 lap húzással, visszavonás, automatikus befejezés
 • Memória – fordítsd fel a kártyákat, és találd meg a párokat
 • Négy a sorban – a gép ellen (három szint) vagy egy barátoddal
+• Sakk – teljes szabályok, három gépi szint vagy barát ellen
+• Dámajáték – török dáma gép vagy barát ellen
+• 8-as biliárd – valósághű fizika a gép ellen
 
 ♟ STRATÉGIA
 • Tower Defense – egy torony, végtelen hullámok, állandó fejlesztések
 • Tőzsdekereskedő – kereskedj négy részvénnyel 60 napig, és kövesd a híreket
 • Országok háborúja – építsd fel az országod, toborozz sereget, hódítsd meg a riválisokat
+• Gyármágnás – építs termelési láncot, adj el a piacon, teljesíts rendeléseket
+
+🎨 KREATÍV ÉS GYEREK
+• Divatbemutató – öltöztesd fel a modellt a témához
+• Sminkszalon – készítsd el, amit a vendég kér
+• Cukrászda – süss és díszíts tortákat rendelésre
+• Kifestő – színezz érintéssel, nagyíts, mentsd a képeket
+• Állatbarátok – állatképek, nevek és hangok a legkisebbeknek
 
 ⭐ FUNKCIÓK
 • Minden játékban aranyat gyűjtesz, amivel játszhatsz
 • A félbehagyott játékokat ott folytatod, ahol abbahagytad
 • Hangeffektek és rezgés (kikapcsolható)
+• Háttérzene (kikapcsolható)
 • Kedvencek, keresés és kategóriák
 • 10 nyelv: Magyar, English, Türkçe, Deutsch, Español, Français, Italiano, 日本語, Русский, Dansk
 • Kis letöltési méret, gyors indulás

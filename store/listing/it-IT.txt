@@ -2,10 +2,10 @@
 Mini Games Hub: giochi offline
 
 === SHORT DESCRIPTION (max 80) ===
-19 giochi in un'app: rompicapo, arcade, carte, strategia. Gioca offline!
+30 giochi in un'app: rompicapo, arcade, carte, strategia. Gioca offline!
 
 === FULL DESCRIPTION (max 4000) ===
-Mini Games Hub riunisce 19 giochi divertenti in un'unica app leggera. Nessun account richiesto, la maggior parte dei giochi funziona offline e ogni gioco salva il tuo record.
+Mini Games Hub riunisce 30 giochi divertenti in un'unica app leggera. Nessun account richiesto, la maggior parte dei giochi funziona offline e ogni gioco salva il tuo record.
 
 🧩 ROMPICAPO
 • Block Puzzle – posiziona i blocchi, libera righe e colonne
@@ -13,6 +13,8 @@ Mini Games Hub riunisce 19 giochi divertenti in un'unica app leggera. Nessun acc
 • Sudoku – Facile, Normale e Difficile, un nuovo sudoku ogni volta, note e suggerimenti
 • Match 3 – abbina gemme colorate e concatena combo
 • Campo minato – tre dimensioni, modalità bandiera e primo tocco sicuro
+• Pioggia di Blocchi – ruota i blocchi, completa le righe, riserva e pezzo fantasma
+• Puzzle – 12, 24 o 40 pezzi da immagini colorate
 
 🕹 ARCADE
 • Snake – il classico, fluido e veloce
@@ -22,21 +24,34 @@ Mini Games Hub riunisce 19 giochi divertenti in un'unica app leggera. Nessun acc
 • Mondo dei pesci – pesca, potenzia la canna e alleva pesci nel tuo acquario
 • Guardiano della foresta – resisti alle ondate di mostri, sali di livello ed evolvi le armi
 • L'Avventura della Volpe – corri, salta e schiaccia i nemici in 15 livelli, raccogli tutte le stelle
+• Corsa in Miniera – sfreccia sul carrello in tre corsie, schiva e raccogli
 
 🃏 CARTE E CLASSICI
 • Solitario – Klondike pescando 1 o 3 carte, annulla e completamento automatico
 • Memory – gira le carte e trova tutte le coppie
 • Forza Quattro – contro il computer (tre livelli) o un amico
+• Scacchi – regole complete, tre livelli contro il computer o con un amico
+• Dama – dama turca contro il computer o un amico
+• Biliardo Palla 8 – fisica realistica contro il computer
 
 ♟ STRATEGIA
 • Tower Defense – una torre, ondate infinite, potenziamenti permanenti
 • Trader di Borsa – scambia quattro azioni per 60 giorni e segui le notizie
 • Guerra delle Nazioni – costruisci il tuo paese, arruola eserciti e conquista i rivali
+• Magnate della Fabbrica – crea catene produttive, vendi e completa gli ordini
+
+🎨 CREATIVI E BAMBINI
+• Sfilata di Moda – vesti la modella secondo il tema
+• Salone di Trucco – trucca ogni cliente come desidera
+• Pasticceria – sforna e decora torte su ordinazione
+• Album da Colorare – tocca per colorare, zoom e salva i disegni
+• Amici Animali – immagini, nomi e versi degli animali per i più piccoli
 
 ⭐ CARATTERISTICHE
 • Guadagna oro in ogni gioco e usalo per giocare
 • Riprendi le partite da dove le avevi lasciate
 • Effetti sonori e vibrazione (disattivabili)
+• Musica di sottofondo (disattivabile)
 • Preferiti, ricerca e categorie
 • 10 lingue: Italiano, English, Türkçe, Deutsch, Español, Français, 日本語, Русский, Dansk, Magyar
 • Download leggero, avvio rapido

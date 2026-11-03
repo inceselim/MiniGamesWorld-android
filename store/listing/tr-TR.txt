@@ -2,10 +2,10 @@
 Mini Games Hub - Offline Oyun
 
 === SHORT DESCRIPTION (max 80) ===
-Tek uygulamada 19 eğlenceli oyun: bulmaca, arcade, kart, strateji. İnternetsiz!
+Tek uygulamada 30 eğlenceli oyun: bulmaca, arcade, kart, strateji. İnternetsiz!
 
 === FULL DESCRIPTION (max 4000) ===
-Mini Games Hub, 19 eğlenceli oyunu tek ve küçük bir uygulamada topluyor. Hesap gerekmez, oyunların çoğu internetsiz oynanır ve her oyun en iyi skorunu kaydeder.
+Mini Games Hub, 30 eğlenceli oyunu tek ve küçük bir uygulamada topluyor. Hesap gerekmez, oyunların çoğu internetsiz oynanır ve her oyun en iyi skorunu kaydeder.
 
 🧩 BULMACA
 • Block Puzzle – blokları yerleştir, satır ve sütunları temizle
@@ -13,6 +13,8 @@ Mini Games Hub, 19 eğlenceli oyunu tek ve küçük bir uygulamada topluyor. Hes
 • Sudoku – Kolay, Normal ve Zor; her seferinde yeni bulmaca, notlar ve ipucu
 • Match 3 – renkli taşları eşleştir, zincirleme kombolar yap
 • Mayın Tarlası – üç tahta boyutu, bayrak modu, güvenli ilk dokunuş
+• Blok Yağmuru – düşen blokları döndür, satırları temizle; tutma ve gölge parça
+• Yapboz – renkli resimlerden 12, 24 veya 40 parça
 
 🕹 ARCADE
 • Yılan – akıcı ve hızlı klasik
@@ -22,21 +24,34 @@ Mini Games Hub, 19 eğlenceli oyunu tek ve küçük bir uygulamada topluyor. Hes
 • Balık Dünyası – balık tut, oltanı geliştir, kendi akvaryumunda balık besle
 • Orman Muhafızı – canavar dalgalarına dayan, seviye atla, silahlarını evrimleştir
 • Tilki Macerası – koş, zıpla, düşmanlara bas; 15 bölümde tüm yıldızları topla
+• Maden Koşusu – vagonla üç şeritte koş, engellerden kaç, altın topla
 
 🃏 KART VE KLASİKLER
 • Solitaire – 1 ya da 3 kart çekmeli Klondike, geri al, otomatik bitir
 • Hafıza – kartları çevir, tüm çiftleri bul
 • Dört Bağla – bilgisayara karşı (3 seviye) ya da arkadaşınla
+• Satranç – tam kurallar, bilgisayara karşı 3 seviye ya da arkadaşınla
+• Dama – Türk daması, bilgisayara ya da arkadaşına karşı
+• 8 Top Bilardo – gerçekçi fizikle bilgisayara karşı
 
 ♟ STRATEJİ
 • Tower Defense – tek kule, bitmeyen dalgalar, kalıcı geliştirmeler
 • Borsa Ustası – 60 gün boyunca 4 hissede al-sat yap, haberleri takip et
 • Ülkeler Savaşı – ülkeni kur, ordu topla, rakiplerini fethet
+• Fabrika Patronu – üretim zinciri kur, pazarda sat, siparişleri tamamla
+
+🎨 YARATICI VE ÇOCUK
+• Moda Şovu – mankeni temaya göre giydir
+• Makyaj Salonu – her müşterinin istediği makyajı yap
+• Pasta Dükkanı – siparişe göre pasta pişir ve süsle
+• Boyama Kitabı – dokunarak boya, yakınlaştır, resimlerini kaydet
+• Hayvan Dostları – küçükler için hayvan resimleri, adları ve sesleri
 
 ⭐ ÖZELLİKLER
 • Her oyunda altın kazan, altınla oyna
 • Yarım kalan oyuna kaldığın yerden devam et
 • Ses efektleri ve titreşim (kapatılabilir)
+• Fon müziği (kapatılabilir)
 • Favoriler, arama ve kategoriler
 • 10 dil: Türkçe, English, Deutsch, Español, Français, Italiano, 日本語, Русский, Dansk, Magyar
 • Küçük boyut, hızlı açılış

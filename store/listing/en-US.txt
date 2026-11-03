@@ -2,10 +2,10 @@
 Mini Games Hub: Offline Games
 
 === SHORT DESCRIPTION (max 80) ===
-19 fun games in one app: puzzles, arcade, cards, strategy. Play offline!
+30 fun games in one app: puzzles, arcade, cards, strategy. Play offline!
 
 === FULL DESCRIPTION (max 4000) ===
-Mini Games Hub brings 19 fun games together in one small app. No account needed, most games play offline, and every game saves your best score.
+Mini Games Hub brings 30 fun games together in one small app. No account needed, most games play offline, and every game saves your best score.
 
 🧩 PUZZLE
 • Block Puzzle – place blocks, clear rows and columns
@@ -13,6 +13,8 @@ Mini Games Hub brings 19 fun games together in one small app. No account needed,
 • Sudoku – Easy, Normal and Hard, a new puzzle every time, notes and hints
 • Match 3 – match colorful gems and chain combos
 • Minesweeper – three board sizes, flag mode and a safe first tap
+• Block Rain – rotate falling blocks, clear lines, hold and ghost piece
+• Jigsaw Puzzle – 12, 24 or 40 pieces from colorful pictures
 
 🕹 ARCADE
 • Snake – the classic, smooth and fast
@@ -22,21 +24,34 @@ Mini Games Hub brings 19 fun games together in one small app. No account needed,
 • Fish World – go fishing, upgrade your rod and raise fish in your own aquarium
 • Forest Guardian – survive monster waves, level up and evolve your weapons
 • Fox Adventure – run, jump and stomp across 15 levels, collect every star
+• Mine Run – dash through three lanes in a mine cart, dodge and collect
 
 🃏 CARDS & CLASSICS
 • Solitaire – Klondike with Draw 1 or Draw 3, undo and auto finish
 • Memory – flip the cards and find all pairs
 • Connect Four – play the computer (three levels) or a friend
+• Chess – full rules, three computer levels or play a friend
+• Checkers – Turkish draughts vs the computer or a friend
+• 8-Ball Pool – realistic physics against the computer
 
 ♟ STRATEGY
 • Tower Defense – one tower, endless waves, permanent upgrades
 • Stock Trader – trade four stocks for 60 days, read the news and grow your fortune
 • Countries War – build your country, raise armies and conquer your rivals
+• Factory Tycoon – build production chains, sell on the market, fill orders
+
+🎨 CREATIVE & KIDS
+• Fashion Show – dress up the model for the theme
+• Makeup Salon – do the makeup each customer asks for
+• Cake Shop – bake and decorate cakes to order
+• Coloring Book – tap to fill, zoom, save your pictures
+• Animal Friends – animal pictures, names and sounds for little ones
 
 ⭐ FEATURES
 • Earn gold in every game and use it to play
 • Continue unfinished games where you left off
 • Sound effects and vibration (can be turned off)
+• Background music (can be turned off)
 • Favorites, search and categories
 • 10 languages: English, Türkçe, Deutsch, Español, Français, Italiano, 日本語, Русский, Dansk, Magyar
 • Small download, quick to open

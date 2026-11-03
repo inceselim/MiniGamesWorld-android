@@ -1,0 +1,80 @@
+<en-US>
+11 new games – now 30 games!
+• Chess, Checkers and 8-Ball Pool vs the computer or a friend
+• Block Rain, Jigsaw Puzzle and Mine Run
+• Factory Tycoon: build production chains and grow your business
+• For kids: Fashion Show, Makeup Salon, Cake Shop, Coloring Book, Animal Friends
+• Background music (can be turned off in Settings)
+</en-US>
+<tr-TR>
+11 yeni oyun, toplam 30 oyun!
+• Satranç, Dama ve 8 Top Bilardo: bilgisayara ya da arkadaşına karşı
+• Blok Yağmuru, Yapboz ve Maden Koşusu
+• Fabrika Patronu: üretim zinciri kur, işini büyüt
+• Çocuklar için: Moda Şovu, Makyaj Salonu, Pasta Dükkanı, Boyama Kitabı, Hayvan Dostları
+• Fon müziği (Ayarlar'dan kapatılabilir)
+</tr-TR>
+<de-DE>
+11 neue Spiele – jetzt 30 Spiele!
+• Schach, Dame und 8-Ball Billard gegen den Computer oder Freunde
+• Blockregen, Puzzle und Minenrennen
+• Fabrik-Tycoon: baue Produktionsketten und lass dein Geschäft wachsen
+• Für Kinder: Modenschau, Schminksalon, Tortenladen, Malbuch, Tierfreunde
+• Hintergrundmusik (in den Einstellungen abschaltbar)
+</de-DE>
+<es-ES>
+¡11 juegos nuevos, ya son 30!
+• Ajedrez, Damas y Billar Bola 8 contra la máquina o un amigo
+• Lluvia de Bloques, Rompecabezas y Carrera en la Mina
+• Magnate de la Fábrica: crea cadenas de producción y haz crecer tu negocio
+• Para peques: Desfile de Moda, Salón de Maquillaje, Pastelería, Libro para Colorear, Amigos Animales
+• Música de fondo (se puede desactivar en Ajustes)
+</es-ES>
+<fr-FR>
+11 nouveaux jeux – 30 jeux au total !
+• Échecs, Dames et Billard 8 Boules contre l'ordinateur ou un ami
+• Pluie de Blocs, Puzzle et Course dans la Mine
+• Magnat de l'Usine : crée des chaînes de production et développe ton entreprise
+• Pour les enfants : Défilé de Mode, Salon de Maquillage, Pâtisserie, Livre de Coloriage, Amis les Animaux
+• Musique de fond (désactivable dans les Paramètres)
+</fr-FR>
+<it-IT>
+11 nuovi giochi, ora sono 30!
+• Scacchi, Dama e Biliardo Palla 8 contro il computer o un amico
+• Pioggia di Blocchi, Puzzle e Corsa in Miniera
+• Magnate della Fabbrica: crea catene produttive e fai crescere l'azienda
+• Per i bambini: Sfilata di Moda, Salone di Trucco, Pasticceria, Album da Colorare, Amici Animali
+• Musica di sottofondo (disattivabile nelle Impostazioni)
+</it-IT>
+<ja-JP>
+新しいゲームが11個登場、全30ゲームに！
+• チェス、チェッカー、8ボール ビリヤード（コンピューターや友だちと対戦）
+• ブロックレイン、ジグソーパズル、トロッコラン
+• 工場王：生産ラインを作ってビジネスを大きくしよう
+• キッズ向け：ファッションショー、メイクサロン、ケーキ屋さん、ぬりえ、どうぶつのおともだち
+• BGM（設定でオフにできます）
+</ja-JP>
+<ru-RU>
+11 новых игр — теперь их 30!
+• Шахматы, Шашки и Бильярд «Восьмёрка» против компьютера или друга
+• Блочный дождь, Пазлы и Шахтёрский забег
+• Магнат фабрик: стройте производственные цепочки и развивайте бизнес
+• Для детей: Модный показ, Салон макияжа, Кондитерская, Раскраска, Друзья-зверята
+• Фоновая музыка (отключается в Настройках)
+</ru-RU>
+<da-DK>
+11 nye spil – nu 30 spil!
+• Skak, Dam og 8-Ball Pool mod computeren eller en ven
+• Blokregn, Puslespil og Mineløb
+• Fabriksmagnat: byg produktionskæder og få forretningen til at vokse
+• Til børn: Modeshow, Makeupsalon, Kagebutik, Malebog, Dyrevenner
+• Baggrundsmusik (kan slås fra i Indstillinger)
+</da-DK>
+<hu-HU>
+11 új játék – már 30 játék!
+• Sakk, Dámajáték és 8-as biliárd a gép vagy egy barát ellen
+• Blokkeső, Kirakós és Bányafutam
+• Gyármágnás: építs termelési láncot és növeld a vállalkozásod
+• Gyerekeknek: Divatbemutató, Sminkszalon, Cukrászda, Kifestő, Állatbarátok
+• Háttérzene (a Beállításokban kikapcsolható)
+</hu-HU>

@@ -27,8 +27,8 @@ android {
         minSdk = 24
         targetSdk = 36
         // Play Store'daki son surum 3 idi. Her yuklemede artir.
-        versionCode = 8
-        versionName = "2.2.0"
+        versionCode = 9
+        versionName = "2.3.0"
 
         manifestPlaceholders["admobAppId"] = "ca-app-pub-1017432203303316~7837238391"
     }

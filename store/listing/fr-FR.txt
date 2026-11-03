@@ -2,10 +2,10 @@
 Mini Games Hub : jeux offline
 
 === SHORT DESCRIPTION (max 80) ===
-19 jeux dans une app : puzzle, arcade, cartes, stratégie. Jouez hors ligne !
+30 jeux dans une app : puzzle, arcade, cartes, stratégie. Jouez hors ligne !
 
 === FULL DESCRIPTION (max 4000) ===
-Mini Games Hub réunit 19 jeux amusants dans une seule petite application. Aucun compte requis, la plupart des jeux fonctionnent hors ligne et chaque jeu enregistre votre record.
+Mini Games Hub réunit 30 jeux amusants dans une seule petite application. Aucun compte requis, la plupart des jeux fonctionnent hors ligne et chaque jeu enregistre votre record.
 
 🧩 PUZZLE
 • Block Puzzle – placez des blocs, effacez lignes et colonnes
@@ -13,6 +13,8 @@ Mini Games Hub réunit 19 jeux amusants dans une seule petite application. Aucun
 • Sudoku – Facile, Normal et Difficile, une nouvelle grille à chaque fois, notes et indices
 • Match 3 – associez des gemmes colorées et enchaînez les combos
 • Démineur – trois tailles de grille, mode drapeau et premier coup sans risque
+• Pluie de Blocs – tourne les blocs, complète des lignes, réserve et pièce fantôme
+• Puzzle – 12, 24 ou 40 pièces à partir d'images colorées
 
 🕹 ARCADE
 • Snake – le classique, fluide et rapide
@@ -22,21 +24,34 @@ Mini Games Hub réunit 19 jeux amusants dans une seule petite application. Aucun
 • Monde des poissons – pêchez, améliorez votre canne et élevez des poissons dans votre aquarium
 • Gardien de la forêt – survis aux vagues de monstres, monte de niveau et fais évoluer tes armes
 • L'Aventure du Renard – cours, saute et écrase les ennemis dans 15 niveaux, récupère toutes les étoiles
+• Course dans la Mine – fonce en wagonnet sur trois voies, esquive et ramasse
 
 🃏 CARTES ET CLASSIQUES
 • Solitaire – Klondike en tirant 1 ou 3 cartes, annulation et fin automatique
 • Memory – retournez les cartes et trouvez toutes les paires
 • Puissance 4 – contre l'ordinateur (trois niveaux) ou un ami
+• Échecs – règles complètes, trois niveaux contre l'ordinateur ou entre amis
+• Dames – dames turques contre l'ordinateur ou un ami
+• Billard 8 Boules – physique réaliste contre l'ordinateur
 
 ♟ STRATÉGIE
 • Tower Defense – une tour, des vagues sans fin, des améliorations permanentes
 • Trader en Bourse – échangez quatre actions pendant 60 jours et suivez l'actualité
 • Guerre des Nations – bâtissez votre pays, levez des armées et conquérez vos rivaux
+• Magnat de l'Usine – crée des chaînes de production, vends et livre les commandes
+
+🎨 CRÉATIF & ENFANTS
+• Défilé de Mode – habille le mannequin selon le thème
+• Salon de Maquillage – maquille chaque cliente selon sa demande
+• Pâtisserie – prépare et décore des gâteaux sur commande
+• Livre de Coloriage – touche pour colorier, zoome, enregistre tes dessins
+• Amis les Animaux – images, noms et cris d'animaux pour les petits
 
 ⭐ FONCTIONNALITÉS
 • Gagnez de l'or dans chaque jeu et utilisez-le pour jouer
 • Reprenez vos parties là où vous les aviez laissées
 • Effets sonores et vibration (désactivables)
+• Musique de fond (désactivable)
 • Favoris, recherche et catégories
 • 10 langues : Français, English, Türkçe, Deutsch, Español, Italiano, 日本語, Русский, Dansk, Magyar
 • Téléchargement léger, ouverture rapide
