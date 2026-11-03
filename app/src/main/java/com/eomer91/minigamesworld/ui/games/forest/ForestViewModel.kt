@@ -19,7 +19,9 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-enum class ForestPhase { LOADING, HUB, PLAYING, PAUSED, LEVEL_UP, RESULT }
+enum class ForestPhase { LOADING, HUB, HERO, PLAYING, PAUSED, LEVEL_UP, RESULT }
+
+enum class ForestNotice { NOT_ENOUGH_COINS, INVENTORY_FULL }
 
 data class ForestUiState(
     val phase: ForestPhase = ForestPhase.LOADING,
@@ -45,7 +47,16 @@ data class ForestUiState(
     val questToastTime: Float = 0f,
     val evolveToast: Float = 0f,
     val runQuestCoins: Int = 0,
+    /** Tur sonunda boss sandigindan dusen item. */
+    val droppedItem: OwnedItem? = null,
+    /** Kahraman ekraninda secili item (detay penceresi). */
+    val selectedItemId: Long? = null,
+    /** Sandiktan cikan item (gosterim). */
+    val chestItem: OwnedItem? = null,
+    val notice: ForestNotice? = null,
 ) {
+    val selectedItem: OwnedItem? get() = selectedItemId?.let { id -> profile.items.firstOrNull { it.id == id } }
+    val heroStats: HeroStats get() = ForestItems.heroStats(profile.equippedItems())
     val quests: List<Quest> get() = ForestQuests.forMap(selectedMap)
     fun questDone(q: Quest) = q.id in profile.questsDone || q.id in runQuestsDone
     val isNewRecord: Boolean get() = phase == ForestPhase.RESULT && bestAtStart >= 0 && score > bestAtStart
@@ -93,7 +104,7 @@ class ForestViewModel @Inject constructor(
 
     fun startRun() {
         val s = _state.value
-        val e = ForestEngine(s.selectedMap, HeroStats())
+        val e = ForestEngine(s.selectedMap, s.heroStats)
         engine = e
         inputX = 0f
         inputY = 0f
@@ -102,7 +113,7 @@ class ForestViewModel @Inject constructor(
         _state.update {
             it.copy(
                 phase = ForestPhase.PLAYING, choices = emptyList(), goldEarned = 0, bestAtStart = it.best, bossWarning = 0f,
-                runQuestsDone = emptySet(), questToast = null, questToastTime = 0f, evolveToast = 0f, runQuestCoins = 0,
+                runQuestsDone = emptySet(), questToast = null, questToastTime = 0f, evolveToast = 0f, runQuestCoins = 0, droppedItem = null,
             )
         }
         feedback.play(Sfx.CLEAR, volume = 0.5f)
@@ -293,7 +304,15 @@ class ForestViewModel @Inject constructor(
         finalized = true
         val s = _state.value
         val mapIdx = e.map.ordinal
-        val p = s.profile
+        var p = s.profile
+        // Zaferde boss sandigindan bir item (envanter doluysa sikkeye cevrilir)
+        var dropped: OwnedItem? = null
+        if (e.victory) {
+            val item = ForestItems.roll(p.nextItemId, ForestItems.bossWeights(e.map))
+            dropped = item
+            p = if (p.items.size < ForestItems.INVENTORY_LIMIT) p.copy(items = p.items + item, nextItemId = p.nextItemId + 1)
+            else p.copy(coins = p.coins + ForestItems.salvageValue(item), nextItemId = p.nextItemId + 1)
+        }
         val profile = p.copy(
             coins = p.coins + e.coins + s.runQuestCoins,
             questsDone = (p.questsDone + s.runQuestsDone).distinct(),
@@ -302,12 +321,83 @@ class ForestViewModel @Inject constructor(
             bestKills = p.bestKills + (mapIdx to maxOf(p.bestKills[mapIdx] ?: 0, e.kills)),
         )
         val delta = goldTracker.onScore(e.score)
-        _state.update { it.copy(profile = profile, goldEarned = goldTracker.awarded) }
+        _state.update { it.copy(profile = profile, goldEarned = goldTracker.awarded, droppedItem = dropped) }
         viewModelScope.launch {
             prefs.saveGame(PROFILE_KEY, profile.toJson())
             if (delta > 0) prefs.addGold(delta)
             prefs.submitScore(GAME_ID, e.score)
         }
+    }
+
+    // ------------------------------------------------------------ Kahraman ve ekipman
+
+    fun openHero() = _state.update { it.copy(phase = ForestPhase.HERO, selectedItemId = null) }
+    fun closeHero() = _state.update { it.copy(phase = ForestPhase.HUB, selectedItemId = null) }
+    fun selectItem(id: Long?) = _state.update { it.copy(selectedItemId = id) }
+    fun consumeNotice() = _state.update { it.copy(notice = null) }
+    fun closeChest() = _state.update { it.copy(chestItem = null) }
+
+    private fun saveProfile(p: ForestProfile) {
+        _state.update { it.copy(profile = p) }
+        viewModelScope.launch { prefs.saveGame(PROFILE_KEY, p.toJson()) }
+    }
+
+    fun equip(item: OwnedItem) {
+        val p = _state.value.profile
+        saveProfile(p.copy(equipped = p.equipped + (item.slot to item.id)))
+        feedback.play(Sfx.BLOCK)
+        _state.update { it.copy(selectedItemId = null) }
+    }
+
+    fun unequip(item: OwnedItem) {
+        val p = _state.value.profile
+        if (!p.isEquipped(item)) return
+        saveProfile(p.copy(equipped = p.equipped - item.slot))
+        feedback.play(Sfx.SWIPE, volume = 0.5f)
+    }
+
+    fun upgrade(item: OwnedItem) {
+        val p = _state.value.profile
+        if (item.maxed) return
+        val cost = ForestItems.upgradeCost(item)
+        if (p.coins < cost) {
+            _state.update { it.copy(notice = ForestNotice.NOT_ENOUGH_COINS) }
+            return
+        }
+        saveProfile(p.copy(coins = p.coins - cost, items = p.items.map { if (it.id == item.id) it.copy(level = it.level + 1) else it }))
+        feedback.play(Sfx.COMBO)
+        feedback.vibrate(Haptic.LIGHT)
+    }
+
+    fun salvage(item: OwnedItem) {
+        val p = _state.value.profile
+        saveProfile(
+            p.copy(
+                coins = p.coins + ForestItems.salvageValue(item),
+                items = p.items.filter { it.id != item.id },
+                equipped = if (p.isEquipped(item)) p.equipped - item.slot else p.equipped,
+            ),
+        )
+        _state.update { it.copy(selectedItemId = null) }
+        feedback.play(Sfx.CLEAR, volume = 0.6f)
+    }
+
+    /** Sandik ac: [free] ise (odullu reklam) sikke harcanmaz. */
+    fun openChest(type: ChestType, free: Boolean = false) {
+        val p = _state.value.profile
+        if (p.items.size >= ForestItems.INVENTORY_LIMIT) {
+            _state.update { it.copy(notice = ForestNotice.INVENTORY_FULL) }
+            return
+        }
+        if (!free && p.coins < type.price) {
+            _state.update { it.copy(notice = ForestNotice.NOT_ENOUGH_COINS) }
+            return
+        }
+        val item = ForestItems.roll(p.nextItemId, type.weights)
+        saveProfile(p.copy(coins = p.coins - if (free) 0 else type.price, items = p.items + item, nextItemId = p.nextItemId + 1))
+        _state.update { it.copy(chestItem = item) }
+        feedback.play(Sfx.COMBO)
+        feedback.vibrate(Haptic.HEAVY)
     }
 
     companion object {
