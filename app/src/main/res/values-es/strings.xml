@@ -425,7 +425,6 @@
     <string name="fg_best">Récord: %1$d bajas</string>
     <string name="fg_play">Jugar · %1$s</string>
     <string name="fg_coins">%1$d monedas</string>
-    <string name="fg_hero_soon">Héroe y equipo: próximamente</string>
     <string name="fg_how_to">Muévete con el joystick izquierdo. Los ataques son automáticos. Recoge cristales, sube de nivel y elige mejoras. ¡Derrota al jefe a los 4:30!</string>
     <string name="fg_lv">Nv. %1$d</string>
     <string name="fg_new">¡NUEVO!</string>

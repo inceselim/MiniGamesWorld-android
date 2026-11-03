@@ -425,7 +425,6 @@
     <string name="fg_best">Record : %1$d ennemis</string>
     <string name="fg_play">Jouer · %1$s</string>
     <string name="fg_coins">%1$d pièces</string>
-    <string name="fg_hero_soon">Héros et équipement : bientôt</string>
     <string name="fg_how_to">Déplacez-vous avec le joystick gauche. Les attaques sont automatiques. Ramassez des cristaux, montez de niveau et choisissez des améliorations. Battez le boss à 4:30 !</string>
     <string name="fg_lv">Niv. %1$d</string>
     <string name="fg_new">NOUVEAU !</string>

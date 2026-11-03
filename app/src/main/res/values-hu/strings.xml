@@ -425,7 +425,6 @@
     <string name="fg_best">Rekord: %1$d legyőzött</string>
     <string name="fg_play">Játék · %1$s</string>
     <string name="fg_coins">%1$d érme</string>
-    <string name="fg_hero_soon">Hős és felszerelés: hamarosan</string>
     <string name="fg_how_to">Mozogj a bal karral. A támadás automatikus. Gyűjts kristályt, lépj szintet és válassz fejlesztést. Győzd le a főellenséget 4:30-kor!</string>
     <string name="fg_lv">%1$d. szint</string>
     <string name="fg_new">ÚJ!</string>

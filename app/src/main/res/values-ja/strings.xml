@@ -425,7 +425,6 @@
     <string name="fg_best">最高：%1$d 体撃破</string>
     <string name="fg_play">プレイ · %1$s</string>
     <string name="fg_coins">コイン %1$d</string>
-    <string name="fg_hero_soon">ヒーローと装備：近日公開</string>
     <string name="fg_how_to">左のスティックで移動。攻撃は自動。クリスタルを集めてレベルアップし、強化を選ぼう。4:30 に現れるボスを倒そう！</string>
     <string name="fg_lv">Lv %1$d</string>
     <string name="fg_new">新規！</string>

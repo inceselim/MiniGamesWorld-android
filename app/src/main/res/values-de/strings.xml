@@ -425,7 +425,6 @@
     <string name="fg_best">Rekord: %1$d besiegt</string>
     <string name="fg_play">Spielen · %1$s</string>
     <string name="fg_coins">%1$d Münzen</string>
-    <string name="fg_hero_soon">Held &amp; Ausrüstung: demnächst</string>
     <string name="fg_how_to">Bewege dich mit dem linken Stick. Angriffe sind automatisch. Sammle Kristalle, steige auf und wähle Verbesserungen. Besiege den Boss bei 4:30!</string>
     <string name="fg_lv">Lv. %1$d</string>
     <string name="fg_new">NEU!</string>

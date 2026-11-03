@@ -441,7 +441,6 @@
     <string name="fg_best">Best: %1$d kills</string>
     <string name="fg_play">Play · %1$s</string>
     <string name="fg_coins">%1$d coins</string>
-    <string name="fg_hero_soon">Hero &amp; equipment: coming soon</string>
     <string name="fg_how_to">Move with the left stick. Attacks are automatic. Collect crystals to level up and choose upgrades. Survive and defeat the boss at 4:30!</string>
     <string name="fg_lv">Lv %1$d</string>
     <string name="fg_new">NEW!</string>

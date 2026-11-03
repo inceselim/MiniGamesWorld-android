@@ -425,7 +425,6 @@
     <string name="fg_best">Record: %1$d nemici</string>
     <string name="fg_play">Gioca · %1$s</string>
     <string name="fg_coins">%1$d monete</string>
-    <string name="fg_hero_soon">Eroe ed equipaggiamento: presto</string>
     <string name="fg_how_to">Muoviti con la levetta sinistra. Gli attacchi sono automatici. Raccogli cristalli, sali di livello e scegli potenziamenti. Sconfiggi il boss alle 4:30!</string>
     <string name="fg_lv">Liv. %1$d</string>
     <string name="fg_new">NUOVO!</string>

@@ -439,7 +439,6 @@
     <string name="fg_best">En iyi: %1$d düşman</string>
     <string name="fg_play">Oyna · %1$s</string>
     <string name="fg_coins">%1$d sikke</string>
-    <string name="fg_hero_soon">Kahraman ve ekipman: yakında</string>
     <string name="fg_how_to">Sol çubukla yürü. Saldırılar otomatik. Kristal toplayıp seviye atla, güçlendirme seç. Hayatta kal ve 4:30\'da gelen boss\'u yen!</string>
     <string name="fg_lv">Sv %1$d</string>
     <string name="fg_new">YENİ!</string>

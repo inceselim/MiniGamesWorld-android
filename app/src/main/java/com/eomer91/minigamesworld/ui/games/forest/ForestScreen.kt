@@ -271,17 +271,6 @@ private fun HubContent(state: ForestUiState, viewModel: ForestViewModel, onBack:
                 }
             }
             Text(stringResource(R.string.fg_how_to), color = AppColors.TextSecondary, fontSize = 12.sp, modifier = Modifier.padding(top = 10.dp))
-            Text(
-                stringResource(R.string.fg_hero_soon),
-                color = AppColors.TextMuted,
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier
-                    .padding(top = 10.dp)
-                    .clip(RoundedCornerShape(10.dp))
-                    .background(AppColors.Surface)
-                    .padding(horizontal = 10.dp, vertical = 8.dp),
-            )
         }
         Spacer(Modifier.width(16.dp))
         Column(Modifier.weight(1f).fillMaxHeight()) {

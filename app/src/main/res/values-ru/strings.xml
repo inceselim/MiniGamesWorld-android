@@ -425,7 +425,6 @@
     <string name="fg_best">Рекорд: %1$d убийств</string>
     <string name="fg_play">Играть · %1$s</string>
     <string name="fg_coins">%1$d монет</string>
-    <string name="fg_hero_soon">Герой и снаряжение: скоро</string>
     <string name="fg_how_to">Двигайтесь левым стиком. Атака автоматическая. Собирайте кристаллы, повышайте уровень и выбирайте улучшения. Победите босса на 4:30!</string>
     <string name="fg_lv">Ур. %1$d</string>
     <string name="fg_new">НОВОЕ!</string>
