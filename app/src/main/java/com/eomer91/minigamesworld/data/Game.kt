@@ -10,6 +10,7 @@ enum class GameCategory(@StringRes val labelRes: Int) {
     CARD(R.string.category_card),
     STRATEGY(R.string.category_strategy),
     CLASSIC(R.string.category_classic),
+    CREATIVE(R.string.category_creative),
 }
 
 data class Game(
