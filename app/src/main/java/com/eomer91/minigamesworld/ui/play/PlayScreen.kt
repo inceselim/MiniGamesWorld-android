@@ -44,6 +44,7 @@ import com.eomer91.minigamesworld.ui.games.match3.Match3Screen
 import com.eomer91.minigamesworld.ui.games.memory.MemoryScreen
 import com.eomer91.minigamesworld.ui.games.mines.MinesScreen
 import com.eomer91.minigamesworld.ui.games.pool.PoolScreen
+import com.eomer91.minigamesworld.ui.games.factory.FactoryScreen
 import com.eomer91.minigamesworld.ui.games.fish.FishWorldScreen
 import com.eomer91.minigamesworld.ui.games.forest.ForestScreen
 import com.eomer91.minigamesworld.ui.games.fox.FoxScreen
@@ -104,6 +105,7 @@ fun PlayScreen(gameId: String, onBack: () -> Unit) {
                 "mine-run" -> RunnerScreen()
                 "pool" -> PoolScreen()
                 "animals" -> AnimalsScreen()
+                "factory" -> FactoryScreen()
                 "snake" -> SnakeScreen()
                 "memory-card" -> MemoryScreen()
                 "block-puzzle" -> BlockPuzzleScreen()
