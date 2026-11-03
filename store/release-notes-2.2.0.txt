@@ -9,7 +9,7 @@
 2 yeni oyun, toplam 19 oyun!
 • Orman Muhafızı: canavar dalgalarına dayan, seviye atla, silahlarını evrimleştir (yatay ekran)
 • Tilki Macerası: çayır, mağara ve kalede 15 bölümlük klasik platform oyunu, tüm yıldızları topla!
-• Tower Defense: altının yetmiyorsa reklam izleyip güçlendirmeyi al
+• Kule Savunması: altının yetmiyorsa reklam izleyip güçlendirmeyi al
 • Ayarlar'dan arkadaşlarını davet et ve uygulamaya puan ver
 </tr-TR>
 <de-DE>
@@ -51,7 +51,7 @@
 2 новые игры — теперь их 19!
 • Страж леса: выживай под натиском монстров, прокачивайся и улучшай оружие (горизонтально)
 • Приключения Лиса: классический платформер, 15 уровней — луг, пещера и замок. Собери все звёзды!
-• Tower Defense: не хватает золота? Посмотри рекламу и получи улучшение
+• Защита башни: не хватает золота? Посмотри рекламу и получи улучшение
 • Приглашай друзей и оценивай приложение в Настройках
 </ru-RU>
 <da-DK>
