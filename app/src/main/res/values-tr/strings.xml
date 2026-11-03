@@ -639,4 +639,8 @@
     <string name="jg_pictures">Resimler</string>
     <string name="jg_done">TAMAMLANDI!</string>
     <string name="jg_new_puzzle">Yeni yapboz</string>
+    <string name="game_coloring_name">Boyama Kitabı</string>
+    <string name="game_coloring_desc">Bir renk seç, dokun ve boya! 8 sevimli resim, küçük yerler için yakınlaştır, geri al; çalışman kaydedilir.</string>
+    <string name="co_choose">Boyamak için bir resim seç</string>
+    <string name="co_hint">Boyamak için bir alana dokun. Yakınlaştırmak için iki parmakla aç.</string>
 </resources>

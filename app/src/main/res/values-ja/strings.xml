@@ -625,4 +625,8 @@
     <string name="jg_pictures">絵</string>
     <string name="jg_done">完成！</string>
     <string name="jg_new_puzzle">新しいパズル</string>
+    <string name="game_coloring_name">ぬりえ</string>
+    <string name="game_coloring_desc">色を選んでタップでぬろう！かわいい絵が8枚。小さいところはズーム、やり直しもOK、作品は保存されるよ。</string>
+    <string name="co_choose">ぬる絵を選んでね</string>
+    <string name="co_hint">タップでぬりつぶし。2本指でズーム。</string>
 </resources>

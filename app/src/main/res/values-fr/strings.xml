@@ -625,4 +625,8 @@
     <string name="jg_pictures">Images</string>
     <string name="jg_done">TERMINÉ !</string>
     <string name="jg_new_puzzle">Nouveau puzzle</string>
+    <string name="game_coloring_name">Livre de Coloriage</string>
+    <string name="game_coloring_desc">Choisis une couleur et touche pour remplir ! 8 jolis dessins, zoom pour les petites zones, annulation, et ton travail est sauvegardé.</string>
+    <string name="co_choose">Choisis un dessin à colorier</string>
+    <string name="co_hint">Touche une zone pour la remplir. Pince pour zoomer.</string>
 </resources>

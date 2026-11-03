@@ -641,4 +641,8 @@
     <string name="jg_pictures">Pictures</string>
     <string name="jg_done">COMPLETE!</string>
     <string name="jg_new_puzzle">New puzzle</string>
+    <string name="game_coloring_name">Coloring Book</string>
+    <string name="game_coloring_desc">Pick a color and tap to fill! 8 cute pictures, zoom in for small areas, undo and your work is saved.</string>
+    <string name="co_choose">Choose a picture to color</string>
+    <string name="co_hint">Tap an area to fill it. Pinch to zoom.</string>
 </resources>

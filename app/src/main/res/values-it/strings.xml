@@ -625,4 +625,8 @@
     <string name="jg_pictures">Immagini</string>
     <string name="jg_done">COMPLETATO!</string>
     <string name="jg_new_puzzle">Nuovo puzzle</string>
+    <string name="game_coloring_name">Album da Colorare</string>
+    <string name="game_coloring_desc">Scegli un colore e tocca per riempire! 8 disegni carini, zoom per le parti piccole, annulla e il tuo lavoro viene salvato.</string>
+    <string name="co_choose">Scegli un disegno da colorare</string>
+    <string name="co_hint">Tocca un\'area per riempirla. Pizzica per lo zoom.</string>
 </resources>

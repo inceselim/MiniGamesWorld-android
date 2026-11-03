@@ -625,4 +625,8 @@
     <string name="jg_pictures">Imágenes</string>
     <string name="jg_done">¡COMPLETADO!</string>
     <string name="jg_new_puzzle">Nuevo rompecabezas</string>
+    <string name="game_coloring_name">Libro para Colorear</string>
+    <string name="game_coloring_desc">¡Elige un color y toca para rellenar! 8 dibujos bonitos, amplía las zonas pequeñas, deshaz y tu trabajo se guarda.</string>
+    <string name="co_choose">Elige un dibujo para colorear</string>
+    <string name="co_hint">Toca una zona para rellenarla. Pellizca para ampliar.</string>
 </resources>

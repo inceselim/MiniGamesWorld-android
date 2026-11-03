@@ -625,4 +625,8 @@
     <string name="jg_pictures">Bilder</string>
     <string name="jg_done">GESCHAFFT!</string>
     <string name="jg_new_puzzle">Neues Puzzle</string>
+    <string name="game_coloring_name">Malbuch</string>
+    <string name="game_coloring_desc">Wähle eine Farbe und tippe zum Ausmalen! 8 süße Bilder, Zoom für kleine Flächen, Rückgängig – dein Bild wird gespeichert.</string>
+    <string name="co_choose">Wähle ein Bild zum Ausmalen</string>
+    <string name="co_hint">Tippe auf eine Fläche zum Ausmalen. Mit zwei Fingern zoomen.</string>
 </resources>

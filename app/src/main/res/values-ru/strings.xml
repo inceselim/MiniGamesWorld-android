@@ -625,4 +625,8 @@
     <string name="jg_pictures">Картинки</string>
     <string name="jg_done">ГОТОВО!</string>
     <string name="jg_new_puzzle">Новый пазл</string>
+    <string name="game_coloring_name">Раскраска</string>
+    <string name="game_coloring_desc">Выбери цвет и нажми, чтобы закрасить! 8 милых картинок, увеличение для мелких деталей, отмена — работа сохраняется.</string>
+    <string name="co_choose">Выбери картинку для раскраски</string>
+    <string name="co_hint">Нажми на область, чтобы закрасить. Разведи пальцы для увеличения.</string>
 </resources>

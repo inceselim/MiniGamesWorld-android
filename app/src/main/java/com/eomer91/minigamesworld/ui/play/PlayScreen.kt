@@ -31,6 +31,7 @@ import com.eomer91.minigamesworld.ui.games.blockpuzzle.BlockPuzzleScreen
 import com.eomer91.minigamesworld.ui.games.blockrain.BlockRainScreen
 import com.eomer91.minigamesworld.ui.games.bubble.BubbleScreen
 import com.eomer91.minigamesworld.ui.games.checkers.CheckersScreen
+import com.eomer91.minigamesworld.ui.games.coloring.ColoringScreen
 import com.eomer91.minigamesworld.ui.games.chess.ChessScreen
 import com.eomer91.minigamesworld.ui.games.connect4.Connect4Screen
 import com.eomer91.minigamesworld.ui.games.cooking.CookingScreen
@@ -96,6 +97,7 @@ fun PlayScreen(gameId: String, onBack: () -> Unit) {
                 "makeup" -> MakeupScreen()
                 "cake-shop" -> CookingScreen()
                 "jigsaw" -> JigsawScreen()
+                "coloring" -> ColoringScreen()
                 "snake" -> SnakeScreen()
                 "memory-card" -> MemoryScreen()
                 "block-puzzle" -> BlockPuzzleScreen()
