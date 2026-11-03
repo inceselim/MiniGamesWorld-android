@@ -1,5 +1,12 @@
 package com.eomer91.minigamesworld.ui.home
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.PersonAdd
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.ui.platform.LocalContext
+import com.eomer91.minigamesworld.ui.theme.AppColors
+import com.eomer91.minigamesworld.util.AppActions
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -43,6 +50,10 @@ fun HomeScreen(
                 verticalAlignment = Alignment.Top,
             ) {
                 ScreenTitle(stringResource(R.string.home_title), stringResource(R.string.home_subtitle), Modifier.weight(1f))
+                val context = LocalContext.current
+                IconButton(onClick = { AppActions.inviteFriend(context) }) {
+                    Icon(Icons.Rounded.PersonAdd, contentDescription = stringResource(R.string.invite_friend), tint = AppColors.Primary)
+                }
                 GoldBadge(gold)
             }
         }

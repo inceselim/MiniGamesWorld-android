@@ -489,4 +489,7 @@
     <string name="fg_quest_done">Missione completata! +%1$d oro</string>
     <string name="fg_evolution">EVOLUZIONE!</string>
     <string name="fg_evolutions">Evoluzioni: arma livello 5 + passiva</string>
+    <string name="invite_friend">Invita un amico</string>
+    <string name="invite_message">Sto giocando a 17 minigiochi divertenti su Mini Games Hub. Unisciti a me! %1$s</string>
+    <string name="rate_app">Valutaci</string>
 </resources>

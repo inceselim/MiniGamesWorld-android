@@ -1,5 +1,11 @@
 package com.eomer91.minigamesworld.ui.settings
 
+import androidx.activity.compose.LocalActivity
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Share
+import androidx.compose.material3.Icon
+import androidx.compose.ui.platform.LocalContext
+import com.eomer91.minigamesworld.util.AppActions
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -68,6 +74,14 @@ fun SettingsScreen(
         }
         SettingRow(stringResource(R.string.settings_vibration), onClick = { viewModel.setVibration(!vibration) }) {
             Switch(checked = vibration, onCheckedChange = viewModel::setVibration, colors = switchColors())
+        }
+        val context = LocalContext.current
+        val activity = LocalActivity.current
+        SettingRow(stringResource(R.string.invite_friend), onClick = { AppActions.inviteFriend(context) }) {
+            Icon(Icons.Rounded.Share, contentDescription = null, tint = AppColors.Primary)
+        }
+        SettingRow(stringResource(R.string.rate_app), onClick = { activity?.let(AppActions::rateApp) ?: AppActions.openStorePage(context) }) {
+            Text("★★★★★", color = AppColors.Gold, fontWeight = FontWeight.Black)
         }
         if (privacyOptionsRequired) {
             SettingRow(stringResource(R.string.settings_privacy), onClick = onShowPrivacyOptions) {}

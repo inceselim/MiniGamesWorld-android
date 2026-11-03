@@ -489,4 +489,7 @@
     <string name="fg_quest_done">クエスト達成！ゴールド +%1$d</string>
     <string name="fg_evolution">進化！</string>
     <string name="fg_evolutions">進化：武器レベル 5 ＋ パッシブ</string>
+    <string name="invite_friend">友だちを招待</string>
+    <string name="invite_message">Mini Games Hub で 17 種類のミニゲームを遊んでるよ。一緒に遊ぼう！ %1$s</string>
+    <string name="rate_app">評価する</string>
 </resources>

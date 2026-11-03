@@ -503,4 +503,7 @@
     <string name="fg_quest_done">Görev tamamlandı! +%1$d altın</string>
     <string name="fg_evolution">EVRİM!</string>
     <string name="fg_evolutions">Evrimler: 5. seviye silah + pasif</string>
+    <string name="invite_friend">Arkadaşını davet et</string>
+    <string name="invite_message">Mini Games Hub\'da 17 eğlenceli mini oyun oynuyorum. Sen de gel! %1$s</string>
+    <string name="rate_app">Bizi değerlendir</string>
 </resources>

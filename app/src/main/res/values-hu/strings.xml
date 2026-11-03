@@ -489,4 +489,7 @@
     <string name="fg_quest_done">Küldetés teljesítve! +%1$d arany</string>
     <string name="fg_evolution">EVOLÚCIÓ!</string>
     <string name="fg_evolutions">Evolúciók: 5. szintű fegyver + passzív</string>
+    <string name="invite_friend">Barát meghívása</string>
+    <string name="invite_message">17 szórakoztató minijátékkal játszom a Mini Games Hubban. Gyere te is! %1$s</string>
+    <string name="rate_app">Értékelj minket</string>
 </resources>
