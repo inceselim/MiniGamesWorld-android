@@ -525,4 +525,12 @@
     <string name="br_next">KÖVETKEZŐ</string>
     <string name="br_level">SZINT</string>
     <string name="br_lines">SOROK</string>
+    <string name="game_checkers_name">Dámajáték</string>
+    <string name="game_checkers_desc">Török dáma a gép (3 szint) vagy egy barát ellen. Az ütés kötelező – legyél dáma, és söpörd le a táblát!</string>
+    <string name="ck_white_turn">Világos lép</string>
+    <string name="ck_black_turn">Sötét lép</string>
+    <string name="ck_white_wins">VILÁGOS NYERT!</string>
+    <string name="ck_black_wins">SÖTÉT NYERT!</string>
+    <string name="ck_must_capture">Kötelező ütni!</string>
+    <string name="ck_rules">Török dáma: a korongok egy mezőt lépnek előre vagy oldalra, és átugrással ütnek. Amelyik eléri az utolsó sort, dáma lesz, és bármennyit léphet. Az ütés kötelező, és a legtöbb korongot kell leütni.</string>
 </resources>

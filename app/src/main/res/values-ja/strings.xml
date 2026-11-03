@@ -525,4 +525,12 @@
     <string name="br_next">ネクスト</string>
     <string name="br_level">レベル</string>
     <string name="br_lines">ライン</string>
+    <string name="game_checkers_name">チェッカー</string>
+    <string name="game_checkers_desc">コンピューター（3段階）や友だちと遊ぶトルコ式チェッカー。取るのは必須、キングになって盤面を制圧しよう！</string>
+    <string name="ck_white_turn">白の番</string>
+    <string name="ck_black_turn">黒の番</string>
+    <string name="ck_white_wins">白の勝ち！</string>
+    <string name="ck_black_wins">黒の勝ち！</string>
+    <string name="ck_must_capture">取らなきゃ！</string>
+    <string name="ck_rules">トルコ式チェッカー：駒は前か横に1マス進み、飛び越えて取る。最後の列に着くとキングになり、何マスでも動ける。取るのは必須で、一番多く取れる手を選ばなければならない。</string>
 </resources>

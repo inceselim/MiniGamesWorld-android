@@ -525,4 +525,12 @@
     <string name="br_next">NÄCHSTE</string>
     <string name="br_level">LEVEL</string>
     <string name="br_lines">REIHEN</string>
+    <string name="game_checkers_name">Dame</string>
+    <string name="game_checkers_desc">Türkische Dame gegen den Computer (3 Stufen) oder einen Freund. Schlagen ist Pflicht – werde Dame und räum das Brett ab!</string>
+    <string name="ck_white_turn">Weiß ist am Zug</string>
+    <string name="ck_black_turn">Schwarz ist am Zug</string>
+    <string name="ck_white_wins">WEISS GEWINNT!</string>
+    <string name="ck_black_wins">SCHWARZ GEWINNT!</string>
+    <string name="ck_must_capture">Schlagzwang!</string>
+    <string name="ck_rules">Türkische Dame: Steine ziehen ein Feld vorwärts oder seitwärts und schlagen durch Überspringen. Wer die letzte Reihe erreicht, wird Dame und zieht beliebig weit. Schlagen ist Pflicht, und es müssen die meisten Steine geschlagen werden.</string>
 </resources>

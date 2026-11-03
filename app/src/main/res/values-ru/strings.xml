@@ -525,4 +525,12 @@
     <string name="br_next">ДАЛЕЕ</string>
     <string name="br_level">УРОВЕНЬ</string>
     <string name="br_lines">ЛИНИИ</string>
+    <string name="game_checkers_name">Шашки</string>
+    <string name="game_checkers_desc">Турецкие шашки против компьютера (3 уровня) или друга. Бить обязательно — проведи дамку и очисти доску!</string>
+    <string name="ck_white_turn">Ход белых</string>
+    <string name="ck_black_turn">Ход чёрных</string>
+    <string name="ck_white_wins">БЕЛЫЕ ПОБЕДИЛИ!</string>
+    <string name="ck_black_wins">ЧЁРНЫЕ ПОБЕДИЛИ!</string>
+    <string name="ck_must_capture">Бить обязательно!</string>
+    <string name="ck_rules">Турецкие шашки: шашки ходят на одну клетку вперёд или вбок и бьют прыжком. Дошедшая до последнего ряда становится дамкой и ходит на любое расстояние. Бить обязательно, причём максимальное число шашек.</string>
 </resources>

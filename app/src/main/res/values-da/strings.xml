@@ -525,4 +525,12 @@
     <string name="br_next">NÆSTE</string>
     <string name="br_level">NIVEAU</string>
     <string name="br_lines">RÆKKER</string>
+    <string name="game_checkers_name">Dam</string>
+    <string name="game_checkers_desc">Tyrkisk dam mod computeren (3 niveauer) eller en ven. Det er tvunget at slå – bliv konge og ryd brættet!</string>
+    <string name="ck_white_turn">Hvid i trækket</string>
+    <string name="ck_black_turn">Sort i trækket</string>
+    <string name="ck_white_wins">HVID VINDER!</string>
+    <string name="ck_black_wins">SORT VINDER!</string>
+    <string name="ck_must_capture">Du skal slå!</string>
+    <string name="ck_rules">Tyrkisk dam: brikker flytter ét felt frem eller til siden og slår ved at hoppe over. En brik på sidste række bliver konge og kan flytte så langt den vil. Det er tvunget at slå, og man skal slå flest mulige brikker.</string>
 </resources>

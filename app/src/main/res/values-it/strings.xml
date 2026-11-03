@@ -525,4 +525,12 @@
     <string name="br_next">PROSSIMO</string>
     <string name="br_level">LIVELLO</string>
     <string name="br_lines">RIGHE</string>
+    <string name="game_checkers_name">Dama</string>
+    <string name="game_checkers_desc">Dama turca contro il computer (3 livelli) o un amico. La presa è obbligatoria: diventa dama e ripulisci la scacchiera!</string>
+    <string name="ck_white_turn">Tocca al bianco</string>
+    <string name="ck_black_turn">Tocca al nero</string>
+    <string name="ck_white_wins">VINCE IL BIANCO!</string>
+    <string name="ck_black_wins">VINCE IL NERO!</string>
+    <string name="ck_must_capture">Presa obbligatoria!</string>
+    <string name="ck_rules">Dama turca: le pedine avanzano di una casella in avanti o di lato e catturano saltando. Chi raggiunge l\'ultima riga diventa dama e si muove di quante caselle vuole. La presa è obbligatoria e bisogna catturare il maggior numero di pezzi.</string>
 </resources>

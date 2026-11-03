@@ -525,4 +525,12 @@
     <string name="br_next">SIGUIENTE</string>
     <string name="br_level">NIVEL</string>
     <string name="br_lines">LÍNEAS</string>
+    <string name="game_checkers_name">Damas</string>
+    <string name="game_checkers_desc">Damas turcas contra la máquina (3 niveles) o un amigo. Capturar es obligatorio: ¡corona tu dama y limpia el tablero!</string>
+    <string name="ck_white_turn">Turno de las blancas</string>
+    <string name="ck_black_turn">Turno de las negras</string>
+    <string name="ck_white_wins">¡GANAN LAS BLANCAS!</string>
+    <string name="ck_black_wins">¡GANAN LAS NEGRAS!</string>
+    <string name="ck_must_capture">¡Captura obligatoria!</string>
+    <string name="ck_rules">Damas turcas: las piezas avanzan una casilla hacia delante o de lado y capturan saltando. La que llega a la última fila se corona y se mueve cualquier distancia. Capturar es obligatorio y hay que tomar el máximo de piezas.</string>
 </resources>

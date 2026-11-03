@@ -539,4 +539,12 @@
     <string name="br_next">SIRADAKİ</string>
     <string name="br_level">SEVİYE</string>
     <string name="br_lines">SATIR</string>
+    <string name="game_checkers_name">Dama</string>
+    <string name="game_checkers_desc">Bilgisayara (3 seviye) ya da arkadaşına karşı Türk daması. Almak zorunlu; dama ol, tahtayı temizle!</string>
+    <string name="ck_white_turn">Sıra beyazda</string>
+    <string name="ck_black_turn">Sıra siyahta</string>
+    <string name="ck_white_wins">BEYAZ KAZANDI!</string>
+    <string name="ck_black_wins">SİYAH KAZANDI!</string>
+    <string name="ck_must_capture">Almak zorunlu!</string>
+    <string name="ck_rules">Türk daması: taşlar bir kare ileri ya da yana gider, üstünden atlayarak alır. Son sıraya ulaşan taş dama olur ve istediği kadar gider. Almak zorunludur, en çok taşı alan hamle seçilmelidir.</string>
 </resources>

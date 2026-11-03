@@ -525,4 +525,12 @@
     <string name="br_next">SUIVANT</string>
     <string name="br_level">NIVEAU</string>
     <string name="br_lines">LIGNES</string>
+    <string name="game_checkers_name">Dames</string>
+    <string name="game_checkers_desc">Dames turques contre l\'ordinateur (3 niveaux) ou un ami. La prise est obligatoire : deviens dame et nettoie le plateau !</string>
+    <string name="ck_white_turn">Aux blancs de jouer</string>
+    <string name="ck_black_turn">Aux noirs de jouer</string>
+    <string name="ck_white_wins">LES BLANCS GAGNENT !</string>
+    <string name="ck_black_wins">LES NOIRS GAGNENT !</string>
+    <string name="ck_must_capture">Prise obligatoire !</string>
+    <string name="ck_rules">Dames turques : les pions avancent d\'une case vers l\'avant ou sur le côté et prennent en sautant. Un pion qui atteint la dernière rangée devient dame et se déplace de n\'importe quelle distance. La prise est obligatoire et il faut prendre le maximum de pièces.</string>
 </resources>

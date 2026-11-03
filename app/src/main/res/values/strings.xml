@@ -541,4 +541,12 @@
     <string name="br_next">NEXT</string>
     <string name="br_level">LEVEL</string>
     <string name="br_lines">LINES</string>
+    <string name="game_checkers_name">Checkers</string>
+    <string name="game_checkers_desc">Turkish draughts against the computer (3 levels) or a friend. Capture is mandatory, become a king and sweep the board!</string>
+    <string name="ck_white_turn">White\'s turn</string>
+    <string name="ck_black_turn">Black\'s turn</string>
+    <string name="ck_white_wins">WHITE WINS!</string>
+    <string name="ck_black_wins">BLACK WINS!</string>
+    <string name="ck_must_capture">Must capture!</string>
+    <string name="ck_rules">Turkish draughts: pieces move one square forward or sideways and capture by jumping. A piece reaching the last row becomes a king and moves any distance. Capturing is mandatory and you must take the most pieces.</string>
 </resources>
