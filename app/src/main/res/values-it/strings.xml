@@ -629,4 +629,12 @@
     <string name="game_coloring_desc">Scegli un colore e tocca per riempire! 8 disegni carini, zoom per le parti piccole, annulla e il tuo lavoro viene salvato.</string>
     <string name="co_choose">Scegli un disegno da colorare</string>
     <string name="co_hint">Tocca un\'area per riempirla. Pizzica per lo zoom.</string>
+    <string name="game_mine_run_name">Corsa in Miniera</string>
+    <string name="game_mine_run_desc">Corri con il carrello più veloce che puoi! Scorri per cambiare binario, salta i barili, abbassati sotto le travi e prendi l\'oro.</string>
+    <string name="rn_swipe_start">Scorri per iniziare!</string>
+    <string name="rn_swipe_continue">Scorri per continuare</string>
+    <string name="rn_how">← → cambia binario · ↑ salta i barili · ↓ abbassati sotto le travi · evita i massi!</string>
+    <string name="rn_crashed">SCHIANTO!</string>
+    <string name="rn_revive">Continua (guarda annuncio)</string>
+    <string name="rn_give_up">Termina</string>
 </resources>

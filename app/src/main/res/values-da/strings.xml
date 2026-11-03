@@ -629,4 +629,12 @@
     <string name="game_coloring_desc">Vælg en farve og tryk for at farvelægge! 8 søde billeder, zoom til små områder, fortryd – dit billede gemmes.</string>
     <string name="co_choose">Vælg et billede at farvelægge</string>
     <string name="co_hint">Tryk på et område for at farve det. Knib for at zoome.</string>
+    <string name="game_mine_run_name">Mineløb</string>
+    <string name="game_mine_run_desc">Kør med minevognen så hurtigt du kan! Stryg for at skifte spor, hop over tønder, duk dig under bjælker og saml guldet.</string>
+    <string name="rn_swipe_start">Stryg for at starte!</string>
+    <string name="rn_swipe_continue">Stryg for at fortsætte</string>
+    <string name="rn_how">← → skift spor · ↑ hop over tønder · ↓ duk dig under bjælker · undgå sten!</string>
+    <string name="rn_crashed">BRAG!</string>
+    <string name="rn_revive">Kør videre (se reklame)</string>
+    <string name="rn_give_up">Afslut</string>
 </resources>

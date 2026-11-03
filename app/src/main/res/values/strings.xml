@@ -645,4 +645,12 @@
     <string name="game_coloring_desc">Pick a color and tap to fill! 8 cute pictures, zoom in for small areas, undo and your work is saved.</string>
     <string name="co_choose">Choose a picture to color</string>
     <string name="co_hint">Tap an area to fill it. Pinch to zoom.</string>
+    <string name="game_mine_run_name">Mine Run</string>
+    <string name="game_mine_run_desc">Ride the mine cart as fast as you can! Swipe to change tracks, jump over barrels, duck under beams and grab the gold.</string>
+    <string name="rn_swipe_start">Swipe to start!</string>
+    <string name="rn_swipe_continue">Swipe to continue</string>
+    <string name="rn_how">← → change track · ↑ jump over barrels · ↓ duck under beams · avoid rocks!</string>
+    <string name="rn_crashed">CRASH!</string>
+    <string name="rn_revive">Keep going (watch ad)</string>
+    <string name="rn_give_up">End run</string>
 </resources>

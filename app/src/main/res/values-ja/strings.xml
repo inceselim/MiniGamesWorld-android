@@ -629,4 +629,12 @@
     <string name="game_coloring_desc">色を選んでタップでぬろう！かわいい絵が8枚。小さいところはズーム、やり直しもOK、作品は保存されるよ。</string>
     <string name="co_choose">ぬる絵を選んでね</string>
     <string name="co_hint">タップでぬりつぶし。2本指でズーム。</string>
+    <string name="game_mine_run_name">トロッコラン</string>
+    <string name="game_mine_run_desc">トロッコで突っ走れ！スワイプでレール変更、たるをジャンプ、はりの下をしゃがんで、金貨を集めよう。</string>
+    <string name="rn_swipe_start">スワイプでスタート！</string>
+    <string name="rn_swipe_continue">スワイプで再開</string>
+    <string name="rn_how">← → レール変更・↑ たるをジャンプ・↓ はりの下でしゃがむ・岩をよけよう！</string>
+    <string name="rn_crashed">ぶつかった！</string>
+    <string name="rn_revive">続ける（広告を見る）</string>
+    <string name="rn_give_up">終わる</string>
 </resources>

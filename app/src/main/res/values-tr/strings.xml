@@ -643,4 +643,12 @@
     <string name="game_coloring_desc">Bir renk seç, dokun ve boya! 8 sevimli resim, küçük yerler için yakınlaştır, geri al; çalışman kaydedilir.</string>
     <string name="co_choose">Boyamak için bir resim seç</string>
     <string name="co_hint">Boyamak için bir alana dokun. Yakınlaştırmak için iki parmakla aç.</string>
+    <string name="game_mine_run_name">Maden Koşusu</string>
+    <string name="game_mine_run_desc">Maden arabasıyla olabildiğince hızlı git! Ray değiştirmek için kaydır, fıçıların üstünden zıpla, kirişlerin altından eğil ve altınları topla.</string>
+    <string name="rn_swipe_start">Başlamak için kaydır!</string>
+    <string name="rn_swipe_continue">Devam etmek için kaydır</string>
+    <string name="rn_how">← → ray değiştir · ↑ fıçıların üstünden zıpla · ↓ kirişlerin altından eğil · kayalardan kaç!</string>
+    <string name="rn_crashed">ÇARPTIN!</string>
+    <string name="rn_revive">Devam et (reklam izle)</string>
+    <string name="rn_give_up">Bitir</string>
 </resources>

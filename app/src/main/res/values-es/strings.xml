@@ -629,4 +629,12 @@
     <string name="game_coloring_desc">¡Elige un color y toca para rellenar! 8 dibujos bonitos, amplía las zonas pequeñas, deshaz y tu trabajo se guarda.</string>
     <string name="co_choose">Elige un dibujo para colorear</string>
     <string name="co_hint">Toca una zona para rellenarla. Pellizca para ampliar.</string>
+    <string name="game_mine_run_name">Carrera en la Mina</string>
+    <string name="game_mine_run_desc">¡Conduce la vagoneta lo más rápido posible! Desliza para cambiar de vía, salta los barriles, agáchate bajo las vigas y recoge el oro.</string>
+    <string name="rn_swipe_start">¡Desliza para empezar!</string>
+    <string name="rn_swipe_continue">Desliza para continuar</string>
+    <string name="rn_how">← → cambiar de vía · ↑ saltar barriles · ↓ agacharse bajo vigas · ¡esquiva las rocas!</string>
+    <string name="rn_crashed">¡CHOQUE!</string>
+    <string name="rn_revive">Seguir (ver anuncio)</string>
+    <string name="rn_give_up">Terminar</string>
 </resources>

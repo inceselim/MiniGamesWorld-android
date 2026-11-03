@@ -629,4 +629,12 @@
     <string name="game_coloring_desc">Wähle eine Farbe und tippe zum Ausmalen! 8 süße Bilder, Zoom für kleine Flächen, Rückgängig – dein Bild wird gespeichert.</string>
     <string name="co_choose">Wähle ein Bild zum Ausmalen</string>
     <string name="co_hint">Tippe auf eine Fläche zum Ausmalen. Mit zwei Fingern zoomen.</string>
+    <string name="game_mine_run_name">Minenrennen</string>
+    <string name="game_mine_run_desc">Fahr mit der Lore so schnell du kannst! Wische zum Gleiswechsel, spring über Fässer, duck dich unter Balken und schnapp dir das Gold.</string>
+    <string name="rn_swipe_start">Wische zum Starten!</string>
+    <string name="rn_swipe_continue">Wische zum Fortsetzen</string>
+    <string name="rn_how">← → Gleis wechseln · ↑ über Fässer springen · ↓ unter Balken ducken · Felsen ausweichen!</string>
+    <string name="rn_crashed">CRASH!</string>
+    <string name="rn_revive">Weiterfahren (Werbung)</string>
+    <string name="rn_give_up">Beenden</string>
 </resources>

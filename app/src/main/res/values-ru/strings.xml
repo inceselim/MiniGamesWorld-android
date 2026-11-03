@@ -629,4 +629,12 @@
     <string name="game_coloring_desc">Выбери цвет и нажми, чтобы закрасить! 8 милых картинок, увеличение для мелких деталей, отмена — работа сохраняется.</string>
     <string name="co_choose">Выбери картинку для раскраски</string>
     <string name="co_hint">Нажми на область, чтобы закрасить. Разведи пальцы для увеличения.</string>
+    <string name="game_mine_run_name">Шахтёрский забег</string>
+    <string name="game_mine_run_desc">Мчись на вагонетке как можно быстрее! Свайпай, чтобы менять пути, прыгай через бочки, пригибайся под балками и собирай золото.</string>
+    <string name="rn_swipe_start">Свайпни, чтобы начать!</string>
+    <string name="rn_swipe_continue">Свайпни, чтобы продолжить</string>
+    <string name="rn_how">← → смена пути · ↑ прыжок через бочки · ↓ пригнуться под балкой · избегай камней!</string>
+    <string name="rn_crashed">АВАРИЯ!</string>
+    <string name="rn_revive">Продолжить (реклама)</string>
+    <string name="rn_give_up">Закончить</string>
 </resources>

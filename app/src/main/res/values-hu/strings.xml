@@ -629,4 +629,12 @@
     <string name="game_coloring_desc">Válassz színt, és koppints a kitöltéshez! 8 aranyos kép, nagyítás a kis részekhez, visszavonás – a munkád mentésre kerül.</string>
     <string name="co_choose">Válassz egy kifestendő képet</string>
     <string name="co_hint">Koppints egy területre a kitöltéshez. Csippentéssel nagyíthatsz.</string>
+    <string name="game_mine_run_name">Bányafutam</string>
+    <string name="game_mine_run_desc">Száguldj a csillével! Húzd el az ujjad a sínváltáshoz, ugord át a hordókat, hajolj le a gerendák alatt, és gyűjtsd az aranyat.</string>
+    <string name="rn_swipe_start">Húzd el az indításhoz!</string>
+    <string name="rn_swipe_continue">Húzd el a folytatáshoz</string>
+    <string name="rn_how">← → sínváltás · ↑ ugrás a hordók felett · ↓ lehajolás a gerendák alatt · kerüld a sziklákat!</string>
+    <string name="rn_crashed">KARAMBOL!</string>
+    <string name="rn_revive">Tovább (reklám)</string>
+    <string name="rn_give_up">Befejezés</string>
 </resources>

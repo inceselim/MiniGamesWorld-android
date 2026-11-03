@@ -629,4 +629,12 @@
     <string name="game_coloring_desc">Choisis une couleur et touche pour remplir ! 8 jolis dessins, zoom pour les petites zones, annulation, et ton travail est sauvegardé.</string>
     <string name="co_choose">Choisis un dessin à colorier</string>
     <string name="co_hint">Touche une zone pour la remplir. Pince pour zoomer.</string>
+    <string name="game_mine_run_name">Course dans la Mine</string>
+    <string name="game_mine_run_desc">Fonce en wagonnet ! Glisse pour changer de rail, saute les tonneaux, baisse-toi sous les poutres et ramasse l\'or.</string>
+    <string name="rn_swipe_start">Glisse pour commencer !</string>
+    <string name="rn_swipe_continue">Glisse pour continuer</string>
+    <string name="rn_how">← → changer de rail · ↑ sauter les tonneaux · ↓ se baisser sous les poutres · évite les rochers !</string>
+    <string name="rn_crashed">BOUM !</string>
+    <string name="rn_revive">Continuer (voir une pub)</string>
+    <string name="rn_give_up">Terminer</string>
 </resources>

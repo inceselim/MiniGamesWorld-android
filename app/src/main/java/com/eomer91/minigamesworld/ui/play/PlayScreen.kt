@@ -46,6 +46,7 @@ import com.eomer91.minigamesworld.ui.games.fish.FishWorldScreen
 import com.eomer91.minigamesworld.ui.games.forest.ForestScreen
 import com.eomer91.minigamesworld.ui.games.fox.FoxScreen
 import com.eomer91.minigamesworld.ui.games.rocket.RocketScreen
+import com.eomer91.minigamesworld.ui.games.runner.RunnerScreen
 import com.eomer91.minigamesworld.ui.games.countries.CountriesScreen
 import com.eomer91.minigamesworld.ui.games.stocks.StockMarketScreen
 import com.eomer91.minigamesworld.ui.games.snake.SnakeScreen
@@ -98,6 +99,7 @@ fun PlayScreen(gameId: String, onBack: () -> Unit) {
                 "cake-shop" -> CookingScreen()
                 "jigsaw" -> JigsawScreen()
                 "coloring" -> ColoringScreen()
+                "mine-run" -> RunnerScreen()
                 "snake" -> SnakeScreen()
                 "memory-card" -> MemoryScreen()
                 "block-puzzle" -> BlockPuzzleScreen()
