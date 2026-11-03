@@ -533,4 +533,13 @@
     <string name="ck_black_wins">黒の勝ち！</string>
     <string name="ck_must_capture">取らなきゃ！</string>
     <string name="ck_rules">トルコ式チェッカー：駒は前か横に1マス進み、飛び越えて取る。最後の列に着くとキングになり、何マスでも動ける。取るのは必須で、一番多く取れる手を選ばなければならない。</string>
+    <string name="game_chess_name">チェス</string>
+    <string name="game_chess_desc">キャスリング、アンパッサン、昇格を含む本格ルール。コンピューター（3段階）や同じスマホで友だちと対戦。</string>
+    <string name="ch_check">チェック！</string>
+    <string name="ch_checkmate">チェックメイト</string>
+    <string name="ch_stalemate">ステイルメイト</string>
+    <string name="ch_insufficient">駒不足</string>
+    <string name="ch_fifty">50手ルール</string>
+    <string name="ch_repetition">3回同形</string>
+    <string name="ch_promote">ポーンを昇格</string>
 </resources>

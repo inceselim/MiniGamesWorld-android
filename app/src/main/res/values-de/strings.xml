@@ -533,4 +533,13 @@
     <string name="ck_black_wins">SCHWARZ GEWINNT!</string>
     <string name="ck_must_capture">Schlagzwang!</string>
     <string name="ck_rules">Türkische Dame: Steine ziehen ein Feld vorwärts oder seitwärts und schlagen durch Überspringen. Wer die letzte Reihe erreicht, wird Dame und zieht beliebig weit. Schlagen ist Pflicht, und es müssen die meisten Steine geschlagen werden.</string>
+    <string name="game_chess_name">Schach</string>
+    <string name="game_chess_desc">Vollständige Schachregeln mit Rochade, En passant und Umwandlung. Spiele gegen den Computer (3 Stufen) oder einen Freund am selben Handy.</string>
+    <string name="ch_check">Schach!</string>
+    <string name="ch_checkmate">Schachmatt</string>
+    <string name="ch_stalemate">Patt</string>
+    <string name="ch_insufficient">Ungenügendes Material</string>
+    <string name="ch_fifty">50-Züge-Regel</string>
+    <string name="ch_repetition">Dreifache Wiederholung</string>
+    <string name="ch_promote">Bauer umwandeln</string>
 </resources>

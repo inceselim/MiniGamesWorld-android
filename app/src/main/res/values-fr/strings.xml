@@ -533,4 +533,13 @@
     <string name="ck_black_wins">LES NOIRS GAGNENT !</string>
     <string name="ck_must_capture">Prise obligatoire !</string>
     <string name="ck_rules">Dames turques : les pions avancent d\'une case vers l\'avant ou sur le côté et prennent en sautant. Un pion qui atteint la dernière rangée devient dame et se déplace de n\'importe quelle distance. La prise est obligatoire et il faut prendre le maximum de pièces.</string>
+    <string name="game_chess_name">Échecs</string>
+    <string name="game_chess_desc">Toutes les règles des échecs avec roque, prise en passant et promotion. Joue contre l\'ordinateur (3 niveaux) ou un ami sur le même téléphone.</string>
+    <string name="ch_check">Échec !</string>
+    <string name="ch_checkmate">Échec et mat</string>
+    <string name="ch_stalemate">Pat</string>
+    <string name="ch_insufficient">Matériel insuffisant</string>
+    <string name="ch_fifty">Règle des 50 coups</string>
+    <string name="ch_repetition">Triple répétition</string>
+    <string name="ch_promote">Promouvoir le pion</string>
 </resources>

@@ -549,4 +549,13 @@
     <string name="ck_black_wins">BLACK WINS!</string>
     <string name="ck_must_capture">Must capture!</string>
     <string name="ck_rules">Turkish draughts: pieces move one square forward or sideways and capture by jumping. A piece reaching the last row becomes a king and moves any distance. Capturing is mandatory and you must take the most pieces.</string>
+    <string name="game_chess_name">Chess</string>
+    <string name="game_chess_desc">Full chess rules with castling, en passant and promotion. Play the computer (3 levels) or a friend on the same phone.</string>
+    <string name="ch_check">Check!</string>
+    <string name="ch_checkmate">Checkmate</string>
+    <string name="ch_stalemate">Stalemate</string>
+    <string name="ch_insufficient">Insufficient material</string>
+    <string name="ch_fifty">50-move rule</string>
+    <string name="ch_repetition">Threefold repetition</string>
+    <string name="ch_promote">Promote your pawn</string>
 </resources>

@@ -533,4 +533,13 @@
     <string name="ck_black_wins">¡GANAN LAS NEGRAS!</string>
     <string name="ck_must_capture">¡Captura obligatoria!</string>
     <string name="ck_rules">Damas turcas: las piezas avanzan una casilla hacia delante o de lado y capturan saltando. La que llega a la última fila se corona y se mueve cualquier distancia. Capturar es obligatorio y hay que tomar el máximo de piezas.</string>
+    <string name="game_chess_name">Ajedrez</string>
+    <string name="game_chess_desc">Reglas completas de ajedrez con enroque, captura al paso y coronación. Juega contra la máquina (3 niveles) o un amigo en el mismo móvil.</string>
+    <string name="ch_check">¡Jaque!</string>
+    <string name="ch_checkmate">Jaque mate</string>
+    <string name="ch_stalemate">Rey ahogado</string>
+    <string name="ch_insufficient">Material insuficiente</string>
+    <string name="ch_fifty">Regla de los 50 movimientos</string>
+    <string name="ch_repetition">Triple repetición</string>
+    <string name="ch_promote">Corona tu peón</string>
 </resources>

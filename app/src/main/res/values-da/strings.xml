@@ -533,4 +533,13 @@
     <string name="ck_black_wins">SORT VINDER!</string>
     <string name="ck_must_capture">Du skal slå!</string>
     <string name="ck_rules">Tyrkisk dam: brikker flytter ét felt frem eller til siden og slår ved at hoppe over. En brik på sidste række bliver konge og kan flytte så langt den vil. Det er tvunget at slå, og man skal slå flest mulige brikker.</string>
+    <string name="game_chess_name">Skak</string>
+    <string name="game_chess_desc">Fulde skakregler med rokade, en passant og forvandling. Spil mod computeren (3 niveauer) eller en ven på samme telefon.</string>
+    <string name="ch_check">Skak!</string>
+    <string name="ch_checkmate">Skakmat</string>
+    <string name="ch_stalemate">Pat</string>
+    <string name="ch_insufficient">Utilstrækkeligt materiale</string>
+    <string name="ch_fifty">50-træksreglen</string>
+    <string name="ch_repetition">Tredobbelt gentagelse</string>
+    <string name="ch_promote">Forvandl din bonde</string>
 </resources>

@@ -533,4 +533,13 @@
     <string name="ck_black_wins">SÖTÉT NYERT!</string>
     <string name="ck_must_capture">Kötelező ütni!</string>
     <string name="ck_rules">Török dáma: a korongok egy mezőt lépnek előre vagy oldalra, és átugrással ütnek. Amelyik eléri az utolsó sort, dáma lesz, és bármennyit léphet. Az ütés kötelező, és a legtöbb korongot kell leütni.</string>
+    <string name="game_chess_name">Sakk</string>
+    <string name="game_chess_desc">Teljes sakkszabályok sáncolással, menet közbeni ütéssel és átváltozással. Játssz a gép (3 szint) vagy egy barát ellen ugyanazon a telefonon.</string>
+    <string name="ch_check">Sakk!</string>
+    <string name="ch_checkmate">Sakk-matt</string>
+    <string name="ch_stalemate">Patt</string>
+    <string name="ch_insufficient">Elégtelen anyag</string>
+    <string name="ch_fifty">50 lépéses szabály</string>
+    <string name="ch_repetition">Háromszori ismétlés</string>
+    <string name="ch_promote">Gyalog átváltozása</string>
 </resources>

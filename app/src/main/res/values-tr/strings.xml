@@ -547,4 +547,13 @@
     <string name="ck_black_wins">SİYAH KAZANDI!</string>
     <string name="ck_must_capture">Almak zorunlu!</string>
     <string name="ck_rules">Türk daması: taşlar bir kare ileri ya da yana gider, üstünden atlayarak alır. Son sıraya ulaşan taş dama olur ve istediği kadar gider. Almak zorunludur, en çok taşı alan hamle seçilmelidir.</string>
+    <string name="game_chess_name">Satranç</string>
+    <string name="game_chess_desc">Rok, geçerken alma ve terfi dahil tam satranç kuralları. Bilgisayara (3 seviye) ya da aynı telefonda arkadaşına karşı oyna.</string>
+    <string name="ch_check">Şah!</string>
+    <string name="ch_checkmate">Şah mat</string>
+    <string name="ch_stalemate">Pat</string>
+    <string name="ch_insufficient">Yetersiz taş</string>
+    <string name="ch_fifty">50 hamle kuralı</string>
+    <string name="ch_repetition">Üç kez tekrar</string>
+    <string name="ch_promote">Piyonunu terfi ettir</string>
 </resources>

@@ -533,4 +533,13 @@
     <string name="ck_black_wins">VINCE IL NERO!</string>
     <string name="ck_must_capture">Presa obbligatoria!</string>
     <string name="ck_rules">Dama turca: le pedine avanzano di una casella in avanti o di lato e catturano saltando. Chi raggiunge l\'ultima riga diventa dama e si muove di quante caselle vuole. La presa è obbligatoria e bisogna catturare il maggior numero di pezzi.</string>
+    <string name="game_chess_name">Scacchi</string>
+    <string name="game_chess_desc">Regole complete degli scacchi con arrocco, en passant e promozione. Gioca contro il computer (3 livelli) o un amico sullo stesso telefono.</string>
+    <string name="ch_check">Scacco!</string>
+    <string name="ch_checkmate">Scacco matto</string>
+    <string name="ch_stalemate">Stallo</string>
+    <string name="ch_insufficient">Materiale insufficiente</string>
+    <string name="ch_fifty">Regola delle 50 mosse</string>
+    <string name="ch_repetition">Triplice ripetizione</string>
+    <string name="ch_promote">Promuovi il pedone</string>
 </resources>

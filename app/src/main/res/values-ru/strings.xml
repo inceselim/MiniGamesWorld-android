@@ -533,4 +533,13 @@
     <string name="ck_black_wins">ЧЁРНЫЕ ПОБЕДИЛИ!</string>
     <string name="ck_must_capture">Бить обязательно!</string>
     <string name="ck_rules">Турецкие шашки: шашки ходят на одну клетку вперёд или вбок и бьют прыжком. Дошедшая до последнего ряда становится дамкой и ходит на любое расстояние. Бить обязательно, причём максимальное число шашек.</string>
+    <string name="game_chess_name">Шахматы</string>
+    <string name="game_chess_desc">Полные шахматные правила: рокировка, взятие на проходе и превращение. Играй с компьютером (3 уровня) или с другом на одном телефоне.</string>
+    <string name="ch_check">Шах!</string>
+    <string name="ch_checkmate">Мат</string>
+    <string name="ch_stalemate">Пат</string>
+    <string name="ch_insufficient">Недостаточно материала</string>
+    <string name="ch_fifty">Правило 50 ходов</string>
+    <string name="ch_repetition">Троекратное повторение</string>
+    <string name="ch_promote">Превращение пешки</string>
 </resources>
