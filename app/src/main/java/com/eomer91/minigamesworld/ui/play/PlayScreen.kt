@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.sp
 import com.eomer91.minigamesworld.R
 import com.eomer91.minigamesworld.data.GameCatalog
 import com.eomer91.minigamesworld.ui.games.blockpuzzle.BlockPuzzleScreen
+import com.eomer91.minigamesworld.ui.games.blockrain.BlockRainScreen
 import com.eomer91.minigamesworld.ui.games.bubble.BubbleScreen
 import com.eomer91.minigamesworld.ui.games.connect4.Connect4Screen
 import com.eomer91.minigamesworld.ui.games.game2048.Game2048Screen
@@ -82,6 +83,7 @@ fun PlayScreen(gameId: String, onBack: () -> Unit) {
         Box(Modifier.fillMaxSize().padding(16.dp)) {
             when (gameId) {
                 "2048" -> Game2048Screen()
+                "block-rain" -> BlockRainScreen()
                 "snake" -> SnakeScreen()
                 "memory-card" -> MemoryScreen()
                 "block-puzzle" -> BlockPuzzleScreen()

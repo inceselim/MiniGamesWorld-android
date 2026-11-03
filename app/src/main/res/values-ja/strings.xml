@@ -514,4 +514,15 @@
     <string name="fx_next">次のステージ</string>
     <string name="fx_retry">もう一度</string>
     <string name="fx_all_done">全ステージクリア！すべての星を集めよう。</string>
+    <string name="game_block_rain_name">ブロックレイン</string>
+    <string name="game_block_rain_desc">定番の落ち物パズル！ピースを回して動かし、ラインをそろえよう。レベルが上がるほど速くなる。</string>
+    <string name="br_tap_start">タップしてスタート</string>
+    <string name="br_how">タップ：回転 · 横にドラッグ：移動 · 下にドラッグ：加速 · 素早く下にスワイプ：落とす · 素早く上にスワイプ：ホールド</string>
+    <string name="br_paused">一時停止</string>
+    <string name="br_tap_resume">タップして再開</string>
+    <string name="br_rescue">6列消す（広告）</string>
+    <string name="br_hold">ホールド</string>
+    <string name="br_next">ネクスト</string>
+    <string name="br_level">レベル</string>
+    <string name="br_lines">ライン</string>
 </resources>

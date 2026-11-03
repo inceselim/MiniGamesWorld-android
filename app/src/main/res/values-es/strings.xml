@@ -514,4 +514,15 @@
     <string name="fx_next">Siguiente nivel</string>
     <string name="fx_retry">Jugar de nuevo</string>
     <string name="fx_all_done">¡Has superado todos los niveles! Intenta conseguir todas las estrellas.</string>
+    <string name="game_block_rain_name">Lluvia de Bloques</string>
+    <string name="game_block_rain_desc">¡El clásico de bloques que caen! Gira y mueve las piezas, completa líneas y acelera nivel tras nivel.</string>
+    <string name="br_tap_start">Toca para empezar</string>
+    <string name="br_how">Toca: girar · Arrastra a los lados: mover · Arrastra abajo: acelerar · Desliza rápido abajo: soltar · Desliza rápido arriba: guardar</string>
+    <string name="br_paused">En pausa</string>
+    <string name="br_tap_resume">Toca para continuar</string>
+    <string name="br_rescue">Borrar 6 filas (anuncio)</string>
+    <string name="br_hold">GUARDAR</string>
+    <string name="br_next">SIGUIENTE</string>
+    <string name="br_level">NIVEL</string>
+    <string name="br_lines">LÍNEAS</string>
 </resources>

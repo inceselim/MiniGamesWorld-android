@@ -514,4 +514,15 @@
     <string name="fx_next">Niveau suivant</string>
     <string name="fx_retry">Rejouer</string>
     <string name="fx_all_done">Tu as terminé tous les niveaux ! Essaie de récupérer toutes les étoiles.</string>
+    <string name="game_block_rain_name">Pluie de Blocs</string>
+    <string name="game_block_rain_desc">Le classique des blocs qui tombent ! Tourne et déplace les pièces, complète des lignes et accélère à chaque niveau.</string>
+    <string name="br_tap_start">Touche pour commencer</string>
+    <string name="br_how">Touche : pivoter · Glisse sur le côté : déplacer · Glisse vers le bas : accélérer · Balayage rapide bas : lâcher · Balayage rapide haut : réserver</string>
+    <string name="br_paused">Pause</string>
+    <string name="br_tap_resume">Touche pour continuer</string>
+    <string name="br_rescue">Effacer 6 lignes (pub)</string>
+    <string name="br_hold">RÉSERVE</string>
+    <string name="br_next">SUIVANT</string>
+    <string name="br_level">NIVEAU</string>
+    <string name="br_lines">LIGNES</string>
 </resources>

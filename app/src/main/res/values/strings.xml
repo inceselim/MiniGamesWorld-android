@@ -530,4 +530,15 @@
     <string name="fx_next">Next level</string>
     <string name="fx_retry">Play again</string>
     <string name="fx_all_done">You finished every level! Try to collect all the stars.</string>
+    <string name="game_block_rain_name">Block Rain</string>
+    <string name="game_block_rain_desc">The classic falling-blocks game! Rotate and slide the pieces, complete lines and speed up level by level.</string>
+    <string name="br_tap_start">Tap to start</string>
+    <string name="br_how">Tap: rotate · Drag sideways: move · Drag down: drop faster · Quick swipe down: drop · Quick swipe up: hold</string>
+    <string name="br_paused">Paused</string>
+    <string name="br_tap_resume">Tap to continue</string>
+    <string name="br_rescue">Clear 6 rows (ad)</string>
+    <string name="br_hold">HOLD</string>
+    <string name="br_next">NEXT</string>
+    <string name="br_level">LEVEL</string>
+    <string name="br_lines">LINES</string>
 </resources>

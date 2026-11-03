@@ -514,4 +514,15 @@
     <string name="fx_next">Nächstes Level</string>
     <string name="fx_retry">Nochmal</string>
     <string name="fx_all_done">Du hast alle Levels geschafft! Sammle jetzt alle Sterne.</string>
+    <string name="game_block_rain_name">Blockregen</string>
+    <string name="game_block_rain_desc">Der Klassiker mit fallenden Blöcken! Drehe und schiebe die Teile, fülle Reihen und werde von Level zu Level schneller.</string>
+    <string name="br_tap_start">Tippen zum Starten</string>
+    <string name="br_how">Tippen: drehen · Seitlich ziehen: bewegen · Nach unten ziehen: schneller · Schnell nach unten wischen: fallen lassen · Schnell nach oben: halten</string>
+    <string name="br_paused">Pause</string>
+    <string name="br_tap_resume">Tippen zum Fortsetzen</string>
+    <string name="br_rescue">6 Reihen löschen (Werbung)</string>
+    <string name="br_hold">HALTEN</string>
+    <string name="br_next">NÄCHSTE</string>
+    <string name="br_level">LEVEL</string>
+    <string name="br_lines">REIHEN</string>
 </resources>

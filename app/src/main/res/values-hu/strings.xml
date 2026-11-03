@@ -514,4 +514,15 @@
     <string name="fx_next">Következő pálya</string>
     <string name="fx_retry">Újra</string>
     <string name="fx_all_done">Minden pályát teljesítettél! Próbáld összegyűjteni az összes csillagot.</string>
+    <string name="game_block_rain_name">Blokkeső</string>
+    <string name="game_block_rain_desc">A klasszikus hulló blokkos játék! Forgasd és mozgasd az elemeket, tölts ki sorokat, és szintről szintre gyorsulj.</string>
+    <string name="br_tap_start">Koppints az indításhoz</string>
+    <string name="br_how">Koppintás: forgatás · Oldalra húzás: mozgatás · Lefelé húzás: gyorsítás · Gyors lehúzás: ejtés · Gyors felhúzás: tartalék</string>
+    <string name="br_paused">Szünet</string>
+    <string name="br_tap_resume">Koppints a folytatáshoz</string>
+    <string name="br_rescue">6 sor törlése (reklám)</string>
+    <string name="br_hold">TARTALÉK</string>
+    <string name="br_next">KÖVETKEZŐ</string>
+    <string name="br_level">SZINT</string>
+    <string name="br_lines">SOROK</string>
 </resources>

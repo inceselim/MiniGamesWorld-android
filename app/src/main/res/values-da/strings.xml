@@ -514,4 +514,15 @@
     <string name="fx_next">Næste bane</string>
     <string name="fx_retry">Spil igen</string>
     <string name="fx_all_done">Du har klaret alle baner! Prøv at samle alle stjernerne.</string>
+    <string name="game_block_rain_name">Blokregn</string>
+    <string name="game_block_rain_desc">Klassikeren med faldende blokke! Drej og flyt brikkerne, fyld rækker og bliv hurtigere for hvert niveau.</string>
+    <string name="br_tap_start">Tryk for at starte</string>
+    <string name="br_how">Tryk: drej · Træk til siden: flyt · Træk ned: hurtigere · Hurtigt stryg ned: slip · Hurtigt stryg op: gem</string>
+    <string name="br_paused">Pause</string>
+    <string name="br_tap_resume">Tryk for at fortsætte</string>
+    <string name="br_rescue">Ryd 6 rækker (reklame)</string>
+    <string name="br_hold">GEM</string>
+    <string name="br_next">NÆSTE</string>
+    <string name="br_level">NIVEAU</string>
+    <string name="br_lines">RÆKKER</string>
 </resources>

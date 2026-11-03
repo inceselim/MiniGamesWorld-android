@@ -514,4 +514,15 @@
     <string name="fx_next">Livello successivo</string>
     <string name="fx_retry">Gioca ancora</string>
     <string name="fx_all_done">Hai finito tutti i livelli! Prova a raccogliere tutte le stelle.</string>
+    <string name="game_block_rain_name">Pioggia di Blocchi</string>
+    <string name="game_block_rain_desc">Il classico dei blocchi che cadono! Ruota e sposta i pezzi, completa le righe e accelera livello dopo livello.</string>
+    <string name="br_tap_start">Tocca per iniziare</string>
+    <string name="br_how">Tocca: ruota · Trascina di lato: sposta · Trascina giù: accelera · Scorri veloce giù: lascia cadere · Scorri veloce su: tieni</string>
+    <string name="br_paused">In pausa</string>
+    <string name="br_tap_resume">Tocca per continuare</string>
+    <string name="br_rescue">Elimina 6 righe (annuncio)</string>
+    <string name="br_hold">TIENI</string>
+    <string name="br_next">PROSSIMO</string>
+    <string name="br_level">LIVELLO</string>
+    <string name="br_lines">RIGHE</string>
 </resources>

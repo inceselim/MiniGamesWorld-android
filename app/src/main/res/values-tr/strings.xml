@@ -528,4 +528,15 @@
     <string name="fx_next">Sonraki bölüm</string>
     <string name="fx_retry">Tekrar oyna</string>
     <string name="fx_all_done">Tüm bölümleri bitirdin! Bütün yıldızları toplamayı dene.</string>
+    <string name="game_block_rain_name">Blok Yağmuru</string>
+    <string name="game_block_rain_desc">Klasik düşen bloklar oyunu! Parçaları döndür, kaydır, satırları tamamla; her seviyede hız artar.</string>
+    <string name="br_tap_start">Başlamak için dokun</string>
+    <string name="br_how">Dokun: döndür · Yana sürükle: kaydır · Aşağı sürükle: hızlandır · Hızlı aşağı kaydır: bırak · Hızlı yukarı kaydır: tut</string>
+    <string name="br_paused">Duraklatıldı</string>
+    <string name="br_tap_resume">Devam etmek için dokun</string>
+    <string name="br_rescue">6 satırı temizle (reklam)</string>
+    <string name="br_hold">TUT</string>
+    <string name="br_next">SIRADAKİ</string>
+    <string name="br_level">SEVİYE</string>
+    <string name="br_lines">SATIR</string>
 </resources>
