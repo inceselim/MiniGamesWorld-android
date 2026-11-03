@@ -25,6 +25,7 @@ object GameCatalog {
         Game("makeup", R.string.game_makeup_name, R.string.game_makeup_desc, GameCategory.CREATIVE, R.drawable.game_makeup, entryCost = 5, isPlayable = true),
         Game("cake-shop", R.string.game_cake_shop_name, R.string.game_cake_shop_desc, GameCategory.CREATIVE, R.drawable.game_cake_shop, entryCost = 5, isPlayable = true),
         Game("coloring", R.string.game_coloring_name, R.string.game_coloring_desc, GameCategory.CREATIVE, R.drawable.game_coloring, entryCost = 5, isPlayable = true),
+        Game("animals", R.string.game_animals_name, R.string.game_animals_desc, GameCategory.CREATIVE, R.drawable.game_animals, entryCost = 5, isPlayable = true),
         Game("2048", R.string.game_2048_name, R.string.game_2048_desc, GameCategory.PUZZLE, R.drawable.game_2048, entryCost = 10, isPlayable = true),
         Game("chess", R.string.game_chess_name, R.string.game_chess_desc, GameCategory.STRATEGY, R.drawable.game_chess, entryCost = 10, isPlayable = true),
         Game("checkers", R.string.game_checkers_name, R.string.game_checkers_desc, GameCategory.STRATEGY, R.drawable.game_checkers, entryCost = 10, isPlayable = true),

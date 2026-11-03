@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.eomer91.minigamesworld.R
 import com.eomer91.minigamesworld.data.GameCatalog
+import com.eomer91.minigamesworld.ui.games.animals.AnimalsScreen
 import com.eomer91.minigamesworld.ui.games.blockpuzzle.BlockPuzzleScreen
 import com.eomer91.minigamesworld.ui.games.blockrain.BlockRainScreen
 import com.eomer91.minigamesworld.ui.games.bubble.BubbleScreen
@@ -102,6 +103,7 @@ fun PlayScreen(gameId: String, onBack: () -> Unit) {
                 "coloring" -> ColoringScreen()
                 "mine-run" -> RunnerScreen()
                 "pool" -> PoolScreen()
+                "animals" -> AnimalsScreen()
                 "snake" -> SnakeScreen()
                 "memory-card" -> MemoryScreen()
                 "block-puzzle" -> BlockPuzzleScreen()
