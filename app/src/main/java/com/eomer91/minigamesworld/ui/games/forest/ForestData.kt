@@ -31,11 +31,11 @@ enum class EnemyType(
     val drawSize: Float,
     val isBoss: Boolean = false,
 ) {
-    GOBLIN(10f, 1.6f, 6f, 1, 0.35f, 1.0f),
-    BAT(5f, 2.5f, 4f, 1, 0.3f, 0.9f),
-    WOLF(16f, 2.7f, 8f, 2, 0.4f, 1.15f),
-    ORC(50f, 1.15f, 14f, 5, 0.55f, 1.6f),
-    TREANT(4000f, 1.25f, 25f, 60, 1.1f, 3.4f, isBoss = true),
+    GOBLIN(10f, 1.6f, 10f, 1, 0.35f, 1.0f),
+    BAT(5f, 2.5f, 7f, 1, 0.3f, 0.9f),
+    WOLF(16f, 2.7f, 13f, 2, 0.4f, 1.15f),
+    ORC(50f, 1.15f, 22f, 5, 0.55f, 1.6f),
+    TREANT(4000f, 1.25f, 35f, 60, 1.1f, 3.4f, isBoss = true),
 }
 
 enum class WeaponType(@StringRes val nameRes: Int, @StringRes val descRes: Int, val color: Long) {

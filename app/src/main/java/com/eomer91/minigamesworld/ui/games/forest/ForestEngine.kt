@@ -302,7 +302,9 @@ class ForestEngine(
         }
         val timeMult = 1f + time / 300f
         val hp = type.hp * map.hpMult * (if (type.isBoss) 1f else timeMult)
-        val e = Enemy(nextId++, type, px, py, hp, hp, type.damage * map.damageMult)
+        // Hasar da zamanla artar (5. dakikada +%50)
+        val dmg = type.damage * map.damageMult * (1f + time / 600f)
+        val e = Enemy(nextId++, type, px, py, hp, hp, dmg)
         enemies += e
         return e
     }
@@ -747,7 +749,7 @@ class ForestEngine(
         const val MAX_LEVEL = 5
         const val MAX_WEAPONS = 6
         const val MAX_PASSIVES = 6
-        const val HIT_IFRAME = 0.5f
+        const val HIT_IFRAME = 0.35f
         const val DASH_TIME = 0.22f
         const val DASH_SPEED_MULT = 3.6f
         const val DASH_COOLDOWN = 2.5f
