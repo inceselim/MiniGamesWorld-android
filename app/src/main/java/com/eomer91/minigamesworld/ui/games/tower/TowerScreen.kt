@@ -111,7 +111,7 @@ fun TowerScreen(viewModel: TowerViewModel = hiltViewModel()) {
             .background(AppColors.Surface),
     ) {
         when (state.phase) {
-            TowerPhase.WORKSHOP -> Workshop(state, viewModel)
+            TowerPhase.WORKSHOP -> Workshop(state, viewModel, onAdUpgrade = { name, level -> showRewarded({ viewModel.upgradeWithAd(name, level) }, adNotReady) })
             else -> RunContent(
                 state = state,
                 viewModel = viewModel,
@@ -126,7 +126,7 @@ fun TowerScreen(viewModel: TowerViewModel = hiltViewModel()) {
 // ---------------- Atolye (kalici yukseltmeler, altin) ----------------
 
 @Composable
-private fun Workshop(state: TowerUiState, viewModel: TowerViewModel) {
+private fun Workshop(state: TowerUiState, viewModel: TowerViewModel, onAdUpgrade: (name: String, level: Int) -> Unit) {
     Column(
         Modifier
             .fillMaxSize()
@@ -152,6 +152,7 @@ private fun Workshop(state: TowerUiState, viewModel: TowerViewModel) {
                 affordable = state.gold >= viewModel.permanentCost(level),
                 isGold = true,
                 onBuy = { viewModel.buyPermanent(stat.name, level) },
+                onAdBuy = { onAdUpgrade(stat.name, level) },
             )
         }
         EconomyPerk.entries.forEach { perk ->
@@ -164,6 +165,7 @@ private fun Workshop(state: TowerUiState, viewModel: TowerViewModel) {
                 affordable = state.gold >= viewModel.permanentCost(level),
                 isGold = true,
                 onBuy = { viewModel.buyPermanent(perk.name, level) },
+                onAdBuy = { onAdUpgrade(perk.name, level) },
             )
         }
 
@@ -191,6 +193,8 @@ private fun UpgradeRow(
     affordable: Boolean,
     isGold: Boolean,
     onBuy: () -> Unit,
+    /** Verilirse ve para yetmiyorsa: odullu reklamla bir seviye. */
+    onAdBuy: (() -> Unit)? = null,
 ) {
     Row(
         Modifier
@@ -210,6 +214,19 @@ private fun UpgradeRow(
         }
         if (cost == null) {
             Text(stringResource(R.string.td_max), color = AppColors.Gold, fontWeight = FontWeight.Black)
+        } else if (!affordable && onAdBuy != null) {
+            // Altin yetmiyor: reklam izleyip ucretsiz +1 seviye
+            Button(
+                onClick = onAdBuy,
+                shape = RoundedCornerShape(12.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = AppColors.Primary, contentColor = AppColors.OnPrimary),
+                contentPadding = ButtonDefaults.TextButtonContentPadding,
+                modifier = Modifier.height(38.dp),
+            ) {
+                Icon(Icons.Rounded.OndemandVideo, contentDescription = null, modifier = Modifier.size(16.dp))
+                Spacer(Modifier.width(4.dp))
+                Text("+1", fontWeight = FontWeight.Black)
+            }
         } else {
             Button(
                 onClick = onBuy,

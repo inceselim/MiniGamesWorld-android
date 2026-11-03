@@ -81,6 +81,15 @@ class TowerViewModel @Inject constructor(
         }
     }
 
+    /** Odullu reklam izlendi: altin harcamadan bir seviye yukselt. */
+    fun upgradeWithAd(name: String, currentLevel: Int) {
+        if (currentLevel >= TowerBalance.MAX_PERMANENT_LEVEL) return
+        viewModelScope.launch {
+            val ok = prefs.buyTowerUpgrade(name, cost = 0, maxLevel = TowerBalance.MAX_PERMANENT_LEVEL)
+            if (ok) feedback.play(Sfx.COMBO)
+        }
+    }
+
     fun startRun() {
         val s = _state.value
         engine = TowerEngine(s.permanent, s.perks)
