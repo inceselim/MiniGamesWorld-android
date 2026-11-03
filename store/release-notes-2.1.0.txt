@@ -1,0 +1,70 @@
+<en-US>
+Mini Games Hub is rebuilt from the ground up: faster, smoother and with 17 games!
+• New: Minesweeper, Solitaire, Connect Four, Rocket Hop, Fish World (fishing + aquarium), Stock Trader and Countries War
+• Earn gold as you play, continue unfinished games
+• Sound effects and vibration
+• 10 languages
+</en-US>
+<tr-TR>
+Mini Games Hub baştan yazıldı: daha hızlı, daha akıcı ve 17 oyunla!
+• Yeni: Mayın Tarlası, Solitaire, Dört Bağla, Roket Zıpla, Balık Dünyası (balık tutma + akvaryum), Borsa Ustası ve Ülkeler Savaşı
+• Oynadıkça altın kazan, yarım kalan oyuna devam et
+• Ses efektleri ve titreşim
+• 10 dil desteği
+</tr-TR>
+<de-DE>
+Mini Games Hub wurde komplett neu entwickelt: schneller, flüssiger und mit 17 Spielen!
+• Neu: Minesweeper, Solitär, Vier gewinnt, Rocket Hop, Fischwelt (Angeln + Aquarium), Börsenhändler und Krieg der Länder
+• Verdiene Gold beim Spielen, setze angefangene Spiele fort
+• Soundeffekte und Vibration
+• 10 Sprachen
+</de-DE>
+<es-ES>
+Mini Games Hub se ha rehecho desde cero: ¡más rápido, más fluido y con 17 juegos!
+• Nuevo: Buscaminas, Solitario, Cuatro en raya, Rocket Hop, Mundo de peces (pesca + acuario), Bróker de Bolsa y Guerra de Naciones
+• Gana oro mientras juegas y continúa partidas sin terminar
+• Efectos de sonido y vibración
+• 10 idiomas
+</es-ES>
+<fr-FR>
+Mini Games Hub a été entièrement reconstruit : plus rapide, plus fluide et avec 17 jeux !
+• Nouveau : Démineur, Solitaire, Puissance 4, Rocket Hop, Monde des poissons (pêche + aquarium), Trader en Bourse et Guerre des Nations
+• Gagnez de l'or en jouant, reprenez vos parties en cours
+• Effets sonores et vibration
+• 10 langues
+</fr-FR>
+<it-IT>
+Mini Games Hub è stato rifatto da zero: più veloce, più fluido e con 17 giochi!
+• Novità: Campo minato, Solitario, Forza Quattro, Rocket Hop, Mondo dei pesci (pesca + acquario), Trader di Borsa e Guerra delle Nazioni
+• Guadagna oro giocando, riprendi le partite lasciate a metà
+• Effetti sonori e vibrazione
+• 10 lingue
+</it-IT>
+<ja-JP>
+Mini Games Hub を一から作り直しました。より速く、よりなめらかに、17 種類のゲームで登場！
+• 新作：マインスイーパー、ソリティア、四目並べ、ロケットホップ、フィッシュワールド（釣り＋水槽）、株トレーダー、国家戦争
+• 遊ぶほどゴールドがたまり、途中のゲームを続きから再開
+• 効果音とバイブレーション
+• 10 言語に対応
+</ja-JP>
+<ru-RU>
+Mini Games Hub полностью переписан: быстрее, плавнее и теперь 17 игр!
+• Новое: Сапёр, Пасьянс, Четыре в ряд, Прыжок ракеты, Рыбный мир (рыбалка + аквариум), Биржевой трейдер и Война стран
+• Зарабатывайте золото в играх и продолжайте незаконченные партии
+• Звуковые эффекты и вибрация
+• 10 языков
+</ru-RU>
+<da-DK>
+Mini Games Hub er bygget helt om: hurtigere, mere flydende og med 17 spil!
+• Nyt: Minestryger, Kabale, Fire på stribe, Rocket Hop, Fiskeverden (fiskeri + akvarium), Aktiehandler og Landenes Krig
+• Tjen guld, mens du spiller, og fortsæt ufærdige spil
+• Lydeffekter og vibration
+• 10 sprog
+</da-DK>
+<hu-HU>
+A Mini Games Hub teljesen megújult: gyorsabb, gördülékenyebb, és 17 játékot kínál!
+• Új: Aknakereső, Pasziánsz, Négy a sorban, Rocket Hop, Halvilág (horgászat + akvárium), Tőzsdekereskedő és Országok háborúja
+• Gyűjts aranyat játék közben, folytasd a félbehagyott játékokat
+• Hangeffektek és rezgés
+• 10 nyelv
+</hu-HU>
