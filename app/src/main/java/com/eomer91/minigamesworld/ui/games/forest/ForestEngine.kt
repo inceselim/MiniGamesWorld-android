@@ -191,8 +191,7 @@ class ForestEngine(
         updatePickups(dt)
         updateEffects(dt)
         hp = min(maxHp, hp + regen * dt)
-        // MP kapasitesi arttikca yenilenme de hizlanir (ekipmandan gelen MP)
-        mp = min(maxMp, mp + MP_REGEN * (maxMp / 100f) * dt)
+        mp = min(maxMp, mp + MP_REGEN * dt)
         if (hp <= 0f) {
             hp = 0f
             dead = true

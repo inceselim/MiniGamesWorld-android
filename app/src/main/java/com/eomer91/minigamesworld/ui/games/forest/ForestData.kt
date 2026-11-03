@@ -153,15 +153,7 @@ data class ForestProfile(
     val bestKills: Map<Int, Int> = emptyMap(),
     /** Tamamlanan gorevler ("harita:sira"). */
     val questsDone: List<String> = emptyList(),
-    /** Envanter ve takili ekipman (slot adi -> item id). */
-    val items: List<OwnedItem> = emptyList(),
-    val equipped: Map<String, Long> = emptyMap(),
-    val nextItemId: Long = 1,
 ) {
-    fun equippedItems(): List<OwnedItem> = equipped.values.mapNotNull { id -> items.firstOrNull { it.id == id } }
-    fun equippedIn(slot: ItemSlot): OwnedItem? = equipped[slot.name]?.let { id -> items.firstOrNull { it.id == id } }
-    fun isEquipped(item: OwnedItem) = equipped[item.slot] == item.id
-
     fun toJson(): String = json.encodeToString(serializer(), this)
 
     companion object {

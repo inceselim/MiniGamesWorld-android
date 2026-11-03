@@ -259,33 +259,3 @@ def meat():
     a=Art(14,12); a.ell(6,6,6,5,'meat'); a.rect(10,5,13,7,'bone'); a.ell(13,5,1.2,1.2,'bone'); a.ell(13,8,1.2,1.2,'bone'); return a
 def chest():
     a=Art(24,20); a.rect(1,8,22,19,'chestw'); a.ell(11.5,8,11,6,'chestw'); a.rect(1,10,22,11,'gold'); a.rect(10,9,13,14,'gold'); a.px(11,12,'eye',True); return a
-
-# ---------------- Ekipman ikonlari (16x16, notr renk; nadirlik cercevesi oyunda cizilir)
-M.update({'steel':((236,240,246),(178,186,198),(112,120,134)),'cloth':((214,190,150),(170,140,100),(120,94,62)),
-          'ruby':((255,150,170),(230,70,100),(150,30,60)),'sapph':((170,220,255),(80,150,240),(40,80,170))})
-def icon_weapon():
-    a=Art(16,16); a.line(3,13,11,5,'leather'); a.line(4,13,12,5,'leather'); a.ell(12.5,3.5,2.6,2.6,'glow'); a.rect(2,13,4,14,'gold'); return a
-def icon_helmet():
-    a=Art(16,16); a.ell(8,8,6,5.5,'steel'); a.rect(2,9,13,11,'steel'); a.rect(5,9,10,10,'eye',True); a.rect(7,1,8,3,'ruby'); return a
-def icon_armor():
-    a=Art(16,16); a.poly([(3,3),(6,2),(8,4),(10,2),(13,3),(14,8),(12,14),(4,14),(2,8)],'steel'); a.rect(7,5,8,12,'gold'); return a
-def icon_belt():
-    a=Art(16,16); a.rect(1,6,14,9,'leather'); a.rect(6,5,9,10,'gold'); a.rect(7,7,8,8,'leather',True); return a
-def icon_pants():
-    a=Art(16,16); a.rect(4,2,11,5,'cloth'); a.poly([(4,5),(8,5),(7,14),(4,14)],'cloth'); a.poly([(8,5),(11,5),(11,14),(8,14)],'cloth'); a.rect(4,2,11,3,'leather'); return a
-def icon_boots():
-    a=Art(16,16); a.rect(3,2,7,11,'leather'); a.rect(3,11,12,13,'leather'); a.rect(3,3,7,4,'gold'); return a
-def icon_cloak():
-    a=Art(16,16); a.poly([(5,1),(10,1),(14,14),(1,14)],'cloak'); a.rect(6,1,9,3,'gold'); return a
-def icon_necklace():
-    a=Art(16,16); a.line(3,2,8,9,'gold'); a.line(12,2,8,9,'gold'); a.ell(8,11,2.6,2.6,'sapph'); return a
-def icon_earring():
-    a=Art(16,16); a.ell(8,4,2.5,2.5,'gold'); a.rect(8,6,8,9,'gold'); a.poly([(8,9),(11,12),(8,15),(5,12)],'ruby'); return a
-def icon_ring():
-    a=Art(16,16); a.ell(8,10,5,4.5,'gold'); a.ell(8,10,3,2.5,'gold'); a.ell(8,4.5,2.5,2.5,'ruby');
-    for y in range(8,13):
-        for x in range(6,11):
-            if ((x-8)/3)**2+((y-10)/2.5)**2<=0.8: a.g[y][x]=None
-    return a
-def chest_royal():
-    a=Art(24,20); a.rect(1,8,22,19,'bat'); a.ell(11.5,8,11,6,'bat'); a.rect(1,10,22,11,'gold'); a.rect(10,9,13,14,'gold'); a.rect(1,8,2,19,'gold'); a.rect(21,8,22,19,'gold'); a.px(11,12,'eye',True); return a

@@ -126,18 +126,6 @@ fun ForestScreen(onBack: () -> Unit, viewModel: ForestViewModel = hiltViewModel(
     val context = LocalContext.current
     val adNotReady: () -> Unit = { scope.launch { snackbar.showSnackbar(context.getString(R.string.ad_not_ready)) } }
 
-    val noticeText = when (state.notice) {
-        ForestNotice.NOT_ENOUGH_COINS -> stringResource(R.string.fg_not_enough_coins)
-        ForestNotice.INVENTORY_FULL -> stringResource(R.string.fg_inventory_full)
-        null -> null
-    }
-    LaunchedEffect(state.notice) {
-        if (noticeText != null) {
-            viewModel.consumeNotice()
-            snackbar.showSnackbar(noticeText)
-        }
-    }
-
     // Uygulama arka plana gecince oyun duraklar.
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner) {
@@ -163,7 +151,6 @@ fun ForestScreen(onBack: () -> Unit, viewModel: ForestViewModel = hiltViewModel(
             ForestPhase.PAUSED -> viewModel.resume()
             ForestPhase.RESULT -> viewModel.toHub()
             ForestPhase.LEVEL_UP -> Unit
-            ForestPhase.HERO -> if (state.selectedItemId != null) viewModel.selectItem(null) else viewModel.closeHero()
             ForestPhase.HUB, ForestPhase.LOADING -> onBack()
         }
     }
@@ -172,7 +159,6 @@ fun ForestScreen(onBack: () -> Unit, viewModel: ForestViewModel = hiltViewModel(
         when (state.phase) {
             ForestPhase.LOADING -> Unit
             ForestPhase.HUB -> HubContent(state, viewModel, onBack, onPlay = { showInterstitial { viewModel.startRun() } })
-            ForestPhase.HERO -> HeroContent(state, viewModel, onAdChest = { showRewarded({ viewModel.openChest(ChestType.WOODEN, free = true) }, adNotReady) })
             else -> {
                 GameContent(viewModel, state)
                 when (state.phase) {
@@ -285,14 +271,17 @@ private fun HubContent(state: ForestUiState, viewModel: ForestViewModel, onBack:
                 }
             }
             Text(stringResource(R.string.fg_how_to), color = AppColors.TextSecondary, fontSize = 12.sp, modifier = Modifier.padding(top = 10.dp))
-            Button(
-                onClick = viewModel::openHero,
-                shape = RoundedCornerShape(12.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFA66EE0), contentColor = Color.White),
-                modifier = Modifier.padding(top = 10.dp).fillMaxWidth().height(44.dp),
-            ) {
-                Text(stringResource(R.string.fg_hero) + " · " + p.equipped.size + "/10", fontWeight = FontWeight.Black)
-            }
+            Text(
+                stringResource(R.string.fg_hero_soon),
+                color = AppColors.TextMuted,
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier
+                    .padding(top = 10.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(AppColors.Surface)
+                    .padding(horizontal = 10.dp, vertical = 8.dp),
+            )
         }
         Spacer(Modifier.width(16.dp))
         Column(Modifier.weight(1f).fillMaxHeight()) {
@@ -1100,10 +1089,8 @@ private fun ResultOverlay(
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .padding(vertical = 8.dp)
                 .clip(RoundedCornerShape(20.dp))
                 .background(AppColors.Surface)
-                .verticalScroll(rememberScrollState())
                 .padding(horizontal = 28.dp, vertical = 18.dp),
         ) {
             Text(
@@ -1119,10 +1106,6 @@ private fun ResultOverlay(
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(top = 6.dp),
             )
-            state.droppedItem?.let { item ->
-                Text(stringResource(R.string.fg_item_drop), color = Gold, fontWeight = FontWeight.Black, fontSize = 13.sp, modifier = Modifier.padding(top = 6.dp))
-                Box(Modifier.padding(top = 4.dp)) { ItemSummary(item) }
-            }
             if (state.runQuestCoins > 0) {
                 Text("✔ " + stringResource(R.string.fg_quest_done, state.runQuestCoins), color = Color(0xFF4ADE80), fontSize = 13.sp, fontWeight = FontWeight.Bold)
             }

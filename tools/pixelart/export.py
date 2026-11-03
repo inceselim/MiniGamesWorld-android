@@ -4,7 +4,7 @@ from PIL import Image
 sprites={'hero0':hero(0),'hero1':hero(1),'goblin0':goblin(0),'goblin1':goblin(1),'wolf0':wolf(0),'wolf1':wolf(1),
  'orc0':orc(0),'orc1':orc(1),'bat0':bat(0),'bat1':bat(1),'treant0':treant(0),'treant1':treant(1),
  'tree':tree(),'bush':bush(),'rock':rock(),'mushroom':mushroom(),'flowerY':flower('flowerY'),'flowerP':flower('flowerP'),
- 'gem':gem(False),'iWeapon':icon_weapon(),'iHelmet':icon_helmet(),'iArmor':icon_armor(),'iBelt':icon_belt(),'iPants':icon_pants(),'iBoots':icon_boots(),'iCloak':icon_cloak(),'iNecklace':icon_necklace(),'iEarring':icon_earring(),'iRing':icon_ring(),'chestRoyal':chest_royal(),'gem2':gem(True),'coin':coin(),'meat':meat(),'chest':chest()}
+ 'gem':gem(False),'gem2':gem(True),'coin':coin(),'meat':meat(),'chest':chest()}
 imgs={k:v.render() for k,v in sprites.items()}
 # preview
 sc=5; names=list(imgs); cols=6; cell=60*sc
