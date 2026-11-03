@@ -208,7 +208,7 @@ Dosyalar `res/raw/sfx_*.ogg` altında. RN projesindeki sesler OGG'ye çevrildi, 
 |---|---|---|
 | `applicationId` | `com.eomer91.MiniGamesWorldincesoy` | Farklı olursa Play Store yeni uygulama sayar |
 | İmza anahtarı | Mevcut keystore | Güncelleme ancak aynı upload key ile yüklenebilir |
-| `versionCode` | Her yüklemede +1 (şu an 5, versionName 2.1.0) | Play daha küçük ya da eşit versionCode'u kabul etmez |
+| `versionCode` | Her yüklemede +1 (şu an 7, versionName 2.1.0; mağazadaki eski RN sürümü 6 idi) | Play daha küçük ya da eşit versionCode'u kabul etmez |
 | `targetSdk` | 36 | 31 Ağustos 2026'dan beri güncellemelerde zorunlu |
 | Oyun id'leri (`block-puzzle`, `2048`…) | Sabit | Rekorlar bu anahtarlarla saklanır |
 
