@@ -471,4 +471,25 @@
     <string name="fg_next_map">Следующая карта</string>
     <string name="fg_retry">Ещё раз</string>
     <string name="fg_to_hub">Карты</string>
+    <string name="fg_e_bolt">Духовное копьё</string>
+    <string name="fg_e_bolt_desc">Огромные копья пронзают всех врагов на пути. 5 копий, намного быстрее.</string>
+    <string name="fg_e_blades">Вихрь</string>
+    <string name="fg_e_blades_desc">8 клинков быстро вращаются, то расходясь, то сходясь.</string>
+    <string name="fg_e_lightning">Гроза</string>
+    <string name="fg_e_lightning_desc">8 больших молний каждую секунду.</string>
+    <string name="fg_e_thorns">Лоза жизни</string>
+    <string name="fg_e_thorns_desc">Широкое поле шипов, лечащее вас с каждым ударом.</string>
+    <string name="fg_e_arrows">Ветряные стрелы</string>
+    <string name="fg_e_arrows_desc">12 пробивающих стрел летят во все стороны.</string>
+    <string name="fg_e_frost">Абсолютный ноль</string>
+    <string name="fg_e_frost_desc">Огромная ледяная волна замораживает врагов.</string>
+    <string name="fg_q_kills">Убить врагов %1$d/%2$d</string>
+    <string name="fg_q_level">Достичь уровня %1$d/%2$d</string>
+    <string name="fg_q_coins">Собрать монеты %1$d/%2$d</string>
+    <string name="fg_q_evolve">Эволюция оружия %1$d/%2$d</string>
+    <string name="fg_q_boss">Победить босса за %1$d с</string>
+    <string name="fg_quests">Задания %1$d/%2$d</string>
+    <string name="fg_quest_done">Задание выполнено! +%1$d монет</string>
+    <string name="fg_evolution">ЭВОЛЮЦИЯ!</string>
+    <string name="fg_evolutions">Эволюции: оружие 5 ур. + пассивка</string>
 </resources>

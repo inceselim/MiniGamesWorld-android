@@ -42,7 +42,7 @@ Debug build `com.eomer91.MiniGamesWorldincesoy.debug` paket adıyla kurulur. Bö
 | Balık Dünyası | ✅ Native | Olta at, kancayı sürükle, denizanalarından kaç; 9 balık türü, inciyle olta yükseltmeleri; tutulanlar akvaryuma: yem at, büyüt, inci topla, sat, akvaryumu büyüt, süsle; ekstra atış ve yem (reklam) |
 | Borsa Ustası | ✅ Native | Eski "io stock trade" oyunundan (com.stockgameincesoy): 1.000 $ ile 60 gün, 4 hisse (AA, CCA, XAH, GLD), trend/söylenti/bilanço haberleri, %0,5 komisyon, içeriden bilgi (reklam), **kaldığı yerden devam** |
 | Ülkeler Savaşı | ✅ Native | Eski "CountriesWar" oyunundan (com.countriesincesoyselim): 5 sn'lik otomatik turlar, 11 bina, 6 birlik, vergi/odak/yönetim biçimi, pazar, 1-7 bot, ilk 10 tur barış, casus ağı, Altın Çağ (elmas), elmas (reklam), **kaldığı yerden devam** |
-| Orman Muhafızı | ✅ Native (adım 1) | Survivors tarzı, **yatay ekran**: joystick, otomatik saldırı, 6 silah + 6 pasif, seviye atlama seçimi, atılma + MP özel yeteneği, 4 düşman + boss (4:30), 5 harita, sikke, diriliş (reklam). Piksel art (`ForestSprites.kt`). Adım 2: görevler + silah evrimi; adım 3: 10 slotlu ekipman |
+| Orman Muhafızı | ✅ Native (adım 1) | Survivors tarzı, **yatay ekran**: joystick, otomatik saldırı, 6 silah + 6 pasif, seviye atlama seçimi, atılma + MP özel yeteneği, 4 düşman + boss (4:30), 5 harita, sikke, diriliş (reklam). Piksel art (`ForestSprites.kt`). Görevler (harita başına 3, sikke ödülü) ve 6 silah evrimi. Adım 3: 10 slotlu ekipman |
 
 Her oyunun kuralları ekrandan ayrı, saf Kotlin bir `…Engine` sınıfında durur ve `app/src/test` altında unit testleri vardır. Testleri çalıştırmak için test dosyasını açıp sınıf adının yanındaki yeşil oka bas ya da `./gradlew test` komutunu çalıştır.
 
@@ -121,6 +121,8 @@ Rekorlar oyun sırasında, rekor geçildiği anda kaydedilir. Oyuncu oyunun orta
 - Ekran: `ForestScreen` girişte yatay + tam ekran (`requestedOrientation`), çıkışta dikeye döner. `MainActivity` `configChanges` ile döndürmede yeniden oluşturulmaz. `PlayScreen` bu oyun için üst barı göstermez.
 - Simülasyon `ForestEngine` (mutable sınıflar, 60 fps); ekran `viewModel.frame` sayacını okuyarak her karede çizer. Piksel art `ForestSprites.kt` içinde harf dizileri, bir kez `Bitmap`'e çevrilip `FilterQuality.None` ile büyütülür.
 - Statlar `HeroStats` (HP, MP, saldırı %, savunma, saldırı hızı %, kritik şansı/hasarı, hız) — adım 3'te ekipman buraya eklenecek.
+- Silah evrimleri (5. seviye silah + eşleşen pasif, seviye atlamada ilk seçenek): Büyü Oku+Güç→Ruhani Mızrak, Dönen Bıçaklar+Çeviklik→Kasırga, Yıldırım+Bilgelik→Fırtına, Diken Halkası+Dayanıklılık→Yaşam Sarmaşığı, Ok Yağmuru+Hızlı Çizme→Rüzgar Okları, Buz Patlaması+Mıknatıs→Mutlak Sıfır.
+- Görevler `ForestQuests` (harita başına öldürme / seviye-sikke-evrim / boss'u X sn'de yen); bir kez ödüllenir, ölünce de tamamlananlar sayılır.
 - Kalıcı profil `forest-guardian-profile` (sikke, açılan haritalar, en iyi skorlar). Skor = öldürme×5 + saniye×2 + harita bonusu → hub altını.
 
 ## Block Puzzle ödüllü reklam

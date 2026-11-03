@@ -485,4 +485,25 @@
     <string name="fg_next_map">Sonraki harita</string>
     <string name="fg_retry">Tekrar dene</string>
     <string name="fg_to_hub">Haritalar</string>
+    <string name="fg_e_bolt">Ruhani Mızrak</string>
+    <string name="fg_e_bolt_desc">Dev mızraklar yolundaki her düşmanı deler. 5 mızrak, çok daha hızlı.</string>
+    <string name="fg_e_blades">Kasırga</string>
+    <string name="fg_e_blades_desc">8 bıçak hızla döner, etrafında genişleyip daralır.</string>
+    <string name="fg_e_lightning">Fırtına</string>
+    <string name="fg_e_lightning_desc">Her saniye 8 büyük yıldırım düşer.</string>
+    <string name="fg_e_thorns">Yaşam Sarmaşığı</string>
+    <string name="fg_e_thorns_desc">Daha geniş diken alanı; her vuruşta seni iyileştirir.</string>
+    <string name="fg_e_arrows">Rüzgar Okları</string>
+    <string name="fg_e_arrows_desc">Her yöne delip geçen 12 ok uçar.</string>
+    <string name="fg_e_frost">Mutlak Sıfır</string>
+    <string name="fg_e_frost_desc">Düşmanları tamamen donduran dev buz dalgası.</string>
+    <string name="fg_q_kills">Düşman öldür %1$d/%2$d</string>
+    <string name="fg_q_level">Seviyeye ulaş %1$d/%2$d</string>
+    <string name="fg_q_coins">Sikke topla %1$d/%2$d</string>
+    <string name="fg_q_evolve">Silah evrimleştir %1$d/%2$d</string>
+    <string name="fg_q_boss">Boss\'u %1$d sn içinde yen</string>
+    <string name="fg_quests">Görevler %1$d/%2$d</string>
+    <string name="fg_quest_done">Görev tamamlandı! +%1$d sikke</string>
+    <string name="fg_evolution">EVRİM!</string>
+    <string name="fg_evolutions">Evrimler: 5. seviye silah + pasif</string>
 </resources>

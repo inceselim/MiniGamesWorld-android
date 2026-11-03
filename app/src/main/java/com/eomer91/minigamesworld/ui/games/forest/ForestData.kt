@@ -47,6 +47,73 @@ enum class WeaponType(@StringRes val nameRes: Int, @StringRes val descRes: Int, 
     FROST(R.string.fg_w_frost, R.string.fg_w_frost_desc, 0xFFB8F0FF),
 }
 
+/** Silah evrimleri (silah 5. seviye + eslesen pasif). */
+val WeaponType.evolvedNameRes: Int
+    get() = when (this) {
+        WeaponType.BOLT -> R.string.fg_e_bolt
+        WeaponType.BLADES -> R.string.fg_e_blades
+        WeaponType.LIGHTNING -> R.string.fg_e_lightning
+        WeaponType.THORNS -> R.string.fg_e_thorns
+        WeaponType.ARROWS -> R.string.fg_e_arrows
+        WeaponType.FROST -> R.string.fg_e_frost
+    }
+
+val WeaponType.evolvedDescRes: Int
+    get() = when (this) {
+        WeaponType.BOLT -> R.string.fg_e_bolt_desc
+        WeaponType.BLADES -> R.string.fg_e_blades_desc
+        WeaponType.LIGHTNING -> R.string.fg_e_lightning_desc
+        WeaponType.THORNS -> R.string.fg_e_thorns_desc
+        WeaponType.ARROWS -> R.string.fg_e_arrows_desc
+        WeaponType.FROST -> R.string.fg_e_frost_desc
+    }
+
+enum class QuestType(@StringRes val textRes: Int) {
+    KILLS(R.string.fg_q_kills),
+    LEVEL(R.string.fg_q_level),
+    COINS(R.string.fg_q_coins),
+    EVOLVE(R.string.fg_q_evolve),
+    BOSS_FAST(R.string.fg_q_boss),
+}
+
+/** Haritanin bir gorevi; [id] profilde kalici olarak "harita:sira" seklinde saklanir. */
+data class Quest(val map: ForestMap, val index: Int, val type: QuestType, val target: Int, val reward: Int) {
+    val id: String get() = "${map.ordinal}:$index"
+}
+
+object ForestQuests {
+    fun forMap(m: ForestMap): List<Quest> {
+        val i = m.ordinal
+        val k = i + 1
+        val second = when (m) {
+            ForestMap.EDGE -> QuestType.LEVEL to 12
+            ForestMap.SWAMP -> QuestType.COINS to 30
+            ForestMap.MUSHROOM -> QuestType.EVOLVE to 1
+            ForestMap.VALLEY -> QuestType.LEVEL to 22
+            ForestMap.DARK -> QuestType.EVOLVE to 2
+        }
+        return listOf(
+            Quest(m, 0, QuestType.KILLS, listOf(150, 250, 350, 450, 600)[i], 40 * k),
+            Quest(m, 1, second.first, second.second, 50 * k),
+            Quest(m, 2, QuestType.BOSS_FAST, listOf(90, 75, 60, 60, 60)[i], 80 * k),
+        )
+    }
+
+    /** Mevcut ilerleme (hedefle kiyaslanir). Boss gorevi: yenildiyse kac saniyede yenildigi, degilse -1. */
+    fun progress(q: Quest, e: ForestEngine): Int = when (q.type) {
+        QuestType.KILLS -> e.kills
+        QuestType.LEVEL -> e.level
+        QuestType.COINS -> e.coins
+        QuestType.EVOLVE -> e.evolved.size
+        QuestType.BOSS_FAST -> if (e.bossKillTime >= 0f && e.bossSpawnTime >= 0f) (e.bossKillTime - e.bossSpawnTime).toInt() else -1
+    }
+
+    fun isDone(q: Quest, e: ForestEngine): Boolean {
+        val p = progress(q, e)
+        return if (q.type == QuestType.BOSS_FAST) p in 0..q.target else p >= q.target
+    }
+}
+
 enum class PassiveType(@StringRes val nameRes: Int, @StringRes val descRes: Int, val color: Long) {
     MIGHT(R.string.fg_p_might, R.string.fg_p_might_desc, 0xFFE04848),
     HASTE(R.string.fg_p_haste, R.string.fg_p_haste_desc, 0xFFF7D046),
@@ -84,6 +151,8 @@ data class ForestProfile(
     val cleared: List<Int> = emptyList(),
     /** Harita indeksi -> en cok oldurme. */
     val bestKills: Map<Int, Int> = emptyMap(),
+    /** Tamamlanan gorevler ("harita:sira"). */
+    val questsDone: List<String> = emptyList(),
 ) {
     fun toJson(): String = json.encodeToString(serializer(), this)
 

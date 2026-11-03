@@ -38,7 +38,16 @@ data class ForestUiState(
     val bestAtStart: Int = -1,
     val goldEarned: Int = 0,
     val bossWarning: Float = 0f,
+    /** Bu turda tamamlanan gorev id'leri (kalici olanlar profilde). */
+    val runQuestsDone: Set<String> = emptySet(),
+    /** Ekranda kisa sure gosterilen "gorev tamamlandi" bildirimi. */
+    val questToast: Quest? = null,
+    val questToastTime: Float = 0f,
+    val evolveToast: Float = 0f,
+    val runQuestCoins: Int = 0,
 ) {
+    val quests: List<Quest> get() = ForestQuests.forMap(selectedMap)
+    fun questDone(q: Quest) = q.id in profile.questsDone || q.id in runQuestsDone
     val isNewRecord: Boolean get() = phase == ForestPhase.RESULT && bestAtStart >= 0 && score > bestAtStart
 }
 
@@ -90,7 +99,12 @@ class ForestViewModel @Inject constructor(
         inputY = 0f
         goldTracker.reset()
         finalized = false
-        _state.update { it.copy(phase = ForestPhase.PLAYING, choices = emptyList(), goldEarned = 0, bestAtStart = it.best, bossWarning = 0f) }
+        _state.update {
+            it.copy(
+                phase = ForestPhase.PLAYING, choices = emptyList(), goldEarned = 0, bestAtStart = it.best, bossWarning = 0f,
+                runQuestsDone = emptySet(), questToast = null, questToastTime = 0f, evolveToast = 0f, runQuestCoins = 0,
+            )
+        }
         feedback.play(Sfx.CLEAR, volume = 0.5f)
     }
 
@@ -171,6 +185,14 @@ class ForestViewModel @Inject constructor(
             feedback.vibrate(Haptic.HEAVY)
         }
         if (s.bossWarning > 0f) _state.update { it.copy(bossWarning = (it.bossWarning - dt).coerceAtLeast(0f)) }
+        if (s.questToastTime > 0f) _state.update { it.copy(questToastTime = (it.questToastTime - dt).coerceAtLeast(0f)) }
+        if (s.evolveToast > 0f) _state.update { it.copy(evolveToast = (it.evolveToast - dt).coerceAtLeast(0f)) }
+        if (ev.evolved) {
+            _state.update { it.copy(evolveToast = 2.5f) }
+            feedback.play(Sfx.CLEAR)
+            feedback.vibrate(Haptic.HEAVY)
+        }
+        checkQuests(e)
 
         when {
             e.dead -> {
@@ -185,6 +207,18 @@ class ForestViewModel @Inject constructor(
             e.pendingLevelUps > 0 -> {
                 _state.update { it.copy(phase = ForestPhase.LEVEL_UP, choices = e.rollChoices()) }
                 feedback.play(Sfx.COMBO, volume = 0.7f)
+            }
+        }
+    }
+
+    /** Yeni tamamlanan gorevleri isaretle; odul tur sonunda verilir. */
+    private fun checkQuests(e: ForestEngine) {
+        val s = _state.value
+        s.quests.forEach { q ->
+            if (!s.questDone(q) && ForestQuests.isDone(q, e)) {
+                _state.update { it.copy(runQuestsDone = it.runQuestsDone + q.id, questToast = q, questToastTime = 3f, runQuestCoins = it.runQuestCoins + q.reward) }
+                feedback.play(Sfx.COMBO)
+                feedback.vibrate(Haptic.LIGHT)
             }
         }
     }
@@ -261,7 +295,8 @@ class ForestViewModel @Inject constructor(
         val mapIdx = e.map.ordinal
         val p = s.profile
         val profile = p.copy(
-            coins = p.coins + e.coins,
+            coins = p.coins + e.coins + s.runQuestCoins,
+            questsDone = (p.questsDone + s.runQuestsDone).distinct(),
             unlocked = if (e.victory) maxOf(p.unlocked, (mapIdx + 1).coerceAtMost(ForestMap.entries.lastIndex)) else p.unlocked,
             cleared = if (e.victory && mapIdx !in p.cleared) p.cleared + mapIdx else p.cleared,
             bestKills = p.bestKills + (mapIdx to maxOf(p.bestKills[mapIdx] ?: 0, e.kills)),

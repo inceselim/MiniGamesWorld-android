@@ -471,4 +471,25 @@
     <string name="fg_next_map">Næste bane</string>
     <string name="fg_retry">Prøv igen</string>
     <string name="fg_to_hub">Baner</string>
+    <string name="fg_e_bolt">Åndelanse</string>
+    <string name="fg_e_bolt_desc">Enorme lanser gennemborer alle fjender. 5 lanser, meget hurtigere.</string>
+    <string name="fg_e_blades">Hvirvelvind</string>
+    <string name="fg_e_blades_desc">8 klinger snurrer hurtigt og svinger ud og ind omkring dig.</string>
+    <string name="fg_e_lightning">Tordenvejr</string>
+    <string name="fg_e_lightning_desc">8 større lyn hvert sekund.</string>
+    <string name="fg_e_thorns">Livsranke</string>
+    <string name="fg_e_thorns_desc">Et større tornefelt, der heler dig ved hvert slag.</string>
+    <string name="fg_e_arrows">Vindpile</string>
+    <string name="fg_e_arrows_desc">12 gennemborende pile flyver i alle retninger.</string>
+    <string name="fg_e_frost">Absolut nulpunkt</string>
+    <string name="fg_e_frost_desc">En kæmpe isbølge, der fryser fjender fast.</string>
+    <string name="fg_q_kills">Nedlæg fjender %1$d/%2$d</string>
+    <string name="fg_q_level">Nå niveau %1$d/%2$d</string>
+    <string name="fg_q_coins">Saml mønter %1$d/%2$d</string>
+    <string name="fg_q_evolve">Udvikl våben %1$d/%2$d</string>
+    <string name="fg_q_boss">Besejr bossen inden %1$d s</string>
+    <string name="fg_quests">Opgaver %1$d/%2$d</string>
+    <string name="fg_quest_done">Opgave klaret! +%1$d mønter</string>
+    <string name="fg_evolution">UDVIKLING!</string>
+    <string name="fg_evolutions">Udviklinger: våben niveau 5 + passiv</string>
 </resources>

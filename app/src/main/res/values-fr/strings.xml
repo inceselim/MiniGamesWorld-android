@@ -471,4 +471,25 @@
     <string name="fg_next_map">Carte suivante</string>
     <string name="fg_retry">Réessayer</string>
     <string name="fg_to_hub">Cartes</string>
+    <string name="fg_e_bolt">Lance spirituelle</string>
+    <string name="fg_e_bolt_desc">D\'énormes lances transpercent tous les ennemis. 5 lances, bien plus rapide.</string>
+    <string name="fg_e_blades">Tourbillon</string>
+    <string name="fg_e_blades_desc">8 lames tournent vite et s\'élargissent autour de vous.</string>
+    <string name="fg_e_lightning">Orage</string>
+    <string name="fg_e_lightning_desc">8 éclairs plus grands chaque seconde.</string>
+    <string name="fg_e_thorns">Liane de vie</string>
+    <string name="fg_e_thorns_desc">Un champ d\'épines plus grand qui vous soigne à chaque coup.</string>
+    <string name="fg_e_arrows">Flèches du vent</string>
+    <string name="fg_e_arrows_desc">12 flèches perforantes volent dans toutes les directions.</string>
+    <string name="fg_e_frost">Zéro absolu</string>
+    <string name="fg_e_frost_desc">Une immense onde glacée qui gèle les ennemis.</string>
+    <string name="fg_q_kills">Tuez des ennemis %1$d/%2$d</string>
+    <string name="fg_q_level">Atteignez le niveau %1$d/%2$d</string>
+    <string name="fg_q_coins">Ramassez des pièces %1$d/%2$d</string>
+    <string name="fg_q_evolve">Faites évoluer des armes %1$d/%2$d</string>
+    <string name="fg_q_boss">Battez le boss en %1$d s</string>
+    <string name="fg_quests">Quêtes %1$d/%2$d</string>
+    <string name="fg_quest_done">Quête accomplie ! +%1$d pièces</string>
+    <string name="fg_evolution">ÉVOLUTION !</string>
+    <string name="fg_evolutions">Évolutions : arme niveau 5 + passif</string>
 </resources>

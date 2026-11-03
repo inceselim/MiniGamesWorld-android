@@ -49,6 +49,35 @@ class ForestEngineTest {
     }
 
     @Test
+    fun evolutionOfferedWhenReady() {
+        val e = ForestEngine(ForestMap.EDGE, HeroStats(), Random(4))
+        e.weapons[WeaponType.BOLT] = ForestEngine.MAX_LEVEL
+        assertTrue(e.rollChoices().none { it is Upgrade.Evolve })
+        e.passives[PassiveType.MIGHT] = 1
+        val choices = e.rollChoices()
+        assertEquals(Upgrade.Evolve(WeaponType.BOLT), choices.first())
+        e.pendingLevelUps = 1
+        e.apply(choices.first())
+        assertTrue(WeaponType.BOLT in e.evolved)
+        assertTrue(e.rollChoices().none { it is Upgrade.Evolve })
+    }
+
+    @Test
+    fun questsTrackProgress() {
+        val e = ForestEngine(ForestMap.EDGE, HeroStats(), Random(5))
+        val quests = ForestQuests.forMap(ForestMap.EDGE)
+        assertEquals(3, quests.size)
+        val kill = quests.first { it.type == QuestType.KILLS }
+        e.kills = kill.target
+        assertTrue(ForestQuests.isDone(kill, e))
+        val boss = quests.first { it.type == QuestType.BOSS_FAST }
+        assertFalse(ForestQuests.isDone(boss, e))
+        e.bossSpawnTime = 270f
+        e.bossKillTime = 270f + boss.target - 5
+        assertTrue(ForestQuests.isDone(boss, e))
+    }
+
+    @Test
     fun reviveOnlyOnce() {
         val e = ForestEngine(ForestMap.EDGE, HeroStats(), Random(2))
         e.dead = true

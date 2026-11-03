@@ -160,7 +160,7 @@ fun ForestScreen(onBack: () -> Unit, viewModel: ForestViewModel = hiltViewModel(
             ForestPhase.LOADING -> Unit
             ForestPhase.HUB -> HubContent(state, viewModel, onBack, onPlay = { showInterstitial { viewModel.startRun() } })
             else -> {
-                GameContent(viewModel)
+                GameContent(viewModel, state)
                 when (state.phase) {
                     ForestPhase.LEVEL_UP -> LevelUpOverlay(state.choices, viewModel.engine, viewModel::choose)
                     ForestPhase.PAUSED -> PauseOverlay(viewModel)
@@ -173,6 +173,30 @@ fun ForestScreen(onBack: () -> Unit, viewModel: ForestViewModel = hiltViewModel(
                         onHub = viewModel::toHub,
                     )
                     else -> Unit
+                }
+                if (state.questToastTime > 0f && state.questToast != null) {
+                    val q = state.questToast!!
+                    Text(
+                        "✔ " + stringResource(R.string.fg_quest_done, q.reward),
+                        color = Color(0xFF4ADE80),
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Black,
+                        modifier = Modifier
+                            .align(Alignment.TopCenter)
+                            .padding(top = 64.dp)
+                            .clip(RoundedCornerShape(12.dp))
+                            .background(Color.Black.copy(alpha = 0.6f))
+                            .padding(horizontal = 14.dp, vertical = 6.dp),
+                    )
+                }
+                if (state.evolveToast > 0f) {
+                    Text(
+                        stringResource(R.string.fg_evolution),
+                        color = Gold,
+                        fontSize = 30.sp,
+                        fontWeight = FontWeight.Black,
+                        modifier = Modifier.align(Alignment.Center).padding(bottom = 180.dp),
+                    )
                 }
                 if (state.bossWarning > 0f && state.phase == ForestPhase.PLAYING) {
                     Text(
@@ -226,6 +250,25 @@ private fun HubContent(state: ForestUiState, viewModel: ForestViewModel, onBack:
                 Canvas(Modifier.size(18.dp)) { sprite(ForestSprites.coin, size.width / 2f, size.height, size.height) }
                 Spacer(Modifier.width(6.dp))
                 Text(stringResource(R.string.fg_coins, p.coins), color = Gold, fontWeight = FontWeight.Black)
+            }
+            Text(
+                stringResource(R.string.fg_quests, state.quests.count { state.questDone(it) }, state.quests.size) + " · " + stringResource(state.selectedMap.nameRes),
+                color = Gold,
+                fontWeight = FontWeight.Black,
+                fontSize = 14.sp,
+                modifier = Modifier.padding(top = 10.dp),
+            )
+            state.quests.forEach { q ->
+                val done = state.questDone(q)
+                Row(Modifier.padding(top = 3.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Text(if (done) "✔" else "•", color = if (done) Color(0xFF4ADE80) else AppColors.TextSecondary, fontWeight = FontWeight.Black, modifier = Modifier.width(16.dp))
+                    Text(
+                        questText(q, if (done) q.target else 0) +
+                            "  +" + q.reward + "🪙",
+                        color = if (done) AppColors.TextSecondary else AppColors.TextPrimary,
+                        fontSize = 12.sp,
+                    )
+                }
             }
             Text(stringResource(R.string.fg_how_to), color = AppColors.TextSecondary, fontSize = 12.sp, modifier = Modifier.padding(top = 10.dp))
             Text(
@@ -306,7 +349,8 @@ private fun MapCard(m: ForestMap, p: ForestProfile, selected: Boolean, onClick: 
         Text(
             when {
                 locked -> stringResource(R.string.fg_locked)
-                m.ordinal in p.cleared -> stringResource(R.string.fg_cleared) + " · " + stringResource(R.string.fg_best, p.bestKills[m.ordinal] ?: 0)
+                m.ordinal in p.cleared -> stringResource(R.string.fg_cleared) + " · " + stringResource(R.string.fg_best, p.bestKills[m.ordinal] ?: 0) +
+                    " · ★ " + ForestQuests.forMap(m).count { it.id in p.questsDone } + "/3"
                 else -> stringResource(R.string.fg_best, p.bestKills[m.ordinal] ?: 0)
             },
             color = if (m.ordinal in p.cleared) Color(0xFF4ADE80) else AppColors.TextSecondary,
@@ -319,7 +363,7 @@ private fun MapCard(m: ForestMap, p: ForestProfile, selected: Boolean, onClick: 
 // ============================================================ Oyun ekrani
 
 @Composable
-private fun GameContent(viewModel: ForestViewModel) {
+private fun GameContent(viewModel: ForestViewModel, state: ForestUiState) {
     val density = LocalDensity.current
     val textPaint = remember {
         android.graphics.Paint().apply {
@@ -344,7 +388,7 @@ private fun GameContent(viewModel: ForestViewModel) {
             drawWorld(e, size.height / VIEW_HEIGHT_UNITS, textPaint)
         }
         Joystick(viewModel)
-        Hud(viewModel)
+        Hud(viewModel, state)
     }
 }
 
@@ -393,7 +437,7 @@ private fun BoxScope.Joystick(viewModel: ForestViewModel) {
 }
 
 @Composable
-private fun BoxScope.Hud(viewModel: ForestViewModel) {
+private fun BoxScope.Hud(viewModel: ForestViewModel, state: ForestUiState) {
     @Suppress("UNUSED_VARIABLE")
     val f = viewModel.frame
     val e = viewModel.engine ?: return
@@ -413,7 +457,7 @@ private fun BoxScope.Hud(viewModel: ForestViewModel) {
             HudChip("🪙 ${e.coins}", Gold)
             Spacer(Modifier.weight(1f))
             // Silah ve pasif simgeleri
-            e.weapons.forEach { (w, l) -> SlotIcon(Color(w.color), l) }
+            e.weapons.forEach { (w, l) -> SlotIcon(Color(w.color), l, evolved = w in e.evolved) }
             Spacer(Modifier.width(4.dp))
             e.passives.forEach { (p, l) -> SlotIcon(Color(p.color), l, round = true) }
             Spacer(Modifier.width(8.dp))
@@ -436,6 +480,20 @@ private fun BoxScope.Hud(viewModel: ForestViewModel) {
             ) {
                 Box(Modifier.fillMaxHeight().fillMaxWidth((b.hp / b.maxHp).coerceIn(0f, 1f)).background(HpRed))
             }
+        }
+    }
+
+    // Sag: gorevler
+    val quests = state.quests
+    val doneCount = quests.count { state.questDone(it) }
+    val current = quests.firstOrNull { !state.questDone(it) }
+    Column(
+        Modifier.align(Alignment.TopEnd).padding(top = 64.dp, end = 12.dp),
+        horizontalAlignment = Alignment.End,
+    ) {
+        Text(stringResource(R.string.fg_quests, doneCount, quests.size), color = Gold, fontSize = 15.sp, fontWeight = FontWeight.Black)
+        if (current != null) {
+            Text(questText(current, ForestQuests.progress(current, e)), color = Color.White, fontSize = 13.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.End)
         }
     }
 
@@ -479,18 +537,25 @@ private fun HudChip(text: String, color: Color = Color.White) {
 }
 
 @Composable
-private fun SlotIcon(color: Color, level: Int, round: Boolean = false) {
+private fun SlotIcon(color: Color, level: Int, round: Boolean = false, evolved: Boolean = false) {
     Box(
         Modifier
             .padding(horizontal = 2.dp)
             .size(24.dp)
             .clip(if (round) CircleShape else RoundedCornerShape(5.dp))
-            .background(color.copy(alpha = 0.85f)),
+            .background(color.copy(alpha = 0.85f))
+            .border(if (evolved) 2.dp else 0.dp, if (evolved) Gold else Color.Transparent, RoundedCornerShape(5.dp)),
         contentAlignment = Alignment.Center,
     ) {
-        Text(level.toString(), color = Color.Black, fontSize = 11.sp, fontWeight = FontWeight.Black)
+        Text(if (evolved) "★" else level.toString(), color = Color.Black, fontSize = 11.sp, fontWeight = FontWeight.Black)
     }
 }
+
+/** Gorev metni: boss gorevi tek sayi alir, digerleri ilerleme/hedef. */
+@Composable
+private fun questText(q: Quest, progress: Int): String =
+    if (q.type == QuestType.BOSS_FAST) stringResource(q.type.textRes, q.target)
+    else stringResource(q.type.textRes, progress.coerceIn(0, q.target), q.target)
 
 @Composable
 private fun ActionButton(label: String, size: Dp, fill: Float, color: Color, ready: Boolean, onPress: () -> Unit) {
@@ -724,6 +789,15 @@ private fun DrawScope.drawWorld(e: ForestEngine, unit: Float, paint: android.gra
                 drawCircle(Brush.radialGradient(listOf(Color(0xAA6FE0FF), Color(0x006FE0FF)), c, unit * 0.45f), unit * 0.45f, c)
                 drawCircle(Color(0xFFE6FBFF), unit * 0.11f, c)
             }
+            ProjectileKind.LANCE -> {
+                val n = kotlin.math.hypot(p.vx, p.vy)
+                val ux = p.vx / n
+                val uy = p.vy / n
+                val tail = Offset(c.x - ux * unit * 1.1f, c.y - uy * unit * 1.1f)
+                drawLine(Color(0x556FE0FF), tail, c, unit * 0.5f)
+                drawLine(Color(0xFFB8F4FF), tail, c, unit * 0.18f)
+                drawCircle(Brush.radialGradient(listOf(Color(0xCCFFFFFF), Color(0x006FE0FF)), c, unit * 0.6f), unit * 0.6f, c)
+            }
             ProjectileKind.ARROW -> {
                 val len = unit * 0.55f
                 val n = kotlin.math.hypot(p.vx, p.vy)
@@ -830,6 +904,7 @@ private fun DrawScope.drawEnemy(e: ForestEngine, en: Enemy, unit: Float, sx: (Fl
     val flip = if (en.type == EnemyType.WOLF) !en.facingLeft else en.facingLeft
     val tint = when {
         en.flash > 0f -> Color.White
+        en.frozen > 0f -> Color(0xFFCFF6FF)
         en.slow > 0f -> Color(0xFF9BE7FF)
         else -> null
     }
@@ -936,6 +1011,7 @@ private fun UpgradeCard(u: Upgrade, onChoose: (Upgrade) -> Unit) {
         is Upgrade.Weapon -> Quad(Color(u.type.color), stringResource(u.type.nameRes), stringResource(u.type.descRes), u.newLevel)
         is Upgrade.Passive -> Quad(Color(u.type.color), stringResource(u.type.nameRes), stringResource(u.type.descRes), u.newLevel)
         Upgrade.Heal -> Quad(HpRed, stringResource(R.string.fg_heal), stringResource(R.string.fg_heal_desc), 0)
+        is Upgrade.Evolve -> Quad(Gold, stringResource(u.type.evolvedNameRes), stringResource(u.type.evolvedDescRes), -1)
     }
     Column(
         Modifier
@@ -954,6 +1030,9 @@ private fun UpgradeCard(u: Upgrade, onChoose: (Upgrade) -> Unit) {
             Spacer(Modifier.width(8.dp))
             Column {
                 Text(name, color = Color.White, fontWeight = FontWeight.Black, fontSize = 15.sp, maxLines = 1)
+                if (level == -1) {
+                    Text(stringResource(R.string.fg_evolution), color = Gold, fontSize = 12.sp, fontWeight = FontWeight.Black)
+                }
                 if (level > 0) {
                     Text(
                         if (level == 1) stringResource(R.string.fg_new) else stringResource(R.string.fg_lv, level),
@@ -973,7 +1052,7 @@ private data class Quad(val a: Color, val b: String, val c: String, val d: Int)
 @Composable
 private fun PauseOverlay(viewModel: ForestViewModel) {
     Overlay {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.verticalScroll(rememberScrollState()).padding(vertical = 12.dp)) {
             Text(stringResource(R.string.fg_paused), color = Color.White, fontSize = 28.sp, fontWeight = FontWeight.Black)
             Button(
                 onClick = viewModel::resume,
@@ -983,6 +1062,15 @@ private fun PauseOverlay(viewModel: ForestViewModel) {
             ) { Text(stringResource(R.string.fg_resume), fontWeight = FontWeight.Black) }
             TextButton(onClick = viewModel::quitRun, modifier = Modifier.padding(top = 6.dp)) {
                 Text(stringResource(R.string.fg_quit), color = AppColors.TextSecondary, fontWeight = FontWeight.Bold)
+            }
+            Text(stringResource(R.string.fg_evolutions), color = Gold, fontSize = 13.sp, fontWeight = FontWeight.Black, modifier = Modifier.padding(top = 10.dp))
+            WeaponType.entries.forEach { w ->
+                val pas = ForestEngine.evolutionPassive(w)
+                Text(
+                    stringResource(w.nameRes) + " + " + stringResource(pas.nameRes) + " → " + stringResource(w.evolvedNameRes),
+                    color = AppColors.TextMuted,
+                    fontSize = 12.sp,
+                )
             }
         }
     }
@@ -1018,6 +1106,9 @@ private fun ResultOverlay(
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(top = 6.dp),
             )
+            if (state.runQuestCoins > 0) {
+                Text("✔ " + stringResource(R.string.fg_quest_done, state.runQuestCoins), color = Color(0xFF4ADE80), fontSize = 13.sp, fontWeight = FontWeight.Bold)
+            }
             if (state.canRevive) {
                 Button(
                     onClick = onRevive,

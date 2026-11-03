@@ -471,4 +471,25 @@
     <string name="fg_next_map">次のマップ</string>
     <string name="fg_retry">もう一度</string>
     <string name="fg_to_hub">マップ</string>
+    <string name="fg_e_bolt">霊槍</string>
+    <string name="fg_e_bolt_desc">巨大な槍が進路上の敵をすべて貫く。5 本、発射も速い。</string>
+    <string name="fg_e_blades">旋風</string>
+    <string name="fg_e_blades_desc">8 枚の刃が高速回転し、周囲で広がったり縮んだりする。</string>
+    <string name="fg_e_lightning">雷雨</string>
+    <string name="fg_e_lightning_desc">毎秒 8 発の大きな落雷。</string>
+    <string name="fg_e_thorns">命のつる</string>
+    <string name="fg_e_thorns_desc">広がったいばらがヒットのたびに体力を回復する。</string>
+    <string name="fg_e_arrows">風の矢</string>
+    <string name="fg_e_arrows_desc">貫通する 12 本の矢が全方向へ飛ぶ。</string>
+    <string name="fg_e_frost">絶対零度</string>
+    <string name="fg_e_frost_desc">敵を完全に凍らせる巨大な氷の波。</string>
+    <string name="fg_q_kills">敵を倒す %1$d/%2$d</string>
+    <string name="fg_q_level">レベル到達 %1$d/%2$d</string>
+    <string name="fg_q_coins">コインを集める %1$d/%2$d</string>
+    <string name="fg_q_evolve">武器を進化 %1$d/%2$d</string>
+    <string name="fg_q_boss">ボスを %1$d 秒以内に倒す</string>
+    <string name="fg_quests">クエスト %1$d/%2$d</string>
+    <string name="fg_quest_done">クエスト達成！コイン +%1$d</string>
+    <string name="fg_evolution">進化！</string>
+    <string name="fg_evolutions">進化：武器レベル 5 ＋ パッシブ</string>
 </resources>

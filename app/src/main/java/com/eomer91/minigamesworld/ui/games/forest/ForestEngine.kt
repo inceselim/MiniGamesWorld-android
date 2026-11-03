@@ -28,6 +28,8 @@ class Enemy(
     var alive = true
     var flash = 0f
     var slow = 0f
+    /** Mutlak Sifir: tamamen donmus (hareket etmez). */
+    var frozen = 0f
     var kx = 0f
     var ky = 0f
     var bladeCd = 0f
@@ -52,7 +54,7 @@ class Projectile(
     val hit = HashSet<Int>(4)
 }
 
-enum class ProjectileKind { BOLT, ARROW, SEED }
+enum class ProjectileKind { BOLT, LANCE, ARROW, SEED }
 
 class Pickup(var x: Float, var y: Float, val kind: PickupKind, val value: Int) {
     var attracted = false
@@ -75,6 +77,8 @@ sealed interface Upgrade {
     data class Weapon(val type: WeaponType, val newLevel: Int) : Upgrade
     data class Passive(val type: PassiveType, val newLevel: Int) : Upgrade
     data object Heal : Upgrade
+    /** Silah evrimi: silah 5. seviye + eslesen pasif. */
+    data class Evolve(val type: WeaponType) : Upgrade
 }
 
 /** Bir karedeki olaylar (ses ve ekran icin). */
@@ -85,8 +89,9 @@ class FrameEvents {
     var pickedCoins = 0
     var bossSpawned = false
     var skillUsed = false
+    var evolved = false
     fun clear() {
-        kills = 0; heroHit = false; pickedGems = 0; pickedCoins = 0; bossSpawned = false; skillUsed = false
+        kills = 0; heroHit = false; pickedGems = 0; pickedCoins = 0; bossSpawned = false; skillUsed = false; evolved = false
     }
 }
 
@@ -121,6 +126,9 @@ class ForestEngine(
 
     val weapons = LinkedHashMap<WeaponType, Int>().apply { put(WeaponType.BOLT, 1) }
     val passives = LinkedHashMap<PassiveType, Int>()
+    val evolved = HashSet<WeaponType>()
+    var bossSpawnTime = -1f
+    var bossKillTime = -1f
     private val cooldowns = HashMap<WeaponType, Float>()
     var bladeAngle = 0f
         private set
@@ -247,6 +255,7 @@ class ForestEngine(
             bossSpawned = true
             events.bossSpawned = true
             boss = spawnEnemy(EnemyType.TREANT)
+            bossSpawnTime = time
         }
         val minutes = time / 60f
         val rate = (0.8f + minutes * 1.1f) * map.spawnMult * (if (bossSpawned) 0.5f else 1f)
@@ -325,13 +334,14 @@ class ForestEngine(
     private fun updateWeapons(dt: Float) {
         bladeAngle += dt * 3.2f
         weapons.forEach { (w, l) ->
+            val evo = w in evolved
             when (w) {
-                WeaponType.BOLT -> if (cooldown(w, 0.95f - 0.08f * l, dt)) fireBolts(l)
-                WeaponType.BLADES -> updateBlades(l, dt)
-                WeaponType.LIGHTNING -> if (cooldown(w, 2.2f - 0.2f * l, dt)) lightning(l)
-                WeaponType.THORNS -> updateThorns(l, dt)
-                WeaponType.ARROWS -> if (cooldown(w, 1.5f - 0.12f * l, dt)) fireArrows(l)
-                WeaponType.FROST -> if (cooldown(w, 3.8f - 0.25f * l, dt)) novas += Nova(heroX, heroY, frostRadius(l))
+                WeaponType.BOLT -> if (cooldown(w, if (evo) 0.45f else 0.95f - 0.08f * l, dt)) fireBolts(l, evo)
+                WeaponType.BLADES -> updateBlades(l, dt, evo)
+                WeaponType.LIGHTNING -> if (cooldown(w, if (evo) 1.0f else 2.2f - 0.2f * l, dt)) lightning(l, evo)
+                WeaponType.THORNS -> updateThorns(l, dt, evo)
+                WeaponType.ARROWS -> if (cooldown(w, if (evo) 0.9f else 1.5f - 0.12f * l, dt)) fireArrows(l, evo)
+                WeaponType.FROST -> if (cooldown(w, if (evo) 3.0f else 3.8f - 0.25f * l, dt)) novas += Nova(heroX, heroY, frostRadius(l) + if (evo) 2.5f else 0f)
             }
         }
     }
@@ -349,15 +359,29 @@ class ForestEngine(
         return dx * dx + dy * dy
     }
 
-    private fun fireBolts(l: Int) {
-        val targets = nearestEnemies(boltCount(l), 9f)
+    private fun fireBolts(l: Int, evo: Boolean = false) {
+        val targets = nearestEnemies(if (evo) 5 else boltCount(l), 10f)
         targets.forEach { t ->
             val a = atan2(t.y - heroY, t.x - heroX)
-            projectiles += Projectile(heroX, heroY, cos(a) * 9f, sin(a) * 9f, 14f + 5f * (l - 1), 0.25f, if (l >= 4) 2 else 1, 1.4f, ProjectileKind.BOLT)
+            projectiles += if (evo) {
+                // Ruhani Mizrak: buyuk, her seyi delip gecer
+                Projectile(heroX, heroY, cos(a) * 12f, sin(a) * 12f, (14f + 5f * (l - 1)) * 1.8f, 0.4f, 99, 1.2f, ProjectileKind.LANCE)
+            } else {
+                Projectile(heroX, heroY, cos(a) * 9f, sin(a) * 9f, 14f + 5f * (l - 1), 0.25f, if (l >= 4) 2 else 1, 1.4f, ProjectileKind.BOLT)
+            }
         }
     }
 
-    private fun fireArrows(l: Int) {
+    private fun fireArrows(l: Int, evo: Boolean = false) {
+        if (evo) {
+            // Ruzgar Oklari: her yone 12 ok
+            val n = 12
+            repeat(n) { i ->
+                val a = i * 2f * PI.toFloat() / n + time
+                projectiles += Projectile(heroX, heroY, cos(a) * 12f, sin(a) * 12f, (7f + 3f * l) * 1.4f, 0.22f, 4, 0.9f, ProjectileKind.ARROW)
+            }
+            return
+        }
         val n = 2 + l
         val base = atan2(facingY, facingX)
         val spread = 0.9f
@@ -367,13 +391,14 @@ class ForestEngine(
         }
     }
 
-    private fun lightning(l: Int) {
-        val candidates = enemies.filter { it.alive && dist2(it.x, it.y) < 64f }
-        candidates.shuffled(random).take(l).forEach { t ->
+    private fun lightning(l: Int, evo: Boolean = false) {
+        val candidates = enemies.filter { it.alive && dist2(it.x, it.y) < 81f }
+        val area = if (evo) 1.5f else 0.9f
+        candidates.shuffled(random).take(if (evo) 8 else l).forEach { t ->
             strikes += Strike(t.x, t.y)
-            val dmg = 22f + 9f * l
+            val dmg = (22f + 9f * l) * (if (evo) 1.5f else 1f)
             enemies.forEach { e ->
-                if (e.alive && hypot(e.x - t.x, e.y - t.y) < 0.9f) hitEnemy(e, dmg)
+                if (e.alive && hypot(e.x - t.x, e.y - t.y) < area) hitEnemy(e, dmg)
             }
         }
     }
@@ -381,33 +406,45 @@ class ForestEngine(
     /** Donen bicak konumlari (cizim icin de kullanilir). */
     fun bladePositions(): List<Pair<Float, Float>> {
         val l = weapons[WeaponType.BLADES] ?: return emptyList()
-        val n = bladeCount(l)
+        val evo = WeaponType.BLADES in evolved
+        val n = if (evo) 8 else bladeCount(l)
+        // Kasirga: yaricap nefes alir gibi buyuyup kuculur
+        val r = if (evo) bladeRadius + 0.9f + sin(time * 2.2f) * 0.8f else bladeRadius
+        val angle = if (evo) bladeAngle * 1.5f else bladeAngle
         return List(n) { i ->
-            val a = bladeAngle + i * 2f * PI.toFloat() / n
-            (heroX + cos(a) * bladeRadius) to (heroY + sin(a) * bladeRadius)
+            val a = angle + i * 2f * PI.toFloat() / n
+            (heroX + cos(a) * r) to (heroY + sin(a) * r)
         }
     }
 
-    private fun updateBlades(l: Int, dt: Float) {
+    private fun updateBlades(l: Int, dt: Float, evo: Boolean = false) {
         val blades = bladePositions()
         enemies.forEach { e ->
             if (!e.alive) return@forEach
             e.bladeCd = max(0f, e.bladeCd - dt)
             if (e.bladeCd > 0f) return@forEach
             if (blades.any { (bx, by) -> hypot(e.x - bx, e.y - by) < e.type.radius + 0.35f }) {
-                e.bladeCd = 0.5f
-                hitEnemy(e, 8f + 3f * l, knock = 0.4f)
+                e.bladeCd = if (evo) 0.35f else 0.5f
+                hitEnemy(e, (8f + 3f * l) * (if (evo) 1.6f else 1f), knock = 0.4f)
             }
         }
     }
 
-    private fun updateThorns(l: Int, dt: Float) {
+    private fun updateThorns(l: Int, dt: Float, evo: Boolean = false) {
         thornTimer -= dt
         if (thornTimer > 0f) return
         thornTimer = 0.5f
-        val r = thornRadius(l)
+        val r = thornRadius(l) + if (evo) 1f else 0f
+        var healed = 0
         enemies.forEach { e ->
-            if (e.alive && dist2(e.x, e.y) < (r + e.type.radius) * (r + e.type.radius)) hitEnemy(e, 4f + 2f * l, showText = false)
+            if (e.alive && dist2(e.x, e.y) < (r + e.type.radius) * (r + e.type.radius)) {
+                hitEnemy(e, (4f + 2f * l) * (if (evo) 1.5f else 1f), showText = false)
+                // Yasam Sarmasigi: her vurusta biraz can
+                if (evo && healed < 4) {
+                    healed++
+                    hp = min(maxHp, hp + 0.6f)
+                }
+            }
         }
     }
 
@@ -501,6 +538,7 @@ class ForestEngine(
                 pickups += Pickup(e.x, e.y, PickupKind.CHEST, 0)
                 repeat(12) { pickups += Pickup(e.x + random.nextFloat() * 2 - 1, e.y + random.nextFloat() * 2 - 1, PickupKind.COIN, 5) }
                 boss = null
+                bossKillTime = time
             }
             random.nextFloat() < COIN_CHANCE -> pickups += Pickup(e.x + 0.2f, e.y, PickupKind.COIN, 1 + map.ordinal)
             random.nextFloat() < MEAT_CHANCE -> pickups += Pickup(e.x, e.y + 0.2f, PickupKind.MEAT, 30)
@@ -525,7 +563,8 @@ class ForestEngine(
             if (!e.alive) continue
             e.flash = max(0f, e.flash - dt)
             e.slow = max(0f, e.slow - dt)
-            var speed = e.type.speed * (if (e.slow > 0f) 0.5f else 1f)
+            e.frozen = max(0f, e.frozen - dt)
+            var speed = e.type.speed * (if (e.slow > 0f) 0.5f else 1f) * (if (e.frozen > 0f) 0f else 1f)
             if (e.type.isBoss) speed = updateBoss(e, dt, speed)
             val dx = heroX - e.x
             val dy = heroY - e.y
@@ -683,7 +722,9 @@ class ForestEngine(
                 if (e.alive && e.id !in n.hit && hypot(e.x - n.x, e.y - n.y) < r + e.type.radius) {
                     n.hit += e.id
                     e.slow = 2f
-                    hitEnemy(e, 12f + 5f * l)
+                    val evo = WeaponType.FROST in evolved
+                    if (evo && !e.type.isBoss) e.frozen = 1.5f
+                    hitEnemy(e, (12f + 5f * l) * (if (evo) 1.5f else 1f))
                 }
             }
         }
@@ -692,7 +733,22 @@ class ForestEngine(
 
     // =================================================================== Seviye atlama
 
+    /** Evrim kosulu saglanan silahlar. */
+    fun evolvable(): List<WeaponType> = weapons.filter { (w, l) ->
+        l >= MAX_LEVEL && w !in evolved && (passives[evolutionPassive(w)] ?: 0) > 0
+    }.keys.toList()
+
     fun rollChoices(): List<Upgrade> {
+        // Evrim hazirsa her zaman ilk secenek olarak sunulur
+        val evo = evolvable().firstOrNull()
+        if (evo != null) {
+            val rest = rollBasic().filter { it !is Upgrade.Heal }.take(2)
+            return listOf(Upgrade.Evolve(evo)) + rest
+        }
+        return rollBasic()
+    }
+
+    private fun rollBasic(): List<Upgrade> {
         val options = ArrayList<Upgrade>()
         weapons.forEach { (w, l) -> if (l < MAX_LEVEL) options += Upgrade.Weapon(w, l + 1) }
         if (weapons.size < MAX_WEAPONS) WeaponType.entries.filter { it !in weapons }.forEach { options += Upgrade.Weapon(it, 1) }
@@ -713,6 +769,11 @@ class ForestEngine(
                 }
             }
             Upgrade.Heal -> hp = maxHp
+            is Upgrade.Evolve -> {
+                evolved += u.type
+                events.evolved = true
+                burst(heroX, heroY - 0.5f, 30, 0xFFF7D046, 5f, 0.6f, 0.12f)
+            }
         }
         pendingLevelUps = max(0, pendingLevelUps - 1)
     }
@@ -738,6 +799,16 @@ class ForestEngine(
     private fun abs(v: Float) = kotlin.math.abs(v)
 
     companion object {
+        /** Her silahin evrimi icin gereken pasif. */
+        fun evolutionPassive(w: WeaponType): PassiveType = when (w) {
+            WeaponType.BOLT -> PassiveType.MIGHT
+            WeaponType.BLADES -> PassiveType.HASTE
+            WeaponType.LIGHTNING -> PassiveType.WISDOM
+            WeaponType.THORNS -> PassiveType.VITALITY
+            WeaponType.ARROWS -> PassiveType.SWIFT
+            WeaponType.FROST -> PassiveType.MAGNET
+        }
+
         const val HERO_RADIUS = 0.35f
         const val MAP_SECONDS = 300f
         const val BOSS_TIME = 270f

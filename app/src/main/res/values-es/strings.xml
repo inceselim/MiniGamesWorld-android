@@ -471,4 +471,25 @@
     <string name="fg_next_map">Siguiente mapa</string>
     <string name="fg_retry">Reintentar</string>
     <string name="fg_to_hub">Mapas</string>
+    <string name="fg_e_bolt">Lanza espiritual</string>
+    <string name="fg_e_bolt_desc">Lanzas enormes atraviesan a todos los enemigos. 5 lanzas, mucho más rápido.</string>
+    <string name="fg_e_blades">Torbellino</string>
+    <string name="fg_e_blades_desc">8 cuchillas giran rápido y se expanden a tu alrededor.</string>
+    <string name="fg_e_lightning">Tormenta eléctrica</string>
+    <string name="fg_e_lightning_desc">8 rayos más grandes cada segundo.</string>
+    <string name="fg_e_thorns">Enredadera vital</string>
+    <string name="fg_e_thorns_desc">Un campo de espinas más grande que te cura con cada golpe.</string>
+    <string name="fg_e_arrows">Flechas de viento</string>
+    <string name="fg_e_arrows_desc">12 flechas perforantes vuelan en todas direcciones.</string>
+    <string name="fg_e_frost">Cero absoluto</string>
+    <string name="fg_e_frost_desc">Una enorme ola helada que congela a los enemigos.</string>
+    <string name="fg_q_kills">Elimina enemigos %1$d/%2$d</string>
+    <string name="fg_q_level">Alcanza el nivel %1$d/%2$d</string>
+    <string name="fg_q_coins">Recoge monedas %1$d/%2$d</string>
+    <string name="fg_q_evolve">Evoluciona armas %1$d/%2$d</string>
+    <string name="fg_q_boss">Derrota al jefe en %1$d s</string>
+    <string name="fg_quests">Misiones %1$d/%2$d</string>
+    <string name="fg_quest_done">¡Misión completada! +%1$d monedas</string>
+    <string name="fg_evolution">¡EVOLUCIÓN!</string>
+    <string name="fg_evolutions">Evoluciones: arma nivel 5 + pasiva</string>
 </resources>

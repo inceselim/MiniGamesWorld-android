@@ -487,4 +487,25 @@
     <string name="fg_next_map">Next map</string>
     <string name="fg_retry">Try again</string>
     <string name="fg_to_hub">Maps</string>
+    <string name="fg_e_bolt">Spirit Lance</string>
+    <string name="fg_e_bolt_desc">Huge lances pierce every enemy in their path. 5 lances, much faster.</string>
+    <string name="fg_e_blades">Whirlwind</string>
+    <string name="fg_e_blades_desc">8 blades spin fast and sweep in and out around you.</string>
+    <string name="fg_e_lightning">Thunderstorm</string>
+    <string name="fg_e_lightning_desc">8 bigger lightning strikes every second.</string>
+    <string name="fg_e_thorns">Lifevine</string>
+    <string name="fg_e_thorns_desc">A larger thorn field that heals you with every hit.</string>
+    <string name="fg_e_arrows">Wind Arrows</string>
+    <string name="fg_e_arrows_desc">12 piercing arrows fly in every direction.</string>
+    <string name="fg_e_frost">Absolute Zero</string>
+    <string name="fg_e_frost_desc">A huge icy wave that freezes enemies solid.</string>
+    <string name="fg_q_kills">Kill enemies %1$d/%2$d</string>
+    <string name="fg_q_level">Reach level %1$d/%2$d</string>
+    <string name="fg_q_coins">Collect coins %1$d/%2$d</string>
+    <string name="fg_q_evolve">Evolve weapons %1$d/%2$d</string>
+    <string name="fg_q_boss">Defeat the boss within %1$d s</string>
+    <string name="fg_quests">Quests %1$d/%2$d</string>
+    <string name="fg_quest_done">Quest complete! +%1$d coins</string>
+    <string name="fg_evolution">EVOLUTION!</string>
+    <string name="fg_evolutions">Evolutions: weapon at level 5 + passive</string>
 </resources>
