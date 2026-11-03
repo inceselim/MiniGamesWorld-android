@@ -637,4 +637,16 @@
     <string name="rn_crashed">¡CHOQUE!</string>
     <string name="rn_revive">Seguir (ver anuncio)</string>
     <string name="rn_give_up">Terminar</string>
+    <string name="game_pool_name">Billar Bola 8</string>
+    <string name="game_pool_desc">Billar clásico de bola 8 con física realista. ¡Apunta, ajusta la fuerza y mete tu grupo antes de la 8! Contra la máquina (3 niveles) o un amigo.</string>
+    <string name="pl_rules">Mete todas tus bolas (lisas o rayadas) y luego la 8. Las faltas (blanca en la tronera, no tocar primero tu bola) dan bola en mano al rival.</string>
+    <string name="pl_you">Tú</string>
+    <string name="pl_computer">Máquina</string>
+    <string name="pl_player">Jugador %1$d</string>
+    <string name="pl_open">mesa abierta</string>
+    <string name="pl_foul">¡Falta! Bola en mano para el rival.</string>
+    <string name="pl_ball_in_hand">Bola en mano: arrastra la blanca donde quieras.</string>
+    <string name="pl_groups_set">¡Grupos asignados!</string>
+    <string name="pl_hint">Arrastra en la mesa para apuntar, baja la barra de fuerza y suelta para tirar.</string>
+    <string name="pl_power">FUERZA</string>
 </resources>

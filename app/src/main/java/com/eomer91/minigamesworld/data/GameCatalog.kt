@@ -28,6 +28,7 @@ object GameCatalog {
         Game("2048", R.string.game_2048_name, R.string.game_2048_desc, GameCategory.PUZZLE, R.drawable.game_2048, entryCost = 10, isPlayable = true),
         Game("chess", R.string.game_chess_name, R.string.game_chess_desc, GameCategory.STRATEGY, R.drawable.game_chess, entryCost = 10, isPlayable = true),
         Game("checkers", R.string.game_checkers_name, R.string.game_checkers_desc, GameCategory.STRATEGY, R.drawable.game_checkers, entryCost = 10, isPlayable = true),
+        Game("pool", R.string.game_pool_name, R.string.game_pool_desc, GameCategory.CLASSIC, R.drawable.game_pool, entryCost = 10, isPlayable = true),
         Game("connect-four", R.string.game_connect_four_name, R.string.game_connect_four_desc, GameCategory.STRATEGY, R.drawable.game_connect_four, entryCost = 10, isPlayable = true),
         Game("tower-defense", R.string.game_tower_defense_name, R.string.game_tower_defense_desc, GameCategory.STRATEGY, R.drawable.game_tower_defense, entryCost = 15, isPlayable = true),
         Game("minesweeper", R.string.game_minesweeper_name, R.string.game_minesweeper_desc, GameCategory.CLASSIC, R.drawable.game_minesweeper, entryCost = 10, isPlayable = true),

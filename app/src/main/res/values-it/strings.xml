@@ -637,4 +637,16 @@
     <string name="rn_crashed">SCHIANTO!</string>
     <string name="rn_revive">Continua (guarda annuncio)</string>
     <string name="rn_give_up">Termina</string>
+    <string name="game_pool_name">Biliardo Palla 8</string>
+    <string name="game_pool_desc">Biliardo classico a palla 8 con fisica realistica. Mira, scegli la potenza e imbuca il tuo gruppo prima dell\'8! Contro il computer (3 livelli) o un amico.</string>
+    <string name="pl_rules">Imbuca tutte le tue palle (piene o rigate), poi l\'8. I falli (bianca in buca, non colpire prima la tua palla) danno palla in mano all\'avversario.</string>
+    <string name="pl_you">Tu</string>
+    <string name="pl_computer">Computer</string>
+    <string name="pl_player">Giocatore %1$d</string>
+    <string name="pl_open">tavolo aperto</string>
+    <string name="pl_foul">Fallo! Palla in mano all\'avversario.</string>
+    <string name="pl_ball_in_hand">Palla in mano: trascina la bianca dove vuoi.</string>
+    <string name="pl_groups_set">Gruppi assegnati!</string>
+    <string name="pl_hint">Trascina sul tavolo per mirare, tira giù la barra della potenza e rilascia per tirare.</string>
+    <string name="pl_power">POTENZA</string>
 </resources>

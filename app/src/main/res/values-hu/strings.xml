@@ -637,4 +637,16 @@
     <string name="rn_crashed">KARAMBOL!</string>
     <string name="rn_revive">Tovább (reklám)</string>
     <string name="rn_give_up">Befejezés</string>
+    <string name="game_pool_name">8-as biliárd</string>
+    <string name="game_pool_desc">Klasszikus 8-as biliárd valósághű fizikával. Célozz, állítsd be az erőt, és süllyeszd el a csoportodat a 8-as előtt! A gép (3 szint) vagy egy barát ellen.</string>
+    <string name="pl_rules">Süllyeszd el az összes golyódat (teli vagy csíkos), majd a 8-ast. Szabálytalanság (fehér a lyukban, nem a saját golyót találod el először) esetén az ellenfél szabadon teheti le a fehéret.</string>
+    <string name="pl_you">Te</string>
+    <string name="pl_computer">Gép</string>
+    <string name="pl_player">%1$d. játékos</string>
+    <string name="pl_open">nyitott asztal</string>
+    <string name="pl_foul">Szabálytalanság! Az ellenfél leteheti a fehéret.</string>
+    <string name="pl_ball_in_hand">Szabad fehér: húzd oda, ahová szeretnéd.</string>
+    <string name="pl_groups_set">Csoportok kiosztva!</string>
+    <string name="pl_hint">Húzd az ujjad az asztalon a célzáshoz, húzd le az erőt, és engedd el a lökéshez.</string>
+    <string name="pl_power">ERŐ</string>
 </resources>

@@ -637,4 +637,16 @@
     <string name="rn_crashed">BOUM !</string>
     <string name="rn_revive">Continuer (voir une pub)</string>
     <string name="rn_give_up">Terminer</string>
+    <string name="game_pool_name">Billard 8 Boules</string>
+    <string name="game_pool_desc">Billard 8 boules classique avec une physique réaliste. Vise, dose la puissance et empoche ton groupe avant la 8 ! Contre l\'ordinateur (3 niveaux) ou un ami.</string>
+    <string name="pl_rules">Empoche toutes tes boules (pleines ou rayées), puis la 8. Une faute (blanche empochée, ne pas toucher d\'abord ta boule) donne la main à l\'adversaire.</string>
+    <string name="pl_you">Toi</string>
+    <string name="pl_computer">Ordinateur</string>
+    <string name="pl_player">Joueur %1$d</string>
+    <string name="pl_open">table ouverte</string>
+    <string name="pl_foul">Faute ! La main passe à l\'adversaire.</string>
+    <string name="pl_ball_in_hand">Bille en main : déplace la blanche où tu veux.</string>
+    <string name="pl_groups_set">Groupes attribués !</string>
+    <string name="pl_hint">Glisse sur la table pour viser, tire la barre de puissance vers le bas et relâche pour jouer.</string>
+    <string name="pl_power">PUISSANCE</string>
 </resources>

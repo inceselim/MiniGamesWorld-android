@@ -637,4 +637,16 @@
     <string name="rn_crashed">CRASH!</string>
     <string name="rn_revive">Weiterfahren (Werbung)</string>
     <string name="rn_give_up">Beenden</string>
+    <string name="game_pool_name">8-Ball Billard</string>
+    <string name="game_pool_desc">Klassisches 8-Ball mit realistischer Physik. Zielen, Stärke wählen und deine Gruppe vor der 8 versenken! Gegen den Computer (3 Stufen) oder einen Freund.</string>
+    <string name="pl_rules">Versenke all deine Kugeln (Volle oder Halbe), dann die 8. Bei Fouls (weiße Kugel versenkt, nicht zuerst eigene Kugel getroffen) darf der Gegner die Weiße frei legen.</string>
+    <string name="pl_you">Du</string>
+    <string name="pl_computer">Computer</string>
+    <string name="pl_player">Spieler %1$d</string>
+    <string name="pl_open">offener Tisch</string>
+    <string name="pl_foul">Foul! Der Gegner legt die Weiße frei.</string>
+    <string name="pl_ball_in_hand">Weiße frei: Ziehe sie, wohin du willst.</string>
+    <string name="pl_groups_set">Gruppen verteilt!</string>
+    <string name="pl_hint">Ziehe auf dem Tisch zum Zielen, ziehe die Stärke nach unten und lass los zum Stoßen.</string>
+    <string name="pl_power">STÄRKE</string>
 </resources>

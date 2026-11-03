@@ -653,4 +653,16 @@
     <string name="rn_crashed">CRASH!</string>
     <string name="rn_revive">Keep going (watch ad)</string>
     <string name="rn_give_up">End run</string>
+    <string name="game_pool_name">8-Ball Pool</string>
+    <string name="game_pool_desc">Classic 8-ball pool with realistic physics. Aim, set the power and pot your group before the 8! Play the computer (3 levels) or a friend.</string>
+    <string name="pl_rules">Pot all your balls (solids or stripes), then the 8. Fouls (white ball in a pocket, not hitting your own ball first) give your opponent ball in hand.</string>
+    <string name="pl_you">You</string>
+    <string name="pl_computer">Computer</string>
+    <string name="pl_player">Player %1$d</string>
+    <string name="pl_open">open table</string>
+    <string name="pl_foul">Foul! Ball in hand for the opponent.</string>
+    <string name="pl_ball_in_hand">Ball in hand: drag the white ball where you like.</string>
+    <string name="pl_groups_set">Groups assigned!</string>
+    <string name="pl_hint">Drag on the table to aim, pull the power bar down and release to shoot.</string>
+    <string name="pl_power">POWER</string>
 </resources>

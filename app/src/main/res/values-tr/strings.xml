@@ -651,4 +651,16 @@
     <string name="rn_crashed">ÇARPTIN!</string>
     <string name="rn_revive">Devam et (reklam izle)</string>
     <string name="rn_give_up">Bitir</string>
+    <string name="game_pool_name">8 Top Bilardo</string>
+    <string name="game_pool_desc">Gerçekçi fizikle klasik 8 top bilardo. Nişan al, gücü ayarla ve 8\'den önce kendi grubunu cebe at! Bilgisayara (3 seviye) ya da arkadaşına karşı.</string>
+    <string name="pl_rules">Kendi toplarını (düz ya da çizgili) sonra 8\'i cebe at. Faullerde (beyaz top cebe düşerse, önce kendi topuna vurmazsan) rakip topu istediği yere koyar.</string>
+    <string name="pl_you">Sen</string>
+    <string name="pl_computer">Bilgisayar</string>
+    <string name="pl_player">Oyuncu %1$d</string>
+    <string name="pl_open">masa açık</string>
+    <string name="pl_foul">Faul! Rakip topu istediği yere koyar.</string>
+    <string name="pl_ball_in_hand">Top elinde: beyaz topu istediğin yere sürükle.</string>
+    <string name="pl_groups_set">Gruplar belirlendi!</string>
+    <string name="pl_hint">Nişan almak için masada sürükle, gücü aşağı çek ve bırakınca vur.</string>
+    <string name="pl_power">GÜÇ</string>
 </resources>

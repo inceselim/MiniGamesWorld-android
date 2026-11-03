@@ -637,4 +637,16 @@
     <string name="rn_crashed">АВАРИЯ!</string>
     <string name="rn_revive">Продолжить (реклама)</string>
     <string name="rn_give_up">Закончить</string>
+    <string name="game_pool_name">Бильярд «Восьмёрка»</string>
+    <string name="game_pool_desc">Классическая «восьмёрка» с реалистичной физикой. Целься, выбирай силу и забей свою группу раньше 8-го! С компьютером (3 уровня) или с другом.</string>
+    <string name="pl_rules">Забей все свои шары (сплошные или полосатые), затем 8-й. При фоле (биток в лузе, первым задет не свой шар) соперник ставит биток куда хочет.</string>
+    <string name="pl_you">Ты</string>
+    <string name="pl_computer">Компьютер</string>
+    <string name="pl_player">Игрок %1$d</string>
+    <string name="pl_open">стол открыт</string>
+    <string name="pl_foul">Фол! Соперник ставит биток.</string>
+    <string name="pl_ball_in_hand">Биток в руке: перетащи его куда хочешь.</string>
+    <string name="pl_groups_set">Группы определены!</string>
+    <string name="pl_hint">Веди по столу, чтобы целиться, потяни шкалу силы вниз и отпусти для удара.</string>
+    <string name="pl_power">СИЛА</string>
 </resources>

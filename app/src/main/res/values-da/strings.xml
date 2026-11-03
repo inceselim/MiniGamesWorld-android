@@ -637,4 +637,16 @@
     <string name="rn_crashed">BRAG!</string>
     <string name="rn_revive">Kør videre (se reklame)</string>
     <string name="rn_give_up">Afslut</string>
+    <string name="game_pool_name">8-Ball Pool</string>
+    <string name="game_pool_desc">Klassisk 8-ball med realistisk fysik. Sigt, vælg kraften og put din gruppe før 8\'eren! Mod computeren (3 niveauer) eller en ven.</string>
+    <string name="pl_rules">Put alle dine kugler (helle eller halve) og derefter 8\'eren. Ved fejl (køllekuglen i hul, ikke ramt egen kugle først) får modstanderen frit spil.</string>
+    <string name="pl_you">Dig</string>
+    <string name="pl_computer">Computer</string>
+    <string name="pl_player">Spiller %1$d</string>
+    <string name="pl_open">åbent bord</string>
+    <string name="pl_foul">Fejl! Modstanderen får frit spil.</string>
+    <string name="pl_ball_in_hand">Frit spil: træk den hvide kugle hvorhen du vil.</string>
+    <string name="pl_groups_set">Grupper fordelt!</string>
+    <string name="pl_hint">Træk på bordet for at sigte, træk kraftbjælken ned og slip for at støde.</string>
+    <string name="pl_power">KRAFT</string>
 </resources>

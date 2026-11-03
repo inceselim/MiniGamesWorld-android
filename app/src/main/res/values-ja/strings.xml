@@ -637,4 +637,16 @@
     <string name="rn_crashed">ぶつかった！</string>
     <string name="rn_revive">続ける（広告を見る）</string>
     <string name="rn_give_up">終わる</string>
+    <string name="game_pool_name">8ボール ビリヤード</string>
+    <string name="game_pool_desc">リアルな物理の8ボール。狙って強さを決め、8番より先に自分の組を落とそう！コンピューター（3段階）や友だちと対戦。</string>
+    <string name="pl_rules">自分の組（ソリッドかストライプ）を全部落としてから8番を。ファウル（手球が落ちる、最初に自分の球に当てない）は相手のフリーボール。</string>
+    <string name="pl_you">あなた</string>
+    <string name="pl_computer">コンピューター</string>
+    <string name="pl_player">プレイヤー %1$d</string>
+    <string name="pl_open">オープンテーブル</string>
+    <string name="pl_foul">ファウル！相手のフリーボール。</string>
+    <string name="pl_ball_in_hand">フリーボール：手球を好きな場所へドラッグ。</string>
+    <string name="pl_groups_set">組が決まった！</string>
+    <string name="pl_hint">台の上をドラッグして狙い、パワーバーを下に引いて離すとショット。</string>
+    <string name="pl_power">パワー</string>
 </resources>
