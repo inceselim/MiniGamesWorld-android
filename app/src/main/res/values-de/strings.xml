@@ -568,4 +568,23 @@
     <string name="du_result_0">Hmm… das passt nicht zum Thema.</string>
     <string name="du_next_theme">Nächstes Thema</string>
     <string name="category_creative">Kreativ</string>
+    <string name="game_makeup_name">Schminksalon</string>
+    <string name="game_makeup_desc">Kundinnen haben einen Look im Kopf! Trage Lidschatten, Rouge und Lippenstift mit dem Finger auf, wähle Wimpern und füge Glitzer-Sticker hinzu.</string>
+    <string name="mk_tool_shadow">Lidschatten</string>
+    <string name="mk_tool_blush">Rouge</string>
+    <string name="mk_tool_lips">Lippenstift</string>
+    <string name="mk_tool_lashes">Wimpern</string>
+    <string name="mk_tool_sticker">Sticker</string>
+    <string name="mk_tool_wipe">Abwischen</string>
+    <string name="mk_lashes_0">Keine</string>
+    <string name="mk_lashes_1">Natürlich</string>
+    <string name="mk_lashes_2">Dramatisch</string>
+    <string name="mk_wipe_hint">Reibe übers Gesicht, um das Make-up zu entfernen.</string>
+    <string name="mk_request">WUNSCH DER KUNDIN</string>
+    <string name="mk_done">Fertig!</string>
+    <string name="mk_result_3">Sie ist begeistert! Genau wie gewünscht.</string>
+    <string name="mk_result_2">Sie ist zufrieden!</string>
+    <string name="mk_result_1">Hmm, nicht ganz wie gewünscht.</string>
+    <string name="mk_result_0">Hoppla! Das ist gar nicht ihr Stil.</string>
+    <string name="mk_next">Nächste Kundin</string>
 </resources>

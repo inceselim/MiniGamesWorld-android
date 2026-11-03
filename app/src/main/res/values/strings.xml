@@ -584,4 +584,23 @@
     <string name="du_result_0">Hmm… this doesn\'t fit the theme.</string>
     <string name="du_next_theme">Next theme</string>
     <string name="category_creative">Creative</string>
+    <string name="game_makeup_name">Makeup Salon</string>
+    <string name="game_makeup_desc">Customers come with a look in mind! Rub on eyeshadow, blush and lipstick with your finger, choose lashes and add sparkly stickers.</string>
+    <string name="mk_tool_shadow">Eyeshadow</string>
+    <string name="mk_tool_blush">Blush</string>
+    <string name="mk_tool_lips">Lipstick</string>
+    <string name="mk_tool_lashes">Lashes</string>
+    <string name="mk_tool_sticker">Stickers</string>
+    <string name="mk_tool_wipe">Wipe</string>
+    <string name="mk_lashes_0">None</string>
+    <string name="mk_lashes_1">Natural</string>
+    <string name="mk_lashes_2">Dramatic</string>
+    <string name="mk_wipe_hint">Rub the face to remove makeup.</string>
+    <string name="mk_request">CUSTOMER WANTS</string>
+    <string name="mk_done">Done!</string>
+    <string name="mk_result_3">She loves it! Exactly what she wanted.</string>
+    <string name="mk_result_2">She\'s happy with it!</string>
+    <string name="mk_result_1">Hmm, not quite what she asked for.</string>
+    <string name="mk_result_0">Oops! That\'s not her style at all.</string>
+    <string name="mk_next">Next customer</string>
 </resources>

@@ -568,4 +568,23 @@
     <string name="du_result_0">Mmm… esto no encaja con el tema.</string>
     <string name="du_next_theme">Siguiente tema</string>
     <string name="category_creative">Creativos</string>
+    <string name="game_makeup_name">Salón de Maquillaje</string>
+    <string name="game_makeup_desc">¡Las clientas llegan con un look en mente! Aplica sombra, colorete y pintalabios con el dedo, elige pestañas y añade pegatinas brillantes.</string>
+    <string name="mk_tool_shadow">Sombra</string>
+    <string name="mk_tool_blush">Colorete</string>
+    <string name="mk_tool_lips">Pintalabios</string>
+    <string name="mk_tool_lashes">Pestañas</string>
+    <string name="mk_tool_sticker">Pegatinas</string>
+    <string name="mk_tool_wipe">Limpiar</string>
+    <string name="mk_lashes_0">Ninguna</string>
+    <string name="mk_lashes_1">Natural</string>
+    <string name="mk_lashes_2">Dramática</string>
+    <string name="mk_wipe_hint">Frota la cara para quitar el maquillaje.</string>
+    <string name="mk_request">LA CLIENTA QUIERE</string>
+    <string name="mk_done">¡Listo!</string>
+    <string name="mk_result_3">¡Le encanta! Justo lo que quería.</string>
+    <string name="mk_result_2">¡Está contenta!</string>
+    <string name="mk_result_1">Mmm, no es justo lo que pidió.</string>
+    <string name="mk_result_0">¡Uy! No es nada su estilo.</string>
+    <string name="mk_next">Siguiente clienta</string>
 </resources>

@@ -568,4 +568,23 @@
     <string name="du_result_0">Хм… это не подходит к теме.</string>
     <string name="du_next_theme">Следующая тема</string>
     <string name="category_creative">Творчество</string>
+    <string name="game_makeup_name">Салон макияжа</string>
+    <string name="game_makeup_desc">Клиентки приходят с готовым образом! Наноси тени, румяна и помаду пальцем, выбирай ресницы и добавляй блестящие наклейки.</string>
+    <string name="mk_tool_shadow">Тени</string>
+    <string name="mk_tool_blush">Румяна</string>
+    <string name="mk_tool_lips">Помада</string>
+    <string name="mk_tool_lashes">Ресницы</string>
+    <string name="mk_tool_sticker">Наклейки</string>
+    <string name="mk_tool_wipe">Стереть</string>
+    <string name="mk_lashes_0">Нет</string>
+    <string name="mk_lashes_1">Естественные</string>
+    <string name="mk_lashes_2">Эффектные</string>
+    <string name="mk_wipe_hint">Потри лицо, чтобы стереть макияж.</string>
+    <string name="mk_request">ПОЖЕЛАНИЕ КЛИЕНТКИ</string>
+    <string name="mk_done">Готово!</string>
+    <string name="mk_result_3">Она в восторге! Именно то, что хотела.</string>
+    <string name="mk_result_2">Она довольна!</string>
+    <string name="mk_result_1">Хм, не совсем то, что она просила.</string>
+    <string name="mk_result_0">Ой! Это совсем не её стиль.</string>
+    <string name="mk_next">Следующая клиентка</string>
 </resources>

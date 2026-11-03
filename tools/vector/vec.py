@@ -41,7 +41,7 @@ def poly(*pts):
 
 def join(*paths):
     """Birden cok alt yolu tek yol verisinde birlestir."""
-    out = P(); [out.cmds.extend(p.cmds) for p in paths]; return out
+    out = P(paths[0].W if paths else 200); [out.cmds.extend(p.cmds) for p in paths]; return out
 
 def hex2rgb(h):
     h = h.lstrip('#')

@@ -21,3 +21,4 @@ keystore.properties
 # Piksel art onizlemeleri
 tools/pixelart/*.png
 tools/pixelart/__pycache__/
+tools/vector/__pycache__/

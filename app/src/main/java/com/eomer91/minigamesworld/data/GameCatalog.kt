@@ -20,6 +20,7 @@ object GameCatalog {
         Game("forest-guardian", R.string.game_forest_name, R.string.game_forest_desc, GameCategory.ARCADE, R.drawable.game_forest_guardian, entryCost = 5, isPlayable = true),
         Game("countries-war", R.string.game_countries_war_name, R.string.game_countries_war_desc, GameCategory.STRATEGY, R.drawable.game_countries_war, entryCost = 5, isPlayable = true),
         Game("dress-up", R.string.game_dress_up_name, R.string.game_dress_up_desc, GameCategory.CREATIVE, R.drawable.game_dress_up, entryCost = 5, isPlayable = true),
+        Game("makeup", R.string.game_makeup_name, R.string.game_makeup_desc, GameCategory.CREATIVE, R.drawable.game_makeup, entryCost = 5, isPlayable = true),
         Game("2048", R.string.game_2048_name, R.string.game_2048_desc, GameCategory.PUZZLE, R.drawable.game_2048, entryCost = 10, isPlayable = true),
         Game("chess", R.string.game_chess_name, R.string.game_chess_desc, GameCategory.STRATEGY, R.drawable.game_chess, entryCost = 10, isPlayable = true),
         Game("checkers", R.string.game_checkers_name, R.string.game_checkers_desc, GameCategory.STRATEGY, R.drawable.game_checkers, entryCost = 10, isPlayable = true),

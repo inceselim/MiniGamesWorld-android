@@ -568,4 +568,23 @@
     <string name="du_result_0">Hmm… ez nem illik a témához.</string>
     <string name="du_next_theme">Következő téma</string>
     <string name="category_creative">Kreatív</string>
+    <string name="game_makeup_name">Sminkszalon</string>
+    <string name="game_makeup_desc">A vendégek elképzeléssel érkeznek! Kend fel ujjal a szemhéjpúdert, a pirosítót és a rúzst, válassz szempillát, és ragassz csillogó matricákat.</string>
+    <string name="mk_tool_shadow">Szemhéjpúder</string>
+    <string name="mk_tool_blush">Pirosító</string>
+    <string name="mk_tool_lips">Rúzs</string>
+    <string name="mk_tool_lashes">Szempilla</string>
+    <string name="mk_tool_sticker">Matricák</string>
+    <string name="mk_tool_wipe">Letörlés</string>
+    <string name="mk_lashes_0">Nincs</string>
+    <string name="mk_lashes_1">Természetes</string>
+    <string name="mk_lashes_2">Látványos</string>
+    <string name="mk_wipe_hint">Dörzsöld meg az arcot a smink eltávolításához.</string>
+    <string name="mk_request">A VENDÉG KÉRÉSE</string>
+    <string name="mk_done">Kész!</string>
+    <string name="mk_result_3">Imádja! Pont ilyet szeretett volna.</string>
+    <string name="mk_result_2">Elégedett!</string>
+    <string name="mk_result_1">Hmm, nem egészen ezt kérte.</string>
+    <string name="mk_result_0">Hoppá! Ez egyáltalán nem az ő stílusa.</string>
+    <string name="mk_next">Következő vendég</string>
 </resources>

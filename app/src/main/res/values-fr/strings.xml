@@ -568,4 +568,23 @@
     <string name="du_result_0">Hmm… ça ne colle pas au thème.</string>
     <string name="du_next_theme">Thème suivant</string>
     <string name="category_creative">Créatifs</string>
+    <string name="game_makeup_name">Salon de Maquillage</string>
+    <string name="game_makeup_desc">Les clientes ont un look en tête ! Applique fard, blush et rouge à lèvres du bout du doigt, choisis les cils et ajoute des stickers brillants.</string>
+    <string name="mk_tool_shadow">Fard</string>
+    <string name="mk_tool_blush">Blush</string>
+    <string name="mk_tool_lips">Rouge à lèvres</string>
+    <string name="mk_tool_lashes">Cils</string>
+    <string name="mk_tool_sticker">Stickers</string>
+    <string name="mk_tool_wipe">Effacer</string>
+    <string name="mk_lashes_0">Aucun</string>
+    <string name="mk_lashes_1">Naturel</string>
+    <string name="mk_lashes_2">Glamour</string>
+    <string name="mk_wipe_hint">Frotte le visage pour enlever le maquillage.</string>
+    <string name="mk_request">LA CLIENTE VEUT</string>
+    <string name="mk_done">Terminé !</string>
+    <string name="mk_result_3">Elle adore ! Exactement ce qu\'elle voulait.</string>
+    <string name="mk_result_2">Elle est contente !</string>
+    <string name="mk_result_1">Hmm, pas tout à fait ce qu\'elle voulait.</string>
+    <string name="mk_result_0">Oups ! Ce n\'est pas du tout son style.</string>
+    <string name="mk_next">Cliente suivante</string>
 </resources>

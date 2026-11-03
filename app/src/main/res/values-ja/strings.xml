@@ -568,4 +568,23 @@
     <string name="du_result_0">うーん…テーマに合っていないかも。</string>
     <string name="du_next_theme">次のテーマ</string>
     <string name="category_creative">クリエイティブ</string>
+    <string name="game_makeup_name">メイクサロン</string>
+    <string name="game_makeup_desc">お客さんはなりたいイメージを持ってやってくる！指でアイシャドウ、チーク、口紅をぬって、まつげを選び、キラキラシールを貼ろう。</string>
+    <string name="mk_tool_shadow">アイシャドウ</string>
+    <string name="mk_tool_blush">チーク</string>
+    <string name="mk_tool_lips">口紅</string>
+    <string name="mk_tool_lashes">まつげ</string>
+    <string name="mk_tool_sticker">シール</string>
+    <string name="mk_tool_wipe">ふき取り</string>
+    <string name="mk_lashes_0">なし</string>
+    <string name="mk_lashes_1">ナチュラル</string>
+    <string name="mk_lashes_2">ゴージャス</string>
+    <string name="mk_wipe_hint">顔をこするとメイクが落ちるよ。</string>
+    <string name="mk_request">お客さんのリクエスト</string>
+    <string name="mk_done">完成！</string>
+    <string name="mk_result_3">大満足！イメージどおり。</string>
+    <string name="mk_result_2">よろこんでくれた！</string>
+    <string name="mk_result_1">うーん、ちょっとイメージとちがうかも。</string>
+    <string name="mk_result_0">あらら、ぜんぜん好みじゃなかったみたい。</string>
+    <string name="mk_next">次のお客さん</string>
 </resources>

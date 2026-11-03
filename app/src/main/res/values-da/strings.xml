@@ -568,4 +568,23 @@
     <string name="du_result_0">Hmm… det passer ikke til temaet.</string>
     <string name="du_next_theme">Næste tema</string>
     <string name="category_creative">Kreativ</string>
+    <string name="game_makeup_name">Makeupsalon</string>
+    <string name="game_makeup_desc">Kunderne har et look i tankerne! Smør øjenskygge, rouge og læbestift på med fingeren, vælg vipper og tilføj glimmerklistermærker.</string>
+    <string name="mk_tool_shadow">Øjenskygge</string>
+    <string name="mk_tool_blush">Rouge</string>
+    <string name="mk_tool_lips">Læbestift</string>
+    <string name="mk_tool_lashes">Vipper</string>
+    <string name="mk_tool_sticker">Klistermærker</string>
+    <string name="mk_tool_wipe">Tør af</string>
+    <string name="mk_lashes_0">Ingen</string>
+    <string name="mk_lashes_1">Naturlig</string>
+    <string name="mk_lashes_2">Dramatisk</string>
+    <string name="mk_wipe_hint">Gnid ansigtet for at fjerne makeuppen.</string>
+    <string name="mk_request">KUNDEN ØNSKER</string>
+    <string name="mk_done">Færdig!</string>
+    <string name="mk_result_3">Hun elsker det! Præcis som ønsket.</string>
+    <string name="mk_result_2">Hun er glad!</string>
+    <string name="mk_result_1">Hmm, ikke helt som ønsket.</string>
+    <string name="mk_result_0">Ups! Det er slet ikke hendes stil.</string>
+    <string name="mk_next">Næste kunde</string>
 </resources>

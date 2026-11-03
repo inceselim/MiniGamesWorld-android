@@ -582,4 +582,23 @@
     <string name="du_result_0">Hımm… bu temaya pek uymadı.</string>
     <string name="du_next_theme">Sonraki tema</string>
     <string name="category_creative">Yaratıcı</string>
+    <string name="game_makeup_name">Makyaj Salonu</string>
+    <string name="game_makeup_desc">Müşteriler istedikleri görünümle geliyor! Far, allık ve rujı parmağınla sür, kirpik seç, parlak çıkartmalar ekle.</string>
+    <string name="mk_tool_shadow">Far</string>
+    <string name="mk_tool_blush">Allık</string>
+    <string name="mk_tool_lips">Ruj</string>
+    <string name="mk_tool_lashes">Kirpik</string>
+    <string name="mk_tool_sticker">Çıkartma</string>
+    <string name="mk_tool_wipe">Temizle</string>
+    <string name="mk_lashes_0">Yok</string>
+    <string name="mk_lashes_1">Doğal</string>
+    <string name="mk_lashes_2">Gösterişli</string>
+    <string name="mk_wipe_hint">Makyajı silmek için yüzü ov.</string>
+    <string name="mk_request">MÜŞTERİNİN İSTEĞİ</string>
+    <string name="mk_done">Bitti!</string>
+    <string name="mk_result_3">Bayıldı! Tam istediği gibi.</string>
+    <string name="mk_result_2">Memnun kaldı!</string>
+    <string name="mk_result_1">Hımm, tam istediği gibi olmadı.</string>
+    <string name="mk_result_0">Eyvah! Hiç onun tarzı değil.</string>
+    <string name="mk_next">Sıradaki müşteri</string>
 </resources>
