@@ -632,4 +632,11 @@
     <string name="ck2_result_2">Lezzetli, memnun kaldı!</string>
     <string name="ck2_result_1">Hımm, tam sipariş ettiği gibi değil.</string>
     <string name="ck2_result_0">Eyvah… bir daha deneyelim!</string>
+    <string name="game_jigsaw_name">Yapboz</string>
+    <string name="game_jigsaw_desc">Parçaları yerine sürükle, rengârenk resimleri tamamla. 12, 24 ya da 40 parça seç.</string>
+    <string name="jg_choose">Bir resim seç</string>
+    <string name="jg_pieces">parça</string>
+    <string name="jg_pictures">Resimler</string>
+    <string name="jg_done">TAMAMLANDI!</string>
+    <string name="jg_new_puzzle">Yeni yapboz</string>
 </resources>

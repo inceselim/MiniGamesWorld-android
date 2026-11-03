@@ -618,4 +618,11 @@
     <string name="ck2_result_2">おいしいって喜んでる！</string>
     <string name="ck2_result_1">うーん、注文とちょっとちがうかも。</string>
     <string name="ck2_result_0">あらら…もう一度やってみよう！</string>
+    <string name="game_jigsaw_name">ジグソーパズル</string>
+    <string name="game_jigsaw_desc">ピースを正しい場所にドラッグしてカラフルな絵を完成させよう。12・24・40ピースから選べる。</string>
+    <string name="jg_choose">絵を選んでね</string>
+    <string name="jg_pieces">ピース</string>
+    <string name="jg_pictures">絵</string>
+    <string name="jg_done">完成！</string>
+    <string name="jg_new_puzzle">新しいパズル</string>
 </resources>

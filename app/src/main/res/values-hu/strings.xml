@@ -618,4 +618,11 @@
     <string name="ck2_result_2">Finom, elégedett!</string>
     <string name="ck2_result_1">Hmm, nem egészen ezt rendelte.</string>
     <string name="ck2_result_0">Jaj… próbáljuk újra!</string>
+    <string name="game_jigsaw_name">Kirakós</string>
+    <string name="game_jigsaw_desc">Húzd a helyükre a darabokat, és rakd ki a színes képeket. Válassz 12, 24 vagy 40 darabot.</string>
+    <string name="jg_choose">Válassz egy képet</string>
+    <string name="jg_pieces">darab</string>
+    <string name="jg_pictures">Képek</string>
+    <string name="jg_done">KÉSZ!</string>
+    <string name="jg_new_puzzle">Új kirakós</string>
 </resources>

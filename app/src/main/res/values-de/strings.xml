@@ -618,4 +618,11 @@
     <string name="ck2_result_2">Lecker, zufrieden!</string>
     <string name="ck2_result_1">Hmm, nicht ganz wie bestellt.</string>
     <string name="ck2_result_0">Oje… nochmal versuchen!</string>
+    <string name="game_jigsaw_name">Puzzle</string>
+    <string name="game_jigsaw_desc">Ziehe die Teile an ihren Platz und vervollständige bunte Bilder. Wähle 12, 24 oder 40 Teile.</string>
+    <string name="jg_choose">Wähle ein Bild</string>
+    <string name="jg_pieces">Teile</string>
+    <string name="jg_pictures">Bilder</string>
+    <string name="jg_done">GESCHAFFT!</string>
+    <string name="jg_new_puzzle">Neues Puzzle</string>
 </resources>

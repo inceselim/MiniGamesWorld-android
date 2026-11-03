@@ -7,6 +7,7 @@ object GameCatalog {
     val games: List<Game> = listOf(
         Game("block-puzzle", R.string.game_block_puzzle_name, R.string.game_block_puzzle_desc, GameCategory.PUZZLE, R.drawable.game_block_puzzle, entryCost = 20, isFeatured = true, isPlayable = true),
         Game("block-rain", R.string.game_block_rain_name, R.string.game_block_rain_desc, GameCategory.PUZZLE, R.drawable.game_block_rain, entryCost = 10, isPlayable = true),
+        Game("jigsaw", R.string.game_jigsaw_name, R.string.game_jigsaw_desc, GameCategory.PUZZLE, R.drawable.game_jigsaw, entryCost = 5, isPlayable = true),
         Game("match-3", R.string.game_match_3_name, R.string.game_match_3_desc, GameCategory.PUZZLE, R.drawable.game_match_3, entryCost = 25, isPlayable = true),
         Game("sudoku", R.string.game_sudoku_name, R.string.game_sudoku_desc, GameCategory.CLASSIC, R.drawable.game_sudoku, entryCost = 15, isPlayable = true),
         Game("memory-card", R.string.game_memory_card_name, R.string.game_memory_card_desc, GameCategory.CARD, R.drawable.game_memory_card, entryCost = 25, isPlayable = true),

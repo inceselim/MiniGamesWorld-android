@@ -618,4 +618,11 @@
     <string name="ck2_result_2">¡Rico, está contento!</string>
     <string name="ck2_result_1">Mmm, no es exactamente lo que pidió.</string>
     <string name="ck2_result_0">Vaya… ¡intentémoslo de nuevo!</string>
+    <string name="game_jigsaw_name">Rompecabezas</string>
+    <string name="game_jigsaw_desc">Arrastra las piezas a su sitio y completa imágenes llenas de color. Elige 12, 24 o 40 piezas.</string>
+    <string name="jg_choose">Elige una imagen</string>
+    <string name="jg_pieces">piezas</string>
+    <string name="jg_pictures">Imágenes</string>
+    <string name="jg_done">¡COMPLETADO!</string>
+    <string name="jg_new_puzzle">Nuevo rompecabezas</string>
 </resources>

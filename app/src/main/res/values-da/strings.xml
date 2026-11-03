@@ -618,4 +618,11 @@
     <string name="ck2_result_2">Lækkert, de er glade!</string>
     <string name="ck2_result_1">Hmm, ikke helt som bestilt.</string>
     <string name="ck2_result_0">Åh nej… vi prøver igen!</string>
+    <string name="game_jigsaw_name">Puslespil</string>
+    <string name="game_jigsaw_desc">Træk brikkerne på plads og fuldfør farverige billeder. Vælg 12, 24 eller 40 brikker.</string>
+    <string name="jg_choose">Vælg et billede</string>
+    <string name="jg_pieces">brikker</string>
+    <string name="jg_pictures">Billeder</string>
+    <string name="jg_done">FÆRDIG!</string>
+    <string name="jg_new_puzzle">Nyt puslespil</string>
 </resources>
