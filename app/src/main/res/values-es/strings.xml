@@ -424,7 +424,6 @@
     <string name="fg_cleared">Superado</string>
     <string name="fg_best">Récord: %1$d bajas</string>
     <string name="fg_play">Jugar · %1$s</string>
-    <string name="fg_coins">%1$d monedas</string>
     <string name="fg_how_to">Muévete con el joystick izquierdo. Los ataques son automáticos. Recoge cristales, sube de nivel y elige mejoras. ¡Derrota al jefe a los 4:30!</string>
     <string name="fg_lv">Nv. %1$d</string>
     <string name="fg_new">¡NUEVO!</string>
@@ -461,10 +460,10 @@
     <string name="fg_boss_warning">¡El antiguo ent despierta!</string>
     <string name="fg_paused">En pausa</string>
     <string name="fg_resume">Continuar</string>
-    <string name="fg_quit">Salir del mapa (conservas las monedas)</string>
+    <string name="fg_quit">Salir del mapa</string>
     <string name="fg_victory">¡MAPA SUPERADO!</string>
     <string name="fg_defeat">HAS CAÍDO</string>
-    <string name="fg_result">Tiempo %1$s · Bajas %2$d · Nivel %3$d · Monedas +%4$d</string>
+    <string name="fg_result">Tiempo %1$s · Bajas %2$d · Nivel %3$d</string>
     <string name="fg_revive">Ver anuncio: revivir</string>
     <string name="fg_give_up">Rendirse</string>
     <string name="fg_next_map">Siguiente mapa</string>
@@ -484,11 +483,10 @@
     <string name="fg_e_frost_desc">Una enorme ola helada que congela a los enemigos.</string>
     <string name="fg_q_kills">Elimina enemigos %1$d/%2$d</string>
     <string name="fg_q_level">Alcanza el nivel %1$d/%2$d</string>
-    <string name="fg_q_coins">Recoge monedas %1$d/%2$d</string>
     <string name="fg_q_evolve">Evoluciona armas %1$d/%2$d</string>
     <string name="fg_q_boss">Derrota al jefe en %1$d s</string>
     <string name="fg_quests">Misiones %1$d/%2$d</string>
-    <string name="fg_quest_done">¡Misión completada! +%1$d monedas</string>
+    <string name="fg_quest_done">¡Misión completada! +%1$d de oro</string>
     <string name="fg_evolution">¡EVOLUCIÓN!</string>
     <string name="fg_evolutions">Evoluciones: arma nivel 5 + pasiva</string>
 </resources>

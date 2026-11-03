@@ -61,7 +61,7 @@ class Pickup(var x: Float, var y: Float, val kind: PickupKind, val value: Int) {
     var alive = true
 }
 
-enum class PickupKind { GEM, BIG_GEM, COIN, MEAT, CHEST }
+enum class PickupKind { GEM, BIG_GEM, MEAT, CHEST }
 
 /** Gorsel parcacik (olum, vurus kivilcimi). */
 class Particle(var x: Float, var y: Float, var vx: Float, var vy: Float, var life: Float, val maxLife: Float, val color: Long, val size: Float)
@@ -86,12 +86,11 @@ class FrameEvents {
     var kills = 0
     var heroHit = false
     var pickedGems = 0
-    var pickedCoins = 0
     var bossSpawned = false
     var skillUsed = false
     var evolved = false
     fun clear() {
-        kills = 0; heroHit = false; pickedGems = 0; pickedCoins = 0; bossSpawned = false; skillUsed = false; evolved = false
+        kills = 0; heroHit = false; pickedGems = 0; bossSpawned = false; skillUsed = false; evolved = false
     }
 }
 
@@ -116,7 +115,6 @@ class ForestEngine(
     var xp = 0f
     var pendingLevelUps = 0
     var kills = 0
-    var coins = 0
     var time = 0f
     var dead = false
     var victory = false
@@ -536,11 +534,9 @@ class ForestEngine(
         when {
             e.type.isBoss -> {
                 pickups += Pickup(e.x, e.y, PickupKind.CHEST, 0)
-                repeat(12) { pickups += Pickup(e.x + random.nextFloat() * 2 - 1, e.y + random.nextFloat() * 2 - 1, PickupKind.COIN, 5) }
                 boss = null
                 bossKillTime = time
             }
-            random.nextFloat() < COIN_CHANCE -> pickups += Pickup(e.x + 0.2f, e.y, PickupKind.COIN, 1 + map.ordinal)
             random.nextFloat() < MEAT_CHANCE -> pickups += Pickup(e.x, e.y + 0.2f, PickupKind.MEAT, 30)
         }
     }
@@ -682,15 +678,8 @@ class ForestEngine(
                 addXp(p.value.toFloat())
                 events.pickedGems++
             }
-            PickupKind.COIN -> {
-                coins += p.value
-                events.pickedCoins++
-            }
             PickupKind.MEAT -> hp = min(maxHp, hp + p.value)
-            PickupKind.CHEST -> {
-                coins += 25 * (map.ordinal + 1)
-                victory = true
-            }
+            PickupKind.CHEST -> victory = true
         }
     }
 
@@ -828,7 +817,6 @@ class ForestEngine(
         const val SKILL_DAMAGE = 80f
         const val MP_REGEN = 1.5f
         const val MP_PER_KILL = 0.6f
-        const val COIN_CHANCE = 0.07f
         const val MEAT_CHANCE = 0.012f
     }
 }

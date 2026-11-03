@@ -71,7 +71,6 @@ val WeaponType.evolvedDescRes: Int
 enum class QuestType(@StringRes val textRes: Int) {
     KILLS(R.string.fg_q_kills),
     LEVEL(R.string.fg_q_level),
-    COINS(R.string.fg_q_coins),
     EVOLVE(R.string.fg_q_evolve),
     BOSS_FAST(R.string.fg_q_boss),
 }
@@ -87,15 +86,15 @@ object ForestQuests {
         val k = i + 1
         val second = when (m) {
             ForestMap.EDGE -> QuestType.LEVEL to 12
-            ForestMap.SWAMP -> QuestType.COINS to 30
+            ForestMap.SWAMP -> QuestType.LEVEL to 16
             ForestMap.MUSHROOM -> QuestType.EVOLVE to 1
             ForestMap.VALLEY -> QuestType.LEVEL to 22
             ForestMap.DARK -> QuestType.EVOLVE to 2
         }
         return listOf(
-            Quest(m, 0, QuestType.KILLS, listOf(150, 250, 350, 450, 600)[i], 40 * k),
-            Quest(m, 1, second.first, second.second, 50 * k),
-            Quest(m, 2, QuestType.BOSS_FAST, listOf(90, 75, 60, 60, 60)[i], 80 * k),
+            Quest(m, 0, QuestType.KILLS, listOf(150, 250, 350, 450, 600)[i], 5 * k),
+            Quest(m, 1, second.first, second.second, 8 * k),
+            Quest(m, 2, QuestType.BOSS_FAST, listOf(90, 75, 60, 60, 60)[i], 12 * k),
         )
     }
 
@@ -103,7 +102,6 @@ object ForestQuests {
     fun progress(q: Quest, e: ForestEngine): Int = when (q.type) {
         QuestType.KILLS -> e.kills
         QuestType.LEVEL -> e.level
-        QuestType.COINS -> e.coins
         QuestType.EVOLVE -> e.evolved.size
         QuestType.BOSS_FAST -> if (e.bossKillTime >= 0f && e.bossSpawnTime >= 0f) (e.bossKillTime - e.bossSpawnTime).toInt() else -1
     }
@@ -147,7 +145,6 @@ data class ForestProfile(
     val version: Int = 1,
     /** Acilmis en yuksek harita indeksi. */
     val unlocked: Int = 0,
-    val coins: Int = 0,
     val cleared: List<Int> = emptyList(),
     /** Harita indeksi -> en cok oldurme. */
     val bestKills: Map<Int, Int> = emptyMap(),

@@ -424,7 +424,6 @@
     <string name="fg_cleared">Пройдено</string>
     <string name="fg_best">Рекорд: %1$d убийств</string>
     <string name="fg_play">Играть · %1$s</string>
-    <string name="fg_coins">%1$d монет</string>
     <string name="fg_how_to">Двигайтесь левым стиком. Атака автоматическая. Собирайте кристаллы, повышайте уровень и выбирайте улучшения. Победите босса на 4:30!</string>
     <string name="fg_lv">Ур. %1$d</string>
     <string name="fg_new">НОВОЕ!</string>
@@ -461,10 +460,10 @@
     <string name="fg_boss_warning">Древний энт пробудился!</string>
     <string name="fg_paused">Пауза</string>
     <string name="fg_resume">Продолжить</string>
-    <string name="fg_quit">Покинуть карту (монеты сохранятся)</string>
+    <string name="fg_quit">Покинуть карту</string>
     <string name="fg_victory">КАРТА ПРОЙДЕНА!</string>
     <string name="fg_defeat">ВЫ ПАЛИ</string>
-    <string name="fg_result">Время %1$s · Убито %2$d · Уровень %3$d · Монеты +%4$d</string>
+    <string name="fg_result">Время %1$s · Убито %2$d · Уровень %3$d</string>
     <string name="fg_revive">Смотреть рекламу: воскреснуть</string>
     <string name="fg_give_up">Сдаться</string>
     <string name="fg_next_map">Следующая карта</string>
@@ -484,11 +483,10 @@
     <string name="fg_e_frost_desc">Огромная ледяная волна замораживает врагов.</string>
     <string name="fg_q_kills">Убить врагов %1$d/%2$d</string>
     <string name="fg_q_level">Достичь уровня %1$d/%2$d</string>
-    <string name="fg_q_coins">Собрать монеты %1$d/%2$d</string>
     <string name="fg_q_evolve">Эволюция оружия %1$d/%2$d</string>
     <string name="fg_q_boss">Победить босса за %1$d с</string>
     <string name="fg_quests">Задания %1$d/%2$d</string>
-    <string name="fg_quest_done">Задание выполнено! +%1$d монет</string>
+    <string name="fg_quest_done">Задание выполнено! +%1$d золота</string>
     <string name="fg_evolution">ЭВОЛЮЦИЯ!</string>
     <string name="fg_evolutions">Эволюции: оружие 5 ур. + пассивка</string>
 </resources>

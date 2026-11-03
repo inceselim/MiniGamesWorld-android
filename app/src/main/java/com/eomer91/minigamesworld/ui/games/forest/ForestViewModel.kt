@@ -29,7 +29,6 @@ data class ForestUiState(
     /** Sonuc ekrani */
     val victory: Boolean = false,
     val canRevive: Boolean = false,
-    val runCoins: Int = 0,
     val runKills: Int = 0,
     val runTime: Int = 0,
     val runLevel: Int = 1,
@@ -44,7 +43,8 @@ data class ForestUiState(
     val questToast: Quest? = null,
     val questToastTime: Float = 0f,
     val evolveToast: Float = 0f,
-    val runQuestCoins: Int = 0,
+    /** Bu turda tamamlanan gorevlerin altin odulu (hub altini). */
+    val runQuestGold: Int = 0,
 ) {
     val quests: List<Quest> get() = ForestQuests.forMap(selectedMap)
     fun questDone(q: Quest) = q.id in profile.questsDone || q.id in runQuestsDone
@@ -102,7 +102,7 @@ class ForestViewModel @Inject constructor(
         _state.update {
             it.copy(
                 phase = ForestPhase.PLAYING, choices = emptyList(), goldEarned = 0, bestAtStart = it.best, bossWarning = 0f,
-                runQuestsDone = emptySet(), questToast = null, questToastTime = 0f, evolveToast = 0f, runQuestCoins = 0,
+                runQuestsDone = emptySet(), questToast = null, questToastTime = 0f, evolveToast = 0f, runQuestGold = 0,
             )
         }
         feedback.play(Sfx.CLEAR, volume = 0.5f)
@@ -177,7 +177,6 @@ class ForestViewModel @Inject constructor(
             gemSfxCooldown = 0.08f
             feedback.play(Sfx.DROP, volume = 0.2f)
         }
-        if (ev.pickedCoins > 0) feedback.play(Sfx.COMBO, volume = 0.35f)
         if (ev.heroHit) feedback.vibrate(Haptic.LIGHT)
         if (ev.bossSpawned) {
             _state.update { it.copy(bossWarning = 3f) }
@@ -216,7 +215,7 @@ class ForestViewModel @Inject constructor(
         val s = _state.value
         s.quests.forEach { q ->
             if (!s.questDone(q) && ForestQuests.isDone(q, e)) {
-                _state.update { it.copy(runQuestsDone = it.runQuestsDone + q.id, questToast = q, questToastTime = 3f, runQuestCoins = it.runQuestCoins + q.reward) }
+                _state.update { it.copy(runQuestsDone = it.runQuestsDone + q.id, questToast = q, questToastTime = 3f, runQuestGold = it.runQuestGold + q.reward) }
                 feedback.play(Sfx.COMBO)
                 feedback.vibrate(Haptic.LIGHT)
             }
@@ -242,7 +241,6 @@ class ForestViewModel @Inject constructor(
                 phase = ForestPhase.RESULT,
                 victory = victory,
                 canRevive = !victory && !e.reviveUsed,
-                runCoins = e.coins,
                 runKills = e.kills,
                 runTime = e.time.toInt(),
                 runLevel = e.level,
@@ -274,7 +272,6 @@ class ForestViewModel @Inject constructor(
                     phase = ForestPhase.RESULT,
                     victory = e.victory,
                     canRevive = false,
-                    runCoins = e.coins,
                     runKills = e.kills,
                     runTime = e.time.toInt(),
                     runLevel = e.level,
@@ -287,7 +284,7 @@ class ForestViewModel @Inject constructor(
         saveRunResults(e)
     }
 
-    /** Sikke, harita ilerlemesi, skor ve hub altini (tur basina bir kez). */
+    /** Harita ilerlemesi, gorevler, skor ve hub altini (tur basina bir kez). */
     private fun saveRunResults(e: ForestEngine) {
         if (finalized) return
         finalized = true
@@ -295,17 +292,18 @@ class ForestViewModel @Inject constructor(
         val mapIdx = e.map.ordinal
         val p = s.profile
         val profile = p.copy(
-            coins = p.coins + e.coins + s.runQuestCoins,
             questsDone = (p.questsDone + s.runQuestsDone).distinct(),
             unlocked = if (e.victory) maxOf(p.unlocked, (mapIdx + 1).coerceAtMost(ForestMap.entries.lastIndex)) else p.unlocked,
             cleared = if (e.victory && mapIdx !in p.cleared) p.cleared + mapIdx else p.cleared,
             bestKills = p.bestKills + (mapIdx to maxOf(p.bestKills[mapIdx] ?: 0, e.kills)),
         )
         val delta = goldTracker.onScore(e.score)
-        _state.update { it.copy(profile = profile, goldEarned = goldTracker.awarded) }
+        // Gorev odulleri dogrudan hub altini olarak verilir
+        val questGold = s.runQuestGold
+        _state.update { it.copy(profile = profile, goldEarned = goldTracker.awarded + questGold) }
         viewModelScope.launch {
             prefs.saveGame(PROFILE_KEY, profile.toJson())
-            if (delta > 0) prefs.addGold(delta)
+            if (delta + questGold > 0) prefs.addGold(delta + questGold)
             prefs.submitScore(GAME_ID, e.score)
         }
     }

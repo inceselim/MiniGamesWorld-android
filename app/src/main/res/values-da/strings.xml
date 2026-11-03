@@ -424,7 +424,6 @@
     <string name="fg_cleared">Gennemført</string>
     <string name="fg_best">Rekord: %1$d nedlagt</string>
     <string name="fg_play">Spil · %1$s</string>
-    <string name="fg_coins">%1$d mønter</string>
     <string name="fg_how_to">Bevæg dig med venstre stik. Angreb sker automatisk. Saml krystaller, stig i niveau og vælg opgraderinger. Besejr bossen ved 4:30!</string>
     <string name="fg_lv">Niv. %1$d</string>
     <string name="fg_new">NY!</string>
@@ -461,10 +460,10 @@
     <string name="fg_boss_warning">Den ældgamle træmand vågner!</string>
     <string name="fg_paused">På pause</string>
     <string name="fg_resume">Fortsæt</string>
-    <string name="fg_quit">Forlad banen (behold mønter)</string>
+    <string name="fg_quit">Forlad banen</string>
     <string name="fg_victory">BANE KLARET!</string>
     <string name="fg_defeat">DU FALDT</string>
-    <string name="fg_result">Tid %1$s · Nedlagt %2$d · Niveau %3$d · Mønter +%4$d</string>
+    <string name="fg_result">Tid %1$s · Nedlagt %2$d · Niveau %3$d</string>
     <string name="fg_revive">Se annonce: genopliv</string>
     <string name="fg_give_up">Giv op</string>
     <string name="fg_next_map">Næste bane</string>
@@ -484,11 +483,10 @@
     <string name="fg_e_frost_desc">En kæmpe isbølge, der fryser fjender fast.</string>
     <string name="fg_q_kills">Nedlæg fjender %1$d/%2$d</string>
     <string name="fg_q_level">Nå niveau %1$d/%2$d</string>
-    <string name="fg_q_coins">Saml mønter %1$d/%2$d</string>
     <string name="fg_q_evolve">Udvikl våben %1$d/%2$d</string>
     <string name="fg_q_boss">Besejr bossen inden %1$d s</string>
     <string name="fg_quests">Opgaver %1$d/%2$d</string>
-    <string name="fg_quest_done">Opgave klaret! +%1$d mønter</string>
+    <string name="fg_quest_done">Opgave klaret! +%1$d guld</string>
     <string name="fg_evolution">UDVIKLING!</string>
     <string name="fg_evolutions">Udviklinger: våben niveau 5 + passiv</string>
 </resources>

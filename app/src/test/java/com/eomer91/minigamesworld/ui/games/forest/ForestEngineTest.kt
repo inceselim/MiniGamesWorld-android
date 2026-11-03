@@ -90,7 +90,7 @@ class ForestEngineTest {
 
     @Test
     fun profileJsonRoundTrip() {
-        val p = ForestProfile(unlocked = 2, coins = 340, cleared = listOf(0, 1), bestKills = mapOf(0 to 512))
+        val p = ForestProfile(unlocked = 2, cleared = listOf(0, 1), bestKills = mapOf(0 to 512))
         assertEquals(p, ForestProfile.fromJson(p.toJson()))
     }
 }

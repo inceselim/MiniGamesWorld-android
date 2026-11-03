@@ -424,7 +424,6 @@
     <string name="fg_cleared">クリア</string>
     <string name="fg_best">最高：%1$d 体撃破</string>
     <string name="fg_play">プレイ · %1$s</string>
-    <string name="fg_coins">コイン %1$d</string>
     <string name="fg_how_to">左のスティックで移動。攻撃は自動。クリスタルを集めてレベルアップし、強化を選ぼう。4:30 に現れるボスを倒そう！</string>
     <string name="fg_lv">Lv %1$d</string>
     <string name="fg_new">新規！</string>
@@ -461,10 +460,10 @@
     <string name="fg_boss_warning">古の樹人が目覚めた！</string>
     <string name="fg_paused">一時停止</string>
     <string name="fg_resume">再開</string>
-    <string name="fg_quit">マップを出る（コインは残る）</string>
+    <string name="fg_quit">マップを出る</string>
     <string name="fg_victory">マップクリア！</string>
     <string name="fg_defeat">力尽きた</string>
-    <string name="fg_result">時間 %1$s · 撃破 %2$d · レベル %3$d · コイン +%4$d</string>
+    <string name="fg_result">時間 %1$s · 撃破 %2$d · レベル %3$d</string>
     <string name="fg_revive">広告を見て復活</string>
     <string name="fg_give_up">あきらめる</string>
     <string name="fg_next_map">次のマップ</string>
@@ -484,11 +483,10 @@
     <string name="fg_e_frost_desc">敵を完全に凍らせる巨大な氷の波。</string>
     <string name="fg_q_kills">敵を倒す %1$d/%2$d</string>
     <string name="fg_q_level">レベル到達 %1$d/%2$d</string>
-    <string name="fg_q_coins">コインを集める %1$d/%2$d</string>
     <string name="fg_q_evolve">武器を進化 %1$d/%2$d</string>
     <string name="fg_q_boss">ボスを %1$d 秒以内に倒す</string>
     <string name="fg_quests">クエスト %1$d/%2$d</string>
-    <string name="fg_quest_done">クエスト達成！コイン +%1$d</string>
+    <string name="fg_quest_done">クエスト達成！ゴールド +%1$d</string>
     <string name="fg_evolution">進化！</string>
     <string name="fg_evolutions">進化：武器レベル 5 ＋ パッシブ</string>
 </resources>

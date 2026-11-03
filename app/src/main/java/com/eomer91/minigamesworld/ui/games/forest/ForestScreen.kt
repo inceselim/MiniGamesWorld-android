@@ -246,11 +246,6 @@ private fun HubContent(state: ForestUiState, viewModel: ForestViewModel, onBack:
                 Canvas(Modifier.size(40.dp)) { sprite(ForestSprites.hero0, size.width / 2f, size.height * 0.85f, size.height) }
             }
             Text(stringResource(R.string.game_forest_name), color = AppColors.TextPrimary, fontWeight = FontWeight.Black, fontSize = 22.sp, modifier = Modifier.padding(top = 8.dp))
-            Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(top = 6.dp)) {
-                Canvas(Modifier.size(18.dp)) { sprite(ForestSprites.coin, size.width / 2f, size.height, size.height) }
-                Spacer(Modifier.width(6.dp))
-                Text(stringResource(R.string.fg_coins, p.coins), color = Gold, fontWeight = FontWeight.Black)
-            }
             Text(
                 stringResource(R.string.fg_quests, state.quests.count { state.questDone(it) }, state.quests.size) + " · " + stringResource(state.selectedMap.nameRes),
                 color = Gold,
@@ -264,7 +259,7 @@ private fun HubContent(state: ForestUiState, viewModel: ForestViewModel, onBack:
                     Text(if (done) "✔" else "•", color = if (done) Color(0xFF4ADE80) else AppColors.TextSecondary, fontWeight = FontWeight.Black, modifier = Modifier.width(16.dp))
                     Text(
                         questText(q, if (done) q.target else 0) +
-                            "  +" + q.reward + "🪙",
+                            "  +" + q.reward + " 💰",
                         color = if (done) AppColors.TextSecondary else AppColors.TextPrimary,
                         fontSize = 12.sp,
                     )
@@ -442,8 +437,6 @@ private fun BoxScope.Hud(viewModel: ForestViewModel, state: ForestUiState) {
             HudChip(formatTime(e.time) + " / " + formatTime(ForestEngine.MAP_SECONDS))
             Spacer(Modifier.width(6.dp))
             HudChip("💀 ${e.kills}")
-            Spacer(Modifier.width(6.dp))
-            HudChip("🪙 ${e.coins}", Gold)
             Spacer(Modifier.weight(1f))
             // Silah ve pasif simgeleri
             e.weapons.forEach { (w, l) -> SlotIcon(Color(w.color), l, evolved = w in e.evolved) }
@@ -690,13 +683,6 @@ private fun DrawScope.drawWorld(e: ForestEngine, unit: Float, paint: android.gra
             PickupKind.BIG_GEM -> {
                 drawCircle(Color(0x335AC8FF), unit * 0.4f, Offset(x, y - unit * 0.1f + bob))
                 sprite(ForestSprites.gem2, x, y + unit * 0.15f + bob, unit * 0.55f)
-            }
-            PickupKind.COIN -> {
-                // Donen sikke: yatayda daralip genisler
-                val k = kotlin.math.abs(cos(e.time * 5f + p.x))
-                withTransform({ scale(0.25f + 0.75f * k, 1f, pivot = Offset(x, y)) }) {
-                    sprite(ForestSprites.coin, x, y + unit * 0.12f + bob, unit * 0.42f)
-                }
             }
             PickupKind.MEAT -> sprite(ForestSprites.meat, x, y + unit * 0.15f + bob, unit * 0.5f)
             PickupKind.CHEST -> {
@@ -1089,14 +1075,14 @@ private fun ResultOverlay(
                 fontWeight = FontWeight.Black,
             )
             Text(
-                stringResource(R.string.fg_result, formatTime(state.runTime.toFloat()), state.runKills, state.runLevel, state.runCoins),
+                stringResource(R.string.fg_result, formatTime(state.runTime.toFloat()), state.runKills, state.runLevel),
                 color = AppColors.TextPrimary,
                 fontSize = 14.sp,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(top = 6.dp),
             )
-            if (state.runQuestCoins > 0) {
-                Text("✔ " + stringResource(R.string.fg_quest_done, state.runQuestCoins), color = Color(0xFF4ADE80), fontSize = 13.sp, fontWeight = FontWeight.Bold)
+            if (state.runQuestGold > 0) {
+                Text("✔ " + stringResource(R.string.fg_quest_done, state.runQuestGold), color = Color(0xFF4ADE80), fontSize = 13.sp, fontWeight = FontWeight.Bold)
             }
             if (state.canRevive) {
                 Button(

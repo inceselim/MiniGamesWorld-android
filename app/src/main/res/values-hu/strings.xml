@@ -424,7 +424,6 @@
     <string name="fg_cleared">Teljesítve</string>
     <string name="fg_best">Rekord: %1$d legyőzött</string>
     <string name="fg_play">Játék · %1$s</string>
-    <string name="fg_coins">%1$d érme</string>
     <string name="fg_how_to">Mozogj a bal karral. A támadás automatikus. Gyűjts kristályt, lépj szintet és válassz fejlesztést. Győzd le a főellenséget 4:30-kor!</string>
     <string name="fg_lv">%1$d. szint</string>
     <string name="fg_new">ÚJ!</string>
@@ -461,10 +460,10 @@
     <string name="fg_boss_warning">Felébredt az ősi fapásztor!</string>
     <string name="fg_paused">Szünet</string>
     <string name="fg_resume">Folytatás</string>
-    <string name="fg_quit">Pálya elhagyása (érmék megmaradnak)</string>
+    <string name="fg_quit">Pálya elhagyása</string>
     <string name="fg_victory">PÁLYA TELJESÍTVE!</string>
     <string name="fg_defeat">ELESTÉL</string>
-    <string name="fg_result">Idő %1$s · Legyőzve %2$d · Szint %3$d · Érme +%4$d</string>
+    <string name="fg_result">Idő %1$s · Legyőzve %2$d · Szint %3$d</string>
     <string name="fg_revive">Hirdetés: újraéledés</string>
     <string name="fg_give_up">Feladás</string>
     <string name="fg_next_map">Következő pálya</string>
@@ -484,11 +483,10 @@
     <string name="fg_e_frost_desc">Hatalmas jeges hullám, amely megfagyasztja az ellenséget.</string>
     <string name="fg_q_kills">Győzz le ellenséget %1$d/%2$d</string>
     <string name="fg_q_level">Érd el a szintet %1$d/%2$d</string>
-    <string name="fg_q_coins">Gyűjts érmét %1$d/%2$d</string>
     <string name="fg_q_evolve">Fejlessz fegyvert %1$d/%2$d</string>
     <string name="fg_q_boss">Győzd le a főellenséget %1$d mp alatt</string>
     <string name="fg_quests">Küldetések %1$d/%2$d</string>
-    <string name="fg_quest_done">Küldetés teljesítve! +%1$d érme</string>
+    <string name="fg_quest_done">Küldetés teljesítve! +%1$d arany</string>
     <string name="fg_evolution">EVOLÚCIÓ!</string>
     <string name="fg_evolutions">Evolúciók: 5. szintű fegyver + passzív</string>
 </resources>

@@ -424,7 +424,6 @@
     <string name="fg_cleared">Completata</string>
     <string name="fg_best">Record: %1$d nemici</string>
     <string name="fg_play">Gioca · %1$s</string>
-    <string name="fg_coins">%1$d monete</string>
     <string name="fg_how_to">Muoviti con la levetta sinistra. Gli attacchi sono automatici. Raccogli cristalli, sali di livello e scegli potenziamenti. Sconfiggi il boss alle 4:30!</string>
     <string name="fg_lv">Liv. %1$d</string>
     <string name="fg_new">NUOVO!</string>
@@ -461,10 +460,10 @@
     <string name="fg_boss_warning">L\'antico Ent si risveglia!</string>
     <string name="fg_paused">In pausa</string>
     <string name="fg_resume">Riprendi</string>
-    <string name="fg_quit">Esci dalla mappa (tieni le monete)</string>
+    <string name="fg_quit">Esci dalla mappa</string>
     <string name="fg_victory">MAPPA COMPLETATA!</string>
     <string name="fg_defeat">SEI CADUTO</string>
-    <string name="fg_result">Tempo %1$s · Nemici %2$d · Livello %3$d · Monete +%4$d</string>
+    <string name="fg_result">Tempo %1$s · Nemici %2$d · Livello %3$d</string>
     <string name="fg_revive">Guarda annuncio: rinasci</string>
     <string name="fg_give_up">Arrenditi</string>
     <string name="fg_next_map">Mappa successiva</string>
@@ -484,11 +483,10 @@
     <string name="fg_e_frost_desc">Un\'enorme onda gelida che congela i nemici.</string>
     <string name="fg_q_kills">Uccidi nemici %1$d/%2$d</string>
     <string name="fg_q_level">Raggiungi il livello %1$d/%2$d</string>
-    <string name="fg_q_coins">Raccogli monete %1$d/%2$d</string>
     <string name="fg_q_evolve">Evolvi armi %1$d/%2$d</string>
     <string name="fg_q_boss">Sconfiggi il boss in %1$d s</string>
     <string name="fg_quests">Missioni %1$d/%2$d</string>
-    <string name="fg_quest_done">Missione completata! +%1$d monete</string>
+    <string name="fg_quest_done">Missione completata! +%1$d oro</string>
     <string name="fg_evolution">EVOLUZIONE!</string>
     <string name="fg_evolutions">Evoluzioni: arma livello 5 + passiva</string>
 </resources>

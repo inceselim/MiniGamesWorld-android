@@ -440,7 +440,6 @@
     <string name="fg_cleared">Cleared</string>
     <string name="fg_best">Best: %1$d kills</string>
     <string name="fg_play">Play · %1$s</string>
-    <string name="fg_coins">%1$d coins</string>
     <string name="fg_how_to">Move with the left stick. Attacks are automatic. Collect crystals to level up and choose upgrades. Survive and defeat the boss at 4:30!</string>
     <string name="fg_lv">Lv %1$d</string>
     <string name="fg_new">NEW!</string>
@@ -477,10 +476,10 @@
     <string name="fg_boss_warning">The Ancient Treant awakens!</string>
     <string name="fg_paused">Paused</string>
     <string name="fg_resume">Resume</string>
-    <string name="fg_quit">Leave map (keep coins)</string>
+    <string name="fg_quit">Leave map</string>
     <string name="fg_victory">MAP CLEARED!</string>
     <string name="fg_defeat">YOU FELL</string>
-    <string name="fg_result">Time %1$s · Kills %2$d · Level %3$d · Coins +%4$d</string>
+    <string name="fg_result">Time %1$s · Kills %2$d · Level %3$d</string>
     <string name="fg_revive">Watch ad: revive</string>
     <string name="fg_give_up">Give up</string>
     <string name="fg_next_map">Next map</string>
@@ -500,11 +499,10 @@
     <string name="fg_e_frost_desc">A huge icy wave that freezes enemies solid.</string>
     <string name="fg_q_kills">Kill enemies %1$d/%2$d</string>
     <string name="fg_q_level">Reach level %1$d/%2$d</string>
-    <string name="fg_q_coins">Collect coins %1$d/%2$d</string>
     <string name="fg_q_evolve">Evolve weapons %1$d/%2$d</string>
     <string name="fg_q_boss">Defeat the boss within %1$d s</string>
     <string name="fg_quests">Quests %1$d/%2$d</string>
-    <string name="fg_quest_done">Quest complete! +%1$d coins</string>
+    <string name="fg_quest_done">Quest complete! +%1$d gold</string>
     <string name="fg_evolution">EVOLUTION!</string>
     <string name="fg_evolutions">Evolutions: weapon at level 5 + passive</string>
 </resources>

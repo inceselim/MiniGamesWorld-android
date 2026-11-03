@@ -438,7 +438,6 @@
     <string name="fg_cleared">Bitti</string>
     <string name="fg_best">En iyi: %1$d düşman</string>
     <string name="fg_play">Oyna · %1$s</string>
-    <string name="fg_coins">%1$d sikke</string>
     <string name="fg_how_to">Sol çubukla yürü. Saldırılar otomatik. Kristal toplayıp seviye atla, güçlendirme seç. Hayatta kal ve 4:30\'da gelen boss\'u yen!</string>
     <string name="fg_lv">Sv %1$d</string>
     <string name="fg_new">YENİ!</string>
@@ -475,10 +474,10 @@
     <string name="fg_boss_warning">Kadim Ağaç Ruhu uyandı!</string>
     <string name="fg_paused">Duraklatıldı</string>
     <string name="fg_resume">Devam et</string>
-    <string name="fg_quit">Haritadan çık (sikkeler kalır)</string>
+    <string name="fg_quit">Haritadan çık</string>
     <string name="fg_victory">HARİTA BİTTİ!</string>
     <string name="fg_defeat">DÜŞTÜN</string>
-    <string name="fg_result">Süre %1$s · Düşman %2$d · Seviye %3$d · Sikke +%4$d</string>
+    <string name="fg_result">Süre %1$s · Düşman %2$d · Seviye %3$d</string>
     <string name="fg_revive">Reklam izle: diril</string>
     <string name="fg_give_up">Pes et</string>
     <string name="fg_next_map">Sonraki harita</string>
@@ -498,11 +497,10 @@
     <string name="fg_e_frost_desc">Düşmanları tamamen donduran dev buz dalgası.</string>
     <string name="fg_q_kills">Düşman öldür %1$d/%2$d</string>
     <string name="fg_q_level">Seviyeye ulaş %1$d/%2$d</string>
-    <string name="fg_q_coins">Sikke topla %1$d/%2$d</string>
     <string name="fg_q_evolve">Silah evrimleştir %1$d/%2$d</string>
     <string name="fg_q_boss">Boss\'u %1$d sn içinde yen</string>
     <string name="fg_quests">Görevler %1$d/%2$d</string>
-    <string name="fg_quest_done">Görev tamamlandı! +%1$d sikke</string>
+    <string name="fg_quest_done">Görev tamamlandı! +%1$d altın</string>
     <string name="fg_evolution">EVRİM!</string>
     <string name="fg_evolutions">Evrimler: 5. seviye silah + pasif</string>
 </resources>
