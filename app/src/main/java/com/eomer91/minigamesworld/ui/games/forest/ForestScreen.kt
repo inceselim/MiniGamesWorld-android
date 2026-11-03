@@ -57,6 +57,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.BlendMode
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.PathEffect
+import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.FilterQuality
@@ -216,7 +219,7 @@ private fun HubContent(state: ForestUiState, viewModel: ForestViewModel, onBack:
                     Icon(Icons.AutoMirrored.Rounded.ArrowBack, contentDescription = stringResource(R.string.back), tint = AppColors.TextPrimary)
                 }
                 Spacer(Modifier.width(10.dp))
-                Canvas(Modifier.size(40.dp)) { sprite(ForestSprites.hero, size.width / 2f, size.height * 0.85f, size.height) }
+                Canvas(Modifier.size(40.dp)) { sprite(ForestSprites.hero0, size.width / 2f, size.height * 0.85f, size.height) }
             }
             Text(stringResource(R.string.game_forest_name), color = AppColors.TextPrimary, fontWeight = FontWeight.Black, fontSize = 22.sp, modifier = Modifier.padding(top = 8.dp))
             Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(top = 6.dp)) {
@@ -279,13 +282,13 @@ private fun MapCard(m: ForestMap, p: ForestProfile, selected: Boolean, onClick: 
                 val u = size.height / 4f
                 sprite(ForestSprites.tree, u * 0.9f, u * 2.3f, u * 2.2f)
                 sprite(ForestSprites.bush, size.width - u * 0.8f, u * 3.6f, u * 1.4f)
-                sprite(ForestSprites.hero, size.width / 2f, u * 3.3f, u * 1.2f)
+                sprite(ForestSprites.hero0, size.width / 2f, u * 3.3f, u * 1.2f)
                 val enemy = when (m) {
-                    ForestMap.EDGE -> ForestSprites.goblin
-                    ForestMap.SWAMP -> ForestSprites.bat
-                    ForestMap.MUSHROOM -> ForestSprites.wolf
-                    ForestMap.VALLEY -> ForestSprites.orc
-                    ForestMap.DARK -> ForestSprites.treant
+                    ForestMap.EDGE -> ForestSprites.goblin0
+                    ForestMap.SWAMP -> ForestSprites.bat0
+                    ForestMap.MUSHROOM -> ForestSprites.wolf0
+                    ForestMap.VALLEY -> ForestSprites.orc0
+                    ForestMap.DARK -> ForestSprites.treant0
                 }
                 sprite(enemy, size.width - u * 1.1f, u * 1.8f, u * 1.3f)
                 if (locked) drawRect(Color.Black.copy(alpha = 0.55f))
@@ -525,175 +528,346 @@ private fun formatTime(t: Float): String {
 
 private fun hash(x: Int, y: Int): Int = ((x * 73856093) xor (y * 19349663) xor 0x5bd1e995).let { (it xor (it ushr 13)) and 0x7fffffff }
 
+/** 0..1 arasi yumusak deger gurultusu (zemin lekeleri icin). */
+private fun noise(x: Float, y: Float): Float {
+    val x0 = floor(x).toInt()
+    val y0 = floor(y).toInt()
+    val fx = x - x0
+    val fy = y - y0
+    fun v(a: Int, b: Int) = (hash(a, b) % 1000) / 1000f
+    val sx = fx * fx * (3 - 2 * fx)
+    val sy = fy * fy * (3 - 2 * fy)
+    val top = v(x0, y0) + (v(x0 + 1, y0) - v(x0, y0)) * sx
+    val bottom = v(x0, y0 + 1) + (v(x0 + 1, y0 + 1) - v(x0, y0 + 1)) * sx
+    return top + (bottom - top) * sy
+}
+
+/** Derinlik siralamasi icin cizilecek seyler (y'ye gore). */
+private class DrawItem(var y: Float, var kind: Int, var ref: Any?, var x: Float = 0f)
+
+private val drawItems = ArrayList<DrawItem>(256)
+private var drawCount = 0
+private fun item(y: Float, kind: Int, ref: Any?, x: Float = 0f) {
+    if (drawCount < drawItems.size) {
+        drawItems[drawCount].apply { this.y = y; this.kind = kind; this.ref = ref; this.x = x }
+    } else drawItems += DrawItem(y, kind, ref, x)
+    drawCount++
+}
+
+private const val K_ENEMY = 0
+private const val K_HERO = 1
+private const val K_TREE = 2
+private const val K_BUSH = 3
+private const val K_ROCK = 4
+
 private fun DrawScope.drawWorld(e: ForestEngine, unit: Float, paint: android.graphics.Paint) {
     val viewW = size.width / unit
     val viewH = size.height / unit
-    val camX = e.heroX - viewW / 2f
-    val camY = e.heroY - viewH / 2f
+    val shakeX = if (e.shake > 0f) sin(e.time * 90f) * e.shake * unit * 0.6f else 0f
+    val shakeY = if (e.shake > 0f) cos(e.time * 77f) * e.shake * unit * 0.6f else 0f
+    val camX = e.heroX - viewW / 2f - shakeX / unit
+    val camY = e.heroY - viewH / 2f - shakeY / unit
     fun sx(x: Float) = (x - camX) * unit
     fun sy(y: Float) = (y - camY) * unit
+    val grass = Color(e.map.grass)
+    val grassDark = Color(e.map.grassDark)
+    val grassLight = lerp(grass, Color(0xFFB5E36B), 0.18f)
 
-    // Zemin ve sus (sabit tohumlu, kahraman yurudukce akar)
-    drawRect(Color(e.map.grass))
-    val x0 = floor(camX).toInt() - 2
-    val y0 = floor(camY).toInt() - 2
-    val dark = Color(e.map.grassDark)
-    for (ty in y0..(y0 + viewH.toInt() + 4)) {
-        for (tx in x0..(x0 + viewW.toInt() + 4)) {
+    // ---- Zemin: yumusak lekeler + cimen saplari
+    val x0 = floor(camX).toInt() - 1
+    val y0 = floor(camY).toInt() - 1
+    val x1 = x0 + viewW.toInt() + 3
+    val y1 = y0 + viewH.toInt() + 3
+    for (ty in y0..y1) {
+        for (tx in x0..x1) {
+            val n = noise(tx / 7f, ty / 7f)
+            val c = when {
+                n < 0.35f -> grassDark
+                n > 0.68f -> grassLight
+                else -> grass
+            }
+            drawRect(c, Offset(sx(tx.toFloat()), sy(ty.toFloat())), Size(unit + 1f, unit + 1f))
+        }
+    }
+    val blade = 2f.coerceAtLeast(unit / 16f)
+    for (ty in y0..y1) {
+        for (tx in x0..x1) {
             val h = hash(tx, ty)
             val px = sx(tx.toFloat())
             val py = sy(ty.toFloat())
-            if (h % 7 == 0) drawRect(dark, Offset(px, py), Size(unit + 1, unit + 1))
+            if (h % 3 == 0) {
+                // 3 cimen sapi
+                val bx = px + (h % 7) * unit / 8f
+                val by = py + ((h / 7) % 6) * unit / 8f + unit * 0.4f
+                drawRect(grassDark, Offset(bx, by - blade * 3), Size(blade, blade * 3))
+                drawRect(grassLight, Offset(bx + blade * 2, by - blade * 4), Size(blade, blade * 4))
+                drawRect(grassDark, Offset(bx + blade * 4, by - blade * 2), Size(blade, blade * 2))
+            }
             when {
-                h % 5 == 1 -> sprite(ForestSprites.tuft, px + unit * 0.5f, py + unit * 0.8f, unit * 0.6f)
-                h % 97 == 3 -> sprite(ForestSprites.tree, px + unit * 0.5f, py + unit, unit * 2.6f)
-                h % 41 == 5 -> sprite(ForestSprites.bush, px + unit * 0.5f, py + unit, unit * 1.2f)
-                h % 53 == 7 -> sprite(ForestSprites.rock, px + unit * 0.5f, py + unit, unit * 1.0f)
-                h % 31 == 9 -> sprite(ForestSprites.flower, px + unit * 0.5f, py + unit * 0.8f, unit * 0.5f)
+                h % 29 == 4 -> sprite(ForestSprites.flowerY, px + unit * 0.5f, py + unit * 0.7f, unit * 0.45f)
+                h % 31 == 6 -> sprite(ForestSprites.flowerP, px + unit * 0.5f, py + unit * 0.7f, unit * 0.45f)
+                h % 47 == 8 -> sprite(ForestSprites.mushroom, px + unit * 0.5f, py + unit * 0.8f, unit * 0.55f)
             }
         }
     }
 
-    // Diken halkasi (kahramanin altinda)
+    // ---- Zemine yakin efektler: diken halkasi, buz halkalari, toplanabilirler
     e.weapons[WeaponType.THORNS]?.let { l ->
         val r = e.thornRadius(l) * unit
         val c = Offset(sx(e.heroX), sy(e.heroY))
-        drawCircle(Color(0xFF8FE36B).copy(alpha = 0.16f), r, c)
-        drawCircle(Color(0xFF8FE36B).copy(alpha = 0.5f), r, c, style = Stroke(2.dp.toPx()))
+        drawCircle(Brush.radialGradient(listOf(Color(0x008FE36B), Color(0x448FE36B)), c, r), r, c)
+        drawCircle(Color(0xFF8FE36B).copy(alpha = 0.55f), r, c, style = Stroke(2.dp.toPx(), pathEffect = PathEffect.dashPathEffect(floatArrayOf(10f, 8f), e.time * 30f)))
     }
-
-    // Toplanabilirler
+    for (n in e.novas) {
+        val k = 1f - n.life / 0.45f
+        val r = n.maxRadius * k * unit
+        val c = Offset(sx(n.x), sy(n.y))
+        drawCircle(Color(0xFFB8F0FF).copy(alpha = 0.25f * (1f - k)), r, c)
+        drawCircle(Color(0xFFE6FBFF).copy(alpha = 0.9f * (1f - k)), r, c, style = Stroke(6.dp.toPx()))
+    }
     for (p in e.pickups) {
         val x = sx(p.x)
         val y = sy(p.y)
         if (x < -unit || x > size.width + unit || y < -unit || y > size.height + unit) continue
+        val bob = sin(e.time * 4f + p.x * 3f) * unit * 0.06f
+        drawOval(Color.Black.copy(alpha = 0.2f), Offset(x - unit * 0.18f, y + unit * 0.12f), Size(unit * 0.36f, unit * 0.1f))
         when (p.kind) {
-            PickupKind.GEM -> sprite(ForestSprites.gem, x, y + unit * 0.2f, unit * 0.45f)
-            PickupKind.BIG_GEM -> sprite(ForestSprites.gem2, x, y + unit * 0.25f, unit * 0.6f)
-            PickupKind.COIN -> sprite(ForestSprites.coin, x, y + unit * 0.2f, unit * 0.45f)
-            PickupKind.MEAT -> sprite(ForestSprites.meat, x, y + unit * 0.25f, unit * 0.6f)
-            PickupKind.CHEST -> sprite(ForestSprites.chest, x, y + unit * 0.5f, unit * 1.3f)
+            PickupKind.GEM -> sprite(ForestSprites.gem, x, y + unit * 0.12f + bob, unit * 0.42f)
+            PickupKind.BIG_GEM -> {
+                drawCircle(Color(0x335AC8FF), unit * 0.4f, Offset(x, y - unit * 0.1f + bob))
+                sprite(ForestSprites.gem2, x, y + unit * 0.15f + bob, unit * 0.55f)
+            }
+            PickupKind.COIN -> {
+                // Donen sikke: yatayda daralip genisler
+                val k = kotlin.math.abs(cos(e.time * 5f + p.x))
+                withTransform({ scale(0.25f + 0.75f * k, 1f, pivot = Offset(x, y)) }) {
+                    sprite(ForestSprites.coin, x, y + unit * 0.12f + bob, unit * 0.42f)
+                }
+            }
+            PickupKind.MEAT -> sprite(ForestSprites.meat, x, y + unit * 0.15f + bob, unit * 0.5f)
+            PickupKind.CHEST -> {
+                drawCircle(Brush.radialGradient(listOf(Color(0x88FFE680), Color(0x00FFE680)), Offset(x, y), unit * 1.6f), unit * 1.6f, Offset(x, y))
+                sprite(ForestSprites.chest, x, y + unit * 0.4f, unit * 1.1f)
+            }
         }
     }
 
-    // Buz halkalari
-    for (n in e.novas) {
-        val r = n.maxRadius * (1f - n.life / 0.45f) * unit
-        drawCircle(Color(0xFFB8F0FF).copy(alpha = 0.7f * n.life / 0.45f), r, Offset(sx(n.x), sy(n.y)), style = Stroke(5.dp.toPx()))
+    // ---- Derinlige gore sirali: agaclar, calilar, kayalar, dusmanlar, kahraman
+    drawCount = 0
+    for (ty in (y0 - 2)..(y1 + 2)) {
+        for (tx in (x0 - 2)..(x1 + 2)) {
+            val h = hash(tx * 3 + 1, ty * 5 + 2)
+            when {
+                h % 61 == 3 -> item(ty + 1f, K_TREE, null, tx + 0.5f)
+                h % 43 == 5 -> item(ty + 1f, K_BUSH, null, tx + 0.5f)
+                h % 53 == 7 -> item(ty + 1f, K_ROCK, null, tx + 0.5f)
+            }
+        }
     }
-
-    // Dusmanlar
     for (en in e.enemies) {
         val x = sx(en.x)
         val y = sy(en.y)
-        val s = en.type.drawSize * unit
+        val s = en.type.drawSize * unit * 1.35f
         if (x < -s || x > size.width + s || y < -s || y > size.height + s) continue
-        drawOval(Color.Black.copy(alpha = 0.25f), Offset(x - s * 0.3f, y + s * 0.05f), Size(s * 0.6f, s * 0.18f))
-        val bob = if (en.type == EnemyType.BAT) sin(e.time * 14f + en.id) * unit * 0.12f else sin(e.time * 10f + en.id) * unit * 0.04f
-        val img = when (en.type) {
-            EnemyType.GOBLIN -> ForestSprites.goblin
-            EnemyType.BAT -> ForestSprites.bat
-            EnemyType.WOLF -> ForestSprites.wolf
-            EnemyType.ORC -> ForestSprites.orc
-            EnemyType.TREANT -> ForestSprites.treant
+        item(en.y, K_ENEMY, en)
+    }
+    item(e.heroY, K_HERO, null)
+    drawItems.subList(0, drawCount).sortBy { it.y }
+
+    for (k in 0 until drawCount) {
+        val it = drawItems[k]
+        when (it.kind) {
+            K_TREE -> {
+                val x = sx(it.x)
+                val y = sy(it.y)
+                drawOval(Color.Black.copy(alpha = 0.22f), Offset(x - unit * 1.2f, y - unit * 0.25f), Size(unit * 2.4f, unit * 0.6f))
+                // Kahraman agacin arkasindaysa agac yari saydam
+                val behind = kotlin.math.abs(e.heroX - it.x) < 1.3f && e.heroY < it.y && e.heroY > it.y - 3f
+                sprite(ForestSprites.tree, x, y, unit * 3.2f, alpha = if (behind) 0.55f else 1f)
+            }
+            K_BUSH -> sprite(ForestSprites.bush, sx(it.x), sy(it.y), unit * 0.8f)
+            K_ROCK -> sprite(ForestSprites.rock, sx(it.x), sy(it.y), unit * 0.6f)
+            K_ENEMY -> drawEnemy(e, it.ref as Enemy, unit, ::sx, ::sy)
+            K_HERO -> drawHero(e, unit, sx(e.heroX), sy(e.heroY))
         }
-        // Kurt cizimi sola bakiyor; digerleri saga
-        val flip = if (en.type == EnemyType.WOLF) !en.facingLeft else en.facingLeft
-        val tint = when {
-            en.flash > 0f -> Color.White
-            en.slow > 0f -> Color(0xFF9BE7FF)
-            else -> null
-        }
-        sprite(img, x, y + s * 0.1f + bob, s, flip = flip, tint = tint, tintAlpha = if (en.slow > 0f && en.flash <= 0f) 0.45f else 1f)
-        if (en.type.isBoss && en.charging > 0f) drawCircle(HpRed.copy(alpha = 0.3f), s * 0.6f, Offset(x, y - s * 0.3f))
     }
 
-    // Kahraman
-    val hx = sx(e.heroX)
-    val hy = sy(e.heroY)
-    drawOval(Color.Black.copy(alpha = 0.3f), Offset(hx - unit * 0.3f, hy + unit * 0.05f), Size(unit * 0.6f, unit * 0.18f))
-    val walk = e.moving && ((e.time * 7f).toInt() % 2 == 0)
-    val blink = e.iframe > 0f && ((e.time * 20f).toInt() % 2 == 0) && e.dashTime <= 0f
-    if (e.dashTime > 0f) {
-        // Atilma izi
-        for (k in 1..3) {
-            sprite(ForestSprites.hero, hx - e.facingX * unit * 0.35f * k, hy - e.facingY * unit * 0.35f * k + unit * 0.1f, unit * 1.1f, flip = e.facingX < 0f, alpha = 0.25f / k)
-        }
-    }
-    sprite(if (walk) ForestSprites.hero2 else ForestSprites.hero, hx, hy + unit * 0.1f, unit * 1.1f, flip = e.facingX < 0f, alpha = if (blink) 0.4f else 1f)
-    // Can cubugu
-    val bw = unit * 0.9f
-    drawRect(Color.Black.copy(alpha = 0.6f), Offset(hx - bw / 2, hy + unit * 0.25f), Size(bw, unit * 0.1f))
-    drawRect(HpRed, Offset(hx - bw / 2, hy + unit * 0.25f), Size(bw * (e.hp / e.maxHp).coerceIn(0f, 1f), unit * 0.1f))
-
-    // Donen bicaklar
+    // ---- Donen bicaklar
     for ((bx, by) in e.bladePositions()) {
-        val c = Offset(sx(bx), sy(by))
+        val c = Offset(sx(bx), sy(by) - unit * 0.3f)
+        drawCircle(Brush.radialGradient(listOf(Color(0x66FFFFFF), Color(0x00FFFFFF)), c, unit * 0.45f), unit * 0.45f, c)
         rotate(e.bladeAngle * 180f / PI.toFloat() * 3f, c) {
-            val r = unit * 0.32f
+            val r = unit * 0.34f
             val path = Path().apply {
                 moveTo(c.x, c.y - r)
-                lineTo(c.x + r * 0.35f, c.y)
+                lineTo(c.x + r * 0.32f, c.y)
                 lineTo(c.x, c.y + r)
-                lineTo(c.x - r * 0.35f, c.y)
+                lineTo(c.x - r * 0.32f, c.y)
                 close()
             }
-            drawPath(path, Color(0xFFD8DEE9))
-            drawPath(path, Color(0xFF5D6470), style = Stroke(1.5.dp.toPx()))
+            drawPath(path, Color(0xFFE8EDF5))
+            drawPath(path, Color(0xFF4B5563), style = Stroke(1.5.dp.toPx()))
+            drawLine(Color.White, Offset(c.x, c.y - r * 0.8f), Offset(c.x, c.y + r * 0.2f), 1.dp.toPx())
         }
     }
 
-    // Mermiler
+    // ---- Mermiler (parlayan)
     for (p in e.projectiles) {
-        val c = Offset(sx(p.x), sy(p.y))
+        val c = Offset(sx(p.x), sy(p.y) - unit * 0.3f)
         when (p.kind) {
             ProjectileKind.BOLT -> {
-                drawCircle(Color(0xFF6FE0FF).copy(alpha = 0.35f), unit * 0.28f, c)
-                drawCircle(Color(0xFFD8F5FF), unit * 0.13f, c)
+                val n = kotlin.math.hypot(p.vx, p.vy)
+                for (t in 1..3) {
+                    val tc = Offset(c.x - p.vx / n * unit * 0.14f * t, c.y - p.vy / n * unit * 0.14f * t)
+                    drawCircle(Color(0xFF6FE0FF).copy(alpha = 0.35f / t), unit * (0.18f - 0.03f * t), tc)
+                }
+                drawCircle(Brush.radialGradient(listOf(Color(0xAA6FE0FF), Color(0x006FE0FF)), c, unit * 0.45f), unit * 0.45f, c)
+                drawCircle(Color(0xFFE6FBFF), unit * 0.11f, c)
             }
             ProjectileKind.ARROW -> {
-                val len = unit * 0.5f
+                val len = unit * 0.55f
                 val n = kotlin.math.hypot(p.vx, p.vy)
-                val tail = Offset(c.x - p.vx / n * len, c.y - p.vy / n * len)
+                val ux = p.vx / n
+                val uy = p.vy / n
+                val tail = Offset(c.x - ux * len, c.y - uy * len)
                 drawLine(Color(0xFF8B5A2B), tail, c, 3.dp.toPx())
-                drawCircle(Color(0xFFE5E7EB), 2.5.dp.toPx(), c)
+                drawLine(Color(0xFFF2F2F2), tail, Offset(tail.x + ux * unit * 0.12f - uy * unit * 0.08f, tail.y + uy * unit * 0.12f + ux * unit * 0.08f), 2.dp.toPx())
+                drawLine(Color(0xFFF2F2F2), tail, Offset(tail.x + ux * unit * 0.12f + uy * unit * 0.08f, tail.y + uy * unit * 0.12f - ux * unit * 0.08f), 2.dp.toPx())
+                val head = Path().apply {
+                    moveTo(c.x + ux * unit * 0.12f, c.y + uy * unit * 0.12f)
+                    lineTo(c.x - uy * unit * 0.07f, c.y + ux * unit * 0.07f)
+                    lineTo(c.x + uy * unit * 0.07f, c.y - ux * unit * 0.07f)
+                    close()
+                }
+                drawPath(head, Color(0xFFD1D5DB))
             }
             ProjectileKind.SEED -> Unit
         }
     }
     for (s in e.enemyShots) {
-        val c = Offset(sx(s.x), sy(s.y))
-        drawCircle(Color(0xFF5A3A1C), unit * 0.2f, c)
-        drawCircle(Color(0xFF8FE36B), unit * 0.1f, c)
+        val c = Offset(sx(s.x), sy(s.y) - unit * 0.2f)
+        drawCircle(Brush.radialGradient(listOf(Color(0x88B5FF6B), Color(0x00B5FF6B)), c, unit * 0.4f), unit * 0.4f, c)
+        drawCircle(Color(0xFF5A3A1C), unit * 0.17f, c)
+        drawCircle(Color(0xFF8FE36B), unit * 0.08f, Offset(c.x - unit * 0.04f, c.y - unit * 0.04f))
     }
 
-    // Yildirimlar
+    // ---- Yildirimlar
     for (s in e.strikes) {
         val x = sx(s.x)
         val y = sy(s.y)
         val a = (s.life / 0.25f).coerceIn(0f, 1f)
         val path = Path().apply {
-            moveTo(x + unit * 0.3f, y - unit * 6f)
-            lineTo(x - unit * 0.2f, y - unit * 3.5f)
-            lineTo(x + unit * 0.25f, y - unit * 3f)
-            lineTo(x - unit * 0.15f, y - unit * 1f)
+            moveTo(x + unit * 0.3f, y - unit * 7f)
+            lineTo(x - unit * 0.25f, y - unit * 4.5f)
+            lineTo(x + unit * 0.3f, y - unit * 3.6f)
+            lineTo(x - unit * 0.2f, y - unit * 1.4f)
             lineTo(x, y)
         }
-        drawPath(path, Color(0xFFF7D046).copy(alpha = a), style = Stroke(4.dp.toPx()))
-        drawCircle(Color(0xFFFFF3B0).copy(alpha = a * 0.6f), unit * 0.6f, Offset(x, y))
+        drawPath(path, Color(0xFFF7D046).copy(alpha = a * 0.6f), style = Stroke(9.dp.toPx()))
+        drawPath(path, Color(0xFFFFFDE8).copy(alpha = a), style = Stroke(3.dp.toPx()))
+        drawCircle(Brush.radialGradient(listOf(Color(0xFFFFF3B0).copy(alpha = a), Color(0x00FFF3B0)), Offset(x, y), unit * 1.1f), unit * 1.1f, Offset(x, y))
     }
 
-    // Hasar yazilari
+    // ---- Parcaciklar
+    for (p in e.particles) {
+        val a = (p.life / p.maxLife).coerceIn(0f, 1f)
+        val sz = p.size * unit * (0.5f + 0.5f * a)
+        drawRect(Color(p.color).copy(alpha = a), Offset(sx(p.x) - sz / 2, sy(p.y) - sz / 2), Size(sz, sz))
+    }
+
+    // ---- Atesbocekleri (ekran uzayinda)
+    val dark = e.map == ForestMap.DARK || e.map == ForestMap.SWAMP
+    val flies = if (dark) 18 else 8
+    for (i in 0 until flies) {
+        val fx = ((hash(i, 7) % 1000) / 1000f * size.width + sin(e.time * 0.6f + i) * unit * 1.5f - e.heroX * unit * 0.15f).mod(size.width)
+        val fy = ((hash(i, 13) % 1000) / 1000f * size.height + cos(e.time * 0.5f + i * 2f) * unit - e.heroY * unit * 0.15f).mod(size.height)
+        val tw = 0.4f + 0.6f * kotlin.math.abs(sin(e.time * 2f + i))
+        drawCircle(Brush.radialGradient(listOf(Color(0xAAFFF59D).copy(alpha = 0.6f * tw), Color(0x00FFF59D)), Offset(fx, fy), unit * 0.3f), unit * 0.3f, Offset(fx, fy))
+        drawCircle(Color(0xFFFFFDE0).copy(alpha = tw), unit * 0.05f, Offset(fx, fy))
+    }
+
+    // ---- Hasar yazilari (dis hatli)
     drawIntoCanvas { canvas ->
         for (t in e.texts) {
-            paint.color = (if (t.crit) Color(0xFFFFD84D) else Color.White).copy(alpha = (t.life / 0.7f).coerceIn(0f, 1f)).toArgb()
-            paint.textSize = if (t.crit) 18.sp.toPx() else 13.sp.toPx()
-            paint.setShadowLayer(3f, 0f, 1f, android.graphics.Color.BLACK)
+            val alpha = (t.life / 0.7f).coerceIn(0f, 1f)
+            paint.textSize = if (t.crit) 19.sp.toPx() else 13.sp.toPx()
+            paint.style = android.graphics.Paint.Style.STROKE
+            paint.strokeWidth = 3.dp.toPx()
+            paint.color = Color(0xFF1C182A).copy(alpha = alpha).toArgb()
+            canvas.nativeCanvas.drawText(t.value.toString(), sx(t.x), sy(t.y), paint)
+            paint.style = android.graphics.Paint.Style.FILL
+            paint.color = (if (t.crit) Color(0xFFFFD84D) else Color.White).copy(alpha = alpha).toArgb()
             canvas.nativeCanvas.drawText(t.value.toString(), sx(t.x), sy(t.y), paint)
         }
     }
 
+    // ---- Isik: kenar karartmasi + ozel yetenek parlamasi
+    val center = Offset(size.width / 2f, size.height / 2f)
+    val vignette = if (e.map == ForestMap.DARK) 0.75f else 0.4f
+    drawRect(Brush.radialGradient(listOf(Color.Transparent, Color.Black.copy(alpha = vignette)), center, size.width * 0.62f))
+    if (e.hp / e.maxHp < 0.3f) {
+        val pulse = 0.25f + 0.15f * sin(e.time * 6f)
+        drawRect(Brush.radialGradient(listOf(Color.Transparent, HpRed.copy(alpha = pulse)), center, size.width * 0.6f))
+    }
     if (e.skillFlash > 0f) drawRect(Color(0xFFB8FFB0).copy(alpha = e.skillFlash * 0.8f))
+}
+
+private fun DrawScope.drawEnemy(e: ForestEngine, en: Enemy, unit: Float, sx: (Float) -> Float, sy: (Float) -> Float) {
+    val x = sx(en.x)
+    val y = sy(en.y)
+    val s = en.type.drawSize * unit * 1.35f
+    drawOval(Color.Black.copy(alpha = 0.25f), Offset(x - s * 0.28f, y - s * 0.05f), Size(s * 0.56f, s * 0.16f))
+    val frame = ((e.time * 6f + en.id * 0.37f).toInt() % 2) == 0
+    val bob = if (en.type == EnemyType.BAT) sin(e.time * 12f + en.id) * unit * 0.15f - unit * 0.3f else 0f
+    val img = when (en.type) {
+        EnemyType.GOBLIN -> if (frame) ForestSprites.goblin0 else ForestSprites.goblin1
+        EnemyType.BAT -> if (frame) ForestSprites.bat0 else ForestSprites.bat1
+        EnemyType.WOLF -> if (frame) ForestSprites.wolf0 else ForestSprites.wolf1
+        EnemyType.ORC -> if (frame) ForestSprites.orc0 else ForestSprites.orc1
+        EnemyType.TREANT -> if (frame) ForestSprites.treant0 else ForestSprites.treant1
+    }
+    // Kurt cizimi sola bakiyor; digerleri saga
+    val flip = if (en.type == EnemyType.WOLF) !en.facingLeft else en.facingLeft
+    val tint = when {
+        en.flash > 0f -> Color.White
+        en.slow > 0f -> Color(0xFF9BE7FF)
+        else -> null
+    }
+    if (en.type.isBoss) {
+        drawCircle(Brush.radialGradient(listOf(Color(0x558FE36B), Color(0x008FE36B)), Offset(x, y - s * 0.4f), s * 0.8f), s * 0.8f, Offset(x, y - s * 0.4f))
+        if (en.charging > 0f) drawCircle(HpRed.copy(alpha = 0.35f), s * 0.55f, Offset(x, y - s * 0.4f))
+    }
+    sprite(img, x, y + s * 0.08f + bob, s, flip = flip, tint = tint, tintAlpha = if (en.slow > 0f && en.flash <= 0f) 0.45f else 1f)
+    // Yarali dusmanlarda kucuk can cubugu
+    if (!en.type.isBoss && en.hp < en.maxHp && en.type == EnemyType.ORC) {
+        val bw = s * 0.5f
+        drawRect(Color.Black.copy(alpha = 0.5f), Offset(x - bw / 2, y - s * 0.95f), Size(bw, unit * 0.07f))
+        drawRect(HpRed, Offset(x - bw / 2, y - s * 0.95f), Size(bw * (en.hp / en.maxHp).coerceIn(0f, 1f), unit * 0.07f))
+    }
+}
+
+private fun DrawScope.drawHero(e: ForestEngine, unit: Float, hx: Float, hy: Float) {
+    val h = unit * 1.45f
+    // Kahramanin etrafinda yumusak isik
+    drawCircle(Brush.radialGradient(listOf(Color(0x33FFF8E1), Color(0x00FFF8E1)), Offset(hx, hy - unit * 0.4f), unit * 2.2f), unit * 2.2f, Offset(hx, hy - unit * 0.4f))
+    drawOval(Color.Black.copy(alpha = 0.3f), Offset(hx - unit * 0.32f, hy - unit * 0.05f), Size(unit * 0.64f, unit * 0.18f))
+    val walk = e.moving && ((e.time * 7f).toInt() % 2 == 0)
+    val blink = e.iframe > 0f && ((e.time * 20f).toInt() % 2 == 0) && e.dashTime <= 0f
+    if (e.dashTime > 0f) {
+        for (k in 1..3) {
+            sprite(ForestSprites.hero0, hx - e.facingX * unit * 0.35f * k, hy - e.facingY * unit * 0.35f * k + unit * 0.05f, h, flip = e.facingX < 0f, alpha = 0.3f / k, tint = Color(0xFF8FE36B))
+        }
+    }
+    // Asanin ucundaki tas parlar
+    val staffX = if (e.facingX < 0f) hx - h * 0.25f else hx + h * 0.25f
+    drawCircle(Brush.radialGradient(listOf(Color(0x996FE0FF), Color(0x006FE0FF)), Offset(staffX, hy - h * 0.85f), unit * 0.35f), unit * 0.35f, Offset(staffX, hy - h * 0.85f))
+    sprite(if (walk) ForestSprites.hero1 else ForestSprites.hero0, hx, hy + unit * 0.05f, h, flip = e.facingX < 0f, alpha = if (blink) 0.4f else 1f)
+    // Can ve MP cubuklari
+    val bw = unit * 0.9f
+    val by = hy + unit * 0.2f
+    drawRect(Color(0xFF1C182A), Offset(hx - bw / 2 - 1, by - 1), Size(bw + 2, unit * 0.16f + 2))
+    drawRect(HpRed, Offset(hx - bw / 2, by), Size(bw * (e.hp / e.maxHp).coerceIn(0f, 1f), unit * 0.09f))
+    drawRect(MpBlue, Offset(hx - bw / 2, by + unit * 0.1f), Size(bw * (e.mp / e.maxMp).coerceIn(0f, 1f), unit * 0.06f))
 }
 
 /** Piksel art'i keskin ciz: (cx, bottom) alt-orta noktasi, [height] piksel cinsinden yukseklik. */

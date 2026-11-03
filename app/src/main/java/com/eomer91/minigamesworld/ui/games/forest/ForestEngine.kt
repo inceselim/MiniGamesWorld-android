@@ -61,6 +61,9 @@ class Pickup(var x: Float, var y: Float, val kind: PickupKind, val value: Int) {
 
 enum class PickupKind { GEM, BIG_GEM, COIN, MEAT, CHEST }
 
+/** Gorsel parcacik (olum, vurus kivilcimi). */
+class Particle(var x: Float, var y: Float, var vx: Float, var vy: Float, var life: Float, val maxLife: Float, val color: Long, val size: Float)
+
 class FloatText(val x: Float, var y: Float, val value: Int, val crit: Boolean, var life: Float = 0.7f)
 class Strike(val x: Float, val y: Float, var life: Float = 0.25f)
 class Nova(val x: Float, val y: Float, val maxRadius: Float, var life: Float = 0.45f) {
@@ -131,7 +134,10 @@ class ForestEngine(
     val texts = ArrayList<FloatText>()
     val strikes = ArrayList<Strike>()
     val novas = ArrayList<Nova>()
+    val particles = ArrayList<Particle>()
     var skillFlash = 0f
+    /** Kahraman vurulunca kisa ekran sarsintisi. */
+    var shake = 0f
     private var nextId = 1
     private var spawnAcc = 0f
     private var swarmTimer = SWARM_EVERY
@@ -452,11 +458,32 @@ class ForestEngine(
             e.ky += sin(a) * knock * 6f
         }
         if (showText && texts.size < MAX_TEXTS) texts += FloatText(e.x, e.y - e.type.drawSize * 0.5f, dmg.toInt(), crit)
+        if (particles.size < MAX_PARTICLES) burst(e.x, e.y - e.type.drawSize * 0.3f, if (crit) 4 else 2, 0xFFFFF3B0, 3f, 0.25f, 0.08f)
         if (e.hp <= 0f) kill(e)
+    }
+
+    /** Parcacik patlamasi. */
+    fun burst(x: Float, y: Float, n: Int, color: Long, speed: Float, life: Float, size: Float) {
+        repeat(n) {
+            if (particles.size >= MAX_PARTICLES) return
+            val a = random.nextFloat() * 2f * PI.toFloat()
+            val sp = speed * (0.4f + random.nextFloat() * 0.6f)
+            val l = life * (0.6f + random.nextFloat() * 0.4f)
+            particles += Particle(x, y, cos(a) * sp, sin(a) * sp, l, l, color, size * (0.7f + random.nextFloat() * 0.6f))
+        }
     }
 
     private fun kill(e: Enemy) {
         e.alive = false
+        val color = when (e.type) {
+            EnemyType.GOBLIN -> 0xFF5FAE6E
+            EnemyType.BAT -> 0xFFA66EE0
+            EnemyType.WOLF -> 0xFFA3A9B3
+            EnemyType.ORC -> 0xFF4E8270
+            EnemyType.TREANT -> 0xFF8FE36B
+        }
+        burst(e.x, e.y - e.type.drawSize * 0.3f, if (e.type.isBoss) 40 else 7, color, if (e.type.isBoss) 6f else 3.5f, 0.5f, 0.14f)
+        burst(e.x, e.y - e.type.drawSize * 0.3f, 3, 0xFFFFFFFF, 2f, 0.35f, 0.1f)
         kills++
         events.kills++
         mp = min(maxMp, mp + MP_PER_KILL)
@@ -581,7 +608,9 @@ class ForestEngine(
         val dmg = raw * 100f / (100f + stats.defence)
         hp -= dmg
         iframe = HIT_IFRAME
+        shake = 0.2f
         events.heroHit = true
+        burst(heroX, heroY - 0.4f, 6, 0xFFE04848, 3f, 0.35f, 0.1f)
     }
 
     // ---------------- Toplanabilirler
@@ -630,6 +659,15 @@ class ForestEngine(
     // ---------------- Efektler
 
     private fun updateEffects(dt: Float) {
+        shake = max(0f, shake - dt)
+        particles.forEach { p ->
+            p.x += p.vx * dt
+            p.y += p.vy * dt
+            p.vx *= 0.9f
+            p.vy *= 0.9f
+            p.life -= dt
+        }
+        particles.removeAll { it.life <= 0f }
         texts.forEach { it.life -= dt; it.y -= dt * 1.2f }
         texts.removeAll { it.life <= 0f }
         strikes.forEach { it.life -= dt }
@@ -704,6 +742,7 @@ class ForestEngine(
         const val MAX_ENEMIES = 160
         const val MAX_PICKUPS = 350
         const val MAX_TEXTS = 60
+        const val MAX_PARTICLES = 400
         const val SWARM_EVERY = 60f
         const val MAX_LEVEL = 5
         const val MAX_WEAPONS = 6

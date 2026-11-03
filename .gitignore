@@ -17,3 +17,7 @@ keystore.properties
 
 # Imza sertifikalari (gizli degil ama repoda durmasin)
 *.pem
+
+# Piksel art onizlemeleri
+tools/pixelart/*.png
+tools/pixelart/__pycache__/
