@@ -42,6 +42,7 @@ Debug build `com.eomer91.MiniGamesWorldincesoy.debug` paket adıyla kurulur. Bö
 | Balık Dünyası | ✅ Native | Olta at, kancayı sürükle, denizanalarından kaç; 9 balık türü, inciyle olta yükseltmeleri; tutulanlar akvaryuma: yem at, büyüt, inci topla, sat, akvaryumu büyüt, süsle; ekstra atış ve yem (reklam) |
 | Borsa Ustası | ✅ Native | Eski "io stock trade" oyunundan (com.stockgameincesoy): 1.000 $ ile 60 gün, 4 hisse (AA, CCA, XAH, GLD), trend/söylenti/bilanço haberleri, %0,5 komisyon, içeriden bilgi (reklam), **kaldığı yerden devam** |
 | Ülkeler Savaşı | ✅ Native | Eski "CountriesWar" oyunundan (com.countriesincesoyselim): 5 sn'lik otomatik turlar, 11 bina, 6 birlik, vergi/odak/yönetim biçimi, pazar, 1-7 bot, ilk 10 tur barış, casus ağı, Altın Çağ (elmas), elmas (reklam), **kaldığı yerden devam** |
+| Orman Muhafızı | ✅ Native (adım 1) | Survivors tarzı, **yatay ekran**: joystick, otomatik saldırı, 6 silah + 6 pasif, seviye atlama seçimi, atılma + MP özel yeteneği, 4 düşman + boss (4:30), 5 harita, sikke, diriliş (reklam). Piksel art (`ForestSprites.kt`). Adım 2: görevler + silah evrimi; adım 3: 10 slotlu ekipman |
 
 Her oyunun kuralları ekrandan ayrı, saf Kotlin bir `…Engine` sınıfında durur ve `app/src/test` altında unit testleri vardır. Testleri çalıştırmak için test dosyasını açıp sınıf adının yanındaki yeşil oka bas ya da `./gradlew test` komutunu çalıştır.
 
@@ -115,6 +116,13 @@ Rekorlar oyun sırasında, rekor geçildiği anda kaydedilir. Oyuncu oyunun orta
 - Elmas: reklamla +3. Casus ağı 5, Büyük çarşı 1, Altın Çağ (5 tur +%100 saldırı/savunma/nüfus) 5 elmas.
 - Skor: zafer = 1000 × rakip + (3000 − 15 × tur) + nüfus/20; yenilgi = 300 × fethedilen + 5 × tur.
 
+## Orman Muhafızı (survivors tarzı)
+
+- Ekran: `ForestScreen` girişte yatay + tam ekran (`requestedOrientation`), çıkışta dikeye döner. `MainActivity` `configChanges` ile döndürmede yeniden oluşturulmaz. `PlayScreen` bu oyun için üst barı göstermez.
+- Simülasyon `ForestEngine` (mutable sınıflar, 60 fps); ekran `viewModel.frame` sayacını okuyarak her karede çizer. Piksel art `ForestSprites.kt` içinde harf dizileri, bir kez `Bitmap`'e çevrilip `FilterQuality.None` ile büyütülür.
+- Statlar `HeroStats` (HP, MP, saldırı %, savunma, saldırı hızı %, kritik şansı/hasarı, hız) — adım 3'te ekipman buraya eklenecek.
+- Kalıcı profil `forest-guardian-profile` (sikke, açılan haritalar, en iyi skorlar). Skor = öldürme×5 + saniye×2 + harita bonusu → hub altını.
+
 ## Block Puzzle ödüllü reklam
 
 Tahtanın altında iki buton var, ikisi de ödüllü (rewarded) reklam izletir:
@@ -147,7 +155,7 @@ Yeni metin eklerken: önce `values/strings.xml`'e ekle, sonra **tüm** `values-x
 |---|---|
 | Banner | Ara, Favoriler, Profil ve Ayarlar sekmelerinin altında. Ana sayfada (Oyunlar) ve oyun ekranlarında yok. |
 | Geçiş (Interstitial) | Oynanabilir bir oyunun detay ekranında **Play**, oyun içinde **Restart** ve **Tekrar oyna**; Ülkeler Savaşı ve Borsa Ustası'nda ayrıca **her ~3 dk aktif oyunda bir** tur/gün değişiminde (`PlaytimeAdTimer`, duraklatma sayılmaz) |
-| Ödüllü (Rewarded) | Altın yetmeyince **Reklam izle (+50 altın)**; Block Puzzle: **Parçaları değiştir**, **Geri al**; Sudoku: **İpucu**, **3 hatadan sonra devam**; Match 3: **+5 hamle**; Bubble Shooter: **3 sırayı temizle ve devam et**; Tower Defense: **yarı canla devam**; Mayın Tarlası: **ikinci şans** (hepsi oyun başına bir kez); Solitaire: **ipucu**; Dört Bağla: **hamle geri al**; Roket Zıpla: **kalkanla devam** (oyun başına bir kez); Balık Dünyası: **bir atış daha** (oturum başına bir kez), **+10 yem**; Borsa Ustası: **içeriden bilgi** (5 gün trend okları, oyun başına bir kez); Ülkeler Savaşı: **+3 elmas** |
+| Ödüllü (Rewarded) | Altın yetmeyince **Reklam izle (+50 altın)**; Block Puzzle: **Parçaları değiştir**, **Geri al**; Sudoku: **İpucu**, **3 hatadan sonra devam**; Match 3: **+5 hamle**; Bubble Shooter: **3 sırayı temizle ve devam et**; Tower Defense: **yarı canla devam**; Mayın Tarlası: **ikinci şans** (hepsi oyun başına bir kez); Solitaire: **ipucu**; Dört Bağla: **hamle geri al**; Roket Zıpla: **kalkanla devam** (oyun başına bir kez); Balık Dünyası: **bir atış daha** (oturum başına bir kez), **+10 yem**; Borsa Ustası: **içeriden bilgi** (5 gün trend okları, oyun başına bir kez); Ülkeler Savaşı: **+3 elmas**; Orman Muhafızı: **diriliş** (tur başına bir kez) |
 
 - İki geçiş reklamı arasında en az **60 saniye** olur ve bu süre tüm butonlar için ortaktır. Ödüllü reklam izlendiğinde de bu süre yeniden başlar (art arda iki tam ekran reklam çıkmaz). Çok sık geçiş reklamı oyuncuyu kaçırır ve AdMob politikalarına takılabilir. Değiştirmek için: `ads/InterstitialAdManager.kt` → `MIN_INTERVAL_MS`.
 - Reklam hazır değilse (internet yok, yüklenemedi) oyun beklemeden devam eder.

@@ -35,6 +35,7 @@ import com.eomer91.minigamesworld.ui.games.match3.Match3Screen
 import com.eomer91.minigamesworld.ui.games.memory.MemoryScreen
 import com.eomer91.minigamesworld.ui.games.mines.MinesScreen
 import com.eomer91.minigamesworld.ui.games.fish.FishWorldScreen
+import com.eomer91.minigamesworld.ui.games.forest.ForestScreen
 import com.eomer91.minigamesworld.ui.games.rocket.RocketScreen
 import com.eomer91.minigamesworld.ui.games.countries.CountriesScreen
 import com.eomer91.minigamesworld.ui.games.stocks.StockMarketScreen
@@ -49,6 +50,12 @@ import com.eomer91.minigamesworld.ui.theme.AppColors
 @Composable
 fun PlayScreen(gameId: String, onBack: () -> Unit) {
     val game = GameCatalog.find(gameId)
+
+    // Tam ekran (yatay) oyunlar kendi geri butonunu ve duzenini yonetir.
+    if (gameId == "forest-guardian") {
+        ForestScreen(onBack = onBack)
+        return
+    }
 
     Column(Modifier.fillMaxSize()) {
         Row(
