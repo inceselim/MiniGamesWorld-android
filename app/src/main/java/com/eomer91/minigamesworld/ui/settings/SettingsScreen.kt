@@ -50,6 +50,7 @@ private val SUPPORTED_LANGUAGES = listOf("en", "tr", "de", "es", "fr", "it", "ja
 fun SettingsScreen(
     privacyOptionsRequired: Boolean,
     onShowPrivacyOptions: () -> Unit,
+    onAdTestSuite: (() -> Unit)? = null,
     viewModel: SettingsViewModel = hiltViewModel(),
 ) {
     val sound by viewModel.soundEnabled.collectAsStateWithLifecycle()
@@ -89,6 +90,10 @@ fun SettingsScreen(
         }
         if (privacyOptionsRequired) {
             SettingRow(stringResource(R.string.settings_privacy), onClick = onShowPrivacyOptions) {}
+        }
+        // Sadece debug: LevelPlay reklam test ekrani (adaptorleri dogrulamak icin)
+        if (onAdTestSuite != null) {
+            SettingRow("Ad test suite (debug)", onClick = onAdTestSuite) {}
         }
 
         Text(

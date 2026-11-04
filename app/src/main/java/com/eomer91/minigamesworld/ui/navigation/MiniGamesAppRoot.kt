@@ -34,6 +34,7 @@ import com.eomer91.minigamesworld.ui.theme.AppColors
 fun MiniGamesAppRoot(
     privacyOptionsRequired: Boolean,
     onShowPrivacyOptions: () -> Unit,
+    onAdTestSuite: (() -> Unit)? = null,
 ) {
     val navController = rememberNavController()
     val backStackEntry by navController.currentBackStackEntryAsState()
@@ -97,6 +98,7 @@ fun MiniGamesAppRoot(
                 SettingsScreen(
                     privacyOptionsRequired = privacyOptionsRequired,
                     onShowPrivacyOptions = onShowPrivacyOptions,
+                    onAdTestSuite = onAdTestSuite,
                 )
             }
             composable<GameDetailRoute> {

@@ -8,7 +8,7 @@ Eski React Native/Expo kodu referans için `MiniGamesWorldincesoy` reposunda dur
 - Kotlin 2.3, Jetpack Compose (Material 3), tek Activity
 - MVVM + Hilt (KSP), Navigation Compose (type-safe route'lar)
 - DataStore: altın, favoriler, rekorlar, ayarlar
-- AdMob (banner + geçiş reklamı) + UMP (GDPR onay ekranı)
+- Unity LevelPlay reklam aracısı (Unity Ads + AdMob yarışır; banner, geçiş, ödüllü) + UMP (GDPR onay ekranı)
 - SoundPool ile ses efektleri, titreşim
 - Uygulama içi dil seçimi (AppCompat per-app locales)
 - Derleme: AGP 9.1 (built-in Kotlin), Gradle 9.4.1, Java 21 veya 25
@@ -164,11 +164,12 @@ Yeni metin eklerken: önce `values/strings.xml`'e ekle, sonra **tüm** `values-x
 - Reklam gösterilirken Snake gibi gerçek zamanlı oyunlar kendiliğinden durur.
 - Yeni bir oyuna geçiş reklamı eklemek tek satır: `val show = rememberInterstitialLauncher()` → `show { viewModel.restart() }`.
 
-**AdMob ayarları**
+**Reklam ayarları (Unity LevelPlay)**
 
-- App ID manifest'e `app/build.gradle.kts` içinden giriyor (`admobAppId`).
-- Release reklam birimi ID'leri `gradle.properties` dosyasında: `ADMOB_BANNER_ID`, `ADMOB_INTERSTITIAL_ID`, `ADMOB_REWARDED_ID`. Boş bırakılan reklam release sürümde gösterilmez.
-- Debug her zaman Google'ın test ID'lerini kullanır. Kendi reklamına kendin tıklama, AdMob hesabı kapanabilir.
+- Reklamlar Unity LevelPlay üzerinden gelir; Unity Ads ve AdMob her gösterimde yarışır, çok para vereni kazanır.
+- Anahtarlar `gradle.properties` dosyasında: `LEVELPLAY_APP_KEY`, `LEVELPLAY_BANNER_ID`, `LEVELPLAY_INTERSTITIAL_ID`, `LEVELPLAY_REWARDED_ID`. `LEVELPLAY_APP_KEY` boşken release derlenmez (yanlışlıkla reklamsız sürüm çıkmasın).
+- AdMob App ID manifest'e `app/build.gradle.kts` içinden giriyor (`admobAppId`); AdMob adaptörü bunu istiyor. AdMob reklam birimi ID'leri artık uygulamada değil, LevelPlay panelinde (Setup > SDK Networks) giriliyor.
+- Test: LevelPlay panelinde telefonunu "Test devices" listesine ekle. Debug sürümde Ayarlar'ın en altında "Ad test suite" satırı adaptörleri tek tek dener. Kendi reklamına kendin tıklama.
 
 ## Ses efektleri ve titreşim
 
@@ -261,7 +262,7 @@ Bu aktarım sadece **release** paket adıyla test edilebilir, çünkü debug'ın
 
 ## Yol haritası
 
-- [x] İskelet: sekmeler, katalog, detay, altın/favori/rekor, dil, AdMob + onay
+- [x] İskelet: sekmeler, katalog, detay, altın/favori/rekor, dil, reklam + onay
 - [x] Oyunları taşı: 2048, Snake, Memory Card, Block Puzzle
 - [x] Geçiş reklamı (Play / Restart / Tekrar oyna)
 - [x] Ses efektleri ve titreşim

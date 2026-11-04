@@ -1,32 +1,39 @@
 package com.eomer91.minigamesworld.ads
 
+import android.util.Log
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.viewinterop.AndroidView
 import com.eomer91.minigamesworld.BuildConfig
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
+import com.unity3d.mediation.LevelPlayAdError
+import com.unity3d.mediation.LevelPlayAdInfo
+import com.unity3d.mediation.LevelPlayAdSize
+import com.unity3d.mediation.banner.LevelPlayBannerAdView
+import com.unity3d.mediation.banner.LevelPlayBannerAdViewListener
 
-/** AdMob baslatildi ve reklam istenebilir mi? MainActivity saglar. */
+/** Reklam SDK'si baslatildi ve reklam istenebilir mi? MainActivity saglar. */
 val LocalAdsReady = compositionLocalOf { false }
 
 @Composable
 fun AdBanner(modifier: Modifier = Modifier) {
-    val unitId = BuildConfig.ADMOB_BANNER_ID
+    val unitId = BuildConfig.LEVELPLAY_BANNER_ID
     if (!LocalAdsReady.current || unitId.isBlank()) return
 
-    val widthDp = LocalConfiguration.current.screenWidthDp
     AndroidView(
         modifier = modifier.fillMaxWidth(),
         factory = { ctx ->
-            AdView(ctx).apply {
-                setAdSize(AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(ctx, widthDp))
-                adUnitId = unitId
-                loadAd(AdRequest.Builder().build())
+            val size = LevelPlayAdSize.createAdaptiveAdSize(ctx) ?: LevelPlayAdSize.BANNER
+            val config = LevelPlayBannerAdView.Config.Builder().setAdSize(size).build()
+            LevelPlayBannerAdView(ctx, unitId, config).apply {
+                setBannerListener(object : LevelPlayBannerAdViewListener {
+                    override fun onAdLoaded(adInfo: LevelPlayAdInfo) = Unit
+                    override fun onAdLoadFailed(error: LevelPlayAdError) {
+                        Log.w("AdBanner", "Banner failed to load: $error")
+                    }
+                })
+                loadAd()
             }
         },
         onRelease = { it.destroy() },
