@@ -10,12 +10,3 @@
 # kurucusunu silerse uygulama acilista "Failed to create an instance of WorkDatabase" ile coker.
 -keep class * extends androidx.room.RoomDatabase { <init>(); }
 -keep class androidx.work.impl.WorkDatabase_Impl { *; }
-
-# --- Unity Ads (Unity dokumanindaki kurallar) ---
--keepattributes SourceFile,LineNumberTable
--keepattributes JavascriptInterface
--keep class android.webkit.JavascriptInterface { *; }
--keep class com.unity3d.ads.** { *; }
--keep class com.unity3d.services.** { *; }
--dontwarn com.google.ar.core.**
--dontwarn com.unity3d.services.**

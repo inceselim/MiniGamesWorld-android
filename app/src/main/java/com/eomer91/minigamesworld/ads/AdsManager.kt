@@ -3,10 +3,7 @@ package com.eomer91.minigamesworld.ads
 import android.app.Activity
 import android.content.Context
 import android.util.Log
-import com.eomer91.minigamesworld.BuildConfig
-import com.unity3d.ads.IUnityAdsInitializationListener
-import com.unity3d.ads.UnityAds
-import com.unity3d.ads.metadata.MetaData
+import com.google.android.gms.ads.MobileAds
 import com.google.android.ump.ConsentInformation
 import com.google.android.ump.ConsentRequestParameters
 import com.google.android.ump.UserMessagingPlatform
@@ -17,15 +14,13 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.concurrent.atomic.AtomicBoolean
 import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * Reklam onayi (UMP / GDPR) ve Unity Ads baslatma. Onay alinmadan reklam istenmez.
- * UMP'nin kaydettigi IAB TCF onayi Unity Ads'e "gdpr.consent" olarak da iletilir.
+ * Reklam onayi (UMP / GDPR) ve AdMob baslatma. Onay alinmadan reklam istenmez.
  */
 @Singleton
 class AdsManager @Inject constructor(
@@ -77,60 +72,12 @@ class AdsManager @Inject constructor(
 
     private fun initializeAds() {
         if (!initStarted.compareAndSet(false, true)) return
-        if (BuildConfig.UNITY_GAME_ID.isBlank()) {
-            Log.w(TAG, "UNITY_GAME_ID bos, reklamlar kapali")
-            return
+        scope.launch(Dispatchers.IO) {
+            MobileAds.initialize(context) { _adsReady.value = true }
         }
-        applyGdprConsent()
-        startUnityAds(attempt = 0)
-    }
-
-    /**
-     * GDPR gecerliyse (AB/IKA) UMP formundaki secimi Unity'ye bildir:
-     * cihazda bilgi saklama/erisim (TCF amac 1) izni verildiyse kisisellestirilmis reklam acik.
-     */
-    private fun applyGdprConsent() {
-        // TCF degerleri varsayilan SharedPreferences dosyasinda tutulur.
-        val prefs = context.getSharedPreferences("${context.packageName}_preferences", Context.MODE_PRIVATE)
-        val gdprApplies = runCatching { prefs.getInt("IABTCF_gdprApplies", 0) }.getOrDefault(0) == 1
-        if (!gdprApplies) return
-        val purposes = prefs.getString("IABTCF_PurposeConsents", "").orEmpty()
-        val consent = purposes.firstOrNull() == '1'
-        @Suppress("DEPRECATION")
-        MetaData(context).apply {
-            set("gdpr.consent", consent)
-            commit()
-        }
-    }
-
-    @Suppress("DEPRECATION") // Yeni API (4.19+) henuz deneysel; eski API 5.0'a kadar destekleniyor.
-    private fun startUnityAds(attempt: Int) {
-        UnityAds.initialize(
-            context,
-            BuildConfig.UNITY_GAME_ID,
-            BuildConfig.DEBUG, // debug'da test reklamlari
-            object : IUnityAdsInitializationListener {
-                override fun onInitializationComplete() {
-                    _adsReady.value = true
-                }
-
-                override fun onInitializationFailed(error: UnityAds.UnityAdsInitializationError?, message: String?) {
-                    Log.w(TAG, "Unity Ads init failed: $error $message")
-                    // Genelde baglanti yoktur; artan araliklarla tekrar dene.
-                    if (attempt < MAX_INIT_RETRIES) {
-                        scope.launch {
-                            delay(RETRY_BASE_MS * (attempt + 1))
-                            startUnityAds(attempt + 1)
-                        }
-                    }
-                }
-            },
-        )
     }
 
     private companion object {
         const val TAG = "AdsManager"
-        const val MAX_INIT_RETRIES = 5
-        const val RETRY_BASE_MS = 15_000L
     }
 }

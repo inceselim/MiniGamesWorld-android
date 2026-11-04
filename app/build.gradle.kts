@@ -30,14 +30,7 @@ android {
         versionCode = 9
         versionName = "2.3.0"
 
-        // Google'in onay ekrani (UMP) AdMob hesabindaki GDPR mesajini bu App ID ile bulur.
         manifestPlaceholders["admobAppId"] = "ca-app-pub-1017432203303316~7837238391"
-
-        // Unity Ads anahtarlari gradle.properties'ten okunur. Bos birakilirsa o reklam gosterilmez.
-        buildConfigField("String", "UNITY_GAME_ID", "\"${adId("UNITY_GAME_ID")}\"")
-        buildConfigField("String", "UNITY_BANNER_ID", "\"${adId("UNITY_BANNER_ID")}\"")
-        buildConfigField("String", "UNITY_INTERSTITIAL_ID", "\"${adId("UNITY_INTERSTITIAL_ID")}\"")
-        buildConfigField("String", "UNITY_REWARDED_ID", "\"${adId("UNITY_REWARDED_ID")}\"")
     }
 
     signingConfigs {
@@ -55,6 +48,10 @@ android {
         debug {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
+            // Google'in resmi test reklam birimleri
+            buildConfigField("String", "ADMOB_BANNER_ID", "\"ca-app-pub-3940256099942544/9214589741\"")
+            buildConfigField("String", "ADMOB_INTERSTITIAL_ID", "\"ca-app-pub-3940256099942544/1033173712\"")
+            buildConfigField("String", "ADMOB_REWARDED_ID", "\"ca-app-pub-3940256099942544/5224354917\"")
         }
         release {
             isMinifyEnabled = true
@@ -63,6 +60,9 @@ android {
             if (keystoreProps.isNotEmpty()) {
                 signingConfig = signingConfigs.getByName("release")
             }
+            buildConfigField("String", "ADMOB_BANNER_ID", "\"${adId("ADMOB_BANNER_ID")}\"")
+            buildConfigField("String", "ADMOB_INTERSTITIAL_ID", "\"${adId("ADMOB_INTERSTITIAL_ID")}\"")
+            buildConfigField("String", "ADMOB_REWARDED_ID", "\"${adId("ADMOB_REWARDED_ID")}\"")
         }
     }
 
@@ -75,17 +75,6 @@ android {
         buildConfig = true
     }
 }
-
-// Reklam anahtarlari olmadan yanlislikla reklamsiz surum yayinlanmasin.
-val unityGameId = adId("UNITY_GAME_ID")
-val checkAdKeys by tasks.registering {
-    doLast {
-        if (unityGameId.isBlank()) {
-            throw GradleException("UNITY_GAME_ID bos: gradle.properties dosyasina Unity Ads Game ID'yi gir.")
-        }
-    }
-}
-tasks.matching { it.name == "preReleaseBuild" }.configureEach { dependsOn(checkAdKeys) }
 
 kotlin {
     compilerOptions {
@@ -116,9 +105,7 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
 
-    // Unity Ads (dogrudan entegrasyon)
-    implementation(libs.unity.ads)
-    implementation(libs.play.services.ads.identifier)
+    implementation(libs.play.services.ads)
     implementation(libs.ump)
     implementation(libs.play.review)
     implementation(libs.androidx.work.runtime)

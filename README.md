@@ -8,7 +8,7 @@ Eski React Native/Expo kodu referans için `MiniGamesWorldincesoy` reposunda dur
 - Kotlin 2.3, Jetpack Compose (Material 3), tek Activity
 - MVVM + Hilt (KSP), Navigation Compose (type-safe route'lar)
 - DataStore: altın, favoriler, rekorlar, ayarlar
-- Unity Ads (banner, geçiş, ödüllü) + UMP (GDPR onay ekranı)
+- AdMob (banner + geçiş reklamı) + UMP (GDPR onay ekranı)
 - SoundPool ile ses efektleri, titreşim
 - Uygulama içi dil seçimi (AppCompat per-app locales)
 - Derleme: AGP 9.1 (built-in Kotlin), Gradle 9.4.1, Java 21 veya 25
@@ -164,12 +164,11 @@ Yeni metin eklerken: önce `values/strings.xml`'e ekle, sonra **tüm** `values-x
 - Reklam gösterilirken Snake gibi gerçek zamanlı oyunlar kendiliğinden durur.
 - Yeni bir oyuna geçiş reklamı eklemek tek satır: `val show = rememberInterstitialLauncher()` → `show { viewModel.restart() }`.
 
-**Reklam ayarları (Unity Ads)**
+**AdMob ayarları**
 
-- Reklamlar doğrudan Unity Ads'ten gelir (SDK 4.21, eski ama 5.0'a kadar destekli API; yeni API henüz deneysel).
-- Anahtarlar `gradle.properties` dosyasında: `UNITY_GAME_ID` (Android Game ID), `UNITY_BANNER_ID`, `UNITY_INTERSTITIAL_ID`, `UNITY_REWARDED_ID` (varsayılan: `Banner_Android`, `Interstitial_Android`, `Rewarded_Android`). `UNITY_GAME_ID` boşken release derlenmez.
-- Debug sürüm Unity'nin test reklamlarını gösterir (test modu açık).
-- GDPR onay ekranı yine Google UMP; mesaj AdMob hesabındaki "Privacy & messaging" ayarından gelir (bu yüzden manifest'te AdMob App ID duruyor). Onay, Unity'ye `gdpr.consent` olarak iletilir.
+- App ID manifest'e `app/build.gradle.kts` içinden giriyor (`admobAppId`).
+- Release reklam birimi ID'leri `gradle.properties` dosyasında: `ADMOB_BANNER_ID`, `ADMOB_INTERSTITIAL_ID`, `ADMOB_REWARDED_ID`. Boş bırakılan reklam release sürümde gösterilmez.
+- Debug her zaman Google'ın test ID'lerini kullanır. Kendi reklamına kendin tıklama, AdMob hesabı kapanabilir.
 
 ## Ses efektleri ve titreşim
 
@@ -262,7 +261,7 @@ Bu aktarım sadece **release** paket adıyla test edilebilir, çünkü debug'ın
 
 ## Yol haritası
 
-- [x] İskelet: sekmeler, katalog, detay, altın/favori/rekor, dil, reklam + onay
+- [x] İskelet: sekmeler, katalog, detay, altın/favori/rekor, dil, AdMob + onay
 - [x] Oyunları taşı: 2048, Snake, Memory Card, Block Puzzle
 - [x] Geçiş reklamı (Play / Restart / Tekrar oyna)
 - [x] Ses efektleri ve titreşim
