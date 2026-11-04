@@ -4,11 +4,9 @@ import android.app.Activity
 import android.content.Context
 import android.util.Log
 import com.eomer91.minigamesworld.BuildConfig
-import com.unity3d.mediation.LevelPlay
-import com.unity3d.mediation.LevelPlayConfiguration
-import com.unity3d.mediation.LevelPlayInitError
-import com.unity3d.mediation.LevelPlayInitListener
-import com.unity3d.mediation.LevelPlayInitRequest
+import com.unity3d.ads.IUnityAdsInitializationListener
+import com.unity3d.ads.UnityAds
+import com.unity3d.ads.metadata.MetaData
 import com.google.android.ump.ConsentInformation
 import com.google.android.ump.ConsentRequestParameters
 import com.google.android.ump.UserMessagingPlatform
@@ -26,8 +24,8 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * Reklam onayi (UMP / GDPR) ve Unity LevelPlay baslatma. Onay alinmadan reklam istenmez.
- * UMP ile alinan onay LevelPlay'e ve agi adaptorlerine otomatik aktarilir.
+ * Reklam onayi (UMP / GDPR) ve Unity Ads baslatma. Onay alinmadan reklam istenmez.
+ * UMP'nin kaydettigi IAB TCF onayi Unity Ads'e "gdpr.consent" olarak da iletilir.
  */
 @Singleton
 class AdsManager @Inject constructor(
@@ -79,37 +77,55 @@ class AdsManager @Inject constructor(
 
     private fun initializeAds() {
         if (!initStarted.compareAndSet(false, true)) return
-        if (BuildConfig.LEVELPLAY_APP_KEY.isBlank()) {
-            Log.w(TAG, "LEVELPLAY_APP_KEY bos, reklamlar kapali")
+        if (BuildConfig.UNITY_GAME_ID.isBlank()) {
+            Log.w(TAG, "UNITY_GAME_ID bos, reklamlar kapali")
             return
         }
-        if (BuildConfig.DEBUG) LevelPlay.setMetaData("is_test_suite", "enable")
-        startLevelPlay(attempt = 0)
+        applyGdprConsent()
+        startUnityAds(attempt = 0)
     }
 
-    private fun startLevelPlay(attempt: Int) {
-        val request = LevelPlayInitRequest.Builder(BuildConfig.LEVELPLAY_APP_KEY).build()
-        LevelPlay.init(context, request, object : LevelPlayInitListener {
-            override fun onInitSuccess(configuration: LevelPlayConfiguration) {
-                _adsReady.value = true
-            }
+    /**
+     * GDPR gecerliyse (AB/IKA) UMP formundaki secimi Unity'ye bildir:
+     * cihazda bilgi saklama/erisim (TCF amac 1) izni verildiyse kisisellestirilmis reklam acik.
+     */
+    private fun applyGdprConsent() {
+        // TCF degerleri varsayilan SharedPreferences dosyasinda tutulur.
+        val prefs = context.getSharedPreferences("${context.packageName}_preferences", Context.MODE_PRIVATE)
+        val gdprApplies = runCatching { prefs.getInt("IABTCF_gdprApplies", 0) }.getOrDefault(0) == 1
+        if (!gdprApplies) return
+        val purposes = prefs.getString("IABTCF_PurposeConsents", "").orEmpty()
+        val consent = purposes.firstOrNull() == '1'
+        @Suppress("DEPRECATION")
+        MetaData(context).apply {
+            set("gdpr.consent", consent)
+            commit()
+        }
+    }
 
-            override fun onInitFailed(error: LevelPlayInitError) {
-                Log.w(TAG, "LevelPlay init failed: $error")
-                // Genelde baglanti yoktur; artan araliklarla tekrar dene.
-                if (attempt < MAX_INIT_RETRIES) {
-                    scope.launch {
-                        delay(RETRY_BASE_MS * (attempt + 1))
-                        startLevelPlay(attempt + 1)
+    @Suppress("DEPRECATION") // Yeni API (4.19+) henuz deneysel; eski API 5.0'a kadar destekleniyor.
+    private fun startUnityAds(attempt: Int) {
+        UnityAds.initialize(
+            context,
+            BuildConfig.UNITY_GAME_ID,
+            BuildConfig.DEBUG, // debug'da test reklamlari
+            object : IUnityAdsInitializationListener {
+                override fun onInitializationComplete() {
+                    _adsReady.value = true
+                }
+
+                override fun onInitializationFailed(error: UnityAds.UnityAdsInitializationError?, message: String?) {
+                    Log.w(TAG, "Unity Ads init failed: $error $message")
+                    // Genelde baglanti yoktur; artan araliklarla tekrar dene.
+                    if (attempt < MAX_INIT_RETRIES) {
+                        scope.launch {
+                            delay(RETRY_BASE_MS * (attempt + 1))
+                            startUnityAds(attempt + 1)
+                        }
                     }
                 }
-            }
-        })
-    }
-
-    /** Sadece debug: LevelPlay'in adaptor/reklam test ekranini acar. */
-    fun launchTestSuite() {
-        if (BuildConfig.DEBUG && _adsReady.value) LevelPlay.launchTestSuite(context)
+            },
+        )
     }
 
     private companion object {

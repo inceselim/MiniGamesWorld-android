@@ -50,7 +50,6 @@ class MainActivity : AppCompatActivity() {
                     MiniGamesAppRoot(
                         privacyOptionsRequired = privacyRequired,
                         onShowPrivacyOptions = { adsManager.showPrivacyOptions(this@MainActivity) },
-                        onAdTestSuite = if (BuildConfig.DEBUG) adsManager::launchTestSuite else null,
                     )
                 }
             }

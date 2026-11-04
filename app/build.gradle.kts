@@ -30,14 +30,14 @@ android {
         versionCode = 9
         versionName = "2.3.0"
 
-        // AdMob artik LevelPlay icinden (adaptor ile) calisiyor; adaptor yine de App ID ister.
+        // Google'in onay ekrani (UMP) AdMob hesabindaki GDPR mesajini bu App ID ile bulur.
         manifestPlaceholders["admobAppId"] = "ca-app-pub-1017432203303316~7837238391"
 
-        // Unity LevelPlay anahtarlari gradle.properties'ten okunur. Bos birakilirsa reklam gosterilmez.
-        buildConfigField("String", "LEVELPLAY_APP_KEY", "\"${adId("LEVELPLAY_APP_KEY")}\"")
-        buildConfigField("String", "LEVELPLAY_BANNER_ID", "\"${adId("LEVELPLAY_BANNER_ID")}\"")
-        buildConfigField("String", "LEVELPLAY_INTERSTITIAL_ID", "\"${adId("LEVELPLAY_INTERSTITIAL_ID")}\"")
-        buildConfigField("String", "LEVELPLAY_REWARDED_ID", "\"${adId("LEVELPLAY_REWARDED_ID")}\"")
+        // Unity Ads anahtarlari gradle.properties'ten okunur. Bos birakilirsa o reklam gosterilmez.
+        buildConfigField("String", "UNITY_GAME_ID", "\"${adId("UNITY_GAME_ID")}\"")
+        buildConfigField("String", "UNITY_BANNER_ID", "\"${adId("UNITY_BANNER_ID")}\"")
+        buildConfigField("String", "UNITY_INTERSTITIAL_ID", "\"${adId("UNITY_INTERSTITIAL_ID")}\"")
+        buildConfigField("String", "UNITY_REWARDED_ID", "\"${adId("UNITY_REWARDED_ID")}\"")
     }
 
     signingConfigs {
@@ -77,11 +77,11 @@ android {
 }
 
 // Reklam anahtarlari olmadan yanlislikla reklamsiz surum yayinlanmasin.
-val levelPlayAppKey = adId("LEVELPLAY_APP_KEY")
+val unityGameId = adId("UNITY_GAME_ID")
 val checkAdKeys by tasks.registering {
     doLast {
-        if (levelPlayAppKey.isBlank()) {
-            throw GradleException("LEVELPLAY_APP_KEY bos: gradle.properties dosyasina LevelPlay anahtarlarini gir.")
+        if (unityGameId.isBlank()) {
+            throw GradleException("UNITY_GAME_ID bos: gradle.properties dosyasina Unity Ads Game ID'yi gir.")
         }
     }
 }
@@ -116,11 +116,8 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
 
-    // Unity LevelPlay (reklam aracisi) + ag adaptorleri. Adaptorler kendi SDK'larini icerir.
-    implementation(libs.levelplay)
-    implementation(libs.levelplay.unityads.adapter)
-    implementation(libs.levelplay.admob.adapter)
-    implementation(libs.play.services.appset)
+    // Unity Ads (dogrudan entegrasyon)
+    implementation(libs.unity.ads)
     implementation(libs.play.services.ads.identifier)
     implementation(libs.ump)
     implementation(libs.play.review)
