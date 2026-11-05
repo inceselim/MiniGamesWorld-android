@@ -188,29 +188,9 @@ def forest():
     s.voice(L, 'pulse', 0.1, duty=0.25, start=32, envp=dict(a=0.03, d=0.2, s=0.6, r=0.15), vib=0.006)
     s.save("music_forest")
 
-# ---------------------------------------------------------------- 4) Mahjong: sakin, pentatonik, telli calgi
-def mahjong():
-    s = Song(72, 16)
-    pluck = dict(a=0.003, d=1.1, s=0.0, r=0.05)
-    # Bas: yumusak, uzun notalar (D pentatonik: D E F# A B)
-    roots = ['D3', 'B2', 'G2', 'A2'] * 4
-    for bar, r in enumerate(roots):
-        s.voice([(r, 4)], 'sine', 0.22, start=bar * 4, legato=0.98, envp=dict(a=0.25, d=0.5, s=0.7, r=0.6))
-        fifth = {'D3': 'A3', 'B2': 'F#3', 'G2': 'D3', 'A2': 'E3'}[r]
-        s.voice([(fifth, 2), (r[:-1] + str(int(r[-1]) + 1), 2)], 'sine', 0.1, start=bar * 4, legato=0.95, envp=dict(a=0.2, d=0.4, s=0.6, r=0.4))
-        # Arpej: telli calgi gibi
-        arp = {'D3': ['D4', 'F#4', 'A4', 'D5'], 'B2': ['B3', 'D4', 'F#4', 'B4'], 'G2': ['G3', 'B3', 'D4', 'G4'], 'A2': ['A3', 'E4', 'A4', 'C#5']}[r]
-        s.voice([(arp[k % 4], 0.5) for k in range(8)], 'tri', 0.07, start=bar * 4, legato=1.0, envp=pluck)
-    M = [('A5', 1), ('F#5', 0.5), ('E5', 0.5), ('D5', 1.5), ('E5', 0.5), ('F#5', 2), ('A5', 1), ('B5', 1),
-         ('A5', 1.5), ('F#5', 0.5), ('E5', 1), ('D5', 1), ('E5', 3), (None, 1),
-         ('D6', 1), ('B5', 0.5), ('A5', 0.5), ('F#5', 1.5), ('A5', 0.5), ('B5', 2), ('A5', 1), ('F#5', 1),
-         ('E5', 1.5), ('F#5', 0.5), ('A5', 1), ('E5', 1), ('D5', 3), (None, 1)]
-    s.voice(M, 'tri', 0.2, start=0, legato=1.0, envp=dict(a=0.004, d=1.4, s=0.0, r=0.05))
-    s.voice(M, 'sine', 0.12, start=32, legato=1.0, envp=dict(a=0.004, d=1.6, s=0.0, r=0.05))
-    s.voice([(n if n is None else n[:-1] + str(int(n[-1]) - 1), d) for n, d in M], 'tri', 0.1, start=32, legato=1.0, envp=dict(a=0.004, d=1.2, s=0.0, r=0.05))
-    s.save("music_mahjong")
+# Mahjong fon sesi (doga ambiyansi) icin: nature.py
 
 if __name__ == "__main__":
     import sys
     if len(sys.argv) > 1: globals()[sys.argv[1]]()
-    else: mine_run(); fox(); forest(); mahjong()
+    else: mine_run(); fox(); forest()
