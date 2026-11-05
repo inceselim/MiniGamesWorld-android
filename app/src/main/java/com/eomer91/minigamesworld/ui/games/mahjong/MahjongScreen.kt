@@ -282,7 +282,8 @@ private fun Play(
         // Tahta
         Box(Modifier.weight(1f).fillMaxWidth()) {
             if (game != null) Board(game, state.profile.highlightFree, theme, cache, viewModel)
-            AnimatedVisibility(state.stuck && state.phase == MahjongPhase.PLAY, Modifier.align(Alignment.Center), enter = fadeIn(), exit = fadeOut()) {
+            // Column icinde oldugu icin ColumnScope surumu secilmesin: tam adla cagir.
+            androidx.compose.animation.AnimatedVisibility(state.stuck && state.phase == MahjongPhase.PLAY, Modifier.align(Alignment.Center), enter = fadeIn(), exit = fadeOut()) {
                 StuckPanel(state, theme, viewModel, showRewarded)
             }
             state.toast?.let { t ->
