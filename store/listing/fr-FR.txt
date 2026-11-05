@@ -2,12 +2,13 @@
 Mini Games Hub : jeux offline
 
 === SHORT DESCRIPTION (max 80) ===
-30 jeux dans une app : puzzle, arcade, cartes, stratégie. Jouez hors ligne !
+31 jeux dans une app : puzzle, arcade, cartes, stratégie. Jouez hors ligne !
 
 === FULL DESCRIPTION (max 4000) ===
-Mini Games Hub réunit 30 jeux amusants dans une seule petite application. Aucun compte requis, la plupart des jeux fonctionnent hors ligne et chaque jeu enregistre votre record.
+Mini Games Hub réunit 31 jeux amusants dans une seule petite application. Aucun compte requis, la plupart des jeux fonctionnent hors ligne et chaque jeu enregistre votre record.
 
 🧩 PUZZLE
+• Mahjong – grandes tuiles lisibles, plateau à 4 cases et niveaux infinis avec de nouvelles tuiles à chaque chapitre
 • Block Puzzle – placez des blocs, effacez lignes et colonnes
 • 2048 – fusionnez les tuiles et atteignez 2048
 • Sudoku – Facile, Normal et Difficile, une nouvelle grille à chaque fois, notes et indices

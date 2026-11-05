@@ -1,0 +1,80 @@
+<en-US>
+New game: Mahjong! – now 31 games
+• Big, clear tiles that are easy on the eyes
+• Tap a free tile to send it to the 4-slot tray; two matching tiles vanish
+• Endless levels with a new tile set every chapter: classic, jade garden, ocean, forest, fruit and night sky
+• Hints, shuffle and free undo
+• Relaxing forest sounds: birds and a gentle stream
+</en-US>
+<tr-TR>
+Yeni oyun: Mahjong! Toplam 31 oyun
+• Gözü yormayan büyük ve net taşlar
+• Açık taşa dokun, üstteki 4 kutuluk tepsiye gitsin; aynı iki taş yok olur
+• Bitmeyen seviyeler, her bölümde yeni taşlar: klasik, yeşim bahçe, okyanus, orman, meyve ve gece gökyüzü
+• İpucu, karıştırma ve ücretsiz geri alma
+• Rahatlatıcı orman sesleri: kuşlar ve akan dere
+</tr-TR>
+<de-DE>
+Neues Spiel: Mahjong! – jetzt 31 Spiele
+• Große, klare Steine, die die Augen schonen
+• Tippe einen freien Stein an, er wandert in die Ablage mit 4 Fächern; zwei gleiche verschwinden
+• Endlose Level mit neuen Steinen in jedem Kapitel: Klassik, Jadegarten, Ozean, Wald, Obst und Nachthimmel
+• Tipps, Mischen und kostenloses Zurücknehmen
+• Entspannende Waldgeräusche: Vögel und ein plätschernder Bach
+</de-DE>
+<es-ES>
+Nuevo juego: ¡Mahjong! Ya son 31 juegos
+• Fichas grandes y claras que no cansan la vista
+• Toca una ficha libre para enviarla a la bandeja de 4 casillas; dos iguales desaparecen
+• Niveles infinitos con fichas nuevas en cada capítulo: clásico, jardín de jade, océano, bosque, frutas y cielo nocturno
+• Pistas, barajar y deshacer gratis
+• Sonidos relajantes del bosque: pájaros y un arroyo
+</es-ES>
+<fr-FR>
+Nouveau jeu : Mahjong ! 31 jeux au total
+• De grandes tuiles bien lisibles qui reposent les yeux
+• Touche une tuile libre pour l'envoyer dans le plateau à 4 cases ; deux tuiles identiques disparaissent
+• Niveaux infinis et nouvelles tuiles à chaque chapitre : classique, jardin de jade, océan, forêt, fruits et ciel de nuit
+• Indices, mélange et annulation gratuite
+• Sons apaisants de la forêt : oiseaux et ruisseau
+</fr-FR>
+<it-IT>
+Nuovo gioco: Mahjong! Ora sono 31 giochi
+• Tessere grandi e chiare che non affaticano la vista
+• Tocca una tessera libera per mandarla nel vassoio da 4 spazi; due uguali spariscono
+• Livelli infiniti con nuove tessere a ogni capitolo: classico, giardino di giada, oceano, foresta, frutta e cielo notturno
+• Suggerimenti, mescola e annulla gratis
+• Rilassanti suoni del bosco: uccelli e un ruscello
+</it-IT>
+<ja-JP>
+新しいゲーム「上海」が登場！全31ゲームに
+• 目にやさしい大きく見やすい牌
+• 空いている牌をタップすると上の4枠トレイへ。同じ牌が2つそろうと消えます
+• 無限のレベル、章ごとに新しい牌：クラシック、翡翠の庭、海、森、フルーツ、夜空
+• ヒント、シャッフル、無料の戻す機能
+• 癒やしの森の音：鳥のさえずりと小川のせせらぎ
+</ja-JP>
+<ru-RU>
+Новая игра: Маджонг! Теперь 31 игра
+• Большие чёткие фишки, которые не утомляют глаза
+• Нажмите на свободную фишку — она попадёт в лоток на 4 ячейки; две одинаковые исчезают
+• Бесконечные уровни и новые фишки в каждой главе: классика, нефритовый сад, океан, лес, фрукты и ночное небо
+• Подсказки, перемешивание и бесплатная отмена хода
+• Успокаивающие звуки леса: птицы и ручей
+</ru-RU>
+<da-DK>
+Nyt spil: Mahjong! Nu 31 spil
+• Store, tydelige brikker, der er lette for øjnene
+• Tryk på en fri brik for at sende den til bakken med 4 felter; to ens forsvinder
+• Uendelige baner med nye brikker i hvert kapitel: klassisk, jadehave, hav, skov, frugt og nattehimmel
+• Tips, blanding og gratis fortryd
+• Afslappende skovlyde: fugle og en rislende bæk
+</da-DK>
+<hu-HU>
+Új játék: Mahjong! Már 31 játék
+• Nagy, jól látható kövek, amelyek kímélik a szemet
+• Koppints egy szabad kőre, és a 4 helyes tálcára kerül; két egyforma eltűnik
+• Végtelen pályák, minden fejezetben új kövek: klasszikus, jádekert, óceán, erdő, gyümölcs és éjszakai égbolt
+• Tippek, keverés és ingyenes visszavonás
+• Pihentető erdei hangok: madárcsicsergés és csobogó patak
+</hu-HU>
