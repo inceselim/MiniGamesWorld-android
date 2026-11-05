@@ -45,6 +45,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.FilterQuality
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.drawscope.clipRect
 import androidx.compose.ui.graphics.drawscope.withTransform
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.stringResource
@@ -277,7 +278,7 @@ private fun Play(
             )
             Chip("⏱ " + "%d:%02d".format(state.seconds / 60, state.seconds % 60))
             Spacer(Modifier.width(8.dp))
-            Chip("🀄 ${state.pairsLeft}")
+            Chip("🀄 ${state.tilesLeft}")
         }
         // Tahta
         Box(Modifier.weight(1f).fillMaxWidth()) {
@@ -315,6 +316,8 @@ private fun toastText(t: MahjongToast): String = stringResource(
         MahjongToast.AD_NOT_READY -> R.string.ad_not_ready
         MahjongToast.REWARD_HINTS -> R.string.mj_reward_hints
         MahjongToast.REWARD_SHUFFLES -> R.string.mj_reward_shuffles
+        MahjongToast.TRAY_FULL -> R.string.mj_tray_full
+        MahjongToast.NO_HINT_MOVE -> R.string.mj_no_hint_move
     },
 )
 
@@ -357,21 +360,14 @@ private fun StuckPanel(state: MahjongUiState, theme: MjTheme, viewModel: Mahjong
         Modifier.padding(24.dp).clip(RoundedCornerShape(20.dp)).background(Color(0xEE111827)).padding(20.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(stringResource(R.string.mj_stuck), color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.Black, textAlign = TextAlign.Center)
+        Text(stringResource(R.string.mj_tray_full), color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.Black, textAlign = TextAlign.Center)
+        Text(stringResource(R.string.mj_tray_full_help), color = Color.White.copy(alpha = 0.8f), fontSize = 15.sp, textAlign = TextAlign.Center, modifier = Modifier.padding(top = 6.dp))
         Spacer(Modifier.height(14.dp))
         Button(
-            onClick = {
-                if (state.profile.shuffles > 0) viewModel.shuffle()
-                else showRewarded({ viewModel.rewardShuffles(); viewModel.shuffle() }, { viewModel.adNotReady() })
-            },
+            onClick = viewModel::undo,
             shape = RoundedCornerShape(14.dp),
             colors = ButtonDefaults.buttonColors(containerColor = theme.accent, contentColor = Color(0xFF1B1B1B)),
-        ) {
-            Text(
-                "🔀 " + stringResource(R.string.mj_shuffle) + if (state.profile.shuffles > 0) " (${state.profile.shuffles})" else " ▶",
-                fontWeight = FontWeight.Black, fontSize = 17.sp,
-            )
-        }
+        ) { Text("↶ " + stringResource(R.string.mj_undo), fontWeight = FontWeight.Black, fontSize = 18.sp) }
         Spacer(Modifier.height(8.dp))
         Text(
             stringResource(R.string.mj_restart), color = Color.White.copy(alpha = 0.8f), fontWeight = FontWeight.Bold,
@@ -380,9 +376,23 @@ private fun StuckPanel(state: MahjongUiState, theme: MjTheme, viewModel: Mahjong
     }
 }
 
+/** Tepsi yerlesimi (piksel). */
+private class TrayGeo(width: Float, top: Float) {
+    val tw = min(width / 6f, 92f * 2.6f)          // tepsi tasi yuz genisligi
+    val s = tw / MjGeo.FACE_W
+    val pitch = tw * 1.16f
+    val panelW = pitch * MahjongGame.TRAY_SIZE + tw * 0.3f
+    val panelH = MjGeo.FACE_H * s + tw * 0.34f
+    val panelL = (width - panelW) / 2f
+    val panelT = top
+    val height = panelH + tw * 0.25f
+    fun slotX(i: Float) = panelL + tw * 0.15f + (pitch - tw) / 2f + i * pitch
+    val slotY = panelT + tw * 0.17f
+}
+
 @Composable
 private fun Board(game: MahjongGame, highlight: Boolean, theme: MjTheme, cache: MjTileCache, viewModel: MahjongViewModel) {
-    // Cizim sirasi: alt kat once; ayni katta ust satir once, sagdan sola (sol-alt govde ondeki tasin ustune binmesin).
+    // Cizim sirasi: alt kat once; ayni katta ust satir once, sagdan sola (sol-alt govde ondeki tasin altinda kalsin).
     val order = remember(game) {
         game.tiles.indices.sortedWith(compareBy({ game.tiles[it].z }, { game.tiles[it].y }, { -game.tiles[it].x }))
     }
@@ -390,13 +400,19 @@ private fun Board(game: MahjongGame, highlight: Boolean, theme: MjTheme, cache: 
     var pan by remember(game.info.level) { mutableStateOf(Offset.Zero) }
     val themeIndex = game.info.theme
 
+    fun geo(w: Float, h: Float): Pair<TrayGeo, BoardGeo> {
+        val tray = TrayGeo(w, 4f)
+        val top = tray.height
+        val fit = fitBoard(game.tiles, w, h - top, maxScale(w))
+        return tray to BoardGeo(fit.s * zoom, fit.ox * zoom + pan.x, fit.oy * zoom + pan.y + top)
+    }
+
     Canvas(
         Modifier
             .fillMaxSize()
             .pointerInput(game) {
                 detectTransformGestures { centroid, p, z, _ ->
                     val nz = (zoom * z).coerceIn(1f, 3f)
-                    // Parmaklarin ortasindaki nokta sabit kalsin
                     pan = (pan - centroid) * (nz / zoom) + centroid + p
                     zoom = nz
                     if (zoom <= 1.001f) pan = Offset.Zero
@@ -404,16 +420,14 @@ private fun Board(game: MahjongGame, highlight: Boolean, theme: MjTheme, cache: 
             }
             .pointerInput(game) {
                 detectTapGestures { pos ->
-                    val fit = fitBoard(game.tiles, size.width.toFloat(), size.height.toFloat(), maxScale(size.width.toFloat()))
-                    val s = fit.s * zoom
-                    val g = BoardGeo(s, fit.ox * zoom + pan.x, fit.oy * zoom + pan.y)
-                    // Ondeki tas once: ters sira
+                    val (tray, g) = geo(size.width.toFloat(), size.height.toFloat())
+                    if (pos.y < tray.height) return@detectTapGestures
                     for (i in order.indices.reversed()) {
                         val id = order[i]
-                        if (game.isRemoved(id)) continue
+                        if (!game.onBoard(id)) continue
                         val t = game.tiles[id]
                         val x = g.faceX(t); val y = g.faceY(t)
-                        if (pos.x >= x && pos.x <= x + MjGeo.FACE_W * s && pos.y >= y && pos.y <= y + MjGeo.FACE_H * s) {
+                        if (pos.x >= x && pos.x <= x + MjGeo.FACE_W * g.s && pos.y >= y && pos.y <= y + MjGeo.FACE_H * g.s) {
                             viewModel.tap(id)
                             break
                         }
@@ -424,70 +438,120 @@ private fun Board(game: MahjongGame, highlight: Boolean, theme: MjTheme, cache: 
         @Suppress("UNUSED_VARIABLE")
         val f = viewModel.frame
         val now = System.currentTimeMillis()
-        val fit = fitBoard(game.tiles, size.width, size.height, maxScale(size.width))
-        val s = fit.s * zoom
-        val g = BoardGeo(s, fit.ox * zoom + pan.x, fit.oy * zoom + pan.y)
-        val k = (fit.s * 2f).coerceAtMost(2.6f) // onbellek cozunurlugu: 2 kat yakinlastirmaya kadar keskin
+        val (tray, g) = geo(size.width, size.height)
+        val s = g.s
+        val k = (s / zoom * 2f).coerceAtMost(2.6f)
+        val kTray = (tray.s * 1.5f).coerceAtMost(2.6f)
         val fx = viewModel.fx
         val enterT = ((now - fx.enterAt) / MahjongFx.ENTER_MS.toFloat()).coerceIn(0f, 1f)
         val shuffleT = ((now - fx.shuffleAt) / MahjongFx.SHUFFLE_MS.toFloat()).coerceIn(0f, 1f)
-        val hintOn = fx.hintA >= 0 && now - fx.hintAt < MahjongFx.HINT_MS
+        val hintOn = fx.hint.isNotEmpty() && now - fx.hintAt < MahjongFx.HINT_MS
+        val pulse = 0.5f + 0.5f * sin((now - fx.hintAt) / 140f)
 
-        for ((rank, id) in order.withIndex()) {
-            val t = game.tiles[id]
-            val vanishStart = fx.vanishing[id]
-            if (game.isRemoved(id) && vanishStart == null) continue
-            var x = g.faceX(t)
-            var y = g.faceY(t)
-            var alpha = 1f
-            var sc = 1f
-            // Giris: alt kattan uste, sirayla dusus
-            if (enterT < 1f) {
-                val local = ((enterT - rank / order.size.toFloat() * 0.5f) / 0.5f).coerceIn(0f, 1f)
-                alpha = local
-                y -= (1f - local) * 40f * s
-            }
-            if (shuffleT < 1f) sc *= 1f - 0.12f * sin(shuffleT * PI.toFloat())
-            if (id == fx.shakeId && now - fx.shakeAt < MahjongFx.SHAKE_MS) {
-                x += sin((now - fx.shakeAt) / 25f) * 4f * s * (1f - (now - fx.shakeAt) / MahjongFx.SHAKE_MS.toFloat())
-            }
-            val selected = id == game.selected
-            if (selected) y -= 6f * s
-            if (vanishStart != null) {
-                val vt = ((now - vanishStart) / MahjongFx.VANISH_MS.toFloat()).coerceIn(0f, 1f)
-                alpha *= 1f - vt
-                sc *= 1f + 0.3f * vt
-                y -= 30f * s * vt
-            }
-            if (alpha <= 0.01f) continue
-            val img = cache.get(themeIndex, t.face, k)
-            val cx = x + MjGeo.FACE_W * s / 2f
-            val cy = y + MjGeo.FACE_H * s / 2f
-            withTransform({ scale(sc, sc, Offset(cx, cy)) }) {
-                drawImage(
-                    img, IntOffset.Zero, IntSize(img.width, img.height),
-                    IntOffset((x - MjGeo.PAD_L * s).roundToInt(), (y - MjGeo.PAD_T * s).roundToInt()),
-                    IntSize((MjGeo.ART_W * s).roundToInt(), (MjGeo.ART_H * s).roundToInt()),
-                    alpha = alpha, filterQuality = FilterQuality.Medium,
-                )
-                val faceSize = Size(MjGeo.FACE_W * s, MjGeo.FACE_H * s)
-                val r = CornerRadius(MjGeo.RADIUS * s)
-                if (vanishStart == null && !selected && highlight && !game.isFree(id)) {
-                    drawRoundRect(Color(0xFF1B2433).copy(alpha = 0.26f), Offset(x, y), faceSize, r)
+        // ---- Tahta
+        clipRect(top = tray.height) {
+            for ((rank, id) in order.withIndex()) {
+                if (!game.onBoard(id)) continue
+                val t = game.tiles[id]
+                var x = g.faceX(t)
+                var y = g.faceY(t)
+                var alpha = 1f
+                var sc = 1f
+                if (enterT < 1f) {
+                    val local = ((enterT - rank / order.size.toFloat() * 0.5f) / 0.5f).coerceIn(0f, 1f)
+                    alpha = local
+                    y -= (1f - local) * 40f * s
                 }
-                if (selected) {
-                    drawRoundRect(theme.accent.copy(alpha = 0.28f), Offset(x, y), faceSize, r)
-                    drawRoundRect(theme.accent, Offset(x, y), faceSize, r, style = Stroke(4f * s))
+                if (shuffleT < 1f) sc *= 1f - 0.12f * sin(shuffleT * PI.toFloat())
+                if (id == fx.shakeId && now - fx.shakeAt < MahjongFx.SHAKE_MS) {
+                    x += sin((now - fx.shakeAt) / 25f) * 4f * s * (1f - (now - fx.shakeAt) / MahjongFx.SHAKE_MS.toFloat())
                 }
-                if (hintOn && (id == fx.hintA || id == fx.hintB)) {
-                    val pulse = 0.5f + 0.5f * sin((now - fx.hintAt) / 140f)
-                    drawRoundRect(Color(0xFF4ADE80).copy(alpha = 0.25f + 0.3f * pulse), Offset(x, y), faceSize, r)
-                    drawRoundRect(Color(0xFF4ADE80), Offset(x, y), faceSize, r, style = Stroke((3f + 3f * pulse) * s))
+                if (alpha <= 0.01f) continue
+                val cx = x + MjGeo.FACE_W * s / 2f
+                val cy = y + MjGeo.FACE_H * s / 2f
+                withTransform({ scale(sc, sc, Offset(cx, cy)) }) {
+                    drawTile(cache.get(themeIndex, t.face, k), x, y, s, alpha)
+                    val faceSize = Size(MjGeo.FACE_W * s, MjGeo.FACE_H * s)
+                    val r = CornerRadius(MjGeo.RADIUS * s)
+                    if (highlight && !game.isFree(id)) drawRoundRect(Color(0xFF1B2433).copy(alpha = 0.26f), Offset(x, y), faceSize, r)
+                    if (hintOn && id in fx.hint) {
+                        drawRoundRect(Color(0xFF4ADE80).copy(alpha = 0.25f + 0.3f * pulse), Offset(x, y), faceSize, r)
+                        drawRoundRect(Color(0xFF4ADE80), Offset(x, y), faceSize, r, style = Stroke((3f + 3f * pulse) * s))
+                    }
                 }
             }
-            if (vanishStart != null) sparkles(cx, cy, s, ((now - vanishStart) / MahjongFx.VANISH_MS.toFloat()).coerceIn(0f, 1f), theme.accent)
+        }
+
+        // ---- Tepsi paneli
+        var shakeX = 0f
+        if (fx.shakeId == -2 && now - fx.shakeAt < MahjongFx.SHAKE_MS) {
+            shakeX = sin((now - fx.shakeAt) / 22f) * 8f * (1f - (now - fx.shakeAt) / MahjongFx.SHAKE_MS.toFloat())
+        }
+        val full = game.isTrayFull
+        drawRoundRect(
+            Color.Black.copy(alpha = 0.32f), Offset(tray.panelL + shakeX, tray.panelT), Size(tray.panelW, tray.panelH), CornerRadius(tray.tw * 0.22f),
+        )
+        if (full) drawRoundRect(
+            Color(0xFFF87171), Offset(tray.panelL + shakeX, tray.panelT), Size(tray.panelW, tray.panelH), CornerRadius(tray.tw * 0.22f), style = Stroke(3f),
+        )
+        for (i in 0 until MahjongGame.TRAY_SIZE) {
+            drawRoundRect(
+                Color.White.copy(alpha = 0.10f), Offset(tray.slotX(i.toFloat()) + shakeX, tray.slotY),
+                Size(tray.tw, MjGeo.FACE_H * tray.s), CornerRadius(MjGeo.RADIUS * tray.s),
+            )
+        }
+        fun boardPos(id: Int) = Offset(g.faceX(game.tiles[id]), g.faceY(game.tiles[id]))
+        fun lerp(a: Offset, b: Offset, t: Float) = Offset(a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t)
+        fun ease(t: Float) = 1f - (1f - t) * (1f - t)
+
+        // Tepsideki taslar (ucanlar dahil)
+        for (id in game.tray) {
+            val slot = fx.trayX[id] ?: game.tray.indexOf(id).toFloat()
+            val target = Offset(tray.slotX(slot) + shakeX, tray.slotY)
+            val flyStart = fx.fly[id]
+            if (flyStart != null && now - flyStart < MahjongFx.FLY_MS) {
+                val t = ease((now - flyStart) / MahjongFx.FLY_MS.toFloat())
+                val p = lerp(boardPos(id), target, t)
+                val sc = s + (tray.s - s) * t
+                drawTile(cache.get(themeIndex, game.tiles[id].face, max(k, kTray)), p.x, p.y, sc, 1f)
+            } else {
+                drawTile(cache.get(themeIndex, game.tiles[id].face, kTray), target.x, target.y, tray.s, 1f)
+                if (hintOn && id in fx.hint) {
+                    drawRoundRect(Color(0xFF4ADE80), target, Size(tray.tw, MjGeo.FACE_H * tray.s), CornerRadius(MjGeo.RADIUS * tray.s), style = Stroke(4f))
+                }
+            }
+        }
+        // Eslesen ciftler: es tepside bekler, yeni tas ustune ucar, sonra ikisi birden patlar
+        for (pf in fx.pairs) {
+            val target = Offset(tray.slotX(pf.slot), tray.slotY)
+            val el = now - pf.start
+            val faceIdx = game.tiles[pf.id].face
+            if (el < MahjongFx.FLY_MS) {
+                drawTile(cache.get(themeIndex, faceIdx, kTray), target.x, target.y, tray.s, 1f)
+                val t = ease(el / MahjongFx.FLY_MS.toFloat())
+                val p = lerp(boardPos(pf.id), Offset(target.x + tray.tw * 0.18f, target.y - tray.tw * 0.1f), t)
+                drawTile(cache.get(themeIndex, faceIdx, max(k, kTray)), p.x, p.y, s + (tray.s - s) * t, 1f)
+            } else {
+                val bt = ((el - MahjongFx.FLY_MS) / MahjongFx.BURST_MS.toFloat()).coerceIn(0f, 1f)
+                val cx = target.x + tray.tw / 2f
+                val cy = target.y + MjGeo.FACE_H * tray.s / 2f
+                withTransform({ scale(1f + 0.35f * bt, 1f + 0.35f * bt, Offset(cx, cy)) }) {
+                    drawTile(cache.get(themeIndex, faceIdx, kTray), target.x, target.y, tray.s, 1f - bt)
+                }
+                sparkles(cx, cy, tray.s * 1.4f, bt, theme.accent)
+            }
         }
     }
+}
+
+/** Onbellekteki tas resmini, yuzunun sol ustu (x, y) ve olcek [s] ile ciz. */
+private fun DrawScope.drawTile(img: androidx.compose.ui.graphics.ImageBitmap, x: Float, y: Float, s: Float, alpha: Float) {
+    drawImage(
+        img, IntOffset.Zero, IntSize(img.width, img.height),
+        IntOffset((x - MjGeo.PAD_L * s).roundToInt(), (y - MjGeo.PAD_T * s).roundToInt()),
+        IntSize((MjGeo.ART_W * s).roundToInt(), (MjGeo.ART_H * s).roundToInt()),
+        alpha = alpha.coerceIn(0f, 1f), filterQuality = FilterQuality.Medium,
+    )
 }
 
 /** Telefonda tas genisligi en fazla ~ekranin 1/4'u olsun (kucuk tahtalar dev gorunmesin). */

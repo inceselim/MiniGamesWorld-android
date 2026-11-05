@@ -732,7 +732,7 @@
     <string name="fa_double">Удвоить (реклама)</string>
     <string name="fa_collect">Забрать</string>
     <string name="game_mahjong_name">Маджонг</string>
-    <string name="game_mahjong_desc">Классический пасьянс маджонг с большими и чёткими фишками. Убирайте пары свободных фишек и очищайте поле. Бесконечные уровни и новые фишки в каждой главе: классика, нефритовый сад, океан, лес, фрукты и ночное небо!</string>
+    <string name="game_mahjong_desc">Маджонг с большими и чёткими фишками. Нажимайте на свободные фишки — они попадают в лоток на 4 ячейки, а две одинаковые исчезают. Очистите поле, пока лоток не заполнился! Бесконечные уровни и новые фишки в каждой главе: классика, нефритовый сад, океан, лес, фрукты и ночное небо.</string>
     <string name="mj_play">Играть</string>
     <string name="mj_continue">Продолжить</string>
     <string name="mj_level">Уровень %1$d</string>
@@ -759,4 +759,7 @@
     <string name="mj_no_shuffles">Перемешивания закончились. Посмотрите рекламу: +2.</string>
     <string name="mj_reward_hints">+3 подсказки!</string>
     <string name="mj_reward_shuffles">+2 перемешивания!</string>
+    <string name="mj_tray_full">Лоток заполнен!</string>
+    <string name="mj_tray_full_help">Фишки попадают в 4 ячейки сверху, две одинаковые исчезают. Отмените последний ход и попробуйте другую фишку.</string>
+    <string name="mj_no_hint_move">Хорошего хода нет — попробуйте перемешать.</string>
 </resources>

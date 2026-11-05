@@ -64,53 +64,105 @@ class MahjongEngineTest {
     }
 
     @Test
-    fun tapMatchUndo() {
+    fun trayMatchUndo() {
         val g = MahjongGame.forLevel(1)
-        val (a, b) = g.findPair()!!
-        assertEquals(MahjongGame.TapResult.Selected, g.tap(a))
-        assertEquals(MahjongGame.TapResult.Matched(a, b), g.tap(b))
+        val free = g.freeIds()
+        var a = -1; var b = -1
+        loop@ for (i in free) for (j in free) if (i != j && g.tiles[i].face == g.tiles[j].face) { a = i; b = j; break@loop }
+        check(a >= 0)
+        assertEquals(MahjongGame.TapResult.ToTray(a, 0), g.tap(a))
+        assertTrue(g.inTray(a))
+        assertEquals(MahjongGame.TapResult.Paired(b, a, 0), g.tap(b))
         assertTrue(g.isRemoved(a) && g.isRemoved(b))
-        assertNotNull(g.undo())
-        assertFalse(g.isRemoved(a))
-        assertEquals(g.tiles.size, g.remaining)
+        assertEquals(0, g.tray.size)
+        assertEquals(listOf(b, a), g.undo())
+        assertEquals(listOf(a), g.tray)
+        assertTrue(g.onBoard(b))
+        assertEquals(listOf(a), g.undo())
+        assertEquals(g.tiles.size, g.boardCount)
     }
 
-    /** Rastgele oynayan oyuncu, takilinca karistirir: her seviye bitmeli. */
     @Test
-    fun randomPlayerAlwaysFinishesWithShuffles() {
-        var totalShuffles = 0
-        var stuckLevels = 0
-        val rnd = SeededRandom(42)
+    fun trayFillsAndBlocks() {
+        val g = MahjongGame.forLevel(40)
+        // Dort farkli yuzlu acik tas bulup tepsiyi doldur
+        val taken = HashSet<Int>()
+        while (!g.isTrayFull) {
+            val id = g.freeIds().first { f -> g.tray.none { g.tiles[it].face == g.tiles[f].face } && g.tiles[f].face !in taken }
+            taken.add(g.tiles[id].face); g.tap(id)
+        }
+        val other = g.freeIds().first()
+        assertEquals(MahjongGame.TapResult.TrayFull, g.tap(other))
+        g.undo()
+        assertFalse(g.isTrayFull)
+    }
+
+    /** Ipucunu izleyen oyuncu; ipucu yoksa karistirir. Her seviye bitmeli. */
+    @Test
+    fun hintPlayerAlwaysFinishes() {
+        var shuffleTotal = 0
+        val rnd = SeededRandom(7)
         for (level in 1..400 step 3) {
             var g = MahjongGame.forLevel(level)
             var shuffles = 0
+            var steps = 0
             while (!g.isCleared) {
-                val free = g.freeIds()
-                val pairs = ArrayList<Pair<Int, Int>>()
-                for (i in free.indices) for (j in i + 1 until free.size) if (g.tiles[free[i]].face == g.tiles[free[j]].face) pairs.add(free[i] to free[j])
-                if (pairs.isEmpty()) {
-                    g = g.shuffle(rnd); shuffles++
-                    assertTrue("seviye $level cok karistirma", shuffles < 40)
-                    assertTrue("karistirma sonrasi hamle yok $level", g.hasMoves())
+                check(steps++ < 2000) { "dongu $level" }
+                val h = g.findHint()
+                if (h.isEmpty()) {
+                    val ng = g.shuffle(rnd)
+                    if (ng === g || ng.findHint().isEmpty()) { check(g.undo() != null) { "kurtulus yok $level" }; continue }
+                    g = ng; shuffles++
+                    check(shuffles < 30) { "cok karistirma $level" }
                     continue
                 }
-                val (a, b) = pairs[rnd.nextInt(pairs.size)]
-                g.tap(a); g.tap(b)
+                for (id in h) if (g.isFree(id)) g.tap(id)
             }
-            if (shuffles > 0) stuckLevels++
-            totalShuffles += shuffles
+            shuffleTotal += shuffles
         }
-        println("rastgele oyuncu: takilan seviye $stuckLevels / 134, toplam karistirma $totalShuffles")
+        println("ipucu oyuncusu: toplam karistirma $shuffleTotal / 134 seviye")
+    }
+
+    /** Rastgele oyuncu (tepsiyi rastgele doldurur), takilinca geri alip karistirir. */
+    @Test
+    fun randomPlayerWithTray() {
+        val rnd = SeededRandom(3)
+        var shuffles = 0
+        for (level in 1..200 step 5) {
+            var g = MahjongGame.forLevel(level)
+            var steps = 0
+            while (!g.isCleared) {
+                check(steps++ < 5000) { "dongu $level" }
+                if (g.isTrayFull) { g.undo(); g.undo(); val ng = g.shuffle(rnd); if (ng !== g) { g = ng; shuffles++ }; continue }
+                val free = g.freeIds()
+                val match = free.firstOrNull { f -> g.tray.any { g.tiles[it].face == g.tiles[f].face } }
+                g.tap(match ?: free[rnd.nextInt(free.size)])
+            }
+        }
+        println("rastgele tepsi oyuncusu: $shuffles karistirma / 40 seviye")
     }
 
     @Test
     fun saveRestore() {
         val g = MahjongGame.forLevel(30)
-        val (a, b) = g.findPair()!!
-        g.tap(a); g.tap(b)
+        val a = g.freeIds().first()
+        g.tap(a)
         val r = MahjongGame.restore(g.snapshot())!!
+        assertEquals(listOf(a), r.tray)
         assertEquals(g.remaining, r.remaining)
-        assertTrue(r.isRemoved(a))
+    }
+
+    @Test
+    fun shuffleKeepsTrayPartners() {
+        val rnd = SeededRandom(11)
+        val g = MahjongGame.forLevel(90)
+        val a = g.freeIds().first()
+        g.tap(a)
+        val s = g.shuffle(rnd)
+        val board = s.tiles.indices.filter { s.onBoard(it) }
+        val faceCount = board.groupingBy { s.tiles[it].face }.eachCount()
+        assertEquals(1, (faceCount[s.tiles[a].face] ?: 0) % 2)
+        assertEquals(listOf(a), s.tray)
     }
 
     @Test

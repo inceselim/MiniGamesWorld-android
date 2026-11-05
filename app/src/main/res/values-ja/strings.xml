@@ -732,7 +732,7 @@
     <string name="fa_double">2倍にする（広告）</string>
     <string name="fa_collect">受け取る</string>
     <string name="game_mahjong_name">上海</string>
-    <string name="game_mahjong_desc">大きく見やすい牌で遊ぶ定番の上海。空いている同じ牌をペアで取り、盤面を片付けよう。レベルは無限、章ごとに新しい牌：クラシック、翡翠の庭、海、森、フルーツ、夜空！</string>
+    <string name="game_mahjong_desc">大きく見やすい牌の上海。空いている牌をタップすると上の4枠トレイへ。同じ牌が2つそろうと消えます。トレイがいっぱいになる前に盤面を片付けよう！レベルは無限、章ごとに新しい牌：クラシック、翡翠の庭、海、森、フルーツ、夜空。</string>
     <string name="mj_play">プレイ</string>
     <string name="mj_continue">つづける</string>
     <string name="mj_level">レベル %1$d</string>
@@ -759,4 +759,7 @@
     <string name="mj_no_shuffles">シャッフルがありません。広告を見て+2</string>
     <string name="mj_reward_hints">ヒント+3！</string>
     <string name="mj_reward_shuffles">シャッフル+2！</string>
+    <string name="mj_tray_full">トレイがいっぱいです！</string>
+    <string name="mj_tray_full_help">牌は上の4つの枠に入り、同じ牌が2つそろうと消えます。ひとつ戻して別の牌を試そう。</string>
+    <string name="mj_no_hint_move">良い手がありません。シャッフルを試そう。</string>
 </resources>

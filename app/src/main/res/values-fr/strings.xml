@@ -732,7 +732,7 @@
     <string name="fa_double">Doubler (voir une pub)</string>
     <string name="fa_collect">Récupérer</string>
     <string name="game_mahjong_name">Mahjong</string>
-    <string name="game_mahjong_desc">Le Mahjong solitaire classique avec de grandes tuiles bien lisibles. Associe les paires de tuiles libres et vide le plateau. Niveaux infinis et nouvelles tuiles à chaque chapitre : classique, jardin de jade, océan, forêt, fruits et ciel de nuit !</string>
+    <string name="game_mahjong_desc">Mahjong avec de grandes tuiles bien lisibles. Touche les tuiles libres pour les envoyer dans le plateau à 4 cases ; deux tuiles identiques disparaissent. Vide le plateau de jeu avant que les cases soient pleines ! Niveaux infinis et nouvelles tuiles à chaque chapitre : classique, jardin de jade, océan, forêt, fruits et ciel de nuit.</string>
     <string name="mj_play">Jouer</string>
     <string name="mj_continue">Continuer</string>
     <string name="mj_level">Niveau %1$d</string>
@@ -759,4 +759,7 @@
     <string name="mj_no_shuffles">Plus de mélanges. Regarde une pub pour +2.</string>
     <string name="mj_reward_hints">+3 indices !</string>
     <string name="mj_reward_shuffles">+2 mélanges !</string>
+    <string name="mj_tray_full">Le plateau est plein !</string>
+    <string name="mj_tray_full_help">Les tuiles vont dans les 4 cases du haut et deux identiques disparaissent. Annule ton dernier coup et essaie une autre tuile.</string>
+    <string name="mj_no_hint_move">Aucun bon coup : essaie Mélanger.</string>
 </resources>

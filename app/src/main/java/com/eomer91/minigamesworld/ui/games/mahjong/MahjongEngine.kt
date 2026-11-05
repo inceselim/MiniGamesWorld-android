@@ -296,40 +296,53 @@ object MahjongLevels {
 }
 
 /**
- * Bir seviyenin oyun durumu. Tum degisiklikler bu sinif uzerinden.
+ * Bir seviyenin oyun durumu (Vita tarzi tepsi): acik bir tasa dokununca tas tahtadan
+ * [TRAY_SIZE] kutucuklu tepsiye gider; tepside ayni yuzden iki tas olunca ikisi de kaybolur.
+ * Tepsi eslesmeyen taslarla dolarsa oyuncu takilir (geri al ile kurtulabilir).
  */
 class MahjongGame private constructor(
     val info: LevelInfo,
     tiles: List<MahjongTile>,
     removedIds: Set<Int>,
+    trayIds: List<Int>,
 ) {
     val tiles: List<MahjongTile> = tiles
     private val slots: List<Slot> = tiles.map { Slot(it.x, it.y, it.z) }
+    /** Eslesip tamamen giden taslar. */
     private val removed = BooleanArray(tiles.size).also { r -> removedIds.forEach { r[it] = true } }
-    private val history = ArrayList<Pair<Int, Int>>()
+    /** Tepsideki taslar (soldan saga). */
+    private val trayList = ArrayList(trayIds)
+    private val history = ArrayList<Move>()
 
-    var selected: Int = -1
-        private set
+    private sealed interface Move {
+        data class ToTray(val id: Int) : Move
+        data class Paired(val id: Int, val partner: Int, val partnerIndex: Int) : Move
+    }
+
     var hintsUsed = 0
         private set
     var shufflesUsed = 0
         private set
 
+    val tray: List<Int> get() = trayList
+    /** Tahtada veya tepside kalan tas sayisi. */
     val remaining: Int get() = removed.count { !it }
+    val boardCount: Int get() = remaining - trayList.size
     val isCleared: Boolean get() = remaining == 0
     val canUndo: Boolean get() = history.isNotEmpty()
+    val isTrayFull: Boolean get() = trayList.size >= TRAY_SIZE
 
     fun isRemoved(id: Int) = removed[id]
-
-    private fun presentSlots(): List<Slot> = slots.filterIndexed { i, _ -> !removed[i] }
+    fun inTray(id: Int) = trayList.contains(id)
+    fun onBoard(id: Int) = !removed[id] && !trayList.contains(id)
 
     fun isFree(id: Int): Boolean {
-        if (removed[id]) return false
+        if (!onBoard(id)) return false
         val s = slots[id]
         var left = false
         var right = false
         for (i in slots.indices) {
-            if (i == id || removed[i]) continue
+            if (i == id || !onBoard(i)) continue
             val o = slots[i]
             if (MahjongRules.covers(o, s)) return false
             if (MahjongRules.leftOf(s, o)) left = true
@@ -341,119 +354,129 @@ class MahjongGame private constructor(
 
     fun freeIds(): List<Int> = tiles.indices.filter { isFree(it) }
 
-    /** Eslesebilen acik cift (ipucu). */
-    fun findPair(): Pair<Int, Int>? {
-        val free = freeIds()
-        for (i in free.indices) for (j in i + 1 until free.size)
-            if (tiles[free[i]].face == tiles[free[j]].face) return free[i] to free[j]
-        return null
-    }
-
-    fun hasMoves(): Boolean = findPair() != null
-
     sealed interface TapResult {
         data object Blocked : TapResult
-        data object Selected : TapResult
-        data object Deselected : TapResult
-        data class Mismatch(val other: Int) : TapResult
-        data class Matched(val a: Int, val b: Int) : TapResult
+        data object TrayFull : TapResult
+        data class ToTray(val id: Int, val slot: Int) : TapResult
+        /** [id] tepsiye geldi ve [partner] ile eslesti; ikisi de gitti. */
+        data class Paired(val id: Int, val partner: Int, val partnerIndex: Int) : TapResult
     }
 
     fun tap(id: Int): TapResult {
-        if (removed[id] || !isFree(id)) return TapResult.Blocked
-        val sel = selected
-        if (sel == -1) { selected = id; return TapResult.Selected }
-        if (sel == id) { selected = -1; return TapResult.Deselected }
-        return if (tiles[sel].face == tiles[id].face) {
-            removed[sel] = true; removed[id] = true
-            history.add(sel to id)
-            selected = -1
-            TapResult.Matched(sel, id)
+        if (!isFree(id)) return TapResult.Blocked
+        if (isTrayFull) return TapResult.TrayFull
+        val pi = trayList.indexOfFirst { tiles[it].face == tiles[id].face }
+        return if (pi >= 0) {
+            val partner = trayList.removeAt(pi)
+            removed[id] = true; removed[partner] = true
+            history.add(Move.Paired(id, partner, pi))
+            TapResult.Paired(id, partner, pi)
         } else {
-            selected = id
-            TapResult.Mismatch(sel)
+            trayList.add(id)
+            history.add(Move.ToTray(id))
+            TapResult.ToTray(id, trayList.size - 1)
         }
     }
 
-    fun undo(): Pair<Int, Int>? {
-        val last = history.removeLastOrNull() ?: return null
-        removed[last.first] = false; removed[last.second] = false
-        selected = -1
-        return last
+    /** Son hamleyi geri alir; geri donen taslarin id'leri. */
+    fun undo(): List<Int>? {
+        return when (val m = history.removeLastOrNull() ?: return null) {
+            is Move.ToTray -> { trayList.remove(m.id); listOf(m.id) }
+            is Move.Paired -> {
+                removed[m.id] = false; removed[m.partner] = false
+                trayList.add(m.partnerIndex.coerceAtMost(trayList.size), m.partner)
+                listOf(m.id, m.partner)
+            }
+        }
     }
-
-    fun useHint(): Pair<Int, Int>? = findPair()?.also { hintsUsed++ }
 
     /**
-     * Kalan taslarin yuzlerini, cozulebilir olacak sekilde yeniden dagitir.
-     * Gecmis sifirlanir (geri alma karistirma oncesine donmez).
+     * Ipucu: tepsideki bir tasin esi acikta ise o tas; degilse acik bir cift; o da yoksa
+     * esi tahtada olan acik bir tas (tepside yer varsa). Bos liste: oneri yok (karistir).
+     */
+    fun findHint(): List<Int> {
+        val free = freeIds()
+        val trayFaces = trayList.map { tiles[it].face }.toSet()
+        free.firstOrNull { tiles[it].face in trayFaces }?.let { return listOf(it) }
+        if (trayList.size <= TRAY_SIZE - 2) {
+            for (i in free.indices) for (j in i + 1 until free.size)
+                if (tiles[free[i]].face == tiles[free[j]].face) return listOf(free[i], free[j])
+        }
+        if (trayList.size <= TRAY_SIZE - 2) free.firstOrNull()?.let { return listOf(it) }
+        return emptyList()
+    }
+
+    fun useHint(): List<Int> = findHint().also { if (it.isNotEmpty()) hintsUsed++ }
+
+    /**
+     * Tahtadaki taslarin yuzlerini cozulebilir olacak sekilde yeniden dagitir:
+     * tahtayi tek tek bosaltan bir sira bulunur; siranin ilk taslari tepsidekilerin esleri olur,
+     * kalanlar ardisik ciftler halinde ayni yuzu alir. Gecmis sifirlanir.
      */
     fun shuffle(rnd: SeededRandom): MahjongGame {
-        val ids = tiles.indices.filter { !removed[it] }
-        val faces = ids.map { tiles[it].face }
-        var pos = ids.map { slots[it] }
-        // Konumlar kilitlenmisse (ornek: ust uste kalan iki tas) taslari tek kata yeniden diz.
-        val order = MahjongDealer.removalOrder(pos, rnd) ?: run {
-            pos = flatLayout(ids.size, pos)
-            MahjongDealer.removalOrder(pos, rnd)
-        } ?: return this
-        val moved = ids.indices.associate { ids[it] to pos[it] }
-        // Yuzleri ciftler halinde grupla (her yuz cift sayida).
-        val counts = faces.groupingBy { it }.eachCount()
-        val facePairs = ArrayList<Int>()
-        counts.forEach { (f, n) -> repeat(n / 2) { facePairs.add(f) } }
-        rnd.shuffle(facePairs)
+        val board = tiles.indices.filter { onBoard(it) }
+        if (board.isEmpty()) return this
+        val trayFaces = trayList.map { tiles[it].face }
+        val counts = HashMap<Int, Int>()
+        board.forEach { counts[tiles[it].face] = (counts[tiles[it].face] ?: 0) + 1 }
+        trayFaces.forEach { counts[it] = (counts[it] ?: 0) - 1 }
+        if (counts.values.any { it < 0 || it % 2 != 0 }) return this
+        // Tek tek bosaltma sirasi (her zaman bulunur: en ust-sol tas hep aciktir).
+        val alive = BooleanArray(tiles.size) { onBoard(it) }
+        val order = ArrayList<Int>()
+        while (order.size < board.size) {
+            val free = board.filter { alive[it] && isFreeAmong(it, alive) }
+            val pick = free[rnd.nextInt(free.size)]
+            alive[pick] = false; order.add(pick)
+        }
+        val pairFaces = ArrayList<Int>()
+        counts.forEach { (f, n) -> repeat(n / 2) { pairFaces.add(f) } }
+        rnd.shuffle(pairFaces)
+        val partners = trayFaces.toMutableList().also { rnd.shuffle(it) }
         val newFace = HashMap<Int, Int>()
-        for (k in facePairs.indices) {
-            newFace[ids[order[2 * k]]] = facePairs[k]
-            newFace[ids[order[2 * k + 1]]] = facePairs[k]
-        }
-        val newTiles = tiles.map { t ->
-            val f = newFace[t.id] ?: return@map t
-            val s = moved.getValue(t.id)
-            t.copy(face = f, x = s.x, y = s.y, z = s.z)
-        }
-        return MahjongGame(info, newTiles, tiles.indices.filter { removed[it] }.toSet()).also {
+        var k = 0
+        for (f in partners) newFace[order[k++]] = f
+        for (f in pairFaces) { newFace[order[k++]] = f; newFace[order[k++]] = f }
+        val newTiles = tiles.map { tl -> newFace[tl.id]?.let { tl.copy(face = it) } ?: tl }
+        return MahjongGame(info, newTiles, tiles.indices.filter { removed[it] }.toSet(), trayList.toList()).also {
             it.hintsUsed = hintsUsed
             it.shufflesUsed = shufflesUsed + 1
         }
     }
 
-    /** Kalan [n] tasi, eski yerlerinin ortasinda tek katli satirlara dizer. */
-    private fun flatLayout(n: Int, old: List<Slot>): List<Slot> {
-        val perRow = when {
-            n <= 6 -> n
-            n <= 24 -> 6
-            else -> 8
+    private fun isFreeAmong(id: Int, alive: BooleanArray): Boolean {
+        val s = slots[id]
+        var left = false
+        var right = false
+        for (i in slots.indices) {
+            if (i == id || !alive[i]) continue
+            val o = slots[i]
+            if (MahjongRules.covers(o, s)) return false
+            if (MahjongRules.leftOf(s, o)) left = true
+            if (MahjongRules.rightOf(s, o)) right = true
+            if (left && right) return false
         }
-        val rows = (n + perRow - 1) / perRow
-        val cx = (old.minOf { it.x } + old.maxOf { it.x }) / 2
-        val cy = (old.minOf { it.y } + old.maxOf { it.y }) / 2
-        val out = ArrayList<Slot>()
-        for (i in 0 until n) {
-            val r = i / perRow
-            val inRow = if (r == rows - 1) n - r * perRow else perRow
-            val c = i % perRow
-            out.add(Slot(cx - inRow + 1 + c * 2, cy - rows + 1 + r * 2, 0))
-        }
-        return out
+        return true
     }
 
     fun snapshot(): MahjongSave = MahjongSave(
         level = info.level,
         tiles = tiles,
         removed = tiles.indices.filter { removed[it] },
+        tray = trayList.toList(),
         hintsUsed = hintsUsed,
         shufflesUsed = shufflesUsed,
     )
 
     companion object {
-        fun forLevel(level: Int): MahjongGame = MahjongGame(MahjongDealer.levelInfo(level), MahjongDealer.deal(level), emptySet())
+        const val TRAY_SIZE = 4
+
+        fun forLevel(level: Int): MahjongGame = MahjongGame(MahjongDealer.levelInfo(level), MahjongDealer.deal(level), emptySet(), emptyList())
 
         fun restore(save: MahjongSave): MahjongGame? {
             if (save.tiles.isEmpty()) return null
             val info = MahjongDealer.levelInfo(save.level)
-            return MahjongGame(info, save.tiles, save.removed.toSet()).also {
+            return MahjongGame(info, save.tiles, save.removed.toSet(), save.tray).also {
                 it.hintsUsed = save.hintsUsed
                 it.shufflesUsed = save.shufflesUsed
             }
@@ -466,6 +489,7 @@ data class MahjongSave(
     val level: Int = 1,
     val tiles: List<MahjongTile> = emptyList(),
     val removed: List<Int> = emptyList(),
+    val tray: List<Int> = emptyList(),
     val hintsUsed: Int = 0,
     val shufflesUsed: Int = 0,
     val elapsedMs: Long = 0,

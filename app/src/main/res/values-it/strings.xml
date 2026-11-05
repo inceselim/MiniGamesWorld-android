@@ -732,7 +732,7 @@
     <string name="fa_double">Raddoppia (guarda annuncio)</string>
     <string name="fa_collect">Raccogli</string>
     <string name="game_mahjong_name">Mahjong</string>
-    <string name="game_mahjong_desc">Il classico Mahjong solitario con tessere grandi e chiare. Abbina le coppie di tessere libere e svuota il tavolo. Livelli infiniti e nuove tessere in ogni capitolo: classico, giardino di giada, oceano, foresta, frutta e cielo notturno!</string>
+    <string name="game_mahjong_desc">Mahjong con tessere grandi e chiare. Tocca le tessere libere per mandarle nel vassoio da 4 spazi; due uguali spariscono. Svuota il tavolo prima che il vassoio si riempia! Livelli infiniti e nuove tessere in ogni capitolo: classico, giardino di giada, oceano, foresta, frutta e cielo notturno.</string>
     <string name="mj_play">Gioca</string>
     <string name="mj_continue">Continua</string>
     <string name="mj_level">Livello %1$d</string>
@@ -759,4 +759,7 @@
     <string name="mj_no_shuffles">Mescolate finite. Guarda un annuncio per +2.</string>
     <string name="mj_reward_hints">+3 suggerimenti!</string>
     <string name="mj_reward_shuffles">+2 mescolate!</string>
+    <string name="mj_tray_full">Il vassoio è pieno!</string>
+    <string name="mj_tray_full_help">Le tessere vanno nei 4 spazi in alto e due uguali spariscono. Annulla l\'ultima mossa e prova un\'altra tessera.</string>
+    <string name="mj_no_hint_move">Nessuna mossa utile: prova Mescola.</string>
 </resources>

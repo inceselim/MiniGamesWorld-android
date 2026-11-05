@@ -748,7 +748,7 @@
     <string name="fa_double">Double it (watch ad)</string>
     <string name="fa_collect">Collect</string>
     <string name="game_mahjong_name">Mahjong</string>
-    <string name="game_mahjong_desc">Classic Mahjong solitaire with big, clear tiles. Match pairs of free tiles and clear the board. Endless levels, a new tile set every chapter: classic, jade garden, ocean, forest, fruit and night sky!</string>
+    <string name="game_mahjong_desc">Mahjong with big, clear tiles. Tap free tiles to send them to the 4-slot tray; two matching tiles vanish. Clear the board before the tray fills up! Endless levels and a new tile set every chapter: classic, jade garden, ocean, forest, fruit and night sky.</string>
     <string name="mj_play">Play</string>
     <string name="mj_continue">Continue</string>
     <string name="mj_level">Level %1$d</string>
@@ -775,4 +775,7 @@
     <string name="mj_no_shuffles">No shuffles left. Watch an ad for +2.</string>
     <string name="mj_reward_hints">+3 hints!</string>
     <string name="mj_reward_shuffles">+2 shuffles!</string>
+    <string name="mj_tray_full">The tray is full!</string>
+    <string name="mj_tray_full_help">Tiles go to the 4 slots at the top and two matching tiles vanish. Undo your last move and try another tile.</string>
+    <string name="mj_no_hint_move">No good move — try Shuffle.</string>
 </resources>

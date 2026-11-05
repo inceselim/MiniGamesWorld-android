@@ -732,7 +732,7 @@
     <string name="fa_double">Fordobl (se reklame)</string>
     <string name="fa_collect">Indsaml</string>
     <string name="game_mahjong_name">Mahjong</string>
-    <string name="game_mahjong_desc">Klassisk Mahjong-kabale med store, tydelige brikker. Match par af frie brikker og ryd brættet. Uendelige baner og nye brikker i hvert kapitel: klassisk, jadehave, hav, skov, frugt og nattehimmel!</string>
+    <string name="game_mahjong_desc">Mahjong med store, tydelige brikker. Tryk på frie brikker for at sende dem til bakken med 4 felter; to ens forsvinder. Ryd brættet, før bakken bliver fuld! Uendelige baner og nye brikker i hvert kapitel: klassisk, jadehave, hav, skov, frugt og nattehimmel.</string>
     <string name="mj_play">Spil</string>
     <string name="mj_continue">Fortsæt</string>
     <string name="mj_level">Bane %1$d</string>
@@ -759,4 +759,7 @@
     <string name="mj_no_shuffles">Ingen blandinger tilbage. Se en reklame for +2.</string>
     <string name="mj_reward_hints">+3 tips!</string>
     <string name="mj_reward_shuffles">+2 blandinger!</string>
+    <string name="mj_tray_full">Bakken er fuld!</string>
+    <string name="mj_tray_full_help">Brikkerne havner i de 4 felter øverst, og to ens forsvinder. Fortryd dit sidste træk og prøv en anden brik.</string>
+    <string name="mj_no_hint_move">Intet godt træk – prøv Bland.</string>
 </resources>

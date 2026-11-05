@@ -51,9 +51,9 @@ data class MahjongUiState(
     val phase: MahjongPhase = MahjongPhase.HOME,
     val profile: MahjongProfile = MahjongProfile(),
     val seconds: Int = 0,
-    val pairsLeft: Int = 0,
+    val tilesLeft: Int = 0,
     val canUndo: Boolean = false,
-    /** Acik eslesme kalmadi: karistirma onerilir. */
+    /** Tepsi eslesmeyen taslarla doldu: geri al ya da yeniden basla. */
     val stuck: Boolean = false,
     // Bitis ekrani
     val stars: Int = 0,
@@ -64,30 +64,39 @@ data class MahjongUiState(
     val round: Int = 0,
 )
 
-enum class MahjongToast { NO_HINTS, NO_SHUFFLES, AD_NOT_READY, REWARD_HINTS, REWARD_SHUFFLES }
+enum class MahjongToast { NO_HINTS, NO_SHUFFLES, AD_NOT_READY, REWARD_HINTS, REWARD_SHUFFLES, TRAY_FULL, NO_HINT_MOVE }
+
+/** Tepside eslesip patlayan cift. */
+class PairFx(val id: Int, val partner: Int, val slot: Float, val start: Long)
 
 /** Ekranda cizilen gecici efektler (zaman damgasi ms). */
 class MahjongFx {
-    /** Eslesip kaybolan taslar: id -> baslangic zamani */
-    val vanishing = LinkedHashMap<Int, Long>()
-    /** Kilitli tasa dokununca titreme */
+    /** Tahtadan tepsiye ucan taslar: id -> baslangic */
+    val fly = HashMap<Int, Long>()
+    /** Tepside eslesen ciftler */
+    val pairs = ArrayList<PairFx>()
+    /** Tepsideki taslarin ekrandaki (kayan) sira konumu */
+    val trayX = HashMap<Int, Float>()
+    /** Kilitli tasa dokununca titreme (-2 = tepsi) */
     var shakeId = -1
     var shakeAt = 0L
     /** Ipucu parlamasi */
-    var hintA = -1
-    var hintB = -1
+    var hint: List<Int> = emptyList()
     var hintAt = 0L
-    /** Karistirma animasyonu */
     var shuffleAt = 0L
-    /** Seviye basi giris animasyonu */
     var enterAt = 0L
 
     fun busy(now: Long): Boolean =
-        vanishing.values.any { now - it < VANISH_MS } || now - shakeAt < SHAKE_MS || now - hintAt < HINT_MS ||
-            now - shuffleAt < SHUFFLE_MS || now - enterAt < ENTER_MS
+        fly.values.any { now - it < FLY_MS } || pairs.isNotEmpty() || now - shakeAt < SHAKE_MS ||
+            (hint.isNotEmpty() && now - hintAt < HINT_MS) || now - shuffleAt < SHUFFLE_MS || now - enterAt < ENTER_MS
+
+    fun clear() {
+        fly.clear(); pairs.clear(); trayX.clear(); hint = emptyList()
+    }
 
     companion object {
-        const val VANISH_MS = 420L
+        const val FLY_MS = 240L
+        const val BURST_MS = 380L
         const val SHAKE_MS = 320L
         const val HINT_MS = 2400L
         const val SHUFFLE_MS = 520L
@@ -142,16 +151,16 @@ class MahjongViewModel @Inject constructor(
     private fun start(g: MahjongGame) {
         game = g
         combo = 0
-        fx.vanishing.clear()
-        fx.hintA = -1
+        fx.clear()
+        g.tray.forEachIndexed { i, id -> fx.trayX[id] = i.toFloat() }
         fx.enterAt = now()
         _state.update {
             it.copy(
                 phase = MahjongPhase.PLAY,
                 seconds = (elapsedMs / 1000).toInt(),
-                pairsLeft = g.remaining / 2,
+                tilesLeft = g.remaining,
                 canUndo = g.canUndo,
-                stuck = !g.hasMoves(),
+                stuck = g.isTrayFull,
                 toast = null,
                 round = it.round + 1,
             )
@@ -214,46 +223,58 @@ class MahjongViewModel @Inject constructor(
     fun tap(id: Int) {
         val g = game ?: return
         if (_state.value.phase != MahjongPhase.PLAY) return
-        if (fx.vanishing.containsKey(id)) return
+        val t = now()
         when (val r = g.tap(id)) {
             MahjongGame.TapResult.Blocked -> {
-                fx.shakeId = id; fx.shakeAt = now()
+                fx.shakeId = id; fx.shakeAt = t
                 feedback.vibrate(Haptic.LIGHT)
             }
-            MahjongGame.TapResult.Selected, is MahjongGame.TapResult.Mismatch -> feedback.play(Sfx.SWIPE, volume = 0.45f)
-            MahjongGame.TapResult.Deselected -> Unit
-            is MahjongGame.TapResult.Matched -> onMatched(g, r.a, r.b)
+            MahjongGame.TapResult.TrayFull -> {
+                fx.shakeId = -2; fx.shakeAt = t
+                feedback.vibrate(Haptic.HEAVY)
+                toast(MahjongToast.TRAY_FULL)
+            }
+            is MahjongGame.TapResult.ToTray -> {
+                fx.fly[id] = t
+                fx.trayX[id] = r.slot.toFloat()
+                feedback.play(Sfx.SWIPE, volume = 0.5f)
+            }
+            is MahjongGame.TapResult.Paired -> {
+                fx.pairs.add(PairFx(id, r.partner, fx.trayX[r.partner] ?: r.partnerIndex.toFloat(), t))
+                fx.fly[id] = t
+                onPaired(g, t)
+            }
         }
+        if (fx.hint.contains(id)) fx.hint = emptyList()
+        _state.update { it.copy(tilesLeft = g.remaining, canUndo = g.canUndo, stuck = g.isTrayFull) }
         frame++
     }
 
-    private fun onMatched(g: MahjongGame, a: Int, b: Int) {
-        val t = now()
-        fx.vanishing[a] = t; fx.vanishing[b] = t
-        if (fx.hintA == a || fx.hintA == b || fx.hintB == a || fx.hintB == b) fx.hintA = -1
-        combo = if (t - lastMatchAt < 2500) combo + 1 else 1
+    private fun onPaired(g: MahjongGame, t: Long) {
+        combo = if (t - lastMatchAt < 3000) combo + 1 else 1
         lastMatchAt = t
-        feedback.play(if (combo >= 3) Sfx.COMBO else Sfx.CLEAR, volume = 0.7f)
-        feedback.vibrate(Haptic.LIGHT)
-        _state.update { it.copy(pairsLeft = g.remaining / 2, canUndo = g.canUndo) }
+        viewModelScope.launch {
+            delay(MahjongFx.FLY_MS)
+            feedback.play(if (combo >= 3) Sfx.COMBO else Sfx.CLEAR, volume = 0.7f)
+            feedback.vibrate(Haptic.LIGHT)
+        }
         if (g.isCleared) {
             viewModelScope.launch {
-                delay(MahjongFx.VANISH_MS + 150)
+                delay(MahjongFx.FLY_MS + MahjongFx.BURST_MS + 200)
                 win()
             }
-        } else {
-            _state.update { it.copy(stuck = !g.hasMoves()) }
-            if (g.remaining % 8 == 0) persist()
-        }
+        } else if (g.remaining % 8 == 0) persist()
     }
 
     fun undo() {
         val g = game ?: return
         if (_state.value.phase != MahjongPhase.PLAY) return
-        val pair = g.undo() ?: return
-        fx.vanishing.remove(pair.first); fx.vanishing.remove(pair.second)
+        val back = g.undo() ?: return
+        for (id in back) { fx.fly.remove(id); fx.trayX.remove(id) }
+        fx.pairs.removeAll { it.id in back || it.partner in back }
+        g.tray.forEachIndexed { i, id -> if (id !in fx.trayX) fx.trayX[id] = i.toFloat() }
         feedback.play(Sfx.SWIPE, volume = 0.5f)
-        _state.update { it.copy(pairsLeft = g.remaining / 2, canUndo = g.canUndo, stuck = !g.hasMoves()) }
+        _state.update { it.copy(tilesLeft = g.remaining, canUndo = g.canUndo, stuck = g.isTrayFull) }
         frame++
     }
 
@@ -262,8 +283,9 @@ class MahjongViewModel @Inject constructor(
         if (_state.value.phase != MahjongPhase.PLAY) return
         val p = _state.value.profile
         if (p.hints <= 0) { toast(MahjongToast.NO_HINTS); return }
-        val pair = g.useHint() ?: run { _state.update { it.copy(stuck = true) }; return }
-        fx.hintA = pair.first; fx.hintB = pair.second; fx.hintAt = now()
+        val h = g.useHint()
+        if (h.isEmpty()) { toast(MahjongToast.NO_HINT_MOVE); return }
+        fx.hint = h; fx.hintAt = now()
         updateProfile { it.copy(hints = it.hints - 1) }
         feedback.play(Sfx.DROP, volume = 0.5f)
         frame++
@@ -277,10 +299,10 @@ class MahjongViewModel @Inject constructor(
         val ng = g.shuffle(rnd)
         if (ng === g) return
         game = ng
-        fx.shuffleAt = now(); fx.hintA = -1
+        fx.shuffleAt = now(); fx.hint = emptyList()
         updateProfile { it.copy(shuffles = it.shuffles - 1) }
         feedback.play(Sfx.SWIPE, volume = 0.8f)
-        _state.update { it.copy(canUndo = false, stuck = !ng.hasMoves(), round = it.round + 1) }
+        _state.update { it.copy(canUndo = false, stuck = ng.isTrayFull, round = it.round + 1) }
         persist()
         frame++
     }
@@ -302,11 +324,24 @@ class MahjongViewModel @Inject constructor(
     /** Animasyon karesi: efektler surerken ekran her karede cagirir. */
     fun tick() {
         val t = now()
-        fx.vanishing.entries.removeAll { t - it.value > MahjongFx.VANISH_MS + 50 && game?.isRemoved(it.key) == true }
+        fx.fly.entries.removeAll { t - it.value > MahjongFx.FLY_MS }
+        fx.pairs.removeAll { t - it.start > MahjongFx.FLY_MS + MahjongFx.BURST_MS }
+        val g = game
+        if (g != null) {
+            fx.trayX.keys.retainAll(g.tray.toSet())
+            g.tray.forEachIndexed { i, id ->
+                val cur = fx.trayX[id] ?: i.toFloat()
+                fx.trayX[id] = if (kotlin.math.abs(cur - i) < 0.02f) i.toFloat() else cur + (i - cur) * 0.25f
+            }
+        }
         frame++
     }
 
-    fun animating(): Boolean = fx.busy(now()) || fx.vanishing.isNotEmpty()
+    fun animating(): Boolean {
+        if (fx.busy(now())) return true
+        val g = game ?: return false
+        return g.tray.withIndex().any { (i, id) -> fx.trayX[id]?.let { kotlin.math.abs(it - i) > 0.001f } ?: false }
+    }
 
     // ------------------------------------------------------------------ Bitis
 

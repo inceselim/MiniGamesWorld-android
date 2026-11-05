@@ -732,7 +732,7 @@
     <string name="fa_double">Duplázás (reklám)</string>
     <string name="fa_collect">Begyűjtés</string>
     <string name="game_mahjong_name">Mahjong</string>
-    <string name="game_mahjong_desc">Klasszikus Mahjong pasziánsz nagy, jól látható kövekkel. Párosítsd a szabad köveket, és ürítsd ki a táblát. Végtelen pályák, minden fejezetben új kövek: klasszikus, jádekert, óceán, erdő, gyümölcs és éjszakai égbolt!</string>
+    <string name="game_mahjong_desc">Mahjong nagy, jól látható kövekkel. Koppints a szabad kövekre, hogy a 4 helyes tálcára kerüljenek; két egyforma eltűnik. Ürítsd ki a táblát, mielőtt megtelik a tálca! Végtelen pályák, minden fejezetben új kövek: klasszikus, jádekert, óceán, erdő, gyümölcs és éjszakai égbolt.</string>
     <string name="mj_play">Játék</string>
     <string name="mj_continue">Folytatás</string>
     <string name="mj_level">%1$d. pálya</string>
@@ -759,4 +759,7 @@
     <string name="mj_no_shuffles">Elfogytak a keverések. Nézz meg egy reklámot: +2.</string>
     <string name="mj_reward_hints">+3 tipp!</string>
     <string name="mj_reward_shuffles">+2 keverés!</string>
+    <string name="mj_tray_full">Megtelt a tálca!</string>
+    <string name="mj_tray_full_help">A kövek a felső 4 helyre kerülnek, két egyforma eltűnik. Vond vissza az utolsó lépést, és próbálj másik követ.</string>
+    <string name="mj_no_hint_move">Nincs jó lépés – próbáld a Keverést.</string>
 </resources>

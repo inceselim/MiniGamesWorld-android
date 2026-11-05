@@ -732,7 +732,7 @@
     <string name="fa_double">Verdoppeln (Werbung)</string>
     <string name="fa_collect">Einsammeln</string>
     <string name="game_mahjong_name">Mahjong</string>
-    <string name="game_mahjong_desc">Klassisches Mahjong-Solitär mit großen, klaren Steinen. Verbinde freie Paare und räume das Brett ab. Endlose Level und in jedem Kapitel neue Steine: Klassik, Jadegarten, Ozean, Wald, Obst und Nachthimmel!</string>
+    <string name="game_mahjong_desc">Mahjong mit großen, klaren Steinen. Tippe freie Steine an, sie wandern in die Ablage mit 4 Fächern – zwei gleiche verschwinden. Räume das Brett ab, bevor die Ablage voll ist! Endlose Level und neue Steine in jedem Kapitel: Klassik, Jadegarten, Ozean, Wald, Obst und Nachthimmel.</string>
     <string name="mj_play">Spielen</string>
     <string name="mj_continue">Weiter</string>
     <string name="mj_level">Level %1$d</string>
@@ -759,4 +759,7 @@
     <string name="mj_no_shuffles">Kein Mischen mehr. Werbung ansehen für +2.</string>
     <string name="mj_reward_hints">+3 Tipps!</string>
     <string name="mj_reward_shuffles">+2 Mal mischen!</string>
+    <string name="mj_tray_full">Die Ablage ist voll!</string>
+    <string name="mj_tray_full_help">Steine wandern in die 4 Fächer oben, zwei gleiche verschwinden. Nimm deinen letzten Zug zurück und versuche einen anderen Stein.</string>
+    <string name="mj_no_hint_move">Kein guter Zug – versuche Mischen.</string>
 </resources>
