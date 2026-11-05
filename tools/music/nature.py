@@ -33,7 +33,7 @@ L_total = N + FADE
 def stream():
     n = L_total
     w = rng.normal(0, 1, n)
-    base = band(w, 250, 2200) * (0.6 + 0.4 * smooth_noise(n, 0.6))
+    base = band(w, 600, 2600) * (0.6 + 0.4 * smooth_noise(n, 0.6))
     hiss = band(rng.normal(0, 1, n), 2500, 6000) * 0.12 * (0.5 + 0.5 * smooth_noise(n, 1.5))
     x = base + hiss
     # gurultu baloncuklari (su sesi "glu glu")
@@ -48,7 +48,7 @@ def stream():
         f = f0 + (f1 - f0) * tt / tt[-1]
         s = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-tt * rng.uniform(60, 140))
         bub[t_:t_ + ln] += s * rng.uniform(0.15, 0.6)
-    x = x / np.std(x) * 0.06 + bub * 0.08
+    x = x / np.std(x) * 0.035 + bub * 0.09
     return x
 
 def wind():
@@ -56,7 +56,7 @@ def wind():
     w = low(rng.normal(0, 1, n), 700)
     rustle = band(rng.normal(0, 1, n), 1500, 6000) * smooth_noise(n, 3) ** 3
     env = 0.35 + 0.65 * smooth_noise(n, 0.12) ** 2
-    x = w / np.std(w) * 0.05 * env + rustle / np.std(rustle) * 0.018 * env
+    x = w / np.std(w) * 0.012 * env + rustle / np.std(rustle) * 0.012 * env
     return x
 
 def chirp_bird():
@@ -143,6 +143,7 @@ def make():
         y[:FADE] = x[:FADE] * fade + x[N:N + FADE] * (1 - fade)
         return y
     L, R = loop(L), loop(R)
+    L, R = high(L, 300, 4), high(R, 300, 4)
     m = max(np.max(np.abs(L)), np.max(np.abs(R)))
     L, R = L / m * 0.8, R / m * 0.8
     pcm = (np.stack([L, R], axis=1) * 32767).astype(np.int16)
