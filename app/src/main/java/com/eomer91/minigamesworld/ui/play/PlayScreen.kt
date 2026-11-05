@@ -45,6 +45,7 @@ import com.eomer91.minigamesworld.ui.games.memory.MemoryScreen
 import com.eomer91.minigamesworld.ui.games.mines.MinesScreen
 import com.eomer91.minigamesworld.ui.games.pool.PoolScreen
 import com.eomer91.minigamesworld.ui.games.factory.FactoryScreen
+import com.eomer91.minigamesworld.ui.games.mahjong.MahjongScreen
 import com.eomer91.minigamesworld.ui.games.fish.FishWorldScreen
 import com.eomer91.minigamesworld.ui.games.forest.ForestScreen
 import com.eomer91.minigamesworld.ui.games.fox.FoxScreen
@@ -106,6 +107,7 @@ fun PlayScreen(gameId: String, onBack: () -> Unit) {
                 "pool" -> PoolScreen()
                 "animals" -> AnimalsScreen()
                 "factory" -> FactoryScreen()
+                "mahjong" -> MahjongScreen()
                 "snake" -> SnakeScreen()
                 "memory-card" -> MemoryScreen()
                 "block-puzzle" -> BlockPuzzleScreen()
