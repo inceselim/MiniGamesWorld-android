@@ -79,7 +79,8 @@ fun MahjongScreen(viewModel: MahjongViewModel = hiltViewModel()) {
     val showRewarded = rememberRewardedLauncher()
     val cache = remember { MjTileCache() }
 
-    GameMusicEffect(R.raw.music_mahjong, playing = !state.loading)
+    // Doga sesi arka planda kisik calsin
+    GameMusicEffect(R.raw.music_mahjong, playing = !state.loading, gain = 0.35f)
 
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner) {

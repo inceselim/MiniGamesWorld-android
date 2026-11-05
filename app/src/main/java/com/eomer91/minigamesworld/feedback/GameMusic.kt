@@ -51,9 +51,13 @@ class GameMusic @Inject constructor(
         }
     }
 
-    /** [res] parcasini cal (ayni parca caliyorsa kaldigi yerden devam). */
-    fun play(@RawRes res: Int) {
+    private var volume = VOLUME
+
+    /** [res] parcasini cal (ayni parca caliyorsa kaldigi yerden devam). [gain] 0..1 parca ses carpani. */
+    fun play(@RawRes res: Int, gain: Float = 1f) {
         wanted = true
+        volume = VOLUME * gain.coerceIn(0f, 1f)
+        player?.setVolume(volume, volume)
         if (track != res) {
             release()
             track = res
@@ -77,7 +81,7 @@ class GameMusic @Inject constructor(
             val p = player ?: runCatching {
                 MediaPlayer.create(context, track)?.apply {
                     isLooping = true
-                    setVolume(VOLUME, VOLUME)
+                    setVolume(volume, volume)
                 }
             }.getOrNull().also { player = it } ?: return
             if (!p.isPlaying) p.start()
@@ -107,7 +111,7 @@ interface GameMusicEntryPoint {
  * (reklam acilinca da) durur, ekrandan cikinca biter.
  */
 @Composable
-fun GameMusicEffect(@RawRes track: Int, playing: Boolean) {
+fun GameMusicEffect(@RawRes track: Int, playing: Boolean, gain: Float = 1f) {
     val context = LocalContext.current
     val music = remember { EntryPointAccessors.fromApplication(context.applicationContext, GameMusicEntryPoint::class.java).gameMusic() }
     val owner = LocalLifecycleOwner.current
@@ -127,6 +131,6 @@ fun GameMusicEffect(@RawRes track: Int, playing: Boolean) {
         }
     }
     LaunchedEffect(track, playing && resumed) {
-        if (playing && resumed) music.play(track) else music.pause()
+        if (playing && resumed) music.play(track, gain) else music.pause()
     }
 }
