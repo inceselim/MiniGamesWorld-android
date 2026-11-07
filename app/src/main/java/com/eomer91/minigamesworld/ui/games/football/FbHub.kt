@@ -36,6 +36,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -89,7 +93,7 @@ fun FbHub(world: FbWorld, ui: FbUiState, vm: FootballViewModel, onBack: () -> Un
             IconButton(onClick = { vm.save(); onBack() }) {
                 Icon(Icons.AutoMirrored.Rounded.ArrowBack, contentDescription = stringResource(R.string.back), tint = AppColors.TextSecondary)
             }
-            val unread = world.market.news.count { !it.read && it.kind != NewsKind.RUMOUR && it.kind != NewsKind.TRANSFER_WORLD }
+            val unread = world.market.news.count { !it.read && !newsMinor(it.kind) }
             for (n in NAV) {
                 val sel = ui.tab == n.tab
                 Column(
@@ -180,7 +184,7 @@ private fun FbHome(world: FbWorld, ui: FbUiState, vm: FootballViewModel) {
                 for (i in from until minOf(t.size, from + 7)) MiniTableRow(world, i + 1, t[i], t[i].team == world.userClub)
             }
             // Haberler
-            val news = world.market.news.asReversed().filter { it.kind != NewsKind.TRANSFER_WORLD }.take(5)
+            val news = world.market.news.asReversed().filter { it.kind != NewsKind.TRANSFER_WORLD && it.kind != NewsKind.RUMOUR }.take(6)
             FbPanel(Modifier.fillMaxWidth(), title = stringResource(R.string.fb_latest_news)) {
                 if (news.isEmpty()) Text(stringResource(R.string.fb_no_news), color = AppColors.TextSecondary, fontSize = 13.sp)
                 for (n in news) Text(newsText(world, n), color = if (n.read) AppColors.TextSecondary else AppColors.TextPrimary, fontSize = 13.sp,
@@ -263,11 +267,48 @@ fun MiniTableRow(world: FbWorld, pos: Int, r: com.eomer91.minigamesworld.ui.game
     }
 }
 
-// ====================================================================== haber metni
+// ====================================================================== haberler
+
+enum class NewsGroup { CLUB, MATCHES, TRANSFERS, WORLD }
+
+fun newsGroup(k: NewsKind): NewsGroup = when (k) {
+    NewsKind.MATCH_PREVIEW, NewsKind.MATCH_REPORT, NewsKind.CUP_DRAW, NewsKind.EURO_QUALIFIED, NewsKind.TROPHY -> NewsGroup.MATCHES
+    NewsKind.OFFER_RECEIVED, NewsKind.OFFER_ACCEPTED, NewsKind.OFFER_REJECTED, NewsKind.OFFER_COUNTER, NewsKind.PLAYER_REFUSED,
+    NewsKind.TRANSFER_DONE, NewsKind.RUMOUR, NewsKind.AUCTION_BID, NewsKind.AUCTION_RESULT, NewsKind.PRECONTRACT, NewsKind.LOAN_RETURN,
+    NewsKind.WINDOW_OPEN, NewsKind.WINDOW_CLOSE -> NewsGroup.TRANSFERS
+    NewsKind.TRANSFER_WORLD, NewsKind.LEAGUE_LEADER, NewsKind.PLAYER_OF_MONTH, NewsKind.RETIREMENT, NewsKind.AWARD_TOP_SCORER,
+    NewsKind.AWARD_PLAYER_SEASON -> NewsGroup.WORLD
+    else -> NewsGroup.CLUB
+}
+
+/** Okunmamis sayacinda gosterilmeyen (kucuk) haberler */
+fun newsMinor(k: NewsKind) = k == NewsKind.RUMOUR || k == NewsKind.TRANSFER_WORLD || k == NewsKind.MATCH_PREVIEW || k == NewsKind.CALLUP
+
+@Composable
+fun newsTitle(k: NewsKind): String = stringResource(when (k) {
+    NewsKind.OFFER_RECEIVED -> R.string.fb_nt_offer_received; NewsKind.OFFER_ACCEPTED -> R.string.fb_nt_offer_accepted
+    NewsKind.OFFER_REJECTED -> R.string.fb_nt_offer_rejected; NewsKind.OFFER_COUNTER -> R.string.fb_nt_offer_counter
+    NewsKind.PLAYER_REFUSED -> R.string.fb_nt_player_refused; NewsKind.TRANSFER_DONE -> R.string.fb_nt_transfer_done
+    NewsKind.TRANSFER_WORLD -> R.string.fb_nt_transfer_world; NewsKind.RUMOUR -> R.string.fb_nt_rumour
+    NewsKind.CONTRACT_EXPIRING -> R.string.fb_nt_contract; NewsKind.PLAYER_UNHAPPY -> R.string.fb_nt_unhappy
+    NewsKind.AUCTION_BID -> R.string.fb_nt_auction; NewsKind.AUCTION_RESULT -> R.string.fb_nt_auction
+    NewsKind.LOAN_RETURN -> R.string.fb_nt_loan_return; NewsKind.PRECONTRACT -> R.string.fb_nt_precontract
+    NewsKind.YOUTH_INTAKE -> R.string.fb_nt_youth; NewsKind.RELEASED -> R.string.fb_nt_released
+    NewsKind.MATCH_PREVIEW -> R.string.fb_nt_preview; NewsKind.MATCH_REPORT -> R.string.fb_nt_report
+    NewsKind.INJURY -> R.string.fb_nt_injury; NewsKind.SUSPENSION -> R.string.fb_nt_suspension
+    NewsKind.LEAGUE_LEADER -> R.string.fb_nt_leader; NewsKind.PLAYER_OF_MONTH -> R.string.fb_nt_potm
+    NewsKind.WINDOW_OPEN -> R.string.fb_nt_window_open; NewsKind.WINDOW_CLOSE -> R.string.fb_nt_window_close
+    NewsKind.CUP_DRAW -> R.string.fb_nt_draw; NewsKind.EURO_QUALIFIED -> R.string.fb_nt_europe
+    NewsKind.FACILITY_DONE -> R.string.fb_nt_facility; NewsKind.FINANCE_WARNING -> R.string.fb_nt_finance
+    NewsKind.RETIREMENT -> R.string.fb_nt_retirement; NewsKind.AWARD_TOP_SCORER -> R.string.fb_nt_top_scorer
+    NewsKind.AWARD_PLAYER_SEASON -> R.string.fb_nt_player_season; NewsKind.FANS_HAPPY -> R.string.fb_nt_fans_happy
+    NewsKind.FANS_ANGRY -> R.string.fb_nt_fans_angry; NewsKind.TROPHY -> R.string.fb_nt_trophy
+    NewsKind.CALLUP -> R.string.fb_nt_callup; NewsKind.YOUTH_GRADUATE -> R.string.fb_nt_graduate
+})
 
 @Composable
 fun newsText(world: FbWorld, n: FbNews): String {
-    val p = world.players.getOrNull(n.player)?.fullName ?: "?"
+    val p = n.text.takeIf { it.isNotEmpty() && n.kind != NewsKind.INJURY } ?: world.players.getOrNull(n.player)?.fullName ?: "?"
     val c1 = world.clubs.getOrNull(n.club)?.name ?: ""
     val c2 = world.clubs.getOrNull(n.club2)?.name ?: ""
     val v = FbFormat.money(n.value)
@@ -287,26 +328,89 @@ fun newsText(world: FbWorld, n: FbNews): String {
         NewsKind.AUCTION_RESULT -> if (n.club >= 0) stringResource(R.string.fb_n_auction_sold, p, c1, v) else stringResource(R.string.fb_n_auction_unsold, p)
         NewsKind.LOAN_RETURN -> stringResource(R.string.fb_n_loan_return, p, c1)
         NewsKind.PRECONTRACT -> stringResource(R.string.fb_n_precontract, p, c1)
-        NewsKind.YOUTH_INTAKE -> stringResource(R.string.fb_n_youth, n.value.toInt())
+        NewsKind.YOUTH_INTAKE -> if (n.player >= 0) stringResource(R.string.fb_n_youth_best, n.value.toInt(), p) else stringResource(R.string.fb_n_youth, n.value.toInt())
         NewsKind.RELEASED -> stringResource(R.string.fb_n_released, p)
+        NewsKind.MATCH_PREVIEW -> {
+            val st = world.state!!
+            val comp = st.comps.getOrNull(n.club2)
+            val form = st.recentResults(n.club, world.day, 5).joinToString("") { when (it) { 3 -> "G"; 1 -> "B"; else -> "M" } }
+            stringResource(R.string.fb_n_preview, c1, if (comp != null) compTitle(world, comp.id) else "", form.ifEmpty { "-" })
+        }
+        NewsKind.MATCH_REPORT -> {
+            val gf = (n.value / 100).toInt(); val ga = (n.value % 100).toInt()
+            val res = stringResource(if (gf > ga) R.string.fb_n_report_win else if (gf < ga) R.string.fb_n_report_loss else R.string.fb_n_report_draw, c1, "$gf-$ga")
+            res + " " + stringResource(R.string.fb_n_report_motm, p)
+        }
+        NewsKind.INJURY -> stringResource(if (n.text == "T") R.string.fb_n_injury_training else R.string.fb_n_injury, p, n.value.toInt())
+        NewsKind.SUSPENSION -> stringResource(R.string.fb_n_suspension, p, n.value.toInt())
+        NewsKind.LEAGUE_LEADER -> stringResource(R.string.fb_n_leader, c1, leagueName(world, n.club2), n.value.toInt())
+        NewsKind.PLAYER_OF_MONTH -> stringResource(R.string.fb_n_potm, p, c1)
+        NewsKind.WINDOW_OPEN -> stringResource(R.string.fb_n_window_open)
+        NewsKind.WINDOW_CLOSE -> stringResource(R.string.fb_n_window_close)
+        NewsKind.CUP_DRAW -> stringResource(R.string.fb_n_draw, compTitle(world, n.club2), stringResource(stageName(com.eomer91.minigamesworld.ui.games.football.engine.StageLabel.entries[n.value.toInt()])), c1)
+        NewsKind.EURO_QUALIFIED -> stringResource(if (n.value == 1L) R.string.fb_n_europe_direct else R.string.fb_n_europe_qual, stringResource(compName(CompKind.entries[n.club2])))
+        NewsKind.FACILITY_DONE -> stringResource(R.string.fb_n_facility, stringResource(facilityTitle(n.value.toInt())))
+        NewsKind.FINANCE_WARNING -> stringResource(R.string.fb_n_finance, v)
+        NewsKind.RETIREMENT -> stringResource(R.string.fb_n_retirement, p, n.value.toInt())
+        NewsKind.AWARD_TOP_SCORER -> stringResource(R.string.fb_n_top_scorer, p, n.value.toInt(), leagueName(world, n.club2))
+        NewsKind.AWARD_PLAYER_SEASON -> stringResource(R.string.fb_n_player_season, p, leagueName(world, n.club2), "%.2f".format(n.value / 100f))
+        NewsKind.FANS_HAPPY -> stringResource(R.string.fb_n_fans_happy)
+        NewsKind.FANS_ANGRY -> stringResource(R.string.fb_n_fans_angry)
+        NewsKind.TROPHY -> {
+            val kind = CompKind.entries[n.club2]
+            val title = if (kind == CompKind.LEAGUE && n.value >= 0) leagueName(world, n.value.toInt()) else stringResource(compName(kind))
+            val winner = if (kind.national) FbCountries.all.getOrNull(n.club)?.englishName ?: "" else c1
+            stringResource(if (!kind.national && n.club == world.userClub) R.string.fb_n_trophy_us else R.string.fb_n_trophy, winner, title)
+        }
+        NewsKind.CALLUP -> stringResource(R.string.fb_n_callup, p, FbCountries.all.getOrNull(n.club2)?.englishName ?: "")
+        NewsKind.YOUTH_GRADUATE -> stringResource(R.string.fb_n_graduate, p)
     }
+}
+
+private fun facilityTitle(i: Int): Int = when (com.eomer91.minigamesworld.ui.games.football.engine.Facility.entries[i]) {
+    com.eomer91.minigamesworld.ui.games.football.engine.Facility.TRAINING -> R.string.fb_f_training
+    com.eomer91.minigamesworld.ui.games.football.engine.Facility.YOUTH -> R.string.fb_f_youth
+    com.eomer91.minigamesworld.ui.games.football.engine.Facility.RECRUITMENT -> R.string.fb_f_recruitment
+    com.eomer91.minigamesworld.ui.games.football.engine.Facility.STADIUM -> R.string.fb_f_stadium
+    com.eomer91.minigamesworld.ui.games.football.engine.Facility.SOCIAL -> R.string.fb_f_social
+    com.eomer91.minigamesworld.ui.games.football.engine.Facility.CAPACITY -> R.string.fb_f_capacity
+}
+
+private fun groupColor(g: NewsGroup): Color = when (g) {
+    NewsGroup.CLUB -> FbColors.Blue; NewsGroup.MATCHES -> FbColors.Green; NewsGroup.TRANSFERS -> FbColors.Purple; NewsGroup.WORLD -> FbColors.Yellow
 }
 
 // ====================================================================== gelen kutusu
 
 @Composable
 private fun FbInbox(world: FbWorld, ui: FbUiState, vm: FootballViewModel) {
-    val news = world.market.news.asReversed().toList()
-    LazyColumn(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-        items(news) { n ->
-            Column(Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).background(if (n.read) FbColors.Panel else FbColors.PanelHigh)
-                .clickable { vm.edit { n.read = true } }.padding(10.dp)) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(FbFormat.shortDate(world, n.day).takeIf { n.season == world.season } ?: FbFormat.season(n.season),
-                        color = AppColors.TextSecondary, fontSize = 11.sp, modifier = Modifier.width(60.dp))
-                    Text(newsText(world, n), color = AppColors.TextPrimary, fontSize = 13.sp, modifier = Modifier.weight(1f))
+    var group by remember { mutableStateOf<NewsGroup?>(null) }
+    val news = world.market.news.asReversed().filter { group == null || newsGroup(it.kind) == group }
+    Column(Modifier.fillMaxSize()) {
+        Row(Modifier.padding(bottom = 6.dp), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+            FbChip(stringResource(R.string.fb_all), group == null, { group = null })
+            FbChip(stringResource(R.string.fb_ng_club), group == NewsGroup.CLUB, { group = NewsGroup.CLUB })
+            FbChip(stringResource(R.string.fb_ng_matches), group == NewsGroup.MATCHES, { group = NewsGroup.MATCHES })
+            FbChip(stringResource(R.string.fb_ng_transfers), group == NewsGroup.TRANSFERS, { group = NewsGroup.TRANSFERS })
+            FbChip(stringResource(R.string.fb_ng_world), group == NewsGroup.WORLD, { group = NewsGroup.WORLD })
+            Spacer(Modifier.weight(1f))
+            FbButton(stringResource(R.string.fb_mark_all_read), { vm.edit { w -> w.market.news.forEach { it.read = true } } }, color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
+        }
+        LazyColumn(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            items(news) { n ->
+                val g = newsGroup(n.kind)
+                Row(Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).background(if (n.read) FbColors.Panel else FbColors.PanelHigh)
+                    .clickable { vm.edit { n.read = true } }) {
+                    Box(Modifier.width(4.dp).height(64.dp).background(groupColor(g)))
+                    Column(Modifier.weight(1f).padding(10.dp)) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text(newsTitle(n.kind), color = groupColor(g), fontSize = 12.sp, fontWeight = FontWeight.ExtraBold, modifier = Modifier.weight(1f))
+                            Text(if (n.season == world.season) FbFormat.shortDate(world, n.day) else FbFormat.season(n.season), color = AppColors.TextSecondary, fontSize = 11.sp)
+                        }
+                        Text(newsText(world, n), color = AppColors.TextPrimary, fontSize = 13.sp, fontWeight = if (n.read) FontWeight.Normal else FontWeight.Bold, modifier = Modifier.padding(top = 2.dp))
+                        NewsActions(world, n, vm)
+                    }
                 }
-                NewsActions(world, n, vm)
             }
         }
     }
@@ -316,8 +420,9 @@ private fun FbInbox(world: FbWorld, ui: FbUiState, vm: FootballViewModel) {
 @Composable
 private fun NewsActions(world: FbWorld, n: FbNews, vm: FootballViewModel) {
     val user = world.userClub
+    if (n.kind !in setOf(NewsKind.OFFER_RECEIVED, NewsKind.OFFER_COUNTER, NewsKind.OFFER_ACCEPTED)) return
     val offer = world.market.offers.lastOrNull { it.open && it.player == n.player && (it.from == n.club || it.to == n.club) } ?: return
-    Row(Modifier.padding(top = 8.dp, start = 60.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+    Row(Modifier.padding(top = 8.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
         when {
             offer.to == user && offer.status == OfferStatus.PENDING -> {
                 FbButton(stringResource(R.string.fb_accept), { vm.edit { FbTransfer.respondIncoming(it, offer, true); n.read = true } }, color = FbColors.Green, textColor = Color.Black)

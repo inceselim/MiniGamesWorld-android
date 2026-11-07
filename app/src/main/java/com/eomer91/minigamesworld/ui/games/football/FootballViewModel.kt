@@ -211,7 +211,7 @@ class FootballViewModel @Inject constructor(
             var summary: SeasonSummary? = null
             var pending = -1
             withContext(engine) {
-                val newsBefore = w.market.news.size
+                val lastNews = w.market.news.lastOrNull()
                 var days = 0
                 while (true) {
                     val r = FbSeason.advanceDay(w)
@@ -220,7 +220,8 @@ class FootballViewModel @Inject constructor(
                     _state.update { it.copy(busyDate = FbFormat.date(w)) }
                     if (r.seasonEnded) { summary = FbSeason.lastSummary; break }
                     if (FbSeason.pendingUserFixture(w) != null) { pending = FbSeason.pendingUserFixture(w)!!.id; break }
-                    if (w.market.news.drop(newsBefore).any { it.kind in STOP_NEWS }) break
+                    val fresh = w.market.news.drop(w.market.news.indexOf(lastNews) + 1)
+                    if (fresh.any { it.kind in STOP_NEWS }) break
                     if (days >= 14) break
                 }
                 runCatching { repo.save(w) }
@@ -345,7 +346,7 @@ class FootballViewModel @Inject constructor(
         val STOP_NEWS = setOf(
             NewsKind.OFFER_RECEIVED, NewsKind.OFFER_ACCEPTED, NewsKind.OFFER_REJECTED, NewsKind.OFFER_COUNTER, NewsKind.PLAYER_REFUSED,
             NewsKind.TRANSFER_DONE, NewsKind.AUCTION_RESULT, NewsKind.PRECONTRACT, NewsKind.PLAYER_UNHAPPY, NewsKind.CONTRACT_EXPIRING,
-            NewsKind.YOUTH_INTAKE,
+            NewsKind.YOUTH_INTAKE, NewsKind.INJURY, NewsKind.FACILITY_DONE, NewsKind.FANS_ANGRY, NewsKind.CUP_DRAW,
         )
     }
 }

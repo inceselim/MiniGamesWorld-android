@@ -49,6 +49,10 @@ class FbAuction(val id: Int, val player: Int, val seller: Int, val reserve: Long
 enum class NewsKind {
     OFFER_RECEIVED, OFFER_ACCEPTED, OFFER_REJECTED, OFFER_COUNTER, PLAYER_REFUSED, TRANSFER_DONE, TRANSFER_WORLD,
     RUMOUR, CONTRACT_EXPIRING, PLAYER_UNHAPPY, AUCTION_BID, AUCTION_RESULT, LOAN_RETURN, PRECONTRACT, YOUTH_INTAKE, RELEASED,
+    // Mac, kulup ve dunya haberleri (FbNewsFeed)
+    MATCH_PREVIEW, MATCH_REPORT, INJURY, SUSPENSION, LEAGUE_LEADER, PLAYER_OF_MONTH, WINDOW_OPEN, WINDOW_CLOSE, CUP_DRAW,
+    EURO_QUALIFIED, FACILITY_DONE, FINANCE_WARNING, RETIREMENT, AWARD_TOP_SCORER, AWARD_PLAYER_SEASON, FANS_HAPPY, FANS_ANGRY,
+    TROPHY, CALLUP, YOUTH_GRADUATE,
 }
 
 /** Haber/gelen kutusu kaydi: anlami [kind]'a gore (oyuncu, kulup, kulup2, deger). */
@@ -56,6 +60,8 @@ class FbNews(val kind: NewsKind, val season: Int, val day: Int, var player: Int,
     var read = false
     /** Gercekle iliskisi (soylenti guvenilirligi %) */
     var credibility = 0
+    /** Kalici metin (or. emekli oyuncunun adi) */
+    var text = ""
 }
 
 class FbTransferRecord(val season: Int, val day: Int, val playerName: String, var player: Int, val from: Int, val to: Int, val fee: Long, val loan: Boolean)
@@ -71,7 +77,7 @@ class FbMarket {
     var indexCache: Any? = null
     var indexKey = -1L
 
-    fun addNews(n: FbNews) { news.add(n); while (news.size > 300) news.removeAt(0) }
+    fun addNews(n: FbNews) { news.add(n); while (news.size > 500) news.removeAt(0) }
 }
 
 /** Oyuncunun sozlesme talebi. */
@@ -279,7 +285,7 @@ object FbTransfer {
         val c = world.clubs[p.club]
         c.book(Fin.OTHER_OUT, releaseCost(world, p))
         c.players.remove(p.id); world.formationCache.remove(c.id)
-        news(world, NewsKind.RELEASED, p.id, c.id, -1, 0)
+        if (c.id == world.userClub) news(world, NewsKind.RELEASED, p.id, c.id, -1, 0)
         p.club = CLUB_NONE; p.askingPrice = 0; p.loanListed = false; p.wage = 0; p.contractEnd = world.season
     }
 

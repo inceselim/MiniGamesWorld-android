@@ -73,6 +73,10 @@ class FbPlayer(
     var sellOnPct: Int = 0
     /** Ayrilmak istiyor (transfer talebi) */
     var wantsAway: Boolean = false
+    /** Altyapi takiminda (A takim mac kadrosuna alinmaz) */
+    var youth: Boolean = false
+    /** Sezon basindaki yetenek (gelisim takibi) */
+    var caStart: Int = 0
     val retired: Boolean get() = club == CLUB_RETIRED
 
     fun attr(a: Attr): Float = (attrs[a.ordinal].toInt() and 0xFF) / 10f

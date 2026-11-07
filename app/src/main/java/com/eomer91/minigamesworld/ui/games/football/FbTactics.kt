@@ -144,7 +144,7 @@ private fun Lineup(world: FbWorld, ui: FbUiState, vm: FootballViewModel) {
         }
         // Oyuncu listesi: secili mevkiye uygunluk
         FbPanel(Modifier.weight(1f).fillMaxHeight(), title = if (selected >= 0) stringResource(R.string.fb_pick_for, stringResource(posShort(f.slots[selected].pos))) else stringResource(R.string.fb_tap_position)) {
-            val players = world.clubPlayers(world.userClub)
+            val players = world.clubPlayers(world.userClub).filter { !it.youth }
             val pos = if (selected >= 0) f.slots[selected].pos else null
             val list = if (pos != null) players.sortedByDescending { if (FbLineup.available(it)) FbLineup.slotScore(it, pos) else -1f }
                 else players.sortedBy { it.bestPos().ordinal }

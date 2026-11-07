@@ -37,6 +37,7 @@ object FbSeason {
             st.elo[ci] = 1500f + (s.strength - 10f) * 90f
         }
         FbClubLife.init(world)
+        for (p in world.players) p.caStart = p.currentAbility()
         buildSeason(world, null)
     }
 
@@ -111,6 +112,7 @@ object FbSeason {
 
         // ---- milli takimlar
         buildNational(world, cal, rnd)
+        FbNewsFeed.europe(world)
     }
 
     private fun newComp(st: FbSeasonState, kind: CompKind, country: Int = -1, league: Int = -1, confed: Int = -1): FbComp {
@@ -406,6 +408,7 @@ object FbSeason {
                 else st.addFixture(comp.id, si, ti, 0, stage.days[0], p.second, p.first)
             }
         }
+        FbNewsFeed.cupDraw(world, comp, stage)
     }
 
     private fun isNeutral(comp: FbComp, stage: FbStage) =
@@ -511,6 +514,7 @@ object FbSeason {
         val st = world.state!!
         comp.done = true; comp.winner = winner; comp.runnerUp = runnerUp
         if (winner < 0 || !comp.kind.official) return
+        FbNewsFeed.trophy(world, comp, winner)
         val tier = if (comp.league >= 0) world.leagues[comp.league].tier else 0
         st.honours.add(FbHonour(world.season, comp.kind, comp.country, tier, winner, runnerUp))
     }
@@ -657,7 +661,10 @@ object FbSeason {
         if (national) nationalSheet(world, team, pools ?: nationPools(world)) else clubSheet(world, team)
 
     fun clubSheet(world: FbWorld, club: Int): TeamSheet {
-        val players = world.clubPlayers(club)
+        val all = world.clubPlayers(club)
+        // Altyapi oyunculari A takim kadrosuna alinmaz (kadro cok darsa alinir)
+        val first = all.filter { !it.youth }
+        val players = if (first.count { FbLineup.available(it) } >= 14) first else all
         val formation = if (club == world.userClub && world.userTactics != null) world.userTactics!!.formation
         else world.formationCache.getOrPut(club) { FbLineup.bestFormation(players) }
         val fixed = world.userLineup
@@ -685,6 +692,8 @@ object FbSeason {
         val comp = st.comps[f.comp]
         f.hg = out.hg; f.ag = out.ag; f.ph = out.ph; f.pa = out.pa; f.extraTime = out.extraTime
         val official = comp.kind.official
+        val u = world.userClub
+        val notSuspended = if (u >= 0 && !comp.national && f.involves(u)) world.clubs[u].players.filter { world.players[it].suspendedMatches == 0 }.toSet() else emptySet()
         // Ceza dusurme: resmi kulup macinda cezali oyuncularin cezasi bir azalir
         if (official && !comp.national) for (t in intArrayOf(f.home, f.away)) for (pid in world.clubs[t].players) {
             val p = world.players[pid]; if (p.suspendedMatches > 0) p.suspendedMatches--
@@ -737,6 +746,7 @@ object FbSeason {
             }
         }
         FbClubLife.onFixture(world, f, out, comp)
+        if (u >= 0 && f.involves(u)) FbNewsFeed.afterMatch(world, f, out, comp, notSuspended)
         if (checkStages && f.stage >= 0) checkStage(world, comp, f.stage, rng(world, 1000 + world.day))
     }
 
@@ -835,6 +845,7 @@ object FbSeason {
         for (p in world.players) { p.suspendedMatches = 0; p.condition = 100 }
         st.stats.clear(); st.yellowAcc.clear()
         FbTransfer.remap(world, world.compactPlayers())
+        for (p in world.players) p.caStart = p.currentAbility()
         buildSeason(world, Carry(leagueOrder, cupWinner, clW, elW))
         FbTransfer.setBudgets(world)
     }

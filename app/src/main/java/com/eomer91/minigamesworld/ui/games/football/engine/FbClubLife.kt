@@ -146,6 +146,7 @@ object FbClubLife {
         if (cal.weekday(world.day) == FbCalendar.MON) weekly(world)
         if (world.day == cal.dayOf(3, 15)) youthIntake(world)
         FbTransfer.onDay(world)
+        FbNewsFeed.daily(world)
         // Yogunluk ve fizyo etkisi (kulup oyunculari)
         for (c in world.clubs) {
             if (c.league < 0) continue
@@ -263,6 +264,7 @@ object FbClubLife {
             p.playTime = (p.playTime * 0.75f).toInt()
             if (p.club < 0) p.form += ((65 - p.form) * 0.1f).roundToInt()
         }
+        FbNewsFeed.weekly(world)
     }
 
     private fun finances(world: FbWorld, c: FbClub) {
@@ -381,7 +383,7 @@ object FbClubLife {
         if (!injured && p.club >= 0) {
             val im = when (q.intensity) { 0 -> 0.5f; 2 -> 1.8f; else -> 1f }
             val pr = 0.0035f * im * (0.5f + p.hidden(Hidden.INJURY_PRONENESS) / 14f) * (1.25f - q.physio / 20f * 0.6f)
-            if (rnd.chance(pr)) p.injuryDays = 3 + rnd.int(18)
+            if (rnd.chance(pr)) { p.injuryDays = 3 + rnd.int(18); FbNewsFeed.trainingInjury(world, p) }
         }
     }
 
@@ -478,6 +480,7 @@ object FbClubLife {
             val cd = FbCountries.all[c.country]
             val count = 2 + c.youthRecruitment / 5 + rnd.int(3)
             val yc = bestStaff(world, c, StaffAttr.WORKING_WITH_YOUTH, StaffRole.YOUTH_COACH)
+            val newcomers = ArrayList<FbPlayer>()
             repeat(count) {
                 val golden = rnd.chance(0.02f)
                 val pa = (55f + c.youthRecruitment * 2.5f + c.youthFacilities * 1.5f + cd.level * 0.45f + (yc - 10f) +
@@ -490,9 +493,11 @@ object FbClubLife {
                 p.contractEnd = world.season + 3
                 p.reputation = (c.reputation * 0.05f).roundToInt()
                 p.squadNumber = (30..99).firstOrNull { n -> c.players.none { world.players[it].squadNumber == n } } ?: 99
+                p.youth = true; p.caStart = ca
                 c.players.add(p.id)
+                newcomers.add(p)
             }
-            if (c.id == world.userClub) world.market.addNews(FbNews(NewsKind.YOUTH_INTAKE, world.season, world.day, -1, c.id, -1, count.toLong()))
+            FbNewsFeed.youthIntake(world, c, newcomers)
         }
     }
 
@@ -538,6 +543,7 @@ object FbClubLife {
             Facility.SOCIAL -> c.socialFacilities++
             Facility.CAPACITY -> c.capacity += capacityStep(c)
         }
+        FbNewsFeed.facilityDone(world, c, Facility.entries[c.upgradeType])
         c.upgradeType = -1
     }
 
@@ -673,7 +679,10 @@ object FbClubLife {
             p.reputation = (p.reputation + (target - p.reputation) * 0.3f).roundToInt().coerceIn(0, 10000)
         }
 
+        FbNewsFeed.seasonAwards(world)
         FbTransfer.onSeasonEnd(world)
+        // Altyapidan mezuniyet: 19 yasina giren gencler A takima
+        for (p in world.players) if (p.youth && p.club >= 0 && world.age(p) + 1 >= 19) { p.youth = false; FbNewsFeed.graduate(world, p) }
         retirements(world, rnd)
         contracts(world, rnd)
         squads(world, rnd)
@@ -714,8 +723,10 @@ object FbClubLife {
                 else if (a >= 20 && p.potential < 70) pr += 0.5f
             }
             if (pr > 0f && rnd.chance(pr.coerceAtMost(0.98f))) {
+                val former = p.club
                 if (p.club >= 0) world.clubs[p.club].players.remove(p.id)
                 p.club = CLUB_RETIRED; p.wage = 0
+                FbNewsFeed.retired(world, p, former)
             }
         }
     }

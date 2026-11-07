@@ -51,6 +51,7 @@ import com.eomer91.minigamesworld.ads.rememberRewardedLauncher
 import com.eomer91.minigamesworld.ui.games.football.engine.Attr
 import com.eomer91.minigamesworld.ui.games.football.engine.AttrGroup
 import com.eomer91.minigamesworld.ui.games.football.engine.ContractReply
+import com.eomer91.minigamesworld.ui.games.football.engine.FbClubLife
 import com.eomer91.minigamesworld.ui.games.football.engine.FbCountries
 import com.eomer91.minigamesworld.ui.games.football.engine.FbPlayer
 import com.eomer91.minigamesworld.ui.games.football.engine.FbTransfer
@@ -71,8 +72,10 @@ fun FbSquad(world: FbWorld, ui: FbUiState, vm: FootballViewModel) {
     var sort by remember { mutableStateOf(SquadSort.POS) }
     var desc by remember { mutableStateOf(false) }
     var open by remember { mutableIntStateOf(-1) }
+    var youthView by remember { mutableStateOf(false) }
     val club = world.userClub
-    val players = world.clubPlayers(club)
+    val allPlayers = world.clubPlayers(club)
+    val players = allPlayers.filter { it.youth == youthView }
     val est = players.associate { it.id to FbTransfer.estimate(world, club, it) }
     val sorted = players.sortedWith(compareBy<FbPlayer> {
         when (sort) {
@@ -86,6 +89,19 @@ fun FbSquad(world: FbWorld, ui: FbUiState, vm: FootballViewModel) {
     fun header(s: SquadSort) { if (sort == s) desc = !desc else { sort = s; desc = false } }
 
     Column(Modifier.fillMaxSize()) {
+        Row(Modifier.fillMaxWidth().padding(bottom = 4.dp), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+            FbChip(stringResource(R.string.fb_first_team) + " (${allPlayers.count { !it.youth }})", !youthView, { youthView = false })
+            FbChip(stringResource(R.string.fb_youth_team) + " (${allPlayers.count { it.youth }})", youthView, { youthView = true })
+            if (youthView) {
+                val c = world.clubs[club]
+                val cal = com.eomer91.minigamesworld.ui.games.football.engine.FbCalendar(world.season)
+                Text(stringResource(R.string.fb_youth_info, c.youthFacilities, c.youthRecruitment,
+                    FbClubLife.bestStaff(world, c, com.eomer91.minigamesworld.ui.games.football.engine.StaffAttr.WORKING_WITH_YOUTH,
+                        com.eomer91.minigamesworld.ui.games.football.engine.StaffRole.YOUTH_COACH).roundToInt(),
+                    FbFormat.shortDate(world, cal.dayOf(3, 15))), color = AppColors.TextSecondary, fontSize = 12.sp, modifier = Modifier.padding(start = 8.dp))
+            }
+        }
+        if (youthView && players.isEmpty()) Text(stringResource(R.string.fb_youth_empty), color = AppColors.TextSecondary, fontSize = 13.sp, modifier = Modifier.padding(8.dp))
         Row(Modifier.fillMaxWidth().padding(vertical = 4.dp, horizontal = 6.dp), verticalAlignment = Alignment.CenterVertically) {
             SortHead("#", 30, SquadSort.NUMBER, sort) { header(it) }
             Box(Modifier.weight(1f)) { SortHead(stringResource(R.string.fb_col_name), 120, SquadSort.NAME, sort) { header(it) } }
@@ -116,6 +132,8 @@ fun FbSquad(world: FbWorld, ui: FbUiState, vm: FootballViewModel) {
                         if (p.askingPrice > 0) Badge("T", FbColors.Blue)
                         if (p.loanFrom >= 0) Badge("K", FbColors.Purple)
                         if (p.wantsAway) Badge("!", FbColors.Yellow)
+                        val growth = p.currentAbility() - p.caStart
+                        if (youthView && growth != 0) Text(" ${if (growth > 0) "+" else ""}$growth", color = if (growth > 0) FbColors.Green else FbColors.Red, fontSize = 11.sp, fontWeight = FontWeight.Bold)
                     }
                     FbCell(stringResource(posShort(p.bestPos())), 46.dp, AppColors.TextMuted, bold = true)
                     FbCell("${world.age(p)}", 36.dp, AppColors.TextMuted)
@@ -271,6 +289,9 @@ private fun OwnActions(world: FbWorld, vm: FootballViewModel, p: FbPlayer) {
     }
     FbPanel(Modifier.fillMaxWidth(), title = stringResource(R.string.fb_contract_transfer)) {
         Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            if (p.youth) FbButton(stringResource(R.string.fb_promote), { vm.edit { p.youth = false } }, Modifier.fillMaxWidth(), color = FbColors.Green, textColor = Color.Black)
+            else if (world.age(p) <= 18) FbButton(stringResource(R.string.fb_to_youth), { vm.edit { p.youth = true; it.userLineup = it.userLineup?.map { id -> if (id == p.id) -1 else id }?.toIntArray() } },
+                Modifier.fillMaxWidth(), color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
             FbButton(stringResource(R.string.fb_renew_contract), { vm.openRenewal(p.id) }, Modifier.fillMaxWidth())
             if (p.loanFrom < 0) {
                 val v = FbTransfer.value(world, p)
