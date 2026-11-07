@@ -62,7 +62,7 @@ class FootballRepository @Inject constructor(@ApplicationContext context: Contex
     fun delete() { file.delete(); backup.delete() }
 }
 
-enum class FbPhase { LOADING, START, SETUP, HUB, PREMATCH, RESULT, SEASON_END }
+enum class FbPhase { LOADING, START, SETUP, HUB, PREMATCH, LIVE, RESULT, SEASON_END }
 
 enum class FbTab { HOME, SQUAD, TACTICS, FIXTURES, COMPETITIONS, TRANSFERS, CLUB, INBOX, GUIDE }
 
@@ -248,7 +248,7 @@ class FootballViewModel @Inject constructor(
     }
 
     /** Mac kurulumu (onizleme ve 2D mac ekrani icin). */
-    fun buildUserMatch(w: FbWorld, f: FbFixture, recordAll: Boolean): MatchSim {
+    fun buildUserMatch(w: FbWorld, f: FbFixture, recordAll: Boolean, userControlled: Boolean = recordAll): MatchSim {
         val st = w.state!!
         val comp = st.comps[f.comp]
         val stage = if (f.stage >= 0) comp.stages[f.stage] else null
@@ -264,8 +264,9 @@ class FootballViewModel @Inject constructor(
         val userSide = FbSeason.sideOf(us, w.clubs[w.userClub].name, ut, userHome && !neutral)
         val oppSide = FbSeason.sideOf(os, w.clubs[opp].name, ot, !userHome && !neutral)
         val seed = w.seed xor (w.season.toLong() shl 20) xor (f.id * 104729L)
-        return if (userHome) MatchSim(userSide, oppSide, seed, needWinner, agg, recordAll, userSide = 0)
-        else MatchSim(oppSide, userSide, seed, needWinner, agg, recordAll, userSide = 1)
+        val us0 = if (userControlled) (if (userHome) 0 else 1) else -1
+        return if (userHome) MatchSim(userSide, oppSide, seed, needWinner, agg, recordAll, userSide = us0)
+        else MatchSim(oppSide, userSide, seed, needWinner, agg, recordAll, userSide = us0)
     }
 
     /** Hizli sonuc: maci arka planda tamamla. */
@@ -303,8 +304,24 @@ class FootballViewModel @Inject constructor(
     /** Mac oncesi ekrandan hub sekmesine (bekleyen mac korunur). */
     fun toHubTab(t: FbTab) = _state.update { it.copy(phase = FbPhase.HUB, tab = t) }
 
-    /** Canli 2D mac (7. adim); su an hizli sonuc. */
-    fun playLive() = quickResult()
+    /** Canli 2D mac (ekranda adim adim oynatilir). */
+    var live: MatchSim? = null
+        private set
+
+    fun playLive() {
+        val w = world ?: return
+        val fid = _state.value.pending
+        if (fid < 0 || _state.value.busy) return
+        live = buildUserMatch(w, w.state!!.fixtures[fid], recordAll = true)
+        _state.update { it.copy(phase = FbPhase.LIVE) }
+    }
+
+    /** Canli mac bitti: sonucu isle. */
+    fun finishLive() {
+        val sim = live ?: return
+        live = null
+        submitMatch(sim)
+    }
 
     // ================================================================== sozlesme gorusmesi
 

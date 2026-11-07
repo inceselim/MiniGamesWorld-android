@@ -658,7 +658,7 @@ class MatchSim(
         mp.injuryDays = (3 + rnd.int(10) + if (rnd.chance(0.25f + prone / 80f)) rnd.int(40) else 0)
         mp.condition = min(mp.condition, 40f)
         log(EvType.INJURY, s, mp, value = mp.injuryDays.toFloat())
-        if (userSide != s) autoSub(s, force = mp)
+        autoSub(s, force = mp) // sakatlanan oyuncu (kullanici takiminda da) hemen degisir
     }
 
     // ------------------------------------------------------------------ zaman

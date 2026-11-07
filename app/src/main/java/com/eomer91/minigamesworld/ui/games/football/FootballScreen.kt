@@ -88,6 +88,7 @@ fun FootballScreen(onBack: () -> Unit, viewModel: FootballViewModel = hiltViewMo
             FbPhase.HUB -> if (ui.tab != FbTab.HOME) viewModel.setTab(FbTab.HOME) else { viewModel.save(); onBack() }
             FbPhase.SETUP -> viewModel.abandonSetup()
             FbPhase.RESULT -> viewModel.closeResult()
+            FbPhase.LIVE -> Unit
             FbPhase.SEASON_END -> viewModel.closeSeasonSummary()
             else -> if (!ui.busy) onBack()
         }
@@ -102,6 +103,7 @@ fun FootballScreen(onBack: () -> Unit, viewModel: FootballViewModel = hiltViewMo
                 FbPhase.SETUP -> if (ui.setupReady && world != null) FbSetup(world, ui, viewModel) else FbBusy(stringResource(R.string.fb_generating))
                 FbPhase.HUB -> if (world != null) FbHub(world, ui, viewModel, onBack)
                 FbPhase.PREMATCH -> if (world != null) FbPreMatch(world, ui, viewModel)
+                FbPhase.LIVE -> { val sim = viewModel.live; if (world != null && sim != null) FbLiveMatch(world, sim, viewModel) }
                 FbPhase.RESULT -> if (world != null) FbResultScreen(world, ui, viewModel)
                 FbPhase.SEASON_END -> if (world != null) FbSeasonEnd(world, ui, viewModel)
             }
