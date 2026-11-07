@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="game_football_manager_name">Boss del Club</string>
+    <string name="game_football_manager_desc">Gestisci un club di calcio a modo tuo: tutti i campionati d\'Europa, calendario realistico, coppe europee e Mondiali, tattiche dettagliate, allenamento, settore giovanile, finanze e un mercato vivo.</string>
+    <string name="fb_tagline">Costruisci una dinastia. Ogni decisione è tua.</string>
+    <string name="fb_continue_career">Continua la carriera</string>
+    <string name="fb_new_career">Nuova carriera</string>
+    <string name="fb_new_career_warning">La carriera attuale verrà eliminata. Sei sicuro?</string>
+    <string name="fb_yes">Sì</string>
+    <string name="fb_no">No</string>
+    <string name="fb_generating">Creazione del mondo del calcio…</string>
+    <string name="fb_please_wait">Attendi…</string>
+    <string name="fb_load_failed">Impossibile caricare il salvataggio</string>
+    <string name="fb_choose_country">Paese</string>
+    <string name="fb_choose_club">Scegli il tuo club</string>
+    <string name="fb_tier_n">Serie %1$d</string>
+    <string name="fb_league_name">%1$s Serie %2$d</string>
+    <string name="fb_reputation">Reputazione</string>
+    <string name="fb_balance">Saldo</string>
+    <string name="fb_transfer_budget">Budget mercato</string>
+    <string name="fb_stadium">Stadio</string>
+    <string name="fb_squad_size">Rosa</string>
+    <string name="fb_best_player">Miglior giocatore</string>
+    <string name="fb_manager_name">Nome dell\'allenatore</string>
+    <string name="fb_start_career">Inizia la carriera</string>
+    <string name="fb_cancel">Annulla</string>
+    <string name="fb_close">Chiudi</string>
+    <string name="fb_tab_home">Home</string>
+    <string name="fb_tab_squad">Rosa</string>
+    <string name="fb_tab_tactics">Tattica</string>
+    <string name="fb_tab_fixtures">Partite</string>
+    <string name="fb_tab_competitions">Classifiche</string>
+    <string name="fb_tab_transfers">Mercato</string>
+    <string name="fb_tab_club">Club</string>
+    <string name="fb_tab_inbox">Posta</string>
+    <string name="fb_tab_guide">Guida</string>
+    <string name="fb_continue">Continua</string>
+    <string name="fb_go_to_match">Vai alla partita</string>
+    <string name="fb_next_matches">Prossime partite</string>
+    <string name="fb_no_matches">Nessuna partita</string>
+    <string name="fb_recent_results">Ultimi risultati</string>
+    <string name="fb_latest_news">Ultime notizie</string>
+    <string name="fb_no_news">Ancora nessuna notizia</string>
+    <string name="fb_club_summary">Club</string>
+    <string name="fb_weekly_wages">Stipendi settimanali</string>
+    <string name="fb_season_income">Entrate stagionali</string>
+    <string name="fb_season_expense">Uscite stagionali</string>
+    <string name="fb_ad_bonus_title">Bonus investitori</string>
+    <string name="fb_ad_bonus_desc">Guarda un breve video e un investitore aggiunge %1$s al saldo del club.</string>
+    <string name="fb_ad_bonus_left">Ancora %1$d questa settimana</string>
+    <string name="fb_ad_bonus_got">%1$s aggiunti al saldo del club!</string>
+    <string name="fb_watch_ad">Guarda video</string>
+    <string name="fb_table_cols">G,V,N,P,DR,Pt</string>
+    <string name="fb_vs">–</string>
+    <string name="fb_first_leg">Andata: %1$s</string>
+    <string name="fb_play_match">Gioca la partita</string>
+    <string name="fb_quick_result">Risultato rapido</string>
+    <string name="fb_edit_tactics">Tattica</string>
+    <string name="fb_squad">Rosa</string>
+    <string name="fb_penalties">Rigori %1$s</string>
+    <string name="fb_match_stats">Statistiche</string>
+    <string name="fb_possession">Possesso palla</string>
+    <string name="fb_shots">Tiri (in porta)</string>
+    <string name="fb_corners">Calci d\'angolo</string>
+    <string name="fb_fouls">Falli</string>
+    <string name="fb_cards">Cartellini G/R</string>
+    <string name="fb_player_ratings">Pagelle</string>
+    <string name="fb_season_over">La stagione %1$s è finita</string>
+    <string name="fb_final_position">Posizione finale: %1$d</string>
+    <string name="fb_promoted">Promosso!</string>
+    <string name="fb_relegated">Retrocesso</string>
+    <string name="fb_honours_this_season">Campioni</string>
+    <string name="fb_new_season">Inizia %1$s</string>
+    <string name="fb_accept">Accetta</string>
+    <string name="fb_reject">Rifiuta</string>
+    <string name="fb_accept_counter">Accetta %1$s</string>
+    <string name="fb_withdraw">Ritira</string>
+    <string name="fb_negotiate_contract">Negozia contratto</string>
+    <string name="fb_no_funds">Fondi insufficienti</string>
+    <string name="fb_free">gratis</string>
+    <string name="fb_free_agent">Svincolato</string>
+    <string name="fb_n_offer_received">%1$s offre %2$s per %3$s</string>
+    <string name="fb_n_offer_accepted">%1$s accetta l\'offerta per %2$s (%3$s)</string>
+    <string name="fb_n_offer_rejected">%1$s rifiuta l\'offerta per %2$s</string>
+    <string name="fb_n_offer_counter">%1$s chiede %3$s per %2$s</string>
+    <string name="fb_n_player_refused">%1$s non vuole andare al %2$s</string>
+    <string name="fb_n_signed_free">%1$s firma a parametro zero con %2$s</string>
+    <string name="fb_n_transfer">%1$s passa da %2$s a %3$s (%4$s)</string>
+    <string name="fb_n_rumour">Voce: %1$s segue %2$s del %3$s (%4$d%%)</string>
+    <string name="fb_n_contract_expiring">Il contratto di %1$s scade quest\'estate</string>
+    <string name="fb_n_unhappy">%1$s è scontento e vuole andare via</string>
+    <string name="fb_n_auction_bid">%1$s offre %2$s per %3$s</string>
+    <string name="fb_n_auction_sold">Asta: %1$s venduto al %2$s per %3$s</string>
+    <string name="fb_n_auction_unsold">Asta: nessun acquirente per %1$s</string>
+    <string name="fb_n_loan_return">%1$s torna al %2$s dopo il prestito</string>
+    <string name="fb_n_precontract">%1$s ha firmato un pre-contratto con %2$s</string>
+    <string name="fb_n_youth">%1$d giovani arrivano dal vivaio</string>
+    <string name="fb_n_released">%1$s ha lasciato il club</string>
+    <string name="fb_col_name">Nome</string>
+    <string name="fb_col_pos">Ruolo</string>
+    <string name="fb_col_age">Età</string>
+    <string name="fb_col_ability">Abilità</string>
+    <string name="fb_col_potential">Potenziale</string>
+    <string name="fb_col_condition">Cond.</string>
+    <string name="fb_col_morale">Morale</string>
+    <string name="fb_col_form">Forma</string>
+    <string name="fb_col_value">Valore</string>
+    <string name="fb_col_wage">Stipendio</string>
+    <string name="fb_col_contract">Contratto</string>
+    <string name="fb_per_week">/sett</string>
+    <string name="fb_release_clause">Clausola rescissoria</string>
+    <string name="fb_injured">Infortunato</string>
+    <string name="fb_days">%1$d giorni</string>
+    <string name="fb_height_foot">Altezza · piede</string>
+    <string name="fb_foot_right">Destro</string>
+    <string name="fb_foot_left">Sinistro</string>
+    <string name="fb_foot_both">Ambidestro</string>
+    <string name="fb_caps">Presenze naz. / gol</string>
+    <string name="fb_season_stats">Stagione</string>
+    <string name="fb_stats_line">%1$d presenze, %2$d gol, %3$d assist, media %4$s</string>
+    <string name="fb_positions">Ruoli</string>
+    <string name="fb_hidden_attributes">Attributi nascosti e vero potenziale</string>
+    <string name="fb_hidden_locked">Il tuo staff può solo stimare. Guarda un video per vedere il potenziale esatto e la personalità nascosta.</string>
+    <string name="fb_reveal_with_ad">Rivela (video)</string>
+    <string name="fb_exact_ability">Abilità attuale</string>
+    <string name="fb_exact_potential">Abilità potenziale</string>
+    <string name="fb_g_technical">Tecnici</string>
+    <string name="fb_g_mental">Mentali</string>
+    <string name="fb_g_physical">Fisici</string>
+    <string name="fb_g_goalkeeping">Portiere</string>
+    <string name="fb_training">Allenamento</string>
+    <string name="fb_individual_focus">Focus individuale</string>
+    <string name="fb_position_training">Impara un nuovo ruolo</string>
+    <string name="fb_none">Nessuno</string>
+    <string name="fb_contract_transfer">Contratto e mercato</string>
+    <string name="fb_renew_contract">Rinnova contratto</string>
+    <string name="fb_list_for_transfer">Lista trasferimenti (%1$s)</string>
+    <string name="fb_unlist">Togli dalla lista (%1$s)</string>
+    <string name="fb_list_for_loan">Offri in prestito</string>
+    <string name="fb_unlist_loan">Togli dai prestiti</string>
+    <string name="fb_auction">Asta (3 giorni)</string>
+    <string name="fb_auction_started">Asta avviata</string>
+    <string name="fb_release">Rescindi contratto</string>
+    <string name="fb_release_confirm">Conferma rescissione (%1$s)</string>
+    <string name="fb_transfer">Trasferimento</string>
+    <string name="fb_shortlist_add">Aggiungi agli osservati</string>
+    <string name="fb_shortlist_remove">Rimuovi dagli osservati</string>
+    <string name="fb_offer_fee">Offerta: %1$s</string>
+    <string name="fb_asking_price">Prezzo richiesto: %1$s</string>
+    <string name="fb_not_interested">Il giocatore non è interessato al tuo club</string>
+    <string name="fb_make_offer">Fai un\'offerta</string>
+    <string name="fb_request_loan" formatted="false">Chiedi prestito (70% stipendio)</string>
+    <string name="fb_offer_sent">Offerta inviata. Risposta domani.</string>
+    <string name="fb_err_window">Il mercato è chiuso</string>
+    <string name="fb_err_duplicate">Hai già un\'offerta per questo giocatore</string>
+    <string name="fb_err_on_loan">Il giocatore è in prestito</string>
+    <string name="fb_err_generic">Non possibile ora</string>
+    <string name="fb_t_attacking">Attacco</string>
+    <string name="fb_t_defending">Difesa</string>
+    <string name="fb_t_technical">Tecnica</string>
+    <string name="fb_t_tactical">Tattica</string>
+    <string name="fb_t_physical">Fisico</string>
+    <string name="fb_t_mental">Mentale</string>
+    <string name="fb_t_set_pieces">Calci piazzati</string>
+    <string name="fb_t_goalkeeping">Portieri</string>
+    <string name="fb_contract_talks">Trattativa: %1$s</string>
+    <string name="fb_fee_agreed">Prezzo concordato: %1$s</string>
+    <string name="fb_wage_demand">Richiesta di stipendio</string>
+    <string name="fb_years_wanted">Durata desiderata</string>
+    <string name="fb_signing_fee">Premio alla firma</string>
+    <string name="fb_offered_wage">La tua offerta: %1$s/sett</string>
+    <string name="fb_contract_years">Anni</string>
+    <string name="fb_propose">Proponi</string>
+    <string name="fb_reply_accept">Affare fatto! Contratto firmato.</string>
+    <string name="fb_reply_wage_low">Lo stipendio è troppo basso.</string>
+    <string name="fb_reply_years">Vuole un\'altra durata.</string>
+    <string name="fb_reply_not_interested">Non è interessato.</string>
+    <string name="fb_reply_walked">Ha abbandonato la trattativa.</string>
+    <string name="fb_soon">In arrivo nel prossimo aggiornamento</string>
+    <string name="fb_c_league">Campionato</string>
+    <string name="fb_c_playoff">Play-off</string>
+    <string name="fb_c_playoff_of">Play-off %1$s</string>
+    <string name="fb_c_cup">Coppa</string>
+    <string name="fb_c_super_cup">Supercoppa</string>
+    <string name="fb_c_champions">Coppa dei Campioni</string>
+    <string name="fb_c_europa">Coppa Europa</string>
+    <string name="fb_c_conference">Coppa Conference</string>
+    <string name="fb_c_uefa_super">Supercoppa europea</string>
+    <string name="fb_c_friendly">Amichevole</string>
+    <string name="fb_c_nations">Nations League</string>
+    <string name="fb_c_qualifiers">Qualificazioni</string>
+    <string name="fb_c_world_cup">Mondiali</string>
+    <string name="fb_c_euro">Europei</string>
+    <string name="fb_c_nat_friendly">Amichevole internazionale</string>
+    <string name="fb_s_league">Campionato</string>
+    <string name="fb_s_groups">Fase a gironi</string>
+    <string name="fb_s_league_phase">Fase campionato</string>
+    <string name="fb_s_q1">1° turno prelim.</string>
+    <string name="fb_s_q2">2° turno prelim.</string>
+    <string name="fb_s_q3">3° turno prelim.</string>
+    <string name="fb_s_qpo">Spareggio</string>
+    <string name="fb_s_kpo">Spareggi a eliminazione</string>
+    <string name="fb_s_r128">Trentaduesimi ×2</string>
+    <string name="fb_s_r64">Trentaduesimi</string>
+    <string name="fb_s_r32">Sedicesimi</string>
+    <string name="fb_s_r16">Ottavi</string>
+    <string name="fb_s_qf">Quarti</string>
+    <string name="fb_s_sf">Semifinale</string>
+    <string name="fb_s_final">Finale</string>
+    <string name="fb_s_prelim">Turno preliminare</string>
+    <string name="fb_s_match">Partita</string>
+    <string name="fb_pos_gk">POR</string>
+    <string name="fb_pos_dr">TD</string>
+    <string name="fb_pos_dc">DC</string>
+    <string name="fb_pos_dl">TS</string>
+    <string name="fb_pos_wbr">ED</string>
+    <string name="fb_pos_wbl">ES</string>
+    <string name="fb_pos_dm">MED</string>
+    <string name="fb_pos_mr">CD</string>
+    <string name="fb_pos_mc">CC</string>
+    <string name="fb_pos_ml">CS</string>
+    <string name="fb_pos_amr">AD</string>
+    <string name="fb_pos_amc">TQ</string>
+    <string name="fb_pos_aml">AS</string>
+    <string name="fb_pos_st">ATT</string>
+    <string name="fb_a_corners">Calci d\'angolo</string>
+    <string name="fb_a_crossing">Cross</string>
+    <string name="fb_a_dribbling">Dribbling</string>
+    <string name="fb_a_finishing">Finalizzazione</string>
+    <string name="fb_a_first_touch">Controllo</string>
+    <string name="fb_a_free_kick">Punizioni</string>
+    <string name="fb_a_heading">Colpo di testa</string>
+    <string name="fb_a_long_shots">Tiri da fuori</string>
+    <string name="fb_a_marking">Marcatura</string>
+    <string name="fb_a_passing">Passaggi</string>
+    <string name="fb_a_penalty">Rigori</string>
+    <string name="fb_a_tackling">Contrasto</string>
+    <string name="fb_a_technique">Tecnica</string>
+    <string name="fb_a_aggression">Aggressività</string>
+    <string name="fb_a_anticipation">Anticipazione</string>
+    <string name="fb_a_bravery">Coraggio</string>
+    <string name="fb_a_composure">Freddezza</string>
+    <string name="fb_a_concentration">Concentrazione</string>
+    <string name="fb_a_decisions">Decisioni</string>
+    <string name="fb_a_determination">Determinazione</string>
+    <string name="fb_a_flair">Estro</string>
+    <string name="fb_a_leadership">Leadership</string>
+    <string name="fb_a_off_the_ball">Movimento</string>
+    <string name="fb_a_positioning">Posizione</string>
+    <string name="fb_a_teamwork">Gioco di squadra</string>
+    <string name="fb_a_vision">Visione</string>
+    <string name="fb_a_work_rate">Impegno</string>
+    <string name="fb_a_acceleration">Accelerazione</string>
+    <string name="fb_a_agility">Agilità</string>
+    <string name="fb_a_balance">Equilibrio</string>
+    <string name="fb_a_jumping">Elevazione</string>
+    <string name="fb_a_natural_fitness">Forma naturale</string>
+    <string name="fb_a_pace">Velocità</string>
+    <string name="fb_a_stamina">Resistenza</string>
+    <string name="fb_a_strength">Forza</string>
+    <string name="fb_a_aerial_reach">Presa alta</string>
+    <string name="fb_a_command_of_area">Comando dell\'area</string>
+    <string name="fb_a_handling">Presa</string>
+    <string name="fb_a_kicking">Rinvio</string>
+    <string name="fb_a_one_on_ones">Uno contro uno</string>
+    <string name="fb_a_reflexes">Riflessi</string>
+    <string name="fb_h_consistency">Continuità</string>
+    <string name="fb_h_important_matches">Partite importanti</string>
+    <string name="fb_h_injury_proneness">Propensione agli infortuni</string>
+    <string name="fb_h_professionalism">Professionalità</string>
+    <string name="fb_h_ambition">Ambizione</string>
+    <string name="fb_h_loyalty">Lealtà</string>
+    <string name="fb_h_adaptability">Adattabilità</string>
+    <string name="fb_h_pressure">Gestione della pressione</string>
+    <string name="fb_h_versatility">Versatilità</string>
+    <string name="fb_all">Tutti</string>
+    <string name="fb_cups">Coppe</string>
+    <string name="fb_europe">Europa</string>
+    <string name="fb_national_teams">Nazionali</string>
+    <string name="fb_no_competitions">Nessuna competizione</string>
+    <string name="fb_not_started">Non ancora iniziato</string>
+    <string name="fb_winner">Vincitore: %1$s</string>
+    <string name="fb_group_n">Girone %1$s</string>
+    <string name="fb_byes">%1$d squadre esentate</string>
+    <string name="fb_top_scorers">Capocannonieri</string>
+    <string name="fb_lineup">Formazione</string>
+    <string name="fb_instructions">Istruzioni</string>
+    <string name="fb_team_training">Allenamento</string>
+    <string name="fb_auto_pick">Automatica</string>
+    <string name="fb_best_formation">Modulo migliore</string>
+    <string name="fb_team_strength">Forza squadra</string>
+    <string name="fb_pick_for">Scegli un giocatore per %1$s</string>
+    <string name="fb_tap_position">Tocca un ruolo</string>
+    <string name="fb_starting">XI</string>
+    <string name="fb_bench">Panchina</string>
+    <string name="fb_suspended">Squalificato</string>
+    <string name="fb_on">Sì</string>
+    <string name="fb_off">No</string>
+    <string name="fb_open_guide">Apri la guida tattica</string>
+    <string name="fb_tac_mentality">Mentalità</string>
+    <string name="fb_tac_passing">Stile di passaggio</string>
+    <string name="fb_tac_tempo">Ritmo</string>
+    <string name="fb_tac_width">Ampiezza</string>
+    <string name="fb_tac_focus">Direzione d\'attacco</string>
+    <string name="fb_tac_pressing">Pressing</string>
+    <string name="fb_tac_defline">Linea difensiva</string>
+    <string name="fb_tac_marking">Marcatura</string>
+    <string name="fb_tac_counter">Contropiede</string>
+    <string name="fb_tac_offside">Trappola del fuorigioco</string>
+    <string name="fb_tac_time_wasting">Perdere tempo</string>
+    <string name="fb_tac_hard_tackling">Contrasti duri</string>
+    <string name="fb_o_very_defensive">Molto difensiva</string>
+    <string name="fb_o_defensive">Difensiva</string>
+    <string name="fb_o_balanced">Equilibrata</string>
+    <string name="fb_o_attacking">Offensiva</string>
+    <string name="fb_o_very_attacking">Molto offensiva</string>
+    <string name="fb_o_short">Corti</string>
+    <string name="fb_o_mixed">Misti</string>
+    <string name="fb_o_direct">Diretti</string>
+    <string name="fb_o_slow">Lento</string>
+    <string name="fb_o_normal">Normale</string>
+    <string name="fb_o_fast">Veloce</string>
+    <string name="fb_o_narrow">Stretto</string>
+    <string name="fb_o_wide">Largo</string>
+    <string name="fb_o_center">Per vie centrali</string>
+    <string name="fb_o_flanks">Sulle fasce</string>
+    <string name="fb_o_low">Basso</string>
+    <string name="fb_o_medium">Medio</string>
+    <string name="fb_o_high">Alto</string>
+    <string name="fb_o_deep">Bassa</string>
+    <string name="fb_o_zonal">A zona</string>
+    <string name="fb_o_man">A uomo</string>
+    <string name="fb_o_light">Leggero</string>
+    <string name="fb_o_intense">Intenso</string>
+    <string name="fb_tip_mentality">Più offensiva = più tiri e gol, ma più spazio dietro la difesa.</string>
+    <string name="fb_tip_passing">Il passaggio corto tiene palla; il gioco diretto arriva prima in area, con più rischio.</string>
+    <string name="fb_tip_tempo">Un ritmo alto crea occasioni prima, ma più errori e stanchezza.</string>
+    <string name="fb_tip_width">Il gioco largo porta più cross; quello stretto affolla il centro.</string>
+    <string name="fb_tip_focus">Centro = passaggi filtranti (visione, passaggi); fasce = cross (cross, testa).</string>
+    <string name="fb_tip_pressing">Il pressing alto recupera palla più in alto ma stanca i giocatori.</string>
+    <string name="fb_tip_defline">Una linea alta accorcia il centrocampo ma è esposta ai lanci alle spalle.</string>
+    <string name="fb_tip_marking">La marcatura a uomo blocca gli attaccanti; chi si muove bene può liberarsi.</string>
+    <string name="fb_tip_counter">Riparti veloce dopo il recupero nella tua metà campo.</string>
+    <string name="fb_tip_offside">Mette più spesso in fuorigioco; serve una difesa affiatata.</string>
+    <string name="fb_tip_time_wasting">In vantaggio dopo il 60\' la squadra rallenta il gioco.</string>
+    <string name="fb_tip_hard_tackling">Vince più contrasti ma porta più falli, cartellini e rigori.</string>
+    <string name="fb_training_focus">Focus dell\'allenamento</string>
+    <string name="fb_training_intensity">Intensità</string>
+    <string name="fb_coaching_quality">Qualità dello staff</string>
+    <string name="fb_f_training">Centro sportivo</string>
+    <string name="fb_f_youth">Strutture giovanili</string>
+    <string name="fb_youth_coaching">Allenamento giovanile</string>
+    <string name="fb_physio">Fisioterapia</string>
+    <string name="fb_tip_training_focus" formatted="false">Gli attributi dell\'area scelta migliorano circa il 50% più in fretta per tutta la rosa.</string>
+    <string name="fb_tip_intensity" formatted="false">Leggero: crescita più lenta, meno infortuni, più freschezza. Intenso: +15% di crescita, quasi il doppio di infortuni in allenamento, meno condizione.</string>
+    <string name="fb_tip_coaches">Allenatori e strutture migliori accelerano la crescita. Assumi lo staff nella sezione Club.</string>
+    <string name="fb_gt_basics">Primi passi</string>
+    <string name="fb_gt_formations">Modulo e formazione</string>
+    <string name="fb_gt_training">Allenamento e crescita</string>
+    <string name="fb_gt_coaches">Allenatori e staff</string>
+    <string name="fb_gt_morale">Morale e forma</string>
+    <string name="fb_gt_youth">Settore giovanile</string>
+    <string name="fb_gt_finance">Finanze</string>
+    <string name="fb_gt_transfers">Trasferimenti</string>
+    <string name="fb_gt_contracts">Contratti</string>
+    <string name="fb_gt_competitions">Competizioni</string>
+    <string name="fb_gt_hidden">Attributi nascosti e potenziale</string>
+    <string name="fb_gb_basics">Sei il boss del club: scegli squadra e tattica, compri e vendi giocatori, decidi l\'allenamento, costruisci strutture e gestisci i soldi.
+
+Premi Continua per avanzare nel calendario. Il gioco si ferma nei giorni di partita e quando serve una tua decisione (offerte, contratti, nuovi giovani).
+
+Il giorno della partita puoi giocarla o ottenere un risultato rapido. Tutto viene salvato automaticamente.</string>
+    <string name="fb_gb_mentality" formatted="false">La mentalità decide quanto rischia la tua squadra.
+
+• Molto difensiva / difensiva: meno giocatori in avanti, entrambe le squadre tirano meno. Utile per difendere un vantaggio o contro avversari molto più forti.
+• Equilibrata: l\'impostazione predefinita.
+• Offensiva / molto offensiva: più tiri e gol, ma l\'avversario trova più spazio. Nei nostri test una squadra forte ha segnato circa il 18% in più, ma ha anche subito di più.
+
+Abbina una mentalità difensiva al contropiede per punire chi si sbilancia.</string>
+    <string name="fb_gb_passing" formatted="false">• Corti: tanti passaggi sicuri, alto possesso (60%+), meno attacchi ma più puliti. Servono buoni passaggi e controllo.
+• Misti: equilibrato.
+• Diretti: palloni lunghi per gli attaccanti. Il possesso scende verso il 40%, la palla arriva prima in area e le partite sono più aperte. Adatto a punte alte e forti e a buoni lanciatori.</string>
+    <string name="fb_gb_tempo">Un ritmo alto muove la palla in fretta: più occasioni e tiri, ma più passaggi sbagliati e più stanchezza.
+
+Un ritmo lento tiene palla e controlla la partita; si adatta ai passaggi corti e a difendere un vantaggio.</string>
+    <string name="fb_gb_width">Largo: gli esterni restano vicino alla linea e arrivano più cross. Servono buoni crossatori e saltatori in area.
+
+Stretto: la squadra gioca per vie centrali e resta compatta; va bene con un regista e i passaggi filtranti.</string>
+    <string name="fb_gb_focus">Per vie centrali: più passaggi filtranti. Il successo dipende da visione e passaggi dei tuoi rifinitori contro la marcatura avversaria e dalla velocità delle punte. L\'uno contro uno col portiere è la migliore occasione del calcio.
+
+Sulle fasce: più cross. Un cross diventa un colpo di testa se la tua punta vince il duello aereo con il centrale.</string>
+    <string name="fb_gb_pressing">Il pressing alto aggredisce la palla nella metà campo avversaria. Funziona meglio contro giocatori poco freddi e recupera vicino alla porta, ma i tuoi perdono condizione più in fretta.
+
+Il pressing basso risparmia energie e mantiene l\'ordine; l\'avversario ha tempo con la palla nella sua metà campo.</string>
+    <string name="fb_gb_defline">Linea alta: i difensori salgono, il centrocampo si stringe ed è difficile da superare. Ma lanci alle spalle e filtranti contro punte veloci diventano pericolosi: nei test una linea alta ha subito più del doppio dei gol contro attaccanti rapidi.
+
+Linea bassa: l\'area è protetta e i filtranti funzionano di rado, ma l\'avversario controlla il gioco. Ideale con il contropiede.</string>
+    <string name="fb_gb_marking">A zona: ogni giocatore controlla un\'area. Scelta sicura predefinita.
+
+A uomo: i difensori seguono il diretto avversario. Ottima se i tuoi difensori marcano bene; gli attaccanti con grande movimento possono comunque liberarsi.</string>
+    <string name="fb_gb_counter">Quando la palla viene recuperata nella tua metà campo, la squadra riparte veloce con pochi passaggi e più filtranti.
+
+Letale contro chi attacca con tanti uomini o gioca alto (nei test oltre 3 gol a partita contro una squadra molto offensiva). Il prezzo: meno giocatori partecipano agli attacchi normali.</string>
+    <string name="fb_gb_offside">La difesa sale insieme per mettere gli attaccanti in fuorigioco. Con un buon gioco di squadra funziona molto più spesso. Se fallisce, l\'attaccante si ritrova solo davanti al portiere.</string>
+    <string name="fb_gb_time_wasting">Se sei in vantaggio dopo il 60\', i giocatori rallentano tutto: più passaggi all\'indietro e pause più lunghe. L\'arbitro può ammonire.</string>
+    <string name="fb_gb_hard_tackling">I contrasti diventano più duri: i giocatori vincono più duelli ma commettono più falli, prendono più cartellini e concedono più rigori. Gli avversari si infortunano più spesso.</string>
+    <string name="fb_gb_formations">Scegli un modulo adatto ai tuoi giocatori migliori. Tocca una posizione sul campo e poi un giocatore dalla lista per metterlo lì (i giocatori già titolari si scambiano il posto).
+
+Il numero sotto ogni giocatore è la sua valutazione in quel ruolo; un cerchio rosso indica che non lo conosce. I giocatori possono imparare nuovi ruoli in allenamento.
+
+Scelta automatica lascia decidere al vice; Modulo migliore sceglie lo schema con la valutazione totale più alta. Infortunati e squalificati vengono sostituiti automaticamente.</string>
+    <string name="fb_gb_training">I giocatori crescono ogni settimana verso il loro potenziale. La velocità dipende da:
+• Età: più veloce tra 16 e 21 anni, rallenta dopo i 24, si ferma verso i 29.
+• Differenza tra abilità attuale e potenziale.
+• Allenatori e strutture (allenatore giovanile e strutture giovanili per gli under 19).
+• Personalità: professionalità e determinazione.
+• Minuti giocati (molto importanti sotto i 23) e morale.
+• Intensità: leggera, normale o intensa.
+
+Il focus di squadra accelera un\'area per tutti; il focus individuale accelera molto un\'area per un giocatore. Dopo i 30 anni (portieri 32) i giocatori calano, prima fisicamente, mentre decisioni e posizionamento possono ancora migliorare.</string>
+    <string name="fb_gb_coaches">• Allenatori: ogni area di allenamento usa l\'attributo corrispondente dell\'allenatore (attacco, difesa, tecnica, tattica, mentale, atletica, portieri). Circa cinque allenatori coprono tutte le aree; con meno la qualità cala.
+• Allenatore giovanile: fa crescere gli under 19 e migliora l\'annata giovanile.
+• Fisioterapista: accorcia gli infortuni e riduce quelli in allenamento.
+• Preparatore atletico: rallenta il declino dei giocatori più anziani.
+• Vice: la gestione del gruppo alza il morale; valuta il potenziale dei tuoi giocatori.
+• Osservatori: più sono bravi, più sono precise le stime di abilità e potenziale dei giocatori di altri club.</string>
+    <string name="fb_gb_morale">Il morale cambia ogni settimana. Sale con buoni risultati, minuti adeguati allo status del giocatore (i titolari chiave si aspettano di giocare quasi sempre), uno stipendio giusto, buone strutture sociali e un buon vice. I giocatori ambiziosi molto scontenti chiedono la cessione.
+
+La forma è la media degli ultimi voti in partita. Morale e forma influiscono leggermente sulla forza del giocatore in partita e sulla sua crescita.</string>
+    <string name="fb_gb_youth">Ogni anno, il 15 marzo, entrano nel tuo vivaio 2–8 ragazzi (15–16 anni). Il reclutamento giovanile decide quanti e quanto bravi, strutture giovanili e allenatore giovanile aggiungono qualità, e conta anche il livello calcistico del tuo paese. Ogni tanto spunta un talento d\'oro.
+
+Dai minuti e buoni allenamenti ai giovani: la crescita è più rapida prima dei 21 anni.</string>
+    <string name="fb_gb_finance" formatted="false">Entrate: biglietti (partite in casa; un prezzo più alto rende di più per tifoso ma riempie meno posti), diritti TV (metà divisa in parti uguali, metà in base alla posizione), merchandising (cresce con reputazione e stelle), sponsor di maglia, pubblicità allo stadio, premi (coppe e soprattutto competizioni europee) e cessioni.
+
+Uscite: stipendi di giocatori e staff, manutenzione delle strutture, vivaio, costi delle partite, acquisti e lavori. Un saldo negativo costa lo 0,12% di interessi a settimana.
+
+Supporto investitori: guarda un video per aggiungere soldi al club, 3 volte a settimana.</string>
+    <string name="fb_gb_transfers">Sessioni di mercato: dal 1° luglio al 1° settembre e a gennaio. Gli svincolati si possono ingaggiare in qualsiasi momento.
+
+Il prezzo del club venditore dipende da quanto il giocatore è importante per lui, da età e potenziale, dalla durata del contratto (economico nell\'ultimo anno), se è sul mercato e dalle finanze del venditore. Una clausola rescissoria non si può rifiutare.
+
+Dopo l\'accordo sul cartellino, tratta stipendio e anni con il giocatore: se offri troppo poco, se ne va dopo tre tentativi. Prestiti: paghi parte dello stipendio e il giocatore rientra a fine stagione.
+
+Puoi mettere sul mercato i tuoi giocatori, offrirli in prestito o avviare un\'asta di 3 giorni in cui i club rilanciano. Segna i giocatori che ti piacciono e segui le voci di mercato.</string>
+    <string name="fb_gb_contracts" formatted="false">Rinnova in tempo i contratti dei giocatori importanti. Il 1° gennaio vieni avvisato dei contratti in scadenza a fine stagione; da metà gennaio altri club possono fargli firmare un precontratto e se ne vanno a parametro zero in estate.
+
+I giocatori chiedono un aumento quando migliorano. Svincolare un giocatore costa il 60% dello stipendio residuo.</string>
+    <string name="fb_gb_competitions">Ogni paese europeo ha i suoi campionati con promozioni e retrocessioni (alcune seconde serie hanno i play-off), una coppa nazionale e una supercoppa.
+
+I posti europei dipendono dalla tua posizione in classifica e dal ranking dei paesi, che cambia ogni stagione con i risultati europei: Champions Cup, Europa Cup e Conference Cup hanno turni preliminari, una fase campionato a 36 squadre e turni a eliminazione diretta.
+
+Le nazionali giocano Nations League, qualificazioni, Europeo e Mondiale.</string>
+    <string name="fb_gb_hidden">Abilità e potenziale sono mostrati come stelle stimate dal tuo staff, quindi possono essere sbagliati, soprattutto con osservatori scarsi.
+
+Guarda un breve video sulla scheda di un giocatore per scoprire la sua abilità attuale esatta, il potenziale esatto e la personalità nascosta: costanza, temperamento nelle grandi partite, predisposizione agli infortuni, professionalità, ambizione, lealtà, adattabilità, gestione della pressione e versatilità. Il giocatore resta svelato per sempre (stelle verdi).</string>
+    <string name="fb_search">Cerca</string>
+    <string name="fb_shortlist">Lista osservati</string>
+    <string name="fb_scout_reports">Rapporti osservatori</string>
+    <string name="fb_offers">Offerte</string>
+    <string name="fb_auctions">Aste</string>
+    <string name="fb_history">Storico e voci</string>
+    <string name="fb_window_open">Mercato aperto</string>
+    <string name="fb_window_closed">Mercato chiuso</string>
+    <string name="fb_line_gk">Portieri</string>
+    <string name="fb_line_def">Difensori</string>
+    <string name="fb_line_mid">Centrocampisti</string>
+    <string name="fb_line_att">Attaccanti</string>
+    <string name="fb_any_age">Qualsiasi età</string>
+    <string name="fb_age_young">≤ 21</string>
+    <string name="fb_age_prime">22–29</string>
+    <string name="fb_age_veteran">30+</string>
+    <string name="fb_any_value">Qualsiasi valore</string>
+    <string name="fb_listed_only">Solo sul mercato</string>
+    <string name="fb_free_agents">Svincolati</string>
+    <string name="fb_player_name">Nome giocatore</string>
+    <string name="fb_no_results">Nessun giocatore trovato</string>
+    <string name="fb_loan">Prestito</string>
+    <string name="fb_scout_desc">I tuoi osservatori suggeriscono giocatori che migliorerebbero i ruoli più deboli, rientrano nel budget e sarebbero disposti a venire.</string>
+    <string name="fb_get_reports">Richiedi rapporti</string>
+    <string name="fb_no_offers">Nessuna offerta in questa stagione</string>
+    <string name="fb_incoming">Ricevute</string>
+    <string name="fb_outgoing">Inviate</string>
+    <string name="fb_os_waiting_you">In attesa della tua risposta</string>
+    <string name="fb_os_pending">In attesa della risposta del club</string>
+    <string name="fb_os_counter">Controfferta: %1$s</string>
+    <string name="fb_os_agreed">Accordo sul cartellino – tratta il contratto</string>
+    <string name="fb_os_agreed_in">Accettata – l\'acquirente parla con il giocatore</string>
+    <string name="fb_os_completed">Completata</string>
+    <string name="fb_os_rejected">Rifiutata</string>
+    <string name="fb_os_withdrawn">Ritirata</string>
+    <string name="fb_os_refused">Il giocatore ha rifiutato</string>
+    <string name="fb_os_expired">Scaduta</string>
+    <string name="fb_counter_x">Chiedi %1$s</string>
+    <string name="fb_offer_x">Offri %1$s</string>
+    <string name="fb_auction_desc">I club rilanciano finché l\'asta non termina. Metti all\'asta i tuoi giocatori dalla loro scheda.</string>
+    <string name="fb_no_auctions">Nessuna asta in corso</string>
+    <string name="fb_reserve">Prezzo minimo %1$s</string>
+    <string name="fb_ended">terminata</string>
+    <string name="fb_ends">termina %1$s</string>
+    <string name="fb_bid_x">Offri %1$s</string>
+    <string name="fb_latest_transfers">Ultimi trasferimenti</string>
+    <string name="fb_rumours">Voci di mercato</string>
+    <string name="fb_finance">Finanze</string>
+    <string name="fb_facilities">Strutture</string>
+    <string name="fb_staff">Staff</string>
+    <string name="fb_sponsor_tickets">Sponsor e biglietti</string>
+    <string name="fb_friendlies">Amichevoli</string>
+    <string name="fb_editor">Editor</string>
+    <string name="fb_this_season">Questa stagione</string>
+    <string name="fb_last_season">Stagione scorsa</string>
+    <string name="fb_income">Entrate</string>
+    <string name="fb_expenses">Uscite</string>
+    <string name="fb_net">Netto</string>
+    <string name="fb_fin_tickets">Biglietti</string>
+    <string name="fb_fin_tv">Diritti TV</string>
+    <string name="fb_fin_merch">Merchandising</string>
+    <string name="fb_fin_sponsor">Sponsorizzazioni</string>
+    <string name="fb_fin_ads">Pubblicità allo stadio</string>
+    <string name="fb_fin_prize">Premi</string>
+    <string name="fb_fin_transfer_in">Cessioni</string>
+    <string name="fb_fin_other_in">Investitori e altro</string>
+    <string name="fb_fin_wages">Stipendi giocatori</string>
+    <string name="fb_fin_staff_wages">Stipendi staff</string>
+    <string name="fb_fin_facilities">Manutenzione strutture</string>
+    <string name="fb_fin_youth">Vivaio</string>
+    <string name="fb_fin_matchday">Costi partita</string>
+    <string name="fb_fin_transfer_out">Acquisti</string>
+    <string name="fb_fin_upgrades">Lavori</string>
+    <string name="fb_fin_interest">Interessi</string>
+    <string name="fb_fin_other_out">Indennizzi e altro</string>
+    <string name="fb_balance_history">Saldo (ultime settimane)</string>
+    <string name="fb_staff_wages_week">Stipendi staff a settimana</string>
+    <string name="fb_fan_base">Tifosi</string>
+    <string name="fb_f_recruitment">Reclutamento giovanile</string>
+    <string name="fb_f_stadium">Qualità dello stadio</string>
+    <string name="fb_f_social">Strutture sociali</string>
+    <string name="fb_f_capacity">Capienza dello stadio</string>
+    <string name="fb_fd_training">Crescita più rapida di tutti i giocatori.</string>
+    <string name="fb_fd_youth">Crescita migliore per gli under 19 e annate giovanili migliori.</string>
+    <string name="fb_fd_recruitment">Più giovani e migliori ogni marzo.</string>
+    <string name="fb_fd_stadium">Arrivano più tifosi e accettano prezzi più alti.</string>
+    <string name="fb_fd_social">Morale più alto e più vendite di merchandising.</string>
+    <string name="fb_fd_capacity" formatted="false">+10% di posti per più incassi a partita.</string>
+    <string name="fb_seats">%1$d posti</string>
+    <string name="fb_upgrade_x">Costruisci %1$s · %2$d giorni</string>
+    <string name="fb_upgrade_started">Lavori avviati</string>
+    <string name="fb_under_construction">In costruzione: %1$s (pronto %2$s)</string>
+    <string name="fb_your_staff">Il tuo staff (%1$d)</string>
+    <string name="fb_staff_market">Staff disponibile</string>
+    <string name="fb_fire">Licenzia</string>
+    <string name="fb_fire_confirm">Licenzia (%1$s)</string>
+    <string name="fb_hire">Assumi</string>
+    <string name="fb_hired">Assunto!</string>
+    <string name="fb_staff_full">Il tuo staff è al completo (16)</string>
+    <string name="fb_staff_reject">Non è interessato al tuo club</string>
+    <string name="fb_r_assistant">Vice</string>
+    <string name="fb_r_coach">Allenatore</string>
+    <string name="fb_r_gk_coach">Preparatore dei portieri</string>
+    <string name="fb_r_fitness">Preparatore atletico</string>
+    <string name="fb_r_scout">Osservatore</string>
+    <string name="fb_r_physio">Fisioterapista</string>
+    <string name="fb_r_youth">Allenatore giovanile</string>
+    <string name="fb_sa_attack">Attacco</string>
+    <string name="fb_sa_defence">Difesa</string>
+    <string name="fb_sa_technical">Tecnica</string>
+    <string name="fb_sa_tactical">Tattica</string>
+    <string name="fb_sa_mental">Mentale</string>
+    <string name="fb_sa_fitness">Atletica</string>
+    <string name="fb_sa_gk">Portieri</string>
+    <string name="fb_sa_youth">Lavoro con i giovani</string>
+    <string name="fb_sa_judge_ability">Valutare l\'abilità</string>
+    <string name="fb_sa_judge_potential">Valutare il potenziale</string>
+    <string name="fb_sa_physio">Fisioterapia</string>
+    <string name="fb_sa_motivating">Motivazione</string>
+    <string name="fb_sa_discipline">Disciplina</string>
+    <string name="fb_sa_man_management">Gestione del gruppo</string>
+    <string name="fb_shirt_sponsor">Sponsor di maglia</string>
+    <string name="fb_current_sponsor">Sponsor</string>
+    <string name="fb_per_year">All\'anno</string>
+    <string name="fb_until">Fino a</string>
+    <string name="fb_sponsor_offers">Nuove offerte</string>
+    <string name="fb_sponsor_line">%1$s all\'anno · %2$d anni</string>
+    <string name="fb_sign">Firma</string>
+    <string name="fb_sponsor_locked">Potrai firmare un nuovo sponsor quando scade il contratto attuale.</string>
+    <string name="fb_ticket_prices">Prezzi dei biglietti</string>
+    <string name="fb_tp_very_low">Molto basso</string>
+    <string name="fb_tp_low">Basso</string>
+    <string name="fb_tp_high">Alto</string>
+    <string name="fb_tp_very_high">Molto alto</string>
+    <string name="fb_ticket_price">Biglietto medio</string>
+    <string name="fb_expected_attendance">Spettatori previsti</string>
+    <string name="fb_matchday_income">Incasso per partita in casa</string>
+    <string name="fb_tip_tickets" formatted="false">Ogni livello in più alza il prezzo del 25% ma costa circa il 18% dei tifosi. Se lo stadio è comunque pieno, prezzi più alti rendono di più.</string>
+    <string name="fb_choose_opponent">Avversario</string>
+    <string name="fb_choose_date">Data</string>
+    <string name="fb_friendly_desc">Le amichevoli tengono in forma i giocatori e portano un piccolo incasso in casa. I grandi club possono rifiutare.</string>
+    <string name="fb_arrange">Organizza</string>
+    <string name="fb_friendly_ok">Amichevole organizzata</string>
+    <string name="fb_friendly_declined">Il club ha rifiutato</string>
+    <string name="fb_friendly_busy">L\'avversario gioca in quei giorni</string>
+    <string name="fb_edit_club">Modifica club</string>
+    <string name="fb_club_name">Nome del club</string>
+    <string name="fb_short_name">Breve</string>
+    <string name="fb_color_main">Colore principale</string>
+    <string name="fb_color_second">Colore secondario</string>
+    <string name="fb_save">Salva</string>
+    <string name="fb_saved">Salvato</string>
+    <string name="fb_edit_players">Nomi dei giocatori (tocca per modificare)</string>
+    <string name="fb_back_to_match">Torna alla partita</string>
+    <string name="fb_choose_sub">Scegli chi entra</string>
+    <string name="fb_on_pitch">In campo (tocca per sostituire)</string>
+    <string name="fb_subs_left">Cambi rimasti: %1$d</string>
+    <string name="fb_tactics_subs">Tattica e cambi</string>
+    <string name="fb_pause">Pausa</string>
+    <string name="fb_resume">Riprendi</string>
+    <string name="fb_skip_to_end">Vai alla fine</string>
+    <string name="fb_finish_match">Termina</string>
+    <string name="fb_full_time">Finale</string>
+    <string name="fb_goal_flash">GOL!</string>
+    <string name="fb_shots_short">Tiri</string>
+    <string name="fb_ev_goal_1">GOL! %1$s segna per il %2$s!</string>
+    <string name="fb_ev_goal_2">GOL! Che conclusione di %1$s! (%2$s)</string>
+    <string name="fb_ev_goal_3">GOL! %1$s non sbaglia: il %2$s festeggia!</string>
+    <string name="fb_ev_assist">Assist: %1$s.</string>
+    <string name="fb_ev_save_1">Grande parata di %1$s su %2$s!</string>
+    <string name="fb_ev_save_2">Tira %2$s – %1$s blocca.</string>
+    <string name="fb_ev_miss_1">Tira %1$s… di poco fuori!</string>
+    <string name="fb_ev_miss_2">%1$s calcia sopra la traversa.</string>
+    <string name="fb_ev_block">%1$s respinge il tiro di %2$s.</string>
+    <string name="fb_ev_yellow">Ammonito %1$s.</string>
+    <string name="fb_ev_red">CARTELLINO ROSSO! %1$s espulso!</string>
+    <string name="fb_ev_injury">%1$s si infortuna e non può continuare.</string>
+    <string name="fb_ev_sub">Cambio %1$s: entra %2$s, esce %3$s.</string>
+    <string name="fb_ev_corner">Calcio d\'angolo per il %1$s.</string>
+    <string name="fb_ev_free_kick">Punizione per il %1$s, sul pallone %2$s.</string>
+    <string name="fb_ev_penalty">RIGORE per il %1$s! Sul dischetto %2$s…</string>
+    <string name="fb_ev_offside">%1$s in fuorigioco.</string>
+    <string name="fb_ev_foul">Fallo di %1$s su %2$s.</string>
+    <string name="fb_ev_through">%1$s pesca %2$s con un filtrante splendido!</string>
+    <string name="fb_ev_half_time">Intervallo.</string>
+    <string name="fb_ev_full_time">Fischio finale!</string>
+    <string name="fb_ev_extra_time">Tempi supplementari!</string>
+    <string name="fb_ev_so_goal">%1$s segna il rigore per il %2$s.</string>
+    <string name="fb_ev_so_miss">%1$s sbaglia per il %2$s!</string>
+    <string name="fb_first_team">Prima squadra</string>
+    <string name="fb_youth_team">Vivaio</string>
+    <string name="fb_youth_info">Strutture giovanili %1$d/20 · reclutamento %2$d/20 · allenatore giovanile %3$d/20 · prossima annata %4$s</string>
+    <string name="fb_youth_empty">Ancora nessun giovane nel vivaio. Nuovi talenti arrivano ogni anno il 15 marzo.</string>
+    <string name="fb_promote">Promuovi in prima squadra</string>
+    <string name="fb_to_youth">Manda nel vivaio</string>
+    <string name="fb_ng_club">Club</string>
+    <string name="fb_ng_matches">Partite</string>
+    <string name="fb_ng_transfers">Trasferimenti</string>
+    <string name="fb_ng_world">Mondo</string>
+    <string name="fb_mark_all_read">Segna tutto come letto</string>
+    <string name="fb_nt_offer_received">Offerta di trasferimento</string>
+    <string name="fb_nt_offer_accepted">Offerta accettata</string>
+    <string name="fb_nt_offer_rejected">Offerta rifiutata</string>
+    <string name="fb_nt_offer_counter">Controfferta</string>
+    <string name="fb_nt_player_refused">Il giocatore rifiuta</string>
+    <string name="fb_nt_transfer_done">Trasferimento completato</string>
+    <string name="fb_nt_transfer_world">Grande trasferimento</string>
+    <string name="fb_nt_rumour">Voce di mercato</string>
+    <string name="fb_nt_contract">Contratto</string>
+    <string name="fb_nt_unhappy">Giocatore scontento</string>
+    <string name="fb_nt_auction">Asta</string>
+    <string name="fb_nt_loan_return">Rientro dal prestito</string>
+    <string name="fb_nt_precontract">Precontratto</string>
+    <string name="fb_nt_youth">Nuova annata giovanile</string>
+    <string name="fb_nt_released">Partenza</string>
+    <string name="fb_nt_preview">Presentazione</string>
+    <string name="fb_nt_report">Cronaca</string>
+    <string name="fb_nt_injury">Infortunio</string>
+    <string name="fb_nt_suspension">Squalifica</string>
+    <string name="fb_nt_leader">Nuova capolista</string>
+    <string name="fb_nt_potm">Giocatore del mese</string>
+    <string name="fb_nt_window_open">Mercato</string>
+    <string name="fb_nt_window_close">Mercato</string>
+    <string name="fb_nt_draw">Sorteggio</string>
+    <string name="fb_nt_europe">Europa</string>
+    <string name="fb_nt_facility">Strutture</string>
+    <string name="fb_nt_finance">Finanze</string>
+    <string name="fb_nt_retirement">Ritiro</string>
+    <string name="fb_nt_top_scorer">Scarpa d\'oro</string>
+    <string name="fb_nt_player_season">Giocatore della stagione</string>
+    <string name="fb_nt_fans_happy">Tifosi</string>
+    <string name="fb_nt_fans_angry">Tifosi</string>
+    <string name="fb_nt_trophy">Campioni</string>
+    <string name="fb_nt_callup">Nazionale</string>
+    <string name="fb_nt_graduate">Dal vivaio</string>
+    <string name="fb_n_youth_best">%1$d giovani sono entrati nel vivaio. Gli osservatori indicano %2$s come il talento più grande.</string>
+    <string name="fb_n_preview">Prossima: %1$s (%2$s). Le loro ultime cinque: %3$s</string>
+    <string name="fb_n_report_win">Vittoria contro %1$s: %2$s.</string>
+    <string name="fb_n_report_loss">Sconfitta contro %1$s: %2$s.</string>
+    <string name="fb_n_report_draw">Pareggio con %1$s: %2$s.</string>
+    <string name="fb_n_report_motm">Migliore in campo: %1$s.</string>
+    <string name="fb_n_injury">%1$s si è infortunato in partita e starà fuori circa %2$d giorni.</string>
+    <string name="fb_n_injury_training">%1$s si è infortunato in allenamento (circa %2$d giorni).</string>
+    <string name="fb_n_suspension">%1$s è squalificato per %2$d giornata/e.</string>
+    <string name="fb_n_leader">Il %1$s è la nuova capolista della %2$s con %3$d punti.</string>
+    <string name="fb_n_potm">%1$s (%2$s) è il giocatore del mese.</string>
+    <string name="fb_n_window_open">Il mercato è aperto.</string>
+    <string name="fb_n_window_close">Il mercato è chiuso.</string>
+    <string name="fb_n_draw">%1$s, %2$s: affronterai il %3$s.</string>
+    <string name="fb_n_europe_direct">Il club gioca la %1$s in questa stagione!</string>
+    <string name="fb_n_europe_qual">Il club parte dai preliminari della %1$s.</string>
+    <string name="fb_n_facility">Lavori finiti: %1$s migliorato.</string>
+    <string name="fb_n_finance">Il club è in debito (%1$s). Ogni settimana si pagano interessi: vendi giocatori o taglia gli stipendi.</string>
+    <string name="fb_n_retirement">%1$s si ritira a %2$d anni.</string>
+    <string name="fb_n_top_scorer">%1$s è il capocannoniere della %3$s con %2$d gol.</string>
+    <string name="fb_n_player_season">%1$s è il giocatore della stagione in %2$s (media %3$s).</string>
+    <string name="fb_n_fans_happy">I tifosi sono entusiasti della serie di vittorie!</string>
+    <string name="fb_n_fans_angry">Tre sconfitte di fila: i tifosi sono arrabbiati.</string>
+    <string name="fb_n_trophy_us">CAMPIONI! Il %1$s vince la %2$s!</string>
+    <string name="fb_n_trophy">Il %1$s vince la %2$s.</string>
+    <string name="fb_n_callup">%1$s è stato convocato da %2$s.</string>
+    <string name="fb_n_graduate">%1$s passa dal vivaio alla prima squadra.</string>
+    <string name="fb_settings">Impostazioni</string>
+    <string name="fb_currency">Valuta</string>
+    <string name="fb_currency_desc">Gli importi sono mostrati nella valuta scelta con tassi di cambio fissi (esempio: 1 mln di euro = %1$s).</string>
+    <string name="fb_career">Carriera</string>
+    <string name="fb_manager_line">Allenatore: %1$s · stagione %2$s</string>
+    <string name="fb_quit_career">Elimina la carriera e ricomincia</string>
+</resources>

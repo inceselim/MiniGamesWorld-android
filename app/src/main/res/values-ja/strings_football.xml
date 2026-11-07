@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="game_football_manager_name">クラブボス</string>
+    <string name="game_football_manager_desc">思い通りにサッカークラブを運営しよう：ヨーロッパ全リーグ、リアルな日程、欧州カップとワールドカップ、詳細な戦術、トレーニング、ユースアカデミー、財政、活気ある移籍市場。</string>
+    <string name="fb_tagline">王朝を築け。すべての決断はあなた次第。</string>
+    <string name="fb_continue_career">キャリアを続ける</string>
+    <string name="fb_new_career">新しいキャリア</string>
+    <string name="fb_new_career_warning">現在のキャリアは削除されます。よろしいですか？</string>
+    <string name="fb_yes">はい</string>
+    <string name="fb_no">いいえ</string>
+    <string name="fb_generating">サッカーの世界を作成中…</string>
+    <string name="fb_please_wait">お待ちください…</string>
+    <string name="fb_load_failed">セーブを読み込めませんでした</string>
+    <string name="fb_choose_country">国</string>
+    <string name="fb_choose_club">クラブを選択</string>
+    <string name="fb_tier_n">%1$d部</string>
+    <string name="fb_league_name">%1$s %2$d部</string>
+    <string name="fb_reputation">評判</string>
+    <string name="fb_balance">残高</string>
+    <string name="fb_transfer_budget">移籍予算</string>
+    <string name="fb_stadium">スタジアム</string>
+    <string name="fb_squad_size">選手数</string>
+    <string name="fb_best_player">最高の選手</string>
+    <string name="fb_manager_name">監督名</string>
+    <string name="fb_start_career">キャリア開始</string>
+    <string name="fb_cancel">キャンセル</string>
+    <string name="fb_close">閉じる</string>
+    <string name="fb_tab_home">ホーム</string>
+    <string name="fb_tab_squad">選手</string>
+    <string name="fb_tab_tactics">戦術</string>
+    <string name="fb_tab_fixtures">日程</string>
+    <string name="fb_tab_competitions">順位</string>
+    <string name="fb_tab_transfers">移籍</string>
+    <string name="fb_tab_club">クラブ</string>
+    <string name="fb_tab_inbox">受信箱</string>
+    <string name="fb_tab_guide">ガイド</string>
+    <string name="fb_continue">次へ</string>
+    <string name="fb_go_to_match">試合へ</string>
+    <string name="fb_next_matches">次の試合</string>
+    <string name="fb_no_matches">予定された試合はありません</string>
+    <string name="fb_recent_results">最近の結果</string>
+    <string name="fb_latest_news">最新ニュース</string>
+    <string name="fb_no_news">まだニュースはありません</string>
+    <string name="fb_club_summary">クラブ</string>
+    <string name="fb_weekly_wages">週給総額</string>
+    <string name="fb_season_income">シーズン収入</string>
+    <string name="fb_season_expense">シーズン支出</string>
+    <string name="fb_ad_bonus_title">投資家ボーナス</string>
+    <string name="fb_ad_bonus_desc">短い動画を見ると投資家がクラブに%1$sを追加します。</string>
+    <string name="fb_ad_bonus_left">今週残り%1$d回</string>
+    <string name="fb_ad_bonus_got">クラブに%1$sが追加されました！</string>
+    <string name="fb_watch_ad">広告を見る</string>
+    <string name="fb_table_cols">試,勝,分,敗,差,点</string>
+    <string name="fb_vs">対</string>
+    <string name="fb_first_leg">第1戦：%1$s</string>
+    <string name="fb_play_match">試合をプレイ</string>
+    <string name="fb_quick_result">クイック結果</string>
+    <string name="fb_edit_tactics">戦術</string>
+    <string name="fb_squad">選手</string>
+    <string name="fb_penalties">PK戦 %1$s</string>
+    <string name="fb_match_stats">試合スタッツ</string>
+    <string name="fb_possession">支配率</string>
+    <string name="fb_shots">シュート（枠内）</string>
+    <string name="fb_corners">CK</string>
+    <string name="fb_fouls">ファウル</string>
+    <string name="fb_cards">警告/退場</string>
+    <string name="fb_player_ratings">選手評価</string>
+    <string name="fb_season_over">%1$sシーズン終了</string>
+    <string name="fb_final_position">最終順位：%1$d位</string>
+    <string name="fb_promoted">昇格！</string>
+    <string name="fb_relegated">降格</string>
+    <string name="fb_honours_this_season">優勝チーム</string>
+    <string name="fb_new_season">%1$sを開始</string>
+    <string name="fb_accept">承諾</string>
+    <string name="fb_reject">拒否</string>
+    <string name="fb_accept_counter">%1$sで承諾</string>
+    <string name="fb_withdraw">取り下げ</string>
+    <string name="fb_negotiate_contract">契約交渉</string>
+    <string name="fb_no_funds">資金が足りません</string>
+    <string name="fb_free">移籍金なし</string>
+    <string name="fb_free_agent">フリー</string>
+    <string name="fb_n_offer_received">%1$sが%3$sに%2$sを提示</string>
+    <string name="fb_n_offer_accepted">%1$sが%2$sのオファーを承諾（%3$s）</string>
+    <string name="fb_n_offer_rejected">%1$sが%2$sのオファーを拒否</string>
+    <string name="fb_n_offer_counter">%1$sは%2$sに%3$sを要求</string>
+    <string name="fb_n_player_refused">%1$sは%2$sへの移籍を拒否</string>
+    <string name="fb_n_signed_free">%1$sが%2$sにフリー移籍</string>
+    <string name="fb_n_transfer">%1$sが%2$sから%3$sへ移籍（%4$s）</string>
+    <string name="fb_n_rumour">噂：%1$sが%3$sの%2$sに注目（%4$d%%）</string>
+    <string name="fb_n_contract_expiring">%1$sの契約は今夏満了</string>
+    <string name="fb_n_unhappy">%1$sは不満で退団を希望</string>
+    <string name="fb_n_auction_bid">%1$sが%3$sに%2$sで入札</string>
+    <string name="fb_n_auction_sold">オークション：%1$sが%3$sで%2$sへ</string>
+    <string name="fb_n_auction_unsold">オークション：%1$sに買い手なし</string>
+    <string name="fb_n_loan_return">%1$sがレンタルから%2$sに復帰</string>
+    <string name="fb_n_precontract">%1$sが%2$sと仮契約</string>
+    <string name="fb_n_youth">ユースから%1$d人が加入</string>
+    <string name="fb_n_released">%1$sが退団</string>
+    <string name="fb_col_name">名前</string>
+    <string name="fb_col_pos">位置</string>
+    <string name="fb_col_age">年齢</string>
+    <string name="fb_col_ability">能力</string>
+    <string name="fb_col_potential">潜在能力</string>
+    <string name="fb_col_condition">体調</string>
+    <string name="fb_col_morale">士気</string>
+    <string name="fb_col_form">調子</string>
+    <string name="fb_col_value">価値</string>
+    <string name="fb_col_wage">週給</string>
+    <string name="fb_col_contract">契約</string>
+    <string name="fb_per_week">/週</string>
+    <string name="fb_release_clause">契約解除金</string>
+    <string name="fb_injured">負傷</string>
+    <string name="fb_days">%1$d日</string>
+    <string name="fb_height_foot">身長・利き足</string>
+    <string name="fb_foot_right">右</string>
+    <string name="fb_foot_left">左</string>
+    <string name="fb_foot_both">両足</string>
+    <string name="fb_caps">代表試合 / 得点</string>
+    <string name="fb_season_stats">シーズン</string>
+    <string name="fb_stats_line">%1$d試合 %2$d得点 %3$dアシスト 平均%4$s</string>
+    <string name="fb_positions">ポジション</string>
+    <string name="fb_hidden_attributes">隠し能力と真の潜在能力</string>
+    <string name="fb_hidden_locked">スタッフは推定しかできません。動画を見ると正確な潜在能力と隠れた性格が分かります。</string>
+    <string name="fb_reveal_with_ad">表示（動画）</string>
+    <string name="fb_exact_ability">現在能力</string>
+    <string name="fb_exact_potential">潜在能力</string>
+    <string name="fb_g_technical">テクニック</string>
+    <string name="fb_g_mental">メンタル</string>
+    <string name="fb_g_physical">フィジカル</string>
+    <string name="fb_g_goalkeeping">GK</string>
+    <string name="fb_training">トレーニング</string>
+    <string name="fb_individual_focus">個別練習</string>
+    <string name="fb_position_training">新ポジション習得</string>
+    <string name="fb_none">なし</string>
+    <string name="fb_contract_transfer">契約と移籍</string>
+    <string name="fb_renew_contract">契約更新</string>
+    <string name="fb_list_for_transfer">移籍リスト（%1$s）</string>
+    <string name="fb_unlist">リストから外す（%1$s）</string>
+    <string name="fb_list_for_loan">レンタル放出</string>
+    <string name="fb_unlist_loan">レンタルリストから外す</string>
+    <string name="fb_auction">オークション（3日）</string>
+    <string name="fb_auction_started">オークション開始</string>
+    <string name="fb_release">契約解除</string>
+    <string name="fb_release_confirm">解除を確定（%1$s）</string>
+    <string name="fb_transfer">移籍</string>
+    <string name="fb_shortlist_add">注目リストに追加</string>
+    <string name="fb_shortlist_remove">注目リストから削除</string>
+    <string name="fb_offer_fee">オファー：%1$s</string>
+    <string name="fb_asking_price">希望額：%1$s</string>
+    <string name="fb_not_interested">選手はあなたのクラブに興味がありません</string>
+    <string name="fb_make_offer">オファーを出す</string>
+    <string name="fb_request_loan" formatted="false">レンタル要請（給与70%）</string>
+    <string name="fb_offer_sent">オファー送信。返答は明日。</string>
+    <string name="fb_err_window">移籍市場は閉じています</string>
+    <string name="fb_err_duplicate">この選手には既にオファー済みです</string>
+    <string name="fb_err_on_loan">選手はレンタル中です</string>
+    <string name="fb_err_generic">今はできません</string>
+    <string name="fb_t_attacking">攻撃</string>
+    <string name="fb_t_defending">守備</string>
+    <string name="fb_t_technical">テクニック</string>
+    <string name="fb_t_tactical">戦術</string>
+    <string name="fb_t_physical">フィジカル</string>
+    <string name="fb_t_mental">メンタル</string>
+    <string name="fb_t_set_pieces">セットプレー</string>
+    <string name="fb_t_goalkeeping">GK練習</string>
+    <string name="fb_contract_talks">契約交渉：%1$s</string>
+    <string name="fb_fee_agreed">移籍金合意：%1$s</string>
+    <string name="fb_wage_demand">要求週給</string>
+    <string name="fb_years_wanted">希望年数</string>
+    <string name="fb_signing_fee">契約金</string>
+    <string name="fb_offered_wage">提示週給：%1$s/週</string>
+    <string name="fb_contract_years">年数</string>
+    <string name="fb_propose">提示</string>
+    <string name="fb_reply_accept">合意！契約成立。</string>
+    <string name="fb_reply_wage_low">週給が低すぎます。</string>
+    <string name="fb_reply_years">別の契約年数を希望しています。</string>
+    <string name="fb_reply_not_interested">興味がありません。</string>
+    <string name="fb_reply_walked">交渉を打ち切りました。</string>
+    <string name="fb_soon">次のアップデートで追加</string>
+    <string name="fb_c_league">リーグ</string>
+    <string name="fb_c_playoff">プレーオフ</string>
+    <string name="fb_c_playoff_of">%1$sプレーオフ</string>
+    <string name="fb_c_cup">カップ</string>
+    <string name="fb_c_super_cup">スーパーカップ</string>
+    <string name="fb_c_champions">チャンピオンズカップ</string>
+    <string name="fb_c_europa">ヨーロッパカップ</string>
+    <string name="fb_c_conference">カンファレンスカップ</string>
+    <string name="fb_c_uefa_super">欧州スーパーカップ</string>
+    <string name="fb_c_friendly">親善試合</string>
+    <string name="fb_c_nations">ネーションズリーグ</string>
+    <string name="fb_c_qualifiers">予選</string>
+    <string name="fb_c_world_cup">ワールドカップ</string>
+    <string name="fb_c_euro">欧州選手権</string>
+    <string name="fb_c_nat_friendly">国際親善試合</string>
+    <string name="fb_s_league">リーグ</string>
+    <string name="fb_s_groups">グループステージ</string>
+    <string name="fb_s_league_phase">リーグフェーズ</string>
+    <string name="fb_s_q1">予選1回戦</string>
+    <string name="fb_s_q2">予選2回戦</string>
+    <string name="fb_s_q3">予選3回戦</string>
+    <string name="fb_s_qpo">予選プレーオフ</string>
+    <string name="fb_s_kpo">ノックアウトプレーオフ</string>
+    <string name="fb_s_r128">128強</string>
+    <string name="fb_s_r64">64強</string>
+    <string name="fb_s_r32">32強</string>
+    <string name="fb_s_r16">ベスト16</string>
+    <string name="fb_s_qf">準々決勝</string>
+    <string name="fb_s_sf">準決勝</string>
+    <string name="fb_s_final">決勝</string>
+    <string name="fb_s_prelim">予備戦</string>
+    <string name="fb_s_match">試合</string>
+    <string name="fb_pos_gk">GK</string>
+    <string name="fb_pos_dr">RB</string>
+    <string name="fb_pos_dc">CB</string>
+    <string name="fb_pos_dl">LB</string>
+    <string name="fb_pos_wbr">RWB</string>
+    <string name="fb_pos_wbl">LWB</string>
+    <string name="fb_pos_dm">DM</string>
+    <string name="fb_pos_mr">RM</string>
+    <string name="fb_pos_mc">CM</string>
+    <string name="fb_pos_ml">LM</string>
+    <string name="fb_pos_amr">RW</string>
+    <string name="fb_pos_amc">AM</string>
+    <string name="fb_pos_aml">LW</string>
+    <string name="fb_pos_st">ST</string>
+    <string name="fb_a_corners">CK</string>
+    <string name="fb_a_crossing">クロス</string>
+    <string name="fb_a_dribbling">ドリブル</string>
+    <string name="fb_a_finishing">決定力</string>
+    <string name="fb_a_first_touch">ファーストタッチ</string>
+    <string name="fb_a_free_kick">FK</string>
+    <string name="fb_a_heading">ヘディング</string>
+    <string name="fb_a_long_shots">ミドルシュート</string>
+    <string name="fb_a_marking">マーク</string>
+    <string name="fb_a_passing">パス</string>
+    <string name="fb_a_penalty">PK</string>
+    <string name="fb_a_tackling">タックル</string>
+    <string name="fb_a_technique">テクニック</string>
+    <string name="fb_a_aggression">積極性</string>
+    <string name="fb_a_anticipation">予測</string>
+    <string name="fb_a_bravery">勇敢さ</string>
+    <string name="fb_a_composure">冷静さ</string>
+    <string name="fb_a_concentration">集中力</string>
+    <string name="fb_a_decisions">判断力</string>
+    <string name="fb_a_determination">決断力</string>
+    <string name="fb_a_flair">創造性</string>
+    <string name="fb_a_leadership">統率力</string>
+    <string name="fb_a_off_the_ball">オフザボール</string>
+    <string name="fb_a_positioning">ポジショニング</string>
+    <string name="fb_a_teamwork">チームワーク</string>
+    <string name="fb_a_vision">視野</string>
+    <string name="fb_a_work_rate">運動量</string>
+    <string name="fb_a_acceleration">加速力</string>
+    <string name="fb_a_agility">敏捷性</string>
+    <string name="fb_a_balance">バランス</string>
+    <string name="fb_a_jumping">ジャンプ</string>
+    <string name="fb_a_natural_fitness">身体能力</string>
+    <string name="fb_a_pace">スピード</string>
+    <string name="fb_a_stamina">スタミナ</string>
+    <string name="fb_a_strength">フィジカル強度</string>
+    <string name="fb_a_aerial_reach">空中戦</string>
+    <string name="fb_a_command_of_area">エリア支配</string>
+    <string name="fb_a_handling">キャッチング</string>
+    <string name="fb_a_kicking">キック</string>
+    <string name="fb_a_one_on_ones">1対1</string>
+    <string name="fb_a_reflexes">反射神経</string>
+    <string name="fb_h_consistency">安定感</string>
+    <string name="fb_h_important_matches">大一番</string>
+    <string name="fb_h_injury_proneness">ケガのしやすさ</string>
+    <string name="fb_h_professionalism">プロ意識</string>
+    <string name="fb_h_ambition">野心</string>
+    <string name="fb_h_loyalty">忠誠心</string>
+    <string name="fb_h_adaptability">適応力</string>
+    <string name="fb_h_pressure">重圧への強さ</string>
+    <string name="fb_h_versatility">多様性</string>
+    <string name="fb_all">すべて</string>
+    <string name="fb_cups">カップ戦</string>
+    <string name="fb_europe">ヨーロッパ</string>
+    <string name="fb_national_teams">代表チーム</string>
+    <string name="fb_no_competitions">大会がありません</string>
+    <string name="fb_not_started">まだ始まっていません</string>
+    <string name="fb_winner">優勝：%1$s</string>
+    <string name="fb_group_n">グループ%1$s</string>
+    <string name="fb_byes">%1$dチームがシード</string>
+    <string name="fb_top_scorers">得点ランキング</string>
+    <string name="fb_lineup">布陣</string>
+    <string name="fb_instructions">指示</string>
+    <string name="fb_team_training">トレーニング</string>
+    <string name="fb_auto_pick">自動選択</string>
+    <string name="fb_best_formation">最適フォーメーション</string>
+    <string name="fb_team_strength">チーム力</string>
+    <string name="fb_pick_for">%1$sの選手を選択</string>
+    <string name="fb_tap_position">ピッチ上のポジションをタップ</string>
+    <string name="fb_starting">先発</string>
+    <string name="fb_bench">ベンチ</string>
+    <string name="fb_suspended">出場停止</string>
+    <string name="fb_on">オン</string>
+    <string name="fb_off">オフ</string>
+    <string name="fb_open_guide">戦術ガイドを開く</string>
+    <string name="fb_tac_mentality">メンタリティ</string>
+    <string name="fb_tac_passing">パススタイル</string>
+    <string name="fb_tac_tempo">テンポ</string>
+    <string name="fb_tac_width">幅</string>
+    <string name="fb_tac_focus">攻撃方向</string>
+    <string name="fb_tac_pressing">プレス</string>
+    <string name="fb_tac_defline">最終ライン</string>
+    <string name="fb_tac_marking">マーク</string>
+    <string name="fb_tac_counter">カウンター</string>
+    <string name="fb_tac_offside">オフサイドトラップ</string>
+    <string name="fb_tac_time_wasting">時間稼ぎ</string>
+    <string name="fb_tac_hard_tackling">激しいタックル</string>
+    <string name="fb_o_very_defensive">超守備的</string>
+    <string name="fb_o_defensive">守備的</string>
+    <string name="fb_o_balanced">バランス</string>
+    <string name="fb_o_attacking">攻撃的</string>
+    <string name="fb_o_very_attacking">超攻撃的</string>
+    <string name="fb_o_short">ショート</string>
+    <string name="fb_o_mixed">ミックス</string>
+    <string name="fb_o_direct">ダイレクト</string>
+    <string name="fb_o_slow">遅い</string>
+    <string name="fb_o_normal">普通</string>
+    <string name="fb_o_fast">速い</string>
+    <string name="fb_o_narrow">狭い</string>
+    <string name="fb_o_wide">広い</string>
+    <string name="fb_o_center">中央から</string>
+    <string name="fb_o_flanks">サイドから</string>
+    <string name="fb_o_low">低い</string>
+    <string name="fb_o_medium">中間</string>
+    <string name="fb_o_high">高い</string>
+    <string name="fb_o_deep">深い</string>
+    <string name="fb_o_zonal">ゾーン</string>
+    <string name="fb_o_man">マンツーマン</string>
+    <string name="fb_o_light">軽め</string>
+    <string name="fb_o_intense">ハード</string>
+    <string name="fb_tip_mentality">攻撃的にするほどシュートと得点は増えるが、背後のスペースも増える。</string>
+    <string name="fb_tip_passing">ショートパスはボールを保持し安全。ダイレクトは速くゴール前へ運ぶがリスクが高い。</string>
+    <string name="fb_tip_tempo">速いテンポは早くチャンスを作るが、ミスと疲労が増える。</string>
+    <string name="fb_tip_width">広い攻撃はクロスが増え、狭い攻撃は中央を厚くする。</string>
+    <string name="fb_tip_focus">中央＝スルーパス（視野・パス）、サイド＝クロス（クロス・ヘディング）。</string>
+    <string name="fb_tip_pressing">高いプレスは高い位置で奪えるが、選手が疲れる。</string>
+    <string name="fb_tip_defline">高いラインは中盤を圧縮するが、裏へのボールに弱い。</string>
+    <string name="fb_tip_marking">マンマークはFWを封じるが、動きの良い選手は逃れられる。</string>
+    <string name="fb_tip_counter">自陣で奪ったら素早く攻める。</string>
+    <string name="fb_tip_offside">オフサイドを多く取れるが、連携した守備が必要。</string>
+    <string name="fb_tip_time_wasting">60分以降にリードしていると試合を遅らせる。</string>
+    <string name="fb_tip_hard_tackling">デュエルに勝ちやすいが、ファウル・カード・PKが増える。</string>
+    <string name="fb_training_focus">練習の重点</string>
+    <string name="fb_training_intensity">強度</string>
+    <string name="fb_coaching_quality">コーチの質</string>
+    <string name="fb_f_training">練習施設</string>
+    <string name="fb_f_youth">ユース施設</string>
+    <string name="fb_youth_coaching">ユース指導</string>
+    <string name="fb_physio">理学療法</string>
+    <string name="fb_tip_training_focus" formatted="false">選んだ分野の能力がチーム全体で約50%速く伸びる。</string>
+    <string name="fb_tip_intensity" formatted="false">軽め：成長は遅いがケガが少なく疲れにくい。ハード：成長+15%だが練習中のケガがほぼ2倍、体調が下がる。</string>
+    <string name="fb_tip_coaches">優れたコーチと施設は成長を早める。コーチはクラブ画面で雇える。</string>
+    <string name="fb_gt_basics">はじめに</string>
+    <string name="fb_gt_formations">フォーメーションと先発</string>
+    <string name="fb_gt_training">練習と成長</string>
+    <string name="fb_gt_coaches">コーチとスタッフ</string>
+    <string name="fb_gt_morale">士気と調子</string>
+    <string name="fb_gt_youth">ユースアカデミー</string>
+    <string name="fb_gt_finance">財政</string>
+    <string name="fb_gt_transfers">移籍</string>
+    <string name="fb_gt_contracts">契約</string>
+    <string name="fb_gt_competitions">大会</string>
+    <string name="fb_gt_hidden">隠し能力と潜在能力</string>
+    <string name="fb_gb_basics">あなたはクラブのボスです。メンバーと戦術を決め、選手を売買し、練習を設定し、施設を建て、資金を管理します。
+
+「次へ」でカレンダーが進みます。試合日やあなたの判断が必要な出来事（オファー、契約、ユース入団）があると止まります。
+
+試合日はプレイするかクイック結果を選べます。すべて自動保存されます。</string>
+    <string name="fb_gb_mentality" formatted="false">メンタリティはチームが取るリスクの大きさを決めます。
+
+• 超守備的／守備的：攻撃参加する選手が減り、両チームのシュートが減る。リードを守る時や格上相手に有効。
+• バランス：標準設定。
+• 攻撃的／超攻撃的：シュートと得点が増えるが、相手にスペースを与える。テストでは強豪チームの得点が約18%増えたが、失点も増えた。
+
+守備的メンタリティとカウンターを組み合わせると、前がかりの相手を罰せます。</string>
+    <string name="fb_gb_passing" formatted="false">• ショート：安全なパスが多く、支配率が高い（60%以上）。攻撃回数は減るが質が高い。パスとファーストタッチが必要。
+• ミックス：バランス型。
+• ダイレクト：FWへのロングボール。支配率は約40%に下がるが、ゴール前に速く運べ、試合が開いた展開になる。長身で強いFWと良いロングパサー向き。</string>
+    <string name="fb_gb_tempo">速いテンポはボールを素早く動かし、チャンスとシュートが増えるが、パスミスと疲労も増える。
+
+遅いテンポはボールを保持して試合をコントロールする。ショートパスやリードを守る時に合う。</string>
+    <string name="fb_gb_width">広い：サイドの選手がタッチライン沿いに張り、クロスが増える。良いクロッサーとエリア内で空中戦に強い選手が必要。
+
+狭い：チームは中央から攻めてコンパクトを保つ。司令塔とスルーパスと相性が良い。</string>
+    <string name="fb_gb_focus">中央から：スルーパスが増える。成功はパサーの視野とパスが相手のマークに勝てるか、FWのスピード次第。GKとの1対1はサッカーで最大のチャンス。
+
+サイドから：クロスが増える。ターゲットマンがCBに空中戦で勝てばヘディングのチャンスになる。</string>
+    <string name="fb_gb_pressing">高いプレスは敵陣でボールを追う。冷静さの低い選手に特に有効でゴール近くで奪えるが、試合中の体力消耗が早い。
+
+低いプレスは体力を温存し陣形を保つ。相手は自陣で余裕を持ってボールを持てる。</string>
+    <string name="fb_gb_defline">高いライン：DFが押し上げ、中盤が狭くなり崩されにくい。しかし速いFWへの裏へのボールやスルーパスが危険になる。テストでは速いFWに対して失点が2倍以上になった。
+
+深いライン：ペナルティエリアが守られ、スルーパスはほとんど通らないが、試合は相手に支配される。カウンターと相性抜群。</string>
+    <string name="fb_gb_marking">ゾーン：各選手が担当エリアを守る。安全な標準設定。
+
+マンツーマン：DFが対面の相手を追う。DFのマーク能力が高いと非常に有効だが、オフザボールの動きが優れたFWはそれでも外せる。</string>
+    <string name="fb_gb_counter">自陣でボールを奪うと、少ないパスとスルーパスで素早く攻める。
+
+多人数で攻める相手や高いラインの相手には致命的（テストでは超攻撃的な相手に1試合3点以上）。代わりに通常の攻撃に参加する選手が減る。</string>
+    <string name="fb_gb_offside">DFラインが一斉に上がり相手をオフサイドにする。チームワークが高いほど成功しやすい。失敗するとFWがGKと1対1になる。</string>
+    <string name="fb_gb_time_wasting">60分以降にリードしていると、選手はバックパスを増やし、プレーを止める時間を長くする。審判が警告を出すこともある。</string>
+    <string name="fb_gb_hard_tackling">タックルが激しくなる。デュエルに勝ちやすいが、ファウル・警告・PKが増え、相手のケガも増える。</string>
+    <string name="fb_gb_formations">主力選手に合ったフォーメーションを選びましょう。ピッチ上のポジションをタップし、リストから選手をタップして配置します（すでに先発の選手は入れ替わります）。
+
+選手の下の数字はそのポジションでの評価です。赤い輪は不慣れなポジションを示します。選手は練習で新しいポジションを覚えられます。
+
+「自動選択」はアシスタントに任せ、「最適フォーメーション」は合計評価が最も高い形を選びます。負傷者と出場停止の選手は自動で入れ替わります。</string>
+    <string name="fb_gb_training">選手は毎週ポテンシャルに向かって成長します。成長速度を決める要素：
+• 年齢：16〜21歳が最も速く、24歳以降は遅くなり、29歳前後で止まる。
+• 現在能力とポテンシャルの差。
+• コーチと練習施設（U-19はユースコーチとユース施設）。
+• 性格：プロ意識と決断力。
+• 出場時間（23歳以下では特に重要）とモラル。
+• 強度：軽め・普通・ハード。
+
+チーム重点は全員の1分野を、個別重点は1人の1分野を大きく伸ばします。30歳（GKは32歳）を過ぎるとフィジカルから衰えますが、判断力とポジショニングはまだ伸びることがあります。</string>
+    <string name="fb_gb_coaches">• コーチ：各練習分野は対応するコーチ能力（攻撃・守備・技術・戦術・メンタル・フィジカル・GK）を使います。約5人で全分野をカバーでき、少ないと質が下がります。
+• ユースコーチ：U-19を育て、毎年のユース入団の質を上げます。
+• フィジオ：ケガの期間を短くし、練習中のケガを減らします。
+• フィットネスコーチ：ベテランの衰えを遅らせます。
+• アシスタント：選手掌握でモラルを上げ、自チーム選手のポテンシャルを評価します。
+• スカウト：優秀なほど他クラブ選手の能力とポテンシャルの推定が正確になります。</string>
+    <string name="fb_gb_morale">モラルは毎週変化します。好成績、立場に見合った出場時間（主力はほとんどの試合で先発を期待）、適正な給料、良い福利施設、良いアシスタントで上がります。非常に不満な野心家の選手は移籍を要求します。
+
+フォームは最近の試合評価の平均です。モラルとフォームは試合当日の実力と成長にわずかに影響します。</string>
+    <string name="fb_gb_youth">毎年3月15日に2〜8人の若手（15〜16歳）がアカデミーに入団します。人数と質はユース勧誘で決まり、ユース施設とユースコーチが質を上げ、自国のサッカーレベルも影響します。時々、黄金の才能が現れます。
+
+若手には出場時間と良い指導を与えましょう。21歳までが最も伸びます。</string>
+    <string name="fb_gb_finance" formatted="false">収入：チケット（ホーム試合。価格を上げると1人あたりの収入は増えるが空席が増える）、放映権料（半分は均等、半分は順位で分配）、グッズ（評判とスター選手で増える）、胸スポンサー、スタジアム広告、賞金（カップ戦、特に欧州大会）、選手売却。
+
+支出：選手とスタッフの給料、施設維持費、ユースアカデミー、試合運営費、移籍金、建設工事。残高がマイナスだと毎週0.12%の利息がかかります。
+
+投資家支援：動画を見るとクラブに資金を追加できます（週3回）。</string>
+    <string name="fb_gb_transfers">移籍期間：7月1日〜9月1日と1月。フリーの選手はいつでも契約できます。
+
+売却側クラブの価格は、その選手の重要度、年齢とポテンシャル、契約期間（最終年は安い）、移籍リスト入りの有無、売却側の財政で決まります。契約解除条項は拒否できません。
+
+移籍金で合意したら、選手と給料と年数を交渉します。低すぎると3回で交渉決裂です。レンタル：給料の一部を払い、選手はシーズン終了時に戻ります。
+
+自チームの選手を移籍リストに載せる、レンタルに出す、クラブ同士が競り合う3日間のオークションを開くことができます。気になる選手は注目リストに入れて噂をチェックしましょう。</string>
+    <string name="fb_gb_contracts" formatted="false">重要な選手の契約は早めに更新しましょう。1月1日に今季で満了する契約の警告が届きます。1月中旬からは他クラブが仮契約を結べるようになり、その選手は夏にフリーで去ります。
+
+選手は成長すると昇給を求めます。契約解除には残り給料の60%がかかります。</string>
+    <string name="fb_gb_competitions">ヨーロッパの各国には昇格・降格のあるリーグ（一部の2部はプレーオフあり）、国内カップ、スーパーカップがあります。
+
+欧州大会の出場枠はリーグ順位と国別ランキングで決まり、ランキングは毎シーズン欧州での成績で変わります。チャンピオンズカップ、ヨーロッパカップ、カンファレンスカップにはそれぞれ予選、36チームのリーグフェーズ、ノックアウトラウンドがあります。
+
+代表チームはネーションズリーグ、予選、欧州選手権、ワールドカップを戦います。</string>
+    <string name="fb_gb_hidden">能力とポテンシャルはスタッフが推定した星で表示されるため、特にスカウトが弱いと間違っていることがあります。
+
+選手カードで短い動画を見ると、正確な現在能力、正確なポテンシャル、隠れた性格（安定感、大舞台での強さ、ケガのしやすさ、プロ意識、野心、忠誠心、適応力、プレッシャーへの強さ、万能性）が判明します。判明した選手はずっとそのまま表示されます（緑の星）。</string>
+    <string name="fb_search">検索</string>
+    <string name="fb_shortlist">注目リスト</string>
+    <string name="fb_scout_reports">スカウトレポート</string>
+    <string name="fb_offers">オファー</string>
+    <string name="fb_auctions">オークション</string>
+    <string name="fb_history">履歴と噂</string>
+    <string name="fb_window_open">移籍期間中</string>
+    <string name="fb_window_closed">移籍期間外</string>
+    <string name="fb_line_gk">GK</string>
+    <string name="fb_line_def">DF</string>
+    <string name="fb_line_mid">MF</string>
+    <string name="fb_line_att">FW</string>
+    <string name="fb_any_age">全年齢</string>
+    <string name="fb_age_young">21歳以下</string>
+    <string name="fb_age_prime">22〜29歳</string>
+    <string name="fb_age_veteran">30歳以上</string>
+    <string name="fb_any_value">全評価額</string>
+    <string name="fb_listed_only">リスト入りのみ</string>
+    <string name="fb_free_agents">フリー選手</string>
+    <string name="fb_player_name">選手名</string>
+    <string name="fb_no_results">選手が見つかりません</string>
+    <string name="fb_loan">レンタル</string>
+    <string name="fb_scout_desc">スカウトが、弱いポジションを補強でき、予算内で、加入に前向きな選手を提案します。</string>
+    <string name="fb_get_reports">レポートを取得</string>
+    <string name="fb_no_offers">今季のオファーはありません</string>
+    <string name="fb_incoming">受信</string>
+    <string name="fb_outgoing">送信</string>
+    <string name="fb_os_waiting_you">あなたの返答待ち</string>
+    <string name="fb_os_pending">クラブの返答待ち</string>
+    <string name="fb_os_counter">逆提案：%1$s</string>
+    <string name="fb_os_agreed">移籍金合意 – 契約交渉へ</string>
+    <string name="fb_os_agreed_in">合意 – 買い手が選手と交渉中</string>
+    <string name="fb_os_completed">成立</string>
+    <string name="fb_os_rejected">拒否</string>
+    <string name="fb_os_withdrawn">撤回</string>
+    <string name="fb_os_refused">選手が拒否</string>
+    <string name="fb_os_expired">期限切れ</string>
+    <string name="fb_counter_x">%1$sを要求</string>
+    <string name="fb_offer_x">%1$sを提示</string>
+    <string name="fb_auction_desc">オークション終了までクラブ同士が競り合います。自チームの選手は選手カードから出品できます。</string>
+    <string name="fb_no_auctions">開催中のオークションはありません</string>
+    <string name="fb_reserve">最低価格 %1$s</string>
+    <string name="fb_ended">終了</string>
+    <string name="fb_ends">終了 %1$s</string>
+    <string name="fb_bid_x">%1$sで入札</string>
+    <string name="fb_latest_transfers">最新の移籍</string>
+    <string name="fb_rumours">噂</string>
+    <string name="fb_finance">財務</string>
+    <string name="fb_facilities">施設</string>
+    <string name="fb_staff">スタッフ</string>
+    <string name="fb_sponsor_tickets">スポンサーとチケット</string>
+    <string name="fb_friendlies">親善試合</string>
+    <string name="fb_editor">エディター</string>
+    <string name="fb_this_season">今季</string>
+    <string name="fb_last_season">昨季</string>
+    <string name="fb_income">収入</string>
+    <string name="fb_expenses">支出</string>
+    <string name="fb_net">収支</string>
+    <string name="fb_fin_tickets">チケット収入</string>
+    <string name="fb_fin_tv">放映権料</string>
+    <string name="fb_fin_merch">グッズ</string>
+    <string name="fb_fin_sponsor">スポンサー</string>
+    <string name="fb_fin_ads">スタジアム広告</string>
+    <string name="fb_fin_prize">賞金</string>
+    <string name="fb_fin_transfer_in">選手売却</string>
+    <string name="fb_fin_other_in">投資家・その他</string>
+    <string name="fb_fin_wages">選手給与</string>
+    <string name="fb_fin_staff_wages">スタッフ給与</string>
+    <string name="fb_fin_facilities">施設維持費</string>
+    <string name="fb_fin_youth">ユースアカデミー</string>
+    <string name="fb_fin_matchday">試合運営費</string>
+    <string name="fb_fin_transfer_out">選手獲得</string>
+    <string name="fb_fin_upgrades">建設</string>
+    <string name="fb_fin_interest">利息</string>
+    <string name="fb_fin_other_out">補償金・その他</string>
+    <string name="fb_balance_history">残高（直近数週）</string>
+    <string name="fb_staff_wages_week">スタッフ給与（週）</string>
+    <string name="fb_fan_base">ファン</string>
+    <string name="fb_f_recruitment">ユース勧誘</string>
+    <string name="fb_f_stadium">スタジアムの質</string>
+    <string name="fb_f_social">福利施設</string>
+    <string name="fb_f_capacity">スタジアム収容数</string>
+    <string name="fb_fd_training">全選手の成長が速くなる。</string>
+    <string name="fb_fd_youth">U-19の成長とユース入団の質が向上。</string>
+    <string name="fb_fd_recruitment">毎年3月に入団する若手の数と質が向上。</string>
+    <string name="fb_fd_stadium">観客が増え、高い価格も受け入れる。</string>
+    <string name="fb_fd_social">モラルとグッズ販売が向上。</string>
+    <string name="fb_fd_capacity" formatted="false">座席+10%で試合日収入が増える。</string>
+    <string name="fb_seats">%1$d席</string>
+    <string name="fb_upgrade_x">建設 %1$s · %2$d日</string>
+    <string name="fb_upgrade_started">建設開始</string>
+    <string name="fb_under_construction">建設中：%1$s（完成 %2$s）</string>
+    <string name="fb_your_staff">スタッフ（%1$d）</string>
+    <string name="fb_staff_market">雇用可能なスタッフ</string>
+    <string name="fb_fire">解雇</string>
+    <string name="fb_fire_confirm">解雇（%1$s）</string>
+    <string name="fb_hire">雇用</string>
+    <string name="fb_hired">雇用しました！</string>
+    <string name="fb_staff_full">スタッフが満員です（16）</string>
+    <string name="fb_staff_reject">あなたのクラブに興味がないようです</string>
+    <string name="fb_r_assistant">アシスタント</string>
+    <string name="fb_r_coach">コーチ</string>
+    <string name="fb_r_gk_coach">GKコーチ</string>
+    <string name="fb_r_fitness">フィットネスコーチ</string>
+    <string name="fb_r_scout">スカウト</string>
+    <string name="fb_r_physio">フィジオ</string>
+    <string name="fb_r_youth">ユースコーチ</string>
+    <string name="fb_sa_attack">攻撃</string>
+    <string name="fb_sa_defence">守備</string>
+    <string name="fb_sa_technical">技術</string>
+    <string name="fb_sa_tactical">戦術</string>
+    <string name="fb_sa_mental">メンタル</string>
+    <string name="fb_sa_fitness">フィジカル</string>
+    <string name="fb_sa_gk">GK</string>
+    <string name="fb_sa_youth">若手の指導</string>
+    <string name="fb_sa_judge_ability">能力判定</string>
+    <string name="fb_sa_judge_potential">ポテンシャル判定</string>
+    <string name="fb_sa_physio">理学療法</string>
+    <string name="fb_sa_motivating">モチベーション</string>
+    <string name="fb_sa_discipline">規律</string>
+    <string name="fb_sa_man_management">選手掌握</string>
+    <string name="fb_shirt_sponsor">胸スポンサー</string>
+    <string name="fb_current_sponsor">スポンサー</string>
+    <string name="fb_per_year">年額</string>
+    <string name="fb_until">期限</string>
+    <string name="fb_sponsor_offers">新しいオファー</string>
+    <string name="fb_sponsor_line">年%1$s · %2$d年</string>
+    <string name="fb_sign">契約</string>
+    <string name="fb_sponsor_locked">現在の契約が終わると新しいスポンサーと契約できます。</string>
+    <string name="fb_ticket_prices">チケット価格</string>
+    <string name="fb_tp_very_low">とても安い</string>
+    <string name="fb_tp_low">安い</string>
+    <string name="fb_tp_high">高い</string>
+    <string name="fb_tp_very_high">とても高い</string>
+    <string name="fb_ticket_price">平均チケット価格</string>
+    <string name="fb_expected_attendance">予想観客数</string>
+    <string name="fb_matchday_income">ホーム1試合あたりの収入</string>
+    <string name="fb_tip_tickets" formatted="false">1段階上げるごとに価格は25%上がるが、ファンは約18%減ります。どうせ満員なら高い価格の方が儲かります。</string>
+    <string name="fb_choose_opponent">対戦相手</string>
+    <string name="fb_choose_date">日付</string>
+    <string name="fb_friendly_desc">親善試合は選手のコンディションを保ち、ホームなら少し収入になります。ビッグクラブには断られることも。</string>
+    <string name="fb_arrange">組む</string>
+    <string name="fb_friendly_ok">親善試合が決まりました</string>
+    <string name="fb_friendly_declined">クラブに断られました</string>
+    <string name="fb_friendly_busy">相手はその前後に試合があります</string>
+    <string name="fb_edit_club">クラブを編集</string>
+    <string name="fb_club_name">クラブ名</string>
+    <string name="fb_short_name">略称</string>
+    <string name="fb_color_main">メインカラー</string>
+    <string name="fb_color_second">サブカラー</string>
+    <string name="fb_save">保存</string>
+    <string name="fb_saved">保存しました</string>
+    <string name="fb_edit_players">選手名（タップで編集）</string>
+    <string name="fb_back_to_match">試合に戻る</string>
+    <string name="fb_choose_sub">投入する選手を選択</string>
+    <string name="fb_on_pitch">ピッチ上（タップで交代）</string>
+    <string name="fb_subs_left">残り交代枠：%1$d</string>
+    <string name="fb_tactics_subs">戦術と交代</string>
+    <string name="fb_pause">一時停止</string>
+    <string name="fb_resume">再開</string>
+    <string name="fb_skip_to_end">最後までスキップ</string>
+    <string name="fb_finish_match">終了</string>
+    <string name="fb_full_time">試合終了</string>
+    <string name="fb_goal_flash">ゴール！</string>
+    <string name="fb_shots_short">シュート</string>
+    <string name="fb_ev_goal_1">ゴール！%1$sが%2$sに得点！</string>
+    <string name="fb_ev_goal_2">ゴール！%1$sの見事なフィニッシュ！（%2$s）</string>
+    <string name="fb_ev_goal_3">ゴール！%1$sが確実に決めた – %2$sが歓喜！</string>
+    <string name="fb_ev_assist">アシスト：%1$s。</string>
+    <string name="fb_ev_save_1">%1$sが%2$sのシュートを好セーブ！</string>
+    <string name="fb_ev_save_2">%2$sのシュート – %1$sががっちりキャッチ。</string>
+    <string name="fb_ev_miss_1">%1$sのシュート…わずかに外れる！</string>
+    <string name="fb_ev_miss_2">%1$sのシュートはバーの上。</string>
+    <string name="fb_ev_block">%1$sが%2$sのシュートをブロック。</string>
+    <string name="fb_ev_yellow">%1$sにイエローカード。</string>
+    <string name="fb_ev_red">レッドカード！%1$sが退場！</string>
+    <string name="fb_ev_injury">%1$sが負傷し、プレー続行不可能。</string>
+    <string name="fb_ev_sub">%1$sの交代：%2$s IN、%3$s OUT。</string>
+    <string name="fb_ev_corner">%1$sのコーナーキック。</string>
+    <string name="fb_ev_free_kick">%1$sのフリーキック、キッカーは%2$s。</string>
+    <string name="fb_ev_penalty">%1$sにPK！キッカーは%2$s…</string>
+    <string name="fb_ev_offside">%1$sがオフサイド。</string>
+    <string name="fb_ev_foul">%1$sが%2$sにファウル。</string>
+    <string name="fb_ev_through">%1$sから%2$sへ見事なスルーパス！</string>
+    <string name="fb_ev_half_time">ハーフタイム。</string>
+    <string name="fb_ev_full_time">試合終了！</string>
+    <string name="fb_ev_extra_time">延長戦！</string>
+    <string name="fb_ev_so_goal">%1$sが%2$sのPKを成功。</string>
+    <string name="fb_ev_so_miss">%1$sが%2$sのPKを失敗！</string>
+    <string name="fb_first_team">トップチーム</string>
+    <string name="fb_youth_team">ユースアカデミー</string>
+    <string name="fb_youth_info">ユース施設 %1$d/20 · 勧誘 %2$d/20 · ユースコーチ %3$d/20 · 次回入団 %4$s</string>
+    <string name="fb_youth_empty">アカデミーにはまだ若手がいません。毎年3月15日に新しい才能が入団します。</string>
+    <string name="fb_promote">トップチームに昇格</string>
+    <string name="fb_to_youth">ユースアカデミーへ送る</string>
+    <string name="fb_ng_club">クラブ</string>
+    <string name="fb_ng_matches">試合</string>
+    <string name="fb_ng_transfers">移籍</string>
+    <string name="fb_ng_world">世界</string>
+    <string name="fb_mark_all_read">すべて既読にする</string>
+    <string name="fb_nt_offer_received">移籍オファー</string>
+    <string name="fb_nt_offer_accepted">オファー受諾</string>
+    <string name="fb_nt_offer_rejected">オファー拒否</string>
+    <string name="fb_nt_offer_counter">逆提案</string>
+    <string name="fb_nt_player_refused">選手が拒否</string>
+    <string name="fb_nt_transfer_done">移籍成立</string>
+    <string name="fb_nt_transfer_world">ビッグ移籍</string>
+    <string name="fb_nt_rumour">噂</string>
+    <string name="fb_nt_contract">契約</string>
+    <string name="fb_nt_unhappy">不満な選手</string>
+    <string name="fb_nt_auction">オークション</string>
+    <string name="fb_nt_loan_return">レンタル復帰</string>
+    <string name="fb_nt_precontract">仮契約</string>
+    <string name="fb_nt_youth">ユース入団</string>
+    <string name="fb_nt_released">退団</string>
+    <string name="fb_nt_preview">試合プレビュー</string>
+    <string name="fb_nt_report">試合レポート</string>
+    <string name="fb_nt_injury">負傷</string>
+    <string name="fb_nt_suspension">出場停止</string>
+    <string name="fb_nt_leader">新首位</string>
+    <string name="fb_nt_potm">月間MVP</string>
+    <string name="fb_nt_window_open">移籍期間</string>
+    <string name="fb_nt_window_close">移籍期間</string>
+    <string name="fb_nt_draw">抽選</string>
+    <string name="fb_nt_europe">欧州</string>
+    <string name="fb_nt_facility">施設</string>
+    <string name="fb_nt_finance">財務</string>
+    <string name="fb_nt_retirement">引退</string>
+    <string name="fb_nt_top_scorer">得点王</string>
+    <string name="fb_nt_player_season">シーズンMVP</string>
+    <string name="fb_nt_fans_happy">ファン</string>
+    <string name="fb_nt_fans_angry">ファン</string>
+    <string name="fb_nt_trophy">優勝</string>
+    <string name="fb_nt_callup">代表</string>
+    <string name="fb_nt_graduate">ユース昇格</string>
+    <string name="fb_n_youth_best">%1$d人の若手がアカデミーに入団。スカウトは%2$sを最大の逸材と評価。</string>
+    <string name="fb_n_preview">次戦：%1$s（%2$s）。直近5試合：%3$s</string>
+    <string name="fb_n_report_win">%1$sに勝利：%2$s。</string>
+    <string name="fb_n_report_loss">%1$sに敗戦：%2$s。</string>
+    <string name="fb_n_report_draw">%1$sと引き分け：%2$s。</string>
+    <string name="fb_n_report_motm">マン・オブ・ザ・マッチ：%1$s。</string>
+    <string name="fb_n_injury">%1$sが試合で負傷、約%2$d日間離脱。</string>
+    <string name="fb_n_injury_training">%1$sが練習中に負傷（約%2$d日）。</string>
+    <string name="fb_n_suspension">%1$sは%2$d試合の出場停止。</string>
+    <string name="fb_n_leader">%1$sが%3$d勝点で%2$sの新首位に。</string>
+    <string name="fb_n_potm">%1$s（%2$s）が月間MVPに。</string>
+    <string name="fb_n_window_open">移籍期間が始まりました。</string>
+    <string name="fb_n_window_close">移籍期間が終了しました。</string>
+    <string name="fb_n_draw">%1$s %2$s：対戦相手は%3$s。</string>
+    <string name="fb_n_europe_direct">今季、クラブは%1$sに出場！</string>
+    <string name="fb_n_europe_qual">クラブは%1$sの予選に出場します。</string>
+    <string name="fb_n_facility">建設完了：%1$sが向上。</string>
+    <string name="fb_n_finance">クラブは負債を抱えています（%1$s）。毎週利息がかかるので、選手を売るか給料を削減しましょう。</string>
+    <string name="fb_n_retirement">%1$sが%2$d歳で引退。</string>
+    <string name="fb_n_top_scorer">%1$sが%2$dゴールで%3$sの得点王に。</string>
+    <string name="fb_n_player_season">%1$sが%2$sのシーズンMVPに（平均%3$s）。</string>
+    <string name="fb_n_fans_happy">連勝にファンは大喜び！</string>
+    <string name="fb_n_fans_angry">3連敗でファンは怒っています。</string>
+    <string name="fb_n_trophy_us">優勝！%1$sが%2$sを制覇！</string>
+    <string name="fb_n_trophy">%1$sが%2$sを制覇。</string>
+    <string name="fb_n_callup">%1$sが%2$s代表に招集されました。</string>
+    <string name="fb_n_graduate">%1$sがアカデミーからトップチームに昇格。</string>
+    <string name="fb_settings">設定</string>
+    <string name="fb_currency">通貨</string>
+    <string name="fb_currency_desc">金額は選んだ通貨で固定レートにより表示されます（例：100万ユーロ = %1$s）。</string>
+    <string name="fb_career">キャリア</string>
+    <string name="fb_manager_line">監督：%1$s · %2$sシーズン</string>
+    <string name="fb_quit_career">キャリアを削除して最初から</string>
+</resources>

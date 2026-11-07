@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="game_football_manager_name">Босс клуба</string>
+    <string name="game_football_manager_desc">Управляй футбольным клубом по-своему: все лиги Европы, реалистичный календарь, еврокубки и чемпионаты мира, детальная тактика, тренировки, академия, финансы и живой трансферный рынок.</string>
+    <string name="fb_tagline">Построй династию. Каждое решение за тобой.</string>
+    <string name="fb_continue_career">Продолжить карьеру</string>
+    <string name="fb_new_career">Новая карьера</string>
+    <string name="fb_new_career_warning">Текущая карьера будет удалена. Ты уверен?</string>
+    <string name="fb_yes">Да</string>
+    <string name="fb_no">Нет</string>
+    <string name="fb_generating">Создаём футбольный мир…</string>
+    <string name="fb_please_wait">Подожди…</string>
+    <string name="fb_load_failed">Не удалось загрузить сохранение</string>
+    <string name="fb_choose_country">Страна</string>
+    <string name="fb_choose_club">Выбери клуб</string>
+    <string name="fb_tier_n">Лига %1$d</string>
+    <string name="fb_league_name">%1$s Лига %2$d</string>
+    <string name="fb_reputation">Репутация</string>
+    <string name="fb_balance">Баланс</string>
+    <string name="fb_transfer_budget">Трансферный бюджет</string>
+    <string name="fb_stadium">Стадион</string>
+    <string name="fb_squad_size">Состав</string>
+    <string name="fb_best_player">Лучший игрок</string>
+    <string name="fb_manager_name">Имя менеджера</string>
+    <string name="fb_start_career">Начать карьеру</string>
+    <string name="fb_cancel">Отмена</string>
+    <string name="fb_close">Закрыть</string>
+    <string name="fb_tab_home">Главная</string>
+    <string name="fb_tab_squad">Состав</string>
+    <string name="fb_tab_tactics">Тактика</string>
+    <string name="fb_tab_fixtures">Матчи</string>
+    <string name="fb_tab_competitions">Таблицы</string>
+    <string name="fb_tab_transfers">Трансферы</string>
+    <string name="fb_tab_club">Клуб</string>
+    <string name="fb_tab_inbox">Почта</string>
+    <string name="fb_tab_guide">Гид</string>
+    <string name="fb_continue">Далее</string>
+    <string name="fb_go_to_match">К матчу</string>
+    <string name="fb_next_matches">Ближайшие матчи</string>
+    <string name="fb_no_matches">Матчей нет</string>
+    <string name="fb_recent_results">Последние результаты</string>
+    <string name="fb_latest_news">Последние новости</string>
+    <string name="fb_no_news">Новостей пока нет</string>
+    <string name="fb_club_summary">Клуб</string>
+    <string name="fb_weekly_wages">Зарплаты в неделю</string>
+    <string name="fb_season_income">Доходы сезона</string>
+    <string name="fb_season_expense">Расходы сезона</string>
+    <string name="fb_ad_bonus_title">Бонус инвестора</string>
+    <string name="fb_ad_bonus_desc">Посмотри короткое видео, и инвестор добавит клубу %1$s.</string>
+    <string name="fb_ad_bonus_left">Осталось %1$d на этой неделе</string>
+    <string name="fb_ad_bonus_got">Клубу добавлено %1$s!</string>
+    <string name="fb_watch_ad">Смотреть рекламу</string>
+    <string name="fb_table_cols">И,В,Н,П,РМ,О</string>
+    <string name="fb_vs">–</string>
+    <string name="fb_first_leg">Первый матч: %1$s</string>
+    <string name="fb_play_match">Играть матч</string>
+    <string name="fb_quick_result">Быстрый результат</string>
+    <string name="fb_edit_tactics">Тактика</string>
+    <string name="fb_squad">Состав</string>
+    <string name="fb_penalties">Пенальти %1$s</string>
+    <string name="fb_match_stats">Статистика матча</string>
+    <string name="fb_possession">Владение</string>
+    <string name="fb_shots">Удары (в створ)</string>
+    <string name="fb_corners">Угловые</string>
+    <string name="fb_fouls">Фолы</string>
+    <string name="fb_cards">Карточки Ж/К</string>
+    <string name="fb_player_ratings">Оценки игроков</string>
+    <string name="fb_season_over">Сезон %1$s завершён</string>
+    <string name="fb_final_position">Итоговое место: %1$d</string>
+    <string name="fb_promoted">Повышение!</string>
+    <string name="fb_relegated">Вылет</string>
+    <string name="fb_honours_this_season">Чемпионы</string>
+    <string name="fb_new_season">Начать %1$s</string>
+    <string name="fb_accept">Принять</string>
+    <string name="fb_reject">Отклонить</string>
+    <string name="fb_accept_counter">Принять %1$s</string>
+    <string name="fb_withdraw">Отозвать</string>
+    <string name="fb_negotiate_contract">Обсудить контракт</string>
+    <string name="fb_no_funds">Недостаточно денег</string>
+    <string name="fb_free">бесплатно</string>
+    <string name="fb_free_agent">Свободный агент</string>
+    <string name="fb_n_offer_received">%1$s предлагает %2$s за %3$s</string>
+    <string name="fb_n_offer_accepted">%1$s принял предложение по %2$s (%3$s)</string>
+    <string name="fb_n_offer_rejected">%1$s отклонил предложение по %2$s</string>
+    <string name="fb_n_offer_counter">%1$s хочет %3$s за %2$s</string>
+    <string name="fb_n_player_refused">%1$s не хочет переходить в %2$s</string>
+    <string name="fb_n_signed_free">%1$s бесплатно перешёл в %2$s</string>
+    <string name="fb_n_transfer">%1$s переходит из %2$s в %3$s (%4$s)</string>
+    <string name="fb_n_rumour">Слух: %1$s следит за %2$s из %3$s (%4$d%%)</string>
+    <string name="fb_n_contract_expiring">Контракт %1$s истекает летом</string>
+    <string name="fb_n_unhappy">%1$s недоволен и хочет уйти</string>
+    <string name="fb_n_auction_bid">%1$s ставит %2$s за %3$s</string>
+    <string name="fb_n_auction_sold">Аукцион: %1$s продан в %2$s за %3$s</string>
+    <string name="fb_n_auction_unsold">Аукцион: на %1$s нет покупателя</string>
+    <string name="fb_n_loan_return">%1$s вернулся в %2$s из аренды</string>
+    <string name="fb_n_precontract">%1$s подписал предварительный контракт с %2$s</string>
+    <string name="fb_n_youth">Из академии пришли %1$d игроков</string>
+    <string name="fb_n_released">%1$s покинул клуб</string>
+    <string name="fb_col_name">Имя</string>
+    <string name="fb_col_pos">Поз</string>
+    <string name="fb_col_age">Возр</string>
+    <string name="fb_col_ability">Сила</string>
+    <string name="fb_col_potential">Потенциал</string>
+    <string name="fb_col_condition">Физ.</string>
+    <string name="fb_col_morale">Мораль</string>
+    <string name="fb_col_form">Форма</string>
+    <string name="fb_col_value">Цена</string>
+    <string name="fb_col_wage">Зарплата</string>
+    <string name="fb_col_contract">Контракт</string>
+    <string name="fb_per_week">/нед</string>
+    <string name="fb_release_clause">Отступные</string>
+    <string name="fb_injured">Травма</string>
+    <string name="fb_days">%1$d дн.</string>
+    <string name="fb_height_foot">Рост · нога</string>
+    <string name="fb_foot_right">Правая</string>
+    <string name="fb_foot_left">Левая</string>
+    <string name="fb_foot_both">Обе</string>
+    <string name="fb_caps">Матчи / голы за сб.</string>
+    <string name="fb_season_stats">Сезон</string>
+    <string name="fb_stats_line">%1$d матчей, %2$d голов, %3$d пасов, ср. %4$s</string>
+    <string name="fb_positions">Позиции</string>
+    <string name="fb_hidden_attributes">Скрытые атрибуты и реальный потенциал</string>
+    <string name="fb_hidden_locked">Твой штаб может лишь оценить. Посмотри видео, чтобы узнать точный потенциал и скрытые черты.</string>
+    <string name="fb_reveal_with_ad">Открыть (видео)</string>
+    <string name="fb_exact_ability">Текущая сила</string>
+    <string name="fb_exact_potential">Потенциальная сила</string>
+    <string name="fb_g_technical">Технические</string>
+    <string name="fb_g_mental">Психологические</string>
+    <string name="fb_g_physical">Физические</string>
+    <string name="fb_g_goalkeeping">Вратарские</string>
+    <string name="fb_training">Тренировки</string>
+    <string name="fb_individual_focus">Индивидуальный упор</string>
+    <string name="fb_position_training">Новая позиция</string>
+    <string name="fb_none">Нет</string>
+    <string name="fb_contract_transfer">Контракт и трансфер</string>
+    <string name="fb_renew_contract">Продлить контракт</string>
+    <string name="fb_list_for_transfer">В трансферный список (%1$s)</string>
+    <string name="fb_unlist">Убрать из списка (%1$s)</string>
+    <string name="fb_list_for_loan">Предложить в аренду</string>
+    <string name="fb_unlist_loan">Убрать из аренды</string>
+    <string name="fb_auction">Аукцион (3 дня)</string>
+    <string name="fb_auction_started">Аукцион начат</string>
+    <string name="fb_release">Расторгнуть контракт</string>
+    <string name="fb_release_confirm">Подтвердить (%1$s)</string>
+    <string name="fb_transfer">Трансфер</string>
+    <string name="fb_shortlist_add">Добавить в список</string>
+    <string name="fb_shortlist_remove">Убрать из списка</string>
+    <string name="fb_offer_fee">Предложение: %1$s</string>
+    <string name="fb_asking_price">Запрашиваемая цена: %1$s</string>
+    <string name="fb_not_interested">Игрок не заинтересован в твоём клубе</string>
+    <string name="fb_make_offer">Сделать предложение</string>
+    <string name="fb_request_loan" formatted="false">Аренда (70% зарплаты)</string>
+    <string name="fb_offer_sent">Предложение отправлено. Ответ завтра.</string>
+    <string name="fb_err_window">Трансферное окно закрыто</string>
+    <string name="fb_err_duplicate">У тебя уже есть предложение по этому игроку</string>
+    <string name="fb_err_on_loan">Игрок в аренде</string>
+    <string name="fb_err_generic">Сейчас невозможно</string>
+    <string name="fb_t_attacking">Атака</string>
+    <string name="fb_t_defending">Оборона</string>
+    <string name="fb_t_technical">Техника</string>
+    <string name="fb_t_tactical">Тактика</string>
+    <string name="fb_t_physical">Физподготовка</string>
+    <string name="fb_t_mental">Психология</string>
+    <string name="fb_t_set_pieces">Стандарты</string>
+    <string name="fb_t_goalkeeping">Вратари</string>
+    <string name="fb_contract_talks">Переговоры: %1$s</string>
+    <string name="fb_fee_agreed">Сумма согласована: %1$s</string>
+    <string name="fb_wage_demand">Запрос по зарплате</string>
+    <string name="fb_years_wanted">Желаемый срок</string>
+    <string name="fb_signing_fee">Подъёмные</string>
+    <string name="fb_offered_wage">Твоё предложение: %1$s/нед</string>
+    <string name="fb_contract_years">Лет</string>
+    <string name="fb_propose">Предложить</string>
+    <string name="fb_reply_accept">Договорились! Контракт подписан.</string>
+    <string name="fb_reply_wage_low">Зарплата слишком низкая.</string>
+    <string name="fb_reply_years">Он хочет другой срок контракта.</string>
+    <string name="fb_reply_not_interested">Ему неинтересно.</string>
+    <string name="fb_reply_walked">Он прервал переговоры.</string>
+    <string name="fb_soon">В следующем обновлении</string>
+    <string name="fb_c_league">Лига</string>
+    <string name="fb_c_playoff">Плей-офф</string>
+    <string name="fb_c_playoff_of">Плей-офф: %1$s</string>
+    <string name="fb_c_cup">Кубок</string>
+    <string name="fb_c_super_cup">Суперкубок</string>
+    <string name="fb_c_champions">Кубок чемпионов</string>
+    <string name="fb_c_europa">Кубок Европы</string>
+    <string name="fb_c_conference">Кубок конференций</string>
+    <string name="fb_c_uefa_super">Суперкубок Европы</string>
+    <string name="fb_c_friendly">Товарищеский</string>
+    <string name="fb_c_nations">Лига наций</string>
+    <string name="fb_c_qualifiers">Отбор</string>
+    <string name="fb_c_world_cup">Чемпионат мира</string>
+    <string name="fb_c_euro">Чемпионат Европы</string>
+    <string name="fb_c_nat_friendly">Товарищеский матч сборных</string>
+    <string name="fb_s_league">Лига</string>
+    <string name="fb_s_groups">Групповой этап</string>
+    <string name="fb_s_league_phase">Общий этап</string>
+    <string name="fb_s_q1">1-й квал. раунд</string>
+    <string name="fb_s_q2">2-й квал. раунд</string>
+    <string name="fb_s_q3">3-й квал. раунд</string>
+    <string name="fb_s_qpo">Раунд плей-офф</string>
+    <string name="fb_s_kpo">Стыковые матчи</string>
+    <string name="fb_s_r128">1/64 финала</string>
+    <string name="fb_s_r64">1/32 финала</string>
+    <string name="fb_s_r32">1/16 финала</string>
+    <string name="fb_s_r16">1/8 финала</string>
+    <string name="fb_s_qf">Четвертьфинал</string>
+    <string name="fb_s_sf">Полуфинал</string>
+    <string name="fb_s_final">Финал</string>
+    <string name="fb_s_prelim">Предварительный раунд</string>
+    <string name="fb_s_match">Матч</string>
+    <string name="fb_pos_gk">ВР</string>
+    <string name="fb_pos_dr">ПЗ</string>
+    <string name="fb_pos_dc">ЦЗ</string>
+    <string name="fb_pos_dl">ЛЗ</string>
+    <string name="fb_pos_wbr">ПФЗ</string>
+    <string name="fb_pos_wbl">ЛФЗ</string>
+    <string name="fb_pos_dm">ОП</string>
+    <string name="fb_pos_mr">ПП</string>
+    <string name="fb_pos_mc">ЦП</string>
+    <string name="fb_pos_ml">ЛП</string>
+    <string name="fb_pos_amr">ПВ</string>
+    <string name="fb_pos_amc">АП</string>
+    <string name="fb_pos_aml">ЛВ</string>
+    <string name="fb_pos_st">НП</string>
+    <string name="fb_a_corners">Угловые</string>
+    <string name="fb_a_crossing">Навесы</string>
+    <string name="fb_a_dribbling">Дриблинг</string>
+    <string name="fb_a_finishing">Завершение</string>
+    <string name="fb_a_first_touch">Обработка</string>
+    <string name="fb_a_free_kick">Штрафные</string>
+    <string name="fb_a_heading">Игра головой</string>
+    <string name="fb_a_long_shots">Дальние удары</string>
+    <string name="fb_a_marking">Опека</string>
+    <string name="fb_a_passing">Пас</string>
+    <string name="fb_a_penalty">Пенальти</string>
+    <string name="fb_a_tackling">Отбор</string>
+    <string name="fb_a_technique">Техника</string>
+    <string name="fb_a_aggression">Агрессивность</string>
+    <string name="fb_a_anticipation">Предвидение</string>
+    <string name="fb_a_bravery">Смелость</string>
+    <string name="fb_a_composure">Хладнокровие</string>
+    <string name="fb_a_concentration">Концентрация</string>
+    <string name="fb_a_decisions">Решения</string>
+    <string name="fb_a_determination">Целеустремлённость</string>
+    <string name="fb_a_flair">Креативность</string>
+    <string name="fb_a_leadership">Лидерство</string>
+    <string name="fb_a_off_the_ball">Игра без мяча</string>
+    <string name="fb_a_positioning">Выбор позиции</string>
+    <string name="fb_a_teamwork">Командная игра</string>
+    <string name="fb_a_vision">Видение поля</string>
+    <string name="fb_a_work_rate">Работоспособность</string>
+    <string name="fb_a_acceleration">Ускорение</string>
+    <string name="fb_a_agility">Ловкость</string>
+    <string name="fb_a_balance">Баланс</string>
+    <string name="fb_a_jumping">Прыгучесть</string>
+    <string name="fb_a_natural_fitness">Природная форма</string>
+    <string name="fb_a_pace">Скорость</string>
+    <string name="fb_a_stamina">Выносливость</string>
+    <string name="fb_a_strength">Сила</string>
+    <string name="fb_a_aerial_reach">Игра на выходах</string>
+    <string name="fb_a_command_of_area">Игра в штрафной</string>
+    <string name="fb_a_handling">Игра руками</string>
+    <string name="fb_a_kicking">Выбивание</string>
+    <string name="fb_a_one_on_ones">Один на один</string>
+    <string name="fb_a_reflexes">Реакция</string>
+    <string name="fb_h_consistency">Стабильность</string>
+    <string name="fb_h_important_matches">Важные матчи</string>
+    <string name="fb_h_injury_proneness">Склонность к травмам</string>
+    <string name="fb_h_professionalism">Профессионализм</string>
+    <string name="fb_h_ambition">Амбиции</string>
+    <string name="fb_h_loyalty">Преданность</string>
+    <string name="fb_h_adaptability">Адаптивность</string>
+    <string name="fb_h_pressure">Устойчивость к давлению</string>
+    <string name="fb_h_versatility">Универсальность</string>
+    <string name="fb_all">Все</string>
+    <string name="fb_cups">Кубки</string>
+    <string name="fb_europe">Европа</string>
+    <string name="fb_national_teams">Сборные</string>
+    <string name="fb_no_competitions">Нет турниров</string>
+    <string name="fb_not_started">Ещё не начался</string>
+    <string name="fb_winner">Победитель: %1$s</string>
+    <string name="fb_group_n">Группа %1$s</string>
+    <string name="fb_byes">%1$d команд прошли без игры</string>
+    <string name="fb_top_scorers">Бомбардиры</string>
+    <string name="fb_lineup">Состав</string>
+    <string name="fb_instructions">Установки</string>
+    <string name="fb_team_training">Тренировки</string>
+    <string name="fb_auto_pick">Авто</string>
+    <string name="fb_best_formation">Лучшая схема</string>
+    <string name="fb_team_strength">Сила команды</string>
+    <string name="fb_pick_for">Игрок на позицию %1$s</string>
+    <string name="fb_tap_position">Нажми на позицию</string>
+    <string name="fb_starting">Основа</string>
+    <string name="fb_bench">Запас</string>
+    <string name="fb_suspended">Дисквал.</string>
+    <string name="fb_on">Вкл</string>
+    <string name="fb_off">Выкл</string>
+    <string name="fb_open_guide">Открыть гид по тактике</string>
+    <string name="fb_tac_mentality">Настрой</string>
+    <string name="fb_tac_passing">Стиль пасов</string>
+    <string name="fb_tac_tempo">Темп</string>
+    <string name="fb_tac_width">Ширина</string>
+    <string name="fb_tac_focus">Направление атак</string>
+    <string name="fb_tac_pressing">Прессинг</string>
+    <string name="fb_tac_defline">Линия обороны</string>
+    <string name="fb_tac_marking">Опека</string>
+    <string name="fb_tac_counter">Контратаки</string>
+    <string name="fb_tac_offside">Офсайдная ловушка</string>
+    <string name="fb_tac_time_wasting">Тянуть время</string>
+    <string name="fb_tac_hard_tackling">Жёсткий отбор</string>
+    <string name="fb_o_very_defensive">Очень оборонительный</string>
+    <string name="fb_o_defensive">Оборонительный</string>
+    <string name="fb_o_balanced">Сбалансированный</string>
+    <string name="fb_o_attacking">Атакующий</string>
+    <string name="fb_o_very_attacking">Очень атакующий</string>
+    <string name="fb_o_short">Короткие</string>
+    <string name="fb_o_mixed">Смешанные</string>
+    <string name="fb_o_direct">Длинные</string>
+    <string name="fb_o_slow">Медленный</string>
+    <string name="fb_o_normal">Обычный</string>
+    <string name="fb_o_fast">Быстрый</string>
+    <string name="fb_o_narrow">Узко</string>
+    <string name="fb_o_wide">Широко</string>
+    <string name="fb_o_center">Через центр</string>
+    <string name="fb_o_flanks">По флангам</string>
+    <string name="fb_o_low">Низкий</string>
+    <string name="fb_o_medium">Средний</string>
+    <string name="fb_o_high">Высокий</string>
+    <string name="fb_o_deep">Глубокая</string>
+    <string name="fb_o_zonal">Зонная</string>
+    <string name="fb_o_man">Персональная</string>
+    <string name="fb_o_light">Лёгкая</string>
+    <string name="fb_o_intense">Интенсивная</string>
+    <string name="fb_tip_mentality">Атакующий настрой = больше ударов и голов, но больше места за спиной.</string>
+    <string name="fb_tip_passing">Короткий пас — контроль мяча; длинные передачи быстрее доводят до штрафной, но рискованнее.</string>
+    <string name="fb_tip_tempo">Высокий темп быстрее создаёт моменты, но больше ошибок и усталости.</string>
+    <string name="fb_tip_width">Широкая игра — больше навесов; узкая — плотный центр.</string>
+    <string name="fb_tip_focus">Центр — пасы вразрез (видение, пас); фланги — навесы (навесы, игра головой).</string>
+    <string name="fb_tip_pressing">Высокий прессинг отбирает мяч выше, но утомляет игроков.</string>
+    <string name="fb_tip_defline">Высокая линия сжимает центр, но уязвима к забросам за спину.</string>
+    <string name="fb_tip_marking">Персональная опека выключает нападающих; хорошо двигающиеся могут уйти.</string>
+    <string name="fb_tip_counter">Быстро атакуй после отбора на своей половине.</string>
+    <string name="fb_tip_offside">Чаще ловит в офсайд; нужна сыгранная оборона.</string>
+    <string name="fb_tip_time_wasting">При счёте в нашу пользу после 60-й минуты команда тянет время.</string>
+    <string name="fb_tip_hard_tackling">Больше выигранных единоборств, но больше фолов, карточек и пенальти.</string>
+    <string name="fb_training_focus">Упор тренировок</string>
+    <string name="fb_training_intensity">Интенсивность</string>
+    <string name="fb_coaching_quality">Качество тренеров</string>
+    <string name="fb_f_training">Тренировочная база</string>
+    <string name="fb_f_youth">База академии</string>
+    <string name="fb_youth_coaching">Работа с молодёжью</string>
+    <string name="fb_physio">Физиотерапия</string>
+    <string name="fb_tip_training_focus" formatted="false">Атрибуты выбранной области растут примерно на 50% быстрее у всей команды.</string>
+    <string name="fb_tip_intensity" formatted="false">Лёгкая: медленнее рост, меньше травм, свежие ноги. Интенсивная: +15% к росту, почти вдвое больше травм на тренировках, хуже форма.</string>
+    <string name="fb_tip_coaches">Лучшие тренеры и база ускоряют развитие. Нанимай тренеров в разделе «Клуб».</string>
+    <string name="fb_gt_basics">С чего начать</string>
+    <string name="fb_gt_formations">Схема и состав</string>
+    <string name="fb_gt_training">Тренировки и развитие</string>
+    <string name="fb_gt_coaches">Тренеры и персонал</string>
+    <string name="fb_gt_morale">Мораль и форма</string>
+    <string name="fb_gt_youth">Академия</string>
+    <string name="fb_gt_finance">Финансы</string>
+    <string name="fb_gt_transfers">Трансферы</string>
+    <string name="fb_gt_contracts">Контракты</string>
+    <string name="fb_gt_competitions">Турниры</string>
+    <string name="fb_gt_hidden">Скрытые атрибуты и потенциал</string>
+    <string name="fb_gb_basics">Ты босс клуба: выбираешь состав и тактику, покупаешь и продаёшь игроков, задаёшь тренировки, строишь объекты и управляешь деньгами.
+
+Нажимай «Далее», чтобы двигаться по календарю. Игра останавливается в дни матчей и когда требуется твоё решение (предложения, контракты, новички академии).
+
+В день матча можно сыграть его или получить быстрый результат. Всё сохраняется автоматически.</string>
+    <string name="fb_gb_mentality" formatted="false">Настрой определяет, насколько рискует команда.
+
+• Очень оборонительный / оборонительный: в атаку идёт меньше игроков, обе команды бьют реже. Хорошо, чтобы удержать счёт или против намного более сильного соперника.
+• Сбалансированный: по умолчанию.
+• Атакующий / очень атакующий: больше ударов и голов, но у соперника больше пространства. В наших тестах сильная команда забивала примерно на 18% больше, но и пропускала больше.
+
+Сочетай оборонительный настрой с контратаками, чтобы наказывать соперника, который идёт вперёд.</string>
+    <string name="fb_gb_passing" formatted="false">• Короткие: много надёжных передач, высокое владение (60%+), атак меньше, но они чище. Нужны хороший пас и обработка.
+• Смешанные: баланс.
+• Длинные: забросы на нападающих. Владение падает примерно до 40%, мяч быстрее попадает в штрафную, игра становится открытой. Подходит высоким сильным форвардам и хорошим исполнителям длинных передач.</string>
+    <string name="fb_gb_tempo">Высокий темп быстро двигает мяч: больше моментов и ударов, но больше неточных передач и усталости.
+
+Медленный темп сохраняет мяч и контролирует игру; подходит к коротким передачам и удержанию счёта.</string>
+    <string name="fb_gb_width">Широко: фланговые игроки держатся у бровки, навесов становится больше. Нужны хорошие подающие и сильные в воздухе игроки в штрафной.
+
+Узко: команда играет через центр и держится компактно; хорошо с плеймейкером и передачами вразрез.</string>
+    <string name="fb_gb_focus">Через центр: больше передач вразрез. Успех зависит от видения поля и паса твоих распасовщиков против опеки защитников и от скорости нападающих. Выход один на один с вратарём — лучший момент в футболе.
+
+По флангам: больше навесов. Навес превращается в удар головой, если твой таргетмен выигрывает борьбу в воздухе у центрального защитника.</string>
+    <string name="fb_gb_pressing">Высокий прессинг охотится за мячом на чужой половине. Лучше всего работает против игроков с плохим хладнокровием и отбирает мяч у чужих ворот, но игроки быстрее теряют силы по ходу матча.
+
+Низкий прессинг экономит силы и сохраняет порядок; у соперника есть время с мячом на своей половине.</string>
+    <string name="fb_gb_defline">Высокая линия: защитники поднимаются, середина поля сжимается, через неё трудно пройти. Но забросы за спину и передачи вразрез на быстрых форвардов становятся опасными — в тестах высокая линия пропускала против быстрых нападающих более чем вдвое больше.
+
+Глубокая линия: штрафная защищена, передачи вразрез проходят редко, но соперник контролирует игру. Идеально с контратаками.</string>
+    <string name="fb_gb_marking">Зонная: каждый игрок отвечает за свою зону. Надёжный вариант по умолчанию.
+
+Персональная: защитники следуют за своими соперниками. Отлично, если защитники хорошо опекают; но форварды с отличной игрой без мяча всё равно могут уйти.</string>
+    <string name="fb_gb_counter">При отборе на своей половине команда быстро атакует малым числом передач и чаще пасом вразрез.
+
+Смертельно против соперников, атакующих большими силами или играющих высоко (в тестах — больше 3 голов за матч против очень атакующей команды). Цена: в обычных атаках участвует меньше игроков.</string>
+    <string name="fb_gb_offside">Защита синхронно выходит вперёд, оставляя нападающих вне игры. С хорошей командной игрой срабатывает гораздо чаще. При ошибке форвард выходит один на один.</string>
+    <string name="fb_gb_time_wasting">При ведении в счёте после 60-й минуты игроки замедляют игру: больше передач назад, длиннее паузы. Судья может показывать за это жёлтые карточки.</string>
+    <string name="fb_gb_hard_tackling">Отбор становится жёстче: игроки выигрывают больше единоборств, но больше фолят, получают больше карточек и чаще привозят пенальти. Соперники чаще травмируются.</string>
+    <string name="fb_gb_formations">Выбери схему, подходящую лучшим игрокам. Нажми на позицию на поле, а затем на игрока из списка, чтобы поставить его туда (игроки, уже стоящие в составе, меняются местами).
+
+Число под игроком — его рейтинг на этой позиции; красное кольцо значит, что позиция ему незнакома. Игроки могут осваивать новые позиции на тренировках.
+
+«Автовыбор» доверяет выбор ассистенту; «Лучшая схема» выбирает расстановку с наибольшим суммарным рейтингом. Травмированные и дисквалифицированные заменяются автоматически.</string>
+    <string name="fb_gb_training">Игроки каждую неделю растут к своему потенциалу. Скорость зависит от:
+• Возраста: быстрее всего с 16 до 21, замедляется после 24, останавливается около 29.
+• Разницы между текущим уровнем и потенциалом.
+• Тренеров и тренировочной базы (тренер молодёжи и академия для игроков до 19 лет).
+• Характера: профессионализм и целеустремлённость.
+• Игрового времени (очень важно до 23 лет) и морали.
+• Интенсивности: лёгкая, обычная или высокая.
+
+Командный акцент ускоряет одно направление для всех; индивидуальный — сильно ускоряет одно направление у одного игрока. После 30 (вратари — 32) игроки сдают, сначала физически, а принятие решений и выбор позиции ещё могут расти.</string>
+    <string name="fb_gb_coaches">• Тренеры: каждое направление тренировок использует соответствующий навык тренера (атака, оборона, техника, тактика, психология, физподготовка, вратари). Около пяти тренеров покрывают все направления; при меньшем числе качество падает.
+• Тренер молодёжи: развивает игроков до 19 лет и улучшает ежегодный набор в академию.
+• Физиотерапевт: сокращает сроки травм и уменьшает травмы на тренировках.
+• Тренер по физподготовке: замедляет спад у возрастных игроков.
+• Ассистент: работа с людьми поднимает мораль; оценивает потенциал твоих игроков.
+• Скауты: чем они лучше, тем точнее оценки уровня и потенциала игроков других клубов.</string>
+    <string name="fb_gb_morale">Мораль меняется каждую неделю. Она растёт от хороших результатов, достаточного игрового времени по статусу (ключевые игроки рассчитывают выходить в старте в большинстве матчей), справедливой зарплаты, хороших бытовых условий и хорошего ассистента. Очень недовольные амбициозные игроки просят продать их.
+
+Форма — среднее последних оценок за матчи. Мораль и форма немного влияют на силу игрока в день матча и на его развитие.</string>
+    <string name="fb_gb_youth">Каждый год 15 марта в академию приходят 2–8 юных игроков (15–16 лет). Отбор молодёжи определяет их число и уровень, академия и тренер молодёжи добавляют качества, важен и футбольный уровень твоей страны. Иногда появляется золотой талант.
+
+Давай молодым игровое время и хорошие тренировки: быстрее всего они растут до 21 года.</string>
+    <string name="fb_gb_finance" formatted="false">Доходы: билеты (домашние матчи; дорогой билет даёт больше с болельщика, но заполняет меньше мест), телеправа (половина делится поровну, половина по месту в таблице), атрибутика (растёт с репутацией и звёздами), титульный спонсор, реклама на стадионе, призовые (кубки и особенно еврокубки) и продажи игроков.
+
+Расходы: зарплаты игроков и персонала, содержание объектов, академия, расходы на матчи, трансферы и строительство. Отрицательный баланс стоит 0,12% в неделю.
+
+Поддержка инвестора: посмотри видео, чтобы добавить клубу денег, 3 раза в неделю.</string>
+    <string name="fb_gb_transfers">Трансферные окна: 1 июля – 1 сентября и январь. Свободных агентов можно подписать в любое время.
+
+Цена продающего клуба зависит от важности игрока для него, возраста и потенциала, срока контракта (в последний год дёшево), выставлен ли он на трансфер, и от финансов продавца. Отступные отклонить нельзя.
+
+После согласования суммы обсуди с игроком зарплату и срок — предложишь слишком мало, и после трёх попыток он уйдёт. Аренда: ты платишь часть зарплаты, а игрок возвращается в конце сезона.
+
+Можно выставить своих игроков на трансфер, предложить в аренду или запустить 3-дневный аукцион, где клубы перебивают ставки. Добавляй понравившихся игроков в список и следи за слухами.</string>
+    <string name="fb_gb_contracts" formatted="false">Вовремя продлевай контракты важных игроков. 1 января ты получишь предупреждение о контрактах, истекающих в этом сезоне; с середины января другие клубы могут подписать с ними предварительный контракт, и летом они уйдут бесплатно.
+
+Игроки просят прибавку, когда прогрессируют. Расторжение контракта стоит 60% оставшейся зарплаты.</string>
+    <string name="fb_gb_competitions">В каждой европейской стране есть лиги с повышением и вылетом (в некоторых вторых дивизионах — плей-офф), национальный кубок и суперкубок.
+
+Еврокубковые места зависят от твоего места в таблице и рейтинга стран, который меняется каждый сезон по результатам в еврокубках: в Champions Cup, Europa Cup и Conference Cup есть квалификационные раунды, общий этап на 36 команд и плей-офф.
+
+Сборные играют в Лиге наций, отборочных турнирах, чемпионате Европы и чемпионате мира.</string>
+    <string name="fb_gb_hidden">Уровень и потенциал показаны звёздами по оценке твоего штаба, поэтому они могут быть неточными — особенно при слабых скаутах.
+
+Посмотри короткое видео в карточке игрока, чтобы узнать его точный текущий уровень, точный потенциал и скрытые качества: стабильность, игра в важных матчах, склонность к травмам, профессионализм, амбиции, лояльность, адаптивность, устойчивость к давлению и универсальность. Игрок остаётся раскрытым навсегда (зелёные звёзды).</string>
+    <string name="fb_search">Поиск</string>
+    <string name="fb_shortlist">Список наблюдения</string>
+    <string name="fb_scout_reports">Отчёты скаутов</string>
+    <string name="fb_offers">Предложения</string>
+    <string name="fb_auctions">Аукционы</string>
+    <string name="fb_history">История и слухи</string>
+    <string name="fb_window_open">Окно открыто</string>
+    <string name="fb_window_closed">Окно закрыто</string>
+    <string name="fb_line_gk">Вратари</string>
+    <string name="fb_line_def">Защитники</string>
+    <string name="fb_line_mid">Полузащитники</string>
+    <string name="fb_line_att">Нападающие</string>
+    <string name="fb_any_age">Любой возраст</string>
+    <string name="fb_age_young">≤ 21</string>
+    <string name="fb_age_prime">22–29</string>
+    <string name="fb_age_veteran">30+</string>
+    <string name="fb_any_value">Любая стоимость</string>
+    <string name="fb_listed_only">Только выставленные</string>
+    <string name="fb_free_agents">Свободные агенты</string>
+    <string name="fb_player_name">Имя игрока</string>
+    <string name="fb_no_results">Игроки не найдены</string>
+    <string name="fb_loan">Аренда</string>
+    <string name="fb_scout_desc">Скауты предлагают игроков, которые усилят слабые позиции, вписываются в бюджет и готовы перейти.</string>
+    <string name="fb_get_reports">Получить отчёты</string>
+    <string name="fb_no_offers">В этом сезоне предложений нет</string>
+    <string name="fb_incoming">Входящие</string>
+    <string name="fb_outgoing">Исходящие</string>
+    <string name="fb_os_waiting_you">Ждёт твоего ответа</string>
+    <string name="fb_os_pending">Ждёт ответа клуба</string>
+    <string name="fb_os_counter">Встречное предложение: %1$s</string>
+    <string name="fb_os_agreed">Сумма согласована — обсуди контракт</string>
+    <string name="fb_os_agreed_in">Принято — покупатель говорит с игроком</string>
+    <string name="fb_os_completed">Завершено</string>
+    <string name="fb_os_rejected">Отклонено</string>
+    <string name="fb_os_withdrawn">Отозвано</string>
+    <string name="fb_os_refused">Игрок отказался</string>
+    <string name="fb_os_expired">Истекло</string>
+    <string name="fb_counter_x">Запросить %1$s</string>
+    <string name="fb_offer_x">Предложить %1$s</string>
+    <string name="fb_auction_desc">Клубы перебивают ставки до конца аукциона. Выставить своих игроков можно из их карточки.</string>
+    <string name="fb_no_auctions">Нет активных аукционов</string>
+    <string name="fb_reserve">Резерв %1$s</string>
+    <string name="fb_ended">завершён</string>
+    <string name="fb_ends">до %1$s</string>
+    <string name="fb_bid_x">Ставка %1$s</string>
+    <string name="fb_latest_transfers">Последние трансферы</string>
+    <string name="fb_rumours">Слухи</string>
+    <string name="fb_finance">Финансы</string>
+    <string name="fb_facilities">Инфраструктура</string>
+    <string name="fb_staff">Персонал</string>
+    <string name="fb_sponsor_tickets">Спонсор и билеты</string>
+    <string name="fb_friendlies">Товарищеские матчи</string>
+    <string name="fb_editor">Редактор</string>
+    <string name="fb_this_season">Этот сезон</string>
+    <string name="fb_last_season">Прошлый сезон</string>
+    <string name="fb_income">Доходы</string>
+    <string name="fb_expenses">Расходы</string>
+    <string name="fb_net">Итого</string>
+    <string name="fb_fin_tickets">Продажа билетов</string>
+    <string name="fb_fin_tv">Телеправа</string>
+    <string name="fb_fin_merch">Атрибутика</string>
+    <string name="fb_fin_sponsor">Спонсорство</string>
+    <string name="fb_fin_ads">Реклама на стадионе</string>
+    <string name="fb_fin_prize">Призовые</string>
+    <string name="fb_fin_transfer_in">Продажа игроков</string>
+    <string name="fb_fin_other_in">Инвесторы и прочее</string>
+    <string name="fb_fin_wages">Зарплаты игроков</string>
+    <string name="fb_fin_staff_wages">Зарплаты персонала</string>
+    <string name="fb_fin_facilities">Содержание объектов</string>
+    <string name="fb_fin_youth">Академия</string>
+    <string name="fb_fin_matchday">Расходы на матчи</string>
+    <string name="fb_fin_transfer_out">Покупка игроков</string>
+    <string name="fb_fin_upgrades">Строительство</string>
+    <string name="fb_fin_interest">Проценты</string>
+    <string name="fb_fin_other_out">Компенсации и прочее</string>
+    <string name="fb_balance_history">Баланс (последние недели)</string>
+    <string name="fb_staff_wages_week">Зарплаты персонала в неделю</string>
+    <string name="fb_fan_base">Болельщики</string>
+    <string name="fb_f_recruitment">Отбор молодёжи</string>
+    <string name="fb_f_stadium">Качество стадиона</string>
+    <string name="fb_f_social">Бытовые условия</string>
+    <string name="fb_f_capacity">Вместимость стадиона</string>
+    <string name="fb_fd_training">Быстрее развитие всех игроков.</string>
+    <string name="fb_fd_youth">Лучше развитие игроков до 19 лет и сильнее набор в академию.</string>
+    <string name="fb_fd_recruitment">Больше и лучше новичков каждый март.</string>
+    <string name="fb_fd_stadium">Больше болельщиков, и они готовы платить больше.</string>
+    <string name="fb_fd_social">Выше мораль и больше продаж атрибутики.</string>
+    <string name="fb_fd_capacity" formatted="false">+10% мест для большего дохода с матча.</string>
+    <string name="fb_seats">%1$d мест</string>
+    <string name="fb_upgrade_x">Построить %1$s · %2$d дн.</string>
+    <string name="fb_upgrade_started">Строительство начато</string>
+    <string name="fb_under_construction">Строится: %1$s (готово %2$s)</string>
+    <string name="fb_your_staff">Твой персонал (%1$d)</string>
+    <string name="fb_staff_market">Доступный персонал</string>
+    <string name="fb_fire">Уволить</string>
+    <string name="fb_fire_confirm">Уволить (%1$s)</string>
+    <string name="fb_hire">Нанять</string>
+    <string name="fb_hired">Нанят!</string>
+    <string name="fb_staff_full">Штат заполнен (16)</string>
+    <string name="fb_staff_reject">Его не интересует твой клуб</string>
+    <string name="fb_r_assistant">Ассистент</string>
+    <string name="fb_r_coach">Тренер</string>
+    <string name="fb_r_gk_coach">Тренер вратарей</string>
+    <string name="fb_r_fitness">Тренер по физподготовке</string>
+    <string name="fb_r_scout">Скаут</string>
+    <string name="fb_r_physio">Физиотерапевт</string>
+    <string name="fb_r_youth">Тренер молодёжи</string>
+    <string name="fb_sa_attack">Атака</string>
+    <string name="fb_sa_defence">Оборона</string>
+    <string name="fb_sa_technical">Техника</string>
+    <string name="fb_sa_tactical">Тактика</string>
+    <string name="fb_sa_mental">Психология</string>
+    <string name="fb_sa_fitness">Физподготовка</string>
+    <string name="fb_sa_gk">Вратари</string>
+    <string name="fb_sa_youth">Работа с молодёжью</string>
+    <string name="fb_sa_judge_ability">Оценка уровня</string>
+    <string name="fb_sa_judge_potential">Оценка потенциала</string>
+    <string name="fb_sa_physio">Физиотерапия</string>
+    <string name="fb_sa_motivating">Мотивация</string>
+    <string name="fb_sa_discipline">Дисциплина</string>
+    <string name="fb_sa_man_management">Работа с людьми</string>
+    <string name="fb_shirt_sponsor">Титульный спонсор</string>
+    <string name="fb_current_sponsor">Спонсор</string>
+    <string name="fb_per_year">В год</string>
+    <string name="fb_until">До</string>
+    <string name="fb_sponsor_offers">Новые предложения</string>
+    <string name="fb_sponsor_line">%1$s в год · %2$d г.</string>
+    <string name="fb_sign">Подписать</string>
+    <string name="fb_sponsor_locked">Нового спонсора можно подписать после окончания текущего контракта.</string>
+    <string name="fb_ticket_prices">Цены на билеты</string>
+    <string name="fb_tp_very_low">Очень низкие</string>
+    <string name="fb_tp_low">Низкие</string>
+    <string name="fb_tp_high">Высокие</string>
+    <string name="fb_tp_very_high">Очень высокие</string>
+    <string name="fb_ticket_price">Средний билет</string>
+    <string name="fb_expected_attendance">Ожидаемая посещаемость</string>
+    <string name="fb_matchday_income">Доход с домашнего матча</string>
+    <string name="fb_tip_tickets" formatted="false">Каждый шаг вверх повышает цену на 25%, но отнимает около 18% болельщиков. Если стадион и так полон, высокие цены выгоднее.</string>
+    <string name="fb_choose_opponent">Соперник</string>
+    <string name="fb_choose_date">Дата</string>
+    <string name="fb_friendly_desc">Товарищеские матчи поддерживают форму игроков и приносят небольшой домашний доход. Крупные клубы могут отказать.</string>
+    <string name="fb_arrange">Договориться</string>
+    <string name="fb_friendly_ok">Товарищеский матч назначен</string>
+    <string name="fb_friendly_declined">Клуб отказался</string>
+    <string name="fb_friendly_busy">У соперника матч около этой даты</string>
+    <string name="fb_edit_club">Изменить клуб</string>
+    <string name="fb_club_name">Название клуба</string>
+    <string name="fb_short_name">Кратко</string>
+    <string name="fb_color_main">Основной цвет</string>
+    <string name="fb_color_second">Второй цвет</string>
+    <string name="fb_save">Сохранить</string>
+    <string name="fb_saved">Сохранено</string>
+    <string name="fb_edit_players">Имена игроков (нажми, чтобы изменить)</string>
+    <string name="fb_back_to_match">Назад к матчу</string>
+    <string name="fb_choose_sub">Выбери, кто выйдет</string>
+    <string name="fb_on_pitch">На поле (нажми, чтобы заменить)</string>
+    <string name="fb_subs_left">Осталось замен: %1$d</string>
+    <string name="fb_tactics_subs">Тактика и замены</string>
+    <string name="fb_pause">Пауза</string>
+    <string name="fb_resume">Продолжить</string>
+    <string name="fb_skip_to_end">К концу матча</string>
+    <string name="fb_finish_match">Завершить</string>
+    <string name="fb_full_time">Финальный свисток</string>
+    <string name="fb_goal_flash">ГОЛ!</string>
+    <string name="fb_shots_short">Удары</string>
+    <string name="fb_ev_goal_1">ГОЛ! %1$s забивает за «%2$s»!</string>
+    <string name="fb_ev_goal_2">ГОЛ! Какой удар %1$s! (%2$s)</string>
+    <string name="fb_ev_goal_3">ГОЛ! %1$s не ошибается — «%2$s» празднует!</string>
+    <string name="fb_ev_assist">Передача: %1$s.</string>
+    <string name="fb_ev_save_1">Отличный сейв %1$s после удара %2$s!</string>
+    <string name="fb_ev_save_2">%2$s бьёт — %1$s забирает мяч.</string>
+    <string name="fb_ev_miss_1">%1$s бьёт… чуть мимо!</string>
+    <string name="fb_ev_miss_2">%1$s бьёт выше ворот.</string>
+    <string name="fb_ev_block">%1$s блокирует удар %2$s.</string>
+    <string name="fb_ev_yellow">Жёлтая карточка: %1$s.</string>
+    <string name="fb_ev_red">КРАСНАЯ КАРТОЧКА! %1$s удалён!</string>
+    <string name="fb_ev_injury">%1$s травмирован и не может продолжать.</string>
+    <string name="fb_ev_sub">Замена в «%1$s»: выходит %2$s, уходит %3$s.</string>
+    <string name="fb_ev_corner">Угловой у «%1$s».</string>
+    <string name="fb_ev_free_kick">Штрафной у «%1$s», к мячу подходит %2$s.</string>
+    <string name="fb_ev_penalty">ПЕНАЛЬТИ в пользу «%1$s»! К мячу подходит %2$s…</string>
+    <string name="fb_ev_offside">%1$s в офсайде.</string>
+    <string name="fb_ev_foul">%1$s фолит на %2$s.</string>
+    <string name="fb_ev_through">%1$s отдаёт отличный пас вразрез на %2$s!</string>
+    <string name="fb_ev_half_time">Перерыв.</string>
+    <string name="fb_ev_full_time">Матч окончен!</string>
+    <string name="fb_ev_extra_time">Дополнительное время!</string>
+    <string name="fb_ev_so_goal">%1$s реализует пенальти за «%2$s».</string>
+    <string name="fb_ev_so_miss">%1$s не забивает за «%2$s»!</string>
+    <string name="fb_first_team">Основная команда</string>
+    <string name="fb_youth_team">Академия</string>
+    <string name="fb_youth_info">Академия %1$d/20 · отбор %2$d/20 · тренер молодёжи %3$d/20 · следующий набор %4$s</string>
+    <string name="fb_youth_empty">В академии пока нет игроков. Новые таланты приходят каждый год 15 марта.</string>
+    <string name="fb_promote">Перевести в основу</string>
+    <string name="fb_to_youth">Отправить в академию</string>
+    <string name="fb_ng_club">Клуб</string>
+    <string name="fb_ng_matches">Матчи</string>
+    <string name="fb_ng_transfers">Трансферы</string>
+    <string name="fb_ng_world">Мир</string>
+    <string name="fb_mark_all_read">Отметить всё прочитанным</string>
+    <string name="fb_nt_offer_received">Трансферное предложение</string>
+    <string name="fb_nt_offer_accepted">Предложение принято</string>
+    <string name="fb_nt_offer_rejected">Предложение отклонено</string>
+    <string name="fb_nt_offer_counter">Встречное предложение</string>
+    <string name="fb_nt_player_refused">Игрок отказался</string>
+    <string name="fb_nt_transfer_done">Трансфер завершён</string>
+    <string name="fb_nt_transfer_world">Громкий трансфер</string>
+    <string name="fb_nt_rumour">Слух</string>
+    <string name="fb_nt_contract">Контракт</string>
+    <string name="fb_nt_unhappy">Недовольный игрок</string>
+    <string name="fb_nt_auction">Аукцион</string>
+    <string name="fb_nt_loan_return">Возвращение из аренды</string>
+    <string name="fb_nt_precontract">Предварительный контракт</string>
+    <string name="fb_nt_youth">Набор в академию</string>
+    <string name="fb_nt_released">Игрок ушёл</string>
+    <string name="fb_nt_preview">Анонс матча</string>
+    <string name="fb_nt_report">Отчёт о матче</string>
+    <string name="fb_nt_injury">Травма</string>
+    <string name="fb_nt_suspension">Дисквалификация</string>
+    <string name="fb_nt_leader">Новый лидер</string>
+    <string name="fb_nt_potm">Игрок месяца</string>
+    <string name="fb_nt_window_open">Трансферное окно</string>
+    <string name="fb_nt_window_close">Трансферное окно</string>
+    <string name="fb_nt_draw">Жеребьёвка</string>
+    <string name="fb_nt_europe">Европа</string>
+    <string name="fb_nt_facility">Инфраструктура</string>
+    <string name="fb_nt_finance">Финансы</string>
+    <string name="fb_nt_retirement">Завершение карьеры</string>
+    <string name="fb_nt_top_scorer">Лучший бомбардир</string>
+    <string name="fb_nt_player_season">Игрок сезона</string>
+    <string name="fb_nt_fans_happy">Болельщики</string>
+    <string name="fb_nt_fans_angry">Болельщики</string>
+    <string name="fb_nt_trophy">Чемпионы</string>
+    <string name="fb_nt_callup">Сборная</string>
+    <string name="fb_nt_graduate">Выпускник академии</string>
+    <string name="fb_n_youth_best">В академию пришли %1$d игроков. Скауты считают самым талантливым %2$s.</string>
+    <string name="fb_n_preview">Следующий: %1$s (%2$s). Их последние пять: %3$s</string>
+    <string name="fb_n_report_win">Победа над «%1$s»: %2$s.</string>
+    <string name="fb_n_report_loss">Поражение от «%1$s»: %2$s.</string>
+    <string name="fb_n_report_draw">Ничья с «%1$s»: %2$s.</string>
+    <string name="fb_n_report_motm">Лучший игрок матча: %1$s.</string>
+    <string name="fb_n_injury">%1$s травмировался в матче и пропустит около %2$d дн.</string>
+    <string name="fb_n_injury_training">%1$s получил травму на тренировке (около %2$d дн.).</string>
+    <string name="fb_n_suspension">%1$s дисквалифицирован на %2$d матч(а).</string>
+    <string name="fb_n_leader">«%1$s» — новый лидер турнира «%2$s» с %3$d очками.</string>
+    <string name="fb_n_potm">%1$s («%2$s») — игрок месяца.</string>
+    <string name="fb_n_window_open">Трансферное окно открыто.</string>
+    <string name="fb_n_window_close">Трансферное окно закрыто.</string>
+    <string name="fb_n_draw">%1$s, %2$s: твой соперник — «%3$s».</string>
+    <string name="fb_n_europe_direct">В этом сезоне клуб играет в турнире «%1$s»!</string>
+    <string name="fb_n_europe_qual">Клуб начнёт с квалификации турнира «%1$s».</string>
+    <string name="fb_n_facility">Строительство завершено: %1$s улучшено.</string>
+    <string name="fb_n_finance">Клуб в долгах (%1$s). Каждую неделю начисляются проценты — продай игроков или сократи зарплаты.</string>
+    <string name="fb_n_retirement">%1$s завершил карьеру в %2$d лет.</string>
+    <string name="fb_n_top_scorer">%1$s — лучший бомбардир турнира «%3$s» (%2$d голов).</string>
+    <string name="fb_n_player_season">%1$s — игрок сезона турнира «%2$s» (средняя %3$s).</string>
+    <string name="fb_n_fans_happy">Болельщики в восторге от победной серии!</string>
+    <string name="fb_n_fans_angry">Три поражения подряд — болельщики в гневе.</string>
+    <string name="fb_n_trophy_us">ЧЕМПИОНЫ! «%1$s» выигрывает турнир «%2$s»!</string>
+    <string name="fb_n_trophy">«%1$s» выигрывает турнир «%2$s».</string>
+    <string name="fb_n_callup">%1$s вызван в сборную: %2$s.</string>
+    <string name="fb_n_graduate">%1$s переведён из академии в основную команду.</string>
+    <string name="fb_settings">Настройки</string>
+    <string name="fb_currency">Валюта</string>
+    <string name="fb_currency_desc">Суммы показываются в выбранной валюте по фиксированному курсу (пример: 1 млн евро = %1$s).</string>
+    <string name="fb_career">Карьера</string>
+    <string name="fb_manager_line">Менеджер: %1$s · сезон %2$s</string>
+    <string name="fb_quit_career">Удалить карьеру и начать заново</string>
+</resources>

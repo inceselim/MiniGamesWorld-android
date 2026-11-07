@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="game_football_manager_name">Klubfőnök</string>
+    <string name="game_football_manager_desc">Irányítsd a futballklubot a saját elképzelésed szerint: Európa összes bajnoksága, valósághű naptár, európai kupák és világbajnokságok, részletes taktika, edzés, utánpótlás, pénzügyek és élő átigazolási piac.</string>
+    <string name="fb_tagline">Építs dinasztiát. Minden döntés a tiéd.</string>
+    <string name="fb_continue_career">Karrier folytatása</string>
+    <string name="fb_new_career">Új karrier</string>
+    <string name="fb_new_career_warning">A jelenlegi karriered törlődik. Biztos vagy benne?</string>
+    <string name="fb_yes">Igen</string>
+    <string name="fb_no">Nem</string>
+    <string name="fb_generating">A futballvilág létrehozása…</string>
+    <string name="fb_please_wait">Kérlek, várj…</string>
+    <string name="fb_load_failed">A mentés nem tölthető be</string>
+    <string name="fb_choose_country">Ország</string>
+    <string name="fb_choose_club">Válassz klubot</string>
+    <string name="fb_tier_n">%1$d. osztály</string>
+    <string name="fb_league_name">%1$s %2$d. osztály</string>
+    <string name="fb_reputation">Hírnév</string>
+    <string name="fb_balance">Egyenleg</string>
+    <string name="fb_transfer_budget">Átigazolási keret</string>
+    <string name="fb_stadium">Stadion</string>
+    <string name="fb_squad_size">Keret</string>
+    <string name="fb_best_player">Legjobb játékos</string>
+    <string name="fb_manager_name">Menedzser neve</string>
+    <string name="fb_start_career">Karrier indítása</string>
+    <string name="fb_cancel">Mégse</string>
+    <string name="fb_close">Bezárás</string>
+    <string name="fb_tab_home">Kezdőlap</string>
+    <string name="fb_tab_squad">Keret</string>
+    <string name="fb_tab_tactics">Taktika</string>
+    <string name="fb_tab_fixtures">Meccsek</string>
+    <string name="fb_tab_competitions">Tabellák</string>
+    <string name="fb_tab_transfers">Átigazolás</string>
+    <string name="fb_tab_club">Klub</string>
+    <string name="fb_tab_inbox">Üzenetek</string>
+    <string name="fb_tab_guide">Útmutató</string>
+    <string name="fb_continue">Tovább</string>
+    <string name="fb_go_to_match">Irány a meccs</string>
+    <string name="fb_next_matches">Következő meccsek</string>
+    <string name="fb_no_matches">Nincs tervezett meccs</string>
+    <string name="fb_recent_results">Legutóbbi eredmények</string>
+    <string name="fb_latest_news">Legfrissebb hírek</string>
+    <string name="fb_no_news">Még nincs hír</string>
+    <string name="fb_club_summary">Klub</string>
+    <string name="fb_weekly_wages">Heti bérek</string>
+    <string name="fb_season_income">Szezon bevétel</string>
+    <string name="fb_season_expense">Szezon kiadás</string>
+    <string name="fb_ad_bonus_title">Befektetői bónusz</string>
+    <string name="fb_ad_bonus_desc">Nézz meg egy rövid videót, és egy befektető %1$s-t ad a klubnak.</string>
+    <string name="fb_ad_bonus_left">Ezen a héten még %1$d</string>
+    <string name="fb_ad_bonus_got">%1$s jóváírva a klubnak!</string>
+    <string name="fb_watch_ad">Reklám megnézése</string>
+    <string name="fb_table_cols">M,GY,D,V,GK,P</string>
+    <string name="fb_vs">–</string>
+    <string name="fb_first_leg">Első meccs: %1$s</string>
+    <string name="fb_play_match">Meccs lejátszása</string>
+    <string name="fb_quick_result">Gyors eredmény</string>
+    <string name="fb_edit_tactics">Taktika</string>
+    <string name="fb_squad">Keret</string>
+    <string name="fb_penalties">Tizenegyesek %1$s</string>
+    <string name="fb_match_stats">Meccsstatisztika</string>
+    <string name="fb_possession">Labdabirtoklás</string>
+    <string name="fb_shots">Lövések (kaput eltaláló)</string>
+    <string name="fb_corners">Szögletek</string>
+    <string name="fb_fouls">Szabálytalanságok</string>
+    <string name="fb_cards">Lapok S/P</string>
+    <string name="fb_player_ratings">Játékos értékelések</string>
+    <string name="fb_season_over">A(z) %1$s szezon véget ért</string>
+    <string name="fb_final_position">Végső helyezés: %1$d</string>
+    <string name="fb_promoted">Feljutottál!</string>
+    <string name="fb_relegated">Kiestél</string>
+    <string name="fb_honours_this_season">Bajnokok</string>
+    <string name="fb_new_season">%1$s indítása</string>
+    <string name="fb_accept">Elfogad</string>
+    <string name="fb_reject">Elutasít</string>
+    <string name="fb_accept_counter">%1$s elfogadása</string>
+    <string name="fb_withdraw">Visszavon</string>
+    <string name="fb_negotiate_contract">Szerződéstárgyalás</string>
+    <string name="fb_no_funds">Nincs elég pénz</string>
+    <string name="fb_free">ingyen</string>
+    <string name="fb_free_agent">Szabadon igazolható</string>
+    <string name="fb_n_offer_received">%1$s %2$s-t ajánl %3$s-ért</string>
+    <string name="fb_n_offer_accepted">%1$s elfogadta az ajánlatot: %2$s (%3$s)</string>
+    <string name="fb_n_offer_rejected">%1$s elutasította az ajánlatot: %2$s</string>
+    <string name="fb_n_offer_counter">%1$s %3$s-t kér %2$s-ért</string>
+    <string name="fb_n_player_refused">%1$s nem akar a(z) %2$s csapatához igazolni</string>
+    <string name="fb_n_signed_free">%1$s ingyen igazolt a(z) %2$s csapatához</string>
+    <string name="fb_n_transfer">%1$s: %2$s → %3$s (%4$s)</string>
+    <string name="fb_n_rumour">Pletyka: %1$s figyeli %2$s-t (%3$s) (%4$d%%)</string>
+    <string name="fb_n_contract_expiring">%1$s szerződése nyáron lejár</string>
+    <string name="fb_n_unhappy">%1$s elégedetlen és távozni akar</string>
+    <string name="fb_n_auction_bid">%1$s %2$s-t licitál %3$s-ért</string>
+    <string name="fb_n_auction_sold">Árverés: %1$s → %2$s, %3$s</string>
+    <string name="fb_n_auction_unsold">Árverés: nincs vevő %1$s-re</string>
+    <string name="fb_n_loan_return">%1$s visszatért a kölcsönből: %2$s</string>
+    <string name="fb_n_precontract">%1$s előszerződést kötött: %2$s</string>
+    <string name="fb_n_youth">%1$d fiatal érkezett az akadémiáról</string>
+    <string name="fb_n_released">%1$s elhagyta a klubot</string>
+    <string name="fb_col_name">Név</string>
+    <string name="fb_col_pos">Poszt</string>
+    <string name="fb_col_age">Kor</string>
+    <string name="fb_col_ability">Tudás</string>
+    <string name="fb_col_potential">Potenciál</string>
+    <string name="fb_col_condition">Erőnlét</string>
+    <string name="fb_col_morale">Morál</string>
+    <string name="fb_col_form">Forma</string>
+    <string name="fb_col_value">Érték</string>
+    <string name="fb_col_wage">Bér</string>
+    <string name="fb_col_contract">Szerződés</string>
+    <string name="fb_per_week">/hét</string>
+    <string name="fb_release_clause">Kivásárlási ár</string>
+    <string name="fb_injured">Sérült</string>
+    <string name="fb_days">%1$d nap</string>
+    <string name="fb_height_foot">Magasság · láb</string>
+    <string name="fb_foot_right">Jobb</string>
+    <string name="fb_foot_left">Bal</string>
+    <string name="fb_foot_both">Mindkettő</string>
+    <string name="fb_caps">Válogatott / gól</string>
+    <string name="fb_season_stats">Szezon</string>
+    <string name="fb_stats_line">%1$d meccs, %2$d gól, %3$d gólpassz, átlag %4$s</string>
+    <string name="fb_positions">Posztok</string>
+    <string name="fb_hidden_attributes">Rejtett jellemzők és valódi potenciál</string>
+    <string name="fb_hidden_locked">A stábod csak becsülni tud. Nézz meg egy videót a pontos potenciálért és a rejtett jellemért.</string>
+    <string name="fb_reveal_with_ad">Felfedés (videó)</string>
+    <string name="fb_exact_ability">Jelenlegi tudás</string>
+    <string name="fb_exact_potential">Potenciális tudás</string>
+    <string name="fb_g_technical">Technikai</string>
+    <string name="fb_g_mental">Mentális</string>
+    <string name="fb_g_physical">Fizikai</string>
+    <string name="fb_g_goalkeeping">Kapus</string>
+    <string name="fb_training">Edzés</string>
+    <string name="fb_individual_focus">Egyéni fókusz</string>
+    <string name="fb_position_training">Új poszt tanulása</string>
+    <string name="fb_none">Nincs</string>
+    <string name="fb_contract_transfer">Szerződés és átigazolás</string>
+    <string name="fb_renew_contract">Szerződés hosszabbítása</string>
+    <string name="fb_list_for_transfer">Átigazolási lista (%1$s)</string>
+    <string name="fb_unlist">Levétel a listáról (%1$s)</string>
+    <string name="fb_list_for_loan">Kölcsönlistára</string>
+    <string name="fb_unlist_loan">Levétel a kölcsönlistáról</string>
+    <string name="fb_auction">Árverés (3 nap)</string>
+    <string name="fb_auction_started">Árverés elindult</string>
+    <string name="fb_release">Szerződés felbontása</string>
+    <string name="fb_release_confirm">Felbontás megerősítése (%1$s)</string>
+    <string name="fb_transfer">Átigazolás</string>
+    <string name="fb_shortlist_add">Megfigyelés</string>
+    <string name="fb_shortlist_remove">Megfigyelés vége</string>
+    <string name="fb_offer_fee">Ajánlat: %1$s</string>
+    <string name="fb_asking_price">Kért összeg: %1$s</string>
+    <string name="fb_not_interested">A játékost nem érdekli a klubod</string>
+    <string name="fb_make_offer">Ajánlat</string>
+    <string name="fb_request_loan" formatted="false">Kölcsönkérés (70% bér)</string>
+    <string name="fb_offer_sent">Ajánlat elküldve. Válasz holnap.</string>
+    <string name="fb_err_window">Az átigazolási időszak zárva</string>
+    <string name="fb_err_duplicate">Már tettél ajánlatot erre a játékosra</string>
+    <string name="fb_err_on_loan">A játékos kölcsönben van</string>
+    <string name="fb_err_generic">Most nem lehetséges</string>
+    <string name="fb_t_attacking">Támadás</string>
+    <string name="fb_t_defending">Védekezés</string>
+    <string name="fb_t_technical">Technika</string>
+    <string name="fb_t_tactical">Taktika</string>
+    <string name="fb_t_physical">Erőnlét</string>
+    <string name="fb_t_mental">Mentális</string>
+    <string name="fb_t_set_pieces">Pontrúgások</string>
+    <string name="fb_t_goalkeeping">Kapusedzés</string>
+    <string name="fb_contract_talks">Tárgyalás: %1$s</string>
+    <string name="fb_fee_agreed">Megállapodott összeg: %1$s</string>
+    <string name="fb_wage_demand">Bérigény</string>
+    <string name="fb_years_wanted">Kívánt időtartam</string>
+    <string name="fb_signing_fee">Aláírási pénz</string>
+    <string name="fb_offered_wage">Bérajánlatod: %1$s/hét</string>
+    <string name="fb_contract_years">Év</string>
+    <string name="fb_propose">Ajánlat</string>
+    <string name="fb_reply_accept">Megegyeztünk! Aláírták a szerződést.</string>
+    <string name="fb_reply_wage_low">Túl alacsony a bér.</string>
+    <string name="fb_reply_years">Más szerződéshosszt szeretne.</string>
+    <string name="fb_reply_not_interested">Nem érdekli.</string>
+    <string name="fb_reply_walked">Kiszállt a tárgyalásból.</string>
+    <string name="fb_soon">A következő frissítésben</string>
+    <string name="fb_c_league">Bajnokság</string>
+    <string name="fb_c_playoff">Rájátszás</string>
+    <string name="fb_c_playoff_of">%1$s rájátszás</string>
+    <string name="fb_c_cup">Kupa</string>
+    <string name="fb_c_super_cup">Szuperkupa</string>
+    <string name="fb_c_champions">Bajnokok Kupája</string>
+    <string name="fb_c_europa">Európa-kupa</string>
+    <string name="fb_c_conference">Konferencia-kupa</string>
+    <string name="fb_c_uefa_super">Európai Szuperkupa</string>
+    <string name="fb_c_friendly">Barátságos</string>
+    <string name="fb_c_nations">Nemzetek Ligája</string>
+    <string name="fb_c_qualifiers">Selejtező</string>
+    <string name="fb_c_world_cup">Világbajnokság</string>
+    <string name="fb_c_euro">Európa-bajnokság</string>
+    <string name="fb_c_nat_friendly">Válogatott barátságos</string>
+    <string name="fb_s_league">Bajnokság</string>
+    <string name="fb_s_groups">Csoportkör</string>
+    <string name="fb_s_league_phase">Ligaszakasz</string>
+    <string name="fb_s_q1">1. selejtezőkör</string>
+    <string name="fb_s_q2">2. selejtezőkör</string>
+    <string name="fb_s_q3">3. selejtezőkör</string>
+    <string name="fb_s_qpo">Rájátszás</string>
+    <string name="fb_s_kpo">Kieséses rájátszás</string>
+    <string name="fb_s_r128">Legjobb 128</string>
+    <string name="fb_s_r64">Legjobb 64</string>
+    <string name="fb_s_r32">Legjobb 32</string>
+    <string name="fb_s_r16">Nyolcaddöntő</string>
+    <string name="fb_s_qf">Negyeddöntő</string>
+    <string name="fb_s_sf">Elődöntő</string>
+    <string name="fb_s_final">Döntő</string>
+    <string name="fb_s_prelim">Előselejtező</string>
+    <string name="fb_s_match">Meccs</string>
+    <string name="fb_pos_gk">K</string>
+    <string name="fb_pos_dr">JHV</string>
+    <string name="fb_pos_dc">KH</string>
+    <string name="fb_pos_dl">BHV</string>
+    <string name="fb_pos_wbr">JSZH</string>
+    <string name="fb_pos_wbl">BSZH</string>
+    <string name="fb_pos_dm">VK</string>
+    <string name="fb_pos_mr">JK</string>
+    <string name="fb_pos_mc">KK</string>
+    <string name="fb_pos_ml">BK</string>
+    <string name="fb_pos_amr">JSZ</string>
+    <string name="fb_pos_amc">TK</string>
+    <string name="fb_pos_aml">BSZ</string>
+    <string name="fb_pos_st">CSF</string>
+    <string name="fb_a_corners">Szögletek</string>
+    <string name="fb_a_crossing">Beadás</string>
+    <string name="fb_a_dribbling">Csel</string>
+    <string name="fb_a_finishing">Befejezés</string>
+    <string name="fb_a_first_touch">Átvétel</string>
+    <string name="fb_a_free_kick">Szabadrúgás</string>
+    <string name="fb_a_heading">Fejelés</string>
+    <string name="fb_a_long_shots">Távoli lövés</string>
+    <string name="fb_a_marking">Emberfogás</string>
+    <string name="fb_a_passing">Passz</string>
+    <string name="fb_a_penalty">Tizenegyes</string>
+    <string name="fb_a_tackling">Szerelés</string>
+    <string name="fb_a_technique">Technika</string>
+    <string name="fb_a_aggression">Agresszivitás</string>
+    <string name="fb_a_anticipation">Előrelátás</string>
+    <string name="fb_a_bravery">Bátorság</string>
+    <string name="fb_a_composure">Higgadtság</string>
+    <string name="fb_a_concentration">Koncentráció</string>
+    <string name="fb_a_decisions">Döntéshozatal</string>
+    <string name="fb_a_determination">Elszántság</string>
+    <string name="fb_a_flair">Kreativitás</string>
+    <string name="fb_a_leadership">Vezetés</string>
+    <string name="fb_a_off_the_ball">Labda nélküli játék</string>
+    <string name="fb_a_positioning">Helyezkedés</string>
+    <string name="fb_a_teamwork">Csapatjáték</string>
+    <string name="fb_a_vision">Játékintelligencia</string>
+    <string name="fb_a_work_rate">Munkabírás</string>
+    <string name="fb_a_acceleration">Gyorsulás</string>
+    <string name="fb_a_agility">Mozgékonyság</string>
+    <string name="fb_a_balance">Egyensúly</string>
+    <string name="fb_a_jumping">Felugrás</string>
+    <string name="fb_a_natural_fitness">Természetes erőnlét</string>
+    <string name="fb_a_pace">Sebesség</string>
+    <string name="fb_a_stamina">Állóképesség</string>
+    <string name="fb_a_strength">Erő</string>
+    <string name="fb_a_aerial_reach">Légi játék</string>
+    <string name="fb_a_command_of_area">Tizenhatos uralása</string>
+    <string name="fb_a_handling">Labdafogás</string>
+    <string name="fb_a_kicking">Kirúgás</string>
+    <string name="fb_a_one_on_ones">Egy az egy ellen</string>
+    <string name="fb_a_reflexes">Reflexek</string>
+    <string name="fb_h_consistency">Kiegyensúlyozottság</string>
+    <string name="fb_h_important_matches">Fontos meccsek</string>
+    <string name="fb_h_injury_proneness">Sérülékenység</string>
+    <string name="fb_h_professionalism">Profizmus</string>
+    <string name="fb_h_ambition">Ambíció</string>
+    <string name="fb_h_loyalty">Hűség</string>
+    <string name="fb_h_adaptability">Alkalmazkodás</string>
+    <string name="fb_h_pressure">Nyomástűrés</string>
+    <string name="fb_h_versatility">Sokoldalúság</string>
+    <string name="fb_all">Összes</string>
+    <string name="fb_cups">Kupák</string>
+    <string name="fb_europe">Európa</string>
+    <string name="fb_national_teams">Válogatottak</string>
+    <string name="fb_no_competitions">Nincs sorozat</string>
+    <string name="fb_not_started">Még nem kezdődött el</string>
+    <string name="fb_winner">Győztes: %1$s</string>
+    <string name="fb_group_n">%1$s csoport</string>
+    <string name="fb_byes">%1$d csapat erőnyerő</string>
+    <string name="fb_top_scorers">Góllövőlista</string>
+    <string name="fb_lineup">Felállás</string>
+    <string name="fb_instructions">Utasítások</string>
+    <string name="fb_team_training">Edzés</string>
+    <string name="fb_auto_pick">Automatikus</string>
+    <string name="fb_best_formation">Legjobb felállás</string>
+    <string name="fb_team_strength">Csapaterő</string>
+    <string name="fb_pick_for">Játékos választása: %1$s</string>
+    <string name="fb_tap_position">Koppints egy posztra</string>
+    <string name="fb_starting">Kezdő</string>
+    <string name="fb_bench">Kispad</string>
+    <string name="fb_suspended">Eltiltva</string>
+    <string name="fb_on">Be</string>
+    <string name="fb_off">Ki</string>
+    <string name="fb_open_guide">Taktikai útmutató</string>
+    <string name="fb_tac_mentality">Mentalitás</string>
+    <string name="fb_tac_passing">Passzstílus</string>
+    <string name="fb_tac_tempo">Tempó</string>
+    <string name="fb_tac_width">Szélesség</string>
+    <string name="fb_tac_focus">Támadás iránya</string>
+    <string name="fb_tac_pressing">Letámadás</string>
+    <string name="fb_tac_defline">Védővonal</string>
+    <string name="fb_tac_marking">Védekezés típusa</string>
+    <string name="fb_tac_counter">Kontra</string>
+    <string name="fb_tac_offside">Lescsapda</string>
+    <string name="fb_tac_time_wasting">Időhúzás</string>
+    <string name="fb_tac_hard_tackling">Kemény szerelések</string>
+    <string name="fb_o_very_defensive">Nagyon védekező</string>
+    <string name="fb_o_defensive">Védekező</string>
+    <string name="fb_o_balanced">Kiegyensúlyozott</string>
+    <string name="fb_o_attacking">Támadó</string>
+    <string name="fb_o_very_attacking">Nagyon támadó</string>
+    <string name="fb_o_short">Rövid</string>
+    <string name="fb_o_mixed">Vegyes</string>
+    <string name="fb_o_direct">Direkt</string>
+    <string name="fb_o_slow">Lassú</string>
+    <string name="fb_o_normal">Normál</string>
+    <string name="fb_o_fast">Gyors</string>
+    <string name="fb_o_narrow">Szűk</string>
+    <string name="fb_o_wide">Széles</string>
+    <string name="fb_o_center">Középen</string>
+    <string name="fb_o_flanks">A szélen</string>
+    <string name="fb_o_low">Alacsony</string>
+    <string name="fb_o_medium">Közepes</string>
+    <string name="fb_o_high">Magas</string>
+    <string name="fb_o_deep">Mély</string>
+    <string name="fb_o_zonal">Területvédekezés</string>
+    <string name="fb_o_man">Emberfogás</string>
+    <string name="fb_o_light">Könnyű</string>
+    <string name="fb_o_intense">Intenzív</string>
+    <string name="fb_tip_mentality">Támadóbb = több lövés és gól, de több hely a védelem mögött.</string>
+    <string name="fb_tip_passing">A rövid passz megtartja a labdát; a direkt játék gyorsabban ér a kapu elé, nagyobb kockázattal.</string>
+    <string name="fb_tip_tempo">A gyors tempó hamarabb teremt helyzetet, de több hibával és fáradtsággal jár.</string>
+    <string name="fb_tip_width">A széles játék több beadást hoz; a szűk középen sűrít.</string>
+    <string name="fb_tip_focus">Közép = mélységi passzok (játékintelligencia, passz); szél = beadások (beadás, fejelés).</string>
+    <string name="fb_tip_pressing">A magas letámadás feljebb szerzi vissza a labdát, de fárasztja a játékosokat.</string>
+    <string name="fb_tip_defline">A magas védővonal szűkíti a középpályát, de sebezhető a mögé ívelt labdákkal szemben.</string>
+    <string name="fb_tip_marking">Az emberfogás kikapcsolja a csatárokat; a jól mozgók kiszabadulhatnak.</string>
+    <string name="fb_tip_counter">Saját térfélen szerzett labda után gyorsan indulj.</string>
+    <string name="fb_tip_offside">Gyakrabban kerülnek lesre; összeszokott védelmet igényel.</string>
+    <string name="fb_tip_time_wasting">60. perc után vezetve a csapat lassítja a játékot.</string>
+    <string name="fb_tip_hard_tackling">Több párharcot nyer, de több szabálytalanság, lap és tizenegyes.</string>
+    <string name="fb_training_focus">Edzés fókusza</string>
+    <string name="fb_training_intensity">Intenzitás</string>
+    <string name="fb_coaching_quality">Edzői minőség</string>
+    <string name="fb_f_training">Edzőközpont</string>
+    <string name="fb_f_youth">Utánpótlás-létesítmény</string>
+    <string name="fb_youth_coaching">Utánpótlás-edzés</string>
+    <string name="fb_physio">Gyógytorna</string>
+    <string name="fb_tip_training_focus" formatted="false">A választott terület jellemzői az egész keretnél kb. 50%-kal gyorsabban fejlődnek.</string>
+    <string name="fb_tip_intensity" formatted="false">Könnyű: lassabb fejlődés, kevesebb sérülés, frissebb lábak. Intenzív: +15% fejlődés, közel kétszer annyi edzéssérülés, gyengébb erőnlét.</string>
+    <string name="fb_tip_coaches">A jobb edzők és létesítmények gyorsítják a fejlődést. Edzőket a Klub menüben vehetsz fel.</string>
+    <string name="fb_gt_basics">Első lépések</string>
+    <string name="fb_gt_formations">Felállás és kezdőcsapat</string>
+    <string name="fb_gt_training">Edzés és fejlődés</string>
+    <string name="fb_gt_coaches">Edzők és stáb</string>
+    <string name="fb_gt_morale">Morál és forma</string>
+    <string name="fb_gt_youth">Utánpótlás</string>
+    <string name="fb_gt_finance">Pénzügyek</string>
+    <string name="fb_gt_transfers">Átigazolások</string>
+    <string name="fb_gt_contracts">Szerződések</string>
+    <string name="fb_gt_competitions">Sorozatok</string>
+    <string name="fb_gt_hidden">Rejtett jellemzők és potenciál</string>
+    <string name="fb_gb_basics">Te vagy a klub főnöke: te választod a csapatot és a taktikát, veszel és eladsz játékosokat, beállítod az edzést, létesítményeket építesz és kezeled a pénzt.
+
+A Tovább gombbal haladsz a naptárban. A játék megáll a meccsnapokon, és ha valami a döntésedre vár (ajánlatok, szerződések, új fiatalok).
+
+Meccsnapon lejátszhatod a mérkőzést vagy gyors eredményt kérhetsz. Minden automatikusan mentődik.</string>
+    <string name="fb_gb_mentality" formatted="false">A mentalitás határozza meg, mennyi kockázatot vállal a csapat.
+
+• Nagyon védekező / védekező: kevesebben mennek előre, mindkét csapat kevesebbet lő. Jó az előny megőrzésére vagy sokkal erősebb ellenfél ellen.
+• Kiegyensúlyozott: az alapbeállítás.
+• Támadó / nagyon támadó: több lövés és gól, de az ellenfél több helyet kap. Tesztjeinkben egy erős csapat kb. 18%-kal több gólt lőtt, de többet is kapott.
+
+Párosítsd a védekező mentalitást a kontrával, hogy megbüntesd a feljövő ellenfelet.</string>
+    <string name="fb_gb_passing" formatted="false">• Rövid: sok biztonságos passz, magas labdabirtoklás (60%+), kevesebb, de tisztább támadás. Jó passz és átvétel kell hozzá.
+• Vegyes: kiegyensúlyozott.
+• Direkt: hosszú labdák a csatárokra. A labdabirtoklás 40% körülire esik, a labda gyorsabban ér a tizenhatosba, nyíltabbak a meccsek. Magas, erős csatárokhoz és jó hosszú passzolókhoz illik.</string>
+    <string name="fb_gb_tempo">A gyors tempó gyorsan mozgatja a labdát: több helyzet és lövés, de több rossz passz és fáradtság.
+
+A lassú tempó megtartja a labdát és irányítja a meccset; illik a rövid passzokhoz és az előny megőrzéséhez.</string>
+    <string name="fb_gb_width">Széles: a szélső játékosok a partvonal mellett maradnak, több beadás jön. Jó beadók és erős fejelők kellenek a tizenhatosban.
+
+Szűk: a csapat középen játszik és tömör marad; jó egy irányítóval és mélységi passzokkal.</string>
+    <string name="fb_gb_focus">Középen: több mélységi passz. A siker a játékszervezők látásán és passzán múlik a védők emberfogásával szemben, valamint a csatárok sebességén. Egy az egyben a kapussal a futball legnagyobb helyzete.
+
+A szélen: több beadás. A beadásból fejes lesz, ha a célcsatár megnyeri a légi párharcot a középhátvéddel szemben.</string>
+    <string name="fb_gb_pressing">A magas letámadás az ellenfél térfelén üldözi a labdát. A kevésbé higgadt játékosok ellen működik a legjobban és a kapu közelében szerzi vissza a labdát, de a játékosaid gyorsabban fáradnak a meccs során.
+
+Az alacsony letámadás erőt spórol és megtartja a rendet; az ellenfélnek van ideje a saját térfelén.</string>
+    <string name="fb_gb_defline">Magas védővonal: a védők feljönnek, a középpálya szűk lesz és nehéz átjátszani. De a mögé ívelt labdák és a mélységi passzok gyors csatárok ellen veszélyesek – tesztjeinkben a magas védővonal több mint kétszer annyi gólt kapott gyors csatároktól.
+
+Mély védővonal: a tizenhatos védett, a mélységi passzok ritkán sikerülnek, de az ellenfél irányít. Kontrával ideális.</string>
+    <string name="fb_gb_marking">Területvédekezés: mindenki egy zónát őriz. Biztonságos alapbeállítás.
+
+Emberfogás: a védők követik a közvetlen ellenfelüket. Erős, ha a védőid jól fognak embert; a kiváló labda nélküli mozgású csatárok azonban így is kiszabadulhatnak.</string>
+    <string name="fb_gb_counter">Ha a saját térfélen szerzi vissza a labdát, a csapat kevés passzal és több mélységi labdával gyorsan indul.
+
+Halálos az olyan ellenfél ellen, amely sok emberrel támad vagy magasan áll (tesztekben meccsenként több mint 3 gól egy nagyon támadó csapat ellen). Az ár: kevesebb játékos vesz részt a normál támadásokban.</string>
+    <string name="fb_gb_offside">A védelem együtt lép fel, hogy lesre állítsa a támadókat. Jó csapatjátékkal sokkal gyakrabban sikerül. Ha nem jön be, a csatár egyedül marad a kapussal.</string>
+    <string name="fb_gb_time_wasting">Ha a 60. perc után vezetsz, a játékosaid mindent lelassítanak: több hazaadás, hosszabb megállások. A játékvezető sárga lapot adhat érte.</string>
+    <string name="fb_gb_hard_tackling">Keményebbek lesznek a szerelések: több párharcot nyernek a játékosaid, de több szabálytalanságot követnek el, több lapot kapnak és több tizenegyest okoznak. Az ellenfelek gyakrabban sérülnek meg.</string>
+    <string name="fb_gb_formations">Válassz a legjobb játékosaidhoz illő felállást. Koppints egy posztra a pályán, majd egy játékosra a listán, hogy oda állítsd (a kezdőben már szereplő játékosok helyet cserélnek).
+
+A játékos alatti szám az adott posztra vonatkozó értékelése; a piros kör azt jelzi, hogy nem ismeri a posztot. A játékosok edzésen új posztokat tanulhatnak.
+
+Az Automatikus választás a segédedzőre bízza; a Legjobb felállás a legmagasabb összértékelésű formát választja. A sérült és eltiltott játékosokat automatikusan cseréli.</string>
+    <string name="fb_gb_training">A játékosok hétről hétre fejlődnek a potenciáljuk felé. A tempó ezen múlik:
+• Kor: 16 és 21 között a leggyorsabb, 24 után lassul, 29 körül megáll.
+• A jelenlegi tudás és a potenciál közötti különbség.
+• Edzők és edzőlétesítmények (U19 alatt az utánpótlásedző és az akadémia).
+• Személyiség: profizmus és elszántság.
+• Játékidő (23 év alatt nagyon fontos) és morál.
+• Intenzitás: könnyű, normál vagy kemény.
+
+A csapatfókusz egy területet gyorsít mindenkinél; az egyéni fókusz egy játékosnál egy területet nagyon gyorsít. 30 felett (kapusok 32) a játékosok hanyatlanak, először fizikailag, míg a döntéshozatal és a helyezkedés még javulhat.</string>
+    <string name="fb_gb_coaches">• Edzők: minden edzésterület a megfelelő edzői képességet használja (támadás, védekezés, technika, taktika, mentális, erőnlét, kapus). Kb. öt edző lefed minden területet; kevesebbel romlik a minőség.
+• Utánpótlásedző: fejleszti az U19-eseket és javítja az éves utánpótlás-évfolyamot.
+• Gyógytornász: lerövidíti a sérüléseket és csökkenti az edzéssérüléseket.
+• Erőnléti edző: lassítja az idősebb játékosok hanyatlását.
+• Segédedző: az emberkezelés emeli a morált; felméri a saját játékosaid potenciálját.
+• Megfigyelők: minél jobbak, annál pontosabb más klubok játékosainak tudás- és potenciálbecslése.</string>
+    <string name="fb_gb_morale">A morál hetente változik. Jó eredményekkel, a státuszhoz illő játékidővel (a kulcsjátékosok a legtöbb meccsen kezdeni akarnak), tisztességes fizetéssel, jó szociális létesítményekkel és jó segédedzővel nő. A nagyon elégedetlen, ambiciózus játékosok távozni akarnak.
+
+A forma a legutóbbi meccsosztályzatok átlaga. A morál és a forma kissé befolyásolja a játékos meccsnapi erejét és fejlődését.</string>
+    <string name="fb_gb_youth">Minden évben március 15-én 2–8 fiatal (15–16 évesek) érkezik az akadémiádra. Az utánpótlás-toborzás dönti el a számukat és a szintjüket, az akadémia és az utánpótlásedző javítja a minőséget, és az országod futballszínvonala is számít. Néha felbukkan egy aranytehetség.
+
+Adj játékidőt és jó edzést a fiataloknak: 21 éves korig fejlődnek a leggyorsabban.</string>
+    <string name="fb_gb_finance" formatted="false">Bevételek: jegyek (hazai meccsek; drágább jegy több pénzt hoz szurkolónként, de kevesebb hely telik meg), tévés pénzek (fele egyenlően, fele helyezés szerint), ajándéktárgyak (a hírnévvel és a sztárokkal nő), mezszponzor, stadionreklám, pénzdíjak (kupák és főleg európai kupák) és játékoseladások.
+
+Kiadások: játékosok és stáb fizetése, létesítmények fenntartása, akadémia, meccsnapi költségek, átigazolások és építkezések. A negatív egyenleg heti 0,12% kamattal jár.
+
+Befektetői támogatás: nézz meg egy videót, hogy pénzt adj a klubnak, hetente 3-szor.</string>
+    <string name="fb_gb_transfers">Átigazolási időszakok: július 1. – szeptember 1. és január. Szabadon igazolható játékosokat bármikor leigazolhatsz.
+
+Az eladó klub ára attól függ, mennyire fontos neki a játékos, a korától és potenciáljától, a szerződése hosszától (az utolsó évben olcsó), hogy átigazolási listán van-e, és az eladó pénzügyeitől. A kivásárlási záradékot nem lehet visszautasítani.
+
+Az átigazolási díj elfogadása után tárgyalj a játékossal a fizetésről és az évekről – ha túl keveset ajánlasz, három próbálkozás után elsétál. Kölcsön: a fizetés egy részét te állod, és a játékos a szezon végén visszatér.
+
+Saját játékosaidat átigazolási listára teheted, kölcsönbe ajánlhatod, vagy 3 napos árverést indíthatsz, ahol a klubok túllicitálják egymást. Jelöld meg a tetsző játékosokat és figyeld a pletykákat.</string>
+    <string name="fb_gb_contracts" formatted="false">Hosszabbítsd meg időben a fontos játékosok szerződését. Január 1-jén figyelmeztetést kapsz az idén lejáró szerződésekről; január közepétől más klubok előszerződést köthetnek velük, és nyáron ingyen távoznak.
+
+A játékosok fizetésemelést kérnek, ha fejlődnek. Egy játékos szerződésének felbontása a hátralévő fizetése 60%-ába kerül.</string>
+    <string name="fb_gb_competitions">Minden európai országnak vannak bajnokságai feljutással és kieséssel (néhány másodosztályban rájátszással), egy nemzeti kupája és egy szuperkupája.
+
+Az európai helyek a bajnoki helyezésedtől és az országrangsortól függenek, amely minden szezonban változik az európai eredményekkel: a Champions Cup, az Europa Cup és a Conference Cup mindegyikében van selejtező, 36 csapatos ligaszakasz és egyenes kieséses szakasz.
+
+A válogatottak a Nemzetek Ligájában, a selejtezőkön, az Európa-bajnokságon és a világbajnokságon játszanak.</string>
+    <string name="fb_gb_hidden">A tudást és a potenciált a stábod által becsült csillagok mutatják, így tévedhetnek – főleg gyenge megfigyelőkkel.
+
+Nézz meg egy rövid videót a játékos lapján, hogy kiderüljön pontos jelenlegi tudása, pontos potenciálja és rejtett személyisége: kiegyensúlyozottság, nagy meccseken mutatott idegek, sérülékenység, profizmus, ambíció, hűség, alkalmazkodóképesség, nyomás kezelése és sokoldalúság. A játékos véglegesen felfedve marad (zöld csillagok).</string>
+    <string name="fb_search">Keresés</string>
+    <string name="fb_shortlist">Megfigyelési lista</string>
+    <string name="fb_scout_reports">Megfigyelői jelentések</string>
+    <string name="fb_offers">Ajánlatok</string>
+    <string name="fb_auctions">Árverések</string>
+    <string name="fb_history">Előzmények és pletykák</string>
+    <string name="fb_window_open">Átigazolási időszak nyitva</string>
+    <string name="fb_window_closed">Átigazolási időszak zárva</string>
+    <string name="fb_line_gk">Kapusok</string>
+    <string name="fb_line_def">Védők</string>
+    <string name="fb_line_mid">Középpályások</string>
+    <string name="fb_line_att">Támadók</string>
+    <string name="fb_any_age">Bármely kor</string>
+    <string name="fb_age_young">≤ 21</string>
+    <string name="fb_age_prime">22–29</string>
+    <string name="fb_age_veteran">30+</string>
+    <string name="fb_any_value">Bármely érték</string>
+    <string name="fb_listed_only">Csak listázottak</string>
+    <string name="fb_free_agents">Szabadon igazolhatók</string>
+    <string name="fb_player_name">Játékos neve</string>
+    <string name="fb_no_results">Nincs találat</string>
+    <string name="fb_loan">Kölcsön</string>
+    <string name="fb_scout_desc">A megfigyelőid olyan játékosokat javasolnak, akik erősítenék a leggyengébb posztjaidat, beleférnek a keretbe és hajlandók jönni.</string>
+    <string name="fb_get_reports">Jelentések kérése</string>
+    <string name="fb_no_offers">Nincs ajánlat ebben a szezonban</string>
+    <string name="fb_incoming">Bejövő</string>
+    <string name="fb_outgoing">Kimenő</string>
+    <string name="fb_os_waiting_you">A válaszodra vár</string>
+    <string name="fb_os_pending">A klub válaszára vár</string>
+    <string name="fb_os_counter">Ellenajánlat: %1$s</string>
+    <string name="fb_os_agreed">Díj elfogadva – tárgyald a szerződést</string>
+    <string name="fb_os_agreed_in">Elfogadva – a vevő tárgyal a játékossal</string>
+    <string name="fb_os_completed">Lezárva</string>
+    <string name="fb_os_rejected">Elutasítva</string>
+    <string name="fb_os_withdrawn">Visszavonva</string>
+    <string name="fb_os_refused">A játékos visszautasította</string>
+    <string name="fb_os_expired">Lejárt</string>
+    <string name="fb_counter_x">%1$s kérése</string>
+    <string name="fb_offer_x">%1$s ajánlása</string>
+    <string name="fb_auction_desc">A klubok túllicitálják egymást az árverés végéig. Saját játékosaidat a játékoslapjukról bocsáthatod árverésre.</string>
+    <string name="fb_no_auctions">Nincs futó árverés</string>
+    <string name="fb_reserve">Minimálár %1$s</string>
+    <string name="fb_ended">véget ért</string>
+    <string name="fb_ends">vége: %1$s</string>
+    <string name="fb_bid_x">Licit: %1$s</string>
+    <string name="fb_latest_transfers">Legutóbbi átigazolások</string>
+    <string name="fb_rumours">Pletykák</string>
+    <string name="fb_finance">Pénzügyek</string>
+    <string name="fb_facilities">Létesítmények</string>
+    <string name="fb_staff">Stáb</string>
+    <string name="fb_sponsor_tickets">Szponzor és jegyek</string>
+    <string name="fb_friendlies">Barátságos meccsek</string>
+    <string name="fb_editor">Szerkesztő</string>
+    <string name="fb_this_season">Ez a szezon</string>
+    <string name="fb_last_season">Előző szezon</string>
+    <string name="fb_income">Bevételek</string>
+    <string name="fb_expenses">Kiadások</string>
+    <string name="fb_net">Nettó</string>
+    <string name="fb_fin_tickets">Jegyeladás</string>
+    <string name="fb_fin_tv">Tévés jogok</string>
+    <string name="fb_fin_merch">Ajándéktárgyak</string>
+    <string name="fb_fin_sponsor">Szponzoráció</string>
+    <string name="fb_fin_ads">Stadionreklám</string>
+    <string name="fb_fin_prize">Pénzdíjak</string>
+    <string name="fb_fin_transfer_in">Játékoseladások</string>
+    <string name="fb_fin_other_in">Befektetők és egyéb</string>
+    <string name="fb_fin_wages">Játékosfizetések</string>
+    <string name="fb_fin_staff_wages">Stábfizetések</string>
+    <string name="fb_fin_facilities">Létesítmény-fenntartás</string>
+    <string name="fb_fin_youth">Akadémia</string>
+    <string name="fb_fin_matchday">Meccsnapi költségek</string>
+    <string name="fb_fin_transfer_out">Játékosvásárlások</string>
+    <string name="fb_fin_upgrades">Építkezés</string>
+    <string name="fb_fin_interest">Kamat</string>
+    <string name="fb_fin_other_out">Kártérítés és egyéb</string>
+    <string name="fb_balance_history">Egyenleg (utóbbi hetek)</string>
+    <string name="fb_staff_wages_week">Stábfizetés hetente</string>
+    <string name="fb_fan_base">Szurkolók</string>
+    <string name="fb_f_recruitment">Utánpótlás-toborzás</string>
+    <string name="fb_f_stadium">Stadion minősége</string>
+    <string name="fb_f_social">Szociális létesítmények</string>
+    <string name="fb_f_capacity">Stadion befogadóképessége</string>
+    <string name="fb_fd_training">Gyorsabb fejlődés minden játékosnak.</string>
+    <string name="fb_fd_youth">Jobb fejlődés az U19-nek és jobb évfolyamok.</string>
+    <string name="fb_fd_recruitment">Több és jobb fiatal minden márciusban.</string>
+    <string name="fb_fd_stadium">Több szurkoló jön, és elfogadják a magasabb árakat.</string>
+    <string name="fb_fd_social">Magasabb morál és több ajándéktárgy-eladás.</string>
+    <string name="fb_fd_capacity" formatted="false">+10% ülőhely a nagyobb meccsnapi bevételért.</string>
+    <string name="fb_seats">%1$d hely</string>
+    <string name="fb_upgrade_x">Építés %1$s · %2$d nap</string>
+    <string name="fb_upgrade_started">Építkezés elkezdődött</string>
+    <string name="fb_under_construction">Építés alatt: %1$s (kész: %2$s)</string>
+    <string name="fb_your_staff">A stábod (%1$d)</string>
+    <string name="fb_staff_market">Elérhető stábtagok</string>
+    <string name="fb_fire">Elbocsátás</string>
+    <string name="fb_fire_confirm">Elbocsátás (%1$s)</string>
+    <string name="fb_hire">Felvétel</string>
+    <string name="fb_hired">Felvéve!</string>
+    <string name="fb_staff_full">A stábod megtelt (16)</string>
+    <string name="fb_staff_reject">Nem érdekli a klubod</string>
+    <string name="fb_r_assistant">Segédedző</string>
+    <string name="fb_r_coach">Edző</string>
+    <string name="fb_r_gk_coach">Kapusedző</string>
+    <string name="fb_r_fitness">Erőnléti edző</string>
+    <string name="fb_r_scout">Megfigyelő</string>
+    <string name="fb_r_physio">Gyógytornász</string>
+    <string name="fb_r_youth">Utánpótlásedző</string>
+    <string name="fb_sa_attack">Támadás</string>
+    <string name="fb_sa_defence">Védekezés</string>
+    <string name="fb_sa_technical">Technika</string>
+    <string name="fb_sa_tactical">Taktika</string>
+    <string name="fb_sa_mental">Mentális</string>
+    <string name="fb_sa_fitness">Erőnlét</string>
+    <string name="fb_sa_gk">Kapusok</string>
+    <string name="fb_sa_youth">Munka fiatalokkal</string>
+    <string name="fb_sa_judge_ability">Tudás megítélése</string>
+    <string name="fb_sa_judge_potential">Potenciál megítélése</string>
+    <string name="fb_sa_physio">Gyógytorna</string>
+    <string name="fb_sa_motivating">Motiválás</string>
+    <string name="fb_sa_discipline">Fegyelem</string>
+    <string name="fb_sa_man_management">Emberkezelés</string>
+    <string name="fb_shirt_sponsor">Mezszponzor</string>
+    <string name="fb_current_sponsor">Szponzor</string>
+    <string name="fb_per_year">Évente</string>
+    <string name="fb_until">Eddig</string>
+    <string name="fb_sponsor_offers">Új ajánlatok</string>
+    <string name="fb_sponsor_line">Évi %1$s · %2$d év</string>
+    <string name="fb_sign">Aláírás</string>
+    <string name="fb_sponsor_locked">Új szponzort a jelenlegi szerződés lejárta után köthetsz.</string>
+    <string name="fb_ticket_prices">Jegyárak</string>
+    <string name="fb_tp_very_low">Nagyon alacsony</string>
+    <string name="fb_tp_low">Alacsony</string>
+    <string name="fb_tp_high">Magas</string>
+    <string name="fb_tp_very_high">Nagyon magas</string>
+    <string name="fb_ticket_price">Átlagos jegyár</string>
+    <string name="fb_expected_attendance">Várható nézőszám</string>
+    <string name="fb_matchday_income">Bevétel hazai meccsenként</string>
+    <string name="fb_tip_tickets" formatted="false">Minden lépcső 25%-kal emeli az árat, de a szurkolók kb. 18%-ába kerül. Ha a stadion amúgy is megtelik, a magasabb ár többet hoz.</string>
+    <string name="fb_choose_opponent">Ellenfél</string>
+    <string name="fb_choose_date">Dátum</string>
+    <string name="fb_friendly_desc">A barátságos meccsek formában tartják a játékosokat és kis hazai bevételt hoznak. A nagy klubok elutasíthatják.</string>
+    <string name="fb_arrange">Leszervezés</string>
+    <string name="fb_friendly_ok">Barátságos meccs leszervezve</string>
+    <string name="fb_friendly_declined">A klub elutasította</string>
+    <string name="fb_friendly_busy">Az ellenfélnek meccse van a dátum körül</string>
+    <string name="fb_edit_club">Klub szerkesztése</string>
+    <string name="fb_club_name">Klub neve</string>
+    <string name="fb_short_name">Rövid</string>
+    <string name="fb_color_main">Fő szín</string>
+    <string name="fb_color_second">Második szín</string>
+    <string name="fb_save">Mentés</string>
+    <string name="fb_saved">Mentve</string>
+    <string name="fb_edit_players">Játékosnevek (koppints a szerkesztéshez)</string>
+    <string name="fb_back_to_match">Vissza a meccshez</string>
+    <string name="fb_choose_sub">Válaszd ki, ki jön be</string>
+    <string name="fb_on_pitch">A pályán (koppints a lecseréléshez)</string>
+    <string name="fb_subs_left">Hátralévő cserék: %1$d</string>
+    <string name="fb_tactics_subs">Taktika és cserék</string>
+    <string name="fb_pause">Szünet</string>
+    <string name="fb_resume">Folytatás</string>
+    <string name="fb_skip_to_end">Ugrás a végére</string>
+    <string name="fb_finish_match">Befejezés</string>
+    <string name="fb_full_time">Lefújás</string>
+    <string name="fb_goal_flash">GÓL!</string>
+    <string name="fb_shots_short">Lövések</string>
+    <string name="fb_ev_goal_1">GÓL! %1$s talál a(z) %2$s javára!</string>
+    <string name="fb_ev_goal_2">GÓL! Micsoda befejezés %1$s részéről! (%2$s)</string>
+    <string name="fb_ev_goal_3">GÓL! %1$s nem hibázik – ünnepel a(z) %2$s!</string>
+    <string name="fb_ev_assist">Gólpassz: %1$s.</string>
+    <string name="fb_ev_save_1">Nagy védés %1$s részéről %2$s lövésénél!</string>
+    <string name="fb_ev_save_2">%2$s lő – %1$s megfogja.</string>
+    <string name="fb_ev_miss_1">%1$s lő… épp mellé!</string>
+    <string name="fb_ev_miss_2">%1$s a léc fölé lő.</string>
+    <string name="fb_ev_block">%1$s blokkolja %2$s lövését.</string>
+    <string name="fb_ev_yellow">Sárga lap: %1$s.</string>
+    <string name="fb_ev_red">PIROS LAP! %1$s kiállítva!</string>
+    <string name="fb_ev_injury">%1$s megsérült, nem tudja folytatni.</string>
+    <string name="fb_ev_sub">Csere (%1$s): be %2$s, le %3$s.</string>
+    <string name="fb_ev_corner">Szöglet a(z) %1$s javára.</string>
+    <string name="fb_ev_free_kick">Szabadrúgás a(z) %1$s javára, %2$s áll a labda mögé.</string>
+    <string name="fb_ev_penalty">TIZENEGYES a(z) %1$s javára! %2$s áll a labdához…</string>
+    <string name="fb_ev_offside">%1$s lesen van.</string>
+    <string name="fb_ev_foul">%1$s szabálytalankodik %2$s ellen.</string>
+    <string name="fb_ev_through">%1$s gyönyörű mélységi passzt ad %2$s elé!</string>
+    <string name="fb_ev_half_time">Félidő.</string>
+    <string name="fb_ev_full_time">Vége a meccsnek!</string>
+    <string name="fb_ev_extra_time">Hosszabbítás!</string>
+    <string name="fb_ev_so_goal">%1$s értékesíti a büntetőt a(z) %2$s javára.</string>
+    <string name="fb_ev_so_miss">%1$s kihagyja a(z) %2$s büntetőjét!</string>
+    <string name="fb_first_team">Első csapat</string>
+    <string name="fb_youth_team">Akadémia</string>
+    <string name="fb_youth_info">Akadémia %1$d/20 · toborzás %2$d/20 · utánpótlásedző %3$d/20 · következő évfolyam %4$s</string>
+    <string name="fb_youth_empty">Még nincs fiatal az akadémián. Új tehetségek minden évben március 15-én érkeznek.</string>
+    <string name="fb_promote">Felhozás az első csapatba</string>
+    <string name="fb_to_youth">Akadémiára küldés</string>
+    <string name="fb_ng_club">Klub</string>
+    <string name="fb_ng_matches">Meccsek</string>
+    <string name="fb_ng_transfers">Átigazolások</string>
+    <string name="fb_ng_world">Világ</string>
+    <string name="fb_mark_all_read">Összes olvasottnak jelölése</string>
+    <string name="fb_nt_offer_received">Átigazolási ajánlat</string>
+    <string name="fb_nt_offer_accepted">Ajánlat elfogadva</string>
+    <string name="fb_nt_offer_rejected">Ajánlat elutasítva</string>
+    <string name="fb_nt_offer_counter">Ellenajánlat</string>
+    <string name="fb_nt_player_refused">A játékos nemet mondott</string>
+    <string name="fb_nt_transfer_done">Átigazolás lezárva</string>
+    <string name="fb_nt_transfer_world">Nagy átigazolás</string>
+    <string name="fb_nt_rumour">Pletyka</string>
+    <string name="fb_nt_contract">Szerződés</string>
+    <string name="fb_nt_unhappy">Elégedetlen játékos</string>
+    <string name="fb_nt_auction">Árverés</string>
+    <string name="fb_nt_loan_return">Visszatérés kölcsönből</string>
+    <string name="fb_nt_precontract">Előszerződés</string>
+    <string name="fb_nt_youth">Utánpótlás-évfolyam</string>
+    <string name="fb_nt_released">Távozó játékos</string>
+    <string name="fb_nt_preview">Beharangozó</string>
+    <string name="fb_nt_report">Meccsbeszámoló</string>
+    <string name="fb_nt_injury">Sérülés</string>
+    <string name="fb_nt_suspension">Eltiltás</string>
+    <string name="fb_nt_leader">Új listavezető</string>
+    <string name="fb_nt_potm">A hónap játékosa</string>
+    <string name="fb_nt_window_open">Átigazolási időszak</string>
+    <string name="fb_nt_window_close">Átigazolási időszak</string>
+    <string name="fb_nt_draw">Sorsolás</string>
+    <string name="fb_nt_europe">Európa</string>
+    <string name="fb_nt_facility">Létesítmények</string>
+    <string name="fb_nt_finance">Pénzügyek</string>
+    <string name="fb_nt_retirement">Visszavonulás</string>
+    <string name="fb_nt_top_scorer">Gólkirály</string>
+    <string name="fb_nt_player_season">A szezon játékosa</string>
+    <string name="fb_nt_fans_happy">Szurkolók</string>
+    <string name="fb_nt_fans_angry">Szurkolók</string>
+    <string name="fb_nt_trophy">Bajnokok</string>
+    <string name="fb_nt_callup">Válogatott</string>
+    <string name="fb_nt_graduate">Akadémiáról felhozva</string>
+    <string name="fb_n_youth_best">%1$d fiatal érkezett az akadémiára. A megfigyelők szerint %2$s a legnagyobb tehetség.</string>
+    <string name="fb_n_preview">Következő: %1$s (%2$s). Utolsó öt meccsük: %3$s</string>
+    <string name="fb_n_report_win">Győzelem a(z) %1$s ellen: %2$s.</string>
+    <string name="fb_n_report_loss">Vereség a(z) %1$s ellen: %2$s.</string>
+    <string name="fb_n_report_draw">Döntetlen a(z) %1$s ellen: %2$s.</string>
+    <string name="fb_n_report_motm">A meccs embere: %1$s.</string>
+    <string name="fb_n_injury">%1$s megsérült a meccsen, kb. %2$d napot hagy ki.</string>
+    <string name="fb_n_injury_training">%1$s megsérült edzésen (kb. %2$d nap).</string>
+    <string name="fb_n_suspension">%1$s %2$d meccsre eltiltva.</string>
+    <string name="fb_n_leader">A(z) %1$s az új listavezető a(z) %2$s bajnokságban %3$d ponttal.</string>
+    <string name="fb_n_potm">%1$s (%2$s) a hónap játékosa.</string>
+    <string name="fb_n_window_open">Megnyílt az átigazolási időszak.</string>
+    <string name="fb_n_window_close">Bezárult az átigazolási időszak.</string>
+    <string name="fb_n_draw">%1$s, %2$s: az ellenfeled a(z) %3$s.</string>
+    <string name="fb_n_europe_direct">A klub ebben a szezonban a(z) %1$s sorozatban játszik!</string>
+    <string name="fb_n_europe_qual">A klub a(z) %1$s selejtezőjében indul.</string>
+    <string name="fb_n_facility">Az építkezés kész: %1$s fejlesztve.</string>
+    <string name="fb_n_finance">A klub eladósodott (%1$s). Minden héten kamatot kell fizetni – adj el játékosokat vagy csökkentsd a fizetéseket.</string>
+    <string name="fb_n_retirement">%1$s %2$d évesen visszavonult.</string>
+    <string name="fb_n_top_scorer">%1$s a(z) %3$s gólkirálya %2$d góllal.</string>
+    <string name="fb_n_player_season">%1$s a szezon játékosa a(z) %2$s bajnokságban (átlag %3$s).</string>
+    <string name="fb_n_fans_happy">A szurkolók el vannak ragadtatva a győzelmi sorozattól!</string>
+    <string name="fb_n_fans_angry">Három vereség zsinórban – dühösek a szurkolók.</string>
+    <string name="fb_n_trophy_us">BAJNOKOK! A(z) %1$s megnyerte: %2$s!</string>
+    <string name="fb_n_trophy">A(z) %1$s megnyerte: %2$s.</string>
+    <string name="fb_n_callup">%1$s meghívót kapott: %2$s.</string>
+    <string name="fb_n_graduate">%1$s az akadémiáról az első csapatba került.</string>
+    <string name="fb_settings">Beállítások</string>
+    <string name="fb_currency">Pénznem</string>
+    <string name="fb_currency_desc">Az összegek a választott pénznemben, rögzített árfolyamon jelennek meg (példa: 1 millió euró = %1$s).</string>
+    <string name="fb_career">Karrier</string>
+    <string name="fb_manager_line">Menedzser: %1$s · %2$s szezon</string>
+    <string name="fb_quit_career">Karrier törlése és újrakezdés</string>
+</resources>

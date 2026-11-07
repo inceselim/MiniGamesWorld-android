@@ -1,0 +1,80 @@
+<en-US>
+New game: Club Boss! – now 32 games
+• Run a club in 50+ European countries: leagues, cups, European cups, Nations League, EURO and World Cup
+• Tactics, formations and live matches with commentary
+• Transfers, loans, auctions, contracts, staff and facilities
+• Youth academy with new talents every March
+• FM-style news, finances and currency choice
+</en-US>
+<tr-TR>
+Yeni oyun: Kulüp Patronu! Toplam 32 oyun
+• 50'den fazla Avrupa ülkesinde kulüp yönet: lig, kupa, Avrupa kupaları, Uluslar Ligi, EURO ve Dünya Kupası
+• Taktik, dizilişler ve anlatımlı canlı maçlar
+• Transfer, kiralık, açık artırma, sözleşme, personel ve tesisler
+• Her mart yeni yeteneklerin geldiği altyapı
+• FM tarzı haberler, finans ve para birimi seçimi
+</tr-TR>
+<de-DE>
+Neues Spiel: Klubboss! – jetzt 32 Spiele
+• Führe einen Klub in über 50 Ländern Europas: Ligen, Pokale, Europapokal, Nations League, EM und WM
+• Taktik, Formationen und Live-Spiele mit Kommentar
+• Transfers, Leihen, Auktionen, Verträge, Personal und Anlagen
+• Jugendakademie mit neuen Talenten jeden März
+• News wie im FM, Finanzen und Währungswahl
+</de-DE>
+<es-ES>
+Nuevo juego: ¡Jefe del Club! Ya son 32 juegos
+• Dirige un club en más de 50 países europeos: ligas, copas, competiciones europeas, Nations League, Eurocopa y Mundial
+• Táctica, formaciones y partidos en directo con narración
+• Fichajes, cesiones, subastas, contratos, empleados e instalaciones
+• Cantera con nuevos talentos cada marzo
+• Noticias al estilo FM, finanzas y elección de moneda
+</es-ES>
+<fr-FR>
+Nouveau jeu : Patron du Club ! 32 jeux au total
+• Dirige un club dans plus de 50 pays européens : championnats, coupes, coupes d'Europe, Ligue des nations, Euro et Coupe du monde
+• Tactique, formations et matchs en direct commentés
+• Transferts, prêts, enchères, contrats, staff et installations
+• Centre de formation avec de nouveaux talents chaque mars
+• Actualités façon FM, finances et choix de la devise
+</fr-FR>
+<it-IT>
+Nuovo gioco: Boss del Club! Ora sono 32 giochi
+• Guida un club in oltre 50 paesi europei: campionati, coppe, coppe europee, Nations League, Europeo e Mondiale
+• Tattica, moduli e partite in diretta con telecronaca
+• Mercato, prestiti, aste, contratti, staff e strutture
+• Vivaio con nuovi talenti ogni marzo
+• Notizie stile FM, finanze e scelta della valuta
+</it-IT>
+<ja-JP>
+新しいゲーム「クラブボス」が登場！全32ゲームに
+• ヨーロッパ50か国以上でクラブを経営：リーグ、カップ、欧州カップ、ネーションズリーグ、EURO、ワールドカップ
+• 戦術、フォーメーション、実況付きライブ試合
+• 移籍、レンタル、オークション、契約、スタッフ、施設
+• 毎年3月に新しい才能が入るユースアカデミー
+• FM風ニュース、財務、通貨の選択
+</ja-JP>
+<ru-RU>
+Новая игра: Босс клуба! Теперь 32 игры
+• Управляйте клубом в 50+ странах Европы: лиги, кубки, еврокубки, Лига наций, Евро и чемпионат мира
+• Тактика, схемы и матчи в прямом эфире с комментариями
+• Трансферы, аренда, аукционы, контракты, персонал и инфраструктура
+• Академия с новыми талантами каждый март
+• Новости в стиле FM, финансы и выбор валюты
+</ru-RU>
+<da-DK>
+Nyt spil: Klubboss! Nu 32 spil
+• Styr en klub i over 50 europæiske lande: ligaer, pokaler, europæiske turneringer, Nations League, EM og VM
+• Taktik, formationer og livekampe med kommentarer
+• Transfers, leje, auktioner, kontrakter, personale og faciliteter
+• Ungdomsakademi med nye talenter hver marts
+• Nyheder som i FM, økonomi og valg af valuta
+</da-DK>
+<hu-HU>
+Új játék: Klubfőnök! Már 32 játék
+• Irányíts klubot több mint 50 európai országban: bajnokságok, kupák, európai kupák, Nemzetek Ligája, Eb és vb
+• Taktika, felállások és élő meccsek kommentárral
+• Átigazolások, kölcsönök, árverések, szerződések, stáb és létesítmények
+• Akadémia új tehetségekkel minden márciusban
+• FM-stílusú hírek, pénzügyek és pénznemválasztás
+</hu-HU>
