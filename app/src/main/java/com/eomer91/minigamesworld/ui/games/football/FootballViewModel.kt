@@ -140,6 +140,8 @@ class FootballViewModel @Inject constructor(
                 return@launch
             }
             world = w
+            FbFormat.currency = FbCurrency.entries.getOrElse(w.currency) { FbCurrency.EUR }
+            lastSaveKey = w.season * 400 + w.day
             _state.update { it.copy(busy = false, phase = FbPhase.HUB, tab = FbTab.HOME) }
             checkPending()
         }
@@ -150,6 +152,9 @@ class FootballViewModel @Inject constructor(
         _state.update { it.copy(phase = FbPhase.SETUP, setupReady = false) }
         viewModelScope.launch {
             val w = withContext(engine) { FbGen(System.currentTimeMillis()).generate() }
+            // Telefon dili Turkce ise varsayilan TL, digerlerinde Euro
+            w.currency = if (java.util.Locale.getDefault().language == "tr") FbCurrency.TRY.ordinal else FbCurrency.EUR.ordinal
+            FbFormat.currency = FbCurrency.entries[w.currency]
             world = w
             _state.update { it.copy(setupReady = true, version = it.version + 1) }
         }
@@ -224,7 +229,9 @@ class FootballViewModel @Inject constructor(
                     if (fresh.any { it.kind in STOP_NEWS }) break
                     if (days >= 14) break
                 }
-                runCatching { repo.save(w) }
+                // En az bir oyun haftasi gectiyse ya da onemli bir an (mac, sezon sonu) geldiyse kaydet
+                val key = w.season * 400 + w.day
+                if (key - lastSaveKey >= 7 || summary != null || pending >= 0) { runCatching { repo.save(w) }; lastSaveKey = key }
             }
             _state.update {
                 it.copy(
@@ -330,6 +337,11 @@ class FootballViewModel @Inject constructor(
     fun openNegotiation(offerId: Int) = _state.update { it.copy(negotiation = offerId) }
     fun openRenewal(playerId: Int) = _state.update { it.copy(negotiation = -1 - playerId) }
     fun closeNegotiation() = _state.update { it.copy(negotiation = NO_NEGOTIATION) }
+
+    /** Son kaydin oyun zamani (sezon*400+gun) */
+    private var lastSaveKey = 0
+
+    fun setCurrency(c: FbCurrency) = edit { it.currency = c.ordinal; FbFormat.currency = c }
 
     // ================================================================== reklam odulleri
 

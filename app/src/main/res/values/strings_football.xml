@@ -715,4 +715,10 @@ Watch a short video on a player\'s card to reveal his exact current ability, his
     <string name="fb_n_trophy">%1$s win the %2$s.</string>
     <string name="fb_n_callup">%1$s has been called up by %2$s.</string>
     <string name="fb_n_graduate">%1$s graduates from the academy to the first team.</string>
+    <string name="fb_settings">Settings</string>
+    <string name="fb_currency">Currency</string>
+    <string name="fb_currency_desc">Amounts are shown in the chosen currency with fixed exchange rates (example: 1M euro = %1$s).</string>
+    <string name="fb_career">Career</string>
+    <string name="fb_manager_line">Manager: %1$s · season %2$s</string>
+    <string name="fb_quit_career">Delete career and start over</string>
 </resources>

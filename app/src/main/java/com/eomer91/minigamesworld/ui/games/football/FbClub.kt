@@ -57,7 +57,7 @@ import com.eomer91.minigamesworld.ui.games.football.engine.StaffAttr
 import com.eomer91.minigamesworld.ui.games.football.engine.StaffRole
 import com.eomer91.minigamesworld.ui.theme.AppColors
 
-private enum class ClubPage { FINANCE, FACILITIES, STAFF, SPONSOR, FRIENDLY, EDITOR }
+private enum class ClubPage { FINANCE, FACILITIES, STAFF, SPONSOR, FRIENDLY, EDITOR, SETTINGS }
 
 @Composable
 fun FbClubScreen(world: FbWorld, ui: FbUiState, vm: FootballViewModel) {
@@ -70,6 +70,7 @@ fun FbClubScreen(world: FbWorld, ui: FbUiState, vm: FootballViewModel) {
             FbChip(stringResource(R.string.fb_sponsor_tickets), page == ClubPage.SPONSOR, { page = ClubPage.SPONSOR })
             FbChip(stringResource(R.string.fb_friendlies), page == ClubPage.FRIENDLY, { page = ClubPage.FRIENDLY })
             FbChip(stringResource(R.string.fb_editor), page == ClubPage.EDITOR, { page = ClubPage.EDITOR })
+            FbChip(stringResource(R.string.fb_settings), page == ClubPage.SETTINGS, { page = ClubPage.SETTINGS })
         }
         Box(Modifier.weight(1f)) {
             when (page) {
@@ -79,6 +80,7 @@ fun FbClubScreen(world: FbWorld, ui: FbUiState, vm: FootballViewModel) {
                 ClubPage.SPONSOR -> SponsorTickets(world, vm)
                 ClubPage.FRIENDLY -> Friendlies(world, vm)
                 ClubPage.EDITOR -> Editor(world, ui, vm)
+                ClubPage.SETTINGS -> Settings(world, vm)
             }
         }
     }
@@ -321,7 +323,7 @@ private fun SponsorTickets(world: FbWorld, vm: FootballViewModel) {
                         c.ticketLevel == l, { vm.edit { c.ticketLevel = l } })
                 }
                 Spacer(Modifier.height(8.dp))
-                FbKeyValue(stringResource(R.string.fb_ticket_price), "€%.0f".format(FbClubLife.ticketPrice(world, c) * FbClubLife.revenueMul(world, c)))
+                FbKeyValue(stringResource(R.string.fb_ticket_price), FbFormat.money((FbClubLife.ticketPrice(world, c) * FbClubLife.revenueMul(world, c)).toLong()))
                 val att = FbClubLife.attendance(world, c, -1, com.eomer91.minigamesworld.ui.games.football.engine.CompKind.LEAGUE)
                 FbKeyValue(stringResource(R.string.fb_expected_attendance), "$att / ${c.capacity}")
                 FbKeyValue(stringResource(R.string.fb_matchday_income), FbFormat.money((att * FbClubLife.ticketPrice(world, c) * FbClubLife.revenueMul(world, c)).toLong()))
@@ -373,6 +375,31 @@ private fun Friendlies(world: FbWorld, vm: FootballViewModel) {
                         }, enabled = opp >= 0)
                     }
                 }
+            }
+        }
+    }
+}
+
+// ====================================================================== ayarlar
+
+@Composable
+private fun Settings(world: FbWorld, vm: FootballViewModel) {
+    var confirm by remember { mutableStateOf(false) }
+    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+        FbPanel(Modifier.fillMaxWidth(), title = stringResource(R.string.fb_currency)) {
+            Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                for (cur in FbCurrency.entries) FbChip(cur.code, world.currency == cur.ordinal, { vm.setCurrency(cur) })
+            }
+            Text(stringResource(R.string.fb_currency_desc, FbFormat.money(1_000_000)), color = AppColors.TextSecondary, fontSize = 12.sp, modifier = Modifier.padding(top = 6.dp))
+        }
+        FbPanel(Modifier.fillMaxWidth(), title = stringResource(R.string.fb_career)) {
+            Text(stringResource(R.string.fb_manager_line, world.managerName, FbFormat.season(world.season)), color = AppColors.TextMuted, fontSize = 13.sp)
+            Spacer(Modifier.height(8.dp))
+            if (!confirm) FbButton(stringResource(R.string.fb_quit_career), { confirm = true }, color = FbColors.Red.copy(alpha = 0.3f), textColor = FbColors.Red)
+            else Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                Text(stringResource(R.string.fb_new_career_warning), color = FbColors.Orange, fontSize = 13.sp, modifier = Modifier.weight(1f))
+                FbButton(stringResource(R.string.fb_yes), { vm.abandonCareer() }, color = FbColors.Red, textColor = Color.Black)
+                FbButton(stringResource(R.string.fb_no), { confirm = false }, color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
             }
         }
     }

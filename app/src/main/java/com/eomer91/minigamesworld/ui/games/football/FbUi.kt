@@ -77,17 +77,29 @@ object FbColors {
 
 // ====================================================================== bicimler
 
+/** Gosterim para birimleri (oyun ici her sey Euro; sabit kurla cevrilir). */
+enum class FbCurrency(val code: String, val symbol: String, val rate: Double, val prefix: Boolean = true) {
+    EUR("EUR", "€", 1.0), USD("USD", "$", 1.08), GBP("GBP", "£", 0.85), TRY("TRY", "₺", 45.0), JPY("JPY", "¥", 165.0),
+    RUB("RUB", "₽", 100.0, false), CHF("CHF", "CHF ", 0.95), DKK("DKK", " kr", 7.46, false), HUF("HUF", " Ft", 400.0, false),
+}
+
 object FbFormat {
-    fun money(v: Long): String {
+    /** Secili para birimi (ViewModel dunyadan ayarlar) */
+    var currency: FbCurrency = FbCurrency.EUR
+
+    fun money(v0: Long): String {
+        val c = currency
+        val v = (v0 * c.rate)
         val a = abs(v); val s = if (v < 0) "-" else ""
-        return s + when {
-            a >= 1_000_000_000 -> "€%.2fB".format(a / 1e9)
-            a >= 10_000_000 -> "€%.0fM".format(a / 1e6)
-            a >= 1_000_000 -> "€%.1fM".format(a / 1e6)
-            a >= 10_000 -> "€%.0fK".format(a / 1e3)
-            a >= 1_000 -> "€%.1fK".format(a / 1e3)
-            else -> "€$a"
+        val n = when {
+            a >= 1e9 -> "%.2fB".format(a / 1e9)
+            a >= 1e7 -> "%.0fM".format(a / 1e6)
+            a >= 1e6 -> "%.1fM".format(a / 1e6)
+            a >= 1e4 -> "%.0fK".format(a / 1e3)
+            a >= 1e3 -> "%.1fK".format(a / 1e3)
+            else -> "%.0f".format(a)
         }
+        return s + if (c.prefix) c.symbol + n else n + c.symbol
     }
 
     fun wage(v: Int): String = money(v.toLong())

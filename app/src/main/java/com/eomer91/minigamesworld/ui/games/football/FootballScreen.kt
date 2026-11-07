@@ -59,6 +59,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.eomer91.minigamesworld.R
+import com.eomer91.minigamesworld.feedback.GameMusicEffect
 import com.eomer91.minigamesworld.ui.games.football.engine.FbCountries
 import com.eomer91.minigamesworld.ui.games.football.engine.FbWorld
 import com.eomer91.minigamesworld.ui.theme.AppColors
@@ -93,6 +94,10 @@ fun FootballScreen(onBack: () -> Unit, viewModel: FootballViewModel = hiltViewMo
             else -> if (!ui.busy) onBack()
         }
     }
+
+    // Menu muzigi; canli macta stadyum ambiyansi
+    val live = ui.phase == FbPhase.LIVE
+    GameMusicEffect(if (live) R.raw.music_football_crowd else R.raw.music_football_menu, playing = ui.phase != FbPhase.LOADING, gain = if (live) 0.9f else 0.4f)
 
     Box(Modifier.fillMaxSize().background(AppColors.Background)) {
         val world = viewModel.world

@@ -229,6 +229,8 @@ class FbWorld(
     var userLineup: IntArray? = null
     /** Reklamla gizli ozellikleri/potansiyeli acilmis oyuncular */
     val revealed: HashSet<Int> = HashSet()
+    /** Gosterim para birimi (FbCurrency sirasi; oyun ici hesaplar Euro) */
+    var currency: Int = 0
     /** Reklamla kulube para: haftalik hak sayaci (sezon*100+hafta) */
     var adBonusWeek: Int = -1
     var adBonusCount: Int = 0

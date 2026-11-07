@@ -89,6 +89,9 @@ object FbClubLife {
 
     private fun Int.sq() = (this * this).toDouble()
 
+    /** Alt liglerde tesis ve altyapi giderleri daha dusuk (yerel isci, daha kucuk tesis). */
+    fun tierCost(world: FbWorld, c: FbClub): Double = when (world.leagues.getOrNull(c.league)?.tier ?: 3) { 1 -> 1.0; 2 -> 0.45; else -> 0.25 }
+
     /** Tahmini seyirci (talep, kapasiteyle sinirli). */
     fun attendance(world: FbWorld, c: FbClub, opp: Int, kind: CompKind): Int {
         val oppRep = if (opp >= 0 && !kind.national) world.clubs[opp].reputation else 3000
@@ -270,8 +273,9 @@ object FbClubLife {
     private fun finances(world: FbWorld, c: FbClub) {
         c.book(Fin.WAGES, c.players.sumOf { val p = world.players[it]; if (p.loanFrom >= 0) p.wage.toLong() * p.loanWagePct / 100 else p.wage.toLong() })
         c.book(Fin.STAFF_WAGES, c.staff.sumOf { world.staff[it].wage.toLong() })
-        c.book(Fin.FACILITIES, upkeepWeek(c).roundToLong())
-        c.book(Fin.YOUTH, youthWeek(c).roundToLong())
+        val tf = tierCost(world, c)
+        c.book(Fin.FACILITIES, (upkeepWeek(c) * tf).roundToLong())
+        c.book(Fin.YOUTH, (youthWeek(c) * tf).roundToLong())
         c.book(Fin.SPONSOR, c.sponsorIncome / 52)
         c.book(Fin.MERCH, (merchYear(world, c) / 52).roundToLong())
         c.book(Fin.ADS, (adsYear(world, c) / 52).roundToLong())

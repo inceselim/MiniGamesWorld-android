@@ -715,4 +715,10 @@ Oyuncu kartında kısa bir video izleyerek oyuncunun kesin mevcut yeteneğini, k
     <string name="fb_n_trophy">%2$s kazananı: %1$s.</string>
     <string name="fb_n_callup">%1$s, %2$s milli takımına çağrıldı.</string>
     <string name="fb_n_graduate">%1$s altyapıdan A takıma yükseldi.</string>
+    <string name="fb_settings">Ayarlar</string>
+    <string name="fb_currency">Para birimi</string>
+    <string name="fb_currency_desc">Tutarlar seçilen para biriminde sabit kurla gösterilir (örnek: 1M avro = %1$s).</string>
+    <string name="fb_career">Kariyer</string>
+    <string name="fb_manager_line">Menajer: %1$s · sezon %2$s</string>
+    <string name="fb_quit_career">Kariyeri sil ve baştan başla</string>
 </resources>

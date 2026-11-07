@@ -15,10 +15,12 @@ import java.util.zip.GZIPOutputStream
  */
 object FbSave {
     private const val MAGIC = 0x46424D47 // "FBMG"
-    const val VERSION = 7
+    const val VERSION = 8
 
     fun write(w: FbWorld, out: OutputStream) {
-        DataOutputStream(BufferedOutputStream(GZIPOutputStream(out), 1 shl 16)).use { o ->
+        // Hizli sikistirma: telefonda kayit suresi boyuttan onemli
+        val gz = object : GZIPOutputStream(out, 1 shl 16) { init { def.setLevel(java.util.zip.Deflater.BEST_SPEED) } }
+        DataOutputStream(BufferedOutputStream(gz, 1 shl 16)).use { o ->
             o.writeInt(MAGIC); o.writeInt(VERSION)
             o.writeLong(w.seed); o.writeInt(w.season); o.writeInt(w.day); o.writeInt(w.userClub); o.writeUTF(w.managerName)
 
@@ -84,6 +86,8 @@ object FbSave {
             // v7: altyapi, gelisim, haber metni
             for (p in w.players) { o.writeBoolean(p.youth); o.writeShort(p.caStart) }
             for (n in w.market.news) o.writeUTF(n.text)
+            // v8: para birimi
+            o.writeByte(w.currency)
             val ut = w.userTactics
             o.writeBoolean(ut != null)
             if (ut != null) writeTactics(o, ut)
@@ -319,6 +323,7 @@ object FbSave {
                 for (p in w.players) { p.youth = i.readBoolean(); p.caStart = i.readShort().toInt() }
                 for (n in w.market.news) n.text = i.readUTF()
             }
+            if (version >= 8) w.currency = i.readUnsignedByte()
             if (version >= 2) {
                 if (i.readBoolean()) w.userTactics = readTactics(i)
                 if (i.readBoolean()) w.state = readState(i, version)
