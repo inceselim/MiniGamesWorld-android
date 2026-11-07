@@ -4,11 +4,14 @@ package com.eomer91.minigamesworld.ui.games.football.engine
 const val CLUB_NONE = -1
 /** Avrupa disi ulkenin kendi liginde oynayan (yonetilemeyen) oyuncu. */
 const val CLUB_ABROAD = -2
+/** Futbolu birakmis oyuncu. */
+const val CLUB_RETIRED = -3
 
 enum class Foot { RIGHT, LEFT, BOTH }
 
 class FbPlayer(
-    val id: Int,
+    /** Dunya listesindeki sira (sezon sonu sikistirmada degisebilir) */
+    var id: Int,
     var firstName: String,
     var lastName: String,
     /** FbCountries.all icindeki sira */
@@ -49,6 +52,15 @@ class FbPlayer(
     var loanFrom: Int = -1
     var caps: Int = 0
     var internationalGoals: Int = 0
+    /** Son haftalardaki oynama suresi (dakika, haftalik %25 sonumlenir) */
+    var playTime: Int = 0
+    /** Bireysel antrenman alani (TrainArea sirasi, -1 yok) */
+    var trainArea: Int = -1
+    /** Mevki antrenmani (Pos sirasi, -1 yok) */
+    var trainPos: Int = -1
+    /** Birikmis gelisim (CA birimi); 0.6'yi gecince yeteneklere islenir */
+    var devAcc: Float = 0f
+    val retired: Boolean get() = club == CLUB_RETIRED
 
     fun attr(a: Attr): Float = (attrs[a.ordinal].toInt() and 0xFF) / 10f
     fun setAttr(a: Attr, v: Float) { attrs[a.ordinal] = (v * 10f).toInt().coerceIn(10, 200).toByte(); invalidate() }
@@ -131,6 +143,34 @@ class FbClub(
     val staff: MutableList<Int> = ArrayList()
     /** Kullanicinin (veya yapay zekanin) menajer adi */
     var managerName: String = ""
+
+    // ---- Yonetim (adim 4)
+    /** Bilet fiyat seviyesi -2 (cok ucuz) .. +2 (cok pahali) */
+    var ticketLevel: Int = 0
+    /** Forma sponsoru adi ve sozlesmenin bittigi sezon */
+    var sponsorName: String = ""
+    var sponsorEnd: Int = 0
+    /** Takim antrenman odagi (TrainArea, -1 dengeli) ve yogunluk (0 hafif, 1 normal, 2 yogun) */
+    var trainArea: Int = -1
+    var intensity: Int = 1
+    /** Tesis yatirimi: Facility sirasi (-1 yok), bitis gunu (sezon gunu, sezon yili ile), maliyet */
+    var upgradeType: Int = -1
+    var upgradeSeason: Int = 0
+    var upgradeDay: Int = 0
+    /** Sezon defteri (Fin sirasinda) ve bir onceki sezon */
+    val ledger = LongArray(Fin.entries.size)
+    val lastLedger = LongArray(Fin.entries.size)
+    /** Haftalik bakiye gecmisi (bin Euro), en eski -> en yeni, en fazla 60 */
+    val balanceHistory = ArrayList<Int>()
+    /** Kombine/kapali gise sayaci (stadyum genisletme karari) */
+    var soldOut: Int = 0
+    /** Son lig sirasi (sezon sonu), 0 bilinmiyor */
+    var lastPosition: Int = 0
+
+    fun book(f: Fin, amount: Long) {
+        ledger[f.ordinal] += amount
+        balance += if (f.income) amount else -amount
+    }
 }
 
 class FbLeague(
@@ -178,6 +218,20 @@ class FbWorld(
     fun dayOfYear(): Int = (day + 181) % 365
     fun calendarYear(): Int = season + if (day + 181 >= 365) 1 else 0
     fun age(p: FbPlayer) = p.age(calendarYear(), dayOfYear())
+
+    /**
+     * Emekli oyunculari listeden cikarir ve kimlikleri yeniden numaralar (sezon sonunda, istatistikler
+     * sifirlanmisken). Donen dizi: eski id -> yeni id (-1 silindi).
+     */
+    fun compactPlayers(): IntArray {
+        val map = IntArray(players.size) { -1 }
+        val kept = ArrayList<FbPlayer>(players.size)
+        for (p in players) if (!p.retired) { map[p.id] = kept.size; p.id = kept.size; kept.add(p) }
+        players.clear(); players.addAll(kept)
+        for (c in clubs) { val l = c.players.mapNotNull { map[it].takeIf { n -> n >= 0 } }; c.players.clear(); c.players.addAll(l) }
+        formationCache.clear()
+        return map
+    }
 
     companion object {
         const val START_SEASON = 2026

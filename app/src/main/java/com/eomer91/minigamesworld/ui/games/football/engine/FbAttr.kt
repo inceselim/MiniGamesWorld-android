@@ -114,13 +114,20 @@ object PosWeights {
 
     fun of(p: Pos): Map<Attr, Float> = W.getValue(p)
 
+    private val ARR: Array<FloatArray> by lazy { Array(Pos.COUNT) { pi -> val m = of(Pos.entries[pi]); FloatArray(Attr.COUNT) { m[Attr.entries[it]] ?: 0f } } }
+    /** Agirliklar dizi olarak (eksik = 0) */
+    fun arr(p: Pos): FloatArray = ARR[p.ordinal]
+
     /** Yeteneklerden mevkideki "guc" (1..20). */
+    private val WSUM: FloatArray by lazy { FloatArray(Pos.COUNT) { arr(Pos.entries[it]).sum() } }
+    private val CA_GK: IntArray by lazy { Attr.entries.filter { it.group == AttrGroup.GOALKEEPING || it.group == AttrGroup.MENTAL || it.group == AttrGroup.PHYSICAL }.map { it.ordinal }.toIntArray() }
+    private val CA_OUT: IntArray by lazy { Attr.entries.filter { it.group != AttrGroup.GOALKEEPING }.map { it.ordinal }.toIntArray() }
+
     fun rating(attrs: ByteArray, p: Pos): Float {
-        val w = of(p)
+        val w = arr(p)
         var sum = 0f
-        var ws = 0f
-        for ((a, k) in w) { sum += (attrs[a.ordinal].toInt() and 0xFF) / 10f * k; ws += k }
-        return sum / ws
+        for (i in w.indices) { val k = w[i]; if (k != 0f) sum += (attrs[i].toInt() and 0xFF) * k }
+        return sum / 10f / WSUM[p.ordinal]
     }
 
     /**
@@ -129,9 +136,9 @@ object PosWeights {
      */
     fun currentAbility(attrs: ByteArray, best: Pos): Int {
         val main = rating(attrs, best)
-        val all = Attr.entries.filter { (best == Pos.GK) == (it.group == AttrGroup.GOALKEEPING) || it.group == AttrGroup.MENTAL || it.group == AttrGroup.PHYSICAL }
+        val all = if (best == Pos.GK) CA_GK else CA_OUT
         var avg = 0f
-        for (a in all) avg += (attrs[a.ordinal].toInt() and 0xFF) / 10f
+        for (i in all) avg += (attrs[i].toInt() and 0xFF) / 10f
         avg /= all.size
         val v = main * 0.8f + avg * 0.2f
         return (v * 10f).toInt().coerceIn(1, 200)

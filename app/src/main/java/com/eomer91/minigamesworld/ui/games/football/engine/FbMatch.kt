@@ -92,7 +92,15 @@ class MatchSide(val club: Int, val name: String, var tactics: Tactics, val home:
     var subsLeft = 5
     var goals = 0
     val stats = SideStats()
-    val active: List<MatchPlayer> get() = onPitch.filterNotNull()
+    private var activeCache: List<MatchPlayer>? = null
+    private val snapshot = arrayOfNulls<MatchPlayer>(11)
+    /** Sahadaki oyuncular (onPitch degisince yeniden kurulur) */
+    val active: List<MatchPlayer> get() {
+        var same = activeCache != null
+        if (same) for (i in 0 until 11) if (snapshot[i] !== onPitch[i]) { same = false; break }
+        if (!same) { for (i in 0 until 11) snapshot[i] = onPitch[i]; activeCache = onPitch.filterNotNull() }
+        return activeCache!!
+    }
     fun all(): List<MatchPlayer> = onPitch.filterNotNull() + used + bench
 }
 

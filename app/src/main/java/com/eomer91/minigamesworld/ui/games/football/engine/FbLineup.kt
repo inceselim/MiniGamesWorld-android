@@ -6,7 +6,7 @@ object FbLineup {
     fun slotScore(p: FbPlayer, pos: Pos): Float {
         val fam = p.fam(pos)
         val base = p.posRating(pos) * (0.55f + 0.45f * fam / 20f)
-        return base * (0.7f + 0.3f * p.condition / 100f) * (0.95f + 0.1f * p.morale / 100f)
+        return base * (0.7f + 0.3f * p.condition / 100f) * (0.95f + 0.1f * p.morale / 100f) * (0.97f + 0.06f * (p.form - 50) / 50f)
     }
 
     fun available(p: FbPlayer) = p.injuryDays <= 0 && p.suspendedMatches <= 0

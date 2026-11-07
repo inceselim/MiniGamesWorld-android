@@ -86,10 +86,11 @@ object FbEconomy {
  * Dunyayi bastan uretir: ligler, kulupler, oyuncular, personel ve Avrupa disi milli oyuncu havuzlari.
  * Ayni tohum ayni dunyayi uretir.
  */
-class FbGen(private val seed: Long) {
+class FbGen(private val seed: Long, existing: FbWorld? = null) {
     private val rnd = FbRandom(seed)
     private val countries = FbCountries.all
-    private val world = FbWorld(seed)
+    /** Var olan dunyaya (oyun icinde) yeni oyuncu/personel eklemek icin [existing] verilir. */
+    private val world = existing ?: FbWorld(seed)
     private val usedClubNames = HashSet<String>()
     private val usedPlayerNames = HashSet<String>()
 
@@ -244,9 +245,9 @@ class FbGen(private val seed: Long) {
     /**
      * Oyuncu uretir. [quality] hedef CA (yasa gore duzeltilir). [pos] null ise rastgele mevki.
      */
-    fun makePlayer(nat: Int, c: CountryDef, quality: Float, pos: Pos?, club: Int): FbPlayer {
+    fun makePlayer(nat: Int, c: CountryDef, quality: Float, pos: Pos?, club: Int, fixedAge: Int? = null, fixedCa: Int? = null, fixedPotential: Int? = null): FbPlayer {
         val p0 = pos ?: rnd.pick(SQUAD_TEMPLATE)
-        val age = randomAge()
+        val age = fixedAge ?: randomAge()
         // Yas: gencler henuz zirvede degil
         val ageAdj = when {
             age <= 18 -> -28f
@@ -256,7 +257,7 @@ class FbGen(private val seed: Long) {
             age <= 32 -> -3f
             else -> -9f
         }
-        val ca = (quality + ageAdj).roundToInt().coerceIn(25, 195)
+        val ca = fixedCa ?: (quality + ageAdj).roundToInt().coerceIn(25, 195)
         val growth = when {
             age <= 18 -> 30f + rnd.gauss() * 18f
             age <= 20 -> 20f + rnd.gauss() * 14f
@@ -264,7 +265,7 @@ class FbGen(private val seed: Long) {
             age <= 26 -> 3f + abs(rnd.gauss()) * 4f
             else -> abs(rnd.gauss()) * 2f
         }
-        val potential = (ca + max(0f, growth)).roundToInt().coerceIn(ca, 200)
+        val potential = fixedPotential?.coerceIn(ca, 200) ?: (ca + max(0f, growth)).roundToInt().coerceIn(ca, 200)
 
         val culture = rnd.weighted(c.cultures.map { it.first to it.second })
         var first: String; var last: String; var tries = 0
@@ -288,8 +289,9 @@ class FbGen(private val seed: Long) {
             Pos.ST -> 182 + rnd.gauss() * 6f
             else -> 178 + rnd.gauss() * 6f
         }.roundToInt().coerceIn(160, 204)
-        val birthYear = world.season - age
-        val p = FbPlayer(world.players.size, first, last, nat, birthYear, rnd.int(365), attrs, hidden, fam, potential, foot, height)
+        val bd = rnd.int(365)
+        val birthYear = world.calendarYear() - age - if (world.dayOfYear() < bd) 1 else 0
+        val p = FbPlayer(world.players.size, first, last, nat, birthYear, bd, attrs, hidden, fam, potential, foot, height)
         p.club = club
         val clubRep = if (club >= 0) world.clubs[club].reputation else 2000
         p.wage = FbEconomy.wage(ca, age, clubRep)

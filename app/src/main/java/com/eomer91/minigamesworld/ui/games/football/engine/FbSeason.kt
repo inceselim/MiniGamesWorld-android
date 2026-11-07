@@ -36,6 +36,7 @@ object FbSeason {
             val s = nationalSheet(world, ci, byNation)
             st.elo[ci] = 1500f + (s.strength - 10f) * 90f
         }
+        FbClubLife.init(world)
         buildSeason(world, null)
     }
 
@@ -357,6 +358,7 @@ object FbSeason {
         }
         for ((r, pairs) in best.withIndex()) for ((h, a) in pairs) st.addFixture(comp.id, si, 0, r, stage.days[r], h, a)
         stage.built = true
+        FbClubLife.onLeaguePhase(world, comp, teams)
     }
 
     /**
@@ -434,6 +436,7 @@ object FbSeason {
                 for (f in legs) { if (f.home == tie.a) { ga += f.hg; gb += f.ag } else { ga += f.ag; gb += f.hg } }
                 tie.winner = if (ga > gb) tie.a else if (gb > ga) tie.b else if (rnd.chance(0.5f)) tie.a else tie.b
             }
+            for (tie in stage.ties) FbClubLife.onTieWon(world, comp, stage, tie.winner, stage.label == StageLabel.FINAL)
         }
         stage.complete = true
         onStageComplete(world, comp, si, rnd)
@@ -663,7 +666,7 @@ object FbSeason {
 
     fun nationPools(world: FbWorld): Map<Int, List<FbPlayer>> {
         val m = HashMap<Int, ArrayList<FbPlayer>>()
-        for (p in world.players) m.getOrPut(p.nation) { ArrayList() }.add(p)
+        for (p in world.players) if (!p.retired) m.getOrPut(p.nation) { ArrayList() }.add(p)
         return m
     }
 
@@ -732,21 +735,48 @@ object FbSeason {
                 else -> { st.coefPts[ch] += mul; st.coefPts[ca] += mul }
             }
         }
+        FbClubLife.onFixture(world, f, out, comp)
         if (checkStages && f.stage >= 0) checkStage(world, comp, f.stage, rng(world, 1000 + world.day))
     }
 
     private fun dailyUpdate(world: FbWorld) {
+        val nf = Attr.NATURAL_FITNESS.ordinal
         for (p in world.players) {
             if (p.injuryDays > 0) p.injuryDays--
-            if (p.condition < 100) {
-                val rec = 4 + (p.attr(Attr.NATURAL_FITNESS) / 3.5f).toInt()
-                p.condition = min(100, p.condition + rec)
-            }
+            if (p.condition < 100) p.condition = min(100, p.condition + 4 + (p.attrs[nf].toInt() and 0xFF) / 35)
         }
         // Dizilis onbellegini kademeli tazele (her kulup ~4 haftada bir)
         val d = world.day
         val it = world.formationCache.keys.iterator()
         while (it.hasNext()) { val k = it.next(); if (Math.floorMod(k, 28) == d % 28) it.remove() }
+        FbClubLife.onDay(world)
+    }
+
+    // ================================================================== dostluk maclari
+
+    enum class FriendlyResult { OK, PAST, BUSY_US, BUSY_THEM, DECLINED }
+
+    /** Kulubun o gun (ya da bir gun once/sonra) resmi/dostluk maci var mi */
+    fun clubBusy(world: FbWorld, club: Int, day: Int): Boolean {
+        val st = world.state!!
+        for (d in day - 1..day + 1) for (id in st.byDay[d] ?: emptyList<Int>()) {
+            val f = st.fixtures[id]
+            if (!st.comps[f.comp].national && f.involves(club)) return true
+        }
+        return false
+    }
+
+    /** Dostluk maci ayarla ([home] evinde). Rakip itibari cok yuksekse reddedebilir. */
+    fun arrangeFriendly(world: FbWorld, home: Int, away: Int, day: Int): FriendlyResult {
+        val st = world.state!!
+        if (day <= world.day || day >= 364) return FriendlyResult.PAST
+        if (clubBusy(world, home, day)) return FriendlyResult.BUSY_US
+        if (clubBusy(world, away, day)) return FriendlyResult.BUSY_THEM
+        val h = world.clubs[home]; val a = world.clubs[away]
+        if (a.reputation > h.reputation * 1.6f + 1500) return FriendlyResult.DECLINED
+        val comp = st.comps.firstOrNull { it.kind == CompKind.FRIENDLY } ?: newComp(st, CompKind.FRIENDLY)
+        st.addFixture(comp.id, -1, 0, 0, day, home, away)
+        return FriendlyResult.OK
     }
 
     // ================================================================== sezon sonu
@@ -756,6 +786,7 @@ object FbSeason {
 
     private fun endSeason(world: FbWorld) {
         val st = world.state!!
+        FbClubLife.onSeasonEnd(world)
         val summary = SeasonSummary(world.season)
         // Devreden bilgiler
         val leagueOrder = HashMap<Int, IntArray>()
@@ -801,6 +832,8 @@ object FbSeason {
         world.day = 0
         world.formationCache.clear()
         for (p in world.players) { p.suspendedMatches = 0; p.condition = 100 }
+        st.stats.clear(); st.yellowAcc.clear()
+        world.compactPlayers()
         buildSeason(world, Carry(leagueOrder, cupWinner, clW, elW))
     }
 }

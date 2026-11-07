@@ -1,5 +1,7 @@
 package com.eomer91.minigamesworld.ui.games.football.engine
 
+import kotlin.math.max
+
 /** Organizasyon turleri. [national] ise takim kimlikleri ulke indeksidir. */
 enum class CompKind(val national: Boolean = false, val official: Boolean = true) {
     LEAGUE, PLAYOFF, CUP, SUPER_CUP,
@@ -126,6 +128,8 @@ class FbSeasonState(countries: Int) {
     /** Bu sezon Avrupa katsayi puanlari ve katilan kulup sayisi */
     val coefPts = FloatArray(countries)
     val coefClubs = IntArray(countries)
+    /** Ulke gelir olcegi (FbClubLife.init) */
+    val finMul = FloatArray(countries) { 1f }
 
     /** Gun -> fikstur indeksleri (kayit edilmez, yeniden kurulur) */
     var byDay: HashMap<Int, MutableList<Int>> = HashMap()
@@ -148,6 +152,39 @@ class FbSeasonState(countries: Int) {
         byDay.getOrPut(day) { ArrayList() }.add(f.id)
         byComp.getOrPut(comp) { ArrayList() }.add(f.id)
         return f
+    }
+
+    /** Kulubun [day] gununden onceki son [n] resmi kulup macinin puanlari (3/1/0), en yeni sonda. */
+    fun recentResults(club: Int, day: Int, n: Int): List<Int> {
+        val out = ArrayList<Int>()
+        var d = day
+        while (out.size < n && d >= 0) {
+            byDay[d]?.let { ids ->
+                for (id in ids) {
+                    val f = fixtures[id]
+                    if (!f.played || !f.involves(club) || !comps[f.comp].kind.official || comps[f.comp].national) continue
+                    val gf = if (f.home == club) f.hg else f.ag; val ga = if (f.home == club) f.ag else f.hg
+                    out.add(0, if (gf > ga) 3 else if (gf == ga) 1 else 0)
+                }
+            }
+            d--
+        }
+        return out.takeLast(n)
+    }
+
+    /** Tum kulupler icin son [n] resmi mac puani (son 40 gun taranir). */
+    fun recentAll(day: Int, n: Int): Map<Int, List<Int>> {
+        val m = HashMap<Int, ArrayList<Int>>()
+        for (d in max(0, day - 40)..day) {
+            val ids = byDay[d] ?: continue
+            for (id in ids) {
+                val f = fixtures[id]
+                if (!f.played || comps[f.comp].national || !comps[f.comp].kind.official) continue
+                m.getOrPut(f.home) { ArrayList() }.add(if (f.hg > f.ag) 3 else if (f.hg == f.ag) 1 else 0)
+                m.getOrPut(f.away) { ArrayList() }.add(if (f.ag > f.hg) 3 else if (f.hg == f.ag) 1 else 0)
+            }
+        }
+        return m.mapValues { it.value.takeLast(n) }
     }
 
     fun countryRanking(): List<Int> = coef.indices.sortedByDescending { coef[it].sum() }

@@ -15,7 +15,7 @@ import java.util.zip.GZIPOutputStream
  */
 object FbSave {
     private const val MAGIC = 0x46424D47 // "FBMG"
-    const val VERSION = 2
+    const val VERSION = 3
 
     fun write(w: FbWorld, out: OutputStream) {
         DataOutputStream(BufferedOutputStream(GZIPOutputStream(out), 1 shl 16)).use { o ->
@@ -61,6 +61,16 @@ object FbSave {
             }
 
             // v2: taktik + sezon durumu
+            // v3: kulup yonetimi ve oyuncu antrenman alanlari
+            for (c in w.clubs) {
+                o.writeByte(c.ticketLevel + 2); o.writeUTF(c.sponsorName); o.writeShort(c.sponsorEnd)
+                o.writeByte(c.trainArea + 1); o.writeByte(c.intensity)
+                o.writeByte(c.upgradeType + 1); o.writeShort(c.upgradeSeason); o.writeShort(c.upgradeDay)
+                for (v in c.ledger) o.writeLong(v)
+                for (v in c.lastLedger) o.writeLong(v)
+                writeInts(o, c.balanceHistory); o.writeShort(c.soldOut); o.writeByte(c.lastPosition)
+            }
+            for (p in w.players) { o.writeShort(p.playTime); o.writeByte(p.trainArea + 1); o.writeByte(p.trainPos + 1); o.writeFloat(p.devAcc) }
             val ut = w.userTactics
             o.writeBoolean(ut != null)
             if (ut != null) writeTactics(o, ut)
@@ -93,6 +103,7 @@ object FbSave {
         for (v in st.elo) o.writeFloat(v)
         for (v in st.coefPts) o.writeFloat(v)
         for (v in st.coefClubs) o.writeShort(v)
+        for (v in st.finMul) o.writeFloat(v)
         o.writeInt(st.honours.size)
         for (h in st.honours) { o.writeShort(h.season); o.writeByte(h.kind.ordinal); o.writeShort(h.country); o.writeByte(h.tier); o.writeInt(h.winner); o.writeInt(h.runnerUp) }
         o.writeInt(st.comps.size)
@@ -124,13 +135,14 @@ object FbSave {
         for ((k, v) in st.yellowAcc) { o.writeInt(k); o.writeShort(v) }
     }
 
-    private fun readState(i: DataInputStream): FbSeasonState {
+    private fun readState(i: DataInputStream, stateVersion: Int): FbSeasonState {
         val n = i.readInt()
         val st = FbSeasonState(n)
         for (row in st.coef) for (k in row.indices) row[k] = i.readFloat()
         for (k in 0 until n) st.elo[k] = i.readFloat()
         for (k in 0 until n) st.coefPts[k] = i.readFloat()
         for (k in 0 until n) st.coefClubs[k] = i.readShort().toInt()
+        if (stateVersion >= 3) for (k in 0 until n) st.finMul[k] = i.readFloat()
         repeat(i.readInt()) {
             st.honours.add(FbHonour(i.readShort().toInt(), CompKind.entries[i.readUnsignedByte()], i.readShort().toInt(), i.readUnsignedByte(), i.readInt(), i.readInt()))
         }
@@ -219,9 +231,20 @@ object FbSave {
                 s.club = i.readInt(); s.wage = i.readInt(); s.contractEnd = i.readShort().toInt(); s.reputation = i.readUnsignedShort()
                 w.staff.add(s)
             }
+            if (version >= 3) {
+                for (c in w.clubs) {
+                    c.ticketLevel = i.readUnsignedByte() - 2; c.sponsorName = i.readUTF(); c.sponsorEnd = i.readShort().toInt()
+                    c.trainArea = i.readUnsignedByte() - 1; c.intensity = i.readUnsignedByte()
+                    c.upgradeType = i.readUnsignedByte() - 1; c.upgradeSeason = i.readShort().toInt(); c.upgradeDay = i.readShort().toInt()
+                    for (k in c.ledger.indices) c.ledger[k] = i.readLong()
+                    for (k in c.lastLedger.indices) c.lastLedger[k] = i.readLong()
+                    c.balanceHistory.addAll(readInts(i)); c.soldOut = i.readShort().toInt(); c.lastPosition = i.readUnsignedByte()
+                }
+                for (p in w.players) { p.playTime = i.readShort().toInt(); p.trainArea = i.readUnsignedByte() - 1; p.trainPos = i.readUnsignedByte() - 1; p.devAcc = i.readFloat() }
+            }
             if (version >= 2) {
                 if (i.readBoolean()) w.userTactics = readTactics(i)
-                if (i.readBoolean()) w.state = readState(i)
+                if (i.readBoolean()) w.state = readState(i, version)
             }
             for (p in w.players) p.invalidate()
             return w
