@@ -51,13 +51,25 @@ class FbPlayer(
     var internationalGoals: Int = 0
 
     fun attr(a: Attr): Float = (attrs[a.ordinal].toInt() and 0xFF) / 10f
-    fun setAttr(a: Attr, v: Float) { attrs[a.ordinal] = (v * 10f).toInt().coerceIn(10, 200).toByte() }
+    fun setAttr(a: Attr, v: Float) { attrs[a.ordinal] = (v * 10f).toInt().coerceIn(10, 200).toByte(); invalidate() }
+
+    // Hesap onbellegi: yetenek veya mevki yatkinligi degisince invalidate() cagrilmali
+    private var cBest: Pos? = null
+    private var cCa = -1
+    private var cRating: FloatArray? = null
+    fun invalidate() { cBest = null; cCa = -1; cRating = null }
+
+    /** Mevkideki yetenek puani (1..20 olcegi, onbellekli) */
+    fun posRating(p: Pos): Float {
+        val r = cRating ?: FloatArray(Pos.COUNT) { PosWeights.rating(attrs, Pos.entries[it]) }.also { cRating = it }
+        return r[p.ordinal]
+    }
     fun hidden(h: Hidden): Int = hidden[h.ordinal].toInt()
     fun fam(p: Pos): Int = posFam[p.ordinal].toInt()
 
     /** En yatkin mevki */
-    fun bestPos(): Pos = Pos.entries.maxBy { posFam[it.ordinal].toInt() * 100 + (PosWeights.rating(attrs, it) * 2).toInt() }
-    fun currentAbility(): Int = PosWeights.currentAbility(attrs, bestPos())
+    fun bestPos(): Pos = cBest ?: Pos.entries.maxBy { posFam[it.ordinal].toInt() * 100 + (posRating(it) * 2).toInt() }.also { cBest = it }
+    fun currentAbility(): Int { if (cCa < 0) cCa = PosWeights.currentAbility(attrs, bestPos()); return cCa }
     fun age(currentYear: Int, dayOfYear: Int): Int = currentYear - birthYear - if (dayOfYear < birthDay) 1 else 0
     val fullName: String get() = "$firstName $lastName"
 }
@@ -149,6 +161,13 @@ class FbWorld(
     val clubs: ArrayList<FbClub> = ArrayList()
     val leagues: ArrayList<FbLeague> = ArrayList()
     val staff: ArrayList<FbStaff> = ArrayList()
+
+    /** Sezon/takvim durumu (FbSeason.start ile kurulur) */
+    var state: FbSeasonState? = null
+    /** Kullanicinin kayitli taktigi (yoksa yapay zeka secer) */
+    var userTactics: Tactics? = null
+    /** Takim -> dizilis onbellegi (kaydedilmez) */
+    val formationCache: HashMap<Int, Formation> = HashMap()
 
     /** Ulke indeksi -> lig kademeleri (sirali lig id) */
     fun leaguesOf(country: Int): List<FbLeague> = leagues.filter { it.country == country }.sortedBy { it.tier }

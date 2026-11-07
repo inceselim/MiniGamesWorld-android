@@ -139,6 +139,7 @@ class FbGen(private val seed: Long) {
             val p = makePlayer(ci, countries[ci], 70f + rnd.gauss() * 18f, null, CLUB_NONE)
             p.contractEnd = world.season - 1
         }
+        for (p in world.players) p.invalidate()
         return world
     }
 

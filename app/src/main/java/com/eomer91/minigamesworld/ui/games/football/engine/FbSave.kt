@@ -15,7 +15,7 @@ import java.util.zip.GZIPOutputStream
  */
 object FbSave {
     private const val MAGIC = 0x46424D47 // "FBMG"
-    const val VERSION = 1
+    const val VERSION = 2
 
     fun write(w: FbWorld, out: OutputStream) {
         DataOutputStream(BufferedOutputStream(GZIPOutputStream(out), 1 shl 16)).use { o ->
@@ -59,8 +59,113 @@ object FbSave {
                 o.writeByte(s.role.ordinal); o.write(s.attrs)
                 o.writeInt(s.club); o.writeInt(s.wage); o.writeShort(s.contractEnd); o.writeShort(s.reputation)
             }
+
+            // v2: taktik + sezon durumu
+            val ut = w.userTactics
+            o.writeBoolean(ut != null)
+            if (ut != null) writeTactics(o, ut)
+            val st = w.state
+            o.writeBoolean(st != null)
+            if (st != null) writeState(o, st)
         }
     }
+
+    private fun writeTactics(o: DataOutputStream, t: Tactics) {
+        o.writeByte(t.formation.ordinal); o.writeByte(t.mentality.ordinal); o.writeByte(t.passing.ordinal); o.writeByte(t.tempo.ordinal)
+        o.writeByte(t.width.ordinal); o.writeByte(t.pressing.ordinal); o.writeByte(t.defLine.ordinal); o.writeByte(t.marking.ordinal)
+        o.writeByte(t.focus.ordinal)
+        o.writeByte((if (t.counter) 1 else 0) or (if (t.offsideTrap) 2 else 0) or (if (t.timeWasting) 4 else 0) or (if (t.hardTackling) 8 else 0))
+    }
+
+    private fun readTactics(i: DataInputStream): Tactics {
+        val f = Formation.entries[i.readUnsignedByte()]; val m = Mentality.entries[i.readUnsignedByte()]
+        val p = PassingStyle.entries[i.readUnsignedByte()]; val te = Tempo.entries[i.readUnsignedByte()]
+        val wi = Width.entries[i.readUnsignedByte()]; val pr = Pressing.entries[i.readUnsignedByte()]
+        val dl = DefLine.entries[i.readUnsignedByte()]; val mk = Marking.entries[i.readUnsignedByte()]
+        val fo = AttackFocus.entries[i.readUnsignedByte()]; val fl = i.readUnsignedByte()
+        return Tactics(formation = f, mentality = m, passing = p, tempo = te, width = wi, pressing = pr, defLine = dl, marking = mk, focus = fo,
+            counter = fl and 1 != 0, offsideTrap = fl and 2 != 0, timeWasting = fl and 4 != 0, hardTackling = fl and 8 != 0)
+    }
+
+    private fun writeState(o: DataOutputStream, st: FbSeasonState) {
+        o.writeInt(st.coef.size)
+        for (row in st.coef) for (v in row) o.writeFloat(v)
+        for (v in st.elo) o.writeFloat(v)
+        for (v in st.coefPts) o.writeFloat(v)
+        for (v in st.coefClubs) o.writeShort(v)
+        o.writeInt(st.honours.size)
+        for (h in st.honours) { o.writeShort(h.season); o.writeByte(h.kind.ordinal); o.writeShort(h.country); o.writeByte(h.tier); o.writeInt(h.winner); o.writeInt(h.runnerUp) }
+        o.writeInt(st.comps.size)
+        for (c in st.comps) {
+            o.writeByte(c.kind.ordinal); o.writeShort(c.country); o.writeShort(c.league); o.writeByte(c.confed)
+            o.writeInt(c.winner); o.writeInt(c.runnerUp); o.writeBoolean(c.done)
+            o.writeByte(c.stages.size)
+            for (s in c.stages) {
+                o.writeByte(s.type.ordinal); o.writeByte(s.label.ordinal); o.writeByte(s.legs)
+                writeArr(o, s.days)
+                o.writeShort(s.groups.size); for (g in s.groups) writeArr(o, g)
+                o.writeShort(s.ties.size); for (t in s.ties) { o.writeInt(t.a); o.writeInt(t.b); o.writeInt(t.winner) }
+                writeArr(o, s.byes); writeInts(o, s.extra)
+                o.writeBoolean(s.built); o.writeBoolean(s.complete); o.writeShort(s.target); o.writeShort(s.losersTo)
+            }
+        }
+        o.writeInt(st.fixtures.size)
+        for (f in st.fixtures) {
+            o.writeShort(f.comp); o.writeByte(f.stage); o.writeShort(f.group); o.writeByte(f.round); o.writeShort(f.day)
+            o.writeInt(f.home); o.writeInt(f.away); o.writeByte(f.leg)
+            o.writeByte(f.hg); o.writeByte(f.ag); o.writeByte(f.ph); o.writeByte(f.pa); o.writeBoolean(f.extraTime)
+        }
+        o.writeInt(st.stats.size)
+        for ((k, s) in st.stats) {
+            o.writeLong(k); o.writeShort(s.apps); o.writeShort(s.subs); o.writeShort(s.goals); o.writeShort(s.assists)
+            o.writeInt(s.ratingSum); o.writeShort(s.yellows); o.writeShort(s.reds); o.writeShort(s.motm)
+        }
+        o.writeInt(st.yellowAcc.size)
+        for ((k, v) in st.yellowAcc) { o.writeInt(k); o.writeShort(v) }
+    }
+
+    private fun readState(i: DataInputStream): FbSeasonState {
+        val n = i.readInt()
+        val st = FbSeasonState(n)
+        for (row in st.coef) for (k in row.indices) row[k] = i.readFloat()
+        for (k in 0 until n) st.elo[k] = i.readFloat()
+        for (k in 0 until n) st.coefPts[k] = i.readFloat()
+        for (k in 0 until n) st.coefClubs[k] = i.readShort().toInt()
+        repeat(i.readInt()) {
+            st.honours.add(FbHonour(i.readShort().toInt(), CompKind.entries[i.readUnsignedByte()], i.readShort().toInt(), i.readUnsignedByte(), i.readInt(), i.readInt()))
+        }
+        repeat(i.readInt()) { id ->
+            val c = FbComp(id, CompKind.entries[i.readUnsignedByte()], i.readShort().toInt(), i.readShort().toInt(), i.readByte().toInt())
+            c.winner = i.readInt(); c.runnerUp = i.readInt(); c.done = i.readBoolean()
+            repeat(i.readUnsignedByte()) {
+                val s = FbStage(StageType.entries[i.readUnsignedByte()], StageLabel.entries[i.readUnsignedByte()], i.readUnsignedByte(), readArr(i))
+                repeat(i.readShort().toInt()) { s.groups.add(readArr(i)) }
+                repeat(i.readShort().toInt()) { val t = FbTie(i.readInt(), i.readInt()); t.winner = i.readInt(); s.ties.add(t) }
+                s.byes = readArr(i); s.extra.addAll(readInts(i))
+                s.built = i.readBoolean(); s.complete = i.readBoolean(); s.target = i.readShort().toInt(); s.losersTo = i.readShort().toInt()
+                c.stages.add(s)
+            }
+            st.comps.add(c)
+        }
+        repeat(i.readInt()) { id ->
+            val f = FbFixture(id, i.readShort().toInt(), i.readByte().toInt(), i.readShort().toInt(), i.readUnsignedByte(), i.readShort().toInt(), i.readInt(), i.readInt())
+            f.leg = i.readByte().toInt(); f.hg = i.readByte().toInt(); f.ag = i.readByte().toInt(); f.ph = i.readByte().toInt(); f.pa = i.readByte().toInt()
+            f.extraTime = i.readBoolean()
+            st.fixtures.add(f)
+        }
+        repeat(i.readInt()) {
+            val k = i.readLong(); val s = PlayerCompStats()
+            s.apps = i.readShort().toInt(); s.subs = i.readShort().toInt(); s.goals = i.readShort().toInt(); s.assists = i.readShort().toInt()
+            s.ratingSum = i.readInt(); s.yellows = i.readShort().toInt(); s.reds = i.readShort().toInt(); s.motm = i.readShort().toInt()
+            st.stats[k] = s
+        }
+        repeat(i.readInt()) { st.yellowAcc[i.readInt()] = i.readShort().toInt() }
+        st.indexDays()
+        return st
+    }
+
+    private fun writeArr(o: DataOutputStream, a: IntArray) { o.writeShort(a.size); for (v in a) o.writeInt(v) }
+    private fun readArr(i: DataInputStream): IntArray = IntArray(i.readShort().toInt()) { i.readInt() }
 
     fun read(input: InputStream): FbWorld {
         DataInputStream(BufferedInputStream(GZIPInputStream(input), 1 shl 16)).use { i ->
@@ -114,6 +219,11 @@ object FbSave {
                 s.club = i.readInt(); s.wage = i.readInt(); s.contractEnd = i.readShort().toInt(); s.reputation = i.readUnsignedShort()
                 w.staff.add(s)
             }
+            if (version >= 2) {
+                if (i.readBoolean()) w.userTactics = readTactics(i)
+                if (i.readBoolean()) w.state = readState(i)
+            }
+            for (p in w.players) p.invalidate()
             return w
         }
     }

@@ -690,7 +690,7 @@ class MatchSim(
             side.active.filter { it.pos != Pos.GK }.minByOrNull { it.condition }?.takeIf { it.condition < 68f || (lastMinuteTick > 75 && it.rating < 6.2f) } ?: return
         }
         val best = side.bench.filter { !it.injured && (out.pos == Pos.GK) == (it.p.bestPos() == Pos.GK) }
-            .maxByOrNull { PosWeights.rating(it.p.attrs, out.pos) * (0.6f + 0.4f * it.p.fam(out.pos) / 20f) } ?: return
+            .maxByOrNull { it.p.posRating(out.pos) * (0.6f + 0.4f * it.p.fam(out.pos) / 20f) } ?: return
         substitute(s, out, best)
     }
 
