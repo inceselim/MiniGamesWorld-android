@@ -30,6 +30,29 @@ object FbLineup {
         return xi to bench
     }
 
+    /**
+     * Kullanicinin sectigi ilk 11 ([fixed] dizilis sirasinda oyuncu id, -1 bos). Uygun olmayan/bos yerler
+     * kalan oyunculardan otomatik doldurulur; yedekler otomatik.
+     */
+    fun pickWith(players: List<FbPlayer>, formation: Formation, fixed: IntArray): Pair<List<FbPlayer>, List<FbPlayer>> {
+        val pool = players.filter { available(it) }.toMutableList()
+        val chosen = arrayOfNulls<FbPlayer>(11)
+        for (i in 0 until minOf(11, fixed.size)) {
+            val p = pool.firstOrNull { it.id == fixed[i] } ?: continue
+            chosen[i] = p; pool.remove(p)
+        }
+        val order = formation.slots.indices.sortedBy { i -> when (formation.slots[i].pos) { Pos.GK -> 0; Pos.DC -> 1; Pos.ST -> 2; Pos.DM -> 3; else -> 4 } }
+        for (i in order) {
+            if (chosen[i] != null) continue
+            val best = pool.maxByOrNull { slotScore(it, formation.slots[i].pos) } ?: continue
+            chosen[i] = best; pool.remove(best)
+        }
+        val bench = ArrayList<FbPlayer>()
+        pool.filter { it.bestPos() == Pos.GK }.maxByOrNull { it.currentAbility() }?.let { bench.add(it); pool.remove(it) }
+        bench.addAll(pool.sortedByDescending { it.currentAbility() * (0.7f + 0.3f * it.condition / 100f) }.take(9 - bench.size))
+        return chosen.filterNotNull() to bench
+    }
+
     /** Kadroya en uygun dizilis: toplam slot gucu en yuksek olan. */
     fun bestFormation(players: List<FbPlayer>): Formation =
         Formation.entries.maxBy { f -> pick(players, f).first.withIndex().sumOf { (i, p) -> slotScore(p, f.slots[i].pos).toDouble() } }

@@ -221,6 +221,8 @@ class FbWorld(
     var userTactics: Tactics? = null
     /** Transfer pazari, takip listesi, haber kutusu */
     val market: FbMarket = FbMarket()
+    /** Kullanicinin elle kurdugu ilk 11 (dizilis sirasinda oyuncu id, -1 bos); null = otomatik */
+    var userLineup: IntArray? = null
     /** Reklamla gizli ozellikleri/potansiyeli acilmis oyuncular */
     val revealed: HashSet<Int> = HashSet()
     /** Reklamla kulube para: haftalik hak sayaci (sezon*100+hafta) */

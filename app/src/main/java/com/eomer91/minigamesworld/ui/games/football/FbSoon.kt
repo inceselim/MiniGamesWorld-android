@@ -12,15 +12,11 @@ import com.eomer91.minigamesworld.R
 import com.eomer91.minigamesworld.ui.games.football.engine.FbWorld
 import com.eomer91.minigamesworld.ui.theme.AppColors
 
-// Adim 6b/6c'de dolacak ekranlar (gecici).
+// Adim 6c'de dolacak ekranlar (gecici).
 
 @Composable private fun Soon() = Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
     Text(stringResource(R.string.fb_soon), color = AppColors.TextSecondary, fontSize = 16.sp)
 }
 
-@Composable fun FbTactics(world: FbWorld, ui: FbUiState, vm: FootballViewModel) = Soon()
-@Composable fun FbFixtures(world: FbWorld, ui: FbUiState, vm: FootballViewModel) = Soon()
-@Composable fun FbCompetitions(world: FbWorld, ui: FbUiState, vm: FootballViewModel) = Soon()
 @Composable fun FbTransfers(world: FbWorld, ui: FbUiState, vm: FootballViewModel) = Soon()
 @Composable fun FbClubScreen(world: FbWorld, ui: FbUiState, vm: FootballViewModel) = Soon()
-@Composable fun FbGuide() = Soon()

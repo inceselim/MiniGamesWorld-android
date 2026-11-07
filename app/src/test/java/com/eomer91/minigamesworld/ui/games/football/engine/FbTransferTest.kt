@@ -148,6 +148,13 @@ class FbTransferTest {
         assertEquals(0, FbClubLife.adBonusLeft(w))
         assertEquals(0L, FbClubLife.claimAdBonus(w))
         FbTransfer.makeOffer(w, me.id, t.id, 1_000)
+        // Elle ilk 11: en zayif oyuncuyu kaleye koy, sheet onu kullanmali
+        val weakest = me.players.map { w.players[it] }.filter { FbLineup.available(it) }.minBy { it.currentAbility() }
+        val auto = FbSeason.clubSheet(w, me.id).xi.map { it.id }.toMutableList()
+        if (weakest.id in auto) auto[auto.indexOf(weakest.id)] = auto[0]
+        auto[0] = weakest.id
+        w.userLineup = auto.toIntArray()
+        assertEquals(weakest.id, FbSeason.clubSheet(w, me.id).xi[0].id)
         repeat(3) { day(w) }
         val bytes = ByteArrayOutputStream().also { FbSave.write(w, it) }.toByteArray()
         val w2 = FbSave.read(ByteArrayInputStream(bytes))
@@ -156,6 +163,7 @@ class FbTransferTest {
         assertEquals(w.market.shortlist, w2.market.shortlist)
         assertEquals(w.market.history.size, w2.market.history.size)
         assertEquals(w.revealed, w2.revealed)
+        assertEquals(w.userLineup?.toList(), w2.userLineup?.toList())
         assertEquals(w.adBonusCount, w2.adBonusCount)
         // Pencere disinda teklif verilemez
         while (w.day <= cal.summerWindowEnd) day(w)

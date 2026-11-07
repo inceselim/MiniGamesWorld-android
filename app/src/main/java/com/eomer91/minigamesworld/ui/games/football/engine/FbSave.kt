@@ -15,7 +15,7 @@ import java.util.zip.GZIPOutputStream
  */
 object FbSave {
     private const val MAGIC = 0x46424D47 // "FBMG"
-    const val VERSION = 5
+    const val VERSION = 6
 
     fun write(w: FbWorld, out: OutputStream) {
         DataOutputStream(BufferedOutputStream(GZIPOutputStream(out), 1 shl 16)).use { o ->
@@ -79,6 +79,8 @@ object FbSave {
             writeMarket(o, w.market)
             // v5: reklam ile acilanlar
             writeInts(o, w.revealed.toList()); o.writeInt(w.adBonusWeek); o.writeByte(w.adBonusCount)
+            // v6: elle kurulan ilk 11
+            writeInts(o, w.userLineup?.toList() ?: emptyList())
             val ut = w.userTactics
             o.writeBoolean(ut != null)
             if (ut != null) writeTactics(o, ut)
@@ -309,6 +311,7 @@ object FbSave {
                 readMarket(i, w.market)
             }
             if (version >= 5) { w.revealed.addAll(readInts(i)); w.adBonusWeek = i.readInt(); w.adBonusCount = i.readUnsignedByte() }
+            if (version >= 6) w.userLineup = readInts(i).takeIf { it.size == 11 }?.toIntArray()
             if (version >= 2) {
                 if (i.readBoolean()) w.userTactics = readTactics(i)
                 if (i.readBoolean()) w.state = readState(i, version)

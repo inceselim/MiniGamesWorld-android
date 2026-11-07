@@ -660,7 +660,8 @@ object FbSeason {
         val players = world.clubPlayers(club)
         val formation = if (club == world.userClub && world.userTactics != null) world.userTactics!!.formation
         else world.formationCache.getOrPut(club) { FbLineup.bestFormation(players) }
-        val (xi, bench) = FbLineup.pick(players, formation)
+        val fixed = world.userLineup
+        val (xi, bench) = if (club == world.userClub && fixed != null) FbLineup.pickWith(players, formation, fixed) else FbLineup.pick(players, formation)
         return TeamSheet(club, formation, xi, bench)
     }
 

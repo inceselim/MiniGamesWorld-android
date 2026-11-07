@@ -823,6 +823,7 @@ object FbTransfer {
         }
         m.offers.clear(); m.offers.addAll(offers)
         m.auctions.removeAll { true }
+        world.userLineup = world.userLineup?.map { r(it) }?.toIntArray()
         val rv = world.revealed.map { r(it) }.filter { it >= 0 }
         world.revealed.clear(); world.revealed.addAll(rv)
         val sl = m.shortlist.map { r(it) }.filter { it >= 0 }

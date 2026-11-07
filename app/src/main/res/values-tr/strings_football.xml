@@ -149,7 +149,7 @@
     <string name="fb_asking_price">İstenen bedel: %1$s</string>
     <string name="fb_not_interested">Oyuncu kulübünle ilgilenmiyor</string>
     <string name="fb_make_offer">Teklif yap</string>
-    <string name="fb_request_loan">Kiralık iste (maaşın %70\'i)</string>
+    <string name="fb_request_loan" formatted="false">Kiralık iste (maaşın %70\'i)</string>
     <string name="fb_offer_sent">Teklif gönderildi. Cevap yarın.</string>
     <string name="fb_err_window">Transfer dönemi kapalı</string>
     <string name="fb_err_duplicate">Bu oyuncuya zaten teklifin var</string>
@@ -273,4 +273,184 @@
     <string name="fb_h_adaptability">Uyum</string>
     <string name="fb_h_pressure">Baskıya dayanma</string>
     <string name="fb_h_versatility">Çok yönlülük</string>
+    <string name="fb_all">Tümü</string>
+    <string name="fb_cups">Kupalar</string>
+    <string name="fb_europe">Avrupa</string>
+    <string name="fb_national_teams">Milli takımlar</string>
+    <string name="fb_no_competitions">Organizasyon yok</string>
+    <string name="fb_not_started">Henüz başlamadı</string>
+    <string name="fb_winner">Kazanan: %1$s</string>
+    <string name="fb_group_n">%1$s Grubu</string>
+    <string name="fb_byes">%1$d takım bu turu atladı</string>
+    <string name="fb_top_scorers">Gol krallığı</string>
+    <string name="fb_lineup">Diziliş</string>
+    <string name="fb_instructions">Talimatlar</string>
+    <string name="fb_team_training">Antrenman</string>
+    <string name="fb_auto_pick">Otomatik kur</string>
+    <string name="fb_best_formation">En uygun diziliş</string>
+    <string name="fb_team_strength">Takım gücü</string>
+    <string name="fb_pick_for">%1$s için oyuncu seç</string>
+    <string name="fb_tap_position">Sahadan bir mevkiye dokun</string>
+    <string name="fb_starting">İlk 11</string>
+    <string name="fb_bench">Yedek</string>
+    <string name="fb_suspended">Cezalı</string>
+    <string name="fb_on">Açık</string>
+    <string name="fb_off">Kapalı</string>
+    <string name="fb_open_guide">Taktik rehberini aç</string>
+    <string name="fb_tac_mentality">Oyun anlayışı</string>
+    <string name="fb_tac_passing">Pas tarzı</string>
+    <string name="fb_tac_tempo">Tempo</string>
+    <string name="fb_tac_width">Genişlik</string>
+    <string name="fb_tac_focus">Hücum yönü</string>
+    <string name="fb_tac_pressing">Pres</string>
+    <string name="fb_tac_defline">Savunma hattı</string>
+    <string name="fb_tac_marking">Markaj</string>
+    <string name="fb_tac_counter">Kontra atak</string>
+    <string name="fb_tac_offside">Ofsayt taktiği</string>
+    <string name="fb_tac_time_wasting">Süre geçirme</string>
+    <string name="fb_tac_hard_tackling">Sert müdahale</string>
+    <string name="fb_o_very_defensive">Çok defansif</string>
+    <string name="fb_o_defensive">Defansif</string>
+    <string name="fb_o_balanced">Dengeli</string>
+    <string name="fb_o_attacking">Hücumcu</string>
+    <string name="fb_o_very_attacking">Tam hücum</string>
+    <string name="fb_o_short">Kısa</string>
+    <string name="fb_o_mixed">Karışık</string>
+    <string name="fb_o_direct">Uzun / direkt</string>
+    <string name="fb_o_slow">Yavaş</string>
+    <string name="fb_o_normal">Normal</string>
+    <string name="fb_o_fast">Hızlı</string>
+    <string name="fb_o_narrow">Dar</string>
+    <string name="fb_o_wide">Geniş</string>
+    <string name="fb_o_center">Ortadan</string>
+    <string name="fb_o_flanks">Kanatlardan</string>
+    <string name="fb_o_low">Düşük</string>
+    <string name="fb_o_medium">Orta</string>
+    <string name="fb_o_high">Yüksek</string>
+    <string name="fb_o_deep">Derin</string>
+    <string name="fb_o_zonal">Alan savunması</string>
+    <string name="fb_o_man">Adam adama</string>
+    <string name="fb_o_light">Hafif</string>
+    <string name="fb_o_intense">Yoğun</string>
+    <string name="fb_tip_mentality">Hücumcu oldukça daha çok şut ve gol, ama savunmanın arkasında daha çok boşluk.</string>
+    <string name="fb_tip_passing">Kısa pas topu tutar, daha güvenlidir; direkt oyun ceza sahasına hızlı ulaşır ama risklidir.</string>
+    <string name="fb_tip_tempo">Hızlı tempo pozisyonu çabuk üretir ama hata ve yorgunluğu artırır.</string>
+    <string name="fb_tip_width">Geniş oyun daha çok orta getirir; dar oyun merkezi kalabalıklaştırır.</string>
+    <string name="fb_tip_focus">Ortadan = ara pası (vizyon, pas); kanatlardan = orta (orta, kafa).</string>
+    <string name="fb_tip_pressing">Yüksek pres topu ileride kazanır ama oyuncuları yorar.</string>
+    <string name="fb_tip_defline">Yüksek hat orta sahayı daraltır ama arkaya atılan toplara açıktır.</string>
+    <string name="fb_tip_marking">Adam adama markaj forvetleri kilitler; iyi koşu yapanlar kurtulabilir.</string>
+    <string name="fb_tip_counter">Topu kendi yarı sahanda kazanınca hızla çık.</string>
+    <string name="fb_tip_offside">Koşuları daha sık ofsayta düşürür; uyumlu savunma ister.</string>
+    <string name="fb_tip_time_wasting">60. dakikadan sonra öndeyken takım oyunu yavaşlatır.</string>
+    <string name="fb_tip_hard_tackling">Daha çok ikili mücadele kazanır ama faul, kart ve penaltı artar.</string>
+    <string name="fb_training_focus">Antrenman odağı</string>
+    <string name="fb_training_intensity">Yoğunluk</string>
+    <string name="fb_coaching_quality">Antrenör kalitesi</string>
+    <string name="fb_f_training">Antrenman tesisleri</string>
+    <string name="fb_f_youth">Altyapı tesisleri</string>
+    <string name="fb_youth_coaching">Altyapı antrenörlüğü</string>
+    <string name="fb_physio">Fizyoterapi</string>
+    <string name="fb_tip_training_focus" formatted="false">Seçilen alandaki özellikler tüm kadroda yaklaşık %50 daha hızlı gelişir.</string>
+    <string name="fb_tip_intensity" formatted="false">Hafif: gelişim yavaş, sakatlık az, kondisyon yüksek. Yoğun: gelişim %15 fazla, antrenman sakatlığı neredeyse iki kat, kondisyon düşük.</string>
+    <string name="fb_tip_coaches">İyi antrenör ve tesis gelişimi hızlandırır. Antrenörleri Kulüp bölümünden işe alabilirsin.</string>
+    <string name="fb_gt_basics">Başlarken</string>
+    <string name="fb_gt_formations">Diziliş ve ilk 11</string>
+    <string name="fb_gt_training">Antrenman ve gelişim</string>
+    <string name="fb_gt_coaches">Antrenörler ve personel</string>
+    <string name="fb_gt_morale">Moral ve form</string>
+    <string name="fb_gt_youth">Altyapı</string>
+    <string name="fb_gt_finance">Finans</string>
+    <string name="fb_gt_transfers">Transferler</string>
+    <string name="fb_gt_contracts">Sözleşmeler</string>
+    <string name="fb_gt_competitions">Organizasyonlar</string>
+    <string name="fb_gt_hidden">Gizli özellikler ve potansiyel</string>
+    <string name="fb_gb_basics">Kulübün patronu sensin: takımı ve taktiği seçer, oyuncu alıp satar, antrenmanı belirler, tesis yapar ve parayı yönetirsin.
+
+Takvimde ilerlemek için Devam\'a bas. Oyun maç günlerinde ve senin kararın gereken olaylarda (teklifler, sözleşmeler, altyapı alımı) durur.
+
+Maç günü maça çıkabilir ya da hızlı sonuç alabilirsin. Her şey otomatik kaydedilir.</string>
+    <string name="fb_gb_mentality" formatted="false">Oyun anlayışı takımın ne kadar risk alacağını belirler.
+
+• Çok defansif / defansif: hücuma daha az oyuncu çıkar, iki takımın da şutu azalır. Skoru korurken ya da çok güçlü rakibe karşı iyidir.
+• Dengeli: varsayılan ayar.
+• Hücumcu / tam hücum: daha çok şut ve gol, ama rakip daha çok boşluk bulur. Testlerde güçlü bir takım %18 kadar fazla gol attı ama daha çok da yedi.
+
+Rakip öne yüklenirken defansif anlayışı kontra atakla birleştirmek çok etkilidir.</string>
+    <string name="fb_gb_passing" formatted="false">• Kısa: çok sayıda güvenli pas, yüksek topa sahip olma (%60+), daha az ama temiz atak. İyi pas ve ilk dokunuş ister.
+• Karışık: dengeli.
+• Uzun / direkt: forvetlere uzun toplar. Topa sahip olma %40 civarına düşer, top ceza sahasına hızlı ulaşır, maç daha açık geçer. Uzun boylu, güçlü forvet ve iyi uzun pasçılarla işe yarar.</string>
+    <string name="fb_gb_tempo">Hızlı tempo topu çabuk taşır: daha çok pozisyon ve şut, ama daha çok pas hatası ve yorgunluk.
+
+Yavaş tempo topu tutar ve oyunu kontrol eder; kısa pasa ve skoru korumaya uygundur.</string>
+    <string name="fb_gb_width">Geniş: kanat oyuncuları çizgiye açılır, daha çok orta gelir. İyi ortacılar ve ceza sahasında güçlü kafa vuruşçuları ister.
+
+Dar: takım merkezden oynar ve derli toplu kalır; oyun kurucu ve ara pasıyla iyi gider.</string>
+    <string name="fb_gb_focus">Ortadan: daha çok ara pası. Başarı, pasçılarının vizyon ve pasının rakip savunmanın markajına karşı gücüne ve forvetlerinin hızına bağlıdır. Kaleciyle karşı karşıya pozisyon futbolun en net fırsatıdır.
+
+Kanatlardan: daha çok orta. Hedef forvet stoperi havada geçerse orta kafa pozisyonuna dönüşür.</string>
+    <string name="fb_gb_pressing">Yüksek pres topu rakip yarı sahada kovalar. Soğukkanlılığı düşük oyunculara karşı en iyi sonucu verir ve topu kaleye yakın kazanır, ama oyuncuların kondisyonu maç içinde daha hızlı düşer.
+
+Düşük pres enerji kazandırır ve düzeni korur; rakip kendi yarı sahasında rahat oynar.</string>
+    <string name="fb_gb_defline">Yüksek hat: savunma öne çıkar, orta saha daralır ve pas geçirmek zorlaşır. Ama hızlı forvetlere karşı arkaya atılan toplar ve ara pasları tehlikeli olur – testlerde yüksek hat hızlı forvetlere karşı iki kattan fazla gol yedi.
+
+Derin hat: ceza sahası korunur, ara pasları zor işler ama oyunu rakip kontrol eder. Kontra atakla idealdir.</string>
+    <string name="fb_gb_marking">Alan savunması: her oyuncu bir bölgeyi korur. Güvenli varsayılan.
+
+Adam adama: savunmacılar rakibini takip eder. Savunmacıların markajı iyiyse çok etkilidir; ama topsuz alanda çok iyi koşu yapan forvetler yine kurtulabilir.</string>
+    <string name="fb_gb_counter">Top kendi yarı sahada kazanıldığında takım az pasla ve daha çok ara pasıyla hızla çıkar.
+
+Çok oyuncuyla hücum eden ya da yüksek hatla oynayan rakiplere karşı öldürücüdür (testlerde tam hücum oynayan rakibe karşı maç başı 3\'ten fazla gol). Bedeli: normal ataklarda daha az oyuncu hücuma katılır.</string>
+    <string name="fb_gb_offside">Savunma hattı birlikte öne çıkarak rakibi ofsayta düşürür. Takım oyunu iyi savunmacılarla çok daha sık işe yarar. Başarısız olursa forvet kaleciyle karşı karşıya kalır.</string>
+    <string name="fb_gb_time_wasting">60. dakikadan sonra öndeyken oyuncular oyunu yavaşlatır: daha çok geri pas, daha uzun duraklar. Hakem bunun için sarı kart gösterebilir.</string>
+    <string name="fb_gb_hard_tackling">Müdahaleler sertleşir: daha çok ikili mücadele kazanılır ama daha çok faul, kart ve penaltı olur. Rakipler daha sık sakatlanır.</string>
+    <string name="fb_gb_formations">En iyi oyuncularına uyan dizilişi seç. Sahada bir mevkiye, sonra listeden bir oyuncuya dokunarak onu oraya koy (zaten ilk 11\'de olan oyuncular yer değiştirir).
+
+Oyuncunun altındaki sayı o mevkideki gücüdür; kırmızı halka o mevkiye alışık olmadığını gösterir. Oyuncular antrenmanda yeni mevki öğrenebilir.
+
+Otomatik kur yardımcı antrenöre seçtirir; En uygun diziliş toplam gücü en yüksek dizilişi seçer. Sakat ve cezalı oyuncular otomatik değiştirilir.</string>
+    <string name="fb_gb_training">Oyuncular her hafta potansiyellerine doğru gelişir. Hızı belirleyenler:
+• Yaş: en hızlı 16-21 arası, 24\'ten sonra yavaşlar, 29 civarında durur.
+• Mevcut yetenek ile potansiyel arasındaki fark.
+• Antrenörler ve antrenman tesisleri (19 yaş altı için altyapı antrenörü ve tesisleri).
+• Kişilik: profesyonellik ve azim.
+• Oynama süresi (23 yaş altı için çok önemli) ve moral.
+• Yoğunluk: hafif, normal ya da yoğun.
+
+Takım odağı herkes için bir alanı hızlandırır; bireysel odak tek oyuncuda bir alanı çok hızlandırır. 30 yaşından sonra (kalecilerde 32) gerileme başlar; önce fiziksel özellikler düşer, karar verme ve pozisyon alma hâlâ gelişebilir.</string>
+    <string name="fb_gb_coaches">• Antrenörler: her antrenman alanı ilgili antrenör özelliğini kullanır (hücum, savunma, teknik, taktik, zihinsel, kondisyon, kalecilik). Beş kadar antrenör tüm alanları karşılar; daha az olursa kalite düşer.
+• Altyapı antrenörü: 19 yaş altını geliştirir ve yıllık altyapı alımını iyileştirir.
+• Fizyoterapist: sakatlık süresini kısaltır, antrenman sakatlıklarını azaltır.
+• Kondisyoner: yaşlı oyuncuların düşüşünü yavaşlatır.
+• Yardımcı antrenör: oyuncu yönetimiyle morali yükseltir; kendi oyuncularının potansiyelini değerlendirir.
+• Gözlemciler: ne kadar iyiyse diğer kulüplerin oyuncuları için yetenek ve potansiyel tahmini o kadar doğru olur.</string>
+    <string name="fb_gb_morale">Moral her hafta değişir. İyi sonuçlar, oyuncunun statüsüne uygun süre (kilit oyuncular çoğu maça başlamak ister), adil maaş, iyi sosyal tesisler ve iyi bir yardımcı antrenörle yükselir. Çok mutsuz ve hırslı oyuncular ayrılmak ister.
+
+Form son maç puanlarının ortalamasıdır. Moral ve form maç günündeki gücü ve gelişimi biraz etkiler.</string>
+    <string name="fb_gb_youth">Her yıl 15 Mart\'ta altyapına 2–8 genç (15–16 yaş) katılır. Gözlem ağı (altyapı alımı) sayıyı ve kaliteyi, altyapı tesisleri ve altyapı antrenörü kaliteyi belirler; ülkenin futbol seviyesi de önemlidir. Arada bir altın yetenek çıkar.
+
+Gençlere süre ve iyi antrenman ver: gelişim 21 yaşından önce en hızlıdır.</string>
+    <string name="fb_gb_finance" formatted="false">Gelirler: bilet (ev maçları; yüksek fiyat taraftar başına çok kazandırır ama stadı daha az doldurur), TV geliri (yarısı eşit, yarısı lig sırasına göre), forma ve ürün satışı (itibar ve yıldız oyuncularla artar), forma sponsoru, stadyum reklamları, ödüller (kupalar ve özellikle Avrupa) ve oyuncu satışları.
+
+Giderler: oyuncu ve personel maaşları, tesis bakımı, altyapı, maç günü masrafları, transferler ve inşaatlar. Eksi bakiye haftada %0,12 faiz getirir.
+
+Yatırımcı desteği: haftada 3 kez video izleyerek kulübe para ekleyebilirsin.</string>
+    <string name="fb_gb_transfers">Transfer dönemleri: 1 Temmuz – 1 Eylül ve Ocak. Serbest oyuncularla her zaman anlaşabilirsin.
+
+Satıcı kulübün fiyatı oyuncunun onlar için önemine, yaşına ve potansiyeline, sözleşmesinin kalan süresine (son yılda ucuzlar), listede olup olmamasına ve kulübün mali durumuna bağlıdır. Serbest kalma bedeli reddedilemez.
+
+Bonservis anlaşınca oyuncuyla maaş ve süre konuş – çok düşük teklif edersen üç denemeden sonra masadan kalkar. Kiralık: maaşın bir kısmını sen ödersin, oyuncu sezon sonunda döner.
+
+Kendi oyuncularını transfer ya da kiralık listesine koyabilir veya kulüplerin birbirini geçtiği 3 günlük açık artırma başlatabilirsin. Beğendiğin oyuncuları takibe al ve söylentileri izle.</string>
+    <string name="fb_gb_contracts" formatted="false">Önemli oyuncuların sözleşmelerini zamanında yenile. 1 Ocak\'ta bu sezon biten sözleşmeler için uyarı gelir; Ocak ortasından itibaren diğer kulüpler onlarla ön sözleşme yapabilir ve oyuncu yazın bedelsiz gider.
+
+Gelişen oyuncular zam ister. Bir oyuncunun sözleşmesini feshetmek kalan maaşının %60\'ına mal olur.</string>
+    <string name="fb_gb_competitions">Her Avrupa ülkesinin yükselme ve düşmeli ligleri (bazı ikinci liglerde play-off), ulusal kupası ve süper kupası vardır.
+
+Avrupa kontenjanı lig sırana ve her sezon Avrupa sonuçlarıyla değişen ülke puanına bağlıdır: Şampiyonlar, Avrupa ve Konferans Kupası\'nda ön elemeler, 36 takımlı lig aşaması ve eleme turları vardır.
+
+Milli takımlar Uluslar Ligi, elemeler, Avrupa Şampiyonası ve Dünya Kupası oynar.</string>
+    <string name="fb_gb_hidden">Yetenek ve potansiyel ekibinin tahminine göre yıldızla gösterilir, bu yüzden yanlış olabilir – özellikle gözlemcilerin zayıfsa.
+
+Oyuncu kartında kısa bir video izleyerek oyuncunun kesin mevcut yeteneğini, kesin potansiyelini ve gizli kişiliğini görebilirsin: istikrar, büyük maç oyunculuğu, sakatlanma eğilimi, profesyonellik, hırs, sadakat, uyum, baskıya dayanma ve çok yönlülük. Oyuncu kalıcı olarak açık kalır (yeşil yıldızlar).</string>
 </resources>
