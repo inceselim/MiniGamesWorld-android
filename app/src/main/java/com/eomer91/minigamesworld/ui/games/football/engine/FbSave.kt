@@ -15,7 +15,7 @@ import java.util.zip.GZIPOutputStream
  */
 object FbSave {
     private const val MAGIC = 0x46424D47 // "FBMG"
-    const val VERSION = 3
+    const val VERSION = 4
 
     fun write(w: FbWorld, out: OutputStream) {
         DataOutputStream(BufferedOutputStream(GZIPOutputStream(out), 1 shl 16)).use { o ->
@@ -71,6 +71,12 @@ object FbSave {
                 writeInts(o, c.balanceHistory); o.writeShort(c.soldOut); o.writeByte(c.lastPosition)
             }
             for (p in w.players) { o.writeShort(p.playTime); o.writeByte(p.trainArea + 1); o.writeByte(p.trainPos + 1); o.writeFloat(p.devAcc) }
+            // v4: transfer
+            for (p in w.players) {
+                o.writeShort(p.loanUntil); o.writeByte(p.loanWagePct); o.writeBoolean(p.loanListed)
+                o.writeInt(p.preContract); o.writeInt(p.preContractWage); o.writeInt(p.sellOnClub); o.writeByte(p.sellOnPct); o.writeBoolean(p.wantsAway)
+            }
+            writeMarket(o, w.market)
             val ut = w.userTactics
             o.writeBoolean(ut != null)
             if (ut != null) writeTactics(o, ut)
@@ -104,6 +110,7 @@ object FbSave {
         for (v in st.coefPts) o.writeFloat(v)
         for (v in st.coefClubs) o.writeShort(v)
         for (v in st.finMul) o.writeFloat(v)
+        o.writeShort(st.leagueMul.size); for (v in st.leagueMul) o.writeFloat(v)
         o.writeInt(st.honours.size)
         for (h in st.honours) { o.writeShort(h.season); o.writeByte(h.kind.ordinal); o.writeShort(h.country); o.writeByte(h.tier); o.writeInt(h.winner); o.writeInt(h.runnerUp) }
         o.writeInt(st.comps.size)
@@ -143,6 +150,7 @@ object FbSave {
         for (k in 0 until n) st.coefPts[k] = i.readFloat()
         for (k in 0 until n) st.coefClubs[k] = i.readShort().toInt()
         if (stateVersion >= 3) for (k in 0 until n) st.finMul[k] = i.readFloat()
+        if (stateVersion >= 4) st.leagueMul = FloatArray(i.readShort().toInt()) { i.readFloat() }
         repeat(i.readInt()) {
             st.honours.add(FbHonour(i.readShort().toInt(), CompKind.entries[i.readUnsignedByte()], i.readShort().toInt(), i.readUnsignedByte(), i.readInt(), i.readInt()))
         }
@@ -174,6 +182,55 @@ object FbSave {
         repeat(i.readInt()) { st.yellowAcc[i.readInt()] = i.readShort().toInt() }
         st.indexDays()
         return st
+    }
+
+    private fun writeMarket(o: DataOutputStream, m: FbMarket) {
+        o.writeInt(m.nextId)
+        o.writeInt(m.offers.size)
+        for (x in m.offers) {
+            o.writeInt(x.id); o.writeInt(x.player); o.writeInt(x.from); o.writeInt(x.to); o.writeLong(x.fee); o.writeBoolean(x.loan)
+            o.writeByte(x.loanWagePct); o.writeByte(x.sellOnPct); o.writeByte(x.status.ordinal); o.writeLong(x.counterFee)
+            o.writeShort(x.responseDay); o.writeShort(x.season); o.writeByte(x.rounds); o.writeByte(x.patience)
+        }
+        o.writeInt(m.auctions.size)
+        for (a in m.auctions) {
+            o.writeInt(a.id); o.writeInt(a.player); o.writeInt(a.seller); o.writeLong(a.reserve); o.writeShort(a.endSeason); o.writeShort(a.endDay)
+            o.writeLong(a.topBid); o.writeInt(a.topBidder); o.writeShort(a.bids); o.writeBoolean(a.done)
+        }
+        writeInts(o, m.shortlist)
+        o.writeInt(m.news.size)
+        for (n in m.news) {
+            o.writeByte(n.kind.ordinal); o.writeShort(n.season); o.writeShort(n.day); o.writeInt(n.player); o.writeInt(n.club); o.writeInt(n.club2)
+            o.writeLong(n.value); o.writeBoolean(n.read); o.writeByte(n.credibility)
+        }
+        o.writeInt(m.history.size)
+        for (h in m.history) {
+            o.writeShort(h.season); o.writeShort(h.day); o.writeUTF(h.playerName); o.writeInt(h.player); o.writeInt(h.from); o.writeInt(h.to); o.writeLong(h.fee); o.writeBoolean(h.loan)
+        }
+    }
+
+    private fun readMarket(i: DataInputStream, m: FbMarket) {
+        m.nextId = i.readInt()
+        repeat(i.readInt()) {
+            val x = FbOffer(i.readInt(), i.readInt(), i.readInt(), i.readInt(), i.readLong(), i.readBoolean(), i.readUnsignedByte(), i.readUnsignedByte())
+            x.status = OfferStatus.entries[i.readUnsignedByte()]; x.counterFee = i.readLong()
+            x.responseDay = i.readShort().toInt(); x.season = i.readShort().toInt(); x.rounds = i.readUnsignedByte(); x.patience = i.readByte().toInt()
+            m.offers.add(x)
+        }
+        repeat(i.readInt()) {
+            val a = FbAuction(i.readInt(), i.readInt(), i.readInt(), i.readLong(), i.readShort().toInt(), i.readShort().toInt())
+            a.topBid = i.readLong(); a.topBidder = i.readInt(); a.bids = i.readShort().toInt(); a.done = i.readBoolean()
+            m.auctions.add(a)
+        }
+        m.shortlist.addAll(readInts(i))
+        repeat(i.readInt()) {
+            val n = FbNews(NewsKind.entries[i.readUnsignedByte()], i.readShort().toInt(), i.readShort().toInt(), i.readInt(), i.readInt(), i.readInt(), i.readLong())
+            n.read = i.readBoolean(); n.credibility = i.readUnsignedByte()
+            m.news.add(n)
+        }
+        repeat(i.readInt()) {
+            m.history.add(FbTransferRecord(i.readShort().toInt(), i.readShort().toInt(), i.readUTF(), i.readInt(), i.readInt(), i.readInt(), i.readLong(), i.readBoolean()))
+        }
     }
 
     private fun writeArr(o: DataOutputStream, a: IntArray) { o.writeShort(a.size); for (v in a) o.writeInt(v) }
@@ -241,6 +298,13 @@ object FbSave {
                     c.balanceHistory.addAll(readInts(i)); c.soldOut = i.readShort().toInt(); c.lastPosition = i.readUnsignedByte()
                 }
                 for (p in w.players) { p.playTime = i.readShort().toInt(); p.trainArea = i.readUnsignedByte() - 1; p.trainPos = i.readUnsignedByte() - 1; p.devAcc = i.readFloat() }
+            }
+            if (version >= 4) {
+                for (p in w.players) {
+                    p.loanUntil = i.readShort().toInt(); p.loanWagePct = i.readUnsignedByte(); p.loanListed = i.readBoolean()
+                    p.preContract = i.readInt(); p.preContractWage = i.readInt(); p.sellOnClub = i.readInt(); p.sellOnPct = i.readUnsignedByte(); p.wantsAway = i.readBoolean()
+                }
+                readMarket(i, w.market)
             }
             if (version >= 2) {
                 if (i.readBoolean()) w.userTactics = readTactics(i)

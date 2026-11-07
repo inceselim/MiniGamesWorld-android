@@ -130,6 +130,8 @@ class FbSeasonState(countries: Int) {
     val coefClubs = IntArray(countries)
     /** Ulke gelir olcegi (FbClubLife.init) */
     val finMul = FloatArray(countries) { 1f }
+    /** Lig gelir olcegi (lig id) */
+    var leagueMul = FloatArray(0)
 
     /** Gun -> fikstur indeksleri (kayit edilmez, yeniden kurulur) */
     var byDay: HashMap<Int, MutableList<Int>> = HashMap()

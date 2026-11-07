@@ -57,11 +57,13 @@ object FbClubLife {
     private fun lv(ci: Int) = (FbCountries.all[ci].level / 92f).coerceIn(0.1f, 1.05f)
     /** Ulkeye gore maliyet olcegi */
     fun costScale(ci: Int) = 0.3f + 0.7f * lv(ci).pow(2f)
-    private fun fm(world: FbWorld, ci: Int) = world.state?.finMul?.get(ci) ?: 1f
+    /** Lig gelir olcegi (FbClubLife.init'te kalibre edilir) */
+    private fun fm(world: FbWorld, league: Int) = world.state?.leagueMul?.getOrNull(league) ?: 1f
+    fun revenueMul(world: FbWorld, c: FbClub) = fm(world, c.league)
 
     /** Lig yayin havuzu (yillik, Euro) */
     fun tvPool(world: FbWorld, lg: FbLeague): Double =
-        max(2e6, 2.4e9 * lv(lg.country).toDouble().pow(9.0)) * 0.11.pow(lg.tier - 1.0) * fm(world, lg.country)
+        max(2e6, 2.4e9 * lv(lg.country).toDouble().pow(9.0)) * 0.11.pow(lg.tier - 1.0) * fm(world, lg.id)
 
     fun ticketPrice(world: FbWorld, c: FbClub): Float {
         val tier = world.leagues.getOrNull(c.league)?.tier ?: 3
@@ -72,10 +74,10 @@ object FbClubLife {
     fun merchYear(world: FbWorld, c: FbClub): Double {
         val stars = c.players.map { world.players[it].reputation }.sortedDescending().take(3).sum() / 30000.0
         return (120e6 * (c.reputation / 10000.0).pow(4.0) * (0.4 + 0.6 * lv(c.country)) + c.fanBase * 8.0) *
-            (1.0 + stars) * (0.9 + c.socialFacilities / 100.0) * fm(world, c.country)
+            (1.0 + stars) * (0.9 + c.socialFacilities / 100.0) * fm(world, c.league)
     }
 
-    fun adsYear(world: FbWorld, c: FbClub): Double = c.capacity * 40.0 * (0.3 + c.reputation / 10000.0) * fm(world, c.country)
+    fun adsYear(world: FbWorld, c: FbClub): Double = c.capacity * 40.0 * (0.3 + c.reputation / 10000.0) * fm(world, c.league)
 
     fun upkeepWeek(c: FbClub): Double {
         val cs = costScale(c.country)
@@ -105,9 +107,9 @@ object FbClubLife {
         val st = world.state!!
         val rnd = FbRandom(world.seed xor 0x5EEDL)
         // Ulke bazinda gelir olcegi: uretilen maas yapisi ~%62 maas/gelir oranina otursun
-        for (ci in FbCountries.all.indices) {
-            st.finMul[ci] = 1f
-            val clubs = world.clubs.filter { it.country == ci && it.league >= 0 }
+        st.leagueMul = FloatArray(world.leagues.size) { 1f }
+        for (lg0 in world.leagues) {
+            val clubs = lg0.clubs.map { world.clubs[it] }
             if (clubs.isEmpty()) continue
             var target = 0.0; var model = 0.0
             for (c in clubs) {
@@ -118,7 +120,7 @@ object FbClubLife {
                 model += tvPool(world, lg) / lg.clubs.size + merchYear(world, c) + adsYear(world, c) +
                     homeGames * attendance(world, c, -1, CompKind.LEAGUE) * ticketPrice(world, c) * 0.88
             }
-            st.finMul[ci] = (target / model).toFloat().coerceIn(0.15f, 6f)
+            st.leagueMul[lg0.id] = (target / model).toFloat().coerceIn(0.1f, 12f)
         }
         // Sponsorlar
         for (c in world.clubs) if (c.league >= 0) {
@@ -143,6 +145,7 @@ object FbClubLife {
         val cal = FbSeason.calendar(world)
         if (cal.weekday(world.day) == FbCalendar.MON) weekly(world)
         if (world.day == cal.dayOf(3, 15)) youthIntake(world)
+        FbTransfer.onDay(world)
         // Yogunluk ve fizyo etkisi (kulup oyunculari)
         for (c in world.clubs) {
             if (c.league < 0) continue
@@ -173,7 +176,7 @@ object FbClubLife {
         val home = world.clubs[f.home]
         val neutral = FbSeason.isNeutral(world, f)
         val att = attendance(world, home, f.away, comp.kind)
-        val gross = (att * ticketPrice(world, home) * fm(world, home.country) * if (comp.kind in EURO) 1.4f else if (comp.kind == CompKind.FRIENDLY) 0.5f else 1f).roundToLong()
+        val gross = (att * ticketPrice(world, home) * fm(world, home.league) * if (comp.kind in EURO) 1.4f else if (comp.kind == CompKind.FRIENDLY) 0.5f else 1f).roundToLong()
         if (neutral) {
             for (t in intArrayOf(f.home, f.away)) { world.clubs[t].book(Fin.TICKETS, gross / 3); world.clubs[t].book(Fin.MATCHDAY, gross / 30) }
         } else {
@@ -226,7 +229,7 @@ object FbClubLife {
             c.book(Fin.PRIZE, v)
             return
         }
-        val base = 6e6 * lv(c.country).toDouble().pow(4.0) * fm(world, c.country)
+        val base = 6e6 * lv(c.country).toDouble().pow(4.0) * fm(world, c.league)
         val v = when (comp.kind) {
             CompKind.CUP -> base * when (stage.label) { StageLabel.FINAL -> 0.5; StageLabel.SF -> 0.2; StageLabel.QF -> 0.08; else -> 0.025 }
             CompKind.SUPER_CUP -> base * 0.15
@@ -254,6 +257,7 @@ object FbClubLife {
         val defaults = HashMap<Int, TrainQuality>()
         for (p in world.players) {
             if (p.retired) continue
+            if (p.loanFrom >= 0 && p.loanWagePct < 100) world.clubs[p.loanFrom].book(Fin.WAGES, p.wage.toLong() * (100 - p.loanWagePct) / 100)
             val t = if (p.club >= 0) q[p.club]!! else defaults.getOrPut(p.nation) { defaultQuality(p.nation) }
             develop(world, p, t, rnd)
             p.playTime = (p.playTime * 0.75f).toInt()
@@ -262,7 +266,7 @@ object FbClubLife {
     }
 
     private fun finances(world: FbWorld, c: FbClub) {
-        c.book(Fin.WAGES, c.players.sumOf { world.players[it].wage.toLong() })
+        c.book(Fin.WAGES, c.players.sumOf { val p = world.players[it]; if (p.loanFrom >= 0) p.wage.toLong() * p.loanWagePct / 100 else p.wage.toLong() })
         c.book(Fin.STAFF_WAGES, c.staff.sumOf { world.staff[it].wage.toLong() })
         c.book(Fin.FACILITIES, upkeepWeek(c).roundToLong())
         c.book(Fin.YOUTH, youthWeek(c).roundToLong())
@@ -488,6 +492,7 @@ object FbClubLife {
                 p.squadNumber = (30..99).firstOrNull { n -> c.players.none { world.players[it].squadNumber == n } } ?: 99
                 c.players.add(p.id)
             }
+            if (c.id == world.userClub) world.market.addNews(FbNews(NewsKind.YOUTH_INTAKE, world.season, world.day, -1, c.id, -1, count.toLong()))
         }
     }
 
@@ -541,7 +546,7 @@ object FbClubLife {
     /** Bu sezon icin sponsor teklifleri (belirli: ayni sezon ayni teklifler). */
     fun sponsorOffers(world: FbWorld, c: FbClub): List<SponsorOffer> {
         val rnd = FbRandom(world.seed xor (c.id * 977L) xor (world.season * 31L))
-        val base = max(c.sponsorIncome.toDouble(), 3e6 * (c.reputation / 10000.0).pow(2.5) * fm(world, c.country) + 50_000)
+        val base = max(c.sponsorIncome.toDouble(), 3e6 * (c.reputation / 10000.0).pow(2.5) * fm(world, c.league) + 50_000)
         return List(3) { i ->
             val years = intArrayOf(1, 3, 5)[i]
             val mul = (1.12 - 0.06 * years) * (0.9 + rnd.float() * 0.25)
@@ -640,6 +645,7 @@ object FbClubLife {
             p.reputation = (p.reputation + (target - p.reputation) * 0.3f).roundToInt().coerceIn(0, 10000)
         }
 
+        FbTransfer.onSeasonEnd(world)
         retirements(world, rnd)
         contracts(world, rnd)
         squads(world, rnd)
@@ -689,7 +695,7 @@ object FbClubLife {
     /** Sozlesmesi biten oyuncular: kulup isterse yenilenir, yoksa serbest kalir. (Kullanici icin pazarlik 5. adimda.) */
     private fun contracts(world: FbWorld, rnd: FbRandom) {
         for (c in world.clubs) {
-            if (c.league < 0) continue
+            if (c.league < 0 || c.id == world.userClub) continue
             val sorted = c.players.map { world.players[it] }.sortedByDescending { it.currentAbility() }
             val cut = sorted.getOrNull(21)?.currentAbility() ?: 0
             for (p in sorted) {

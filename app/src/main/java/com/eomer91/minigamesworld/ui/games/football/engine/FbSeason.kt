@@ -833,7 +833,8 @@ object FbSeason {
         world.formationCache.clear()
         for (p in world.players) { p.suspendedMatches = 0; p.condition = 100 }
         st.stats.clear(); st.yellowAcc.clear()
-        world.compactPlayers()
+        FbTransfer.remap(world, world.compactPlayers())
         buildSeason(world, Carry(leagueOrder, cupWinner, clW, elW))
+        FbTransfer.setBudgets(world)
     }
 }

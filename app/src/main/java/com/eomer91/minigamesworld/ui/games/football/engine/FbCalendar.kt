@@ -77,6 +77,13 @@ class FbCalendar(val season: Int) {
         prev(dayOf(5, 23), SAT),
     )
 
+    /** Transfer donemleri: yaz 1 Temmuz - 1 Eylul, kis 1 Ocak - 1 Subat */
+    val summerWindowEnd = dayOf(9, 1)
+    val winterWindowStart = dayOf(1, 1)
+    val winterWindowEnd = dayOf(2, 1)
+    fun isWindow(day: Int) = day <= summerWindowEnd || day in winterWindowStart..winterWindowEnd
+    fun isDeadline(day: Int) = day == summerWindowEnd || day == winterWindowEnd
+
     val leagueStart = next(dayOf(8, 8), SAT)
     val leagueEnd = cupDays.last() - 7 // kupa finali haftasindan once
     val playoffDays: IntArray = run { val w = next(dayOf(5, 23), WED) + 7; intArrayOf(w, w + 4, w + 11) }

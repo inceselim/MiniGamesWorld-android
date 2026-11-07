@@ -60,6 +60,19 @@ class FbPlayer(
     var trainPos: Int = -1
     /** Birikmis gelisim (CA birimi); 0.6'yi gecince yeteneklere islenir */
     var devAcc: Float = 0f
+    /** Kiralik: bitis sezonu ve kiralayan kulubun odedigi maas yuzdesi */
+    var loanUntil: Int = 0
+    var loanWagePct: Int = 100
+    /** Kiralik listesinde mi */
+    var loanListed: Boolean = false
+    /** Sezon sonu serbest gecis icin anlastigi kulup (-1 yok), anlasilan maas */
+    var preContract: Int = -1
+    var preContractWage: Int = 0
+    /** Sonraki satistan pay alacak kulup ve yuzdesi */
+    var sellOnClub: Int = -1
+    var sellOnPct: Int = 0
+    /** Ayrilmak istiyor (transfer talebi) */
+    var wantsAway: Boolean = false
     val retired: Boolean get() = club == CLUB_RETIRED
 
     fun attr(a: Attr): Float = (attrs[a.ordinal].toInt() and 0xFF) / 10f
@@ -206,6 +219,8 @@ class FbWorld(
     var state: FbSeasonState? = null
     /** Kullanicinin kayitli taktigi (yoksa yapay zeka secer) */
     var userTactics: Tactics? = null
+    /** Transfer pazari, takip listesi, haber kutusu */
+    val market: FbMarket = FbMarket()
     /** Takim -> dizilis onbellegi (kaydedilmez) */
     val formationCache: HashMap<Int, Formation> = HashMap()
 
