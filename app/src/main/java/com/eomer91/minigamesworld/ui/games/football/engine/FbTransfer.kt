@@ -314,10 +314,13 @@ object FbTransfer {
 
     /** Kulubun gozlemcisinin potansiyel tahmini (yanilma payi gozlemci yetenegine bagli, kalici). */
     fun estimate(world: FbWorld, club: Int, p: FbPlayer): Pair<Int, Int> {
-        if (p.club == club) return p.currentAbility() to p.potential
+        if (p.id in world.revealed) return p.currentAbility() to p.potential
         val c = world.clubs[club]
-        val ja = FbClubLife.bestStaff(world, c, StaffAttr.JUDGING_ABILITY, StaffRole.SCOUT, StaffRole.ASSISTANT)
-        val jp = FbClubLife.bestStaff(world, c, StaffAttr.JUDGING_POTENTIAL, StaffRole.SCOUT)
+        val own = p.club == club
+        // Kendi oyuncusunu antrenorler/yardimci, digerlerini gozlemciler degerlendirir
+        val ja = if (own) 18f else FbClubLife.bestStaff(world, c, StaffAttr.JUDGING_ABILITY, StaffRole.SCOUT, StaffRole.ASSISTANT)
+        val jp = if (own) FbClubLife.bestStaff(world, c, StaffAttr.JUDGING_POTENTIAL, StaffRole.ASSISTANT, StaffRole.COACH, StaffRole.YOUTH_COACH)
+            else FbClubLife.bestStaff(world, c, StaffAttr.JUDGING_POTENTIAL, StaffRole.SCOUT)
         val r = FbRandom(world.seed xor (p.id * 7_777_777L) xor (club * 31L))
         val ca = (p.currentAbility() + r.gauss() * (20f - ja) * 0.9f).roundToInt().coerceIn(1, 200)
         val pa = (p.potential + r.gauss() * (20f - jp) * 1.6f).roundToInt().coerceIn(ca, 200)
@@ -820,6 +823,8 @@ object FbTransfer {
         }
         m.offers.clear(); m.offers.addAll(offers)
         m.auctions.removeAll { true }
+        val rv = world.revealed.map { r(it) }.filter { it >= 0 }
+        world.revealed.clear(); world.revealed.addAll(rv)
         val sl = m.shortlist.map { r(it) }.filter { it >= 0 }
         m.shortlist.clear(); m.shortlist.addAll(sl)
         for (n in m.news) n.player = r(n.player)

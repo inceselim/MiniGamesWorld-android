@@ -138,6 +138,15 @@ class FbTransferTest {
         val cal = FbSeason.calendar(w)
         val t = w.players.first { it.club >= 0 && it.club != me.id }
         w.market.shortlist.add(t.id)
+        // Reklam odulleri: gizli ozellik acma ve kulube para
+        w.revealed.add(t.id)
+        assertEquals(t.currentAbility() to t.potential, FbTransfer.estimate(w, me.id, t))
+        val bal0 = me.balance
+        val got = FbClubLife.claimAdBonus(w)
+        assertTrue(got >= 50_000 && me.balance == bal0 + got)
+        repeat(FbClubLife.AD_BONUS_PER_WEEK - 1) { FbClubLife.claimAdBonus(w) }
+        assertEquals(0, FbClubLife.adBonusLeft(w))
+        assertEquals(0L, FbClubLife.claimAdBonus(w))
         FbTransfer.makeOffer(w, me.id, t.id, 1_000)
         repeat(3) { day(w) }
         val bytes = ByteArrayOutputStream().also { FbSave.write(w, it) }.toByteArray()
@@ -146,6 +155,8 @@ class FbTransferTest {
         assertEquals(w.market.news.size, w2.market.news.size)
         assertEquals(w.market.shortlist, w2.market.shortlist)
         assertEquals(w.market.history.size, w2.market.history.size)
+        assertEquals(w.revealed, w2.revealed)
+        assertEquals(w.adBonusCount, w2.adBonusCount)
         // Pencere disinda teklif verilemez
         while (w.day <= cal.summerWindowEnd) day(w)
         assertEquals("WINDOW", FbTransfer.makeOffer(w, me.id, w.players.first { it.club >= 0 && it.club != me.id && it.loanFrom < 0 }.id, 1_000_000).second)

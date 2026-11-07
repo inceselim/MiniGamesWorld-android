@@ -558,6 +558,34 @@ object FbClubLife {
         c.sponsorName = offer.name; c.sponsorIncome = offer.yearly; c.sponsorEnd = world.season + offer.years - 1
     }
 
+    // ================================================================== reklam bonusu
+
+    const val AD_BONUS_PER_WEEK = 3
+
+    /** Reklam izleyince kulube eklenecek tutar: yillik gelirin ~%1.5'i (en az 50 bin). */
+    fun adBonusAmount(world: FbWorld, c: FbClub): Long {
+        var rev = c.lastLedger.withIndex().filter { Fin.entries[it.index].income && it.index != Fin.TRANSFER_IN.ordinal }.sumOf { it.value }
+        if (rev <= 0) rev = c.sponsorIncome * 5
+        return FbEconomy.roundValue(max(50_000L, rev * 15 / 1000))
+    }
+
+    fun adBonusLeft(world: FbWorld): Int {
+        val wk = world.season * 100 + world.day / 7
+        return if (world.adBonusWeek != wk) AD_BONUS_PER_WEEK else (AD_BONUS_PER_WEEK - world.adBonusCount).coerceAtLeast(0)
+    }
+
+    /** Odul verildi: tutari ekle (hak yoksa 0). */
+    fun claimAdBonus(world: FbWorld): Long {
+        if (world.userClub < 0 || adBonusLeft(world) <= 0) return 0
+        val wk = world.season * 100 + world.day / 7
+        if (world.adBonusWeek != wk) { world.adBonusWeek = wk; world.adBonusCount = 0 }
+        world.adBonusCount++
+        val c = world.clubs[world.userClub]
+        val v = adBonusAmount(world, c)
+        c.book(Fin.OTHER_IN, v)
+        return v
+    }
+
     // ================================================================== personel
 
     fun freeStaff(world: FbWorld): List<FbStaff> = world.staff.filter { it.club == CLUB_NONE }

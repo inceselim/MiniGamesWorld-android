@@ -221,6 +221,11 @@ class FbWorld(
     var userTactics: Tactics? = null
     /** Transfer pazari, takip listesi, haber kutusu */
     val market: FbMarket = FbMarket()
+    /** Reklamla gizli ozellikleri/potansiyeli acilmis oyuncular */
+    val revealed: HashSet<Int> = HashSet()
+    /** Reklamla kulube para: haftalik hak sayaci (sezon*100+hafta) */
+    var adBonusWeek: Int = -1
+    var adBonusCount: Int = 0
     /** Takim -> dizilis onbellegi (kaydedilmez) */
     val formationCache: HashMap<Int, Formation> = HashMap()
 
