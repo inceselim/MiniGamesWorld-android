@@ -30,6 +30,9 @@
     <string name="fb_deposit_x">Depositar %1$s</string>
     <string name="fb_withdraw_x">Retirar %1$s</string>
     <string name="fb_deposit_tip" formatted="false">El dinero del depósito rinde un 2% anual, pero no puede usarse para fichajes ni sueldos hasta que lo retires.</string>
+    <string name="fb_form_w">V</string>
+    <string name="fb_form_d">E</string>
+    <string name="fb_form_l">D</string>
     <string name="game_football_manager_name">Jefe del Club</string>
     <string name="game_football_manager_desc">Dirige un club de fútbol a tu manera: todas las ligas de Europa, calendario realista, copas europeas y Mundiales, tácticas detalladas, entrenamiento, cantera, finanzas y un mercado de fichajes vivo.</string>
     <string name="fb_tagline">Construye una dinastía. Cada decisión es tuya.</string>

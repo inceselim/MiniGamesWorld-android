@@ -30,6 +30,9 @@
     <string name="fb_deposit_x">Deposita %1$s</string>
     <string name="fb_withdraw_x">Preleva %1$s</string>
     <string name="fb_deposit_tip" formatted="false">I soldi nel deposito rendono il 2% annuo, ma non si possono usare per acquisti o stipendi finché non li prelevi.</string>
+    <string name="fb_form_w">V</string>
+    <string name="fb_form_d">P</string>
+    <string name="fb_form_l">S</string>
     <string name="game_football_manager_name">Boss del Club</string>
     <string name="game_football_manager_desc">Gestisci un club di calcio a modo tuo: tutti i campionati d\'Europa, calendario realistico, coppe europee e Mondiali, tattiche dettagliate, allenamento, settore giovanile, finanze e un mercato vivo.</string>
     <string name="fb_tagline">Costruisci una dinastia. Ogni decisione è tua.</string>

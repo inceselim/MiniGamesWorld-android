@@ -46,4 +46,7 @@ S = {
 "Деньги на вкладе приносят 2% годовых, но их нельзя тратить на трансферы и зарплаты, пока не снимешь.",
 "Penge i opsparingen giver 2% om året, men kan ikke bruges til transfers eller løn, før du hæver dem.",
 "A betétben lévő pénz évi 2%-ot hoz, de amíg fel nem veszed, nem használható átigazolásra vagy fizetésekre."),
+"fb_form_w": ("S", "V", "V", "V", "勝", "В", "V", "Gy"),
+"fb_form_d": ("U", "E", "N", "P", "分", "Н", "U", "D"),
+"fb_form_l": ("N", "D", "D", "S", "敗", "П", "T", "V"),
 }

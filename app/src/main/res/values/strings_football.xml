@@ -30,6 +30,9 @@
     <string name="fb_deposit_x">Deposit %1$s</string>
     <string name="fb_withdraw_x">Withdraw %1$s</string>
     <string name="fb_deposit_tip" formatted="false">Money in the deposit earns 2% a year, but it can\'t be used for transfers or wages until you withdraw it.</string>
+    <string name="fb_form_w">W</string>
+    <string name="fb_form_d">D</string>
+    <string name="fb_form_l">L</string>
     <string name="game_football_manager_name">Club Boss</string>
     <string name="game_football_manager_desc">Run a football club your way: every league in Europe, real-style calendar, European cups and World Cups, detailed tactics, training, youth academy, finances and a living transfer market.</string>
     <string name="fb_tagline">Build a dynasty. Every decision is yours.</string>

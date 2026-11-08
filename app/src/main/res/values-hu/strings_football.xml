@@ -30,6 +30,9 @@
     <string name="fb_deposit_x">%1$s lekötése</string>
     <string name="fb_withdraw_x">%1$s felvétele</string>
     <string name="fb_deposit_tip" formatted="false">A betétben lévő pénz évi 2%-ot hoz, de amíg fel nem veszed, nem használható átigazolásra vagy fizetésekre.</string>
+    <string name="fb_form_w">Gy</string>
+    <string name="fb_form_d">D</string>
+    <string name="fb_form_l">V</string>
     <string name="game_football_manager_name">Klubfőnök</string>
     <string name="game_football_manager_desc">Irányítsd a futballklubot a saját elképzelésed szerint: Európa összes bajnoksága, valósághű naptár, európai kupák és világbajnokságok, részletes taktika, edzés, utánpótlás, pénzügyek és élő átigazolási piac.</string>
     <string name="fb_tagline">Építs dinasztiát. Minden döntés a tiéd.</string>

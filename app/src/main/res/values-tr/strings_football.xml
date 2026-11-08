@@ -30,6 +30,9 @@
     <string name="fb_deposit_x">%1$s yatır</string>
     <string name="fb_withdraw_x">%1$s çek</string>
     <string name="fb_deposit_tip" formatted="false">Mevduattaki para yıllık %2 kazandırır ama geri çekene kadar transfer ve maaşlarda kullanılamaz.</string>
+    <string name="fb_form_w">G</string>
+    <string name="fb_form_d">B</string>
+    <string name="fb_form_l">M</string>
     <string name="game_football_manager_name">Kulüp Patronu</string>
     <string name="game_football_manager_desc">Futbol kulübünü dilediğin gibi yönet: Avrupa\'nın tüm ligleri, gerçekçi takvim, Avrupa kupaları ve Dünya Kupası, detaylı taktik, antrenman, altyapı, finans ve canlı transfer pazarı.</string>
     <string name="fb_tagline">Bir hanedan kur. Her karar senin.</string>

@@ -32,4 +32,7 @@ S = {
 "fb_withdraw_x": ("Withdraw %1$s", "%1$s çek"),
 "fb_deposit_tip": ("Money in the deposit earns 2% a year, but it can't be used for transfers or wages until you withdraw it.",
                    "Mevduattaki para yıllık %2 kazandırır ama geri çekene kadar transfer ve maaşlarda kullanılamaz."),
+"fb_form_w": ("W", "G"),
+"fb_form_d": ("D", "B"),
+"fb_form_l": ("L", "M"),
 }

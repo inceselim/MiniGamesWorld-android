@@ -4,7 +4,7 @@ New game: Club Boss! – now 32 games
 • Tactics, formations and live matches with commentary
 • Transfers, loans, auctions, contracts, staff and facilities
 • Youth academy with new talents every March
-• FM-style news, finances and currency choice
+• FM-style news, finances, bank loans and savings, currency choice
 </en-US>
 <tr-TR>
 Yeni oyun: Kulüp Patronu! Toplam 32 oyun
@@ -12,7 +12,7 @@ Yeni oyun: Kulüp Patronu! Toplam 32 oyun
 • Taktik, dizilişler ve anlatımlı canlı maçlar
 • Transfer, kiralık, açık artırma, sözleşme, personel ve tesisler
 • Her mart yeni yeteneklerin geldiği altyapı
-• FM tarzı haberler, finans ve para birimi seçimi
+• FM tarzı haberler, finans, banka kredisi ve mevduat, para birimi seçimi
 </tr-TR>
 <de-DE>
 Neues Spiel: Klubboss! – jetzt 32 Spiele
@@ -20,7 +20,7 @@ Neues Spiel: Klubboss! – jetzt 32 Spiele
 • Taktik, Formationen und Live-Spiele mit Kommentar
 • Transfers, Leihen, Auktionen, Verträge, Personal und Anlagen
 • Jugendakademie mit neuen Talenten jeden März
-• News wie im FM, Finanzen und Währungswahl
+• News wie im FM, Finanzen, Bankkredit und Festgeld, Währungswahl
 </de-DE>
 <es-ES>
 Nuevo juego: ¡Jefe del Club! Ya son 32 juegos
@@ -28,7 +28,7 @@ Nuevo juego: ¡Jefe del Club! Ya son 32 juegos
 • Táctica, formaciones y partidos en directo con narración
 • Fichajes, cesiones, subastas, contratos, empleados e instalaciones
 • Cantera con nuevos talentos cada marzo
-• Noticias al estilo FM, finanzas y elección de moneda
+• Noticias al estilo FM, finanzas, préstamos y depósitos, elección de moneda
 </es-ES>
 <fr-FR>
 Nouveau jeu : Patron du Club ! 32 jeux au total
@@ -36,7 +36,7 @@ Nouveau jeu : Patron du Club ! 32 jeux au total
 • Tactique, formations et matchs en direct commentés
 • Transferts, prêts, enchères, contrats, staff et installations
 • Centre de formation avec de nouveaux talents chaque mars
-• Actualités façon FM, finances et choix de la devise
+• Actualités façon FM, finances, prêts et dépôts bancaires, choix de la devise
 </fr-FR>
 <it-IT>
 Nuovo gioco: Boss del Club! Ora sono 32 giochi
@@ -44,7 +44,7 @@ Nuovo gioco: Boss del Club! Ora sono 32 giochi
 • Tattica, moduli e partite in diretta con telecronaca
 • Mercato, prestiti, aste, contratti, staff e strutture
 • Vivaio con nuovi talenti ogni marzo
-• Notizie stile FM, finanze e scelta della valuta
+• Notizie stile FM, finanze, prestiti e depositi, scelta della valuta
 </it-IT>
 <ja-JP>
 新しいゲーム「クラブボス」が登場！全32ゲームに
@@ -52,7 +52,7 @@ Nuovo gioco: Boss del Club! Ora sono 32 giochi
 • 戦術、フォーメーション、実況付きライブ試合
 • 移籍、レンタル、オークション、契約、スタッフ、施設
 • 毎年3月に新しい才能が入るユースアカデミー
-• FM風ニュース、財務、通貨の選択
+• FM風ニュース、財務、銀行ローンと預金、通貨の選択
 </ja-JP>
 <ru-RU>
 Новая игра: Босс клуба! Теперь 32 игры
@@ -60,7 +60,7 @@ Nuovo gioco: Boss del Club! Ora sono 32 giochi
 • Тактика, схемы и матчи в прямом эфире с комментариями
 • Трансферы, аренда, аукционы, контракты, персонал и инфраструктура
 • Академия с новыми талантами каждый март
-• Новости в стиле FM, финансы и выбор валюты
+• Новости в стиле FM, финансы, кредиты и вклады, выбор валюты
 </ru-RU>
 <da-DK>
 Nyt spil: Klubboss! Nu 32 spil
@@ -68,7 +68,7 @@ Nyt spil: Klubboss! Nu 32 spil
 • Taktik, formationer og livekampe med kommentarer
 • Transfers, leje, auktioner, kontrakter, personale og faciliteter
 • Ungdomsakademi med nye talenter hver marts
-• Nyheder som i FM, økonomi og valg af valuta
+• Nyheder som i FM, økonomi, banklån og opsparing, valg af valuta
 </da-DK>
 <hu-HU>
 Új játék: Klubfőnök! Már 32 játék
@@ -76,5 +76,5 @@ Nyt spil: Klubboss! Nu 32 spil
 • Taktika, felállások és élő meccsek kommentárral
 • Átigazolások, kölcsönök, árverések, szerződések, stáb és létesítmények
 • Akadémia új tehetségekkel minden márciusban
-• FM-stílusú hírek, pénzügyek és pénznemválasztás
+• FM-stílusú hírek, pénzügyek, bankhitel és betét, pénznemválasztás
 </hu-HU>

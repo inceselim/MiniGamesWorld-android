@@ -341,7 +341,8 @@ fun newsText(world: FbWorld, n: FbNews): String {
         NewsKind.MATCH_PREVIEW -> {
             val st = world.state!!
             val comp = st.comps.getOrNull(n.club2)
-            val form = st.recentResults(n.club, world.day, 5).joinToString("") { when (it) { 3 -> "G"; 1 -> "B"; else -> "M" } }
+            val fw = stringResource(R.string.fb_form_w); val fd = stringResource(R.string.fb_form_d); val fl = stringResource(R.string.fb_form_l)
+            val form = st.recentResults(n.club, world.day, 5).joinToString(" ") { when (it) { 3 -> fw; 1 -> fd; else -> fl } }
             stringResource(R.string.fb_n_preview, c1, if (comp != null) compTitle(world, comp.id) else "", form.ifEmpty { "-" })
         }
         NewsKind.MATCH_REPORT -> {

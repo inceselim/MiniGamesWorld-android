@@ -30,6 +30,9 @@
     <string name="fb_deposit_x">Déposer %1$s</string>
     <string name="fb_withdraw_x">Retirer %1$s</string>
     <string name="fb_deposit_tip" formatted="false">L\'argent placé rapporte 2% par an, mais il ne peut servir aux transferts ou aux salaires qu\'après l\'avoir retiré.</string>
+    <string name="fb_form_w">V</string>
+    <string name="fb_form_d">N</string>
+    <string name="fb_form_l">D</string>
     <string name="game_football_manager_name">Patron du Club</string>
     <string name="game_football_manager_desc">Dirige un club de football à ta façon : tous les championnats d\'Europe, calendrier réaliste, coupes d\'Europe et Coupes du monde, tactiques détaillées, entraînement, centre de formation, finances et un marché des transferts vivant.</string>
     <string name="fb_tagline">Bâtis une dynastie. Chaque décision t\'appartient.</string>

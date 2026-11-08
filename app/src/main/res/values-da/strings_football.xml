@@ -30,6 +30,9 @@
     <string name="fb_deposit_x">Indsæt %1$s</string>
     <string name="fb_withdraw_x">Hæv %1$s</string>
     <string name="fb_deposit_tip" formatted="false">Penge i opsparingen giver 2% om året, men kan ikke bruges til transfers eller løn, før du hæver dem.</string>
+    <string name="fb_form_w">V</string>
+    <string name="fb_form_d">U</string>
+    <string name="fb_form_l">T</string>
     <string name="game_football_manager_name">Klubboss</string>
     <string name="game_football_manager_desc">Styr en fodboldklub på din måde: alle Europas ligaer, realistisk kalender, europæiske turneringer og VM, detaljeret taktik, træning, akademi, økonomi og et levende transfermarked.</string>
     <string name="fb_tagline">Byg et dynasti. Hver beslutning er din.</string>

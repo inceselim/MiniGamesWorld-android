@@ -30,6 +30,9 @@
     <string name="fb_deposit_x">%1$s anlegen</string>
     <string name="fb_withdraw_x">%1$s abheben</string>
     <string name="fb_deposit_tip" formatted="false">Geld im Festgeld bringt 2% pro Jahr, kann aber erst nach dem Abheben für Transfers oder Gehälter genutzt werden.</string>
+    <string name="fb_form_w">S</string>
+    <string name="fb_form_d">U</string>
+    <string name="fb_form_l">N</string>
     <string name="game_football_manager_name">Klubboss</string>
     <string name="game_football_manager_desc">Führe einen Fußballklub nach deinen Vorstellungen: alle Ligen Europas, realistischer Kalender, Europapokale und Weltmeisterschaften, detaillierte Taktik, Training, Jugendakademie, Finanzen und ein lebendiger Transfermarkt.</string>
     <string name="fb_tagline">Baue eine Dynastie auf. Jede Entscheidung liegt bei dir.</string>

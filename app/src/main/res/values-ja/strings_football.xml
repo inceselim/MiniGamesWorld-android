@@ -30,6 +30,9 @@
     <string name="fb_deposit_x">%1$sを預ける</string>
     <string name="fb_withdraw_x">%1$sを引き出す</string>
     <string name="fb_deposit_tip" formatted="false">預金は年2%の利息を生みますが、引き出すまで移籍金や給料には使えません。</string>
+    <string name="fb_form_w">勝</string>
+    <string name="fb_form_d">分</string>
+    <string name="fb_form_l">敗</string>
     <string name="game_football_manager_name">クラブボス</string>
     <string name="game_football_manager_desc">思い通りにサッカークラブを運営しよう：ヨーロッパ全リーグ、リアルな日程、欧州カップとワールドカップ、詳細な戦術、トレーニング、ユースアカデミー、財政、活気ある移籍市場。</string>
     <string name="fb_tagline">王朝を築け。すべての決断はあなた次第。</string>

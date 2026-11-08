@@ -30,6 +30,9 @@
     <string name="fb_deposit_x">Вложить %1$s</string>
     <string name="fb_withdraw_x">Снять %1$s</string>
     <string name="fb_deposit_tip" formatted="false">Деньги на вкладе приносят 2% годовых, но их нельзя тратить на трансферы и зарплаты, пока не снимешь.</string>
+    <string name="fb_form_w">В</string>
+    <string name="fb_form_d">Н</string>
+    <string name="fb_form_l">П</string>
     <string name="game_football_manager_name">Босс клуба</string>
     <string name="game_football_manager_desc">Управляй футбольным клубом по-своему: все лиги Европы, реалистичный календарь, еврокубки и чемпионаты мира, детальная тактика, тренировки, академия, финансы и живой трансферный рынок.</string>
     <string name="fb_tagline">Построй династию. Каждое решение за тобой.</string>
