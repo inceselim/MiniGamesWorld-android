@@ -20,7 +20,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import com.eomer91.minigamesworld.ads.AdBanner
 import com.eomer91.minigamesworld.ui.detail.GameDetailScreen
 import com.eomer91.minigamesworld.ui.favorites.FavoritesScreen
 import com.eomer91.minigamesworld.ui.home.HomeScreen
@@ -31,10 +30,7 @@ import com.eomer91.minigamesworld.ui.settings.SettingsScreen
 import com.eomer91.minigamesworld.ui.theme.AppColors
 
 @Composable
-fun MiniGamesAppRoot(
-    privacyOptionsRequired: Boolean,
-    onShowPrivacyOptions: () -> Unit,
-) {
+fun MiniGamesAppRoot() {
     val navController = rememberNavController()
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = backStackEntry?.destination
@@ -42,8 +38,6 @@ fun MiniGamesAppRoot(
         currentDestination?.hierarchy?.any { it.hasRoute(top.route::class) } == true
     }
 
-    // Banner reklam ana sayfada (Oyunlar) gosterilmez; diger sekmelerde gosterilir.
-    val onHome = currentDestination?.hierarchy?.any { it.hasRoute(HomeRoute::class) } == true
 
     val openGame: (String) -> Unit = { id -> navController.navigate(GameDetailRoute(id)) }
 
@@ -52,7 +46,6 @@ fun MiniGamesAppRoot(
         bottomBar = {
             if (showBottomBar) {
                 Column {
-                    if (!onHome) AdBanner()
                     NavigationBar(containerColor = AppColors.Surface) {
                         topLevelRoutes.forEach { top ->
                             val selected = currentDestination?.hierarchy
@@ -94,10 +87,7 @@ fun MiniGamesAppRoot(
             composable<FavoritesRoute> { FavoritesScreen(onGameClick = openGame) }
             composable<ProfileRoute> { ProfileScreen() }
             composable<SettingsRoute> {
-                SettingsScreen(
-                    privacyOptionsRequired = privacyOptionsRequired,
-                    onShowPrivacyOptions = onShowPrivacyOptions,
-                )
+                SettingsScreen()
             }
             composable<GameDetailRoute> {
                 GameDetailScreen(

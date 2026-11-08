@@ -1,41 +1,37 @@
 package com.eomer91.minigamesworld.ads
 
 import android.app.Activity
-import android.content.Context
 import android.os.SystemClock
 import android.util.Log
 import com.eomer91.minigamesworld.BuildConfig
-import com.google.android.gms.ads.AdError
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.FullScreenContentCallback
-import com.google.android.gms.ads.LoadAdError
-import com.google.android.gms.ads.interstitial.InterstitialAd
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
-import dagger.hilt.android.qualifiers.ApplicationContext
+import com.unity3d.ads.IUnityAdsLoadListener
+import com.unity3d.ads.IUnityAdsShowListener
+import com.unity3d.ads.UnityAds
+import com.unity3d.ads.UnityAdsShowOptions
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * Gecis (tam ekran) reklami. Bir reklam onceden yuklenir, gosterilince yenisi yuklenir.
- * Cok sik gosterim kullaniciyi kacirir ve AdMob politikalarina takilabilir;
- * bu yuzden iki gosterim arasinda en az [MIN_INTERVAL_MS] beklenir.
+ * Gecis (tam ekran) reklami, Unity Ads. Bir reklam onceden yuklenir, gosterilince yenisi yuklenir.
+ * Cok sik gosterim kullaniciyi kacirir; iki gosterim arasinda en az [MIN_INTERVAL_MS] beklenir.
  */
 @Singleton
 class InterstitialAdManager @Inject constructor(
-    @ApplicationContext private val context: Context,
     adsManager: AdsManager,
 ) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
-    private val unitId = BuildConfig.ADMOB_INTERSTITIAL_ID
+    private val placementId = BuildConfig.UNITY_INTERSTITIAL_ID
 
-    private var ad: InterstitialAd? = null
+    private var loaded = false
     private var isLoading = false
     private var lastShownAt = 0L
     private var adsReady = false
+    private var retries = 0
 
     init {
         scope.launch {
@@ -47,24 +43,22 @@ class InterstitialAdManager @Inject constructor(
     }
 
     fun preload() {
-        if (!adsReady || unitId.isBlank() || ad != null || isLoading) return
+        if (!adsReady || placementId.isBlank() || loaded || isLoading) return
         isLoading = true
-        InterstitialAd.load(
-            context,
-            unitId,
-            AdRequest.Builder().build(),
-            object : InterstitialAdLoadCallback() {
-                override fun onAdLoaded(loaded: InterstitialAd) {
-                    ad = loaded
-                    isLoading = false
-                }
+        UnityAds.load(placementId, object : IUnityAdsLoadListener {
+            override fun onUnityAdsAdLoaded(id: String?) {
+                scope.launch { loaded = true; isLoading = false; retries = 0 }
+            }
 
-                override fun onAdFailedToLoad(error: LoadAdError) {
-                    Log.w(TAG, "Interstitial failed to load: ${error.message}")
+            override fun onUnityAdsFailedToLoad(id: String?, error: UnityAds.UnityAdsLoadError?, message: String?) {
+                Log.w(TAG, "Interstitial yuklenemedi: $error $message")
+                scope.launch {
                     isLoading = false
+                    // Reklam yoksa bir sure sonra tekrar dene (30 sn, 60 sn, ... en fazla 5 dk)
+                    if (retries < 6) { delay(30_000L * (1 shl retries.coerceAtMost(3)).coerceAtMost(10)); retries++; preload() }
                 }
-            },
-        )
+            }
+        })
     }
 
     /**
@@ -72,32 +66,36 @@ class InterstitialAdManager @Inject constructor(
      * [onFinished] reklam kapaninca ya da reklam gosterilmezse hemen cagrilir.
      */
     fun showIfReady(activity: Activity, onFinished: () -> Unit) {
-        val current = ad
         val cooledDown = SystemClock.elapsedRealtime() - lastShownAt >= MIN_INTERVAL_MS
-        if (current == null || !cooledDown) {
+        if (!loaded || !cooledDown) {
             onFinished()
             preload()
             return
         }
-
-        ad = null
-        current.fullScreenContentCallback = object : FullScreenContentCallback() {
-            override fun onAdShowedFullScreenContent() {
-                lastShownAt = SystemClock.elapsedRealtime()
-            }
-
-            override fun onAdDismissedFullScreenContent() {
-                onFinished()
-                preload()
-            }
-
-            override fun onAdFailedToShowFullScreenContent(error: AdError) {
-                Log.w(TAG, "Interstitial failed to show: ${error.message}")
-                onFinished()
-                preload()
-            }
+        loaded = false
+        var finished = false
+        fun finish() = scope.launch {
+            if (finished) return@launch
+            finished = true
+            onFinished()
+            preload()
         }
-        current.show(activity)
+        UnityAds.show(activity, placementId, UnityAdsShowOptions(), object : IUnityAdsShowListener {
+            override fun onUnityAdsShowStart(id: String?) {
+                scope.launch { lastShownAt = SystemClock.elapsedRealtime() }
+            }
+
+            override fun onUnityAdsShowClick(id: String?) {}
+
+            override fun onUnityAdsShowComplete(id: String?, state: UnityAds.UnityAdsShowCompletionState?) {
+                finish()
+            }
+
+            override fun onUnityAdsShowFailure(id: String?, error: UnityAds.UnityAdsShowError?, message: String?) {
+                Log.w(TAG, "Interstitial gosterilemedi: $error $message")
+                finish()
+            }
+        })
     }
 
     /** Baska bir tam ekran reklam (ornek: odullu) gosterildi; bekleme suresi buradan baslar. */

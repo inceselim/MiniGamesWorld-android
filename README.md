@@ -8,7 +8,7 @@ Eski React Native/Expo kodu referans için `MiniGamesWorldincesoy` reposunda dur
 - Kotlin 2.3, Jetpack Compose (Material 3), tek Activity
 - MVVM + Hilt (KSP), Navigation Compose (type-safe route'lar)
 - DataStore: altın, favoriler, rekorlar, ayarlar
-- AdMob (banner + geçiş reklamı) + UMP (GDPR onay ekranı)
+- Unity Ads (geçiş + ödüllü reklam; GDPR onayını Unity kendisi alır)
 - SoundPool ile ses efektleri, titreşim
 - Uygulama içi dil seçimi (AppCompat per-app locales)
 - Derleme: AGP 9.1 (built-in Kotlin), Gradle 9.4.1, Java 21 veya 25
@@ -155,20 +155,20 @@ Yeni metin eklerken: önce `values/strings.xml`'e ekle, sonra **tüm** `values-x
 
 | Tür | Nerede |
 |---|---|
-| Banner | Ara, Favoriler, Profil ve Ayarlar sekmelerinin altında. Ana sayfada (Oyunlar) ve oyun ekranlarında yok. |
 | Geçiş (Interstitial) | Oynanabilir bir oyunun detay ekranında **Play**, oyun içinde **Restart** ve **Tekrar oyna**; Ülkeler Savaşı ve Borsa Ustası'nda ayrıca **her ~3 dk aktif oyunda bir** tur/gün değişiminde (`PlaytimeAdTimer`, duraklatma sayılmaz) |
 | Ödüllü (Rewarded) | Altın yetmeyince **Reklam izle (+50 altın)**; Block Puzzle: **Parçaları değiştir**, **Geri al**; Sudoku: **İpucu**, **3 hatadan sonra devam**; Match 3: **+5 hamle**; Bubble Shooter: **3 sırayı temizle ve devam et**; Tower Defense: **yarı canla devam**, Atölye'de altın yetmezse **reklamla +1 seviye**; Mayın Tarlası: **ikinci şans** (hepsi oyun başına bir kez); Solitaire: **ipucu**; Dört Bağla: **hamle geri al**; Roket Zıpla: **kalkanla devam** (oyun başına bir kez); Balık Dünyası: **bir atış daha** (oturum başına bir kez), **+10 yem**; Borsa Ustası: **içeriden bilgi** (5 gün trend okları, oyun başına bir kez); Ülkeler Savaşı: **+3 elmas**; Orman Muhafızı: **diriliş** (tur başına bir kez) |
 
-- İki geçiş reklamı arasında en az **60 saniye** olur ve bu süre tüm butonlar için ortaktır. Ödüllü reklam izlendiğinde de bu süre yeniden başlar (art arda iki tam ekran reklam çıkmaz). Çok sık geçiş reklamı oyuncuyu kaçırır ve AdMob politikalarına takılabilir. Değiştirmek için: `ads/InterstitialAdManager.kt` → `MIN_INTERVAL_MS`.
+- İki geçiş reklamı arasında en az **60 saniye** olur ve bu süre tüm butonlar için ortaktır. Ödüllü reklam izlendiğinde de bu süre yeniden başlar (art arda iki tam ekran reklam çıkmaz). Çok sık geçiş reklamı oyuncuyu kaçırır. Değiştirmek için: `ads/InterstitialAdManager.kt` → `MIN_INTERVAL_MS`.
 - Reklam hazır değilse (internet yok, yüklenemedi) oyun beklemeden devam eder.
 - Reklam gösterilirken Snake gibi gerçek zamanlı oyunlar kendiliğinden durur.
 - Yeni bir oyuna geçiş reklamı eklemek tek satır: `val show = rememberInterstitialLauncher()` → `show { viewModel.restart() }`.
 
-**AdMob ayarları**
+**Unity Ads ayarları**
 
-- App ID manifest'e `app/build.gradle.kts` içinden giriyor (`admobAppId`).
-- Release reklam birimi ID'leri `gradle.properties` dosyasında: `ADMOB_BANNER_ID`, `ADMOB_INTERSTITIAL_ID`, `ADMOB_REWARDED_ID`. Boş bırakılan reklam release sürümde gösterilmez.
-- Debug her zaman Google'ın test ID'lerini kullanır. Kendi reklamına kendin tıklama, AdMob hesabı kapanabilir.
+- `gradle.properties`: `UNITY_GAME_ID` (Unity Dashboard › Monetization › Android Game ID), `UNITY_INTERSTITIAL_ID` ve `UNITY_REWARDED_ID` (reklam birimi / placement adları, varsayılan `Interstitial_Android` ve `Rewarded_Android`). Game ID boşsa reklam başlatılmaz.
+- Debug derleme test modunda çalışır (`UNITY_TEST_MODE=true`), yalnızca test reklamı gelir; release gerçek reklam gösterir. Kendi reklamına tıklama.
+- GDPR: Unity, AB'deki kullanıcıya ilk reklamda kişiselleştirilmiş reklam seçeneğini kendisi sunar; reklamdaki gizlilik simgesinden değiştirilebilir.
+- SDK klasik API'yi (`UnityAds.load/show`) kullanıyor; 4.19'da kullanımdan kalkacak olarak işaretlendi, 5.0'da kaldırılacak. 5.0'a geçerken yeni API'ye (`InterstitialAd`/`RewardedAd`) taşınmalı.
 
 ## Ses efektleri ve titreşim
 
@@ -261,7 +261,7 @@ Bu aktarım sadece **release** paket adıyla test edilebilir, çünkü debug'ın
 
 ## Yol haritası
 
-- [x] İskelet: sekmeler, katalog, detay, altın/favori/rekor, dil, AdMob + onay
+- [x] İskelet: sekmeler, katalog, detay, altın/favori/rekor, dil, reklam (AdMob → Unity Ads)
 - [x] Oyunları taşı: 2048, Snake, Memory Card, Block Puzzle
 - [x] Geçiş reklamı (Play / Restart / Tekrar oyna)
 - [x] Ses efektleri ve titreşim
