@@ -577,11 +577,16 @@ object FbClubLife {
 
     const val AD_BONUS_PER_WEEK = 3
 
-    /** Reklam izleyince kulube eklenecek tutar: yillik gelirin ~%1.5'i (en az 50 bin). */
+    /**
+     * Reklam izleyince kulube eklenecek tutar. Buyuk kulupte yillik gelirin %1.5'i; gelir kuculdukce
+     * oran %5'e kadar cikar, alt liglerde ek carpan (2. lig x1.25, 3. lig ve alti x1.5). En az 100 bin.
+     */
     fun adBonusAmount(world: FbWorld, c: FbClub): Long {
-        var rev = c.lastLedger.withIndex().filter { Fin.entries[it.index].income && it.index != Fin.TRANSFER_IN.ordinal }.sumOf { it.value }
-        if (rev <= 0) rev = c.sponsorIncome * 5
-        return FbEconomy.roundValue(max(50_000L, rev * 15 / 1000))
+        val rev = FbBanking.yearRevenue(world, c).coerceAtLeast(1L)
+        var pct = (0.015 * kotlin.math.sqrt(30_000_000.0 / rev)).coerceIn(0.015, 0.05)
+        val tier = world.leagues.getOrNull(c.league)?.tier ?: 1
+        pct *= when { tier >= 3 -> 1.5; tier == 2 -> 1.25; else -> 1.0 }
+        return FbEconomy.roundValue(max(100_000L, (rev * pct).toLong()))
     }
 
     fun adBonusLeft(world: FbWorld): Int {
