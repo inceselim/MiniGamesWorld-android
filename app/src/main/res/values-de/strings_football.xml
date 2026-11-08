@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="fb_monthly">Monatlich</string>
+    <string name="fb_this_month">Dieser Monat</string>
+    <string name="fb_last_month">Letzter Monat</string>
+    <string name="fb_month_income">Gesamteinnahmen</string>
+    <string name="fb_month_expense">Gesamtausgaben</string>
+    <string name="fb_bank">Bank</string>
+    <string name="fb_bank_loan">Bankkredit</string>
+    <string name="fb_credit_limit">Kreditrahmen</string>
+    <string name="fb_loan_amount">Betrag</string>
+    <string name="fb_loan_term">Laufzeit</string>
+    <string name="fb_years_short">%1$d J.</string>
+    <string name="fb_interest_rate">Zinssatz</string>
+    <string name="fb_rate_year">%1$s pro Jahr</string>
+    <string name="fb_weekly_payment">Wöchentliche Rate</string>
+    <string name="fb_total_repay">Gesamtrückzahlung</string>
+    <string name="fb_take_loan">Kredit aufnehmen</string>
+    <string name="fb_loan_taken_ok">Kredit erhalten: %1$s</string>
+    <string name="fb_loan_left">Restschuld</string>
+    <string name="fb_loan_original">Geliehen</string>
+    <string name="fb_weeks_left">Verbleibende Wochen</string>
+    <string name="fb_repay_loan">Jetzt ablösen (%1$s)</string>
+    <string name="fb_loan_repaid">Kredit abbezahlt</string>
+    <string name="fb_bank_tip" formatted="false">Die Raten werden jeden Montag bezahlt. Klubs mit hohem Ansehen zahlen weniger Zinsen; bei negativem Kontostand steigen sie. Eine vorzeitige Ablösung kostet 1% extra. Es ist immer nur ein Kredit möglich.</string>
+    <string name="fb_deposit">Festgeld</string>
+    <string name="fb_deposit_balance">Festgeldguthaben</string>
+    <string name="fb_deposit_earned">Erhaltene Zinsen</string>
+    <string name="fb_weekly_return">Wöchentliche Zinsen</string>
+    <string name="fb_deposit_x">%1$s anlegen</string>
+    <string name="fb_withdraw_x">%1$s abheben</string>
+    <string name="fb_deposit_tip" formatted="false">Geld im Festgeld bringt 2% pro Jahr, kann aber erst nach dem Abheben für Transfers oder Gehälter genutzt werden.</string>
     <string name="game_football_manager_name">Klubboss</string>
     <string name="game_football_manager_desc">Führe einen Fußballklub nach deinen Vorstellungen: alle Ligen Europas, realistischer Kalender, Europapokale und Weltmeisterschaften, detaillierte Taktik, Training, Jugendakademie, Finanzen und ein lebendiger Transfermarkt.</string>
     <string name="fb_tagline">Baue eine Dynastie auf. Jede Entscheidung liegt bei dir.</string>

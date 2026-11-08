@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="fb_monthly">Mensuel</string>
+    <string name="fb_this_month">Ce mois-ci</string>
+    <string name="fb_last_month">Mois dernier</string>
+    <string name="fb_month_income">Revenus totaux</string>
+    <string name="fb_month_expense">Dépenses totales</string>
+    <string name="fb_bank">Banque</string>
+    <string name="fb_bank_loan">Prêt bancaire</string>
+    <string name="fb_credit_limit">Plafond de crédit</string>
+    <string name="fb_loan_amount">Montant</string>
+    <string name="fb_loan_term">Durée</string>
+    <string name="fb_years_short">%1$d ans</string>
+    <string name="fb_interest_rate">Taux d\'intérêt</string>
+    <string name="fb_rate_year">%1$s par an</string>
+    <string name="fb_weekly_payment">Mensualité hebdomadaire</string>
+    <string name="fb_total_repay">Total à rembourser</string>
+    <string name="fb_take_loan">Contracter le prêt</string>
+    <string name="fb_loan_taken_ok">Prêt reçu : %1$s</string>
+    <string name="fb_loan_left">Reste à payer</string>
+    <string name="fb_loan_original">Emprunté</string>
+    <string name="fb_weeks_left">Semaines restantes</string>
+    <string name="fb_repay_loan">Rembourser maintenant (%1$s)</string>
+    <string name="fb_loan_repaid">Prêt remboursé</string>
+    <string name="fb_bank_tip" formatted="false">Les échéances sont payées chaque lundi. Les clubs réputés paient moins d\'intérêts ; ils augmentent quand le solde est négatif. Un remboursement anticipé coûte 1% de plus. Un seul prêt à la fois.</string>
+    <string name="fb_deposit">Dépôt à terme</string>
+    <string name="fb_deposit_balance">Solde du dépôt</string>
+    <string name="fb_deposit_earned">Intérêts gagnés</string>
+    <string name="fb_weekly_return">Intérêts par semaine</string>
+    <string name="fb_deposit_x">Déposer %1$s</string>
+    <string name="fb_withdraw_x">Retirer %1$s</string>
+    <string name="fb_deposit_tip" formatted="false">L\'argent placé rapporte 2% par an, mais il ne peut servir aux transferts ou aux salaires qu\'après l\'avoir retiré.</string>
     <string name="game_football_manager_name">Patron du Club</string>
     <string name="game_football_manager_desc">Dirige un club de football à ta façon : tous les championnats d\'Europe, calendrier réaliste, coupes d\'Europe et Coupes du monde, tactiques détaillées, entraînement, centre de formation, finances et un marché des transferts vivant.</string>
     <string name="fb_tagline">Bâtis une dynastie. Chaque décision t\'appartient.</string>

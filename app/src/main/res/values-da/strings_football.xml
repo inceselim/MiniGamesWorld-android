@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="fb_monthly">Månedligt</string>
+    <string name="fb_this_month">Denne måned</string>
+    <string name="fb_last_month">Sidste måned</string>
+    <string name="fb_month_income">Samlede indtægter</string>
+    <string name="fb_month_expense">Samlede udgifter</string>
+    <string name="fb_bank">Bank</string>
+    <string name="fb_bank_loan">Banklån</string>
+    <string name="fb_credit_limit">Kreditgrænse</string>
+    <string name="fb_loan_amount">Beløb</string>
+    <string name="fb_loan_term">Løbetid</string>
+    <string name="fb_years_short">%1$d år</string>
+    <string name="fb_interest_rate">Rente</string>
+    <string name="fb_rate_year">%1$s om året</string>
+    <string name="fb_weekly_payment">Ugentlig ydelse</string>
+    <string name="fb_total_repay">Samlet tilbagebetaling</string>
+    <string name="fb_take_loan">Optag lånet</string>
+    <string name="fb_loan_taken_ok">Lån modtaget: %1$s</string>
+    <string name="fb_loan_left">Restgæld</string>
+    <string name="fb_loan_original">Lånt</string>
+    <string name="fb_weeks_left">Uger tilbage</string>
+    <string name="fb_repay_loan">Indfri nu (%1$s)</string>
+    <string name="fb_loan_repaid">Lånet er indfriet</string>
+    <string name="fb_bank_tip" formatted="false">Ydelserne betales hver mandag. Klubber med højt omdømme får lavere rente; den stiger, mens saldoen er negativ. Førtidig indfrielse koster 1% ekstra. Kun ét lån ad gangen.</string>
+    <string name="fb_deposit">Opsparing</string>
+    <string name="fb_deposit_balance">Opsparingssaldo</string>
+    <string name="fb_deposit_earned">Optjent rente</string>
+    <string name="fb_weekly_return">Ugentlig rente</string>
+    <string name="fb_deposit_x">Indsæt %1$s</string>
+    <string name="fb_withdraw_x">Hæv %1$s</string>
+    <string name="fb_deposit_tip" formatted="false">Penge i opsparingen giver 2% om året, men kan ikke bruges til transfers eller løn, før du hæver dem.</string>
     <string name="game_football_manager_name">Klubboss</string>
     <string name="game_football_manager_desc">Styr en fodboldklub på din måde: alle Europas ligaer, realistisk kalender, europæiske turneringer og VM, detaljeret taktik, træning, akademi, økonomi og et levende transfermarked.</string>
     <string name="fb_tagline">Byg et dynasti. Hver beslutning er din.</string>

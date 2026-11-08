@@ -15,7 +15,7 @@ import java.util.zip.GZIPOutputStream
  */
 object FbSave {
     private const val MAGIC = 0x46424D47 // "FBMG"
-    const val VERSION = 8
+    const val VERSION = 9
 
     fun write(w: FbWorld, out: OutputStream) {
         // Hizli sikistirma: telefonda kayit suresi boyuttan onemli
@@ -88,6 +88,12 @@ object FbSave {
             for (n in w.market.news) o.writeUTF(n.text)
             // v8: para birimi
             o.writeByte(w.currency)
+            // v9: aylik toplamlar ve banka
+            for (c in w.clubs) { o.writeLong(c.monthIn); o.writeLong(c.monthOut); o.writeLong(c.lastMonthIn); o.writeLong(c.lastMonthOut) }
+            w.bank.let { b ->
+                o.writeLong(b.loanLeft); o.writeLong(b.loanTaken); o.writeFloat(b.loanRate); o.writeLong(b.loanWeekly); o.writeShort(b.loanWeeksLeft)
+                o.writeLong(b.deposit); o.writeLong(b.depositEarned)
+            }
             val ut = w.userTactics
             o.writeBoolean(ut != null)
             if (ut != null) writeTactics(o, ut)
@@ -324,6 +330,13 @@ object FbSave {
                 for (n in w.market.news) n.text = i.readUTF()
             }
             if (version >= 8) w.currency = i.readUnsignedByte()
+            if (version >= 9) {
+                for (c in w.clubs) { c.monthIn = i.readLong(); c.monthOut = i.readLong(); c.lastMonthIn = i.readLong(); c.lastMonthOut = i.readLong() }
+                w.bank.let { b ->
+                    b.loanLeft = i.readLong(); b.loanTaken = i.readLong(); b.loanRate = i.readFloat(); b.loanWeekly = i.readLong(); b.loanWeeksLeft = i.readUnsignedShort()
+                    b.deposit = i.readLong(); b.depositEarned = i.readLong()
+                }
+            }
             if (version >= 2) {
                 if (i.readBoolean()) w.userTactics = readTactics(i)
                 if (i.readBoolean()) w.state = readState(i, version)

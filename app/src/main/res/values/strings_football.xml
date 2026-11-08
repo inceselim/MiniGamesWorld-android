@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="fb_monthly">Monthly</string>
+    <string name="fb_this_month">This month</string>
+    <string name="fb_last_month">Last month</string>
+    <string name="fb_month_income">Total income</string>
+    <string name="fb_month_expense">Total expenses</string>
+    <string name="fb_bank">Bank</string>
+    <string name="fb_bank_loan">Bank loan</string>
+    <string name="fb_credit_limit">Credit limit</string>
+    <string name="fb_loan_amount">Amount</string>
+    <string name="fb_loan_term">Term</string>
+    <string name="fb_years_short">%1$d yr</string>
+    <string name="fb_interest_rate">Interest rate</string>
+    <string name="fb_rate_year">%1$s per year</string>
+    <string name="fb_weekly_payment">Weekly instalment</string>
+    <string name="fb_total_repay">Total to repay</string>
+    <string name="fb_take_loan">Take the loan</string>
+    <string name="fb_loan_taken_ok">Loan received: %1$s</string>
+    <string name="fb_loan_left">Remaining debt</string>
+    <string name="fb_loan_original">Borrowed</string>
+    <string name="fb_weeks_left">Weeks left</string>
+    <string name="fb_repay_loan">Pay off now (%1$s)</string>
+    <string name="fb_loan_repaid">Loan paid off</string>
+    <string name="fb_bank_tip" formatted="false">Instalments are paid every Monday. Clubs with a high reputation get cheaper interest; it rises while your balance is negative. Paying off early costs 1% extra. Only one loan at a time.</string>
+    <string name="fb_deposit">Savings deposit</string>
+    <string name="fb_deposit_balance">Deposit balance</string>
+    <string name="fb_deposit_earned">Interest earned</string>
+    <string name="fb_weekly_return">Weekly interest</string>
+    <string name="fb_deposit_x">Deposit %1$s</string>
+    <string name="fb_withdraw_x">Withdraw %1$s</string>
+    <string name="fb_deposit_tip" formatted="false">Money in the deposit earns 2% a year, but it can\'t be used for transfers or wages until you withdraw it.</string>
     <string name="game_football_manager_name">Club Boss</string>
     <string name="game_football_manager_desc">Run a football club your way: every league in Europe, real-style calendar, European cups and World Cups, detailed tactics, training, youth academy, finances and a living transfer market.</string>
     <string name="fb_tagline">Build a dynasty. Every decision is yours.</string>

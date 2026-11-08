@@ -44,6 +44,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.eomer91.minigamesworld.R
+import com.eomer91.minigamesworld.ui.games.football.engine.FbBanking
 import com.eomer91.minigamesworld.ui.games.football.engine.Facility
 import com.eomer91.minigamesworld.ui.games.football.engine.FbClub
 import com.eomer91.minigamesworld.ui.games.football.engine.FbClubLife
@@ -57,7 +58,7 @@ import com.eomer91.minigamesworld.ui.games.football.engine.StaffAttr
 import com.eomer91.minigamesworld.ui.games.football.engine.StaffRole
 import com.eomer91.minigamesworld.ui.theme.AppColors
 
-private enum class ClubPage { FINANCE, FACILITIES, STAFF, SPONSOR, FRIENDLY, EDITOR, SETTINGS }
+private enum class ClubPage { FINANCE, BANK, FACILITIES, STAFF, SPONSOR, FRIENDLY, EDITOR, SETTINGS }
 
 @Composable
 fun FbClubScreen(world: FbWorld, ui: FbUiState, vm: FootballViewModel) {
@@ -65,6 +66,7 @@ fun FbClubScreen(world: FbWorld, ui: FbUiState, vm: FootballViewModel) {
     Column(Modifier.fillMaxSize()) {
         Row(Modifier.horizontalScroll(rememberScrollState()).padding(bottom = 6.dp), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
             FbChip(stringResource(R.string.fb_finance), page == ClubPage.FINANCE, { page = ClubPage.FINANCE })
+            FbChip(stringResource(R.string.fb_bank), page == ClubPage.BANK, { page = ClubPage.BANK })
             FbChip(stringResource(R.string.fb_facilities), page == ClubPage.FACILITIES, { page = ClubPage.FACILITIES })
             FbChip(stringResource(R.string.fb_staff), page == ClubPage.STAFF, { page = ClubPage.STAFF })
             FbChip(stringResource(R.string.fb_sponsor_tickets), page == ClubPage.SPONSOR, { page = ClubPage.SPONSOR })
@@ -75,6 +77,7 @@ fun FbClubScreen(world: FbWorld, ui: FbUiState, vm: FootballViewModel) {
         Box(Modifier.weight(1f)) {
             when (page) {
                 ClubPage.FINANCE -> Finance(world)
+                ClubPage.BANK -> Bank(world, vm)
                 ClubPage.FACILITIES -> Facilities(world, vm)
                 ClubPage.STAFF -> Staff(world, vm)
                 ClubPage.SPONSOR -> SponsorTickets(world, vm)
@@ -142,8 +145,26 @@ private fun Finance(world: FbWorld) {
                     drawPath(path, if (h.last() >= 0) FbColors.Green else FbColors.Red, style = Stroke(width = 4f))
                 }
             }
+            // Aylik toplamlar
+            FbPanel(Modifier.fillMaxWidth(), title = stringResource(R.string.fb_monthly)) {
+                Row(Modifier.fillMaxWidth().padding(bottom = 2.dp)) {
+                    Text("", Modifier.weight(1f))
+                    FbCell(stringResource(R.string.fb_this_month), 86.dp, AppColors.TextSecondary, align = TextAlign.End, size = 11.sp)
+                    FbCell(stringResource(R.string.fb_last_month), 86.dp, AppColors.TextSecondary, align = TextAlign.End, size = 11.sp)
+                }
+                MonthRow(stringResource(R.string.fb_month_income), c.monthIn, c.lastMonthIn, FbColors.Green)
+                MonthRow(stringResource(R.string.fb_month_expense), c.monthOut, c.lastMonthOut, FbColors.Red)
+                val n1 = c.monthIn - c.monthOut; val n2 = c.lastMonthIn - c.lastMonthOut
+                Row(Modifier.fillMaxWidth().padding(top = 3.dp)) {
+                    Text(stringResource(R.string.fb_net), color = AppColors.TextPrimary, fontWeight = FontWeight.ExtraBold, fontSize = 13.sp, modifier = Modifier.weight(1f))
+                    FbCell(FbFormat.money(n1), 86.dp, if (n1 >= 0) FbColors.Green else FbColors.Red, bold = true, align = TextAlign.End)
+                    FbCell(FbFormat.money(n2), 86.dp, if (n2 >= 0) FbColors.Green else FbColors.Red, bold = true, align = TextAlign.End)
+                }
+            }
             FbPanel(Modifier.fillMaxWidth()) {
                 FbKeyValue(stringResource(R.string.fb_balance), FbFormat.money(c.balance), if (c.balance >= 0) FbColors.Green else FbColors.Red)
+                if (world.bank.deposit > 0) FbKeyValue(stringResource(R.string.fb_deposit_balance), FbFormat.money(world.bank.deposit), FbColors.Blue)
+                if (world.bank.hasLoan) FbKeyValue(stringResource(R.string.fb_loan_left), FbFormat.money(world.bank.loanLeft), FbColors.Red)
                 FbKeyValue(stringResource(R.string.fb_weekly_wages), FbFormat.money(c.players.sumOf { world.players[it].wage.toLong() }))
                 FbKeyValue(stringResource(R.string.fb_staff_wages_week), FbFormat.money(c.staff.sumOf { world.staff[it].wage.toLong() }))
                 FbKeyValue(stringResource(R.string.fb_fan_base), "${c.fanBase}")
@@ -151,6 +172,96 @@ private fun Finance(world: FbWorld) {
         }
     }
 }
+
+@Composable
+private fun MonthRow(label: String, now: Long, last: Long, color: Color) {
+    Row(Modifier.fillMaxWidth().padding(vertical = 2.dp)) {
+        Text(label, color = AppColors.TextMuted, fontSize = 13.sp, modifier = Modifier.weight(1f))
+        FbCell(FbFormat.money(now), 86.dp, color, bold = true, align = TextAlign.End)
+        FbCell(FbFormat.money(last), 86.dp, AppColors.TextSecondary, align = TextAlign.End)
+    }
+}
+
+// ====================================================================== banka
+
+private fun pct(v: Float) = (if (v % 1f == 0f) v.toInt().toString() else "%.1f".format(v)) + "%"
+
+@Composable
+private fun Bank(world: FbWorld, vm: FootballViewModel) {
+    val c = world.clubs[world.userClub]
+    val b = world.bank
+    var share by remember { mutableIntStateOf(50) }
+    var years by remember { mutableIntStateOf(2) }
+    Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+        // Kredi
+        FbPanel(Modifier.weight(1f).fillMaxHeight(), title = stringResource(R.string.fb_bank_loan)) {
+            Column(Modifier.verticalScroll(rememberScrollState())) {
+                if (b.hasLoan) {
+                    FbKeyValue(stringResource(R.string.fb_loan_original), FbFormat.money(b.loanTaken))
+                    FbKeyValue(stringResource(R.string.fb_loan_left), FbFormat.money(b.loanLeft), FbColors.Red)
+                    FbKeyValue(stringResource(R.string.fb_interest_rate), stringResource(R.string.fb_rate_year, pct(b.loanRate)))
+                    FbKeyValue(stringResource(R.string.fb_weekly_payment), FbFormat.money(b.loanWeekly), FbColors.Yellow)
+                    FbKeyValue(stringResource(R.string.fb_weeks_left), "${b.loanWeeksLeft}")
+                    FbBar(((b.loanTaken - b.loanLeft) * 100 / b.loanTaken.coerceAtLeast(1)).toInt(), FbColors.Green, 220.dp, 8.dp)
+                    Spacer(Modifier.height(10.dp))
+                    val cost = FbBanking.earlyRepayCost(b)
+                    FbButton(stringResource(R.string.fb_repay_loan, FbFormat.money(cost)), {
+                        vm.edit { w -> if (FbBanking.repayLoan(w)) vm.toast(R.string.fb_loan_repaid) else vm.toast(R.string.fb_no_funds) }
+                    }, enabled = c.balance >= cost, color = FbColors.Green, textColor = Color.Black)
+                } else {
+                    val limit = FbBanking.creditLimit(world, c)
+                    FbKeyValue(stringResource(R.string.fb_credit_limit), FbFormat.money(limit), FbColors.Green)
+                    Text(stringResource(R.string.fb_loan_amount), color = AppColors.TextPrimary, fontWeight = FontWeight.Bold, fontSize = 13.sp, modifier = Modifier.padding(top = 8.dp))
+                    Row(Modifier.horizontalScroll(rememberScrollState()).padding(vertical = 4.dp), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                        for (s in listOf(25, 50, 75, 100)) FbChip(FbFormat.money(FbEconomyRound(limit * s / 100)), share == s, { share = s })
+                    }
+                    Text(stringResource(R.string.fb_loan_term), color = AppColors.TextPrimary, fontWeight = FontWeight.Bold, fontSize = 13.sp, modifier = Modifier.padding(top = 4.dp))
+                    Row(Modifier.padding(vertical = 4.dp), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                        for (y in FbBanking.TERMS_YEARS) FbChip(stringResource(R.string.fb_years_short, y), years == y, { years = y })
+                    }
+                    val amount = FbEconomyRound(limit * share / 100)
+                    val rate = FbBanking.loanRate(c, years)
+                    val weekly = FbBanking.weeklyPayment(amount, rate, years * 52)
+                    FbKeyValue(stringResource(R.string.fb_interest_rate), stringResource(R.string.fb_rate_year, pct(rate)))
+                    FbKeyValue(stringResource(R.string.fb_weekly_payment), FbFormat.money(weekly), FbColors.Yellow)
+                    FbKeyValue(stringResource(R.string.fb_total_repay), FbFormat.money(weekly * years * 52))
+                    Spacer(Modifier.height(8.dp))
+                    FbButton(stringResource(R.string.fb_take_loan), {
+                        vm.edit { w -> if (FbBanking.takeLoan(w, amount, years)) vm.toast(R.string.fb_loan_taken_ok, FbFormat.money(amount)) }
+                    }, enabled = amount > 0, color = AppColors.Primary)
+                }
+                Text(stringResource(R.string.fb_bank_tip), color = AppColors.TextSecondary, fontSize = 12.sp, modifier = Modifier.padding(top = 10.dp))
+            }
+        }
+        // Vadeli mevduat
+        FbPanel(Modifier.weight(1f).fillMaxHeight(), title = stringResource(R.string.fb_deposit)) {
+            Column(Modifier.verticalScroll(rememberScrollState())) {
+                FbKeyValue(stringResource(R.string.fb_deposit_balance), FbFormat.money(b.deposit), FbColors.Blue)
+                FbKeyValue(stringResource(R.string.fb_interest_rate), stringResource(R.string.fb_rate_year, pct(FbBanking.DEPOSIT_RATE)))
+                FbKeyValue(stringResource(R.string.fb_weekly_return), FbFormat.money((b.deposit * FbBanking.DEPOSIT_RATE / 100 / 52).toLong()), FbColors.Green)
+                FbKeyValue(stringResource(R.string.fb_deposit_earned), FbFormat.money(b.depositEarned))
+                FbKeyValue(stringResource(R.string.fb_balance), FbFormat.money(c.balance), if (c.balance >= 0) FbColors.Green else FbColors.Red)
+                Row(Modifier.horizontalScroll(rememberScrollState()).padding(top = 8.dp), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    for (s in listOf(10, 25, 50)) {
+                        val a = FbEconomyRound(c.balance * s / 100)
+                        FbButton(stringResource(R.string.fb_deposit_x, FbFormat.money(a)), { vm.edit { w -> FbBanking.depositMoney(w, a) } },
+                            enabled = a > 0, color = FbColors.Blue, textColor = Color.Black)
+                    }
+                }
+                Row(Modifier.horizontalScroll(rememberScrollState()).padding(top = 6.dp), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    val half = b.deposit / 2
+                    FbButton(stringResource(R.string.fb_withdraw_x, FbFormat.money(half)), { vm.edit { w -> FbBanking.withdraw(w, half) } },
+                        enabled = half > 0, color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
+                    FbButton(stringResource(R.string.fb_withdraw_x, FbFormat.money(b.deposit)), { vm.edit { w -> FbBanking.withdraw(w, Long.MAX_VALUE) } },
+                        enabled = b.deposit > 0, color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
+                }
+                Text(stringResource(R.string.fb_deposit_tip), color = AppColors.TextSecondary, fontSize = 12.sp, modifier = Modifier.padding(top = 10.dp))
+            }
+        }
+    }
+}
+
+private fun FbEconomyRound(v: Long): Long = if (v <= 0) 0 else com.eomer91.minigamesworld.ui.games.football.engine.FbEconomy.roundValue(v)
 
 // ====================================================================== tesisler
 

@@ -146,6 +146,10 @@ object FbClubLife {
     /** Her gun (FbSeason.dailyUpdate sonrasi). */
     fun onDay(world: FbWorld) {
         val cal = FbSeason.calendar(world)
+        // Ay basi: aylik gelir/gider toplamlarini devret
+        if (cal.date(world.day).third == 1) for (c in world.clubs) {
+            c.lastMonthIn = c.monthIn; c.lastMonthOut = c.monthOut; c.monthIn = 0; c.monthOut = 0
+        }
         if (cal.weekday(world.day) == FbCalendar.MON) weekly(world)
         if (world.day == cal.dayOf(3, 15)) youthIntake(world)
         FbTransfer.onDay(world)
@@ -258,6 +262,7 @@ object FbClubLife {
             upgradeCheck(world, c)
             morale(world, c, t, rnd)
         }
+        FbBanking.weekly(world)
         val defaults = HashMap<Int, TrainQuality>()
         for (p in world.players) {
             if (p.retired) continue

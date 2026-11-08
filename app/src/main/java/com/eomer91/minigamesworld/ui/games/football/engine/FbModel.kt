@@ -184,9 +184,16 @@ class FbClub(
     /** Son lig sirasi (sezon sonu), 0 bilinmiyor */
     var lastPosition: Int = 0
 
+    /** Aylik toplamlar (bu ay / gecen ay); ay basinda FbClubLife.onDay devreder */
+    var monthIn: Long = 0
+    var monthOut: Long = 0
+    var lastMonthIn: Long = 0
+    var lastMonthOut: Long = 0
+
     fun book(f: Fin, amount: Long) {
         ledger[f.ordinal] += amount
         balance += if (f.income) amount else -amount
+        if (f.income) monthIn += amount else monthOut += amount
     }
 }
 
@@ -234,6 +241,8 @@ class FbWorld(
     /** Reklamla kulube para: haftalik hak sayaci (sezon*100+hafta) */
     var adBonusWeek: Int = -1
     var adBonusCount: Int = 0
+    /** Kullanicinin banka hesabi (kredi ve mevduat) */
+    val bank: FbBank = FbBank()
     /** Takim -> dizilis onbellegi (kaydedilmez) */
     val formationCache: HashMap<Int, Formation> = HashMap()
 

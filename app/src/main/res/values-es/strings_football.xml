@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="fb_monthly">Mensual</string>
+    <string name="fb_this_month">Este mes</string>
+    <string name="fb_last_month">Mes pasado</string>
+    <string name="fb_month_income">Ingresos totales</string>
+    <string name="fb_month_expense">Gastos totales</string>
+    <string name="fb_bank">Banco</string>
+    <string name="fb_bank_loan">Préstamo bancario</string>
+    <string name="fb_credit_limit">Límite de crédito</string>
+    <string name="fb_loan_amount">Importe</string>
+    <string name="fb_loan_term">Plazo</string>
+    <string name="fb_years_short">%1$d años</string>
+    <string name="fb_interest_rate">Tipo de interés</string>
+    <string name="fb_rate_year">%1$s anual</string>
+    <string name="fb_weekly_payment">Cuota semanal</string>
+    <string name="fb_total_repay">Total a devolver</string>
+    <string name="fb_take_loan">Pedir el préstamo</string>
+    <string name="fb_loan_taken_ok">Préstamo recibido: %1$s</string>
+    <string name="fb_loan_left">Deuda pendiente</string>
+    <string name="fb_loan_original">Prestado</string>
+    <string name="fb_weeks_left">Semanas restantes</string>
+    <string name="fb_repay_loan">Saldar ahora (%1$s)</string>
+    <string name="fb_loan_repaid">Préstamo saldado</string>
+    <string name="fb_bank_tip" formatted="false">Las cuotas se pagan cada lunes. Los clubes con mucha reputación pagan menos intereses; suben mientras el saldo sea negativo. Saldar antes cuesta un 1% extra. Solo se permite un préstamo a la vez.</string>
+    <string name="fb_deposit">Depósito a plazo</string>
+    <string name="fb_deposit_balance">Saldo del depósito</string>
+    <string name="fb_deposit_earned">Intereses ganados</string>
+    <string name="fb_weekly_return">Interés semanal</string>
+    <string name="fb_deposit_x">Depositar %1$s</string>
+    <string name="fb_withdraw_x">Retirar %1$s</string>
+    <string name="fb_deposit_tip" formatted="false">El dinero del depósito rinde un 2% anual, pero no puede usarse para fichajes ni sueldos hasta que lo retires.</string>
     <string name="game_football_manager_name">Jefe del Club</string>
     <string name="game_football_manager_desc">Dirige un club de fútbol a tu manera: todas las ligas de Europa, calendario realista, copas europeas y Mundiales, tácticas detalladas, entrenamiento, cantera, finanzas y un mercado de fichajes vivo.</string>
     <string name="fb_tagline">Construye una dinastía. Cada decisión es tuya.</string>

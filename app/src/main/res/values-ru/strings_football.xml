@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="fb_monthly">За месяц</string>
+    <string name="fb_this_month">Этот месяц</string>
+    <string name="fb_last_month">Прошлый месяц</string>
+    <string name="fb_month_income">Всего доходов</string>
+    <string name="fb_month_expense">Всего расходов</string>
+    <string name="fb_bank">Банк</string>
+    <string name="fb_bank_loan">Банковский кредит</string>
+    <string name="fb_credit_limit">Кредитный лимит</string>
+    <string name="fb_loan_amount">Сумма</string>
+    <string name="fb_loan_term">Срок</string>
+    <string name="fb_years_short">%1$d г.</string>
+    <string name="fb_interest_rate">Процентная ставка</string>
+    <string name="fb_rate_year">%1$s годовых</string>
+    <string name="fb_weekly_payment">Еженедельный платёж</string>
+    <string name="fb_total_repay">Всего к возврату</string>
+    <string name="fb_take_loan">Взять кредит</string>
+    <string name="fb_loan_taken_ok">Кредит получен: %1$s</string>
+    <string name="fb_loan_left">Остаток долга</string>
+    <string name="fb_loan_original">Взято</string>
+    <string name="fb_weeks_left">Осталось недель</string>
+    <string name="fb_repay_loan">Погасить сейчас (%1$s)</string>
+    <string name="fb_loan_repaid">Кредит погашен</string>
+    <string name="fb_bank_tip" formatted="false">Платежи списываются каждый понедельник. Клубы с высокой репутацией платят меньше; при отрицательном балансе ставка растёт. Досрочное погашение стоит на 1% дороже. Одновременно можно иметь только один кредит.</string>
+    <string name="fb_deposit">Срочный вклад</string>
+    <string name="fb_deposit_balance">Сумма вклада</string>
+    <string name="fb_deposit_earned">Начислено процентов</string>
+    <string name="fb_weekly_return">Проценты в неделю</string>
+    <string name="fb_deposit_x">Вложить %1$s</string>
+    <string name="fb_withdraw_x">Снять %1$s</string>
+    <string name="fb_deposit_tip" formatted="false">Деньги на вкладе приносят 2% годовых, но их нельзя тратить на трансферы и зарплаты, пока не снимешь.</string>
     <string name="game_football_manager_name">Босс клуба</string>
     <string name="game_football_manager_desc">Управляй футбольным клубом по-своему: все лиги Европы, реалистичный календарь, еврокубки и чемпионаты мира, детальная тактика, тренировки, академия, финансы и живой трансферный рынок.</string>
     <string name="fb_tagline">Построй династию. Каждое решение за тобой.</string>
