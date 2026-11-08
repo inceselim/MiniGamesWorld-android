@@ -37,6 +37,8 @@ import com.eomer91.minigamesworld.R
 import com.eomer91.minigamesworld.ui.games.football.engine.CLUB_ABROAD
 import com.eomer91.minigamesworld.ui.games.football.engine.CLUB_NONE
 import com.eomer91.minigamesworld.ui.games.football.engine.FbCountries
+import com.eomer91.minigamesworld.ui.games.football.engine.FbAuction
+import com.eomer91.minigamesworld.ui.games.football.engine.FbNews
 import com.eomer91.minigamesworld.ui.games.football.engine.FbOffer
 import com.eomer91.minigamesworld.ui.games.football.engine.FbPlayer
 import com.eomer91.minigamesworld.ui.games.football.engine.FbTransfer
@@ -72,7 +74,7 @@ fun FbTransfers(world: FbWorld, ui: FbUiState, vm: FootballViewModel) {
                 TrPage.SCOUT -> Scout(world, ui) { open = it }
                 TrPage.OFFERS -> Offers(world, ui, vm) { open = it }
                 TrPage.AUCTIONS -> Auctions(world, ui, vm) { open = it }
-                TrPage.HISTORY -> History(world)
+                TrPage.HISTORY -> History(world) { open = it }
             }
         }
     }
@@ -202,14 +204,7 @@ private fun OfferRow(world: FbWorld, vm: FootballViewModel, o: FbOffer, onOpen: 
             Text("  ·  " + other.name, color = AppColors.TextSecondary, fontSize = 13.sp, modifier = Modifier.weight(1f), maxLines = 1)
             Text(if (o.loan) stringResource(R.string.fb_loan) else FbFormat.money(o.fee), color = FbColors.Yellow, fontWeight = FontWeight.Bold, fontSize = 14.sp)
         }
-        Text(stringResource(when (o.status) {
-            OfferStatus.PENDING -> if (incoming) R.string.fb_os_waiting_you else R.string.fb_os_pending
-            OfferStatus.COUNTER -> R.string.fb_os_counter
-            OfferStatus.AGREED -> if (incoming) R.string.fb_os_agreed_in else R.string.fb_os_agreed
-            OfferStatus.COMPLETED -> R.string.fb_os_completed; OfferStatus.REJECTED -> R.string.fb_os_rejected
-            OfferStatus.WITHDRAWN -> R.string.fb_os_withdrawn; OfferStatus.PLAYER_REFUSED -> R.string.fb_os_refused
-            OfferStatus.EXPIRED -> R.string.fb_os_expired
-        }, FbFormat.money(o.counterFee)), color = AppColors.TextSecondary, fontSize = 12.sp, modifier = Modifier.padding(top = 4.dp))
+        Text(offerStatusText(o, incoming), color = offerStatusColor(o.status), fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
         Row(Modifier.padding(top = 6.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             when {
                 incoming && o.status == OfferStatus.PENDING -> {
@@ -237,7 +232,7 @@ private fun FbTransferRound(v: Long) = com.eomer91.minigamesworld.ui.games.footb
 @Composable
 private fun Auctions(world: FbWorld, ui: FbUiState, vm: FootballViewModel, onOpen: (Int) -> Unit) {
     val user = world.userClub
-    val list = world.market.auctions.filter { !it.done || it.endSeason == world.season }.asReversed()
+    val list = world.market.auctions.filter { !it.done || it.endSeason == world.season }.asReversed().sortedBy { it.done }
     Column(Modifier.fillMaxSize()) {
         Text(stringResource(R.string.fb_auction_desc), color = AppColors.TextSecondary, fontSize = 13.sp, modifier = Modifier.padding(bottom = 6.dp))
         if (list.isEmpty()) Text(stringResource(R.string.fb_no_auctions), color = AppColors.TextSecondary, fontSize = 14.sp)
@@ -246,15 +241,21 @@ private fun Auctions(world: FbWorld, ui: FbUiState, vm: FootballViewModel, onOpe
                 val p = world.players.getOrNull(a.player)
                 Row(Modifier.fillMaxWidth().clip(RoundedCornerShape(10.dp)).background(FbColors.Panel).padding(10.dp), verticalAlignment = Alignment.CenterVertically) {
                     Column(Modifier.weight(1f).clickable { p?.let { onOpen(it.id) } }) {
-                        Text(p?.fullName ?: "?", color = AppColors.TextPrimary, fontWeight = FontWeight.Bold, fontSize = 14.sp)
-                        Text(world.clubs[a.seller].name + " · " + stringResource(R.string.fb_reserve, FbFormat.money(a.reserve)) + " · " +
-                            (if (a.done) stringResource(R.string.fb_ended) else stringResource(R.string.fb_ends, FbFormat.shortDate(world, a.endDay))),
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text(p?.fullName ?: "?", color = AppColors.TextPrimary, fontWeight = FontWeight.Bold, fontSize = 14.sp)
+                            if (a.seller == user) FbPill(stringResource(R.string.fb_au_yours), FbColors.Purple.copy(alpha = 0.3f), modifier = Modifier.padding(start = 8.dp))
+                        }
+                        Text(world.clubs[a.seller].name + " · " + stringResource(R.string.fb_reserve, FbFormat.money(a.reserve)) + " · " + stringResource(R.string.fb_au_bids, a.bids),
                             color = AppColors.TextSecondary, fontSize = 12.sp)
+                        val (msg, col) = auctionStatus(world, a)
+                        Text(msg, color = col, fontSize = 13.sp, fontWeight = FontWeight.ExtraBold, modifier = Modifier.padding(top = 3.dp))
                     }
                     Column(horizontalAlignment = Alignment.End, modifier = Modifier.padding(end = 10.dp)) {
                         Text(if (a.topBid > 0) FbFormat.money(a.topBid) else "-", color = FbColors.Yellow, fontWeight = FontWeight.ExtraBold, fontSize = 15.sp)
                         Text(world.clubs.getOrNull(a.topBidder)?.shortName ?: "", color = if (a.topBidder == user) AppColors.Primary else AppColors.TextSecondary, fontSize = 11.sp)
                     }
+                    val won = if (a.done && a.topBidder == user) world.market.offers.lastOrNull { it.player == a.player && it.from == user && it.fee == a.topBid && it.status == OfferStatus.AGREED } else null
+                    if (won != null) FbButton(stringResource(R.string.fb_negotiate_contract), { vm.openNegotiation(won.id) }, color = AppColors.Primary)
                     if (!a.done && a.seller != user && a.topBidder != user) {
                         val next = if (a.topBid == 0L) a.reserve else FbTransfer.nextBid(a.topBid)
                         FbButton(stringResource(R.string.fb_bid_x, FbFormat.money(next)), {
@@ -270,7 +271,7 @@ private fun Auctions(world: FbWorld, ui: FbUiState, vm: FootballViewModel, onOpe
 // ====================================================================== gecmis ve soylentiler
 
 @Composable
-private fun History(world: FbWorld) {
+private fun History(world: FbWorld, onOpen: (Int) -> Unit) {
     Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
         FbPanel(Modifier.weight(1.3f), title = stringResource(R.string.fb_latest_transfers)) {
             val list = world.market.history.asReversed().take(250)
@@ -289,7 +290,87 @@ private fun History(world: FbWorld) {
         FbPanel(Modifier.weight(1f), title = stringResource(R.string.fb_rumours)) {
             val rumours = world.market.news.asReversed().filter { it.kind == NewsKind.RUMOUR }.take(60)
             LazyColumn {
-                items(rumours) { n -> Text(newsText(world, n), color = AppColors.TextMuted, fontSize = 12.sp, modifier = Modifier.padding(vertical = 4.dp)) }
+                items(rumours) { n ->
+                    Column(Modifier.fillMaxWidth().padding(vertical = 4.dp).clip(RoundedCornerShape(10.dp)).background(FbColors.PanelHigh).padding(8.dp)) {
+                        Text(if (n.season == world.season) FbFormat.shortDate(world, n.day) else FbFormat.season(n.season), color = AppColors.TextSecondary, fontSize = 11.sp)
+                        RumourBody(world, n, onOpen)
+                    }
+                }
+            }
+        }
+    }
+}
+
+/** Teklifin durum metni (teklifler ekrani ve gelen kutusu). */
+@Composable
+fun offerStatusText(o: FbOffer, incoming: Boolean): String = stringResource(when (o.status) {
+    OfferStatus.PENDING -> if (incoming) R.string.fb_os_waiting_you else R.string.fb_os_pending
+    OfferStatus.COUNTER -> R.string.fb_os_counter
+    OfferStatus.AGREED -> if (incoming) R.string.fb_os_agreed_in else R.string.fb_os_agreed
+    OfferStatus.COMPLETED -> R.string.fb_os_completed; OfferStatus.REJECTED -> R.string.fb_os_rejected
+    OfferStatus.WITHDRAWN -> R.string.fb_os_withdrawn; OfferStatus.PLAYER_REFUSED -> R.string.fb_os_refused
+    OfferStatus.EXPIRED -> R.string.fb_os_expired
+}, FbFormat.money(o.counterFee))
+
+fun offerStatusColor(s: OfferStatus): Color = when (s) {
+    OfferStatus.PENDING, OfferStatus.COUNTER, OfferStatus.AGREED -> FbColors.Yellow
+    OfferStatus.COMPLETED -> FbColors.Green
+    else -> FbColors.Red
+}
+
+/** Acik artirmanin anlasilir sonucu: devam / en yuksek sende / satildi / satilmadi / oyuncu reddetti. */
+@Composable
+fun auctionStatus(world: FbWorld, a: FbAuction): Pair<String, Color> {
+    val user = world.userClub
+    val bidder = world.clubs.getOrNull(a.topBidder)
+    if (!a.done) {
+        return if (a.topBidder == user) stringResource(R.string.fb_au_leading) to FbColors.Green
+        else stringResource(R.string.fb_au_running, FbFormat.shortDate(world, a.endDay)) to FbColors.Yellow
+    }
+    if (bidder == null || a.topBid < a.reserve) return stringResource(R.string.fb_au_unsold) to FbColors.Red
+    val p = world.players.getOrNull(a.player)
+    if (a.topBidder == user) {
+        val o = world.market.offers.lastOrNull { it.player == a.player && it.from == user && it.fee == a.topBid }
+        return when {
+            p?.club == user -> stringResource(R.string.fb_au_bought) to FbColors.Green
+            o?.status == OfferStatus.AGREED -> stringResource(R.string.fb_au_won) to AppColors.Primary
+            else -> stringResource(R.string.fb_au_refused, bidder.name) to FbColors.Red
+        }
+    }
+    val moved = p?.club == a.topBidder || world.market.history.any { it.player == a.player && it.to == a.topBidder && it.season >= a.endSeason }
+    return if (moved) stringResource(R.string.fb_au_sold, bidder.name, FbFormat.money(a.topBid)) to FbColors.Green
+    else stringResource(R.string.fb_au_refused, bidder.name) to FbColors.Red
+}
+
+/** Soylenti: kim, kimi istiyor, kaynagin guvenilirligi ve sonucu (gerceklesti mi). */
+@Composable
+fun RumourBody(world: FbWorld, n: FbNews, onOpen: (Int) -> Unit) {
+    val p = world.players.getOrNull(n.player)
+    val suitor = world.clubs.getOrNull(n.club)
+    val current = world.clubs.getOrNull(n.club2)
+    val (credRes, credCol) = when {
+        n.credibility >= 60 -> R.string.fb_cred_strong to FbColors.Green
+        n.credibility >= 40 -> R.string.fb_cred_medium to FbColors.Yellow
+        else -> R.string.fb_cred_weak to AppColors.TextSecondary
+    }
+    Column(Modifier.padding(top = 2.dp)) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text(p?.fullName ?: n.text.ifEmpty { "?" }, color = AppColors.Primary, fontWeight = FontWeight.ExtraBold, fontSize = 14.sp,
+                modifier = Modifier.clickable(enabled = p != null) { p?.let { onOpen(it.id) } })
+            if (current != null && current.id == world.userClub) FbPill(stringResource(R.string.fb_rumour_yours), FbColors.Purple.copy(alpha = 0.3f), modifier = Modifier.padding(start = 8.dp))
+        }
+        Text((current?.name ?: stringResource(R.string.fb_free_agent)) + "  →  " + (suitor?.name ?: "?"), color = AppColors.TextPrimary, fontSize = 13.sp, fontWeight = FontWeight.Bold)
+        Text(stringResource(R.string.fb_rumour_interest, suitor?.name ?: "?") + " · " + FbFormat.money(n.value), color = AppColors.TextSecondary, fontSize = 12.sp)
+        Row(Modifier.padding(top = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+            FbPill(stringResource(credRes) + " · " + n.credibility + "%", credCol.copy(alpha = 0.22f), credCol)
+            Spacer(Modifier.width(6.dp))
+            FbBar(n.credibility, credCol, 70.dp, 6.dp)
+            Spacer(Modifier.width(8.dp))
+            val rec = world.market.history.lastOrNull { it.player == n.player && (it.season > n.season || (it.season == n.season && it.day >= n.day)) }
+            when {
+                rec == null -> Text(stringResource(R.string.fb_rumour_open), color = AppColors.TextSecondary, fontSize = 12.sp)
+                rec.to == n.club -> Text(stringResource(R.string.fb_rumour_true), color = FbColors.Green, fontSize = 12.sp, fontWeight = FontWeight.ExtraBold)
+                else -> Text(stringResource(R.string.fb_rumour_elsewhere, world.clubs.getOrNull(rec.to)?.name ?: "?"), color = FbColors.Yellow, fontSize = 12.sp, fontWeight = FontWeight.Bold)
             }
         }
     }

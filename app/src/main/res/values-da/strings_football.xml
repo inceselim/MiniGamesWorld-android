@@ -721,4 +721,25 @@ Se en kort video på spillerens kort for at afsløre hans præcise nuværende ni
     <string name="fb_career">Karriere</string>
     <string name="fb_manager_line">Manager: %1$s · sæson %2$s</string>
     <string name="fb_quit_career">Slet karrieren og start forfra</string>
+    <string name="fb_new">NY</string>
+    <string name="fb_read_mark">Læst</string>
+    <string name="fb_unread_n">Ulæste (%1$d)</string>
+    <string name="fb_player_card">Spillerkort</string>
+    <string name="fb_cred_strong">Pålidelig kilde</string>
+    <string name="fb_cred_medium">Muligt</string>
+    <string name="fb_cred_weak">Sladder</string>
+    <string name="fb_rumour_interest">Interesseret klub: %1$s</string>
+    <string name="fb_rumour_yours">Din spiller</string>
+    <string name="fb_rumour_open">Stadig et rygte</string>
+    <string name="fb_rumour_true">Blev til noget ✓</string>
+    <string name="fb_rumour_elsewhere">Skiftede i stedet til %1$s</string>
+    <string name="fb_au_running">I gang – slutter %1$s</string>
+    <string name="fb_au_leading">Du har det højeste bud</string>
+    <string name="fb_au_yours">Din auktion</string>
+    <string name="fb_au_sold">SOLGT til %1$s for %2$s</string>
+    <string name="fb_au_unsold">IKKE SOLGT – intet bud nåede mindsteprisen</string>
+    <string name="fb_au_refused">Ingen aftale – spilleren ville ikke til %1$s</string>
+    <string name="fb_au_won">Du vandt! Aftal kontrakten med spilleren</string>
+    <string name="fb_au_bought">Købt ✓</string>
+    <string name="fb_au_bids">%1$d bud</string>
 </resources>

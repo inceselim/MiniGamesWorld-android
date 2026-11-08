@@ -82,6 +82,13 @@ kotlin {
     }
 }
 
+// Oyun durumlari (or. Kulup Patronu dunyasi) degisken nesnelerde tutuluyor; "strong skipping"
+// ayni nesne gelince ekrani yeniden cizmedigi icin secimler/bakiye gec gorunuyordu. Kapali tut.
+composeCompiler {
+    @Suppress("DEPRECATION")
+    featureFlags.add(org.jetbrains.kotlin.compose.compiler.gradle.ComposeFeatureFlag.StrongSkipping.disabled())
+}
+
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

@@ -345,13 +345,26 @@ class FootballViewModel @Inject constructor(
 
     // ================================================================== reklam odulleri
 
-    fun revealPlayer(id: Int) = edit { it.revealed.add(id) }
+    /** Odullu reklam: oyuncuyu kalici olarak ac (simulasyon suruyorsa da kaybolmasin). */
+    fun revealPlayer(id: Int) {
+        val w = world ?: return
+        viewModelScope.launch {
+            withContext(engine) { w.revealed.add(id) }
+            bump()
+        }
+    }
 
+    /** Odullu reklam izlendi: parayi motor is parcaciginda ekle (simulasyonla cakismasin). */
     fun claimAdBonus() {
         val w = world ?: return
-        val v = FbClubLife.claimAdBonus(w)
-        bump()
-        if (v > 0) toast(R.string.fb_ad_bonus_got, FbFormat.money(v))
+        viewModelScope.launch {
+            val v = withContext(engine) { FbClubLife.claimAdBonus(w) }
+            bump()
+            if (v > 0) {
+                toast(R.string.fb_ad_bonus_got, FbFormat.money(v))
+                withContext(engine) { runCatching { repo.save(w) } }
+            }
+        }
     }
 
     companion object {

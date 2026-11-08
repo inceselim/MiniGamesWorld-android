@@ -721,4 +721,25 @@ Nézz meg egy rövid videót a játékos lapján, hogy kiderüljön pontos jelen
     <string name="fb_career">Karrier</string>
     <string name="fb_manager_line">Menedzser: %1$s · %2$s szezon</string>
     <string name="fb_quit_career">Karrier törlése és újrakezdés</string>
+    <string name="fb_new">ÚJ</string>
+    <string name="fb_read_mark">Olvasott</string>
+    <string name="fb_unread_n">Olvasatlan (%1$d)</string>
+    <string name="fb_player_card">Játékoslap</string>
+    <string name="fb_cred_strong">Megbízható forrás</string>
+    <string name="fb_cred_medium">Lehetséges</string>
+    <string name="fb_cred_weak">Pletyka</string>
+    <string name="fb_rumour_interest">Érdeklődő klub: %1$s</string>
+    <string name="fb_rumour_yours">A te játékosod</string>
+    <string name="fb_rumour_open">Még csak pletyka</string>
+    <string name="fb_rumour_true">Valóra vált ✓</string>
+    <string name="fb_rumour_elsewhere">Helyette a(z) %1$s csapatához igazolt</string>
+    <string name="fb_au_running">Folyamatban – vége: %1$s</string>
+    <string name="fb_au_leading">Tiéd a legmagasabb ajánlat</string>
+    <string name="fb_au_yours">A te árverésed</string>
+    <string name="fb_au_sold">ELADVA: %1$s, %2$s</string>
+    <string name="fb_au_unsold">NEM KELT EL – egy ajánlat sem érte el a minimálárat</string>
+    <string name="fb_au_refused">Nincs üzlet – a játékos nem akart a(z) %1$s csapatához menni</string>
+    <string name="fb_au_won">Nyertél! Tárgyald le a szerződést a játékossal</string>
+    <string name="fb_au_bought">Megvéve ✓</string>
+    <string name="fb_au_bids">%1$d ajánlat</string>
 </resources>

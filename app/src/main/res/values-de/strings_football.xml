@@ -721,4 +721,25 @@ Sieh dir auf der Spielerkarte ein kurzes Video an, um seine genaue aktuelle Stä
     <string name="fb_career">Karriere</string>
     <string name="fb_manager_line">Trainer: %1$s · Saison %2$s</string>
     <string name="fb_quit_career">Karriere löschen und neu beginnen</string>
+    <string name="fb_new">NEU</string>
+    <string name="fb_read_mark">Gelesen</string>
+    <string name="fb_unread_n">Ungelesen (%1$d)</string>
+    <string name="fb_player_card">Spielerkarte</string>
+    <string name="fb_cred_strong">Zuverlässige Quelle</string>
+    <string name="fb_cred_medium">Möglich</string>
+    <string name="fb_cred_weak">Gerücht</string>
+    <string name="fb_rumour_interest">Interessierter Klub: %1$s</string>
+    <string name="fb_rumour_yours">Dein Spieler</string>
+    <string name="fb_rumour_open">Noch ein Gerücht</string>
+    <string name="fb_rumour_true">Bestätigt ✓</string>
+    <string name="fb_rumour_elsewhere">Stattdessen zu %1$s gewechselt</string>
+    <string name="fb_au_running">Läuft – endet %1$s</string>
+    <string name="fb_au_leading">Du hast das höchste Gebot</string>
+    <string name="fb_au_yours">Deine Auktion</string>
+    <string name="fb_au_sold">VERKAUFT an %1$s für %2$s</string>
+    <string name="fb_au_unsold">NICHT VERKAUFT – kein Gebot erreichte den Mindestpreis</string>
+    <string name="fb_au_refused">Kein Deal – der Spieler wollte nicht zu %1$s</string>
+    <string name="fb_au_won">Gewonnen! Vereinbare den Vertrag mit dem Spieler</string>
+    <string name="fb_au_bought">Gekauft ✓</string>
+    <string name="fb_au_bids">%1$d Gebote</string>
 </resources>

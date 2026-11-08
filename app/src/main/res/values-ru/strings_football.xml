@@ -721,4 +721,25 @@
     <string name="fb_career">Карьера</string>
     <string name="fb_manager_line">Менеджер: %1$s · сезон %2$s</string>
     <string name="fb_quit_career">Удалить карьеру и начать заново</string>
+    <string name="fb_new">НОВОЕ</string>
+    <string name="fb_read_mark">Прочитано</string>
+    <string name="fb_unread_n">Непрочитанные (%1$d)</string>
+    <string name="fb_player_card">Карточка игрока</string>
+    <string name="fb_cred_strong">Надёжный источник</string>
+    <string name="fb_cred_medium">Возможно</string>
+    <string name="fb_cred_weak">Сплетня</string>
+    <string name="fb_rumour_interest">Интерес проявляет: %1$s</string>
+    <string name="fb_rumour_yours">Твой игрок</string>
+    <string name="fb_rumour_open">Пока слух</string>
+    <string name="fb_rumour_true">Сбылся ✓</string>
+    <string name="fb_rumour_elsewhere">Вместо этого перешёл в «%1$s»</string>
+    <string name="fb_au_running">Идёт – до %1$s</string>
+    <string name="fb_au_leading">Твоя ставка самая высокая</string>
+    <string name="fb_au_yours">Твой аукцион</string>
+    <string name="fb_au_sold">ПРОДАН в «%1$s» за %2$s</string>
+    <string name="fb_au_unsold">НЕ ПРОДАН – ни одна ставка не достигла резерва</string>
+    <string name="fb_au_refused">Сделки нет – игрок не захотел в «%1$s»</string>
+    <string name="fb_au_won">Победа! Договорись с игроком о контракте</string>
+    <string name="fb_au_bought">Куплен ✓</string>
+    <string name="fb_au_bids">ставок: %1$d</string>
 </resources>

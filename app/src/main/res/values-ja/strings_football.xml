@@ -721,4 +721,25 @@
     <string name="fb_career">キャリア</string>
     <string name="fb_manager_line">監督：%1$s · %2$sシーズン</string>
     <string name="fb_quit_career">キャリアを削除して最初から</string>
+    <string name="fb_new">新着</string>
+    <string name="fb_read_mark">既読</string>
+    <string name="fb_unread_n">未読（%1$d）</string>
+    <string name="fb_player_card">選手カード</string>
+    <string name="fb_cred_strong">信頼できる情報</string>
+    <string name="fb_cred_medium">可能性あり</string>
+    <string name="fb_cred_weak">うわさ程度</string>
+    <string name="fb_rumour_interest">関心クラブ：%1$s</string>
+    <string name="fb_rumour_yours">あなたの選手</string>
+    <string name="fb_rumour_open">まだ噂の段階</string>
+    <string name="fb_rumour_true">実現 ✓</string>
+    <string name="fb_rumour_elsewhere">代わりに%1$sへ移籍</string>
+    <string name="fb_au_running">進行中 – 終了 %1$s</string>
+    <string name="fb_au_leading">最高入札はあなた</string>
+    <string name="fb_au_yours">あなたの出品</string>
+    <string name="fb_au_sold">落札：%1$s（%2$s）</string>
+    <string name="fb_au_unsold">不成立 – 最低価格に届く入札なし</string>
+    <string name="fb_au_refused">不成立 – 選手が%1$s行きを拒否</string>
+    <string name="fb_au_won">落札！選手と契約交渉をしよう</string>
+    <string name="fb_au_bought">獲得 ✓</string>
+    <string name="fb_au_bids">入札%1$d件</string>
 </resources>

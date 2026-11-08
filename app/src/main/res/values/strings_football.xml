@@ -721,4 +721,25 @@ Watch a short video on a player\'s card to reveal his exact current ability, his
     <string name="fb_career">Career</string>
     <string name="fb_manager_line">Manager: %1$s · season %2$s</string>
     <string name="fb_quit_career">Delete career and start over</string>
+    <string name="fb_new">NEW</string>
+    <string name="fb_read_mark">Read</string>
+    <string name="fb_unread_n">Unread (%1$d)</string>
+    <string name="fb_player_card">Player card</string>
+    <string name="fb_cred_strong">Reliable source</string>
+    <string name="fb_cred_medium">Possible</string>
+    <string name="fb_cred_weak">Gossip</string>
+    <string name="fb_rumour_interest">Interested club: %1$s</string>
+    <string name="fb_rumour_yours">Your player</string>
+    <string name="fb_rumour_open">Still a rumour</string>
+    <string name="fb_rumour_true">Came true ✓</string>
+    <string name="fb_rumour_elsewhere">Joined %1$s instead</string>
+    <string name="fb_au_running">In progress – ends %1$s</string>
+    <string name="fb_au_leading">You have the highest bid</string>
+    <string name="fb_au_yours">Your auction</string>
+    <string name="fb_au_sold">SOLD to %1$s for %2$s</string>
+    <string name="fb_au_unsold">NOT SOLD – no bid reached the reserve price</string>
+    <string name="fb_au_refused">No deal – the player would not join %1$s</string>
+    <string name="fb_au_won">You won! Agree the contract with the player</string>
+    <string name="fb_au_bought">Bought ✓</string>
+    <string name="fb_au_bids">%1$d bids</string>
 </resources>

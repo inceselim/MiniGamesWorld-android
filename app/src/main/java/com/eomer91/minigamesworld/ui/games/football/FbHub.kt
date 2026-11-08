@@ -1,6 +1,11 @@
 package com.eomer91.minigamesworld.ui.games.football
 
 import androidx.compose.foundation.background
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.ui.draw.alpha
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -93,7 +98,7 @@ fun FbHub(world: FbWorld, ui: FbUiState, vm: FootballViewModel, onBack: () -> Un
             IconButton(onClick = { vm.save(); onBack() }) {
                 Icon(Icons.AutoMirrored.Rounded.ArrowBack, contentDescription = stringResource(R.string.back), tint = AppColors.TextSecondary)
             }
-            val unread = world.market.news.count { !it.read && !newsMinor(it.kind) }
+            val unread = world.market.news.count { newsUnread(it) }
             for (n in NAV) {
                 val sel = ui.tab == n.tab
                 Column(
@@ -281,6 +286,9 @@ fun newsGroup(k: NewsKind): NewsGroup = when (k) {
     else -> NewsGroup.CLUB
 }
 
+/** Okunmamis sayilan (vurgulu) haber: kucuk haberler (soylenti vb.) sayilmaz. */
+fun newsUnread(n: FbNews) = !n.read && !newsMinor(n.kind)
+
 /** Okunmamis sayacinda gosterilmeyen (kucuk) haberler */
 fun newsMinor(k: NewsKind) = k == NewsKind.RUMOUR || k == NewsKind.TRANSFER_WORLD || k == NewsKind.MATCH_PREVIEW || k == NewsKind.CALLUP
 
@@ -385,59 +393,110 @@ private fun groupColor(g: NewsGroup): Color = when (g) {
 @Composable
 private fun FbInbox(world: FbWorld, ui: FbUiState, vm: FootballViewModel) {
     var group by remember { mutableStateOf<NewsGroup?>(null) }
-    val news = world.market.news.asReversed().filter { group == null || newsGroup(it.kind) == group }
+    var unreadOnly by remember { mutableStateOf(false) }
+    var open by remember { mutableIntStateOf(-1) }
+    val all = world.market.news
+    val unreadCount = all.count { newsUnread(it) }
+    val news = all.asReversed().filter { (group == null || newsGroup(it.kind) == group) && (!unreadOnly || newsUnread(it)) }
     Column(Modifier.fillMaxSize()) {
         Row(Modifier.padding(bottom = 6.dp), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
-            FbChip(stringResource(R.string.fb_all), group == null, { group = null })
-            FbChip(stringResource(R.string.fb_ng_club), group == NewsGroup.CLUB, { group = NewsGroup.CLUB })
-            FbChip(stringResource(R.string.fb_ng_matches), group == NewsGroup.MATCHES, { group = NewsGroup.MATCHES })
-            FbChip(stringResource(R.string.fb_ng_transfers), group == NewsGroup.TRANSFERS, { group = NewsGroup.TRANSFERS })
-            FbChip(stringResource(R.string.fb_ng_world), group == NewsGroup.WORLD, { group = NewsGroup.WORLD })
-            Spacer(Modifier.weight(1f))
-            FbButton(stringResource(R.string.fb_mark_all_read), { vm.edit { w -> w.market.news.forEach { it.read = true } } }, color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
+            Row(Modifier.weight(1f).horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                FbChip(stringResource(R.string.fb_unread_n, unreadCount), unreadOnly, { unreadOnly = !unreadOnly })
+                FbChip(stringResource(R.string.fb_all), group == null, { group = null })
+                FbChip(stringResource(R.string.fb_ng_club), group == NewsGroup.CLUB, { group = NewsGroup.CLUB })
+                FbChip(stringResource(R.string.fb_ng_matches), group == NewsGroup.MATCHES, { group = NewsGroup.MATCHES })
+                FbChip(stringResource(R.string.fb_ng_transfers), group == NewsGroup.TRANSFERS, { group = NewsGroup.TRANSFERS })
+                FbChip(stringResource(R.string.fb_ng_world), group == NewsGroup.WORLD, { group = NewsGroup.WORLD })
+            }
+            FbButton(stringResource(R.string.fb_mark_all_read), { vm.edit { w -> w.market.news.forEach { it.read = true } } },
+                enabled = unreadCount > 0, color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
         }
         LazyColumn(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-            items(news) { n ->
-                val g = newsGroup(n.kind)
-                Row(Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).background(if (n.read) FbColors.Panel else FbColors.PanelHigh)
-                    .clickable { vm.edit { n.read = true } }) {
-                    Box(Modifier.width(4.dp).height(64.dp).background(groupColor(g)))
-                    Column(Modifier.weight(1f).padding(10.dp)) {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text(newsTitle(n.kind), color = groupColor(g), fontSize = 12.sp, fontWeight = FontWeight.ExtraBold, modifier = Modifier.weight(1f))
-                            Text(if (n.season == world.season) FbFormat.shortDate(world, n.day) else FbFormat.season(n.season), color = AppColors.TextSecondary, fontSize = 11.sp)
-                        }
-                        Text(newsText(world, n), color = AppColors.TextPrimary, fontSize = 13.sp, fontWeight = if (n.read) FontWeight.Normal else FontWeight.Bold, modifier = Modifier.padding(top = 2.dp))
-                        NewsActions(world, n, vm)
-                    }
+            items(news) { n -> NewsCard(world, n, vm) { open = it } }
+        }
+    }
+    if (open >= 0) world.players.getOrNull(open)?.let { FbPlayerDialog(world, ui, vm, it) { open = -1 } }
+}
+
+@Composable
+private fun NewsCard(world: FbWorld, n: FbNews, vm: FootballViewModel, onOpen: (Int) -> Unit) {
+    val g = newsGroup(n.kind)
+    val accent = groupColor(g)
+    val unread = newsUnread(n)
+    Row(
+        Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp))
+            .background(if (unread) FbColors.PanelHigh else FbColors.Panel)
+            .then(if (unread) Modifier.border(1.dp, accent.copy(alpha = 0.6f), RoundedCornerShape(12.dp)) else Modifier)
+            .clickable { if (!n.read) vm.edit { n.read = true } }
+            .height(IntrinsicSize.Min),
+    ) {
+        Box(Modifier.width(if (unread) 6.dp else 3.dp).fillMaxHeight().background(if (unread) accent else accent.copy(alpha = 0.3f)))
+        Column(Modifier.weight(1f).padding(10.dp).alpha(if (unread) 1f else 0.62f)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                if (unread) {
+                    Box(Modifier.size(8.dp).clip(CircleShape).background(AppColors.Primary))
+                    Spacer(Modifier.width(6.dp))
                 }
+                Text(newsTitle(n.kind), color = accent, fontSize = 12.sp, fontWeight = FontWeight.ExtraBold, modifier = Modifier.weight(1f))
+                if (unread) FbPill(stringResource(R.string.fb_new), AppColors.Primary, AppColors.OnPrimary)
+                else Text(stringResource(R.string.fb_read_mark), color = AppColors.TextSecondary, fontSize = 11.sp)
+                Spacer(Modifier.width(8.dp))
+                Text(if (n.season == world.season) FbFormat.shortDate(world, n.day) else FbFormat.season(n.season), color = AppColors.TextSecondary, fontSize = 11.sp)
             }
+            if (n.kind == NewsKind.RUMOUR) RumourBody(world, n, onOpen)
+            else Text(newsText(world, n), color = AppColors.TextPrimary, fontSize = 13.sp, fontWeight = if (unread) FontWeight.Bold else FontWeight.Normal, modifier = Modifier.padding(top = 2.dp))
+            NewsActions(world, n, vm, onOpen)
         }
     }
 }
 
-/** Gelen teklif / karsi teklif / anlasma icin hizli eylemler. */
+/** Haberin turune gore isleme gecis/eylem butonlari; teklifte guncel durum. */
 @Composable
-private fun NewsActions(world: FbWorld, n: FbNews, vm: FootballViewModel) {
+private fun NewsActions(world: FbWorld, n: FbNews, vm: FootballViewModel, onOpen: (Int) -> Unit) {
     val user = world.userClub
-    if (n.kind !in setOf(NewsKind.OFFER_RECEIVED, NewsKind.OFFER_COUNTER, NewsKind.OFFER_ACCEPTED)) return
-    val offer = world.market.offers.lastOrNull { it.open && it.player == n.player && (it.from == n.club || it.to == n.club) } ?: return
-    Row(Modifier.padding(top = 8.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-        when {
-            offer.to == user && offer.status == OfferStatus.PENDING -> {
-                FbButton(stringResource(R.string.fb_accept), { vm.edit { FbTransfer.respondIncoming(it, offer, true); n.read = true } }, color = FbColors.Green, textColor = Color.Black)
-                FbButton(stringResource(R.string.fb_reject), { vm.edit { FbTransfer.respondIncoming(it, offer, false); n.read = true } }, color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
+    val p = world.players.getOrNull(n.player)
+    fun done() { n.read = true }
+    val offerKinds = setOf(NewsKind.OFFER_RECEIVED, NewsKind.OFFER_COUNTER, NewsKind.OFFER_ACCEPTED, NewsKind.OFFER_REJECTED, NewsKind.PLAYER_REFUSED)
+    // Teklif haberleri: en son ilgili teklif (acik ya da kapanmis)
+    val offer = when {
+        n.kind in offerKinds -> world.market.offers.lastOrNull { it.player == n.player && (it.from == n.club || it.to == n.club) && (it.from == user || it.to == user) }
+        n.kind == NewsKind.AUCTION_RESULT && n.club == user -> world.market.offers.lastOrNull { it.player == n.player && it.from == user && it.fee == n.value }
+        else -> null
+    }
+    Row(Modifier.padding(top = 8.dp), horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+        if (offer != null) {
+            val incoming = offer.to == user
+            when {
+                incoming && offer.status == OfferStatus.PENDING -> {
+                    FbButton(stringResource(R.string.fb_accept), { vm.edit { FbTransfer.respondIncoming(it, offer, true); done() } }, color = FbColors.Green, textColor = Color.Black)
+                    FbButton(stringResource(R.string.fb_reject), { vm.edit { FbTransfer.respondIncoming(it, offer, false); done() } }, color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
+                }
+                !incoming && offer.status == OfferStatus.COUNTER -> {
+                    FbButton(stringResource(R.string.fb_accept_counter, FbFormat.money(offer.counterFee)), {
+                        vm.edit { if (!FbTransfer.acceptCounter(it, offer)) vm.toast(R.string.fb_no_funds); done() }
+                    }, color = FbColors.Green, textColor = Color.Black)
+                    FbButton(stringResource(R.string.fb_withdraw), { vm.edit { FbTransfer.withdraw(it, offer); done() } }, color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
+                }
+                !incoming && offer.status == OfferStatus.AGREED ->
+                    FbButton(stringResource(R.string.fb_negotiate_contract), { vm.edit { done() }; vm.openNegotiation(offer.id) }, color = AppColors.Primary)
             }
-            offer.from == user && offer.status == OfferStatus.COUNTER -> {
-                FbButton(stringResource(R.string.fb_accept_counter, FbFormat.money(offer.counterFee)), {
-                    vm.edit { if (!FbTransfer.acceptCounter(it, offer)) vm.toast(R.string.fb_no_funds); n.read = true }
-                }, color = FbColors.Green, textColor = Color.Black)
-                FbButton(stringResource(R.string.fb_withdraw), { vm.edit { FbTransfer.withdraw(it, offer); n.read = true } }, color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
-            }
-            offer.from == user && offer.status == OfferStatus.AGREED -> {
-                FbButton(stringResource(R.string.fb_negotiate_contract), { vm.openNegotiation(offer.id) }, color = AppColors.Primary)
-            }
+            FbPill(offerStatusText(offer, incoming), offerStatusColor(offer.status).copy(alpha = 0.22f), offerStatusColor(offer.status))
         }
+        val own = p != null && p.club == user && user >= 0
+        when (n.kind) {
+            NewsKind.CONTRACT_EXPIRING, NewsKind.PLAYER_UNHAPPY -> if (own) FbButton(stringResource(R.string.fb_renew_contract), { vm.edit { done() }; vm.openRenewal(p!!.id) }, color = AppColors.Primary)
+            NewsKind.MATCH_PREVIEW, NewsKind.INJURY, NewsKind.SUSPENSION ->
+                FbButton(stringResource(R.string.fb_edit_tactics), { vm.edit { done() }; vm.setTab(FbTab.TACTICS) }, color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
+            NewsKind.YOUTH_INTAKE, NewsKind.YOUTH_GRADUATE ->
+                FbButton(stringResource(R.string.fb_youth_team), { vm.edit { done() }; vm.setTab(FbTab.SQUAD) }, color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
+            NewsKind.FINANCE_WARNING, NewsKind.FACILITY_DONE, NewsKind.FANS_ANGRY, NewsKind.FANS_HAPPY ->
+                FbButton(stringResource(R.string.fb_tab_club), { vm.edit { done() }; vm.setTab(FbTab.CLUB) }, color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
+            NewsKind.AUCTION_BID ->
+                FbButton(stringResource(R.string.fb_auctions), { vm.edit { done() }; vm.setTab(FbTab.TRANSFERS) }, color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
+            else -> {}
+        }
+        if (p != null && !p.retired && n.kind != NewsKind.MATCH_PREVIEW && n.kind != NewsKind.YOUTH_INTAKE)
+            FbButton(stringResource(R.string.fb_player_card), { vm.edit { done() }; onOpen(p.id) }, color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
     }
 }
 

@@ -721,4 +721,25 @@ Oyuncu kartında kısa bir video izleyerek oyuncunun kesin mevcut yeteneğini, k
     <string name="fb_career">Kariyer</string>
     <string name="fb_manager_line">Menajer: %1$s · sezon %2$s</string>
     <string name="fb_quit_career">Kariyeri sil ve baştan başla</string>
+    <string name="fb_new">YENİ</string>
+    <string name="fb_read_mark">Okundu</string>
+    <string name="fb_unread_n">Okunmamış (%1$d)</string>
+    <string name="fb_player_card">Oyuncu kartı</string>
+    <string name="fb_cred_strong">Güvenilir kaynak</string>
+    <string name="fb_cred_medium">Olası</string>
+    <string name="fb_cred_weak">Dedikodu</string>
+    <string name="fb_rumour_interest">İlgilenen kulüp: %1$s</string>
+    <string name="fb_rumour_yours">Senin oyuncun</string>
+    <string name="fb_rumour_open">Henüz söylenti</string>
+    <string name="fb_rumour_true">Gerçekleşti ✓</string>
+    <string name="fb_rumour_elsewhere">Bunun yerine %1$s kulübüne gitti</string>
+    <string name="fb_au_running">Devam ediyor – bitiş %1$s</string>
+    <string name="fb_au_leading">En yüksek teklif sende</string>
+    <string name="fb_au_yours">Senin açık artırman</string>
+    <string name="fb_au_sold">SATILDI: %1$s, %2$s</string>
+    <string name="fb_au_unsold">SATILMADI – hiçbir teklif taban fiyata ulaşmadı</string>
+    <string name="fb_au_refused">Gerçekleşmedi – oyuncu %1$s kulübüne gitmedi</string>
+    <string name="fb_au_won">Kazandın! Oyuncuyla sözleşmeyi görüş</string>
+    <string name="fb_au_bought">Satın alındı ✓</string>
+    <string name="fb_au_bids">%1$d teklif</string>
 </resources>

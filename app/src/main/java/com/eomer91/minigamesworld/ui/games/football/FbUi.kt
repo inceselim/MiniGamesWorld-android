@@ -226,7 +226,18 @@ fun FbPill(text: String, color: Color = FbColors.PanelHigh, textColor: Color = A
 /** Secilebilir hap (filtre/sekme) */
 @Composable
 fun FbChip(text: String, selected: Boolean, onClick: () -> Unit, modifier: Modifier = Modifier) {
-    FbPill(text, if (selected) AppColors.Primary else FbColors.PanelHigh, if (selected) AppColors.OnPrimary else AppColors.TextPrimary, modifier, onClick)
+    // Secili: dolu mavi + tik; secili degil: koyu zemin + ince cerceve (hangisinin aktif oldugu bir bakista belli olsun)
+    Box(
+        modifier.clip(RoundedCornerShape(50))
+            .background(if (selected) AppColors.Primary else FbColors.PanelHigh)
+            .border(if (selected) 2.dp else 1.dp, if (selected) Color.White.copy(alpha = 0.85f) else AppColors.TextSecondary.copy(alpha = 0.35f), RoundedCornerShape(50))
+            .clickable(onClick = onClick)
+            .padding(horizontal = 12.dp, vertical = 6.dp),
+        contentAlignment = Alignment.Center,
+    ) {
+        Text(if (selected) "✓ $text" else text, color = if (selected) AppColors.OnPrimary else AppColors.TextSecondary,
+            fontSize = 13.sp, fontWeight = if (selected) FontWeight.Black else FontWeight.Medium, maxLines = 1)
+    }
 }
 
 /** Kulup armasi: renkli daire + kisa ad */

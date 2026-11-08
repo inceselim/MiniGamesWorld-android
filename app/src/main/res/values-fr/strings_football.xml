@@ -721,4 +721,25 @@ Regarde une courte vidéo sur la fiche d\'un joueur pour révéler son niveau ac
     <string name="fb_career">Carrière</string>
     <string name="fb_manager_line">Manager : %1$s · saison %2$s</string>
     <string name="fb_quit_career">Supprimer la carrière et recommencer</string>
+    <string name="fb_new">NOUVEAU</string>
+    <string name="fb_read_mark">Lu</string>
+    <string name="fb_unread_n">Non lus (%1$d)</string>
+    <string name="fb_player_card">Fiche du joueur</string>
+    <string name="fb_cred_strong">Source fiable</string>
+    <string name="fb_cred_medium">Possible</string>
+    <string name="fb_cred_weak">Ragot</string>
+    <string name="fb_rumour_interest">Club intéressé : %1$s</string>
+    <string name="fb_rumour_yours">Ton joueur</string>
+    <string name="fb_rumour_open">Encore une rumeur</string>
+    <string name="fb_rumour_true">Confirmée ✓</string>
+    <string name="fb_rumour_elsewhere">Parti à %1$s à la place</string>
+    <string name="fb_au_running">En cours – fin %1$s</string>
+    <string name="fb_au_leading">Tu as la meilleure enchère</string>
+    <string name="fb_au_yours">Ton enchère</string>
+    <string name="fb_au_sold">VENDU à %1$s pour %2$s</string>
+    <string name="fb_au_unsold">INVENDU – aucune enchère n\'a atteint le prix de réserve</string>
+    <string name="fb_au_refused">Pas d\'accord – le joueur n\'a pas voulu rejoindre %1$s</string>
+    <string name="fb_au_won">Gagné ! Négocie le contrat avec le joueur</string>
+    <string name="fb_au_bought">Acheté ✓</string>
+    <string name="fb_au_bids">%1$d enchères</string>
 </resources>

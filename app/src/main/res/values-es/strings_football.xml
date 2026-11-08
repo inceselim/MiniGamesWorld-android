@@ -721,4 +721,25 @@ Mira un vídeo corto en la ficha de un jugador para descubrir su calidad actual 
     <string name="fb_career">Carrera</string>
     <string name="fb_manager_line">Mánager: %1$s · temporada %2$s</string>
     <string name="fb_quit_career">Borrar la carrera y empezar de nuevo</string>
+    <string name="fb_new">NUEVO</string>
+    <string name="fb_read_mark">Leído</string>
+    <string name="fb_unread_n">No leídos (%1$d)</string>
+    <string name="fb_player_card">Ficha del jugador</string>
+    <string name="fb_cred_strong">Fuente fiable</string>
+    <string name="fb_cred_medium">Posible</string>
+    <string name="fb_cred_weak">Cotilleo</string>
+    <string name="fb_rumour_interest">Club interesado: %1$s</string>
+    <string name="fb_rumour_yours">Tu jugador</string>
+    <string name="fb_rumour_open">Aún es un rumor</string>
+    <string name="fb_rumour_true">Se cumplió ✓</string>
+    <string name="fb_rumour_elsewhere">Fichó por %1$s en su lugar</string>
+    <string name="fb_au_running">En curso – termina %1$s</string>
+    <string name="fb_au_leading">Tienes la puja más alta</string>
+    <string name="fb_au_yours">Tu subasta</string>
+    <string name="fb_au_sold">VENDIDO al %1$s por %2$s</string>
+    <string name="fb_au_unsold">NO VENDIDO – ninguna puja alcanzó el precio mínimo</string>
+    <string name="fb_au_refused">Sin acuerdo – el jugador no quiso ir al %1$s</string>
+    <string name="fb_au_won">¡Ganaste! Negocia el contrato con el jugador</string>
+    <string name="fb_au_bought">Comprado ✓</string>
+    <string name="fb_au_bids">%1$d pujas</string>
 </resources>
