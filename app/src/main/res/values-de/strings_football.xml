@@ -464,7 +464,9 @@ Gib jungen Spielern Einsatzzeit und gutes Training: die Entwicklung ist vor 21 a
 
 Ausgaben: Gehälter von Spielern und Personal, Anlagenunterhalt, Jugendakademie, Spieltagskosten, Transfers und Bauarbeiten. Ein negativer Kontostand kostet 0,12% Zinsen pro Woche.
 
-Investorenbonus: Sieh dir ein Video an, um dem Klub Geld zu geben, 3-mal pro Woche.</string>
+Investorenbonus: Sieh dir ein Video an, um dem Klub Geld zu geben, 3-mal pro Woche.
+
+Bank (Klub › Bank): Es gibt immer nur einen Kredit mit 1–3 Jahren Laufzeit. Der Kreditrahmen wächst mit Einnahmen und Ansehen; Klubs mit hohem Ansehen zahlen weniger Zinsen, bei negativem Kontostand steigen sie. Die Rate wird jeden Montag fällig, eine vorzeitige Ablösung kostet 1% extra. Festgeld bringt 2% pro Jahr, das Geld darin ist aber erst nach dem Abheben verfügbar. Auf der Finanzseite stehen die Gesamteinnahmen und -ausgaben dieses und des letzten Monats.</string>
     <string name="fb_gb_transfers">Wechselfenster: 1. Juli – 1. September und Januar. Vereinslose Spieler kannst du jederzeit verpflichten.
 
 Der Preis des abgebenden Klubs hängt davon ab, wie wichtig der Spieler für ihn ist, von Alter und Potenzial, der Vertragslaufzeit (im letzten Jahr günstig), ob er auf der Transferliste steht, und von den Finanzen des Verkäufers. Eine Ausstiegsklausel kann nicht abgelehnt werden.

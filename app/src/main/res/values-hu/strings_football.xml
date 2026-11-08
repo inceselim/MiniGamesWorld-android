@@ -464,7 +464,9 @@ Adj játékidőt és jó edzést a fiataloknak: 21 éves korig fejlődnek a legg
 
 Kiadások: játékosok és stáb fizetése, létesítmények fenntartása, akadémia, meccsnapi költségek, átigazolások és építkezések. A negatív egyenleg heti 0,12% kamattal jár.
 
-Befektetői támogatás: nézz meg egy videót, hogy pénzt adj a klubnak, hetente 3-szor.</string>
+Befektetői támogatás: nézz meg egy videót, hogy pénzt adj a klubnak, hetente 3-szor.
+
+Bank (Klub › Bank): egyszerre egy hitel vehető fel 1–3 évre. A hitelkeret a bevétellel és a hírnévvel nő; a nagy hírnevű klubok kisebb kamatot fizetnek, negatív egyenlegnél a kamat nő. A törlesztő minden hétfőn esedékes, az előtörlesztés 1% felárral jár. A lekötött betét évi 2%-ot hoz, de a pénz csak felvétel után költhető el. A Pénzügyek oldalon látható az aktuális és az előző hónap összes bevétele és kiadása.</string>
     <string name="fb_gb_transfers">Átigazolási időszakok: július 1. – szeptember 1. és január. Szabadon igazolható játékosokat bármikor leigazolhatsz.
 
 Az eladó klub ára attól függ, mennyire fontos neki a játékos, a korától és potenciáljától, a szerződése hosszától (az utolsó évben olcsó), hogy átigazolási listán van-e, és az eladó pénzügyeitől. A kivásárlási záradékot nem lehet visszautasítani.

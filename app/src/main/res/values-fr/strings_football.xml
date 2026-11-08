@@ -464,7 +464,9 @@ Donne du temps de jeu et un bon encadrement aux jeunes : la progression est la p
 
 Dépenses : salaires des joueurs et du staff, entretien des installations, centre de formation, frais de match, transferts et travaux. Un solde négatif coûte 0,12% d\'intérêts par semaine.
 
-Soutien d\'investisseur : regarde une vidéo pour ajouter de l\'argent au club, 3 fois par semaine.</string>
+Soutien d\'investisseur : regarde une vidéo pour ajouter de l\'argent au club, 3 fois par semaine.
+
+Banque (Club › Banque) : un seul prêt à la fois, sur 1 à 3 ans. Le plafond augmente avec tes revenus et ta réputation ; les clubs réputés paient moins d\'intérêts, qui augmentent quand le solde est négatif. L\'échéance est payée chaque lundi et un remboursement anticipé coûte 1% de plus. Le dépôt à terme rapporte 2% par an, mais cet argent n\'est utilisable qu\'après l\'avoir retiré. La page Finances affiche les revenus et dépenses totaux du mois en cours et du mois précédent.</string>
     <string name="fb_gb_transfers">Mercatos : du 1er juillet au 1er septembre et en janvier. Les joueurs libres peuvent être recrutés à tout moment.
 
 Le prix du club vendeur dépend de l\'importance du joueur pour lui, de son âge et de son potentiel, de la durée de son contrat (bon marché la dernière année), de sa mise sur la liste des transferts et des finances du vendeur. Une clause libératoire ne peut pas être refusée.

@@ -464,7 +464,9 @@ Giv de unge spilletid og god træning: udviklingen er hurtigst før 21.</string>
 
 Udgifter: løn til spillere og personale, vedligeholdelse af faciliteter, ungdomsakademi, kampdagsomkostninger, transfers og byggeri. En negativ saldo koster 0,12% rente om ugen.
 
-Investorstøtte: se en video for at tilføre klubben penge, 3 gange om ugen.</string>
+Investorstøtte: se en video for at tilføre klubben penge, 3 gange om ugen.
+
+Bank (Klub › Bank): kun ét lån ad gangen med 1–3 års løbetid. Kreditgrænsen vokser med indtægter og omdømme; klubber med højt omdømme betaler mindre i rente, og den stiger, mens saldoen er negativ. Ydelsen betales hver mandag, og førtidig indfrielse koster 1% ekstra. Opsparingen giver 2% om året, men pengene kan ikke bruges, før du hæver dem. Økonomisiden viser denne og sidste måneds samlede indtægter og udgifter.</string>
     <string name="fb_gb_transfers">Transfervinduer: 1. juli – 1. september og januar. Klubløse spillere kan hentes når som helst.
 
 Den sælgende klubs pris afhænger af, hvor vigtig spilleren er for dem, hans alder og potentiale, kontraktens længde (billig i sidste år), om han er sat til salg, og sælgerens økonomi. En frikøbsklausul kan ikke afvises.

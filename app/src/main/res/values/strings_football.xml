@@ -464,7 +464,9 @@ Give young players minutes and good coaching: development is fastest before 21.<
 
 Expenses: player and staff wages, facility upkeep, youth academy, matchday costs, transfers and building work. A negative balance costs 0.12% interest per week.
 
-Investor bonus: watch a video to add money to the club, 3 times a week.</string>
+Investor bonus: watch a video to add money to the club, 3 times a week.
+
+Bank (Club › Bank): take one loan at a time for 1–3 years. The credit limit grows with your income and reputation; clubs with a high reputation pay less interest, and it is higher while your balance is negative. The instalment is paid every Monday and paying off early costs 1% extra. A savings deposit earns 2% a year, but money in it can\'t be spent until you withdraw it. The Finances page shows this month\'s and last month\'s total income and expenses.</string>
     <string name="fb_gb_transfers">Windows: 1 July – 1 September and January. Free agents can be signed at any time.
 
 The selling club\'s price depends on how important the player is for them, his age and potential, his contract length (cheap in the last year), whether he is listed, and the seller\'s finances. A release clause cannot be refused.

@@ -464,7 +464,9 @@ Dai minuti e buoni allenamenti ai giovani: la crescita è più rapida prima dei 
 
 Uscite: stipendi di giocatori e staff, manutenzione delle strutture, vivaio, costi delle partite, acquisti e lavori. Un saldo negativo costa lo 0,12% di interessi a settimana.
 
-Supporto investitori: guarda un video per aggiungere soldi al club, 3 volte a settimana.</string>
+Supporto investitori: guarda un video per aggiungere soldi al club, 3 volte a settimana.
+
+Banca (Club › Banca): un solo prestito alla volta, da 1 a 3 anni. Il limite cresce con entrate e reputazione; i club con alta reputazione pagano meno interessi, che salgono quando il saldo è negativo. La rata si paga ogni lunedì e l\'estinzione anticipata costa l\'1% in più. Il deposito vincolato rende il 2% annuo, ma quei soldi non si possono spendere finché non li prelevi. La pagina Finanze mostra entrate e uscite totali di questo mese e del mese scorso.</string>
     <string name="fb_gb_transfers">Sessioni di mercato: dal 1° luglio al 1° settembre e a gennaio. Gli svincolati si possono ingaggiare in qualsiasi momento.
 
 Il prezzo del club venditore dipende da quanto il giocatore è importante per lui, da età e potenziale, dalla durata del contratto (economico nell\'ultimo anno), se è sul mercato e dalle finanze del venditore. Una clausola rescissoria non si può rifiutare.
