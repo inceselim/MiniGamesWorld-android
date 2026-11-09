@@ -310,23 +310,24 @@ private fun IsTopBar(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
     Row(
         Modifier.fillMaxWidth().background(Brush.verticalGradient(listOf(Color(0xF00B1020), Color(0xC00B1020))))
             .padding(horizontal = 8.dp, vertical = 5.dp),
-        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp),
+        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         HudButton("☰") { vm.openPanel(IsPanel.MENU) }
         Box(Modifier.size(14.dp).clip(CircleShape).background(Color(me.color)))
         Text(me.name, color = AppColors.TextPrimary, fontWeight = FontWeight.Bold, fontSize = 14.sp, maxLines = 1,
-            overflow = TextOverflow.Ellipsis, modifier = Modifier.widthIn(max = 130.dp))
+            overflow = TextOverflow.Ellipsis, modifier = Modifier.widthIn(max = 110.dp))
         HudStat("💰", IsFmt.money(me.balance), if (me.balance < 0) FbColors.Red else FbColors.Green) { vm.openPanel(IsPanel.FINANCE) }
         HudStat("📅", IsFmt.date(w) + " · " + stringResource(seasonName(w.month)), AppColors.TextPrimary)
         HudStat("🧳", IsFmt.count(w.present.sum()), AppColors.TextPrimary)
         HudStat("⭐", "%.0f".format(me.reputation), FbColors.Yellow)
-        Spacer(Modifier.weight(1f))
-        // Son haber (dokununca haberler)
+        // Son haber: kalan bosluga sigar (dar ekranda kisalir, hiz dugmeleri hep gorunur)
         val last = w.news.lastOrNull()
-        if (last != null) {
-            val txt = newsText(w, last)
-            if (txt != null) Text(newsIcon(last.kind) + " " + txt, color = AppColors.TextMuted, fontSize = 12.sp, maxLines = 1,
-                overflow = TextOverflow.Ellipsis, modifier = Modifier.widthIn(max = 260.dp).clickable { vm.openPanel(IsPanel.NEWS) })
+        val txt = last?.let { newsText(w, it) }
+        if (last != null && txt != null) {
+            Text(newsIcon(last.kind) + " " + txt, color = AppColors.TextMuted, fontSize = 12.sp, maxLines = 1,
+                overflow = TextOverflow.Ellipsis, modifier = Modifier.weight(1f).clickable { vm.openPanel(IsPanel.NEWS) })
+        } else {
+            Spacer(Modifier.weight(1f))
         }
         Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
             for (s in 0..3) SpeedButton(s, ui.speed == s) { vm.setSpeed(s) }
@@ -356,7 +357,7 @@ private fun HudStat(icon: String, value: String, color: Color, onClick: (() -> U
 private fun SpeedButton(s: Int, selected: Boolean, onClick: () -> Unit) {
     val label = when (s) { 0 -> "❚❚"; 1 -> "▶"; 2 -> "▶▶"; else -> "▶▶▶" }
     Box(
-        Modifier.height(30.dp).widthIn(min = 34.dp).clip(RoundedCornerShape(8.dp))
+        Modifier.height(30.dp).widthIn(min = 30.dp).clip(RoundedCornerShape(8.dp))
             .background(if (selected) AppColors.Primary else FbColors.PanelHigh)
             .border(1.dp, if (selected) Color.White.copy(alpha = 0.8f) else Color.Transparent, RoundedCornerShape(8.dp))
             .clickable(onClick = onClick).padding(horizontal = 6.dp),
