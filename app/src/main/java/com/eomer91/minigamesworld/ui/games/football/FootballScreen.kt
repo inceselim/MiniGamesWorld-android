@@ -119,7 +119,7 @@ fun FootballScreen(onBack: () -> Unit, viewModel: FootballViewModel = hiltViewMo
 }
 
 @Composable
-private fun LandscapeImmersive() {
+internal fun LandscapeImmersive() {
     val activity = LocalActivity.current
     val view = LocalView.current
     DisposableEffect(activity) {

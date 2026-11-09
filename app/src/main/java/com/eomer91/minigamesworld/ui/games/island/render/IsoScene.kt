@@ -4,6 +4,8 @@ import com.eomer91.minigamesworld.ui.games.island.engine.BType
 import com.eomer91.minigamesworld.ui.games.island.engine.IsWorld
 import com.eomer91.minigamesworld.ui.games.island.engine.Terrain
 import kotlin.math.floor
+import kotlin.math.max
+import kotlin.math.min
 
 /**
  * Dunyanin izometrik yerlesimi. Dunya koordinati: karo (0,0)'in ust kosesi = (originX, 0).
@@ -56,6 +58,30 @@ object IsoScene {
     }
 
     private val NB = arrayOf(1 to 0, -1 to 0, 0 to 1, 0 to -1)
+
+    /**
+     * Yalnizca bir dunya dikdortgenine dokunan karolar (parca parca pisirmek icin).
+     * Agaclar karonun ustune tastigi icin alt kenar biraz genis tutulur.
+     */
+    fun drawTerrainRect(p: IsoPainter, w: IsWorld, L: IsoLayout, left: Float, top: Float, right: Float, bottom: Float, grow: Float) {
+        val n = w.n
+        val l = left - L.tw; val r = right + L.tw; val t = top - L.th; val b = bottom + L.th * 2f
+        val c = arrayOf(L.toTileF(l, t), L.toTileF(r, t), L.toTileF(l, b), L.toTileF(r, b))
+        val x0 = max(0, c.minOf { it.first }.toInt() - 1); val x1 = min(n - 1, c.maxOf { it.first }.toInt() + 1)
+        val y0 = max(0, c.minOf { it.second }.toInt() - 1); val y1 = min(n - 1, c.maxOf { it.second }.toInt() + 1)
+        if (x0 > x1 || y0 > y1) return
+        for (s in x0 + y0..x1 + y1) {
+            for (x in max(x0, s - y1)..min(x1, s - y0)) {
+                val y = s - x
+                val ox = L.tileX(x.toFloat(), y.toFloat()); val oy = L.tileY(x.toFloat(), y.toFloat())
+                if (ox + L.tw / 2 < l || ox - L.tw / 2 > r || oy + L.th < t || oy - L.th * 1.5f > b) continue
+                val tt = terrainAt(w, x, y)
+                var land = 0; var water = 0
+                for ((dx, dy) in NB) { if (terrainAt(w, x + dx, y + dy).isLand) land++ else water++ }
+                IsoArt.tile(p, ox, oy, L.tw, L.th, tt, x, y, if (tt.isLand) 0 else land, if (tt.isLand) water else 0, grow)
+            }
+        }
+    }
 
     /** Cizim icin binanin anlik kopyasi (motor baska is parcaciginda degistirirken guvenli) */
     class BSnap(val id: Int, val type: BType, val x: Int, val y: Int, val owner: Int, val color: Int, val progress: Float, val building: Boolean, val closed: Boolean)

@@ -1,7 +1,5 @@
 package com.eomer91.minigamesworld.ui.games.island.render
 
-import android.graphics.Bitmap
-import android.graphics.Canvas as ACanvas
 import android.graphics.Paint
 import android.graphics.RectF
 import androidx.compose.foundation.Canvas
@@ -12,8 +10,8 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
@@ -24,9 +22,7 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onSizeChanged
 import com.eomer91.minigamesworld.ui.games.island.engine.BType
 import com.eomer91.minigamesworld.ui.games.island.engine.IsWorld
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-import kotlin.math.ceil
+import kotlin.math.floor
 import kotlin.math.max
 import kotlin.math.min
 
@@ -37,7 +33,7 @@ const val IS_TOP = 260f
 
 fun isLayout(n: Int) = IsoLayout(n, IS_TW, IS_TH, IS_TOP)
 
-/** Kamera: dunya pikselinde ekran merkezi ve olcek */
+/** Kamera: dunya biriminde ekran merkezi; scale = ekran pikseli / dunya birimi */
 @Stable
 class IsCamera {
     var cx by mutableFloatStateOf(0f)
@@ -48,7 +44,8 @@ class IsCamera {
     var ready by mutableStateOf(false)
 
     fun minScale(L: IsoLayout) = if (viewW <= 0f) 0.2f else min(viewW / L.width, viewH / L.height) * 0.95f
-    fun maxScale() = 2.2f
+    /** En yakin: karo 192 piksel (en yuksek LOD ile birebir) */
+    fun maxScale() = 3f
 
     fun clamp(L: IsoLayout) {
         scale = scale.coerceIn(minScale(L), maxScale())
@@ -73,57 +70,10 @@ class IsGhost(val type: BType, val x: Int, val y: Int, val ok: Boolean, val colo
 /** Secili alan (karo dikdortgeni) */
 class IsSelection(val x: Int, val y: Int, val w: Int, val h: Int, val color: Int = 0xFFFFFFFF.toInt())
 
-/** Bitmap onbellegi: pisirilmis zemin ve bina cizimleri */
-private class IsRenderCache(val n: Int) {
-    val sprites = HashMap<Long, Sprite>()
-    val painter = AndroidIsoPainter(true)
-    val bmpPaint = Paint(Paint.FILTER_BITMAP_FLAG or Paint.ANTI_ALIAS_FLAG)
-    val ghostPaint = Paint(Paint.FILTER_BITMAP_FLAG).apply { alpha = 150 }
-    val dst = RectF()
-
-    class Sprite(val bmp: Bitmap, val ox: Float, val oy: Float, val k: Float)
-
-    fun sprite(t: BType, color: Int): Sprite {
-        val key = (t.id.toLong() shl 32) or (color.toLong() and 0xFFFFFFFFL)
-        sprites[key]?.let { return it }
-        val tw = SPRITE_TW; val th = tw / 2f
-        val box = IsoArt.spriteBox(t, tw, th)
-        val bmp = Bitmap.createBitmap(ceil(box.w).toInt(), ceil(box.h).toInt(), Bitmap.Config.ARGB_8888)
-        val c = ACanvas(bmp)
-        painter.canvas = c
-        IsoArt.building(painter, t, box.ox, box.oy, tw, th, color)
-        painter.canvas = null
-        // Dunya olcegine donusum: sprite pikseli * k = dunya birimi
-        val s = Sprite(bmp, box.ox, box.oy, IS_TW / tw)
-        sprites[key] = s
-        return s
-    }
-
-    fun recycle() {
-        for (s in sprites.values) s.bmp.recycle()
-        sprites.clear()
-    }
-
-    companion object { const val SPRITE_TW = 88f }
-}
-
-/** Zemini tek bir bitmap'e pisir (arka planda) */
-private fun bakeTerrain(w: IsWorld): Pair<Bitmap, IsoLayout> {
-    val tw = if (w.n <= 96) 32f else 24f
-    val L = IsoLayout(w.n, tw, tw / 2f, IS_TOP * tw / IS_TW)
-    val bmp = Bitmap.createBitmap(ceil(L.width).toInt(), ceil(L.height).toInt(), Bitmap.Config.RGB_565)
-    val c = ACanvas(bmp)
-    c.drawColor(IsoArt.DEEP)
-    val p = AndroidIsoPainter(true)
-    p.canvas = c
-    IsoScene.drawTerrain(p, w, L)
-    p.canvas = null
-    return bmp to L
-}
-
 /**
  * Ada haritasi. version her degistiginde (gun ilerleyince, insa edilince) yeniden cizilir.
- * onTap: dokunulan karo; pickBuildings acikken bina govdesine dokunmak o binanin karosunu verir.
+ * onTap: dokunulan karo ve (pickBuildings acikken govdesine dokunulan) bina id'si, yoksa -1.
+ * Motor ana is parcaciginda calistigi icin dunya cizim sirasinda degismez.
  */
 @Composable
 fun IslandMapView(
@@ -136,28 +86,23 @@ fun IslandMapView(
     pickBuildings: Boolean = true,
     onTap: (x: Int, y: Int, buildingId: Int) -> Unit,
 ) {
-    val L = remember(world) { isLayout(world.n) }
-    val cache = remember(world) { IsRenderCache(world.n) }
-    DisposableEffect(cache) { onDispose { cache.recycle() } }
-    val terrain by produceState<Bitmap?>(null, world) {
-        val r = withContext(Dispatchers.Default) { bakeTerrain(world).first }
-        value = r
-    }
-    DisposableEffect(terrain) { val t = terrain; onDispose { t?.recycle() } }
-    val snap = remember(world, version) {
-        // Motor ayni anda listeyi degistirebilir: nadir cakismada bir kez daha dene
-        runCatching { IsoScene.snapshot(world) }.getOrElse { runCatching { IsoScene.snapshot(world) }.getOrDefault(emptyList()) }
-    }
+    // Pisirilen parca hazir olunca yeniden ciz
+    var tick by remember { mutableIntStateOf(0) }
+    val cache = remember(world) { IsRenderCache(world) { tick++ } }
+    DisposableEffect(cache) { onDispose { cache.close() } }
+    val L = cache.L
+    val snap = remember(world, version) { IsoScene.snapshot(world) }
     val snapState = rememberUpdatedState(snap)
     val tapState = rememberUpdatedState(onTap)
     val pickState = rememberUpdatedState(pickBuildings)
+    val paints = remember { Paints() }
 
     Canvas(
         modifier
             .onSizeChanged {
                 camera.viewW = it.width.toFloat(); camera.viewH = it.height.toFloat()
                 if (!camera.ready) {
-                    camera.scale = max(camera.minScale(L), 0.6f)
+                    camera.scale = max(camera.minScale(L), 1f)
                     camera.cx = L.width / 2f; camera.cy = L.height / 2f
                     camera.ready = true
                 }
@@ -185,7 +130,11 @@ fun IslandMapView(
                 }
             },
     ) {
+        if (tick < 0) return@Canvas
         val s = camera.scale
+        val tilePx = IS_TW * s
+        cache.madeThisFrame = 0
+        cache.ensureOverview()
         drawIntoCanvas { cc ->
             val nc = cc.nativeCanvas
             nc.drawColor(IsoArt.DEEP)
@@ -194,19 +143,33 @@ fun IslandMapView(
             nc.scale(s, s)
             nc.translate(-camera.cx, -camera.cy)
 
-            terrain?.let { bmp ->
-                cache.dst.set(0f, 0f, L.width, L.height)
-                nc.drawBitmap(bmp, null, cache.dst, cache.bmpPaint)
-            }
-
             // Gorunen dunya dikdortgeni
             val vl = camera.cx - size.width / 2f / s; val vr = camera.cx + size.width / 2f / s
             val vt = camera.cy - size.height / 2f / s; val vb = camera.cy + size.height / 2f / s
-            val p = cache.painter
+
+            // 1) Genel bakis (her zaman; parcalar gelene kadar bosluk kalmasin)
+            cache.overview?.let { bmp ->
+                paints.dst.set(0f, 0f, L.width, L.height)
+                nc.drawBitmap(bmp, null, paints.dst, paints.terrain)
+            }
+            // 2) Keskin zemin parcalari (uzaktan bakarken genel bakis yeterli)
+            if (tilePx > 18f) {
+                val lod = IsRenderCache.lodFor(IsRenderCache.TERRAIN_LODS, tilePx)
+                val S = cache.chunkWorld(lod)
+                val i0 = max(0, floor(vl / S).toInt()); val i1 = min(floor(L.width / S).toInt(), floor(vr / S).toInt())
+                val j0 = max(0, floor(vt / S).toInt()); val j1 = min(floor(L.height / S).toInt(), floor(vb / S).toInt())
+                for (j in j0..j1) for (i in i0..i1) {
+                    val ch = cache.chunk(lod, i, j) ?: continue
+                    paints.dst.set(i * S, j * S, (i + 1) * S, (j + 1) * S)
+                    nc.drawBitmap(ch.bmp, null, paints.dst, paints.terrain)
+                }
+            }
+
+            val p = paints.painter
             p.canvas = nc
 
-            // Arsa sinirlari (uzaktan bakarken gerek yok)
-            if (s > 0.35f) {
+            // 3) Arsa sinirlari
+            if (s > 0.3f) {
                 val c1 = L.toTileF(vl, vt); val c2 = L.toTileF(vr, vt); val c3 = L.toTileF(vl, vb); val c4 = L.toTileF(vr, vb)
                 val x0 = min(min(c1.first, c2.first), min(c3.first, c4.first)).toInt() - 1
                 val x1 = max(max(c1.first, c2.first), max(c3.first, c4.first)).toInt() + 1
@@ -217,33 +180,44 @@ fun IslandMapView(
 
             selection?.let { IsoScene.drawFootprint(p, L, it.x, it.y, it.w, it.h, IsoColor.alpha(it.color, 60), it.color) }
 
+            // 4) Binalar (arkadan one)
+            val slod = IsRenderCache.lodFor(IsRenderCache.SPRITE_LODS, tilePx)
             for (b in snap) {
                 val bx = L.tileX(b.x.toFloat(), b.y.toFloat()); val by = L.tileY(b.x.toFloat(), b.y.toFloat())
-                val left = bx - b.type.h * IS_TW / 2f; val right = bx + b.type.w * IS_TW / 2f
-                val bottom = by + (b.type.w + b.type.h) * IS_TH / 2f
+                val left = bx - b.type.h * IS_TW / 2f; val right = bx + (b.type.w + 1) * IS_TW / 2f
+                val bottom = by + (b.type.w + b.type.h + 1) * IS_TH / 2f
                 val top = by - IsoArt.height(b.type.key) - 60f
                 if (right < vl || left > vr || bottom < vt || top > vb) continue
-                if (b.building || b.closed) {
-                    IsoScene.drawBuilding(p, L, b)
-                } else {
-                    val sp = cache.sprite(b.type, b.color)
-                    cache.dst.set(bx - sp.ox * sp.k, by - sp.oy * sp.k, bx + (sp.bmp.width - sp.ox) * sp.k, by + (sp.bmp.height - sp.oy) * sp.k)
-                    nc.drawBitmap(sp.bmp, null, cache.dst, cache.bmpPaint)
-                }
+                if (b.building || b.closed) { IsoScene.drawBuilding(p, L, b); continue }
+                val sp = cache.sprite(b.type, b.color, slod)
+                if (sp == null) { IsoScene.drawBuilding(p, L, b); continue }
+                paints.dst.set(bx - sp.ox * sp.k, by - sp.oy * sp.k, bx + (sp.bmp.width - sp.ox) * sp.k, by + (sp.bmp.height - sp.oy) * sp.k)
+                nc.drawBitmap(sp.bmp, null, paints.dst, paints.sprite)
             }
+            // Ilk kare kotaya takildiysa bir sonraki karede tamamla
+            if (cache.madeThisFrame >= 4) tick++
 
+            // 5) Yerlestirme onizlemesi
             ghost?.let { g ->
                 val fill = if (g.ok) 0x5543A047 else 0x66E53935
                 val stroke = if (g.ok) 0xFF43A047.toInt() else 0xFFE53935.toInt()
                 IsoScene.drawFootprint(p, L, g.x, g.y, g.type.w, g.type.h, fill, stroke)
                 val bx = L.tileX(g.x.toFloat(), g.y.toFloat()); val by = L.tileY(g.x.toFloat(), g.y.toFloat())
-                val sp = cache.sprite(g.type, g.color)
-                cache.dst.set(bx - sp.ox * sp.k, by - sp.oy * sp.k, bx + (sp.bmp.width - sp.ox) * sp.k, by + (sp.bmp.height - sp.oy) * sp.k)
-                nc.drawBitmap(sp.bmp, null, cache.dst, cache.ghostPaint)
+                nc.saveLayerAlpha(vl, vt, vr, vb, 160)
+                IsoArt.building(p, g.type, bx, by, L.tw, L.th, g.color)
+                nc.restore()
             }
 
             p.canvas = null
             nc.restore()
         }
     }
+}
+
+private class Paints {
+    val dst = RectF()
+    /** Zemin: kenar yumusatma kapali (parca sinirlarinda cizgi olmasin), suzme acik */
+    val terrain = Paint(Paint.FILTER_BITMAP_FLAG)
+    val sprite = Paint(Paint.FILTER_BITMAP_FLAG)
+    val painter = AndroidIsoPainter(true)
 }

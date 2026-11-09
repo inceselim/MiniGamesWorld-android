@@ -50,6 +50,7 @@ import com.eomer91.minigamesworld.ui.games.fish.FishWorldScreen
 import com.eomer91.minigamesworld.ui.games.forest.ForestScreen
 import com.eomer91.minigamesworld.ui.games.fox.FoxScreen
 import com.eomer91.minigamesworld.ui.games.football.FootballScreen
+import com.eomer91.minigamesworld.ui.games.island.IslandScreen
 import com.eomer91.minigamesworld.ui.games.rocket.RocketScreen
 import com.eomer91.minigamesworld.ui.games.runner.RunnerScreen
 import com.eomer91.minigamesworld.ui.games.countries.CountriesScreen
@@ -73,6 +74,10 @@ fun PlayScreen(gameId: String, onBack: () -> Unit) {
     }
     if (gameId == "fox-adventure") {
         FoxScreen(onBack = onBack)
+        return
+    }
+    if (gameId == "island-tycoon") {
+        IslandScreen(onBack = onBack)
         return
     }
     if (gameId == "football-manager") {

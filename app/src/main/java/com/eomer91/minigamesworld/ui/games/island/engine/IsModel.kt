@@ -241,6 +241,8 @@ class IsWorld(val settings: IsSettings, val n: Int) {
     val news = ArrayList<IsNews>()
     val auctions = ArrayList<IsAuction>()
     val userId get() = 0
+    /** Zemin degisince artar (cizim onbellegi icin, kayda yazilmaz) */
+    @Volatile var terrainVersion: Int = 0
     /** Testler icin: botlari durdur (kayda yazilmaz) */
     var botsPaused: Boolean = false
     var gameOver: Boolean = false

@@ -88,7 +88,7 @@ object IsSim {
         for (yy in y until y + type.h) for (xx in x until x + type.w) {
             val i = w.idx(xx, yy)
             w.bAt[i] = b.id
-            if (w.ter(xx, yy) == Terrain.FOREST) w.terrain[i] = Terrain.GRASS.ordinal.toByte()
+            if (w.ter(xx, yy) == Terrain.FOREST) { w.terrain[i] = Terrain.GRASS.ordinal.toByte(); w.terrainVersion++ }
         }
         if (b.buildLeft <= 0) refreshLocation(w, b)
         return b
@@ -101,7 +101,7 @@ object IsSim {
         for (yy in y until y + type.h) for (xx in x until x + type.w) {
             val i = w.idx(xx, yy)
             w.bAt[i] = b.id; w.owner[i] = -2
-            if (w.ter(xx, yy) == Terrain.FOREST) w.terrain[i] = Terrain.GRASS.ordinal.toByte()
+            if (w.ter(xx, yy) == Terrain.FOREST) { w.terrain[i] = Terrain.GRASS.ordinal.toByte(); w.terrainVersion++ }
         }
     }
 

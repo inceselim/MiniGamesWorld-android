@@ -222,8 +222,9 @@ object IsoArt {
 
     fun spriteBox(t: BType, tw: Float, th: Float): SpriteBox {
         val top = height(t.key) * tw / 64f + 10f * tw / 64f
-        val w = (t.w + t.h) * tw / 2f + 4f
-        val h = (t.w + t.h) * th / 2f + top + 4f
+        // Sag ve altta golge payi
+        val w = (t.w + t.h) * tw / 2f + 0.7f * tw / 2f + 4f
+        val h = (t.w + t.h) * th / 2f + 1.4f * th / 2f + top + 4f
         return SpriteBox(w, h, t.h * tw / 2f + 2f, top + 2f)
     }
 
@@ -245,6 +246,7 @@ object IsoArt {
         val white = 0xFFF5F5F0.toInt(); val glass = 0xFF4FC3F7.toInt(); val darkGlass = 0xFF0D47A1.toInt()
         val win = 0xFF37474F.toInt(); val winLit = 0xFFFFE082.toInt()
         val paving = 0xFFBDB7A6.toInt()
+        shadow(s, t, W, D)
         when (t.key) {
             "tent" -> {
                 s.flat(0.1f, 0.1f, W - 0.2f, D - 0.2f, 0.3f, 0xFF8BC34A.toInt())
@@ -537,6 +539,16 @@ object IsoArt {
             }
             else -> s.box(0.1f, 0.1f, W - 0.2f, D - 0.2f, 0f, 30f, white)
         }
+    }
+
+    /** Yumusak gölge: ayak izi, sag-one dogru (isik sol-arkadan) */
+    private fun shadow(s: Iso, t: BType, W: Float, D: Float) {
+        val hgt = height(t.key)
+        if (hgt < 12f || t.key == "road" || t.key == "garden") return
+        val vx = (hgt / 110f).coerceIn(0.25f, 1.0f); val vy = vx * 0.35f
+        val xs = floatArrayOf(0f, W, W + vx, W + vx, vx, 0f)
+        val ys = floatArrayOf(0f, 0f, vy, D + vy, D + vy, D)
+        s.p.poly(FloatArray(6) { s.sx(xs[it], ys[it]) }, FloatArray(6) { s.sy(xs[it], ys[it], 0f) }, alpha(0x000000, 46))
     }
 
     /** Insaat alani: toprak, iskele, vinc (progress 0..1) */

@@ -101,6 +101,68 @@ class IsoPreviewTest {
         }
     }
 
+    /** Telefondaki en yakin gorunum: zemin 512px parcalar halinde (LOD 192), binalar vektor; parca sinirlarinda cizgi olmamali */
+    @Test
+    fun chunkZoomPreview() {
+        val w = simWorld(MapSize.SMALL, MapType.ISLAND, 4, 5)
+        val L = IsoLayout(w.n, 64f, 32f, 260f)
+        val lod = 192f; val k = lod / 64f; val px = 512; val S = px / k
+        val bs = w.buildings.filterNotNull().filter { it.owner >= 0 }
+        val b0 = bs.maxBy { it.type.cost }
+        val i0 = (L.tileX(b0.cx, b0.cy) / S).toInt() - 1; val j0 = (L.tileY(b0.cx, b0.cy) / S).toInt() - 1
+        val (im, g) = img(px * 3, px * 2)
+        for (j in 0 until 2) for (i in 0 until 3) {
+            val chunk = BufferedImage(px, px, BufferedImage.TYPE_INT_RGB)
+            val cg = chunk.createGraphics()
+            cg.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON)
+            cg.color = Color(IsoArt.DEEP, true); cg.fillRect(0, 0, px, px)
+            cg.scale(k.toDouble(), k.toDouble()); cg.translate(-((i0 + i) * S).toDouble(), -((j0 + j) * S).toDouble())
+            IsoScene.drawTerrainRect(AwtPainter(cg), w, L, (i0 + i) * S, (j0 + j) * S, (i0 + i + 1) * S, (j0 + j + 1) * S, 0.9f / k)
+            cg.dispose()
+            g.drawImage(chunk, i * px, j * px, null)
+        }
+        g.scale(k.toDouble(), k.toDouble()); g.translate(-(i0 * S).toDouble(), -(j0 * S).toDouble())
+        val p = AwtPainter(g)
+        IsoScene.drawPlots(p, w, L)
+        for (b in IsoScene.snapshot(w)) IsoScene.drawBuilding(p, L, b)
+        g.dispose()
+        ImageIO.write(im, "png", out("zoom3_chunks.png"))
+    }
+
+    /** Oyun listesi kapagi: gosterisli bir sahil sahnesi kur, 2x cozunurlukte ciz (sonra kucultulur) */
+    @Test
+    fun coverImage() {
+        val w = simWorld(MapSize.MEDIUM, MapType.ISLAND, 6, 11)
+        val L = IsoLayout(w.n, 64f, 32f, 260f)
+        // En kalabalik kiyi bolgesi
+        val bs = w.buildings.filterNotNull().filter { it.owner >= 0 }
+        val focus = bs.maxBy { b -> bs.count { o -> kotlin.math.abs(o.cx - b.cx) + kotlin.math.abs(o.cy - b.cy) < 10 } }
+        w.companies[0].balance = 900_000_000L
+        val show = listOf("resort", "waterpark", "funfair", "casino", "hotel4", "mall", "disco", "finedining", "hotel3", "villa", "beachclub", "beachclub", "restaurant")
+        for (key in show) {
+            val t = IsCatalog.types.first { it.key == key }
+            var placed = false
+            for (r in 0..14) {
+                for (dy in -r..r) for (dx in -r..r) {
+                    if (placed || (kotlin.math.abs(dx) != r && kotlin.math.abs(dy) != r)) continue
+                    val x = focus.x + dx; val y = focus.y + dy
+                    if (IsSim.canBuild(w, 0, t, x, y) == com.eomer91.minigamesworld.ui.games.island.engine.BuildError.OK) {
+                        val b = IsSim.build(w, 0, t, x, y)!!; b.buildLeft = 0; placed = true
+                    }
+                }
+                if (placed) break
+            }
+        }
+        val mine = w.buildings.filterNotNull().filter { it.owner == 0 }
+        val fx = mine.map { it.cx }.average().toFloat(); val fy = mine.map { it.cy }.average().toFloat()
+        val k = 2.0; val W = 1920; val H = 1080
+        val (im, g) = img(W, H)
+        g.translate(W / 2.0, H / 2.0 + 80); g.scale(k, k); g.translate(-L.tileX(fx, fy).toDouble(), -L.tileY(fx, fy).toDouble())
+        IsoScene.drawAll(AwtPainter(g), w, L)
+        g.dispose()
+        ImageIO.write(im, "png", out("cover.png"))
+    }
+
     /** Uzun binanin govdesine dokunmak arkadaki karoyu degil binayi secmeli */
     @Test
     fun pickTallBuilding() {
