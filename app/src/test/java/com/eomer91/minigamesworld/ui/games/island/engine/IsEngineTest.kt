@@ -162,14 +162,15 @@ class IsEngineTest {
     @Test
     fun saveRoundTripIsDeterministic() {
         val w = world()
+        w.botsPaused = false // botlar dahil her sey kayitla ayni devam etmeli
         build(w, 0, "tent"); build(w, 0, "kiosk", wdMax = 8); build(w, 1, "pension"); build(w, 2, "pub", wdMax = 8)
         IsSim.takeLoan(w, 0, 300_000, 2)
         IsRivals.startAd(w, 0, 0)
-        run(w, 100)
+        run(w, 400)
         val bytes = ByteArrayOutputStream().also { IsSave.write(w, it) }.toByteArray()
         val w2 = IsSave.read(ByteArrayInputStream(bytes))
         println("Kayit boyutu ${bytes.size} bayt")
-        run(w, 60); run(w2, 60)
+        run(w, 200); run(w2, 200)
         for (k in w.companies.indices) {
             assertEquals(w.companies[k].balance, w2.companies[k].balance)
             assertEquals(w.companies[k].reputation, w2.companies[k].reputation, 1e-4f)
