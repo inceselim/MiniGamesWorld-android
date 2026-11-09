@@ -119,7 +119,7 @@ object IsSave {
             repeat(i.readInt()) {
                 val nw = IsNews(i.readInt(), NewsKind.entries[i.readByte().toInt()], i.readByte().toInt(), i.readByte().toInt(), i.readLong(), i.readShort().toInt())
                 nw.read = i.readBoolean()
-                w.news.add(nw)
+                w.news.add(nw); w.newsCount++
             }
             return w
         }

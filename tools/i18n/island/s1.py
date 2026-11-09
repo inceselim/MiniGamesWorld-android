@@ -47,7 +47,6 @@ S = {
 
 # Ust bar ve menu
 "is_balance": ("Balance", "Kasa"),
-"is_tourists": ("Tourists", "Turist"),
 "is_reputation": ("Reputation", "İtibar"),
 "is_build": ("Build", "İnşa"),
 "is_land": ("Land", "Arsa"),
@@ -56,7 +55,6 @@ S = {
 "is_news": ("News", "Haberler"),
 "is_save_exit": ("Save and exit", "Kaydet ve çık"),
 "is_close": ("Close", "Kapat"),
-"is_paused": ("Paused", "Duraklatıldı"),
 "is_season_low": ("Low season", "Düşük sezon"),
 "is_season_high": ("High season", "Yüksek sezon"),
 "is_season_mid": ("Mid season", "Ara sezon"),
@@ -102,16 +100,12 @@ S = {
 "is_b_harbor": ("Harbour", "Liman"),
 
 # Insa menusu ve yerlestirme
-"is_cost": ("Cost", "Maliyet"),
-"is_build_time": ("Build time", "İnşaat süresi"),
 "is_days": ("%1$d days", "%1$d gün"),
-"is_size": ("Size", "Alan"),
 "is_upkeep": ("Upkeep / month", "Bakım / ay"),
 "is_capacity_beds": ("Beds", "Yatak"),
 "is_capacity_visits": ("Visitors / day", "Ziyaretçi / gün"),
 "is_price_night": ("Price per night", "Gecelik fiyat"),
 "is_price_visit": ("Price per visit", "Ziyaret başı fiyat"),
-"is_appeal": ("Appeal", "Çekicilik"),
 "is_cls_low": ("Budget", "Ekonomik"),
 "is_cls_mid": ("Middle class", "Orta sınıf"),
 "is_cls_high": ("Luxury", "Lüks"),
@@ -129,7 +123,6 @@ S = {
 "is_err_needs_beach": ("Must touch the sea on a sandy beach", "Kumsalda ve denize bitişik olmalı"),
 "is_err_no_money": ("Not enough money", "Yeterli para yok"),
 "is_err_not_buildable": ("Can't be built", "İnşa edilemez"),
-"is_build_started": ("Construction started: %1$s", "İnşaat başladı: %1$s"),
 
 # Arsa
 "is_land_hint": ("Tap a free tile to see its price. Owning land blocks rivals from building there.",
@@ -143,9 +136,7 @@ S = {
 "is_land_water": ("Sea", "Deniz"),
 
 # Bina paneli
-"is_owner": ("Owner", "Sahibi"),
 "is_public": ("Public", "Kamu"),
-"is_status": ("Status", "Durum"),
 "is_under_construction": ("Under construction: %1$d days left", "İnşaat sürüyor: %1$d gün kaldı"),
 "is_upgrading": ("Upgrading: %1$d days left", "Yenileniyor: %1$d gün kaldı"),
 "is_open": ("Open", "Açık"),
@@ -157,9 +148,7 @@ S = {
 "is_rev_this_month": ("Revenue this month", "Bu ayki gelir"),
 "is_rev_last_month": ("Revenue last month", "Geçen ayki gelir"),
 "is_quality": ("Quality", "Kalite"),
-"is_location": ("Location", "Konum"),
 "is_by_class": ("Today by class", "Bugün sınıflara göre"),
-"is_price": ("Price", "Fiyat"),
 "is_default_price": ("Default", "Varsayılan"),
 "is_price_tip": ("Cheaper prices win guests from rivals, but each guest earns you less. Luxury guests care less about price than budget ones.",
                  "Düşük fiyat rakiplerden misafir çeker ama misafir başına kazancın azalır. Lüks misafirler fiyata ekonomik misafirlerden daha az bakar."),
@@ -221,7 +210,6 @@ S = {
                    "Bakiyen %1$d aydır ekside. Üst üste %3$d ay %2$s altında kalırsan iflas edersin."),
 
 # Rakipler
-"is_company": ("Company", "Şirket"),
 "is_buildings": ("Buildings", "Bina"),
 "is_you": ("You", "Sen"),
 "is_bankrupt_tag": ("BANKRUPT", "İFLAS"),
@@ -247,5 +235,4 @@ S = {
 "is_you_lost": ("Your company went bankrupt", "Şirketin iflas etti"),
 "is_winner": ("Winner: %1$s", "Kazanan: %1$s"),
 "is_back_menu": ("Main menu", "Ana menü"),
-"is_keep_playing": ("Keep playing", "Oynamaya devam"),
 }

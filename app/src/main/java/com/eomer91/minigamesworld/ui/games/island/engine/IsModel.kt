@@ -257,8 +257,12 @@ class IsWorld(val settings: IsSettings, val n: Int) {
     val year get() = startYear + (3 + day / 30) / 12
     val dayOfMonth get() = day % 30 + 1
 
+    /** Simdiye kadar eklenen haber sayisi (liste 300'de kirpilir, bu sayac kirpilmaz; kayda yazilmaz) */
+    var newsCount: Int = 0
+
     fun addNews(n: IsNews) {
         news.add(n)
+        newsCount++
         if (news.size > 300) news.subList(0, news.size - 300).clear()
     }
 }

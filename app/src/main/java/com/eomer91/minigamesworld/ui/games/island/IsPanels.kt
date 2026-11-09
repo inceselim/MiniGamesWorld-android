@@ -48,6 +48,7 @@ import com.eomer91.minigamesworld.ui.games.football.FbColors
 import com.eomer91.minigamesworld.ui.games.island.engine.BType
 import com.eomer91.minigamesworld.ui.games.island.engine.Cat
 import com.eomer91.minigamesworld.ui.games.island.engine.Company
+import com.eomer91.minigamesworld.ui.games.island.engine.Dirty
 import com.eomer91.minigamesworld.ui.games.island.engine.Fin
 import com.eomer91.minigamesworld.ui.games.island.engine.IsCatalog
 import com.eomer91.minigamesworld.ui.games.island.engine.IsRivals
@@ -62,7 +63,7 @@ import kotlin.math.roundToInt
 // ====================================================================== ortak
 
 @Composable
-private fun PanelFrame(title: String, onClose: () -> Unit, header: (@Composable () -> Unit)? = null, content: @Composable ColumnScope.() -> Unit) {
+internal fun IsPanelFrame(title: String, onClose: () -> Unit, header: (@Composable () -> Unit)? = null, content: @Composable ColumnScope.() -> Unit) {
     Column(
         Modifier.fillMaxSize().clip(RoundedCornerShape(16.dp)).background(Color(0xF2111827))
             .border(1.dp, Color.White.copy(alpha = 0.1f), RoundedCornerShape(16.dp)).padding(12.dp),
@@ -79,7 +80,7 @@ private fun PanelFrame(title: String, onClose: () -> Unit, header: (@Composable 
 }
 
 @Composable
-private fun Section(text: String) {
+internal fun IsSection(text: String) {
     Text(text, color = AppColors.Primary, fontWeight = FontWeight.ExtraBold, fontSize = 13.sp, modifier = Modifier.padding(top = 10.dp, bottom = 4.dp))
 }
 
@@ -118,14 +119,14 @@ private fun AppealBars(t: BType) {
     }
 }
 
-private val CLASS_COLORS = listOf(Color(0xFF4ADE80), Color(0xFF38BDF8), Color(0xFFFACC15))
+internal val CLASS_COLORS = listOf(Color(0xFF4ADE80), Color(0xFF38BDF8), Color(0xFFFACC15))
 
 // ====================================================================== insa menusu
 
 @Composable
 fun BuildPanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
     val me = w.companies[w.userId]
-    PanelFrame(stringResource(R.string.is_build), { vm.closePanel() }, header = {
+    IsPanelFrame(stringResource(R.string.is_build), { vm.closePanel() }, header = {
         Row(Modifier.horizontalScroll(rememberScrollState()).padding(bottom = 8.dp), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
             for (c in BUILD_CATS) FbChip(catIcon(c) + " " + stringResource(catName(c)), ui.buildCat == c, { vm.setBuildCat(c) })
         }
@@ -169,7 +170,7 @@ fun BuildingPanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
     val ownerColor = if (b.owner >= 0) w.companies[b.owner].color else 0xFF90A4AE.toInt()
     var confirmDemolish by remember(b.id) { mutableStateOf(false) }
 
-    PanelFrame(stringResource(bName(t)), { vm.closePanel() }) {
+    IsPanelFrame(stringResource(bName(t)), { vm.closePanel() }) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             BuildingIcon(t, ownerColor, 84.dp)
             Column(Modifier.weight(1f).padding(start = 10.dp)) {
@@ -191,10 +192,20 @@ fun BuildingPanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
                     color = FbColors.Yellow, fontSize = 12.sp)
             }
         }
-        if (b.owner < 0) return@PanelFrame
+        if (b.owner < 0) return@IsPanelFrame
+        if (!mine) {
+            val auction = w.auctions.firstOrNull { !it.done && it.building == b.id }
+            if (auction != null) {
+                IsSection(stringResource(R.string.is_in_auction))
+                AuctionCard(w, auction, vm, showMapButton = false)
+                Text(stringResource(R.string.is_auction_tip), color = AppColors.TextSecondary, fontSize = 11.sp)
+            } else if (w.companies[b.owner].alive && b.open && t.cap > 0 && w.companies[w.userId].alive) {
+                DirtyCard(w, Dirty.SABOTAGE, vm, b.id)
+            }
+        }
 
         if (t.cap > 0) {
-            Section(stringResource(R.string.is_by_class))
+            IsSection(stringResource(R.string.is_by_class))
             val used = b.today.sum()
             val cap = b.capacity.toFloat()
             IsKV(stringResource(if (t.cat == Cat.STAY) R.string.is_guests_today else R.string.is_visits_today), IsFmt.count(used) + " / " + b.capacity)
@@ -208,14 +219,14 @@ fun BuildingPanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
                     Text("📍" + "%.1f".format(loc), color = AppColors.TextSecondary, fontSize = 11.sp)
                 }
             }
-            Section(stringResource(R.string.is_finance))
+            IsSection(stringResource(R.string.is_finance))
             IsKV(stringResource(R.string.is_rev_this_month), IsFmt.money(b.monthRevenue), FbColors.Green)
             IsKV(stringResource(R.string.is_rev_last_month), IsFmt.money(b.lastMonthRevenue))
         }
         IsKV(stringResource(R.string.is_upkeep), IsFmt.money((t.upkeep * (1 + 0.2 * b.level)).toLong()), FbColors.Red)
 
         if (mine && t.cap > 0) {
-            Section(stringResource(if (t.cat == Cat.STAY) R.string.is_price_night else R.string.is_price_visit))
+            IsSection(stringResource(if (t.cat == Cat.STAY) R.string.is_price_night else R.string.is_price_visit))
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 StepButton("−") { vm.setPrice(b.id, step(b.price, -1)) }
                 Column(Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally) {
@@ -291,7 +302,7 @@ fun LandPanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
     val x = ui.selX; val y = ui.selY
     val t = w.ter(x, y)
     val owner = w.owner[w.idx(x, y)]
-    PanelFrame(stringResource(R.string.is_land), { vm.closePanel() }) {
+    IsPanelFrame(stringResource(R.string.is_land), { vm.closePanel() }) {
         when {
             !t.isLand -> Text(stringResource(R.string.is_land_water), color = AppColors.TextSecondary, fontSize = 13.sp)
             owner == -2 -> Text(stringResource(R.string.is_land_public), color = AppColors.TextSecondary, fontSize = 13.sp)
@@ -321,7 +332,7 @@ fun LandPanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
 fun FinancePanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
     val c = w.userId
     val co = w.companies[c]
-    PanelFrame(stringResource(R.string.is_finance), { vm.closePanel() }) {
+    IsPanelFrame(stringResource(R.string.is_finance), { vm.closePanel() }) {
         IsKV(stringResource(R.string.is_balance), IsFmt.money(co.balance), if (co.balance < 0) FbColors.Red else FbColors.Green)
         IsKV(stringResource(R.string.is_assets), IsFmt.money(IsSim.assets(w, c)))
         IsKV(stringResource(R.string.is_net_worth), IsFmt.money(IsSim.netWorth(w, c)), FbColors.Yellow)
@@ -331,19 +342,19 @@ fun FinancePanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
                 color = FbColors.Red, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(vertical = 6.dp))
         }
 
-        Section(stringResource(R.string.is_this_month) + " / " + stringResource(R.string.is_last_month))
+        IsSection(stringResource(R.string.is_this_month) + " / " + stringResource(R.string.is_last_month))
         MonthRow(stringResource(R.string.is_income), co.monthIn, co.lastMonthIn, FbColors.Green)
         MonthRow(stringResource(R.string.is_expense), co.monthOut, co.lastMonthOut, FbColors.Red)
         MonthRow(stringResource(R.string.is_net), co.monthIn - co.monthOut, co.lastMonthIn - co.lastMonthOut, null)
 
-        Section(stringResource(R.string.is_this_year) + " / " + stringResource(R.string.is_last_year))
+        IsSection(stringResource(R.string.is_this_year) + " / " + stringResource(R.string.is_last_year))
         for (f in Fin.entries) {
             val a = co.ledger[f.ordinal]; val b = co.lastLedger[f.ordinal]
             if (a == 0L && b == 0L) continue
             MonthRow(stringResource(finName(f)), a, b, if (f.income) FbColors.Green else FbColors.Red)
         }
 
-        Section(stringResource(R.string.is_bank))
+        IsSection(stringResource(R.string.is_bank))
         if (co.loanMonthsLeft > 0) {
             IsKV(stringResource(R.string.is_loan_left), IsFmt.money(co.loanLeft), FbColors.Orange)
             IsKV(stringResource(R.string.is_interest_rate), stringResource(R.string.is_rate_year, "%.1f%%".format(co.loanRate)))
@@ -403,7 +414,14 @@ fun RivalsPanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
     for (b in w.buildings) if (b != null && b.owner >= 0 && b.type.cat != Cat.ROAD && b.type.cat != Cat.NATURE) counts[b.owner]++
     val ranked = w.companies.sortedWith(compareBy<Company>({ !it.alive }, { -IsSim.netWorth(w, it.id) }))
 
-    PanelFrame(stringResource(R.string.is_rivals), { vm.closePanel() }) {
+    val open = w.auctions.filter { !it.done && w.buildings.getOrNull(it.building) != null }
+    IsPanelFrame(stringResource(R.string.is_rivals), { vm.closePanel() }) {
+        if (open.isNotEmpty()) {
+            IsSection("🔨 " + stringResource(R.string.is_auctions) + " (${open.size})")
+            for (a in open) AuctionCard(w, a, vm, showMapButton = true)
+            Text(stringResource(R.string.is_auction_tip), color = AppColors.TextSecondary, fontSize = 11.sp, modifier = Modifier.padding(bottom = 6.dp))
+            IsSection(stringResource(R.string.is_rivals))
+        }
         for ((i, co) in ranked.withIndex()) {
             val me = co.id == w.userId
             Column(
@@ -425,6 +443,15 @@ fun RivalsPanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
                     Box(Modifier.fillMaxWidth().height(6.dp).clip(RoundedCornerShape(3.dp)).background(FbColors.Line)) {
                         Box(Modifier.fillMaxWidth((guests[co.id] / total).toFloat().coerceIn(0f, 1f)).height(6.dp).background(Color(co.color)))
                     }
+                    if (!me && w.companies[w.userId].alive) {
+                        var showDirty by remember(co.id) { mutableStateOf(false) }
+                        Spacer(Modifier.height(6.dp))
+                        FbChip("🕶️ " + stringResource(R.string.is_dirty), showDirty, { showDirty = !showDirty })
+                        if (showDirty) {
+                            DirtyCard(w, Dirty.PROPAGANDA, vm, co.id)
+                            DirtyCard(w, Dirty.STRIKE, vm, co.id)
+                        }
+                    }
                 }
             }
         }
@@ -435,7 +462,7 @@ fun RivalsPanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
 
 @Composable
 fun NewsPanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
-    PanelFrame(stringResource(R.string.is_news), { vm.closePanel() }) {
+    IsPanelFrame(stringResource(R.string.is_news), { vm.closePanel() }) {
         if (w.news.isEmpty()) Text(stringResource(R.string.is_no_news), color = AppColors.TextSecondary, fontSize = 13.sp)
         val start = (w.news.size - 80).coerceAtLeast(0)
         for (i in w.news.size - 1 downTo start) {

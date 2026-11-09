@@ -77,6 +77,7 @@ import com.eomer91.minigamesworld.ui.games.island.engine.IsSim
 import com.eomer91.minigamesworld.ui.games.island.engine.IsWorld
 import com.eomer91.minigamesworld.ui.games.island.engine.MapSize
 import com.eomer91.minigamesworld.ui.games.island.engine.MapType
+import com.eomer91.minigamesworld.ui.games.island.engine.NewsKind
 import com.eomer91.minigamesworld.ui.games.island.render.IsCamera
 import com.eomer91.minigamesworld.ui.games.island.render.IsGhost
 import com.eomer91.minigamesworld.ui.games.island.render.IsSelection
@@ -96,7 +97,7 @@ fun IslandScreen(onBack: () -> Unit, viewModel: IslandViewModel = hiltViewModel(
 
     ui.toast?.let { t ->
         LaunchedEffect(t) {
-            snackbar.showSnackbar(if (t.arg.isEmpty()) context.getString(t.res) else context.getString(t.res, t.arg))
+            snackbar.showSnackbar(t.text ?: if (t.arg.isEmpty()) context.getString(t.res) else context.getString(t.res, t.arg))
             viewModel.clearToast()
         }
     }
@@ -246,6 +247,20 @@ private fun IsGame(w: IsWorld, ui: IsUiState, vm: IslandViewModel, onBack: () ->
         val focus = w.buildings.firstOrNull { it != null && it.owner == w.userId } ?: w.buildings.firstOrNull { it?.type == IsCatalog.AIRPORT }
         if (focus != null) camera.centerOn(com.eomer91.minigamesworld.ui.games.island.render.isLayout(w.n), focus.cx, focus.cy, maxOf(camera.scale, 1.1f))
     }
+    LaunchedEffect(ui.focusSeq) {
+        if (ui.focusSeq > 0 && camera.ready) camera.centerOn(com.eomer91.minigamesworld.ui.games.island.render.isLayout(w.n), ui.focusX, ui.focusY, maxOf(camera.scale, 1.2f))
+    }
+    // Seni ilgilendiren onemli gelismeler kisa bildirim olarak da gosterilir
+    val lastNews = w.news.lastOrNull()
+    val alert = lastNews?.takeIf { n ->
+        when (n.kind) {
+            NewsKind.SABOTAGE, NewsKind.PROPAGANDA, NewsKind.STRIKE, NewsKind.WARNING, NewsKind.AUCTION_WON -> n.company == w.userId
+            NewsKind.BANKRUPT, NewsKind.AUCTION -> true
+            else -> false
+        }
+    }?.let { n -> newsText(w, n)?.let { newsIcon(n.kind) + " " + it } }
+    val newsAtOpen = remember(w) { w.newsCount }
+    LaunchedEffect(w.newsCount) { if (alert != null && w.newsCount > newsAtOpen) vm.toastText(alert) }
     val ghost = if (ui.placing >= 0 && ui.ghostX >= 0) IsGhost(IsCatalog[ui.placing], ui.ghostX, ui.ghostY, vm.canPlace() == BuildError.OK, me.color) else null
     val selection = when {
         ui.panel == IsPanel.BUILDING && ui.selBuilding >= 0 -> w.buildings.getOrNull(ui.selBuilding)?.let { IsSelection(it.x, it.y, it.type.w, it.type.h) }
@@ -270,6 +285,8 @@ private fun IsGame(w: IsWorld, ui: IsUiState, vm: IslandViewModel, onBack: () ->
                             IsPanel.BUILDING -> BuildingPanel(w, ui, vm)
                             IsPanel.LAND -> LandPanel(w, ui, vm)
                             IsPanel.FINANCE -> FinancePanel(w, ui, vm)
+                            IsPanel.MARKETING -> MarketingPanel(w, ui, vm)
+                            IsPanel.GUIDE -> GuidePanel(vm)
                             IsPanel.RIVALS -> RivalsPanel(w, ui, vm)
                             IsPanel.NEWS -> NewsPanel(w, ui, vm)
                             else -> Unit
@@ -346,11 +363,13 @@ private fun SpeedButton(s: Int, selected: Boolean, onClick: () -> Unit) {
 
 @Composable
 private fun IsToolbar(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
-    val unread = (w.news.size - ui.newsSeen).coerceAtLeast(0)
-    Column(Modifier.padding(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+    val unread = (w.newsCount - ui.newsSeen).coerceAtLeast(0)
+    val auctions = w.auctions.count { !it.done }
+    Column(Modifier.fillMaxHeight().verticalScroll(rememberScrollState()).padding(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
         ToolButton("🏗️", stringResource(R.string.is_build), ui.panel == IsPanel.BUILD || ui.placing >= 0) { vm.openPanel(IsPanel.BUILD) }
         ToolButton("💰", stringResource(R.string.is_finance), ui.panel == IsPanel.FINANCE) { vm.openPanel(IsPanel.FINANCE) }
-        ToolButton("🏆", stringResource(R.string.is_rivals), ui.panel == IsPanel.RIVALS) { vm.openPanel(IsPanel.RIVALS) }
+        ToolButton("📣", stringResource(R.string.is_marketing), ui.panel == IsPanel.MARKETING) { vm.openPanel(IsPanel.MARKETING) }
+        ToolButton("🏆", stringResource(R.string.is_rivals), ui.panel == IsPanel.RIVALS, badge = auctions) { vm.openPanel(IsPanel.RIVALS) }
         ToolButton("📰", stringResource(R.string.is_news), ui.panel == IsPanel.NEWS, badge = if (ui.panel == IsPanel.NEWS) 0 else unread) { vm.openPanel(IsPanel.NEWS) }
     }
 }
@@ -362,10 +381,10 @@ private fun ToolButton(icon: String, label: String, selected: Boolean, badge: In
             Modifier.width(62.dp).clip(RoundedCornerShape(14.dp))
                 .background(if (selected) AppColors.Primary else Color(0xE0111827))
                 .border(1.dp, if (selected) Color.White.copy(alpha = 0.8f) else Color.White.copy(alpha = 0.08f), RoundedCornerShape(14.dp))
-                .clickable(onClick = onClick).padding(vertical = 6.dp),
+                .clickable(onClick = onClick).padding(vertical = 4.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Text(icon, fontSize = 20.sp)
+            Text(icon, fontSize = 18.sp)
             Text(label, color = if (selected) AppColors.OnPrimary else AppColors.TextPrimary, fontSize = 10.sp, fontWeight = FontWeight.Bold, maxLines = 1)
         }
         if (badge > 0) {
@@ -407,6 +426,8 @@ private fun GameMenu(vm: IslandViewModel, onBack: () -> Unit) {
             Text(stringResource(R.string.game_island_name), color = AppColors.TextPrimary, fontWeight = FontWeight.Black, fontSize = 18.sp)
             Spacer(Modifier.height(12.dp))
             FbButton(stringResource(R.string.is_continue), { vm.closePanel() }, Modifier.fillMaxWidth())
+            Spacer(Modifier.height(8.dp))
+            FbButton("❓ " + stringResource(R.string.is_guide), { vm.openPanel(IsPanel.GUIDE) }, Modifier.fillMaxWidth(), color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
             Spacer(Modifier.height(8.dp))
             FbButton(stringResource(R.string.is_save_exit), { vm.exitGame(); onBack() }, Modifier.fillMaxWidth(), color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
         }

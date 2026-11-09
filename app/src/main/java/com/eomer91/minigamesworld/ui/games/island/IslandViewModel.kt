@@ -7,6 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.eomer91.minigamesworld.R
 import com.eomer91.minigamesworld.ui.games.island.engine.BuildError
 import com.eomer91.minigamesworld.ui.games.island.engine.Cat
+import com.eomer91.minigamesworld.ui.games.island.engine.Dirty
+import com.eomer91.minigamesworld.ui.games.island.engine.IsRivals
 import com.eomer91.minigamesworld.ui.games.island.engine.IsCatalog
 import com.eomer91.minigamesworld.ui.games.island.engine.IsGen
 import com.eomer91.minigamesworld.ui.games.island.engine.IsSave
@@ -64,9 +66,10 @@ class IslandRepository @Inject constructor(@ApplicationContext context: Context)
 
 enum class IsPhase { LOADING, START, SETUP, GAME }
 
-enum class IsPanel { NONE, BUILD, BUILDING, LAND, FINANCE, RIVALS, NEWS, MENU }
+enum class IsPanel { NONE, BUILD, BUILDING, LAND, FINANCE, MARKETING, RIVALS, NEWS, GUIDE, MENU }
 
-data class IsToast(@StringRes val res: Int, val arg: String = "")
+/** Kisa bildirim: kaynak metin (+ arguman) ya da hazir metin */
+data class IsToast(@StringRes val res: Int, val arg: String = "", val text: String? = null)
 
 data class IsUiState(
     val phase: IsPhase = IsPhase.LOADING,
@@ -88,6 +91,10 @@ data class IsUiState(
     /** Okunan son haber sayisi (rozet icin) */
     val newsSeen: Int = 0,
     val gameOverSeen: Boolean = false,
+    /** Kamerayi bir karoya goturme istegi (her istekte artar) */
+    val focusSeq: Int = 0,
+    val focusX: Float = 0f,
+    val focusY: Float = 0f,
     val toast: IsToast? = null,
 )
 
@@ -115,6 +122,7 @@ class IslandViewModel @Inject constructor(
 
     private fun bump() = _state.update { it.copy(version = it.version + 1) }
     fun toast(@StringRes res: Int, arg: String = "") = _state.update { it.copy(toast = IsToast(res, arg)) }
+    fun toastText(text: String) = _state.update { it.copy(toast = IsToast(0, text = text)) }
     fun clearToast() = _state.update { it.copy(toast = null) }
 
     // ================================================================== oyun dongusu
@@ -149,7 +157,7 @@ class IslandViewModel @Inject constructor(
                 return@launch
             }
             world = w
-            _state.update { IsUiState(phase = IsPhase.GAME, hasSave = true, newsSeen = w.news.size, gameOverSeen = w.gameOver) }
+            _state.update { IsUiState(phase = IsPhase.GAME, hasSave = true, newsSeen = w.newsCount, gameOverSeen = w.gameOver) }
             startLoop()
         }
     }
@@ -164,7 +172,8 @@ class IslandViewModel @Inject constructor(
             s.seed = System.nanoTime()
             val w = withContext(Dispatchers.Default) { IsGen.newGame(s) }
             world = w
-            _state.update { IsUiState(phase = IsPhase.GAME, hasSave = true, speed = 0) }
+            // Ilk oyunda rehber acik ve oyun durmus baslar
+            _state.update { IsUiState(phase = IsPhase.GAME, hasSave = true, speed = 0, panel = IsPanel.GUIDE) }
             save()
             startLoop()
         }
@@ -190,12 +199,12 @@ class IslandViewModel @Inject constructor(
     fun openPanel(p: IsPanel) = _state.update {
         val np = if (it.panel == p) IsPanel.NONE else p
         it.copy(panel = np, placing = -1, ghostX = -1, ghostY = -1,
-            newsSeen = if (np == IsPanel.NEWS) (world?.news?.size ?: 0) else it.newsSeen)
+            newsSeen = if (np == IsPanel.NEWS) (world?.newsCount ?: 0) else it.newsSeen)
     }
 
     fun closePanel() = _state.update { it.copy(panel = IsPanel.NONE, selBuilding = -1, selX = -1, selY = -1) }
     fun setBuildCat(c: Cat) = _state.update { it.copy(buildCat = c) }
-    fun markNewsSeen() = _state.update { it.copy(newsSeen = world?.news?.size ?: 0) }
+    fun markNewsSeen() = _state.update { it.copy(newsSeen = world?.newsCount ?: 0) }
     fun dismissGameOver() = _state.update { it.copy(gameOverSeen = true) }
 
     fun startPlacing(typeId: Int) = _state.update { it.copy(placing = typeId, panel = IsPanel.NONE, ghostX = -1, ghostY = -1, selBuilding = -1) }
@@ -278,6 +287,39 @@ class IslandViewModel @Inject constructor(
     fun repayLoan() {
         val w = world ?: return
         if (IsSim.repayLoan(w, w.userId)) { toast(R.string.is_loan_repaid); bump() } else toast(R.string.is_err_no_money)
+    }
+
+    // ================================================================== rekabet
+
+    fun startAd(cls: Int) {
+        val w = world ?: return
+        if (IsRivals.startAd(w, w.userId, cls)) { toast(R.string.is_ad_started); bump() } else toast(R.string.is_err_no_money)
+    }
+
+    /** target: SABOTAGE icin bina id'si, digerleri icin sirket id'si */
+    fun dirty(d: Dirty, target: Int) {
+        val w = world ?: return
+        when (IsRivals.doDirty(w, w.userId, d, target)) {
+            1 -> toast(R.string.is_d_ok)
+            0 -> toast(R.string.is_d_fail)
+            2 -> toast(R.string.is_d_caught)
+            else -> toast(R.string.is_err_no_money)
+        }
+        bump()
+    }
+
+    fun bid(auctionId: Int) {
+        val w = world ?: return
+        val a = w.auctions.firstOrNull { it.id == auctionId } ?: return
+        if (IsRivals.bid(w, w.userId, a, IsRivals.nextBid(a))) { toast(R.string.is_bid_ok); bump() } else toast(R.string.is_bid_fail)
+    }
+
+    fun focus(x: Float, y: Float) = _state.update { it.copy(focusSeq = it.focusSeq + 1, focusX = x, focusY = y) }
+
+    /** Haritada binayi goster ve panelini ac */
+    fun showBuilding(id: Int) {
+        val b = world?.buildings?.getOrNull(id) ?: return
+        _state.update { it.copy(panel = IsPanel.BUILDING, selBuilding = id, selX = -1, selY = -1, focusSeq = it.focusSeq + 1, focusX = b.cx, focusY = b.cy) }
     }
 
     override fun onCleared() {
