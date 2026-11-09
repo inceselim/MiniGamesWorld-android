@@ -51,7 +51,7 @@ fun MarketingPanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
                     Text(stringResource(R.string.is_ad_title, cls), color = AppColors.TextPrimary, fontWeight = FontWeight.ExtraBold, fontSize = 14.sp,
                         modifier = Modifier.padding(start = 8.dp))
                 }
-                Text(stringResource(R.string.is_ad_desc, cls.lowercase()), color = AppColors.TextSecondary, fontSize = 12.sp, modifier = Modifier.padding(vertical = 4.dp))
+                Text(stringResource(R.string.is_ad_desc, cls), color = AppColors.TextSecondary, fontSize = 12.sp, modifier = Modifier.padding(vertical = 4.dp))
                 if (left > 0) Text(stringResource(R.string.is_ad_active, left), color = FbColors.Green, fontSize = 12.sp, fontWeight = FontWeight.Bold)
                 Spacer(Modifier.height(6.dp))
                 FbButton(stringResource(if (left > 0) R.string.is_ad_extend else R.string.is_ad_start, IsFmt.money(cost)), { vm.startAd(c) },

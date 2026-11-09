@@ -27,8 +27,8 @@ android {
         minSdk = 24
         targetSdk = 36
         // Play Store'daki son surum 3 idi. Her yuklemede artir.
-        versionCode = 11
-        versionName = "2.5.0"
+        versionCode = 12
+        versionName = "2.6.0"
 
         // Unity Ads: Game ID ve reklam birimleri gradle.properties'ten (gizli degil).
         buildConfigField("String", "UNITY_GAME_ID", "\"${adId("UNITY_GAME_ID")}\"")

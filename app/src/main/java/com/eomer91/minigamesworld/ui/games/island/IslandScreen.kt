@@ -62,6 +62,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.eomer91.minigamesworld.R
+import com.eomer91.minigamesworld.feedback.GameMusicEffect
 import com.eomer91.minigamesworld.ui.games.football.FbBusy
 import com.eomer91.minigamesworld.ui.games.football.FbButton
 import com.eomer91.minigamesworld.ui.games.football.FbChip
@@ -118,6 +119,8 @@ fun IslandScreen(onBack: () -> Unit, viewModel: IslandViewModel = hiltViewModel(
             else -> onBack()
         }
     }
+
+    GameMusicEffect(R.raw.music_island, playing = ui.phase != IsPhase.LOADING, gain = 0.45f)
 
     Box(Modifier.fillMaxSize().background(AppColors.Background)) {
         val world = viewModel.world

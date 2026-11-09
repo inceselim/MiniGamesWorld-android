@@ -3,8 +3,8 @@ S = {
 # Pazarlama
 "is_marketing": ("Marketing", "Pazarlama"),
 "is_ad_title": ("%1$s campaign", "%1$s kampanyası"),
-"is_ad_desc": ("For 30 days your hotels and venues look more attractive to %1$s tourists.",
-               "30 gün boyunca otellerin ve mekânların %1$s turistlere daha çekici görünür."),
+"is_ad_desc": ("For 30 days your hotels and venues look more attractive to this group: %1$s.",
+               "30 gün boyunca otellerin ve mekânların şu gruba daha çekici görünür: %1$s."),
 "is_ad_active": ("Running: %1$d days left", "Sürüyor: %1$d gün kaldı"),
 "is_ad_start": ("Start (%1$s)", "Başlat (%1$s)"),
 "is_ad_extend": ("Extend 30 days (%1$s)", "30 gün uzat (%1$s)"),

@@ -1,0 +1,80 @@
+<en-US>
+New game: Island Tycoon! – now 33 games
+• Build hotels, bungalows, discos, casinos, water parks and malls on a tropical island
+• Budget, middle-class and luxury tourists, seasons and a growing island
+• Price wars, ad campaigns and dirty tricks against up to 5 rivals
+• Bank loans, bankruptcy and auctions of your rivals' buildings
+• Smooth zoomable isometric map, new tropical music
+</en-US>
+<tr-TR>
+Yeni oyun: Ada Patronu! Toplam 33 oyun
+• Tropik bir adada otel, bungalov, disko, kumarhane, su parkı ve AVM kur
+• Ekonomik, orta sınıf ve lüks turistler, sezonlar ve büyüyen bir ada
+• 5 rakibe kadar fiyat savaşı, reklam kampanyaları ve kirli işler
+• Banka kredisi, iflas ve batan rakiplerin binaları için açık artırma
+• Akıcı, yakınlaştırılabilir izometrik harita ve yeni tropik müzik
+</tr-TR>
+<de-DE>
+Neues Spiel: Inselboss! – jetzt 33 Spiele
+• Baue Hotels, Bungalows, Discos, Casinos, Wasserparks und Einkaufszentren auf einer Tropeninsel
+• Budget-, Mittelschicht- und Luxustouristen, Saisons und eine wachsende Insel
+• Preiskämpfe, Werbekampagnen und schmutzige Tricks gegen bis zu 5 Rivalen
+• Bankkredite, Bankrott und Versteigerungen der Gebäude deiner Rivalen
+• Flüssige, zoombare Isometrie-Karte, neue tropische Musik
+</de-DE>
+<es-ES>
+Nuevo juego: ¡Magnate de la Isla! Ya son 33 juegos
+• Construye hoteles, bungalós, discotecas, casinos, parques acuáticos y centros comerciales en una isla tropical
+• Turistas económicos, de clase media y de lujo, temporadas y una isla que crece
+• Guerras de precios, campañas publicitarias y juego sucio contra hasta 5 rivales
+• Préstamos, quiebras y subastas de los edificios rivales
+• Mapa isométrico fluido con zoom y nueva música tropical
+</es-ES>
+<fr-FR>
+Nouveau jeu : Magnat de l'Île ! – 33 jeux
+• Construis hôtels, bungalows, discothèques, casinos, parcs aquatiques et centres commerciaux sur une île tropicale
+• Touristes petit budget, classe moyenne et luxe, saisons et île qui grandit
+• Guerre des prix, publicité et coups bas contre jusqu'à 5 rivaux
+• Prêts bancaires, faillites et enchères des bâtiments rivaux
+• Carte isométrique fluide avec zoom, nouvelle musique tropicale
+</fr-FR>
+<it-IT>
+Nuovo gioco: Magnate dell'Isola! Ora 33 giochi
+• Costruisci hotel, bungalow, discoteche, casinò, parchi acquatici e centri commerciali su un'isola tropicale
+• Turisti economici, di ceto medio e di lusso, stagioni e un'isola che cresce
+• Guerre dei prezzi, campagne pubblicitarie e colpi bassi contro fino a 5 rivali
+• Prestiti, fallimenti e aste degli edifici rivali
+• Mappa isometrica fluida con zoom e nuova musica tropicale
+</it-IT>
+<ja-JP>
+新ゲーム「アイランド・タイクーン」登場！全33ゲーム
+• 南の島にホテル、バンガロー、ディスコ、カジノ、ウォーターパーク、ショッピングモールを建設
+• 低予算・中流・富裕層の観光客、シーズン、成長する島
+• 最大5社のライバルと価格競争、広告、裏工作
+• 銀行融資、破産、ライバルの物件の競売
+• なめらかに拡大できるアイソメトリックマップ、新しいトロピカル音楽
+</ja-JP>
+<ru-RU>
+Новая игра: Остров-магнат! Теперь 33 игры
+• Стройте отели, бунгало, дискотеки, казино, аквапарки и торговые центры на тропическом острове
+• Туристы эконом, среднего класса и люкс, сезоны и растущий остров
+• Ценовые войны, реклама и грязные дела против 5 конкурентов
+• Кредиты, банкротства и аукционы зданий конкурентов
+• Плавная изометрическая карта с зумом, новая тропическая музыка
+</ru-RU>
+<da-DK>
+Nyt spil: Ø-magnat! – nu 33 spil
+• Byg hoteller, bungalows, diskoteker, kasinoer, vandlande og indkøbscentre på en tropeø
+• Budget-, middelklasse- og luksusturister, sæsoner og en ø i vækst
+• Priskrig, reklamekampagner og beskidte tricks mod op til 5 rivaler
+• Banklån, konkurser og auktioner over rivalernes bygninger
+• Flydende isometrisk kort med zoom og ny tropisk musik
+</da-DK>
+<hu-HU>
+Új játék: Szigetmogul! Már 33 játék
+• Építs szállodákat, bungalókat, diszkókat, kaszinókat, élményfürdőket és bevásárlóközpontokat egy trópusi szigeten
+• Olcsó, középosztálybeli és luxusturisták, szezonok és fejlődő sziget
+• Árháború, reklámkampányok és piszkos trükkök legfeljebb 5 rivális ellen
+• Bankhitel, csőd és a riválisok épületeinek árverése
+• Gördülékeny, nagyítható izometrikus térkép és új trópusi zene
+</hu-HU>

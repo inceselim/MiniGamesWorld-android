@@ -5,6 +5,8 @@ import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.eomer91.minigamesworld.R
+import com.eomer91.minigamesworld.feedback.GameFeedback
+import com.eomer91.minigamesworld.feedback.Sfx
 import com.eomer91.minigamesworld.ui.games.island.engine.BuildError
 import com.eomer91.minigamesworld.ui.games.island.engine.Cat
 import com.eomer91.minigamesworld.ui.games.island.engine.Dirty
@@ -101,6 +103,7 @@ data class IsUiState(
 @HiltViewModel
 class IslandViewModel @Inject constructor(
     private val repo: IslandRepository,
+    private val feedback: GameFeedback,
 ) : ViewModel() {
 
     /** Oyun dunyasi. Yalnizca ana is parcaciginda okunur ve degistirilir. */
@@ -137,7 +140,7 @@ class IslandViewModel @Inject constructor(
                 val w = world ?: continue
                 if (_state.value.phase != IsPhase.GAME || _state.value.speed == 0 || w.gameOver) continue
                 IsSim.step(w)
-                if (w.gameOver) _state.update { it.copy(speed = 0) }
+                if (w.gameOver) { _state.update { it.copy(speed = 0) }; feedback.play(Sfx.GAME_OVER) }
                 if (++sinceSave >= 30) { sinceSave = 0; save() }
                 bump()
             }
@@ -245,6 +248,7 @@ class IslandViewModel @Inject constructor(
         val t = IsCatalog[st.placing]
         val b = IsSim.build(w, w.userId, t, st.ghostX, st.ghostY)
         if (b == null) { toast(buildErrorRes(IsSim.canBuild(w, w.userId, t, st.ghostX, st.ghostY))); return }
+        feedback.play(Sfx.DROP, volume = 0.7f)
         // Ayni turden bir tane daha koymaya hazir; onizleme kalkar
         _state.update { it.copy(ghostX = -1, ghostY = -1, version = it.version + 1) }
     }
@@ -267,7 +271,7 @@ class IslandViewModel @Inject constructor(
         val w = world ?: return
         val b = w.buildings.getOrNull(id) ?: return
         if (b.owner != w.userId) return
-        if (IsSim.upgrade(w, b)) { toast(R.string.is_upgraded); bump() } else toast(R.string.is_err_no_money)
+        if (IsSim.upgrade(w, b)) { feedback.play(Sfx.DROP, volume = 0.7f); toast(R.string.is_upgraded); bump() } else toast(R.string.is_err_no_money)
     }
 
     fun demolish(id: Int) {
@@ -275,6 +279,7 @@ class IslandViewModel @Inject constructor(
         val b = w.buildings.getOrNull(id) ?: return
         if (b.owner != w.userId) return
         IsSim.demolish(w, b)
+        feedback.play(Sfx.CLEAR, volume = 0.6f)
         _state.update { it.copy(panel = IsPanel.NONE, selBuilding = -1, version = it.version + 1, toast = IsToast(R.string.is_demolished)) }
     }
 
@@ -293,16 +298,16 @@ class IslandViewModel @Inject constructor(
 
     fun startAd(cls: Int) {
         val w = world ?: return
-        if (IsRivals.startAd(w, w.userId, cls)) { toast(R.string.is_ad_started); bump() } else toast(R.string.is_err_no_money)
+        if (IsRivals.startAd(w, w.userId, cls)) { feedback.play(Sfx.COMBO, volume = 0.6f); toast(R.string.is_ad_started); bump() } else toast(R.string.is_err_no_money)
     }
 
     /** target: SABOTAGE icin bina id'si, digerleri icin sirket id'si */
     fun dirty(d: Dirty, target: Int) {
         val w = world ?: return
         when (IsRivals.doDirty(w, w.userId, d, target)) {
-            1 -> toast(R.string.is_d_ok)
-            0 -> toast(R.string.is_d_fail)
-            2 -> toast(R.string.is_d_caught)
+            1 -> { feedback.play(Sfx.COMBO); toast(R.string.is_d_ok) }
+            0 -> { feedback.play(Sfx.BLOCK, volume = 0.6f); toast(R.string.is_d_fail) }
+            2 -> { feedback.play(Sfx.GAME_OVER, volume = 0.7f); toast(R.string.is_d_caught) }
             else -> toast(R.string.is_err_no_money)
         }
         bump()
@@ -311,7 +316,7 @@ class IslandViewModel @Inject constructor(
     fun bid(auctionId: Int) {
         val w = world ?: return
         val a = w.auctions.firstOrNull { it.id == auctionId } ?: return
-        if (IsRivals.bid(w, w.userId, a, IsRivals.nextBid(a))) { toast(R.string.is_bid_ok); bump() } else toast(R.string.is_bid_fail)
+        if (IsRivals.bid(w, w.userId, a, IsRivals.nextBid(a))) { feedback.play(Sfx.BLOCK, volume = 0.6f); toast(R.string.is_bid_ok); bump() } else toast(R.string.is_bid_fail)
     }
 
     fun focus(x: Float, y: Float) = _state.update { it.copy(focusSeq = it.focusSeq + 1, focusX = x, focusY = y) }

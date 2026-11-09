@@ -209,7 +209,7 @@
     <string name="is_back_menu">Main menu</string>
     <string name="is_marketing">Marketing</string>
     <string name="is_ad_title">%1$s campaign</string>
-    <string name="is_ad_desc">For 30 days your hotels and venues look more attractive to %1$s tourists.</string>
+    <string name="is_ad_desc">For 30 days your hotels and venues look more attractive to this group: %1$s.</string>
     <string name="is_ad_active">Running: %1$d days left</string>
     <string name="is_ad_start">Start (%1$s)</string>
     <string name="is_ad_extend">Extend 30 days (%1$s)</string>

@@ -209,7 +209,7 @@
     <string name="is_back_menu">Ana menü</string>
     <string name="is_marketing">Pazarlama</string>
     <string name="is_ad_title">%1$s kampanyası</string>
-    <string name="is_ad_desc">30 gün boyunca otellerin ve mekânların %1$s turistlere daha çekici görünür.</string>
+    <string name="is_ad_desc">30 gün boyunca otellerin ve mekânların şu gruba daha çekici görünür: %1$s.</string>
     <string name="is_ad_active">Sürüyor: %1$d gün kaldı</string>
     <string name="is_ad_start">Başlat (%1$s)</string>
     <string name="is_ad_extend">30 gün uzat (%1$s)</string>
