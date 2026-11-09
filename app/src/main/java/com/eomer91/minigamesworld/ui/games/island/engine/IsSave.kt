@@ -37,7 +37,7 @@ object IsSave {
                 o.writeLong(co.monthIn); o.writeLong(co.monthOut); o.writeLong(co.lastMonthIn); o.writeLong(co.lastMonthOut)
                 for (v in co.adUntil) o.writeInt(v)
                 o.writeLong(co.loanLeft); o.writeFloat(co.loanRate); o.writeLong(co.loanPayment); o.writeShort(co.loanMonthsLeft)
-                o.writeByte(co.redMonths); o.writeBoolean(co.bankrupt)
+                o.writeByte(co.redMonths); o.writeBoolean(co.bankrupt); o.writeInt(co.lastDirtyDay)
                 o.writeDouble(co.satSum); o.writeDouble(co.satW)
             }
 
@@ -50,6 +50,12 @@ object IsSave {
                 for (v in b.today) o.writeFloat(v)
                 for (v in b.loc) o.writeFloat(v)
                 o.writeLong(b.monthRevenue); o.writeLong(b.lastMonthRevenue); o.writeFloat(b.monthUse); o.writeFloat(b.lastMonthUse)
+            }
+
+            o.writeInt(w.auctions.size)
+            for (a in w.auctions) {
+                o.writeInt(a.building); o.writeLong(a.minBid); o.writeInt(a.endDay)
+                o.writeLong(a.topBid); o.writeByte(a.topBidder); o.writeBoolean(a.done)
             }
 
             o.writeInt(w.news.size)
@@ -86,7 +92,7 @@ object IsSave {
                 co.monthIn = i.readLong(); co.monthOut = i.readLong(); co.lastMonthIn = i.readLong(); co.lastMonthOut = i.readLong()
                 for (k in 0..2) co.adUntil[k] = i.readInt()
                 co.loanLeft = i.readLong(); co.loanRate = i.readFloat(); co.loanPayment = i.readLong(); co.loanMonthsLeft = i.readShort().toInt()
-                co.redMonths = i.readByte().toInt(); co.bankrupt = i.readBoolean()
+                co.redMonths = i.readByte().toInt(); co.bankrupt = i.readBoolean(); co.lastDirtyDay = i.readInt()
                 co.satSum = i.readDouble(); co.satW = i.readDouble()
                 w.companies.add(co)
             }
@@ -102,6 +108,12 @@ object IsSave {
                 b.monthRevenue = i.readLong(); b.lastMonthRevenue = i.readLong(); b.monthUse = i.readFloat(); b.lastMonthUse = i.readFloat()
                 w.buildings.add(b)
                 for (yy in b.y until b.y + type.h) for (xx in b.x until b.x + type.w) w.bAt[w.idx(xx, yy)] = id
+            }
+
+            repeat(i.readInt()) { id ->
+                val a = IsAuction(id, i.readInt(), i.readLong(), i.readInt())
+                a.topBid = i.readLong(); a.topBidder = i.readByte().toInt(); a.done = i.readBoolean()
+                w.auctions.add(a)
             }
 
             repeat(i.readInt()) {

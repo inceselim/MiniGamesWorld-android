@@ -118,10 +118,10 @@ object IsSim {
     }
 
     /** Binayi yik: insaat bedelinin %20'si geri gelir; arsa sirkette kalir */
-    fun demolish(w: IsWorld, b: Building) {
+    fun demolish(w: IsWorld, b: Building, refund: Boolean = true) {
         if (b.owner < 0) return
         val co = w.companies[b.owner]
-        if (b.buildLeft <= 0) co.book(Fin.SALES, b.type.cost / 5)
+        if (refund && b.buildLeft <= 0) co.book(Fin.SALES, b.type.cost / 5)
         for (yy in b.y until b.y + b.type.h) for (xx in b.x until b.x + b.type.w) w.bAt[w.idx(xx, yy)] = -1
         w.buildings[b.id] = null
     }
@@ -208,6 +208,8 @@ object IsSim {
         allocateStays(w, want)
         for (cat in Cat.entries) if (cat.isAmenity) allocateAmenity(w, cat)
         if (w.day % 7 == 6) refreshAllLocations(w)
+        IsRivals.dailyAuctions(w)
+        IsBots.daily(w)
         if (w.dayOfMonth == 30) monthEnd(w)
         w.day++
     }
@@ -397,10 +399,13 @@ object IsSim {
         return if (last > 0) last else co.lastMonthIn * 12
     }
 
-    /** Sirketin binalarinin tahmini degeri (insaat bedelinin %60'i) */
+    /** Binanin tahmini degeri (insaat bedelinin %60'i, iyilestirmelerle artar) */
+    fun buildingValue(b: Building): Long = (b.type.cost * (0.6 + 0.15 * b.level)).toLong()
+
+    /** Sirketin binalarinin tahmini degeri */
     fun assets(w: IsWorld, c: Int): Long {
         var v = 0L
-        for (b in w.buildings) if (b != null && b.owner == c) v += (b.type.cost * (0.6 + 0.15 * b.level)).toLong()
+        for (b in w.buildings) if (b != null && b.owner == c) v += buildingValue(b)
         return v
     }
 

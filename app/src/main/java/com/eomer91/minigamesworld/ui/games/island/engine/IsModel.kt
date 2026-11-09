@@ -39,7 +39,7 @@ enum class TClass(
     /** Kaliteye verilen onem */
     val qualityW: Float,
 ) {
-    LOW(35f, 3.5f, 0.2f), MID(110f, 2.5f, 0.5f), HIGH(380f, 1.2f, 1f)
+    LOW(35f, 3.5f, 0.2f), MID(110f, 2.5f, 0.5f), HIGH(380f, 1.6f, 1f)
 }
 
 /** Bina kategorisi. visitRate/visitBudget: turist basina gunluk ziyaret ve ziyaret basina referans harcama (LOW, MID, HIGH). */
@@ -176,6 +176,8 @@ class Company(val id: Int, var name: String, var color: Int, val bot: Boolean, v
     /** Ust uste eksi bakiyeyle kapanan ay */
     var redMonths: Int = 0
     var bankrupt: Boolean = false
+    /** Son kirli isin gunu */
+    var lastDirtyDay: Int = -999
     /** Bugun icin memnuniyet birikimi (agirlikli) */
     var satSum: Double = 0.0
     var satW: Double = 0.0
@@ -211,7 +213,7 @@ class IsSettings(
     var seed: Long = 1L,
 )
 
-enum class NewsKind { BUILT, BANKRUPT, AUCTION, AD, SABOTAGE, CAUGHT, PROPAGANDA, STRIKE, LOAN, SEASON, MILESTONE, PRICE_WAR, WARNING }
+enum class NewsKind { BUILT, BANKRUPT, AUCTION, AUCTION_WON, AD, SABOTAGE, CAUGHT, PROPAGANDA, STRIKE, LOAN, SEASON, MILESTONE, PRICE_WAR, WARNING }
 
 class IsNews(val day: Int, val kind: NewsKind, val company: Int, val other: Int = -1, val value: Long = 0, val type: Int = -1) {
     var read = false
@@ -237,7 +239,10 @@ class IsWorld(val settings: IsSettings, val n: Int) {
     var startYear: Int = 2026
     val rnd = IsRandom(settings.seed)
     val news = ArrayList<IsNews>()
+    val auctions = ArrayList<IsAuction>()
     val userId get() = 0
+    /** Testler icin: botlari durdur (kayda yazilmaz) */
+    var botsPaused: Boolean = false
     var gameOver: Boolean = false
     var winner: Int = -1
 

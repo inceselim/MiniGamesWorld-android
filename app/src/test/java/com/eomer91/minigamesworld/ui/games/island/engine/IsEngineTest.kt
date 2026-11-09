@@ -9,7 +9,7 @@ import java.io.ByteArrayOutputStream
 class IsEngineTest {
 
     private fun world(type: MapType = MapType.ISLAND, size: MapSize = MapSize.MEDIUM, seed: Long = 7, bots: Int = 3, money: Difficulty = Difficulty.NORMAL): IsWorld =
-        IsGen.newGame(IsSettings(companyName = "Test", bots = bots, mapType = type, mapSize = size, seed = seed, difficulty = money))
+        IsGen.newGame(IsSettings(companyName = "Test", bots = bots, mapType = type, mapSize = size, seed = seed, difficulty = money)).also { it.botsPaused = true }
 
     /** Kosula uyan, insa edilebilir ilk yer (sudan uzaklik araligi) */
     private fun spot(w: IsWorld, c: Int, t: BType, wdMin: Int = 1, wdMax: Int = 4, near: Pair<Int, Int>? = null, maxDist: Int = 999): Pair<Int, Int>? {
