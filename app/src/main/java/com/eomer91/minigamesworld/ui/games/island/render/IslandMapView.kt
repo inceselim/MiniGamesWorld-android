@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onSizeChanged
 import com.eomer91.minigamesworld.ui.games.island.engine.BType
+import com.eomer91.minigamesworld.ui.games.island.engine.Cat
 import com.eomer91.minigamesworld.ui.games.island.engine.IsWorld
 import kotlin.math.floor
 import kotlin.math.max
@@ -65,7 +66,7 @@ class IsCamera {
 }
 
 /** Yerlestirme onizlemesi */
-class IsGhost(val type: BType, val x: Int, val y: Int, val ok: Boolean, val color: Int)
+class IsGhost(val type: BType, val x: Int, val y: Int, val ok: Boolean, val color: Int, val tiles: List<Pair<Int, Int>>? = null)
 
 /** Secili alan (karo dikdortgeni) */
 class IsSelection(val x: Int, val y: Int, val w: Int, val h: Int, val color: Int = 0xFFFFFFFF.toInt())
@@ -188,7 +189,8 @@ fun IslandMapView(
                 val bottom = by + (b.type.w + b.type.h + 1) * IS_TH / 2f
                 val top = by - IsoArt.height(b.type.key) - 60f
                 if (right < vl || left > vr || bottom < vt || top > vb) continue
-                if (b.building || b.closed) { IsoScene.drawBuilding(p, L, b); continue }
+                // Yollar komsularina gore baglandigi icin hep vektorle (ucuz) cizilir
+                if (b.building || b.closed || b.type.cat == Cat.ROAD) { IsoScene.drawBuilding(p, L, b); continue }
                 val sp = cache.sprite(b.type, b.color, slod)
                 if (sp == null) { IsoScene.drawBuilding(p, L, b); continue }
                 paints.dst.set(bx - sp.ox * sp.k, by - sp.oy * sp.k, bx + (sp.bmp.width - sp.ox) * sp.k, by + (sp.bmp.height - sp.oy) * sp.k)
@@ -201,6 +203,12 @@ fun IslandMapView(
             ghost?.let { g ->
                 val fill = if (g.ok) 0x5543A047 else 0x66E53935
                 val stroke = if (g.ok) 0xFF43A047.toInt() else 0xFFE53935.toInt()
+                if (g.tiles != null) {
+                    // Yol hatti: dosenecek karolar
+                    for ((tx, ty) in g.tiles) IsoScene.drawFootprint(p, L, tx, ty, 1, 1, fill, stroke)
+                    IsoScene.drawFootprint(p, L, g.x, g.y, 1, 1, 0x00000000, 0xFFFFFFFF.toInt())
+                    return@let
+                }
                 IsoScene.drawFootprint(p, L, g.x, g.y, g.type.w, g.type.h, fill, stroke)
                 val bx = L.tileX(g.x.toFloat(), g.y.toFloat()); val by = L.tileY(g.x.toFloat(), g.y.toFloat())
                 nc.saveLayerAlpha(vl, vt, vr, vb, 160)

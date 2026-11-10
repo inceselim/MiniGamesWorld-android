@@ -87,6 +87,9 @@ data class IsUiState(
     val placing: Int = -1,
     val ghostX: Int = -1,
     val ghostY: Int = -1,
+    /** Yol cizerken bitis karosu (baslangic ghostX/Y) */
+    val endX: Int = -1,
+    val endY: Int = -1,
     val selBuilding: Int = -1,
     val selX: Int = -1,
     val selY: Int = -1,
@@ -214,14 +217,47 @@ class IslandViewModel @Inject constructor(
     fun markNewsSeen() = _state.update { it.copy(newsSeen = world?.newsCount ?: 0) }
     fun dismissGameOver() = _state.update { it.copy(gameOverSeen = true) }
 
-    fun startPlacing(typeId: Int) = _state.update { it.copy(placing = typeId, panel = IsPanel.NONE, ghostX = -1, ghostY = -1, selBuilding = -1) }
-    fun cancelPlacing() = _state.update { it.copy(placing = -1, ghostX = -1, ghostY = -1) }
+    fun startPlacing(typeId: Int) = _state.update { it.copy(placing = typeId, panel = IsPanel.NONE, ghostX = -1, ghostY = -1, endX = -1, endY = -1, selBuilding = -1) }
+    fun cancelPlacing() = _state.update { it.copy(placing = -1, ghostX = -1, ghostY = -1, endX = -1, endY = -1) }
+
+    /** Yol hatti: baslangictan once x yonunde, sonra y yonunde (L seklinde) karolar */
+    fun roadLine(): List<Pair<Int, Int>> {
+        val st = _state.value
+        if (st.ghostX < 0) return emptyList()
+        val ex = if (st.endX >= 0) st.endX else st.ghostX; val ey = if (st.endY >= 0) st.endY else st.ghostY
+        val out = ArrayList<Pair<Int, Int>>()
+        val sx = if (ex >= st.ghostX) 1 else -1
+        var x = st.ghostX
+        while (true) { out.add(x to st.ghostY); if (x == ex) break; x += sx }
+        val sy = if (ey >= st.ghostY) 1 else -1
+        var y = st.ghostY
+        while (y != ey) { y += sy; out.add(ex to y) }
+        return out
+    }
+
+    /** Yol hattinda dosenebilir karolar ve toplam bedel */
+    fun roadLinePlan(): Pair<List<Pair<Int, Int>>, Long> {
+        val w = world ?: return emptyList<Pair<Int, Int>>() to 0L
+        val ok = ArrayList<Pair<Int, Int>>(); var cost = 0L
+        for ((x, y) in roadLine()) {
+            if (!w.inside(x, y)) continue
+            val e = IsSim.canBuild(w, w.userId, IsCatalog.ROAD, x, y)
+            if (e == BuildError.OK || e == BuildError.NO_MONEY) { ok.add(x to y); cost += IsSim.buildCost(w, w.userId, IsCatalog.ROAD, x, y) }
+        }
+        return ok to cost
+    }
 
     fun tapMap(x: Int, y: Int, buildingId: Int) {
         val w = world ?: return
         val st = _state.value
         if (st.placing >= 0) {
             val t = IsCatalog[st.placing]
+            if (t.cat == Cat.ROAD) {
+                // Yol: ilk dokunus baslangic, ikinci bitis, ucuncu yeni baslangic
+                if (st.ghostX >= 0 && st.endX < 0) _state.update { it.copy(endX = x, endY = y) }
+                else _state.update { it.copy(ghostX = x, ghostY = y, endX = -1, endY = -1) }
+                return
+            }
             // Dokunulan karo binanin ortasi olsun
             val gx = (x - (t.w - 1) / 2).coerceIn(0, w.n - t.w)
             val gy = (y - (t.h - 1) / 2).coerceIn(0, w.n - t.h)
@@ -242,6 +278,10 @@ class IslandViewModel @Inject constructor(
         val w = world ?: return BuildError.OUTSIDE
         val st = _state.value
         if (st.placing < 0 || st.ghostX < 0) return BuildError.OUTSIDE
+        if (IsCatalog[st.placing].cat == Cat.ROAD) {
+            val (tiles, cost) = roadLinePlan()
+            return when { tiles.isEmpty() -> BuildError.OCCUPIED; cost > w.companies[w.userId].balance -> BuildError.NO_MONEY; else -> BuildError.OK }
+        }
         return IsSim.canBuild(w, w.userId, IsCatalog[st.placing], st.ghostX, st.ghostY)
     }
 
@@ -252,11 +292,21 @@ class IslandViewModel @Inject constructor(
         if (st.placing < 0 || st.ghostX < 0) return
         val t = IsCatalog[st.placing]
         if (t.adOnly && !adWatched) return
+        if (t.cat == Cat.ROAD) {
+            val (tiles, _) = roadLinePlan()
+            var k = 0
+            for ((x, y) in tiles) if (IsSim.build(w, w.userId, t, x, y) != null) k++ else break
+            if (k > 0) feedback.play(Sfx.DROP, volume = 0.5f)
+            _state.update { it.copy(ghostX = -1, ghostY = -1, endX = -1, endY = -1, version = it.version + 1) }
+            return
+        }
         val b = IsSim.build(w, w.userId, t, st.ghostX, st.ghostY)
         if (b == null) { toast(buildErrorRes(IsSim.canBuild(w, w.userId, t, st.ghostX, st.ghostY))); return }
         feedback.play(Sfx.DROP, volume = 0.7f)
-        // Ayni turden bir tane daha koymaya hazir; onizleme kalkar
-        _state.update { it.copy(ghostX = -1, ghostY = -1, version = it.version + 1) }
+        // Yolsuz bina: oyuncuyu uyar
+        if (t.cat != Cat.NATURE && IsSim.roadStatus(w, b) == 0) toast(R.string.is_no_road_hint)
+        // Ayni turden bir tane daha koymaya hazir; onizleme kalkar (sinirli binada yerlestirme biter)
+        _state.update { it.copy(ghostX = -1, ghostY = -1, placing = if (t.limit > 0) -1 else it.placing, version = it.version + 1) }
     }
 
     fun buyLand() {
@@ -265,6 +315,24 @@ class IslandViewModel @Inject constructor(
         if (st.selX < 0) return
         if (IsSim.buyParcel(w, w.userId, st.selX, st.selY)) { feedback.play(Sfx.DROP, volume = 0.5f); toast(R.string.is_land_bought); bump() }
         else toast(R.string.is_err_no_money)
+    }
+
+    /** Binayi en ucuz yolla havalimani/liman agina bagla */
+    fun autoRoad(id: Int) {
+        val w = world ?: return
+        val b = w.buildings.getOrNull(id) ?: return
+        if (b.owner != w.userId) return
+        val path = IsSim.roadPath(w, w.userId, b, 150)
+        when {
+            path == null -> toast(R.string.is_road_unreachable)
+            path.isEmpty() -> Unit
+            IsSim.roadPathCost(w, w.userId, path) > w.companies[w.userId].balance -> toast(R.string.is_err_no_money)
+            else -> {
+                val k = IsSim.buildRoadPath(w, w.userId, path)
+                feedback.play(Sfx.DROP, volume = 0.5f)
+                toast(R.string.is_road_built, k.toString()); bump()
+            }
+        }
     }
 
     /** Odullu reklam izlendi: insaatin kalan suresi yariya iner */
@@ -360,6 +428,7 @@ class IslandViewModel @Inject constructor(
             BuildError.NEEDS_BEACH -> R.string.is_err_needs_beach
             BuildError.NO_MONEY -> R.string.is_err_no_money
             BuildError.NOT_BUILDABLE -> R.string.is_err_not_buildable
+            BuildError.LIMIT -> R.string.is_err_limit
         }
     }
 }

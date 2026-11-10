@@ -26,10 +26,13 @@ class IsEngineTest {
         return best
     }
 
-    private fun build(w: IsWorld, c: Int, key: String, wdMin: Int = 1, wdMax: Int = 4, near: Pair<Int, Int>? = null): Building {
+    private fun build(w: IsWorld, c: Int, key: String, wdMin: Int = 1, wdMax: Int = 4, near: Pair<Int, Int>? = null, road: Boolean = true): Building {
         val t = IsCatalog.types.first { it.key == key }
         val s = spot(w, c, t, wdMin, wdMax, near) ?: error("no spot for $key")
-        return IsSim.build(w, c, t, s.first, s.second)!!
+        val b = IsSim.build(w, c, t, s.first, s.second)!!
+        // Gercek oyuncu gibi: binayi yol agina bagla
+        if (road) IsSim.roadPath(w, c, b, 80)?.let { IsSim.buildRoadPath(w, c, it) }
+        return b
     }
 
     private fun run(w: IsWorld, days: Int) = repeat(days) { IsSim.step(w) }
@@ -84,7 +87,7 @@ class IsEngineTest {
         val co = w.companies[0]
         val tents = (1..2).map { build(w, 0, "tent") }
         val anchor = tents[0].x to tents[0].y
-        for (k in listOf("pension", "kiosk", "beachclub", "park", "souvenir")) {
+        for (k in listOf("pension", "kiosk", "beachclub", "park")) {
             val b = build(w, 0, k, wdMin = if (k == "beachclub") 1 else 2, wdMax = 8, near = anchor)
             println("$k kuruldu, kalan ${co.balance}")
         }
@@ -182,13 +185,81 @@ class IsEngineTest {
         val m = IsCatalog.MOTEL
         assertTrue(m.adOnly)
         val before = w.companies[0].balance
-        val b = build(w, 0, "motel")
+        val b = build(w, 0, "motel", road = false)
         val paid = before - w.companies[0].balance
         assertTrue("arsa disinda para alinmamali: $paid", paid < m.cost / 4)
         b.buildLeft = 0
         val mid = w.companies[0].balance
         IsSim.demolish(w, b)
         assertEquals(mid, w.companies[0].balance)
+    }
+
+    /** Yol: yolsuz otel cezali, havalimanina bagli yol bonuslu; otomatik yol agi kurar */
+    @Test
+    fun roadsMatter() {
+        val w = world(bots = 1, money = Difficulty.EASY)
+        w.companies[0].balance = 100_000_000
+        val h = build(w, 0, "hotel3", road = false)
+        h.buildLeft = 0
+        IsSim.refreshAllLocations(w)
+        assertEquals(0, h.road)
+        val locNoRoad = h.loc[1]
+        val path = IsSim.roadPath(w, 0, h, 200)!!
+        assertTrue(path.isNotEmpty())
+        val cost = IsSim.roadPathCost(w, 0, path)
+        val before = w.companies[0].balance
+        assertEquals(path.size, IsSim.buildRoadPath(w, 0, path))
+        assertEquals(before - cost, w.companies[0].balance)
+        run(w, 2)
+        assertEquals(2, h.road)
+        println("yol ${path.size} karo, maliyet $cost, konum ${locNoRoad} -> ${h.loc[1]}")
+        assertTrue(h.loc[1] > locNoRoad + 0.9f)
+        // Artik bagli: yeni yol gerekmez
+        assertEquals(0, IsSim.roadPath(w, 0, h, 200)!!.size)
+        // Yolu kes: baglanti kopar
+        val mid = path[path.size / 2]
+        IsSim.demolish(w, w.buildings[w.bAt[mid]]!!)
+        run(w, 1)
+        assertTrue(h.road < 2)
+    }
+
+    /** Sinirli binalar: motel ve buyuk park sirket basina 1 */
+    @Test
+    fun limitedBuildings() {
+        val w = world(bots = 1, money = Difficulty.EASY)
+        w.companies[0].balance = 100_000_000
+        build(w, 0, "motel")
+        val t = IsCatalog.MOTEL
+        var err: BuildError? = null
+        for (y in 0 until w.n) for (x in 0 until w.n) { val e = IsSim.canBuild(w, 0, t, x, y); if (e == BuildError.LIMIT) err = e }
+        assertEquals(BuildError.LIMIT, err)
+        // Rakip hala kurabilir
+        assertTrue((0 until w.n).any { y -> (0 until w.n).any { x -> IsSim.canBuild(w, 1, t, x, y) == BuildError.OK } })
+        assertEquals(10, IsCatalog.BIGPARK.w)
+    }
+
+    /** Buyuk park kenarina yakin otel daha guzel konumda */
+    @Test
+    fun bigParkBeautifies() {
+        val w = world(bots = 1, money = Difficulty.EASY)
+        w.companies[0].balance = 100_000_000
+        val h = build(w, 0, "hotel3", wdMin = 6, wdMax = 30)
+        h.buildLeft = 0
+        IsSim.refreshAllLocations(w)
+        val before = h.loc[2]
+        // Otelin hemen yanina buyuk park
+        val t = IsCatalog.BIGPARK
+        var placed: Building? = null
+        loop@ for (dy in -12..4) for (dx in -12..4) {
+            for (side in listOf(Pair(h.x + h.type.w + 1, h.y + dy), Pair(h.x + dx, h.y + h.type.h + 1), Pair(h.x - 11, h.y + dy), Pair(h.x + dx, h.y - 11))) {
+                if (IsSim.canBuild(w, 0, t, side.first, side.second) == BuildError.OK) { placed = IsSim.build(w, 0, t, side.first, side.second); break@loop }
+            }
+        }
+        assertTrue("park icin yer yok", placed != null)
+        placed!!.buildLeft = 0
+        IsSim.refreshAllLocations(w)
+        println("buyuk park: konum ${before} -> ${h.loc[2]}")
+        assertTrue(h.loc[2] > before + 0.3f)
     }
 
     @Test

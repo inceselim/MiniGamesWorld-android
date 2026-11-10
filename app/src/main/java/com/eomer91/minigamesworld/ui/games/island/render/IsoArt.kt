@@ -234,7 +234,7 @@ object IsoArt {
         "kiosk" -> 34f; "fastfood" -> 56f; "restaurant" -> 52f; "finedining" -> 58f; "pub" -> 48f; "disco" -> 66f
         "arcade" -> 50f; "funfair" -> 150f; "waterpark" -> 110f; "casino" -> 120f; "souvenir" -> 36f; "market" -> 44f
         "mall" -> 70f; "beachclub" -> 22f; "park" -> 30f; "palm" -> 42f; "garden" -> 14f; "road" -> 2f
-        "airport" -> 80f; "harbor" -> 60f; "motel" -> 64f; else -> 40f
+        "airport" -> 80f; "harbor" -> 60f; "motel" -> 64f; "bigpark" -> 44f; else -> 40f
     }
 
     /**
@@ -537,6 +537,7 @@ object IsoArt {
                 p.line(bx - 26 * s.zs, by - 4 * s.zs, bx + 26 * s.zs, by - 4 * s.zs, 2 * s.zs, 0xFF1565C0.toInt())
                 s.pole(1.9f, 0.2f, 20f, 18f, 0xFF5D4037.toInt())
             }
+            "bigpark" -> bigPark(s, W, D, accent)
             "motel" -> {
                 // Otopark
                 s.flat(0f, 0f, W, D, 0.2f, 0xFF757575.toInt())
@@ -577,11 +578,89 @@ object IsoArt {
     /** Yumusak gölge: ayak izi, sag-one dogru (isik sol-arkadan) */
     private fun shadow(s: Iso, t: BType, W: Float, D: Float) {
         val hgt = height(t.key)
-        if (hgt < 12f || t.key == "road" || t.key == "garden") return
+        if (hgt < 12f || t.key == "road" || t.key == "garden" || t.key == "bigpark") return
         val vx = (hgt / 110f).coerceIn(0.25f, 1.0f); val vy = vx * 0.35f
         val xs = floatArrayOf(0f, W, W + vx, W + vx, vx, 0f)
         val ys = floatArrayOf(0f, 0f, vy, D + vy, D + vy, D)
         s.p.poly(FloatArray(6) { s.sx(xs[it], ys[it]) }, FloatArray(6) { s.sy(xs[it], ys[it], 0f) }, alpha(0x000000, 46))
+    }
+
+    /**
+     * Yol karosu, komsu yollara gore baglanir. mask: 1 = +x, 2 = -x, 4 = +y, 8 = -y yonunde yol/kamu yapisi.
+     */
+    fun road(p: IsoPainter, ox: Float, oy: Float, tw: Float, th: Float, mask: Int) {
+        val s = Iso(p, ox, oy, tw, th)
+        val asphalt = 0xFF5F6368.toInt(); val curb = 0xFFC9C5BA.toInt(); val paint = 0xFFF5F5F5.toInt()
+        // Kaldirim (bagli olmayan kenarlarda) ve asfalt
+        s.flat(0f, 0f, 1f, 1f, 0.2f, curb)
+        val l = if (mask and 2 != 0) 0f else 0.12f; val r = if (mask and 1 != 0) 1f else 0.88f
+        val t = if (mask and 8 != 0) 0f else 0.12f; val b = if (mask and 4 != 0) 1f else 0.88f
+        s.flat(l, 0.12f, r - l, 0.76f, 0.3f, asphalt)
+        s.flat(0.12f, t, 0.76f, b - t, 0.3f, asphalt)
+        // Orta serit: merkezden bagli kenarlara kesik cizgi
+        val lw = 0.045f
+        if (mask and 1 != 0) s.flat(0.58f, 0.5f - lw / 2, 0.3f, lw, 0.4f, paint)
+        if (mask and 2 != 0) s.flat(0.12f, 0.5f - lw / 2, 0.3f, lw, 0.4f, paint)
+        if (mask and 4 != 0) s.flat(0.5f - lw / 2, 0.58f, lw, 0.3f, 0.4f, paint)
+        if (mask and 8 != 0) s.flat(0.5f - lw / 2, 0.12f, lw, 0.3f, 0.4f, paint)
+        if (mask == 0) s.flat(0.44f, 0.44f, 0.12f, 0.12f, 0.4f, paint)
+    }
+
+    /** 10x10 buyuk park: cit, capraz yollar, gol ve fiskiye, kameriye, agaclar, cicekler */
+    private fun bigPark(s: Iso, W: Float, D: Float, accent: Int) {
+        val p = s.p
+        s.flat(0f, 0f, W, D, 0.3f, 0xFF5E9E3A.toInt())
+        s.flat(0.25f, 0.25f, W - 0.5f, D - 0.5f, 0.4f, 0xFF7CBF4A.toInt())
+        // Kenar citi
+        val hedge = 0xFF2F6B2F.toInt()
+        s.box(0f, 0f, W, 0.18f, 0f, 5f, hedge); s.box(0f, 0f, 0.18f, D, 0f, 5f, hedge)
+        s.box(0f, D - 0.18f, W, 0.18f, 0f, 5f, hedge); s.box(W - 0.18f, 0f, 0.18f, D, 0f, 5f, hedge)
+        // Yollar: arti seklinde + capraz
+        val path = 0xFFE6D3A8.toInt()
+        s.flat(W / 2 - 0.3f, 0.18f, 0.6f, D - 0.36f, 0.5f, path)
+        s.flat(0.18f, D / 2 - 0.3f, W - 0.36f, 0.6f, 0.5f, path)
+        // Gol cevresinde yuruyus halkasi
+        s.flat(W / 2 - 2.6f, D / 2 - 2.6f, 5.2f, 5.2f, 0.45f, 0xFF8FCB5C.toInt())
+        // Gol ve fiskiye (merkez)
+        val cx = s.sx(W / 2, D / 2); val cy = s.sy(W / 2, D / 2, 0.6f)
+        val rx = 2.0f * s.tw / 2f; val ry = 2.0f * s.th / 2f
+        p.oval(cx - rx * 1.08f, cy - ry * 1.08f, cx + rx * 1.08f, cy + ry * 1.08f, 0xFFB0BEC5.toInt())
+        p.oval(cx - rx, cy - ry, cx + rx, cy + ry, 0xFF4FC3F7.toInt())
+        p.oval(cx - rx * 0.6f, cy - ry * 0.7f, cx + rx * 0.2f, cy - ry * 0.1f, 0xFF81D4FA.toInt())
+        p.oval(cx - 6 * s.zs, cy - 3 * s.zs, cx + 6 * s.zs, cy + 3 * s.zs, 0xFFECEFF1.toInt())
+        p.line(cx, cy, cx, cy - 22 * s.zs, 3 * s.zs, 0xFFB3E5FC.toInt())
+        p.oval(cx - 7 * s.zs, cy - 28 * s.zs, cx + 7 * s.zs, cy - 18 * s.zs, IsoColor.alpha(0xB3E5FC, 200))
+        // Cicek tarhlari (yollarin kenarinda)
+        val fl = intArrayOf(0xFFE91E63.toInt(), 0xFFFFEB3B.toInt(), 0xFFFFFFFF.toInt(), 0xFFFF7043.toInt(), 0xFFAB47BC.toInt())
+        for (k in 0 until 8) {
+            val bx = if (k % 2 == 0) W / 2 + 0.45f else W / 2 - 1.25f
+            val by = 0.8f + k * 1.05f
+            s.flat(bx, by, 0.8f, 0.5f, 0.6f, 0xFF558B2F.toInt())
+            for (j in 0 until 3) {
+                val fx = s.sx(bx + 0.15f + j * 0.25f, by + 0.25f); val fy = s.sy(bx + 0.15f + j * 0.25f, by + 0.25f, 2f)
+                p.oval(fx - 2.5f * s.zs, fy - 2 * s.zs, fx + 2.5f * s.zs, fy + 2 * s.zs, fl[(k + j) % fl.size])
+            }
+        }
+        // Kameriye (sirket renginde cati)
+        s.box(1.6f, 1.6f, 1.2f, 1.2f, 0f, 2f, 0xFFD7CCC8.toInt())
+        for ((px, py) in listOf(1.7f to 1.7f, 2.7f to 1.7f, 1.7f to 2.7f, 2.7f to 2.7f)) s.pole(px, py, 2f, 16f, 0xFFFFFFFF.toInt(), 1.6f)
+        s.pyramid(1.45f, 1.45f, 1.5f, 1.5f, 18f, 14f, accent)
+        // Agaclar (sabit, catismayan yerler)
+        var h = 12345
+        for (k in 0 until 70) {
+            h = h * 1103515245 + 12345
+            val tx = 0.6f + ((h ushr 8) and 1023) / 1023f * (W - 1.2f)
+            val ty = 0.6f + ((h ushr 18) and 1023) / 1023f * (D - 1.2f)
+            // Yollarin, golun ve kameriyenin uzerine dikme
+            if (kotlin.math.abs(tx - W / 2) < 0.7f || kotlin.math.abs(ty - D / 2) < 0.7f) continue
+            if (kotlin.math.abs(tx - W / 2) < 2.7f && kotlin.math.abs(ty - D / 2) < 2.7f) continue
+            if (tx < 3.1f && ty < 3.1f) continue
+            if (k % 3 == 0) s.coneTree(tx, ty, 0.5f, 1.1f) else s.roundTree(tx, ty, 0.5f, 1.15f, if (k % 2 == 0) 0xFF3E8E41.toInt() else 0xFF4CAF50.toInt())
+        }
+        // Banklar
+        for ((bx, by) in listOf(W / 2 + 0.4f to 3.2f, W / 2 - 0.7f to 6.4f, 3.3f to D / 2 + 0.4f, 6.4f to D / 2 - 0.7f)) {
+            s.box(bx, by, 0.35f, 0.12f, 0f, 3f, 0xFF8D6E63.toInt())
+        }
     }
 
     /** Insaat alani: toprak, iskele, vinc (progress 0..1) */

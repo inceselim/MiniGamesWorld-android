@@ -95,7 +95,7 @@ S = {
 "is_cat_gamble": ("Casino", "Casino", "Casino", "Casinò", "カジノ", "Казино", "Kasino", "Kaszinó"),
 "is_cat_shop": ("Einkaufen", "Compras", "Shopping", "Shopping", "ショッピング", "Магазины", "Shopping", "Vásárlás"),
 "is_cat_beach": ("Strand", "Playa", "Plage", "Spiaggia", "ビーチ", "Пляж", "Strand", "Strand"),
-"is_cat_nature": ("Deko", "Decoración", "Décoration", "Decorazioni", "装飾", "Декор", "Pynt", "Díszítés"),
+"is_cat_nature": ("Parks & Deko", "Parques y decoración", "Parcs et déco", "Parchi e decorazioni", "公園・装飾", "Парки и декор", "Parker og pynt", "Parkok és díszek"),
 "is_cat_road": ("Straßen", "Carreteras", "Routes", "Strade", "道路", "Дороги", "Veje", "Utak"),
 
 "is_b_tent": ("Campingplatz", "Camping", "Camping", "Campeggio", "キャンプ場", "Кемпинг", "Campingplads", "Kemping"),

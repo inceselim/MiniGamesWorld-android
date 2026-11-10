@@ -82,6 +82,8 @@ class BType(
     val buildable: Boolean = true,
     /** Yalnizca odullu reklamla kurulur: bina bedeli odenmez (arsa odenir), botlar kurmaz, yikinca para gelmez */
     val adOnly: Boolean = false,
+    /** Sirket basina en fazla bu kadar (0 = sinirsiz) */
+    val limit: Int = 0,
 ) {
     /** Insaat suresi: kucuk susler disinda temel surenin 1.6 kati (reklamla kisaltilabilir) */
     val days: Int = if (baseDays <= 3) baseDays else kotlin.math.round(baseDays * BUILD_TIME_MUL).toInt()
@@ -128,12 +130,16 @@ object IsCatalog {
         BType(25, "airport", Cat.PUBLIC, 4, 3, 0, 0, 0, 0, 0, 0f, 0f, a(0f, 0f, 0f), noise = 0.8f, buildable = false),
         BType(26, "harbor", Cat.PUBLIC, 3, 2, 0, 0, 0, 0, 0, 0f, 0f, a(0f, 0f, 0f), buildable = false),
         // ---- reklamla kurulan (kayit uyumu icin sona eklendi)
-        BType(27, "motel", Cat.STAY, 2, 2, 450_000, 20, 7_000, 60, 2, 32f, 10f, a(1f, 0.7f, 0f), adOnly = true),
+        BType(27, "motel", Cat.STAY, 2, 2, 450_000, 20, 7_000, 60, 2, 32f, 10f, a(1f, 0.7f, 0f), adOnly = true, limit = 1),
+        // ---- buyuk park: 10x10, kenarindan 4 karo icindeki binalari cok guzellestirir; sirket basina 1
+        BType(28, "bigpark", Cat.NATURE, 10, 10, 1_200_000, 40, 20_000, 0, 0, 0f, 0f, a(0f, 0f, 0f), beauty = 12f, limit = 1),
     )
     val AIRPORT = types[25]
     val HARBOR = types[26]
     operator fun get(id: Int) = types[id]
     val MOTEL = types[27]
+    val BIGPARK = types[28]
+    val ROAD = types[24]
 }
 
 class Building(
@@ -146,6 +152,8 @@ class Building(
     var closedDays: Int = 0
     /** Iyilestirme seviyesi (0..2): kaliteyi ve kapasiteyi artirir */
     var level: Int = 0
+    /** Yol durumu (konum yenilenince hesaplanir, kayda yazilmaz): 0 yolsuz, 1 yola bitisik, 2 yol agi havalimani/limana bagli */
+    var road: Int = 0
     /** Bugunku misafir (STAY, sinif basina) ya da ziyaret (diger) */
     val today = FloatArray(3)
     /** Bu ayin ve gecen ayin geliri, misafir/ziyaret toplami */
@@ -251,6 +259,10 @@ class IsWorld(val settings: IsSettings, val n: Int) {
     val news = ArrayList<IsNews>()
     val auctions = ArrayList<IsAuction>()
     val userId get() = 0
+    /** Havalimani/limana bagli yol karolari (gecici, yol degisince yeniden hesaplanir) */
+    var roadConn: BooleanArray? = null
+    /** Yol eklendi/yikildi: konumlar yeniden hesaplanmali */
+    var roadsDirty: Boolean = true
     /** Zemin degisince artar (cizim onbellegi icin, kayda yazilmaz) */
     @Volatile var terrainVersion: Int = 0
     /** Testler icin: botlari durdur (kayda yazilmaz) */

@@ -157,6 +157,12 @@ fun BuildPanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
                     }
                 }
                 if (t.cap > 0) { Spacer(Modifier.height(6.dp)); AppealBars(t) }
+                if (t.limit > 0) {
+                    val have = IsSim.countOwned(w, w.userId, t)
+                    Text("☝️ " + stringResource(if (have >= t.limit) R.string.is_limit_reached else R.string.is_limit_one), color = if (have >= t.limit) FbColors.Red else FbColors.Blue,
+                        fontSize = 11.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
+                }
+                if (t.cat == Cat.ROAD) Text("🛣️ " + stringResource(R.string.is_road_why), color = FbColors.Blue, fontSize = 11.sp, modifier = Modifier.padding(top = 4.dp))
                 if (t.noise >= 0.4f) Text("🔊 " + stringResource(R.string.is_noisy), color = FbColors.Orange, fontSize = 11.sp, modifier = Modifier.padding(top = 4.dp))
                 if (t.beauty >= 0.5f) Text("🌸 " + stringResource(R.string.is_beautifies), color = FbColors.Green, fontSize = 11.sp, modifier = Modifier.padding(top = 4.dp))
                 if (t.needsBeach) Text("🏖️ " + stringResource(R.string.is_needs_beach), color = FbColors.Blue, fontSize = 11.sp, modifier = Modifier.padding(top = 4.dp))
@@ -199,6 +205,24 @@ fun BuildingPanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
             }
         }
         if (b.owner < 0) return@IsPanelFrame
+        if (t.cat != Cat.ROAD && t.cat != Cat.NATURE) {
+            val road = IsSim.roadStatus(w, b)
+            val (txt, col) = when (road) {
+                0 -> R.string.is_road_none to FbColors.Red
+                1 -> R.string.is_road_adjacent to FbColors.Orange
+                else -> R.string.is_road_connected to FbColors.Green
+            }
+            Text("🛣️ " + stringResource(txt), color = col, fontSize = 12.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 6.dp))
+            if (mine && road < 2) {
+                val path = remember(b.id, ui.version) { IsSim.roadPath(w, w.userId, b, 150) }
+                if (path == null) Text(stringResource(R.string.is_road_unreachable), color = AppColors.TextSecondary, fontSize = 11.sp)
+                else if (path.isNotEmpty()) {
+                    val cost = IsSim.roadPathCost(w, w.userId, path)
+                    FbButton(stringResource(R.string.is_auto_road, path.size, IsFmt.money(cost)), { vm.autoRoad(b.id) }, Modifier.fillMaxWidth().padding(top = 4.dp),
+                        enabled = w.companies[w.userId].balance >= cost, color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
+                }
+            }
+        }
         if (mine && b.buildLeft > 1) {
             val showRewarded = rememberRewardedLauncher()
             Spacer(Modifier.height(8.dp))

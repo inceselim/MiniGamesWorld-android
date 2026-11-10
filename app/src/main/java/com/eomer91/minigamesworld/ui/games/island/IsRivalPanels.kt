@@ -161,6 +161,7 @@ fun GuidePanel(vm: IslandViewModel) {
         R.string.is_g_tourists_t to R.string.is_g_tourists,
         R.string.is_g_season_t to R.string.is_g_season,
         R.string.is_g_stay_t to R.string.is_g_stay,
+        R.string.is_g_roads_t to R.string.is_g_roads,
         R.string.is_g_loc_t to R.string.is_g_loc,
         R.string.is_g_price_t to R.string.is_g_price,
         R.string.is_g_land_t to R.string.is_g_land,

@@ -1,0 +1,23 @@
+# Ada Patronu: yollarin onemi, buyuk park, sinirli binalar (EN, TR)
+S = {
+"is_b_bigpark": ("Grand park", "Büyük park"),
+"is_err_limit": ("You can only build one of these", "Bundan yalnızca bir tane kurabilirsin"),
+"is_limit_one": ("One per company", "Şirket başına 1 tane"),
+"is_limit_reached": ("Already built", "Zaten kuruldu"),
+"is_road_why": ("Hotels and venues need a road next to them. Roads linked to the airport or harbour attract even more guests.",
+                "Otel ve mekânların yanında yol olmalı. Havalimanına ya da limana bağlı yollar daha da çok misafir getirir."),
+"is_road_none": ("No road access: guests rarely come", "Yol yok: misafir neredeyse gelmiyor"),
+"is_road_adjacent": ("Road access, not linked to the airport/harbour", "Yol var, havalimanı/limana bağlı değil"),
+"is_road_connected": ("Linked to the airport/harbour by road", "Yol ile havalimanı/limana bağlı"),
+"is_road_unreachable": ("No road route found to the airport or harbour from here", "Buradan havalimanına ya da limana yol güzergâhı bulunamadı"),
+"is_auto_road": ("🛣️ Build road link: %1$d tiles (%2$s)", "🛣️ Yol bağlantısı yap: %1$d karo (%2$s)"),
+"is_road_built": ("Road built: %1$s tiles", "Yol yapıldı: %1$s karo"),
+"is_no_road_hint": ("This building has no road. Tap it and build a road link.", "Bu binanın yolu yok. Binaya dokunup yol bağlantısı yap."),
+"is_road_hint_start": ("Tap where the road should start", "Yolun başlayacağı yere dokun"),
+"is_road_hint_end": ("Now tap where it should end", "Şimdi biteceği yere dokun"),
+"is_road_hint_again": ("Tap again to start a new line", "Yeni bir hat için tekrar dokun"),
+"is_road_tiles": ("%1$d tiles · %2$s", "%1$d karo · %2$s"),
+"is_g_roads_t": ("Roads", "Yollar"),
+"is_g_roads": ("Tourists arrive at the airport and the harbour and travel by road. A hotel or venue with no road next to it gets very few visitors. If its roads link up to the airport or harbour, it becomes more popular still. Tap a building and use the road link button, or draw roads yourself: first tap the start, then the end. Roads only cost their construction; no land is needed.",
+              "Turistler havalimanına ve limana gelir, yollarla dolaşır. Yanında yol olmayan otel ya da mekâna çok az kişi gelir. Yolu havalimanına veya limana bağlanırsa daha da popüler olur. Binaya dokunup yol bağlantısı düğmesini kullanabilir ya da yolu kendin çizebilirsin: önce başlangıca, sonra bitişe dokun. Yol için yalnızca yapım bedeli ödenir, arsa gerekmez."),
+}

@@ -61,7 +61,7 @@ fun bName(t: BType): Int = when (t.key) {
     "waterpark" -> R.string.is_b_waterpark; "casino" -> R.string.is_b_casino; "souvenir" -> R.string.is_b_souvenir
     "market" -> R.string.is_b_market; "mall" -> R.string.is_b_mall; "beachclub" -> R.string.is_b_beachclub
     "park" -> R.string.is_b_park; "palm" -> R.string.is_b_palm; "garden" -> R.string.is_b_garden
-    "road" -> R.string.is_b_road; "airport" -> R.string.is_b_airport; "motel" -> R.string.is_b_motel; else -> R.string.is_b_harbor
+    "road" -> R.string.is_b_road; "airport" -> R.string.is_b_airport; "motel" -> R.string.is_b_motel; "bigpark" -> R.string.is_b_bigpark; else -> R.string.is_b_harbor
 }
 
 /** Insa menusunun kategorileri (sirasiyla) */

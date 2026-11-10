@@ -7,7 +7,7 @@ import kotlin.math.min
 import kotlin.math.pow
 
 /** Insa kontrolu sonucu */
-enum class BuildError { OK, OUTSIDE, WATER, OCCUPIED, NOT_YOURS, NEEDS_BEACH, NO_MONEY, NOT_BUILDABLE }
+enum class BuildError { OK, OUTSIDE, WATER, OCCUPIED, NOT_YOURS, NEEDS_BEACH, NO_MONEY, NOT_BUILDABLE, LIMIT }
 
 object IsSim {
     /** Konaklamada "baska yere gitme" secenegi; amenity'lerde "gitmeme" */
@@ -48,14 +48,20 @@ object IsSim {
         for (yy in y until y + type.h) for (xx in x until x + type.w) {
             if (!w.inside(xx, yy)) continue
             val i = w.idx(xx, yy)
-            if (w.owner[i] == -1) cost += landPrice(w, xx, yy)
+            if (w.owner[i] == -1) cost += roadLand(type, landPrice(w, xx, yy))
             if (w.ter(xx, yy) == Terrain.FOREST && type.cat != Cat.NATURE) cost += 2_000
         }
         return cost
     }
 
+    /** Yol kamu yoludur: arsa parasi alinmaz, karo kimsenin mulku olmaz (yalnizca yapim bedeli) */
+    private fun roadLand(type: BType, p: Long) = if (type.cat == Cat.ROAD) 0L else p
+
+    fun countOwned(w: IsWorld, c: Int, type: BType) = w.buildings.count { it != null && it.owner == c && it.type === type }
+
     fun canBuild(w: IsWorld, c: Int, type: BType, x: Int, y: Int): BuildError {
         if (!type.buildable) return BuildError.NOT_BUILDABLE
+        if (type.limit > 0 && countOwned(w, c, type) >= type.limit) return BuildError.LIMIT
         var sand = false; var shore = false
         for (yy in y until y + type.h) for (xx in x until x + type.w) {
             if (!w.inside(xx, yy)) return BuildError.OUTSIDE
@@ -78,7 +84,7 @@ object IsSim {
         var land = 0L
         for (yy in y until y + type.h) for (xx in x until x + type.w) {
             val i = w.idx(xx, yy)
-            if (w.owner[i] == -1) { land += landPrice(w, xx, yy); w.owner[i] = c }
+            if (w.owner[i] == -1 && type.cat != Cat.ROAD) { land += landPrice(w, xx, yy); w.owner[i] = c }
         }
         val structure = if (type.adOnly) 0L else type.cost
         val clear = buildCost(w, c, type, x, y) - structure - land
@@ -116,7 +122,7 @@ object IsSim {
     // ------------------------------------------------------------------ parseller
 
     /** Arsalar PARCEL x PARCEL karoluk parseller halinde satilir */
-    const val PARCEL = 4
+    const val PARCEL = 8
 
     /** Karonun parselinin sol-ust kosesi */
     fun parcelOrigin(x: Int, y: Int) = Pair(x / PARCEL * PARCEL, y / PARCEL * PARCEL)
@@ -127,7 +133,7 @@ object IsSim {
         val out = ArrayList<Int>()
         for (yy in py until min(w.n, py + PARCEL)) for (xx in px until min(w.n, px + PARCEL)) {
             val i = w.idx(xx, yy)
-            if (w.owner[i] == -1 && w.ter(xx, yy).isLand) out.add(i)
+            if (w.owner[i] == -1 && w.bAt[i] < 0 && w.ter(xx, yy).isLand) out.add(i)
         }
         return out
     }
@@ -167,6 +173,7 @@ object IsSim {
         if (refund && b.buildLeft <= 0 && !b.type.adOnly) co.book(Fin.SALES, b.type.cost / 5)
         for (yy in b.y until b.y + b.type.h) for (xx in b.x until b.x + b.type.w) w.bAt[w.idx(xx, yy)] = -1
         w.buildings[b.id] = null
+        if (b.type.cat == Cat.ROAD) w.roadsDirty = true
     }
 
     /** Iyilestirme: kalite +0.5, kapasite +%25 */
@@ -189,7 +196,7 @@ object IsSim {
     // ------------------------------------------------------------------ konum
 
     /** Sinif basina konum puani: deniz yakinligi, guzellik, gurultu, cevredeki eglence */
-    fun refreshLocation(w: IsWorld, b: Building) {
+    fun refreshLocation(w: IsWorld, b: Building, large: List<Building> = largeBuildings(w)) {
         val n = w.n
         var minWd = 99
         for (yy in b.y until b.y + b.type.h) for (xx in b.x until b.x + b.type.w) minWd = min(minWd, w.waterDist[w.idx(xx, yy)].toInt())
@@ -206,10 +213,17 @@ object IsSim {
             val o = w.buildings[oid] ?: continue
             // Bir binayi karo sayisi kadar saymamak icin yalnizca sol ust karosunda say
             if (o.x != xx || o.y != yy) continue
+            if (o.type.w >= LARGE || o.type.h >= LARGE) continue
             val od = max(abs(o.cx - b.cx), abs(o.cy - b.cy))
             if (od <= 5) { beauty += o.type.beauty; if (o.buildLeft <= 0) noise += o.type.noise }
             if (o.type.cat.isAmenity && od <= 10) attractions++
         }
+        // Buyuk yapilar (buyuk park): kenarina 4 karo icindekileri etkiler
+        for (o in large) {
+            if (o.id == b.id) continue
+            if (rectGap(b, o) <= 4) { beauty += o.type.beauty; if (o.buildLeft <= 0) noise += o.type.noise }
+        }
+        b.road = roadStatus(w, b)
         val beachBonus = when { minWd <= 2 -> 0.6f; minWd <= 5 -> 0.3f; minWd <= 9 -> 0.1f; else -> 0f }
         val beautyBonus = min(0.6f, beauty * 0.05f)
         val attrBonus = if (b.type.cat == Cat.STAY) min(0.5f, attractions * 0.05f) else 0f
@@ -217,11 +231,136 @@ object IsSim {
         for (c in 0..2) {
             val beachW = if (c == 2) 1.5f else 1f
             val noisePenalty = if (b.type.cat == Cat.STAY) noiseW[c] * min(2f, noise) else 0f
-            b.loc[c] = beachBonus * beachW + beautyBonus + attrBonus - noisePenalty
+            b.loc[c] = beachBonus * beachW + beautyBonus + attrBonus - noisePenalty + (if (b.type.cat == Cat.STAY) STAY_ROAD[b.road] else 0f)
         }
     }
 
-    fun refreshAllLocations(w: IsWorld) { for (b in w.buildings) if (b != null && b.owner >= 0) refreshLocation(w, b) }
+    /** Yol durumuna gore konaklama konum puani (yolsuz / bitisik / havalimani-limana bagli) */
+    val STAY_ROAD = floatArrayOf(-0.8f, -0.1f, 0.25f)
+    /** Mekanlar (yeme-icme, eglence...) icin dogrudan cekicilik etkisi */
+    val AMENITY_ROAD = doubleArrayOf(-1.2, 0.0, 0.3)
+    fun largeBuildings(w: IsWorld): List<Building> = w.buildings.filter { it != null && (it.type.w >= LARGE || it.type.h >= LARGE) }.map { it!! }
+
+    /** Bu boyuttan buyuk yapilar genis alani etkiler */
+    private const val LARGE = 6
+
+    private fun rectGap(a: Building, b: Building): Int {
+        val dx = max(0, max(b.x - (a.x + a.type.w - 1), a.x - (b.x + b.type.w - 1)))
+        val dy = max(0, max(b.y - (a.y + a.type.h - 1), a.y - (b.y + b.type.h - 1)))
+        return max(dx, dy)
+    }
+
+    // ------------------------------------------------------------------ yollar
+
+    private fun isRoadAt(w: IsWorld, i: Int, builtOnly: Boolean = true): Boolean {
+        val id = w.bAt[i]; if (id < 0) return false
+        val o = w.buildings[id] ?: return false
+        return o.type.cat == Cat.ROAD && (!builtOnly || o.buildLeft <= 0)
+    }
+
+    private fun isPublicAt(w: IsWorld, i: Int): Boolean = w.owner[i] == -2 && w.bAt[i] >= 0
+
+    /** Havalimani/limana bitisik yol karolarindan baslayan yol agi */
+    fun computeRoadNet(w: IsWorld): BooleanArray {
+        val n = w.n
+        val conn = BooleanArray(n * n)
+        val q = ArrayDeque<Int>()
+        for (i in 0 until n * n) {
+            if (!isRoadAt(w, i)) continue
+            val x = i % n; val y = i / n
+            if (NB4.any { (dx, dy) -> w.inside(x + dx, y + dy) && isPublicAt(w, w.idx(x + dx, y + dy)) }) { conn[i] = true; q.add(i) }
+        }
+        while (q.isNotEmpty()) {
+            val i = q.removeFirst(); val x = i % n; val y = i / n
+            for ((dx, dy) in NB4) {
+                val xx = x + dx; val yy = y + dy
+                if (!w.inside(xx, yy)) continue
+                val j = w.idx(xx, yy)
+                if (!conn[j] && isRoadAt(w, j)) { conn[j] = true; q.add(j) }
+            }
+        }
+        w.roadConn = conn
+        return conn
+    }
+
+    /** 0 yolsuz, 1 yola bitisik, 2 bitisik yol agi havalimani/limana bagli. Yollar ve susler icin 2. */
+    fun roadStatus(w: IsWorld, b: Building): Int {
+        if (b.owner < 0 || b.type.cat == Cat.ROAD || b.type.cat == Cat.NATURE) return 2
+        val conn = w.roadConn ?: computeRoadNet(w)
+        var best = 0
+        forEachEdge(w, b) { i ->
+            if (isRoadAt(w, i)) best = max(best, if (conn[i]) 2 else 1)
+            else if (isPublicAt(w, i)) best = 2
+        }
+        return best
+    }
+
+    /** Binanin ayak izine 4-komsu (disaridaki) karolar */
+    private inline fun forEachEdge(w: IsWorld, b: Building, f: (Int) -> Unit) {
+        for (xx in b.x until b.x + b.type.w) { if (w.inside(xx, b.y - 1)) f(w.idx(xx, b.y - 1)); if (w.inside(xx, b.y + b.type.h)) f(w.idx(xx, b.y + b.type.h)) }
+        for (yy in b.y until b.y + b.type.h) { if (w.inside(b.x - 1, yy)) f(w.idx(b.x - 1, yy)); if (w.inside(b.x + b.type.w, yy)) f(w.idx(b.x + b.type.w, yy)) }
+    }
+
+    private val NB4 = arrayOf(1 to 0, -1 to 0, 0 to 1, 0 to -1)
+
+    /**
+     * Binayi yol agina (ya da dogrudan havalimani/limana) baglayan en ucuz yol: yeni yol gereken karolar.
+     * Var olan yollardan ucretsiz gecer; yeni yol yalnizca bos ya da sirketin kendi arsasina dosenir.
+     * Zaten bagliysa bos liste, ulasilamazsa null.
+     */
+    fun roadPath(w: IsWorld, c: Int, b: Building, maxNew: Int = 40): List<Int>? {
+        val n = w.n
+        val conn = w.roadConn ?: computeRoadNet(w)
+        if (roadStatus(w, b) == 2) return emptyList()
+        val dist = IntArray(n * n) { Int.MAX_VALUE }
+        val prev = IntArray(n * n) { -1 }
+        val dq = ArrayDeque<Int>()
+        fun passable(i: Int): Boolean {
+            val xx = i % n; val yy = i / n
+            if (!w.ter(xx, yy).isLand) return false
+            if (isRoadAt(w, i, builtOnly = false)) return true
+            return w.bAt[i] < 0 && (w.owner[i] == -1 || w.owner[i] == c)
+        }
+        fun stepCost(i: Int) = if (isRoadAt(w, i, builtOnly = false)) 0 else 1
+        forEachEdge(w, b) { i -> if (passable(i)) { val d = stepCost(i); if (d < dist[i]) { dist[i] = d; if (d == 0) dq.addFirst(i) else dq.addLast(i) } } }
+        var goal = -1
+        while (dq.isNotEmpty()) {
+            val i = dq.removeFirst()
+            if (dist[i] > maxNew) break
+            val x = i % n; val y = i / n
+            // Hedef: bagli yol ya da havalimani/limana bitisik karo
+            if ((isRoadAt(w, i) && conn[i]) || NB4.any { (dx, dy) -> w.inside(x + dx, y + dy) && isPublicAt(w, w.idx(x + dx, y + dy)) }) { goal = i; break }
+            for ((dx, dy) in NB4) {
+                val xx = x + dx; val yy = y + dy
+                if (!w.inside(xx, yy)) continue
+                val j = w.idx(xx, yy)
+                if (!passable(j)) continue
+                val nd = dist[i] + stepCost(j)
+                if (nd < dist[j]) { dist[j] = nd; prev[j] = i; if (stepCost(j) == 0) dq.addFirst(j) else dq.addLast(j) }
+            }
+        }
+        if (goal < 0) return null
+        val out = ArrayList<Int>()
+        var i = goal
+        while (i >= 0) { if (!isRoadAt(w, i, builtOnly = false)) out.add(i); i = prev[i] }
+        return out
+    }
+
+    fun roadPathCost(w: IsWorld, c: Int, path: List<Int>): Long = path.sumOf { buildCost(w, c, IsCatalog.ROAD, it % w.n, it / w.n) }
+
+    /** Yolu dose (para yetmezse yetene kadar). Dosenen karo sayisi. */
+    fun buildRoadPath(w: IsWorld, c: Int, path: List<Int>): Int {
+        var k = 0
+        for (i in path) if (build(w, c, IsCatalog.ROAD, i % w.n, i / w.n) != null) k++ else break
+        return k
+    }
+
+    fun refreshAllLocations(w: IsWorld) {
+        computeRoadNet(w)
+        w.roadsDirty = false
+        val large = largeBuildings(w)
+        for (b in w.buildings) if (b != null && b.owner >= 0) refreshLocation(w, b, large)
+    }
 
     // ------------------------------------------------------------------ gunluk dongu
 
@@ -241,11 +380,13 @@ object IsSim {
             if (b.buildLeft > 0) {
                 b.buildLeft--
                 if (b.buildLeft == 0) {
+                    if (b.type.cat == Cat.ROAD) w.roadsDirty = true
                     refreshLocation(w, b)
                     w.addNews(IsNews(w.day, NewsKind.BUILT, b.owner, type = b.type.id))
                 }
             }
         }
+        if (w.roadsDirty) refreshAllLocations(w)
         val season = SEASON[w.month]
         val want = DoubleArray(3) { w.demand[it] * season }
         allocateStays(w, want)
@@ -342,7 +483,7 @@ object IsSim {
                 val ap = b.type.appeal[c]
                 if (ap <= 0f) continue
                 val u = 3.0 * ap + 0.3 * cl.qualityW * b.quality + repTerm(w, b.owner) + adTerm(w, b.owner, c) +
-                    0.3 * (b.loc[c].coerceAtMost(0.6f)) - cl.sens * b.price / budget[c]
+                    0.3 * (b.loc[c].coerceAtMost(0.6f)) - cl.sens * b.price / budget[c] + AMENITY_ROAD[b.road]
                 base[c][i] = exp(u)
             }
         }

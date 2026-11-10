@@ -1,6 +1,7 @@
 package com.eomer91.minigamesworld.ui.games.island.render
 
 import com.eomer91.minigamesworld.ui.games.island.engine.BType
+import com.eomer91.minigamesworld.ui.games.island.engine.Cat
 import com.eomer91.minigamesworld.ui.games.island.engine.IsWorld
 import com.eomer91.minigamesworld.ui.games.island.engine.Terrain
 import kotlin.math.floor
@@ -84,7 +85,24 @@ object IsoScene {
     }
 
     /** Cizim icin binanin anlik kopyasi (motor baska is parcaciginda degistirirken guvenli) */
-    class BSnap(val id: Int, val type: BType, val x: Int, val y: Int, val owner: Int, val color: Int, val progress: Float, val building: Boolean, val closed: Boolean)
+    class BSnap(val id: Int, val type: BType, val x: Int, val y: Int, val owner: Int, val color: Int, val progress: Float, val building: Boolean, val closed: Boolean, val mask: Int = 0)
+
+    /** Yol karosunun komsu yollara/kamu yapilarina gore baglanti maskesi (1 +x, 2 -x, 4 +y, 8 -y) */
+    fun roadMask(w: IsWorld, x: Int, y: Int): Int {
+        var m = 0
+        fun conn(xx: Int, yy: Int): Boolean {
+            if (!w.inside(xx, yy)) return false
+            val i = w.idx(xx, yy)
+            if (w.owner[i] == -2 && w.bAt[i] >= 0) return true
+            val id = w.bAt[i]; if (id < 0) return false
+            return w.buildings.getOrNull(id)?.type?.cat == Cat.ROAD
+        }
+        if (conn(x + 1, y)) m = m or 1
+        if (conn(x - 1, y)) m = m or 2
+        if (conn(x, y + 1)) m = m or 4
+        if (conn(x, y - 1)) m = m or 8
+        return m
+    }
 
     /**
      * Binalari cizim sirasina dizer. Izometrikte cok karolu dikdortgenler icin: on kosesi (x+w, y+h)
@@ -94,7 +112,9 @@ object IsoScene {
         val out = ArrayList<BSnap>(w.buildings.size)
         for (i in 0 until w.buildings.size) {
             val b = w.buildings.getOrNull(i) ?: continue
-            out.add(BSnap(b.id, b.type, b.x, b.y, b.owner, ownerColor(w, b.owner), 1f - b.buildLeft / b.type.days.coerceAtLeast(1).toFloat(), b.buildLeft > 0, b.closedDays > 0))
+            val isRoad = b.type.cat == Cat.ROAD
+            out.add(BSnap(b.id, b.type, b.x, b.y, b.owner, ownerColor(w, b.owner), 1f - b.buildLeft / b.type.days.coerceAtLeast(1).toFloat(),
+                b.buildLeft > 0 && !isRoad, b.closedDays > 0, if (isRoad) roadMask(w, b.x, b.y) else 0))
         }
         out.sortWith(compareBy({ it.x + it.type.w + it.y + it.type.h }, { it.x + it.y }))
         return out
@@ -105,6 +125,7 @@ object IsoScene {
 
     fun drawBuilding(p: IsoPainter, L: IsoLayout, b: BSnap) {
         val ox = L.tileX(b.x.toFloat(), b.y.toFloat()); val oy = L.tileY(b.x.toFloat(), b.y.toFloat())
+        if (b.type.cat == Cat.ROAD) { IsoArt.road(p, ox, oy, L.tw, L.th, b.mask); return }
         if (b.building) {
             IsoArt.construction(p, b.type.w, b.type.h, ox, oy, L.tw, L.th, b.progress, b.color)
         } else {

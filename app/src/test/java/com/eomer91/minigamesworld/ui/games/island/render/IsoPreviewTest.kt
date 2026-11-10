@@ -163,6 +163,34 @@ class IsoPreviewTest {
         ImageIO.write(im, "png", out("cover.png"))
     }
 
+    /** Yol agi ve buyuk park onizlemesi */
+    @Test
+    fun roadsAndBigPark() {
+        val w = simWorld(MapSize.SMALL, MapType.ISLAND, 4, 5)
+        val L = IsoLayout(w.n, 64f, 32f, 260f)
+        w.companies[0].balance = 900_000_000L
+        val t = IsCatalog.BIGPARK
+        var park: com.eomer91.minigamesworld.ui.games.island.engine.Building? = null
+        val roads = w.buildings.filterNotNull().filter { it.type.cat == com.eomer91.minigamesworld.ui.games.island.engine.Cat.ROAD }
+        println("yol karosu: ${roads.size}")
+        val near = roads.getOrNull(roads.size / 2) ?: w.buildings.filterNotNull().first()
+        loop@ for (r in 1..30) for (dy in -r..r) for (dx in -r..r) {
+            if (IsSim.canBuild(w, 0, t, near.x + dx, near.y + dy) == com.eomer91.minigamesworld.ui.games.island.engine.BuildError.OK) {
+                park = IsSim.build(w, 0, t, near.x + dx, near.y + dy); break@loop
+            }
+        }
+        park!!.buildLeft = 0
+        IsSim.roadPath(w, 0, park, 80)?.let { IsSim.buildRoadPath(w, 0, it) }
+        repeat(2) { IsSim.step(w) }
+        val fx = park.cx; val fy = park.cy
+        val k = 1.4; val W = 1600; val H = 1000
+        val (im, g) = img(W, H)
+        g.translate(W / 2.0, H / 2.0); g.scale(k, k); g.translate(-L.tileX(fx, fy).toDouble(), -L.tileY(fx, fy).toDouble())
+        IsoScene.drawAll(AwtPainter(g), w, L)
+        g.dispose()
+        ImageIO.write(im, "png", out("roads_park.png"))
+    }
+
     /** Uzun binanin govdesine dokunmak arkadaki karoyu degil binayi secmeli */
     @Test
     fun pickTallBuilding() {

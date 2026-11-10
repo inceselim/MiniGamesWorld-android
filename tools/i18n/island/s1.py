@@ -67,7 +67,7 @@ S = {
 "is_cat_gamble": ("Casino", "Kumar"),
 "is_cat_shop": ("Shopping", "Alışveriş"),
 "is_cat_beach": ("Beach", "Plaj"),
-"is_cat_nature": ("Decoration", "Süsleme"),
+"is_cat_nature": ("Parks & decor", "Park ve süsleme"),
 "is_cat_road": ("Roads", "Yollar"),
 
 # Binalar

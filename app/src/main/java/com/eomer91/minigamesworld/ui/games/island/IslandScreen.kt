@@ -71,6 +71,7 @@ import com.eomer91.minigamesworld.ui.games.football.FbColors
 import com.eomer91.minigamesworld.ui.games.football.FbPanel
 import com.eomer91.minigamesworld.ui.games.football.LandscapeImmersive
 import com.eomer91.minigamesworld.ui.games.island.engine.BuildError
+import com.eomer91.minigamesworld.ui.games.island.engine.Cat
 import com.eomer91.minigamesworld.ui.games.island.engine.Difficulty
 import com.eomer91.minigamesworld.ui.games.island.engine.Goal
 import com.eomer91.minigamesworld.ui.games.island.engine.IsCatalog
@@ -272,7 +273,10 @@ private fun IsGame(w: IsWorld, ui: IsUiState, vm: IslandViewModel, onBack: () ->
     }?.let { n -> newsText(w, n)?.let { newsIcon(n.kind) + " " + it } }
     val newsAtOpen = remember(w) { w.newsCount }
     LaunchedEffect(w.newsCount) { if (alert != null && w.newsCount > newsAtOpen) vm.toastText(alert) }
-    val ghost = if (ui.placing >= 0 && ui.ghostX >= 0) IsGhost(IsCatalog[ui.placing], ui.ghostX, ui.ghostY, vm.canPlace() == BuildError.OK, me.color) else null
+    val ghost = if (ui.placing >= 0 && ui.ghostX >= 0) {
+        val t = IsCatalog[ui.placing]
+        IsGhost(t, ui.ghostX, ui.ghostY, vm.canPlace() == BuildError.OK, me.color, tiles = if (t.cat == Cat.ROAD) vm.roadLinePlan().first else null)
+    } else null
     val selection = when {
         ui.panel == IsPanel.BUILDING && ui.selBuilding >= 0 -> w.buildings.getOrNull(ui.selBuilding)?.let { IsSelection(it.x, it.y, it.type.w, it.type.h) }
         ui.panel == IsPanel.LAND && ui.selX >= 0 -> IsSim.parcelOrigin(ui.selX, ui.selY).let { (px, py) ->
@@ -419,7 +423,14 @@ private fun PlacementBar(w: IsWorld, ui: IsUiState, vm: IslandViewModel, modifie
     ) {
         Column(Modifier.widthIn(min = 160.dp, max = 300.dp)) {
             Text(stringResource(bName(t)), color = AppColors.TextPrimary, fontWeight = FontWeight.ExtraBold, fontSize = 15.sp)
-            if (ui.ghostX < 0) {
+            if (t.cat == Cat.ROAD) {
+                // Yol: iki dokunusla hat
+                val (tiles, cost) = vm.roadLinePlan()
+                Text(stringResource(if (ui.ghostX < 0) R.string.is_road_hint_start else if (ui.endX < 0) R.string.is_road_hint_end else R.string.is_road_hint_again),
+                    color = AppColors.TextSecondary, fontSize = 12.sp)
+                if (ui.ghostX >= 0) Text(stringResource(R.string.is_road_tiles, tiles.size, IsFmt.money(cost)),
+                    color = if (cost <= w.companies[w.userId].balance) FbColors.Green else FbColors.Red, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+            } else if (ui.ghostX < 0) {
                 Text(stringResource(R.string.is_place_hint), color = AppColors.TextSecondary, fontSize = 12.sp)
             } else {
                 val err = vm.canPlace()

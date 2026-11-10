@@ -51,8 +51,29 @@ object IsBots {
         // Borcu erken kapat (zenginse)
         if (co.loanMonthsLeft > 0 && co.balance > IsSim.repayCost(co) + reserve(w, co) * 3) IsSim.repayLoan(w, co.id)
         invest(w, co)
+        fixRoads(w, co)
         maybeAdvertise(w, co)
         maybeDirty(w, co)
+    }
+
+    // ------------------------------------------------------------------ yollar
+
+    /** Binayi yol agina bagla (para yetiyorsa) */
+    private fun connectRoad(w: IsWorld, co: Company, b: Building) {
+        val path = IsSim.roadPath(w, co.id, b, 40) ?: return
+        if (path.isEmpty()) return
+        if (IsSim.roadPathCost(w, co.id, path) <= co.balance - 50_000) { IsSim.buildRoadPath(w, co.id, path); return }
+        // Tam baglantiya para yetmiyor: en azindan binanin dibine tek yol karosu (yolsuz cezadan kurtulur)
+        if (b.road == 0 && co.balance > 60_000) IsSim.buildRoadPath(w, co.id, listOf(path.last()))
+    }
+
+    /** Yol agina bagli olmayan bir binayi duzelt (her dusunmede en fazla bir) */
+    private fun fixRoads(w: IsWorld, co: Company) {
+        if (co.balance < 100_000) return
+        val cands = w.buildings.filter { it != null && it.owner == co.id && it.type.cat != Cat.ROAD && it.type.cat != Cat.NATURE && it.road < 2 }
+        if (cands.isEmpty()) return
+        // Ulasilamayan bir binaya takilip kalmamak icin rastgele bir aday
+        connectRoad(w, co, cands[w.rnd.int(cands.size)]!!)
     }
 
     // ------------------------------------------------------------------ fiyat
@@ -154,7 +175,8 @@ object IsBots {
         }
         val t = options.maxBy { it.second }.first
         val spot = findSpot(w, co, t) ?: return
-        IsSim.build(w, co.id, t, spot.first, spot.second)
+        val b = IsSim.build(w, co.id, t, spot.first, spot.second) ?: return
+        connectRoad(w, co, b)
     }
 
     private fun decorate(w: IsWorld, co: Company) {
