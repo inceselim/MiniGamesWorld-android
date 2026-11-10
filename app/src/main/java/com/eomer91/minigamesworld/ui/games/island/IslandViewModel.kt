@@ -113,6 +113,8 @@ class IslandViewModel @Inject constructor(
     private val _state = MutableStateFlow(IsUiState())
     val state: StateFlow<IsUiState> = _state.asStateFlow()
     private var loop: Job? = null
+    /** Uygulama on planda mi (reklam ya da arka plan sirasinda simulasyon durur) */
+    private var active = true
     /** Disk yazimi: ViewModel kapanirken de tamamlanmali (viewModelScope iptal olur) */
     private val ioScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
@@ -138,7 +140,7 @@ class IslandViewModel @Inject constructor(
                 val sp = _state.value.speed
                 delay(if (sp == 0) 200L else INTERVAL[sp])
                 val w = world ?: continue
-                if (_state.value.phase != IsPhase.GAME || _state.value.speed == 0 || w.gameOver) continue
+                if (!active || _state.value.phase != IsPhase.GAME || _state.value.speed == 0 || w.gameOver) continue
                 IsSim.step(w)
                 if (w.gameOver) { _state.update { it.copy(speed = 0) }; feedback.play(Sfx.GAME_OVER) }
                 if (++sinceSave >= 30) { sinceSave = 0; save() }
@@ -146,6 +148,8 @@ class IslandViewModel @Inject constructor(
             }
         }
     }
+
+    fun setActive(a: Boolean) { active = a }
 
     fun setSpeed(s: Int) = _state.update { it.copy(speed = s.coerceIn(0, 3)) }
 
@@ -241,11 +245,13 @@ class IslandViewModel @Inject constructor(
         return IsSim.canBuild(w, w.userId, IsCatalog[st.placing], st.ghostX, st.ghostY)
     }
 
-    fun confirmPlace() {
+    /** adWatched: reklamla kurulan binalar (motel) yalnizca odul alindiktan sonra kurulur */
+    fun confirmPlace(adWatched: Boolean = false) {
         val w = world ?: return
         val st = _state.value
         if (st.placing < 0 || st.ghostX < 0) return
         val t = IsCatalog[st.placing]
+        if (t.adOnly && !adWatched) return
         val b = IsSim.build(w, w.userId, t, st.ghostX, st.ghostY)
         if (b == null) { toast(buildErrorRes(IsSim.canBuild(w, w.userId, t, st.ghostX, st.ghostY))); return }
         feedback.play(Sfx.DROP, volume = 0.7f)
@@ -257,8 +263,16 @@ class IslandViewModel @Inject constructor(
         val w = world ?: return
         val st = _state.value
         if (st.selX < 0) return
-        if (IsSim.buyLand(w, w.userId, st.selX, st.selY)) { toast(R.string.is_land_bought); bump() }
+        if (IsSim.buyParcel(w, w.userId, st.selX, st.selY)) { feedback.play(Sfx.DROP, volume = 0.5f); toast(R.string.is_land_bought); bump() }
         else toast(R.string.is_err_no_money)
+    }
+
+    /** Odullu reklam izlendi: insaatin kalan suresi yariya iner */
+    fun rush(id: Int) {
+        val w = world ?: return
+        val b = w.buildings.getOrNull(id) ?: return
+        if (b.owner != w.userId) return
+        if (IsSim.rushConstruction(b)) { feedback.play(Sfx.COMBO, volume = 0.6f); toast(R.string.is_rushed); bump() }
     }
 
     fun setPrice(id: Int, p: Float) {

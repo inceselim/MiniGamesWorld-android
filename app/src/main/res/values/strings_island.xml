@@ -111,10 +111,6 @@
     <string name="is_err_needs_beach">Must touch the sea on a sandy beach</string>
     <string name="is_err_no_money">Not enough money</string>
     <string name="is_err_not_buildable">Can\'t be built</string>
-    <string name="is_land_hint">Tap a free tile to see its price. Owning land blocks rivals from building there.</string>
-    <string name="is_land_price">Land price</string>
-    <string name="is_buy_land">Buy land</string>
-    <string name="is_land_bought">Land bought</string>
     <string name="is_land_owned_you">This land is yours</string>
     <string name="is_land_owned_other">Owner: %1$s</string>
     <string name="is_land_public">Public land</string>
@@ -259,11 +255,26 @@
     <string name="is_g_price_t">Prices and price wars</string>
     <string name="is_g_price">Tap one of your buildings to change its price. Cheaper prices steal guests from rivals but earn less per guest; every guest also has an operating cost. Rivals cut prices when they lose guests, so watch occupancy and income rather than just the number of guests.</string>
     <string name="is_g_land_t">Land</string>
-    <string name="is_g_land">Building on free land buys it automatically. You can also buy single tiles to stop rivals building next to your hotels. Land near the sea and in busy areas costs more, and prices rise as the island grows.</string>
     <string name="is_g_money_t">Money and the bank</string>
     <string name="is_g_money" formatted="false">Every building has a monthly upkeep, even while empty. The bank lends up to a limit based on your income and assets; instalments are paid at the end of each month. A negative balance costs 1.5% interest per month and counts towards bankruptcy.</string>
     <string name="is_g_rivals_t">Beating your rivals</string>
     <string name="is_g_rivals">Advertising makes your buildings more attractive to one class of tourist for 30 days. Dirty tricks can close a rival\'s building, damage their reputation or trigger a strike, but you may get caught and fined. You can only do one every 30 days. When a rival goes bankrupt, bid for their best buildings in the auctions.</string>
     <string name="is_g_tips_t">Starting tips</string>
     <string name="is_g_tips">Start with affordable beds near the beach, such as a campsite, guesthouse or bungalows, plus a snack kiosk or beach club nearby. Expand when your occupancy is high. Don\'t spend all your money: keep enough for a few months of upkeep. Pause the game whenever you need time to think.</string>
+    <string name="is_b_motel">Motel</string>
+    <string name="is_ad_free_build">Free with an ad · you only pay for the land</string>
+    <string name="is_ad_build_btn">📺 Watch ad &amp; build</string>
+    <string name="is_motel_note">Demolishing it gives no money back.</string>
+    <string name="is_rush">📺 Watch ad: finish sooner (%1$d → %2$d days)</string>
+    <string name="is_rushed">Construction sped up</string>
+    <string name="is_parcel_title">Parcel %1$d×%1$d</string>
+    <string name="is_parcel_free">Free tiles for sale: %1$d</string>
+    <string name="is_parcel_none">No free land left in this parcel</string>
+    <string name="is_land_hint">Land is sold in 4×4 parcels. Tap a tile to see its parcel. Rivals can\'t build on your land.</string>
+    <string name="is_land_price">Parcel price</string>
+    <string name="is_buy_land">Buy parcel</string>
+    <string name="is_land_bought">Parcel bought</string>
+    <string name="is_g_land">Building on free land automatically buys the tiles under it. You can also buy whole 4×4 parcels to stop rivals building next to your hotels. Land near the sea and in busy areas costs more, and prices rise as the island grows.</string>
+    <string name="is_g_ads_t">Watching ads</string>
+    <string name="is_g_ads">Construction takes a while. Watch an ad to halve the remaining time of any of your buildings under construction. You can also build a Motel for free by watching an ad; you only pay for the land.</string>
 </resources>

@@ -42,6 +42,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.eomer91.minigamesworld.R
+import com.eomer91.minigamesworld.ads.rememberRewardedLauncher
 import com.eomer91.minigamesworld.ui.games.football.FbButton
 import com.eomer91.minigamesworld.ui.games.football.FbChip
 import com.eomer91.minigamesworld.ui.games.football.FbColors
@@ -131,7 +132,8 @@ fun BuildPanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
             for (c in BUILD_CATS) FbChip(catIcon(c) + " " + stringResource(catName(c)), ui.buildCat == c, { vm.setBuildCat(c) })
         }
     }) {
-        for (t in IsCatalog.types.filter { it.buildable && it.cat == ui.buildCat }) {
+        // Reklamla kurulan binalar kendi kategorisinde en ustte
+        for (t in IsCatalog.types.filter { it.buildable && it.cat == ui.buildCat }.sortedByDescending { it.adOnly }) {
             val affordable = me.balance >= t.cost
             Column(
                 Modifier.fillMaxWidth().padding(bottom = 8.dp).clip(RoundedCornerShape(12.dp)).background(FbColors.PanelHigh)
@@ -141,7 +143,11 @@ fun BuildPanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
                     BuildingIcon(t, me.color, 64.dp)
                     Column(Modifier.weight(1f).padding(start = 8.dp)) {
                         Text(stringResource(bName(t)), color = AppColors.TextPrimary, fontWeight = FontWeight.ExtraBold, fontSize = 14.sp)
-                        Text(IsFmt.money(t.cost), color = if (affordable) FbColors.Green else FbColors.Red, fontWeight = FontWeight.Bold, fontSize = 13.sp)
+                        if (t.adOnly) {
+                            Text("📺 " + stringResource(R.string.is_ad_free_build), color = FbColors.Yellow, fontWeight = FontWeight.Bold, fontSize = 12.sp)
+                        } else {
+                            Text(IsFmt.money(t.cost), color = if (affordable) FbColors.Green else FbColors.Red, fontWeight = FontWeight.Bold, fontSize = 13.sp)
+                        }
                         Text("${t.w}×${t.h} · " + stringResource(R.string.is_days, t.days) + " · " + stringResource(R.string.is_upkeep) + " " + IsFmt.money(t.upkeep),
                             color = AppColors.TextSecondary, fontSize = 11.sp)
                         if (t.cap > 0) {
@@ -193,6 +199,13 @@ fun BuildingPanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
             }
         }
         if (b.owner < 0) return@IsPanelFrame
+        if (mine && b.buildLeft > 1) {
+            val showRewarded = rememberRewardedLauncher()
+            Spacer(Modifier.height(8.dp))
+            FbButton(stringResource(R.string.is_rush, b.buildLeft, maxOf(1, b.buildLeft / 2)),
+                { showRewarded({ vm.rush(b.id) }, { vm.toast(R.string.ad_not_ready) }) }, Modifier.fillMaxWidth(),
+                color = FbColors.Yellow, textColor = Color.Black)
+        }
         if (!mine) {
             val auction = w.auctions.firstOrNull { !it.done && it.building == b.id }
             if (auction != null) {
@@ -258,7 +271,8 @@ fun BuildingPanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
             if (!confirmDemolish) {
                 FbButton(stringResource(R.string.is_demolish), { confirmDemolish = true }, Modifier.fillMaxWidth(), color = FbColors.PanelHigh, textColor = FbColors.Red)
             } else {
-                Text(stringResource(R.string.is_demolish_confirm, IsFmt.money(if (b.buildLeft <= 0) t.cost / 5 else 0)), color = FbColors.Orange, fontSize = 12.sp)
+                Text(if (t.adOnly) stringResource(R.string.is_motel_note) else stringResource(R.string.is_demolish_confirm, IsFmt.money(if (b.buildLeft <= 0) t.cost / 5 else 0)),
+                    color = FbColors.Orange, fontSize = 12.sp)
                 Row(Modifier.padding(top = 6.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     FbButton(stringResource(R.string.is_yes), { vm.demolish(b.id) }, color = FbColors.Red)
                     FbButton(stringResource(R.string.is_no), { confirmDemolish = false }, color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
@@ -302,21 +316,28 @@ fun LandPanel(w: IsWorld, ui: IsUiState, vm: IslandViewModel) {
     val x = ui.selX; val y = ui.selY
     val t = w.ter(x, y)
     val owner = w.owner[w.idx(x, y)]
-    IsPanelFrame(stringResource(R.string.is_land), { vm.closePanel() }) {
+    val free = IsSim.parcelFreeTiles(w, x, y).size
+    IsPanelFrame(stringResource(R.string.is_parcel_title, IsSim.PARCEL), { vm.closePanel() }) {
+        // Dokunulan karonun durumu
         when {
             !t.isLand -> Text(stringResource(R.string.is_land_water), color = AppColors.TextSecondary, fontSize = 13.sp)
             owner == -2 -> Text(stringResource(R.string.is_land_public), color = AppColors.TextSecondary, fontSize = 13.sp)
             owner == w.userId -> Text(stringResource(R.string.is_land_owned_you), color = FbColors.Green, fontSize = 13.sp, fontWeight = FontWeight.Bold)
             owner >= 0 -> Text(stringResource(R.string.is_land_owned_other, companyName(w, owner)), color = FbColors.Orange, fontSize = 13.sp, fontWeight = FontWeight.Bold)
-            else -> {
-                val price = IsSim.landPrice(w, x, y)
-                IsKV(stringResource(R.string.is_land_price), IsFmt.money(price))
-                Spacer(Modifier.height(8.dp))
-                FbButton(stringResource(R.string.is_buy_land), { vm.buyLand() }, Modifier.fillMaxWidth(), enabled = w.companies[w.userId].balance >= price)
-            }
         }
+        Spacer(Modifier.height(6.dp))
+        // Parselin satilik kismi
+        if (free == 0) {
+            Text(stringResource(R.string.is_parcel_none), color = AppColors.TextSecondary, fontSize = 13.sp)
+        } else {
+            val price = IsSim.parcelPrice(w, x, y)
+            Text(stringResource(R.string.is_parcel_free, free), color = AppColors.TextSecondary, fontSize = 12.sp)
+            IsKV(stringResource(R.string.is_land_price), IsFmt.money(price), FbColors.Yellow)
+            Spacer(Modifier.height(8.dp))
+            FbButton(stringResource(R.string.is_buy_land), { vm.buyLand() }, Modifier.fillMaxWidth(), enabled = w.companies[w.userId].balance >= price)
+        }
+        Text(stringResource(R.string.is_land_hint), color = AppColors.TextSecondary, fontSize = 11.sp, modifier = Modifier.padding(top = 8.dp))
         if (t.isLand && owner >= -1) {
-            Text(stringResource(R.string.is_land_hint), color = AppColors.TextSecondary, fontSize = 11.sp, modifier = Modifier.padding(top = 8.dp))
             Spacer(Modifier.height(8.dp))
             FbButton(catIcon(Cat.STAY) + " " + stringResource(R.string.is_build), { vm.openPanel(IsPanel.BUILD) }, Modifier.fillMaxWidth(),
                 color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)

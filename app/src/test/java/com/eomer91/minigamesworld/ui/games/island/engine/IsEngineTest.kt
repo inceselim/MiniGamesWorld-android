@@ -127,10 +127,68 @@ class IsEngineTest {
         val quiet = build(w, 0, "villa")
         val loud = build(w, 1, "villa", near = (quiet.x + 25) to quiet.y)
         repeat(2) { build(w, 1, "disco", wdMax = 10, near = loud.x to loud.y) }
-        run(w, 50)
+        // Diskolar acilana kadar bekle (insaat suresi BUILD_TIME_MUL ile uzar)
+        run(w, IsCatalog.types.first { it.key == "disco" }.days + 5)
         IsSim.refreshAllLocations(w)
         println("sessiz villa loc ${quiet.loc[2]}, gurultulu ${loud.loc[2]}")
         assertTrue(quiet.loc[2] > loud.loc[2])
+    }
+
+    /** Parsel: bos kara karolarinin tamami alinir, baskasinin karosuna ve denize dokunulmaz */
+    @Test
+    fun parcelPurchase() {
+        val w = world(bots = 1, money = Difficulty.EASY)
+        val n = w.n
+        // Ici tamamen kara olan bir parsel bul
+        var px = -1; var py = -1
+        loop@ for (y in 0 until n step IsSim.PARCEL) for (x in 0 until n step IsSim.PARCEL) {
+            if (IsSim.parcelFreeTiles(w, x, y).size == IsSim.PARCEL * IsSim.PARCEL) { px = x; py = y; break@loop }
+        }
+        assertTrue(px >= 0)
+        // Bir karosu rakibin olsun
+        w.owner[w.idx(px + 1, py + 1)] = 1
+        val price = IsSim.parcelPrice(w, px + 2, py + 3)
+        val before = w.companies[0].balance
+        assertTrue(IsSim.buyParcel(w, 0, px + 2, py + 3))
+        assertEquals(before - price, w.companies[0].balance)
+        var mine = 0
+        for (y in py until py + IsSim.PARCEL) for (x in px until px + IsSim.PARCEL) if (w.owner[w.idx(x, y)] == 0) mine++
+        assertEquals(IsSim.PARCEL * IsSim.PARCEL - 1, mine)
+        assertEquals(1, w.owner[w.idx(px + 1, py + 1)])
+        // Ikinci kez alinamaz (bos karo kalmadi)
+        assertTrue(!IsSim.buyParcel(w, 0, px, py))
+    }
+
+    /** Reklamla hizlandirma: kalan sure yariya iner, en az 1 gun kalir */
+    @Test
+    fun rushHalvesConstruction() {
+        val w = world(bots = 1, money = Difficulty.EASY)
+        w.companies[0].balance = 100_000_000
+        val b = build(w, 0, "hotel3")
+        val full = b.buildLeft
+        assertEquals(IsCatalog.types.first { it.key == "hotel3" }.days, full)
+        assertTrue(IsSim.rushConstruction(b))
+        assertEquals(full / 2, b.buildLeft)
+        while (IsSim.rushConstruction(b)) Unit
+        assertEquals(1, b.buildLeft)
+        IsSim.step(w)
+        assertTrue(b.open)
+    }
+
+    /** Motel: bina bedeli odenmez (yalnizca arsa), yikinca para gelmez */
+    @Test
+    fun motelIsFreeButNoRefund() {
+        val w = world(bots = 1, money = Difficulty.HARD)
+        val m = IsCatalog.MOTEL
+        assertTrue(m.adOnly)
+        val before = w.companies[0].balance
+        val b = build(w, 0, "motel")
+        val paid = before - w.companies[0].balance
+        assertTrue("arsa disinda para alinmamali: $paid", paid < m.cost / 4)
+        b.buildLeft = 0
+        val mid = w.companies[0].balance
+        IsSim.demolish(w, b)
+        assertEquals(mid, w.companies[0].balance)
     }
 
     @Test

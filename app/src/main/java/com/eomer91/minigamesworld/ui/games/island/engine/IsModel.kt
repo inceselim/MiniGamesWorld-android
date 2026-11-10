@@ -73,14 +73,21 @@ enum class Fin(val income: Boolean) {
  */
 class BType(
     val id: Int, val key: String, val cat: Cat, val w: Int, val h: Int,
-    val cost: Long, val days: Int, val upkeep: Long, val cap: Int, val quality: Int,
+    val cost: Long, baseDays: Int, val upkeep: Long, val cap: Int, val quality: Int,
     val price: Float, val varCost: Float, val appeal: FloatArray,
     val noise: Float = 0f, val beauty: Float = 0f,
     /** Kumsalda ve denize bitisik olmali */
     val needsBeach: Boolean = false,
     /** Oyuncular insa edebilir mi */
     val buildable: Boolean = true,
-)
+    /** Yalnizca odullu reklamla kurulur: bina bedeli odenmez (arsa odenir), botlar kurmaz, yikinca para gelmez */
+    val adOnly: Boolean = false,
+) {
+    /** Insaat suresi: kucuk susler disinda temel surenin 1.6 kati (reklamla kisaltilabilir) */
+    val days: Int = if (baseDays <= 3) baseDays else kotlin.math.round(baseDays * BUILD_TIME_MUL).toInt()
+
+    companion object { const val BUILD_TIME_MUL = 1.6f }
+}
 
 object IsCatalog {
     private fun a(l: Float, m: Float, h: Float) = floatArrayOf(l, m, h)
@@ -120,10 +127,13 @@ object IsCatalog {
         // ---- herkese ait
         BType(25, "airport", Cat.PUBLIC, 4, 3, 0, 0, 0, 0, 0, 0f, 0f, a(0f, 0f, 0f), noise = 0.8f, buildable = false),
         BType(26, "harbor", Cat.PUBLIC, 3, 2, 0, 0, 0, 0, 0, 0f, 0f, a(0f, 0f, 0f), buildable = false),
+        // ---- reklamla kurulan (kayit uyumu icin sona eklendi)
+        BType(27, "motel", Cat.STAY, 2, 2, 450_000, 20, 7_000, 60, 2, 32f, 10f, a(1f, 0.7f, 0f), adOnly = true),
     )
     val AIRPORT = types[25]
     val HARBOR = types[26]
     operator fun get(id: Int) = types[id]
+    val MOTEL = types[27]
 }
 
 class Building(

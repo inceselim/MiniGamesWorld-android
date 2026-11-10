@@ -111,10 +111,6 @@
     <string name="is_err_needs_beach">砂浜で海に接している必要があります</string>
     <string name="is_err_no_money">資金が足りません</string>
     <string name="is_err_not_buildable">建設できません</string>
-    <string name="is_land_hint">空いているマスをタップすると価格が表示されます。自社の土地にはライバルは建設できません。</string>
-    <string name="is_land_price">土地価格</string>
-    <string name="is_buy_land">土地を買う</string>
-    <string name="is_land_bought">土地を購入しました</string>
     <string name="is_land_owned_you">あなたの土地です</string>
     <string name="is_land_owned_other">所有者：%1$s</string>
     <string name="is_land_public">公有地</string>
@@ -259,11 +255,26 @@
     <string name="is_g_price_t">価格と価格競争</string>
     <string name="is_g_price">自社の建物をタップすると価格を変更できます。安くすればライバルから客を奪えますが、1人あたりの儲けは減り、客ごとに運営費もかかります。客を失ったライバルは値下げしてくるので、客数だけでなく稼働率と収入にも注目しましょう。</string>
     <string name="is_g_land_t">土地</string>
-    <string name="is_g_land">空き地に建てると土地は自動的に購入されます。ライバルが自社ホテルのすぐ隣に建てられないよう、マス単位で土地を買うこともできます。海沿いやにぎやかな地域の土地は高く、島の発展とともに値上がりします。</string>
     <string name="is_g_money_t">お金と銀行</string>
     <string name="is_g_money" formatted="false">建物は空室でも毎月維持費がかかります。銀行は収入と資産に応じた限度額まで融資し、返済は毎月末に行われます。残高がマイナスだと月1.5%の利息がかかり、破産へのカウントも進みます。</string>
     <string name="is_g_rivals_t">ライバルに勝つ</string>
     <string name="is_g_rivals">広告を出すと、30日間ある客層にとって自社の建物がより魅力的になります。裏工作ではライバルの建物を休業させたり、評判を落としたり、ストライキを起こしたりできますが、発覚すると罰金を科されます。実行できるのは30日に1回だけです。ライバルが破産したら、競売で優良物件に入札しましょう。</string>
     <string name="is_g_tips_t">序盤のコツ</string>
     <string name="is_g_tips">まずはビーチ近くに安いベッドを用意しましょう。キャンプ場、民宿、バンガローなどに、売店やビーチクラブを近くに添えます。稼働率が高くなったら拡大しましょう。お金を使い切らず、数か月分の維持費は残しておくこと。考える時間が必要なときはいつでも一時停止できます。</string>
+    <string name="is_b_motel">モーテル</string>
+    <string name="is_ad_free_build">広告を見れば無料・土地代のみ</string>
+    <string name="is_ad_build_btn">📺 広告を見て建設</string>
+    <string name="is_motel_note">取り壊してもお金は戻りません。</string>
+    <string name="is_rush">📺 広告で短縮（%1$d → %2$d日）</string>
+    <string name="is_rushed">建設を短縮しました</string>
+    <string name="is_parcel_title">区画 %1$d×%1$d</string>
+    <string name="is_parcel_free">購入可能な空きマス：%1$d</string>
+    <string name="is_parcel_none">この区画に空き地はありません</string>
+    <string name="is_land_hint">土地は4×4の区画単位で販売されます。マスをタップすると区画が表示されます。自社の土地にはライバルは建設できません。</string>
+    <string name="is_land_price">区画の価格</string>
+    <string name="is_buy_land">区画を買う</string>
+    <string name="is_land_bought">区画を購入しました</string>
+    <string name="is_g_land">空き地に建てると、その下のマスは自動的に購入されます。ライバルが自社ホテルのすぐ隣に建てられないよう、4×4の区画ごと買うこともできます。海沿いやにぎやかな地域の土地は高く、島の発展とともに値上がりします。</string>
+    <string name="is_g_ads_t">広告を見る</string>
+    <string name="is_g_ads">建設には時間がかかります。広告を見ると、建設中の自社の建物の残り日数を半分にできます。また、広告を見ればモーテルを無料で建てられます（土地代のみ）。</string>
 </resources>

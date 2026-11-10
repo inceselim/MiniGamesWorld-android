@@ -111,10 +111,6 @@
     <string name="is_err_needs_beach">Homokos parton, a tengerrel érintkezve kell állnia</string>
     <string name="is_err_no_money">Nincs elég pénz</string>
     <string name="is_err_not_buildable">Nem építhető</string>
-    <string name="is_land_hint">Koppints egy szabad mezőre az árához. A telkedre a riválisok nem építhetnek.</string>
-    <string name="is_land_price">Telekár</string>
-    <string name="is_buy_land">Telek megvétele</string>
-    <string name="is_land_bought">Telek megvéve</string>
     <string name="is_land_owned_you">Ez a telek a tiéd</string>
     <string name="is_land_owned_other">Tulajdonos: %1$s</string>
     <string name="is_land_public">Közterület</string>
@@ -259,11 +255,26 @@
     <string name="is_g_price_t">Árak és árháború</string>
     <string name="is_g_price">Koppints az egyik épületedre az ár módosításához. Az alacsony ár vendégeket csábít el a riválisoktól, de vendégenként kevesebbet hoz, ráadásul minden vendégnek működési költsége is van. A riválisok árat csökkentenek, ha vendéget veszítenek, ezért a kihasználtságot és a bevételt figyeld, ne csak a vendégszámot.</string>
     <string name="is_g_land_t">Telkek</string>
-    <string name="is_g_land">Ha szabad területre építesz, a telket automatikusan megveszed. Egyes mezőket külön is megvehetsz, hogy a riválisok ne építhessenek közvetlenül a szállodáid mellé. A tengerparti és a forgalmas környékbeli telek drágább, és az árak a sziget fejlődésével nőnek.</string>
     <string name="is_g_money_t">Pénz és bank</string>
     <string name="is_g_money" formatted="false">Minden épületnek havi fenntartási költsége van, akkor is, ha üres. A bank a bevételedtől és a vagyonodtól függő keretig ad hitelt; a részleteket a hónap végén fizeted. A negatív egyenleg havi 1,5% kamatba kerül, és a csőd felé visz.</string>
     <string name="is_g_rivals_t">A riválisok legyőzése</string>
     <string name="is_g_rivals">A reklám 30 napig vonzóbbá teszi az épületeidet egy turistaosztály számára. Piszkos trükkökkel bezárathatod egy rivális épületét, ronthatod a hírnevét vagy sztrájkot szíthatsz, de lebukhatsz és megbírságolhatnak. Csak 30 naponta egyszer lehet. Ha egy rivális csődbe megy, licitálj a legjobb épületeire az árveréseken.</string>
     <string name="is_g_tips_t">Tippek a kezdéshez</string>
     <string name="is_g_tips">Kezdj olcsó ágyakkal a strand közelében, például kempinggel, panzióval vagy bungalókkal, a közelükben egy büfével vagy strandklubbal. Akkor bővíts, ha magas a kihasználtság. Ne költsd el minden pénzed: tarts félre néhány havi fenntartásra valót. Szüneteltesd a játékot, amikor gondolkodnod kell.</string>
+    <string name="is_b_motel">Motel</string>
+    <string name="is_ad_free_build">Ingyenes reklámmal · csak a telket fizeted</string>
+    <string name="is_ad_build_btn">📺 Reklám és építés</string>
+    <string name="is_motel_note">Lebontáskor nem jár vissza pénz.</string>
+    <string name="is_rush">📺 Reklám: hamarabb kész (%1$d → %2$d nap)</string>
+    <string name="is_rushed">Építkezés felgyorsítva</string>
+    <string name="is_parcel_title">Parcella %1$d×%1$d</string>
+    <string name="is_parcel_free">Eladó szabad mezők: %1$d</string>
+    <string name="is_parcel_none">Ebben a parcellában nincs több szabad telek</string>
+    <string name="is_land_hint">A telkeket 4×4-es parcellákban árulják. Koppints egy mezőre a parcellájához. A telkedre a riválisok nem építhetnek.</string>
+    <string name="is_land_price">Parcella ára</string>
+    <string name="is_buy_land">Parcella megvétele</string>
+    <string name="is_land_bought">Parcella megvéve</string>
+    <string name="is_g_land">Ha szabad területre építesz, az alatta lévő mezőket automatikusan megveszed. Egész 4×4-es parcellákat is vehetsz, hogy a riválisok ne építhessenek közvetlenül a szállodáid mellé. A tengerparti és a forgalmas környékbeli telek drágább, és az árak a sziget fejlődésével nőnek.</string>
+    <string name="is_g_ads_t">Reklámnézés</string>
+    <string name="is_g_ads">Az építkezés eltart egy ideig. Nézz meg egy reklámot, és bármelyik épülő épületed hátralévő ideje a felére csökken. Reklámnézéssel ingyen építhetsz Motelt is; csak a telket fizeted.</string>
 </resources>

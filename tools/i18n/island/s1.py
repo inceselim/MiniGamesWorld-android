@@ -125,11 +125,6 @@ S = {
 "is_err_not_buildable": ("Can't be built", "İnşa edilemez"),
 
 # Arsa
-"is_land_hint": ("Tap a free tile to see its price. Owning land blocks rivals from building there.",
-                 "Fiyatını görmek için boş bir karoya dokun. Senin olan arsaya rakipler inşa edemez."),
-"is_land_price": ("Land price", "Arsa fiyatı"),
-"is_buy_land": ("Buy land", "Arsayı al"),
-"is_land_bought": ("Land bought", "Arsa alındı"),
 "is_land_owned_you": ("This land is yours", "Bu arsa senin"),
 "is_land_owned_other": ("Owner: %1$s", "Sahibi: %1$s"),
 "is_land_public": ("Public land", "Kamu arazisi"),

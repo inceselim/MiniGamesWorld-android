@@ -44,7 +44,7 @@ object IsSim {
 
     /** Bu konuma insa etmenin toplam maliyeti (bina + gerekli arsa + agac temizleme) */
     fun buildCost(w: IsWorld, c: Int, type: BType, x: Int, y: Int): Long {
-        var cost = type.cost
+        var cost = if (type.adOnly) 0L else type.cost
         for (yy in y until y + type.h) for (xx in x until x + type.w) {
             if (!w.inside(xx, yy)) continue
             val i = w.idx(xx, yy)
@@ -80,9 +80,10 @@ object IsSim {
             val i = w.idx(xx, yy)
             if (w.owner[i] == -1) { land += landPrice(w, xx, yy); w.owner[i] = c }
         }
-        val clear = buildCost(w, c, type, x, y) - type.cost - land
+        val structure = if (type.adOnly) 0L else type.cost
+        val clear = buildCost(w, c, type, x, y) - structure - land
         co.book(Fin.LAND, land)
-        co.book(Fin.BUILD, type.cost + max(0, clear))
+        co.book(Fin.BUILD, structure + max(0, clear))
         val b = Building(w.buildings.size, type, c, x, y)
         w.buildings.add(b)
         for (yy in y until y + type.h) for (xx in x until x + type.w) {
@@ -105,6 +106,48 @@ object IsSim {
         }
     }
 
+    /** Insaati/yenilemeyi odullu reklamla hizlandir: kalan sure yariya iner (en az 1 gun kalir, ertesi gun acilir) */
+    fun rushConstruction(b: Building): Boolean {
+        if (b.buildLeft <= 1) return false
+        b.buildLeft = max(1, b.buildLeft / 2)
+        return true
+    }
+
+    // ------------------------------------------------------------------ parseller
+
+    /** Arsalar PARCEL x PARCEL karoluk parseller halinde satilir */
+    const val PARCEL = 4
+
+    /** Karonun parselinin sol-ust kosesi */
+    fun parcelOrigin(x: Int, y: Int) = Pair(x / PARCEL * PARCEL, y / PARCEL * PARCEL)
+
+    /** Parselin satin alinabilir (bos, kara) karolari */
+    fun parcelFreeTiles(w: IsWorld, x: Int, y: Int): List<Int> {
+        val (px, py) = parcelOrigin(x, y)
+        val out = ArrayList<Int>()
+        for (yy in py until min(w.n, py + PARCEL)) for (xx in px until min(w.n, px + PARCEL)) {
+            val i = w.idx(xx, yy)
+            if (w.owner[i] == -1 && w.ter(xx, yy).isLand) out.add(i)
+        }
+        return out
+    }
+
+    fun parcelPrice(w: IsWorld, x: Int, y: Int): Long =
+        parcelFreeTiles(w, x, y).sumOf { landPrice(w, it % w.n, it / w.n) }
+
+    /** Parselin tum bos kara karolarini al (baskasinin karolarina dokunmaz) */
+    fun buyParcel(w: IsWorld, c: Int, x: Int, y: Int): Boolean {
+        if (!w.inside(x, y)) return false
+        val tiles = parcelFreeTiles(w, x, y)
+        if (tiles.isEmpty()) return false
+        val p = tiles.sumOf { landPrice(w, it % w.n, it / w.n) }
+        val co = w.companies[c]
+        if (co.balance < p) return false
+        co.book(Fin.LAND, p)
+        for (i in tiles) w.owner[i] = c
+        return true
+    }
+
     /** Yalnizca arsa satin al (rakibi engellemek ya da sonrasi icin) */
     fun buyLand(w: IsWorld, c: Int, x: Int, y: Int): Boolean {
         if (!w.inside(x, y)) return false
@@ -121,7 +164,7 @@ object IsSim {
     fun demolish(w: IsWorld, b: Building, refund: Boolean = true) {
         if (b.owner < 0) return
         val co = w.companies[b.owner]
-        if (refund && b.buildLeft <= 0) co.book(Fin.SALES, b.type.cost / 5)
+        if (refund && b.buildLeft <= 0 && !b.type.adOnly) co.book(Fin.SALES, b.type.cost / 5)
         for (yy in b.y until b.y + b.type.h) for (xx in b.x until b.x + b.type.w) w.bAt[w.idx(xx, yy)] = -1
         w.buildings[b.id] = null
     }

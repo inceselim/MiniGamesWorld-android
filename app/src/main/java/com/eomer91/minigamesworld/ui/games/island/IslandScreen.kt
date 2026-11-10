@@ -62,6 +62,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.eomer91.minigamesworld.R
+import com.eomer91.minigamesworld.ads.rememberRewardedLauncher
 import com.eomer91.minigamesworld.feedback.GameMusicEffect
 import com.eomer91.minigamesworld.ui.games.football.FbBusy
 import com.eomer91.minigamesworld.ui.games.football.FbButton
@@ -104,7 +105,14 @@ fun IslandScreen(onBack: () -> Unit, viewModel: IslandViewModel = hiltViewModel(
     }
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner) {
-        val obs = LifecycleEventObserver { _, e -> if (e == Lifecycle.Event.ON_PAUSE) viewModel.save() }
+        // Reklam ya da arka plan: kaydet ve simulasyonu durdur; geri gelince devam
+        val obs = LifecycleEventObserver { _, e ->
+            when (e) {
+                Lifecycle.Event.ON_PAUSE -> { viewModel.setActive(false); viewModel.save() }
+                Lifecycle.Event.ON_RESUME -> viewModel.setActive(true)
+                else -> Unit
+            }
+        }
         lifecycleOwner.lifecycle.addObserver(obs)
         onDispose { lifecycleOwner.lifecycle.removeObserver(obs) }
     }
@@ -267,7 +275,9 @@ private fun IsGame(w: IsWorld, ui: IsUiState, vm: IslandViewModel, onBack: () ->
     val ghost = if (ui.placing >= 0 && ui.ghostX >= 0) IsGhost(IsCatalog[ui.placing], ui.ghostX, ui.ghostY, vm.canPlace() == BuildError.OK, me.color) else null
     val selection = when {
         ui.panel == IsPanel.BUILDING && ui.selBuilding >= 0 -> w.buildings.getOrNull(ui.selBuilding)?.let { IsSelection(it.x, it.y, it.type.w, it.type.h) }
-        ui.panel == IsPanel.LAND && ui.selX >= 0 -> IsSelection(ui.selX, ui.selY, 1, 1)
+        ui.panel == IsPanel.LAND && ui.selX >= 0 -> IsSim.parcelOrigin(ui.selX, ui.selY).let { (px, py) ->
+            IsSelection(px, py, minOf(IsSim.PARCEL, w.n - px), minOf(IsSim.PARCEL, w.n - py))
+        }
         else -> null
     }
 
@@ -418,7 +428,14 @@ private fun PlacementBar(w: IsWorld, ui: IsUiState, vm: IslandViewModel, modifie
                 if (err != BuildError.OK) Text(stringResource(IslandViewModel.buildErrorRes(err)), color = FbColors.Red, fontSize = 12.sp, fontWeight = FontWeight.Bold)
             }
         }
-        FbButton(stringResource(R.string.is_confirm_build), { vm.confirmPlace() }, enabled = ui.ghostX >= 0 && vm.canPlace() == BuildError.OK, color = FbColors.Green)
+        val canPlace = ui.ghostX >= 0 && vm.canPlace() == BuildError.OK
+        if (t.adOnly) {
+            val showRewarded = rememberRewardedLauncher()
+            FbButton(stringResource(R.string.is_ad_build_btn), { showRewarded({ vm.confirmPlace(adWatched = true) }, { vm.toast(R.string.ad_not_ready) }) },
+                enabled = canPlace, color = FbColors.Yellow, textColor = Color.Black)
+        } else {
+            FbButton(stringResource(R.string.is_confirm_build), { vm.confirmPlace() }, enabled = canPlace, color = FbColors.Green)
+        }
         FbButton(stringResource(R.string.is_cancel), { vm.cancelPlacing() }, color = FbColors.PanelHigh, textColor = AppColors.TextPrimary)
     }
 }

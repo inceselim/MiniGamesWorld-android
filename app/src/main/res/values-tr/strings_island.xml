@@ -111,10 +111,6 @@
     <string name="is_err_needs_beach">Kumsalda ve denize bitişik olmalı</string>
     <string name="is_err_no_money">Yeterli para yok</string>
     <string name="is_err_not_buildable">İnşa edilemez</string>
-    <string name="is_land_hint">Fiyatını görmek için boş bir karoya dokun. Senin olan arsaya rakipler inşa edemez.</string>
-    <string name="is_land_price">Arsa fiyatı</string>
-    <string name="is_buy_land">Arsayı al</string>
-    <string name="is_land_bought">Arsa alındı</string>
     <string name="is_land_owned_you">Bu arsa senin</string>
     <string name="is_land_owned_other">Sahibi: %1$s</string>
     <string name="is_land_public">Kamu arazisi</string>
@@ -259,11 +255,26 @@
     <string name="is_g_price_t">Fiyat ve fiyat savaşı</string>
     <string name="is_g_price">Fiyatı değiştirmek için binana dokun. Düşük fiyat rakipten misafir çalar ama misafir başına daha az kazandırır; her misafirin bir de işletme gideri vardır. Rakipler misafir kaybedince fiyat kırar; yalnızca misafir sayısına değil, doluluğa ve gelire bak.</string>
     <string name="is_g_land_t">Arsa</string>
-    <string name="is_g_land">Boş araziye inşa edince arsa otomatik alınır. Rakiplerin otellerinin dibine bina dikmesini önlemek için tek tek karo da satın alabilirsin. Deniz kenarı ve kalabalık bölgeler daha pahalıdır; ada büyüdükçe fiyatlar artar.</string>
     <string name="is_g_money_t">Para ve banka</string>
     <string name="is_g_money" formatted="false">Her binanın boş kalsa bile aylık bakım gideri vardır. Banka gelirine ve varlıklarına göre bir limite kadar kredi verir; taksitler her ay sonunda ödenir. Eksi bakiye için ayda %1,5 faiz işler ve iflas sayacını çalıştırır.</string>
     <string name="is_g_rivals_t">Rakipleri yenmek</string>
     <string name="is_g_rivals">Reklam, binalarını 30 gün boyunca bir turist sınıfına daha çekici yapar. Kirli işlerle rakibin binasını kapatabilir, itibarını zedeleyebilir ya da grev çıkarabilirsin; ama yakalanırsan ceza yersin. 30 günde yalnızca bir kez yapılabilir. Bir rakip batınca en iyi binaları için açık artırmaya katıl.</string>
     <string name="is_g_tips_t">Başlangıç ipuçları</string>
     <string name="is_g_tips">Kumsala yakın, ucuz yataklarla başla: kamp alanı, pansiyon ya da bungalov; yanına bir büfe veya plaj kulübü. Doluluk yükselince büyü. Tüm paranı harcama: birkaç aylık bakım gideri kadar kenarda tut. Düşünmek için istediğin zaman oyunu durdur.</string>
+    <string name="is_b_motel">Motel</string>
+    <string name="is_ad_free_build">Reklamla ücretsiz · yalnızca arsa parası ödenir</string>
+    <string name="is_ad_build_btn">📺 Reklam izle ve kur</string>
+    <string name="is_motel_note">Yıkılınca para geri gelmez.</string>
+    <string name="is_rush">📺 Reklam izle: süre kısalsın (%1$d → %2$d gün)</string>
+    <string name="is_rushed">İnşaat hızlandı</string>
+    <string name="is_parcel_title">Parsel %1$d×%1$d</string>
+    <string name="is_parcel_free">Satılık boş karo: %1$d</string>
+    <string name="is_parcel_none">Bu parselde boş arsa kalmadı</string>
+    <string name="is_land_hint">Arsa 4×4\'lük parseller halinde satılır. Parseli görmek için bir karoya dokun. Senin arsana rakipler inşa edemez.</string>
+    <string name="is_land_price">Parsel fiyatı</string>
+    <string name="is_buy_land">Parseli satın al</string>
+    <string name="is_land_bought">Parsel alındı</string>
+    <string name="is_g_land">Boş araziye inşa edince altındaki karolar otomatik alınır. Rakiplerin otellerinin dibine bina dikmesini önlemek için 4×4\'lük parseller de satın alabilirsin. Deniz kenarı ve kalabalık bölgeler daha pahalıdır; ada büyüdükçe fiyatlar artar.</string>
+    <string name="is_g_ads_t">Reklam izlemek</string>
+    <string name="is_g_ads">İnşaatlar biraz uzun sürer. İnşa halindeki herhangi bir binanın kalan süresini yarıya indirmek için reklam izleyebilirsin. Ayrıca reklam izleyerek ücretsiz Motel kurabilirsin; yalnızca arsa parasını ödersin.</string>
 </resources>

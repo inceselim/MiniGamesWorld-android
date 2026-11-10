@@ -234,7 +234,7 @@ object IsoArt {
         "kiosk" -> 34f; "fastfood" -> 56f; "restaurant" -> 52f; "finedining" -> 58f; "pub" -> 48f; "disco" -> 66f
         "arcade" -> 50f; "funfair" -> 150f; "waterpark" -> 110f; "casino" -> 120f; "souvenir" -> 36f; "market" -> 44f
         "mall" -> 70f; "beachclub" -> 22f; "park" -> 30f; "palm" -> 42f; "garden" -> 14f; "road" -> 2f
-        "airport" -> 80f; "harbor" -> 60f; else -> 40f
+        "airport" -> 80f; "harbor" -> 60f; "motel" -> 64f; else -> 40f
     }
 
     /**
@@ -536,6 +536,39 @@ object IsoArt {
                 p.poly(floatArrayOf(bx - 16 * s.zs, bx + 14 * s.zs, bx + 14 * s.zs, bx - 16 * s.zs), floatArrayOf(by - 22 * s.zs, by - 22 * s.zs, by - 10 * s.zs, by - 10 * s.zs), 0xFFE3F2FD.toInt())
                 p.line(bx - 26 * s.zs, by - 4 * s.zs, bx + 26 * s.zs, by - 4 * s.zs, 2 * s.zs, 0xFF1565C0.toInt())
                 s.pole(1.9f, 0.2f, 20f, 18f, 0xFF5D4037.toInt())
+            }
+            "motel" -> {
+                // Otopark
+                s.flat(0f, 0f, W, D, 0.2f, 0xFF757575.toInt())
+                for (k in 0 until 3) s.flat(0.35f + k * 0.5f, 1.45f, 0.05f, 0.45f, 0.35f, 0xFFFFFFFF.toInt())
+                // Iki katli uzun govde (arka sirada), on yuzde dis koridor
+                val body = 0xFFFFE0B2.toInt()
+                s.box(0.15f, 0.15f, 1.7f, 0.75f, 0f, 30f, body)
+                // Kapilar: alt ve ust kat, sirket renginde
+                for (f in 0 until 2) for (k in 0 until 4) {
+                    val x0 = 0.25f + k * 0.42f; val z0 = f * 15f
+                    s.quad(x0, 0.9f, z0, x0 + 0.16f, 0.9f, z0, x0 + 0.16f, 0.9f, z0 + 11f, x0, 0.9f, z0 + 11f, if (k % 2 == 0) accent else shade(accent, 0.8f))
+                    s.quad(x0 + 0.22f, 0.9f, z0 + 4f, x0 + 0.34f, 0.9f, z0 + 4f, x0 + 0.34f, 0.9f, z0 + 9f, x0 + 0.22f, 0.9f, z0 + 9f, winLit)
+                }
+                // Ust kat koridoru ve korkuluk
+                s.flat(0.15f, 0.9f, 1.7f, 0.18f, 15f, 0xFFBCAAA4.toInt())
+                s.quad(0.15f, 1.08f, 15f, 1.85f, 1.08f, 15f, 1.85f, 1.08f, 19f, 0.15f, 1.08f, 19f, 0xFF8D6E63.toInt())
+                for (k in 0..4) s.pole(0.15f + k * 0.425f, 1.08f, 0f, 15f, 0xFF8D6E63.toInt(), 1.2f)
+                s.windowsR(1.85f, 0.15f, 0.9f, 0f, 2, 15f, win, 2)
+                // Duz cati + sirket renginde saçak
+                s.box(0.1f, 0.1f, 1.8f, 0.85f, 30f, 3f, accent)
+                // Neon tabela
+                s.pole(1.85f, 1.8f, 0f, 44f, 0xFF616161.toInt(), 2f)
+                val tx = s.sx(1.85f, 1.8f); val ty = s.sy(1.85f, 1.8f, 44f)
+                p.poly(floatArrayOf(tx - 14 * s.zs, tx + 14 * s.zs, tx + 14 * s.zs, tx - 14 * s.zs), floatArrayOf(ty - 16 * s.zs, ty - 16 * s.zs, ty, ty), 0xFF1A237E.toInt())
+                p.line(tx - 11 * s.zs, ty - 8 * s.zs, tx + 11 * s.zs, ty - 8 * s.zs, 4 * s.zs, 0xFFFF4081.toInt())
+                p.line(tx - 11 * s.zs, ty - 3 * s.zs, tx + 11 * s.zs, ty - 3 * s.zs, 1.5f * s.zs, 0xFF00E5FF.toInt())
+                p.oval(tx + 9 * s.zs, ty - 22 * s.zs, tx + 15 * s.zs, ty - 16 * s.zs, 0xFFFFEA00.toInt())
+                // Araba
+                val cx = s.sx(0.85f, 1.65f); val cy = s.sy(0.85f, 1.65f, 0f)
+                p.poly(floatArrayOf(cx - 11 * s.zs, cx + 11 * s.zs, cx + 11 * s.zs, cx - 11 * s.zs), floatArrayOf(cy - 8 * s.zs, cy - 3 * s.zs, cy + 2 * s.zs, cy - 3 * s.zs), 0xFF26A69A.toInt())
+                p.poly(floatArrayOf(cx - 5 * s.zs, cx + 6 * s.zs, cx + 6 * s.zs, cx - 5 * s.zs), floatArrayOf(cy - 12 * s.zs, cy - 9 * s.zs, cy - 5 * s.zs, cy - 8 * s.zs), 0xFFB2EBF2.toInt())
+                s.palm(0.2f, 1.75f, 0f, 0.8f)
             }
             else -> s.box(0.1f, 0.1f, W - 0.2f, D - 0.2f, 0f, 30f, white)
         }

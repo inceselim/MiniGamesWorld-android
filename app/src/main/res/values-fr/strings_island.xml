@@ -111,10 +111,6 @@
     <string name="is_err_needs_beach">Doit toucher la mer sur une plage de sable</string>
     <string name="is_err_no_money">Pas assez d\'argent</string>
     <string name="is_err_not_buildable">Construction impossible</string>
-    <string name="is_land_hint">Touche une case libre pour voir son prix. Tes rivaux ne peuvent pas construire sur ton terrain.</string>
-    <string name="is_land_price">Prix du terrain</string>
-    <string name="is_buy_land">Acheter le terrain</string>
-    <string name="is_land_bought">Terrain acheté</string>
     <string name="is_land_owned_you">Ce terrain est à toi</string>
     <string name="is_land_owned_other">Propriétaire : %1$s</string>
     <string name="is_land_public">Terrain public</string>
@@ -259,11 +255,26 @@
     <string name="is_g_price_t">Prix et guerre des prix</string>
     <string name="is_g_price">Touche l\'un de tes bâtiments pour changer son prix. Des prix bas attirent les clients des rivaux mais rapportent moins par client ; chaque client a en plus un coût d\'exploitation. Les rivaux baissent leurs prix quand ils perdent des clients : surveille l\'occupation et les recettes, pas seulement le nombre de clients.</string>
     <string name="is_g_land_t">Terrains</string>
-    <string name="is_g_land">Construire sur un terrain libre l\'achète automatiquement. Tu peux aussi acheter des cases isolées pour empêcher tes rivaux de bâtir à côté de tes hôtels. Les terrains en bord de mer et dans les zones animées coûtent plus cher, et les prix montent à mesure que l\'île se développe.</string>
     <string name="is_g_money_t">Argent et banque</string>
     <string name="is_g_money" formatted="false">Chaque bâtiment coûte un entretien mensuel, même vide. La banque prête jusqu\'à une limite qui dépend de tes recettes et de tes biens ; les mensualités sont payées en fin de mois. Un solde négatif coûte 1,5 % d\'intérêts par mois et compte pour la faillite.</string>
     <string name="is_g_rivals_t">Battre tes rivaux</string>
     <string name="is_g_rivals">La publicité rend tes bâtiments plus attrayants pour une classe de touristes pendant 30 jours. Les coups bas permettent de fermer un bâtiment rival, de ternir sa réputation ou de déclencher une grève, mais tu risques d\'être pris et condamné à une amende. C\'est possible une fois tous les 30 jours. Quand un rival fait faillite, enchéris sur ses meilleurs bâtiments.</string>
     <string name="is_g_tips_t">Conseils pour débuter</string>
     <string name="is_g_tips">Commence avec des lits bon marché près de la plage, comme un camping, une pension ou des bungalows, avec un kiosque ou un club de plage à proximité. Agrandis-toi quand l\'occupation est élevée. Ne dépense pas tout ton argent : garde de quoi payer quelques mois d\'entretien. Mets le jeu en pause dès que tu as besoin de réfléchir.</string>
+    <string name="is_b_motel">Motel</string>
+    <string name="is_ad_free_build">Gratuit avec une pub · tu ne paies que le terrain</string>
+    <string name="is_ad_build_btn">📺 Voir la pub et construire</string>
+    <string name="is_motel_note">La démolition ne rapporte rien.</string>
+    <string name="is_rush">📺 Pub : finir plus tôt (%1$d → %2$d jours)</string>
+    <string name="is_rushed">Construction accélérée</string>
+    <string name="is_parcel_title">Parcelle %1$d×%1$d</string>
+    <string name="is_parcel_free">Cases libres à vendre : %1$d</string>
+    <string name="is_parcel_none">Plus de terrain libre dans cette parcelle</string>
+    <string name="is_land_hint">Le terrain est vendu en parcelles de 4×4. Touche une case pour voir sa parcelle. Tes rivaux ne peuvent pas construire sur ton terrain.</string>
+    <string name="is_land_price">Prix de la parcelle</string>
+    <string name="is_buy_land">Acheter la parcelle</string>
+    <string name="is_land_bought">Parcelle achetée</string>
+    <string name="is_g_land">Construire sur un terrain libre achète automatiquement les cases en dessous. Tu peux aussi acheter des parcelles entières de 4×4 pour empêcher tes rivaux de bâtir à côté de tes hôtels. Les terrains en bord de mer et dans les zones animées coûtent plus cher, et les prix montent à mesure que l\'île se développe.</string>
+    <string name="is_g_ads_t">Regarder des pubs</string>
+    <string name="is_g_ads">Les chantiers prennent du temps. Regarde une pub pour diviser par deux le temps restant de n\'importe lequel de tes bâtiments en construction. Tu peux aussi construire gratuitement un Motel en regardant une pub ; tu ne paies que le terrain.</string>
 </resources>

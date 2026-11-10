@@ -166,6 +166,7 @@ fun GuidePanel(vm: IslandViewModel) {
         R.string.is_g_land_t to R.string.is_g_land,
         R.string.is_g_money_t to R.string.is_g_money,
         R.string.is_g_rivals_t to R.string.is_g_rivals,
+        R.string.is_g_ads_t to R.string.is_g_ads,
     )
     IsPanelFrame("❓ " + stringResource(R.string.is_guide), { vm.closePanel() }) {
         for ((t, body) in sections) {

@@ -1,0 +1,22 @@
+# Ada Patronu: parsel arsa, reklamla kurulan motel, reklamla hizlandirma (EN, TR)
+S = {
+"is_b_motel": ("Motel", "Motel"),
+"is_ad_free_build": ("Free with an ad · you only pay for the land", "Reklamla ücretsiz · yalnızca arsa parası ödenir"),
+"is_ad_build_btn": ("📺 Watch ad & build", "📺 Reklam izle ve kur"),
+"is_motel_note": ("Demolishing it gives no money back.", "Yıkılınca para geri gelmez."),
+"is_rush": ("📺 Watch ad: finish sooner (%1$d → %2$d days)", "📺 Reklam izle: süre kısalsın (%1$d → %2$d gün)"),
+"is_rushed": ("Construction sped up", "İnşaat hızlandı"),
+"is_parcel_title": ("Parcel %1$d×%1$d", "Parsel %1$d×%1$d"),
+"is_parcel_free": ("Free tiles for sale: %1$d", "Satılık boş karo: %1$d"),
+"is_parcel_none": ("No free land left in this parcel", "Bu parselde boş arsa kalmadı"),
+"is_land_hint": ("Land is sold in 4×4 parcels. Tap a tile to see its parcel. Rivals can't build on your land.",
+                 "Arsa 4×4'lük parseller halinde satılır. Parseli görmek için bir karoya dokun. Senin arsana rakipler inşa edemez."),
+"is_land_price": ("Parcel price", "Parsel fiyatı"),
+"is_buy_land": ("Buy parcel", "Parseli satın al"),
+"is_land_bought": ("Parcel bought", "Parsel alındı"),
+"is_g_land": ("Building on free land automatically buys the tiles under it. You can also buy whole 4×4 parcels to stop rivals building next to your hotels. Land near the sea and in busy areas costs more, and prices rise as the island grows.",
+              "Boş araziye inşa edince altındaki karolar otomatik alınır. Rakiplerin otellerinin dibine bina dikmesini önlemek için 4×4'lük parseller de satın alabilirsin. Deniz kenarı ve kalabalık bölgeler daha pahalıdır; ada büyüdükçe fiyatlar artar."),
+"is_g_ads_t": ("Watching ads", "Reklam izlemek"),
+"is_g_ads": ("Construction takes a while. Watch an ad to halve the remaining time of any of your buildings under construction. You can also build a Motel for free by watching an ad; you only pay for the land.",
+             "İnşaatlar biraz uzun sürer. İnşa halindeki herhangi bir binanın kalan süresini yarıya indirmek için reklam izleyebilirsin. Ayrıca reklam izleyerek ücretsiz Motel kurabilirsin; yalnızca arsa parasını ödersin."),
+}

@@ -111,10 +111,6 @@
     <string name="is_err_needs_beach">Muss am Sandstrand ans Meer grenzen</string>
     <string name="is_err_no_money">Nicht genug Geld</string>
     <string name="is_err_not_buildable">Kann nicht gebaut werden</string>
-    <string name="is_land_hint">Tippe auf ein freies Feld, um den Preis zu sehen. Auf deinem Grundstück können Rivalen nicht bauen.</string>
-    <string name="is_land_price">Grundstückspreis</string>
-    <string name="is_buy_land">Grundstück kaufen</string>
-    <string name="is_land_bought">Grundstück gekauft</string>
     <string name="is_land_owned_you">Dieses Grundstück gehört dir</string>
     <string name="is_land_owned_other">Besitzer: %1$s</string>
     <string name="is_land_public">Öffentliches Gelände</string>
@@ -259,11 +255,26 @@
     <string name="is_g_price_t">Preise und Preiskampf</string>
     <string name="is_g_price">Tippe auf eines deiner Gebäude, um den Preis zu ändern. Niedrige Preise locken Gäste von Rivalen weg, bringen aber weniger pro Gast; außerdem verursacht jeder Gast Betriebskosten. Rivalen senken die Preise, wenn sie Gäste verlieren – achte daher auf Auslastung und Einnahmen, nicht nur auf die Gästezahl.</string>
     <string name="is_g_land_t">Grundstücke</string>
-    <string name="is_g_land">Wenn du auf freiem Land baust, wird das Grundstück automatisch gekauft. Du kannst auch einzelne Felder kaufen, damit Rivalen nicht direkt neben deinen Hotels bauen. Land am Meer und in belebten Gegenden ist teurer, und die Preise steigen, während die Insel wächst.</string>
     <string name="is_g_money_t">Geld und Bank</string>
     <string name="is_g_money" formatted="false">Jedes Gebäude kostet monatlich Unterhalt, auch wenn es leer steht. Die Bank leiht dir Geld bis zu einem Limit, das von deinen Einnahmen und deinem Vermögen abhängt; die Raten werden am Monatsende bezahlt. Ein negativer Kontostand kostet 1,5 % Zinsen pro Monat und zählt zum Bankrott.</string>
     <string name="is_g_rivals_t">Rivalen besiegen</string>
     <string name="is_g_rivals">Werbung macht deine Gebäude 30 Tage lang für eine Touristenklasse attraktiver. Mit schmutzigen Tricks kannst du ein Gebäude eines Rivalen schließen, seinen Ruf schädigen oder einen Streik auslösen – aber du kannst erwischt und bestraft werden. Das geht nur alle 30 Tage. Geht ein Rivale bankrott, biete bei den Versteigerungen auf seine besten Gebäude.</string>
     <string name="is_g_tips_t">Tipps für den Start</string>
     <string name="is_g_tips">Fang mit günstigen Betten in Strandnähe an, etwa einem Campingplatz, einer Pension oder Bungalows, dazu eine Imbissbude oder einen Beachclub in der Nähe. Erweitere, wenn die Auslastung hoch ist. Gib nicht dein ganzes Geld aus: Behalte genug für ein paar Monate Unterhalt. Pausiere das Spiel, wann immer du Zeit zum Nachdenken brauchst.</string>
+    <string name="is_b_motel">Motel</string>
+    <string name="is_ad_free_build">Gratis mit Werbung · du zahlst nur das Grundstück</string>
+    <string name="is_ad_build_btn">📺 Werbung ansehen &amp; bauen</string>
+    <string name="is_motel_note">Beim Abriss gibt es kein Geld zurück.</string>
+    <string name="is_rush">📺 Werbung: schneller fertig (%1$d → %2$d Tage)</string>
+    <string name="is_rushed">Bau beschleunigt</string>
+    <string name="is_parcel_title">Parzelle %1$d×%1$d</string>
+    <string name="is_parcel_free">Freie Felder zum Verkauf: %1$d</string>
+    <string name="is_parcel_none">In dieser Parzelle ist kein freies Land mehr</string>
+    <string name="is_land_hint">Land wird in 4×4-Parzellen verkauft. Tippe auf ein Feld, um seine Parzelle zu sehen. Auf deinem Land können Rivalen nicht bauen.</string>
+    <string name="is_land_price">Parzellenpreis</string>
+    <string name="is_buy_land">Parzelle kaufen</string>
+    <string name="is_land_bought">Parzelle gekauft</string>
+    <string name="is_g_land">Wenn du auf freiem Land baust, werden die Felder darunter automatisch gekauft. Du kannst auch ganze 4×4-Parzellen kaufen, damit Rivalen nicht direkt neben deinen Hotels bauen. Land am Meer und in belebten Gegenden ist teurer, und die Preise steigen, während die Insel wächst.</string>
+    <string name="is_g_ads_t">Werbung ansehen</string>
+    <string name="is_g_ads">Bauen dauert eine Weile. Sieh dir eine Werbung an, um die Restzeit eines deiner Gebäude im Bau zu halbieren. Außerdem kannst du mit einer Werbung gratis ein Motel bauen; du zahlst nur das Grundstück.</string>
 </resources>

@@ -111,10 +111,6 @@
     <string name="is_err_needs_beach">Debe tocar el mar en una playa de arena</string>
     <string name="is_err_no_money">No hay suficiente dinero</string>
     <string name="is_err_not_buildable">No se puede construir</string>
-    <string name="is_land_hint">Toca una casilla libre para ver su precio. Los rivales no pueden construir en tu terreno.</string>
-    <string name="is_land_price">Precio del terreno</string>
-    <string name="is_buy_land">Comprar terreno</string>
-    <string name="is_land_bought">Terreno comprado</string>
     <string name="is_land_owned_you">Este terreno es tuyo</string>
     <string name="is_land_owned_other">Propietario: %1$s</string>
     <string name="is_land_public">Terreno público</string>
@@ -259,11 +255,26 @@
     <string name="is_g_price_t">Precios y guerra de precios</string>
     <string name="is_g_price">Toca uno de tus edificios para cambiar su precio. Los precios bajos quitan huéspedes a los rivales, pero cada uno deja menos; además, cada huésped tiene un coste operativo. Los rivales bajan precios cuando pierden huéspedes, así que fíjate en la ocupación y los ingresos, no solo en el número de huéspedes.</string>
     <string name="is_g_land_t">Terrenos</string>
-    <string name="is_g_land">Al construir en terreno libre, lo compras automáticamente. También puedes comprar casillas sueltas para impedir que los rivales construyan junto a tus hoteles. El terreno junto al mar y en zonas concurridas es más caro, y los precios suben a medida que crece la isla.</string>
     <string name="is_g_money_t">Dinero y banco</string>
     <string name="is_g_money" formatted="false">Cada edificio tiene un mantenimiento mensual, aunque esté vacío. El banco te presta hasta un límite según tus ingresos y bienes; las cuotas se pagan a final de mes. Un saldo negativo cuesta un 1,5 % de interés al mes y cuenta para la quiebra.</string>
     <string name="is_g_rivals_t">Vencer a los rivales</string>
     <string name="is_g_rivals">La publicidad hace tus edificios más atractivos para una clase de turistas durante 30 días. Con el juego sucio puedes cerrar un edificio rival, dañar su reputación o provocar una huelga, pero pueden pillarte y multarte. Solo se puede hacer cada 30 días. Cuando un rival quiebra, puja por sus mejores edificios en las subastas.</string>
     <string name="is_g_tips_t">Consejos para empezar</string>
     <string name="is_g_tips">Empieza con camas baratas cerca de la playa, como un camping, una pensión o bungalós, y un quiosco o club de playa cerca. Amplía cuando la ocupación sea alta. No gastes todo tu dinero: guarda lo suficiente para unos meses de mantenimiento. Pausa el juego siempre que necesites pensar.</string>
+    <string name="is_b_motel">Motel</string>
+    <string name="is_ad_free_build">Gratis con un anuncio · solo pagas el terreno</string>
+    <string name="is_ad_build_btn">📺 Ver anuncio y construir</string>
+    <string name="is_motel_note">Si lo demueles no recuperas dinero.</string>
+    <string name="is_rush">📺 Ver anuncio: acabar antes (%1$d → %2$d días)</string>
+    <string name="is_rushed">Construcción acelerada</string>
+    <string name="is_parcel_title">Parcela %1$d×%1$d</string>
+    <string name="is_parcel_free">Casillas libres en venta: %1$d</string>
+    <string name="is_parcel_none">No queda terreno libre en esta parcela</string>
+    <string name="is_land_hint">El terreno se vende en parcelas de 4×4. Toca una casilla para ver su parcela. Los rivales no pueden construir en tu terreno.</string>
+    <string name="is_land_price">Precio de la parcela</string>
+    <string name="is_buy_land">Comprar parcela</string>
+    <string name="is_land_bought">Parcela comprada</string>
+    <string name="is_g_land">Al construir en terreno libre, compras automáticamente las casillas de debajo. También puedes comprar parcelas enteras de 4×4 para impedir que los rivales construyan junto a tus hoteles. El terreno junto al mar y en zonas concurridas es más caro, y los precios suben a medida que crece la isla.</string>
+    <string name="is_g_ads_t">Ver anuncios</string>
+    <string name="is_g_ads">Las obras tardan un tiempo. Mira un anuncio para reducir a la mitad el tiempo restante de cualquiera de tus edificios en construcción. También puedes construir gratis un Motel viendo un anuncio; solo pagas el terreno.</string>
 </resources>

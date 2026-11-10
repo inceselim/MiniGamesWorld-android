@@ -68,8 +68,6 @@ S = {
 "is_g_price": ("Tap one of your buildings to change its price. Cheaper prices steal guests from rivals but earn less per guest; every guest also has an operating cost. Rivals cut prices when they lose guests, so watch occupancy and income rather than just the number of guests.",
                "Fiyatı değiştirmek için binana dokun. Düşük fiyat rakipten misafir çalar ama misafir başına daha az kazandırır; her misafirin bir de işletme gideri vardır. Rakipler misafir kaybedince fiyat kırar; yalnızca misafir sayısına değil, doluluğa ve gelire bak."),
 "is_g_land_t": ("Land", "Arsa"),
-"is_g_land": ("Building on free land buys it automatically. You can also buy single tiles to stop rivals building next to your hotels. Land near the sea and in busy areas costs more, and prices rise as the island grows.",
-              "Boş araziye inşa edince arsa otomatik alınır. Rakiplerin otellerinin dibine bina dikmesini önlemek için tek tek karo da satın alabilirsin. Deniz kenarı ve kalabalık bölgeler daha pahalıdır; ada büyüdükçe fiyatlar artar."),
 "is_g_money_t": ("Money and the bank", "Para ve banka"),
 "is_g_money": ("Every building has a monthly upkeep, even while empty. The bank lends up to a limit based on your income and assets; instalments are paid at the end of each month. A negative balance costs 1.5% interest per month and counts towards bankruptcy.",
                "Her binanın boş kalsa bile aylık bakım gideri vardır. Banka gelirine ve varlıklarına göre bir limite kadar kredi verir; taksitler her ay sonunda ödenir. Eksi bakiye için ayda %1,5 faiz işler ve iflas sayacını çalıştırır."),
