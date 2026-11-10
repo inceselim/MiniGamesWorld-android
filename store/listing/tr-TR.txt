@@ -41,7 +41,7 @@ Mini Games Hub, 33 eğlenceli oyunu tek ve küçük bir uygulamada topluyor. Hes
 • Ülkeler Savaşı – ülkeni kur, ordu topla, rakiplerini fethet
 • Fabrika Patronu – üretim zinciri kur, pazarda sat, siparişleri tamamla
 • Kulüp Patronu – bir Avrupa futbol kulübünü yönet: taktik, transfer, altyapı, finans ve Avrupa kupaları
-• Ada Patronu – tropik adada otel, disko ve kumarhane kur, fiyat savaşını kazan, rakiplerini iflas ettir
+• Ada Patronu – tropik adada otel, disko ve su parkı kur, fiyat savaşını kazan, rakiplerini iflas ettir
 
 🎨 YARATICI VE ÇOCUK
 • Moda Şovu – mankeni temaya göre giydir

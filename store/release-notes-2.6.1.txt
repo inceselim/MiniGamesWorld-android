@@ -1,7 +1,7 @@
 <en-US>
 New game: Island Tycoon! – now 33 games
 • Premium: remove ads with a monthly or yearly subscription
-• Build hotels, bungalows, discos, casinos, water parks and malls on a tropical island
+• Build hotels, bungalows, discos, water parks and malls on a tropical island
 • Budget, middle-class and luxury tourists, seasons and a growing island
 • Price wars, ad campaigns and dirty tricks against up to 5 rivals
 • Bank loans, bankruptcy and auctions of your rivals' buildings
@@ -10,7 +10,7 @@ New game: Island Tycoon! – now 33 games
 <tr-TR>
 Yeni oyun: Ada Patronu! Toplam 33 oyun
 • Premium: aylık ya da yıllık abonelikle reklamları kaldır
-• Tropik bir adada otel, bungalov, disko, kumarhane, su parkı ve AVM kur
+• Tropik bir adada otel, bungalov, disko, su parkı ve AVM kur
 • Ekonomik, orta sınıf ve lüks turistler, sezonlar ve büyüyen bir ada
 • 5 rakibe kadar fiyat savaşı, reklam kampanyaları ve kirli işler
 • Banka kredisi, iflas ve batan rakiplerin binaları için açık artırma
@@ -19,7 +19,7 @@ Yeni oyun: Ada Patronu! Toplam 33 oyun
 <de-DE>
 Neues Spiel: Inselboss! – jetzt 33 Spiele
 • Premium: Werbung per Monats- oder Jahresabo entfernen
-• Baue Hotels, Bungalows, Discos, Casinos, Wasserparks und Einkaufszentren auf einer Tropeninsel
+• Baue Hotels, Bungalows, Discos, Wasserparks und Einkaufszentren auf einer Tropeninsel
 • Budget-, Mittelschicht- und Luxustouristen, Saisons und eine wachsende Insel
 • Preiskämpfe, Werbekampagnen und schmutzige Tricks gegen bis zu 5 Rivalen
 • Bankkredite, Bankrott und Versteigerungen der Gebäude deiner Rivalen
@@ -28,7 +28,7 @@ Neues Spiel: Inselboss! – jetzt 33 Spiele
 <es-ES>
 Nuevo juego: ¡Magnate de la Isla! Ya son 33 juegos
 • Premium: quita los anuncios con suscripción mensual o anual
-• Construye hoteles, discotecas, casinos, parques acuáticos y centros comerciales en una isla tropical
+• Construye hoteles, discotecas, parques acuáticos y centros comerciales en una isla tropical
 • Turistas económicos, de clase media y de lujo, temporadas y una isla que crece
 • Guerras de precios, campañas publicitarias y juego sucio contra hasta 5 rivales
 • Préstamos, quiebras y subastas de los edificios rivales
@@ -37,7 +37,7 @@ Nuevo juego: ¡Magnate de la Isla! Ya son 33 juegos
 <fr-FR>
 Nouveau jeu : Magnat de l'Île ! – 33 jeux
 • Premium : supprime les pubs avec un abonnement mensuel ou annuel
-• Construis hôtels, discothèques, casinos, parcs aquatiques et centres commerciaux sur une île tropicale
+• Construis hôtels, discothèques, parcs aquatiques et centres commerciaux sur une île tropicale
 • Touristes petit budget, classe moyenne et luxe, saisons et île qui grandit
 • Guerre des prix, publicité et coups bas contre jusqu'à 5 rivaux
 • Prêts bancaires, faillites et enchères des bâtiments rivaux
