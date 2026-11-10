@@ -24,7 +24,9 @@ S = {
 "premium_error": ("Something went wrong with Google Play. Please try again.", "Google Play ile bir sorun oluştu. Lütfen tekrar dene."),
 "premium_loading": ("Loading…", "Yükleniyor…"),
 "premium_unavailable": ("Subscriptions can't be loaded right now. Check your connection and Google Play.", "Abonelikler şu an yüklenemiyor. İnternet bağlantını ve Google Play'i kontrol et."),
-"premium_terms": ("Renews automatically until cancelled. Cancel any time in Google Play > Subscriptions. You won't be charged during the free trial; cancel before it ends to avoid payment.",
-                  "İptal edilene kadar otomatik yenilenir. Google Play > Abonelikler'den istediğin zaman iptal edebilirsin. Ücretsiz deneme süresince ücret alınmaz; ödeme yapmamak için deneme bitmeden iptal et."),
+"premium_terms": ("Renews automatically until cancelled. Cancel any time in Google Play > Subscriptions.",
+                  "İptal edilene kadar otomatik yenilenir. Google Play > Abonelikler'den istediğin zaman iptal edebilirsin."),
+"premium_terms_trial": ("You won't be charged during the free trial; cancel before it ends to avoid payment.",
+                        "Ücretsiz deneme süresince ücret alınmaz; ödeme yapmamak için deneme bitmeden iptal et."),
 "premium_close": ("Not now", "Şimdi değil"),
 }

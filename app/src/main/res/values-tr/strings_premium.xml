@@ -24,6 +24,7 @@
     <string name="premium_error">Google Play ile bir sorun oluştu. Lütfen tekrar dene.</string>
     <string name="premium_loading">Yükleniyor…</string>
     <string name="premium_unavailable">Abonelikler şu an yüklenemiyor. İnternet bağlantını ve Google Play\'i kontrol et.</string>
-    <string name="premium_terms">İptal edilene kadar otomatik yenilenir. Google Play &gt; Abonelikler\'den istediğin zaman iptal edebilirsin. Ücretsiz deneme süresince ücret alınmaz; ödeme yapmamak için deneme bitmeden iptal et.</string>
+    <string name="premium_terms">İptal edilene kadar otomatik yenilenir. Google Play &gt; Abonelikler\'den istediğin zaman iptal edebilirsin.</string>
+    <string name="premium_terms_trial">Ücretsiz deneme süresince ücret alınmaz; ödeme yapmamak için deneme bitmeden iptal et.</string>
     <string name="premium_close">Şimdi değil</string>
 </resources>

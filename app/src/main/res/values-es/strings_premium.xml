@@ -24,6 +24,7 @@
     <string name="premium_error">Algo falló con Google Play. Inténtalo de nuevo.</string>
     <string name="premium_loading">Cargando…</string>
     <string name="premium_unavailable">Ahora no se pueden cargar las suscripciones. Revisa tu conexión y Google Play.</string>
-    <string name="premium_terms">Se renueva automáticamente hasta que la canceles. Cancela cuando quieras en Google Play &gt; Suscripciones. No se cobra durante la prueba gratis; cancela antes de que termine para no pagar.</string>
+    <string name="premium_terms">Se renueva automáticamente hasta que la canceles. Cancela cuando quieras en Google Play &gt; Suscripciones.</string>
+    <string name="premium_terms_trial">No se cobra durante la prueba gratis; cancela antes de que termine para no pagar.</string>
     <string name="premium_close">Ahora no</string>
 </resources>

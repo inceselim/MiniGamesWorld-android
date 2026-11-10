@@ -24,6 +24,7 @@
     <string name="premium_error">Der opstod et problem med Google Play. Prøv igen.</string>
     <string name="premium_loading">Indlæser…</string>
     <string name="premium_unavailable">Abonnementer kan ikke indlæses lige nu. Tjek din forbindelse og Google Play.</string>
-    <string name="premium_terms">Fornyes automatisk, indtil du opsiger. Opsig når som helst under Google Play &gt; Abonnementer. Du betaler ikke i den gratis prøveperiode; opsig før den slutter for at undgå betaling.</string>
+    <string name="premium_terms">Fornyes automatisk, indtil du opsiger. Opsig når som helst under Google Play &gt; Abonnementer.</string>
+    <string name="premium_terms_trial">Du betaler ikke i den gratis prøveperiode; opsig før den slutter for at undgå betaling.</string>
     <string name="premium_close">Ikke nu</string>
 </resources>

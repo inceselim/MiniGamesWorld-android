@@ -24,6 +24,7 @@
     <string name="premium_error">Ошибка Google Play. Попробуйте ещё раз.</string>
     <string name="premium_loading">Загрузка…</string>
     <string name="premium_unavailable">Сейчас не удаётся загрузить подписки. Проверьте подключение и Google Play.</string>
-    <string name="premium_terms">Продлевается автоматически, пока вы не отмените. Отменить можно в любое время в Google Play &gt; Подписки. В бесплатный период оплата не взимается; отмените до его окончания, чтобы не платить.</string>
+    <string name="premium_terms">Продлевается автоматически, пока вы не отмените. Отменить можно в любое время в Google Play &gt; Подписки.</string>
+    <string name="premium_terms_trial">В бесплатный период оплата не взимается; отмените до его окончания, чтобы не платить.</string>
     <string name="premium_close">Не сейчас</string>
 </resources>

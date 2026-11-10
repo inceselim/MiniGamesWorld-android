@@ -24,6 +24,7 @@
     <string name="premium_error">Google Playで問題が発生しました。もう一度お試しください。</string>
     <string name="premium_loading">読み込み中…</string>
     <string name="premium_unavailable">現在サブスクリプションを読み込めません。接続とGoogle Playを確認してください。</string>
-    <string name="premium_terms">解約するまで自動更新されます。Google Play＞定期購入からいつでも解約できます。無料体験中は請求されません。課金を避けるには終了前に解約してください。</string>
+    <string name="premium_terms">解約するまで自動更新されます。Google Play＞定期購入からいつでも解約できます。</string>
+    <string name="premium_terms_trial">無料体験中は請求されません。課金を避けるには終了前に解約してください。</string>
     <string name="premium_close">今はしない</string>
 </resources>
