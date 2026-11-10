@@ -145,10 +145,7 @@ fun PremiumDialog(onDismiss: () -> Unit) {
             Spacer(Modifier.height(10.dp))
             Text(stringResource(R.string.premium_restore), color = AppColors.Primary, fontSize = 13.sp, fontWeight = FontWeight.Bold,
                 modifier = Modifier.clip(RoundedCornerShape(8.dp)).clickable { billing.refresh(userInitiated = true) }.padding(8.dp))
-            // Deneme cumlesi yalnizca gercekten ucretsiz denemeli bir plan varsa
-            val terms = stringResource(R.string.premium_terms) +
-                if (!premium && plans.any { it.trialDays > 0 }) " " + stringResource(R.string.premium_terms_trial) else ""
-            Text(terms, color = AppColors.TextSecondary, fontSize = 11.sp, textAlign = TextAlign.Center,
+            Text(stringResource(R.string.premium_terms), color = AppColors.TextSecondary, fontSize = 11.sp, textAlign = TextAlign.Center,
                 modifier = Modifier.padding(top = 6.dp))
             Spacer(Modifier.height(6.dp))
             Text(stringResource(R.string.premium_close), color = AppColors.TextSecondary, fontSize = 14.sp,

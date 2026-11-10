@@ -25,6 +25,5 @@
     <string name="premium_loading">Chargement…</string>
     <string name="premium_unavailable">Impossible de charger les abonnements pour le moment. Vérifie ta connexion et Google Play.</string>
     <string name="premium_terms">Renouvellement automatique jusqu\'à résiliation. Résilie à tout moment dans Google Play &gt; Abonnements.</string>
-    <string name="premium_terms_trial">Aucun paiement pendant l\'essai gratuit ; résilie avant la fin pour ne pas être facturé.</string>
     <string name="premium_close">Pas maintenant</string>
 </resources>

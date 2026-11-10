@@ -25,6 +25,5 @@
     <string name="premium_loading">Betöltés…</string>
     <string name="premium_unavailable">Az előfizetések most nem tölthetők be. Ellenőrizd a kapcsolatot és a Google Playt.</string>
     <string name="premium_terms">Lemondásig automatikusan megújul. Bármikor lemondhatod: Google Play &gt; Előfizetések.</string>
-    <string name="premium_terms_trial">Az ingyenes próbaidő alatt nem kell fizetni; mondd le a lejárta előtt, ha nem akarsz fizetni.</string>
     <string name="premium_close">Most nem</string>
 </resources>

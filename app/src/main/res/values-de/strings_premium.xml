@@ -25,6 +25,5 @@
     <string name="premium_loading">Wird geladen…</string>
     <string name="premium_unavailable">Abos können gerade nicht geladen werden. Prüfe deine Verbindung und Google Play.</string>
     <string name="premium_terms">Verlängert sich automatisch, bis du kündigst. Kündigen jederzeit unter Google Play &gt; Abos.</string>
-    <string name="premium_terms_trial">Während der Gratis-Testphase fallen keine Kosten an; kündige vor ihrem Ende, um nicht zu zahlen.</string>
     <string name="premium_close">Jetzt nicht</string>
 </resources>

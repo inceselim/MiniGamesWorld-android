@@ -25,6 +25,5 @@
     <string name="premium_loading">Caricamento…</string>
     <string name="premium_unavailable">Al momento non è possibile caricare gli abbonamenti. Controlla la connessione e Google Play.</string>
     <string name="premium_terms">Si rinnova automaticamente finché non lo annulli. Annulla quando vuoi in Google Play &gt; Abbonamenti.</string>
-    <string name="premium_terms_trial">Durante la prova gratuita non paghi nulla; annulla prima della fine per evitare l\'addebito.</string>
     <string name="premium_close">Non ora</string>
 </resources>

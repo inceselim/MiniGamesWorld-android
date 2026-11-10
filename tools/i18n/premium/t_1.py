@@ -47,13 +47,5 @@ S = {
                   "Продлевается автоматически, пока вы не отмените. Отменить можно в любое время в Google Play > Подписки.",
                   "Fornyes automatisk, indtil du opsiger. Opsig når som helst under Google Play > Abonnementer.",
                   "Lemondásig automatikusan megújul. Bármikor lemondhatod: Google Play > Előfizetések."),
-"premium_terms_trial": ("Während der Gratis-Testphase fallen keine Kosten an; kündige vor ihrem Ende, um nicht zu zahlen.",
-                        "No se cobra durante la prueba gratis; cancela antes de que termine para no pagar.",
-                        "Aucun paiement pendant l'essai gratuit ; résilie avant la fin pour ne pas être facturé.",
-                        "Durante la prova gratuita non paghi nulla; annulla prima della fine per evitare l'addebito.",
-                        "無料体験中は請求されません。課金を避けるには終了前に解約してください。",
-                        "В бесплатный период оплата не взимается; отмените до его окончания, чтобы не платить.",
-                        "Du betaler ikke i den gratis prøveperiode; opsig før den slutter for at undgå betaling.",
-                        "Az ingyenes próbaidő alatt nem kell fizetni; mondd le a lejárta előtt, ha nem akarsz fizetni."),
 "premium_close": ("Jetzt nicht", "Ahora no", "Pas maintenant", "Non ora", "今はしない", "Не сейчас", "Ikke nu", "Most nem"),
 }
