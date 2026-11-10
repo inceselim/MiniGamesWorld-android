@@ -40,7 +40,9 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.eomer91.minigamesworld.BuildConfig
 import com.eomer91.minigamesworld.R
+import kotlinx.coroutines.delay
 import com.eomer91.minigamesworld.ui.theme.AppColors
 import kotlin.math.roundToInt
 
@@ -54,6 +56,10 @@ fun PremiumDialog(onDismiss: () -> Unit) {
     val premium by billing.isPremium.collectAsStateWithLifecycle()
     val plans by billing.plans.collectAsStateWithLifecycle()
     val status by billing.status.collectAsStateWithLifecycle()
+    val lastError by billing.lastError.collectAsStateWithLifecycle()
+    // Play cevap vermezse "Yukleniyor" sonsuza kadar kalmasin
+    var waited by remember { mutableStateOf(false) }
+    LaunchedEffect(Unit) { delay(8_000); waited = true }
     val activity = LocalActivity.current
     val context = LocalContext.current
 
@@ -95,10 +101,16 @@ fun PremiumDialog(onDismiss: () -> Unit) {
                     context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(billing.manageUrl())))
                 }
             } else if (plans.isEmpty()) {
+                val loading = !waited && status != BillingManager.Status.UNAVAILABLE
                 Text(
-                    stringResource(if (status == BillingManager.Status.CONNECTING) R.string.premium_loading else R.string.premium_unavailable),
+                    stringResource(if (loading) R.string.premium_loading else R.string.premium_unavailable),
                     color = AppColors.TextSecondary, fontSize = 14.sp, textAlign = TextAlign.Center,
                 )
+                // Yalnizca debug: neden yuklenemedigi (paket adi, baglanti, urun bulunamadi)
+                if (BuildConfig.DEBUG && !loading) {
+                    Text("[debug] ${status.name} ${lastError.ifBlank { "no response" }}", color = AppColors.TextSecondary, fontSize = 10.sp,
+                        textAlign = TextAlign.Center, modifier = Modifier.padding(top = 6.dp))
+                }
             } else {
                 // Yillik planin aylik esdegerine gore tasarruf
                 val monthly = plans.firstOrNull { BillingManager.periodDays(it.period) in 28..31 }

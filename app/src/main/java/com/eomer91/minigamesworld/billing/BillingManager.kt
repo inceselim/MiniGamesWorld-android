@@ -68,6 +68,10 @@ class BillingManager @Inject constructor(
     private val _status = MutableStateFlow(Status.CONNECTING)
     val status: StateFlow<Status> = _status.asStateFlow()
 
+    /** Son hata (yalnizca debug ekraninda teshis icin gosterilir) */
+    private val _lastError = MutableStateFlow("")
+    val lastError: StateFlow<String> = _lastError.asStateFlow()
+
     private val _events = MutableSharedFlow<Event>(extraBufferCapacity = 4)
     val events: SharedFlow<Event> = _events.asSharedFlow()
 
@@ -93,6 +97,7 @@ class BillingManager @Inject constructor(
                     refresh()
                 } else {
                     Log.w(TAG, "Billing setup failed: ${result.debugMessage}")
+                    _lastError.value = "setup ${result.responseCode} ${result.debugMessage}"
                     _status.value = Status.UNAVAILABLE
                 }
             }
@@ -125,9 +130,11 @@ class BillingManager @Inject constructor(
         client.queryProductDetailsAsync(params) { result, details ->
             if (result.responseCode != BillingClient.BillingResponseCode.OK) {
                 Log.w(TAG, "Product query failed: ${result.debugMessage}")
+                _lastError.value = "products ${result.responseCode} ${result.debugMessage}"
                 return@queryProductDetailsAsync
             }
             val pd = details.productDetailsList.firstOrNull { it.productId == PRODUCT_ID }
+            if (pd == null) _lastError.value = "product $PRODUCT_ID not found for ${context.packageName}"
             _plans.value = if (pd == null) emptyList() else buildPlans(pd)
         }
     }
