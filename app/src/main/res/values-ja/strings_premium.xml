@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="premium_title">プレミアム：広告なし</string>
+    <string name="premium_row">広告を削除</string>
+    <string name="premium_active">プレミアム有効</string>
+    <string name="premium_b1">ゲーム間の広告なし</string>
+    <string name="premium_b2">バナー広告なし</string>
+    <string name="premium_b3">ボーナスが欲しいときは任意のリワード動画も引き続き利用可能</string>
+    <string name="premium_b4">インディー開発者を応援</string>
+    <string name="premium_monthly">月額</string>
+    <string name="premium_yearly">年額</string>
+    <string name="premium_per_month">%1$s／月</string>
+    <string name="premium_per_year">%1$s／年</string>
+    <string name="premium_save">%1$sお得</string>
+    <string name="premium_trial">%1$d日間無料</string>
+    <string name="premium_then">%1$d日間無料、その後%2$s</string>
+    <string name="premium_subscribe">登録する</string>
+    <string name="premium_start_trial">無料体験を開始</string>
+    <string name="premium_manage">サブスクリプションを管理</string>
+    <string name="premium_restore">購入を復元</string>
+    <string name="premium_restored">購入を確認しました</string>
+    <string name="premium_thanks">ありがとうございます！広告が削除されました。</string>
+    <string name="premium_pending">支払い保留中です。確認されるとプレミアムが有効になります。</string>
+    <string name="premium_error">Google Playで問題が発生しました。もう一度お試しください。</string>
+    <string name="premium_loading">読み込み中…</string>
+    <string name="premium_unavailable">現在サブスクリプションを読み込めません。接続とGoogle Playを確認してください。</string>
+    <string name="premium_terms">解約するまで自動更新されます。Google Play＞定期購入からいつでも解約できます。無料体験中は請求されません。課金を避けるには終了前に解約してください。</string>
+    <string name="premium_close">今はしない</string>
+</resources>

@@ -25,6 +25,11 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.eomer91.minigamesworld.R
+import androidx.compose.ui.unit.sp
+import androidx.compose.material3.Text
+import androidx.compose.runtime.remember
+import com.eomer91.minigamesworld.billing.PremiumDialog
+import com.eomer91.minigamesworld.ads.LocalPremium
 import com.eomer91.minigamesworld.data.GameCatalog
 import com.eomer91.minigamesworld.data.GameCategory
 import com.eomer91.minigamesworld.ui.components.CategoryChips
@@ -41,6 +46,9 @@ fun HomeScreen(
     val gold by viewModel.gold.collectAsStateWithLifecycle()
     var category by rememberSaveable { mutableStateOf<GameCategory?>(null) }
     val featured = GameCatalog.featured
+    var showPremium by remember { mutableStateOf(false) }
+    val premium = LocalPremium.current
+    if (showPremium) PremiumDialog(onDismiss = { showPremium = false })
 
     LazyColumn(contentPadding = PaddingValues(top = 16.dp, bottom = 24.dp)) {
         item {
@@ -51,6 +59,10 @@ fun HomeScreen(
             ) {
                 ScreenTitle(stringResource(R.string.home_title), stringResource(R.string.home_subtitle), Modifier.weight(1f))
                 val context = LocalContext.current
+                // Reklamsiz Premium (abone degilse)
+                if (!premium) IconButton(onClick = { showPremium = true }) {
+                    Text("👑", fontSize = 20.sp)
+                }
                 IconButton(onClick = { AppActions.inviteFriend(context) }) {
                     Icon(Icons.Rounded.PersonAdd, contentDescription = stringResource(R.string.invite_friend), tint = AppColors.Primary)
                 }

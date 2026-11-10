@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="premium_title">Premium: no ads</string>
+    <string name="premium_row">Remove ads</string>
+    <string name="premium_active">Premium active</string>
+    <string name="premium_b1">No ads between games</string>
+    <string name="premium_b2">No banner ads</string>
+    <string name="premium_b3">Optional reward videos are still there when you want a bonus</string>
+    <string name="premium_b4">Support an independent developer</string>
+    <string name="premium_monthly">Monthly</string>
+    <string name="premium_yearly">Yearly</string>
+    <string name="premium_per_month">%1$s / month</string>
+    <string name="premium_per_year">%1$s / year</string>
+    <string name="premium_save">Save %1$s</string>
+    <string name="premium_trial">%1$d days free</string>
+    <string name="premium_then">%1$d days free, then %2$s</string>
+    <string name="premium_subscribe">Subscribe</string>
+    <string name="premium_start_trial">Start free trial</string>
+    <string name="premium_manage">Manage subscription</string>
+    <string name="premium_restore">Restore purchases</string>
+    <string name="premium_restored">Purchases checked</string>
+    <string name="premium_thanks">Thank you! Ads are removed.</string>
+    <string name="premium_pending">Payment pending. Premium turns on once it\'s confirmed.</string>
+    <string name="premium_error">Something went wrong with Google Play. Please try again.</string>
+    <string name="premium_loading">Loading…</string>
+    <string name="premium_unavailable">Subscriptions can\'t be loaded right now. Check your connection and Google Play.</string>
+    <string name="premium_terms">Renews automatically until cancelled. Cancel any time in Google Play &gt; Subscriptions. You won\'t be charged during the free trial; cancel before it ends to avoid payment.</string>
+    <string name="premium_close">Not now</string>
+</resources>

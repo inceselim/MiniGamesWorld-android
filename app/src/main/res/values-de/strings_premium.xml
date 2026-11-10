@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="premium_title">Premium: ohne Werbung</string>
+    <string name="premium_row">Werbung entfernen</string>
+    <string name="premium_active">Premium aktiv</string>
+    <string name="premium_b1">Keine Werbung zwischen den Spielen</string>
+    <string name="premium_b2">Keine Bannerwerbung</string>
+    <string name="premium_b3">Optionale Belohnungsvideos bleiben, wenn du einen Bonus möchtest</string>
+    <string name="premium_b4">Unterstütze einen unabhängigen Entwickler</string>
+    <string name="premium_monthly">Monatlich</string>
+    <string name="premium_yearly">Jährlich</string>
+    <string name="premium_per_month">%1$s / Monat</string>
+    <string name="premium_per_year">%1$s / Jahr</string>
+    <string name="premium_save">%1$s sparen</string>
+    <string name="premium_trial">%1$d Tage gratis</string>
+    <string name="premium_then">%1$d Tage gratis, danach %2$s</string>
+    <string name="premium_subscribe">Abonnieren</string>
+    <string name="premium_start_trial">Gratis testen</string>
+    <string name="premium_manage">Abo verwalten</string>
+    <string name="premium_restore">Käufe wiederherstellen</string>
+    <string name="premium_restored">Käufe geprüft</string>
+    <string name="premium_thanks">Danke! Die Werbung ist entfernt.</string>
+    <string name="premium_pending">Zahlung ausstehend. Premium wird aktiviert, sobald sie bestätigt ist.</string>
+    <string name="premium_error">Bei Google Play ist ein Fehler aufgetreten. Bitte versuche es erneut.</string>
+    <string name="premium_loading">Wird geladen…</string>
+    <string name="premium_unavailable">Abos können gerade nicht geladen werden. Prüfe deine Verbindung und Google Play.</string>
+    <string name="premium_terms">Verlängert sich automatisch, bis du kündigst. Kündigen jederzeit unter Google Play &gt; Abos. Während der Gratis-Testphase fallen keine Kosten an; kündige vor ihrem Ende, um nicht zu zahlen.</string>
+    <string name="premium_close">Jetzt nicht</string>
+</resources>

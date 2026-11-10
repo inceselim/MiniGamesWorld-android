@@ -39,6 +39,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.eomer91.minigamesworld.BuildConfig
 import com.eomer91.minigamesworld.R
+import com.eomer91.minigamesworld.ads.LocalPremium
+import com.eomer91.minigamesworld.billing.PremiumDialog
 import com.eomer91.minigamesworld.ui.components.ScreenTitle
 import com.eomer91.minigamesworld.ui.theme.AppColors
 import java.util.Locale
@@ -56,6 +58,8 @@ fun SettingsScreen(
     val vibration by viewModel.vibrationEnabled.collectAsStateWithLifecycle()
     val music by viewModel.musicEnabled.collectAsStateWithLifecycle()
     var showLanguageDialog by remember { mutableStateOf(false) }
+    var showPremium by remember { mutableStateOf(false) }
+    val premium = LocalPremium.current
 
     val currentTag = AppCompatDelegate.getApplicationLocales().get(0)?.language
     val systemLabel = stringResource(R.string.language_system)
@@ -66,6 +70,11 @@ fun SettingsScreen(
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
         ScreenTitle(stringResource(R.string.tab_settings), modifier = Modifier.padding(bottom = 6.dp))
+
+        // Reklamsiz Premium abonelik
+        SettingRow("👑 " + stringResource(if (premium) R.string.premium_active else R.string.premium_row), onClick = { showPremium = true }) {
+            Text(if (premium) "✓" else "›", color = AppColors.Gold, fontWeight = FontWeight.Black)
+        }
 
         SettingRow(stringResource(R.string.settings_language), onClick = { showLanguageDialog = true }) {
             Text(currentLabel, color = AppColors.Primary, fontWeight = FontWeight.Bold)
@@ -97,6 +106,8 @@ fun SettingsScreen(
             modifier = Modifier.padding(top = 12.dp).align(Alignment.CenterHorizontally),
         )
     }
+
+    if (showPremium) PremiumDialog(onDismiss = { showPremium = false })
 
     if (showLanguageDialog) {
         val options: List<String?> = listOf(null) + SUPPORTED_LANGUAGES

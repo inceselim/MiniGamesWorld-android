@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="premium_title">Премиум: без рекламы</string>
+    <string name="premium_row">Убрать рекламу</string>
+    <string name="premium_active">Премиум активен</string>
+    <string name="premium_b1">Без рекламы между играми</string>
+    <string name="premium_b2">Без баннеров</string>
+    <string name="premium_b3">Видео с наградой остаются по желанию, если нужен бонус</string>
+    <string name="premium_b4">Поддержите независимого разработчика</string>
+    <string name="premium_monthly">Ежемесячно</string>
+    <string name="premium_yearly">Ежегодно</string>
+    <string name="premium_per_month">%1$s / мес.</string>
+    <string name="premium_per_year">%1$s / год</string>
+    <string name="premium_save">Экономия %1$s</string>
+    <string name="premium_trial">%1$d дн. бесплатно</string>
+    <string name="premium_then">%1$d дн. бесплатно, затем %2$s</string>
+    <string name="premium_subscribe">Подписаться</string>
+    <string name="premium_start_trial">Начать бесплатный период</string>
+    <string name="premium_manage">Управлять подпиской</string>
+    <string name="premium_restore">Восстановить покупки</string>
+    <string name="premium_restored">Покупки проверены</string>
+    <string name="premium_thanks">Спасибо! Реклама отключена.</string>
+    <string name="premium_pending">Платёж ожидает подтверждения. Премиум включится после него.</string>
+    <string name="premium_error">Ошибка Google Play. Попробуйте ещё раз.</string>
+    <string name="premium_loading">Загрузка…</string>
+    <string name="premium_unavailable">Сейчас не удаётся загрузить подписки. Проверьте подключение и Google Play.</string>
+    <string name="premium_terms">Продлевается автоматически, пока вы не отмените. Отменить можно в любое время в Google Play &gt; Подписки. В бесплатный период оплата не взимается; отмените до его окончания, чтобы не платить.</string>
+    <string name="premium_close">Не сейчас</string>
+</resources>

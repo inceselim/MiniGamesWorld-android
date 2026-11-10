@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.SystemClock
 import android.util.Log
 import com.eomer91.minigamesworld.BuildConfig
+import com.eomer91.minigamesworld.billing.BillingManager
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
@@ -28,6 +29,8 @@ import javax.inject.Singleton
 class InterstitialAdManager @Inject constructor(
     @ApplicationContext private val context: Context,
     adsManager: AdsManager,
+    /** Premium abonede gecis reklami gosterilmez */
+    private val billing: BillingManager,
 ) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
     private val unitId = BuildConfig.ADMOB_INTERSTITIAL_ID
@@ -47,6 +50,7 @@ class InterstitialAdManager @Inject constructor(
     }
 
     fun preload() {
+        if (billing.isPremium.value) return
         if (!adsReady || unitId.isBlank() || ad != null || isLoading) return
         isLoading = true
         InterstitialAd.load(
@@ -72,6 +76,7 @@ class InterstitialAdManager @Inject constructor(
      * [onFinished] reklam kapaninca ya da reklam gosterilmezse hemen cagrilir.
      */
     fun showIfReady(activity: Activity, onFinished: () -> Unit) {
+        if (billing.isPremium.value) { onFinished(); return }
         val current = ad
         val cooledDown = SystemClock.elapsedRealtime() - lastShownAt >= MIN_INTERVAL_MS
         if (current == null || !cooledDown) {

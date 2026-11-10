@@ -115,6 +115,7 @@ dependencies {
     implementation(libs.play.services.ads)
     implementation(libs.ump)
     implementation(libs.play.review)
+    implementation(libs.billing)
     implementation(libs.androidx.work.runtime)
 
     testImplementation(libs.junit)

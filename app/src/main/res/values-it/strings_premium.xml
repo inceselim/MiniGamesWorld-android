@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="premium_title">Premium: senza pubblicità</string>
+    <string name="premium_row">Rimuovi la pubblicità</string>
+    <string name="premium_active">Premium attivo</string>
+    <string name="premium_b1">Nessuna pubblicità tra le partite</string>
+    <string name="premium_b2">Nessun banner pubblicitario</string>
+    <string name="premium_b3">I video con premio facoltativi restano se vuoi un bonus</string>
+    <string name="premium_b4">Sostieni uno sviluppatore indipendente</string>
+    <string name="premium_monthly">Mensile</string>
+    <string name="premium_yearly">Annuale</string>
+    <string name="premium_per_month">%1$s / mese</string>
+    <string name="premium_per_year">%1$s / anno</string>
+    <string name="premium_save">Risparmi %1$s</string>
+    <string name="premium_trial">%1$d giorni gratis</string>
+    <string name="premium_then">%1$d giorni gratis, poi %2$s</string>
+    <string name="premium_subscribe">Abbonati</string>
+    <string name="premium_start_trial">Inizia la prova gratuita</string>
+    <string name="premium_manage">Gestisci abbonamento</string>
+    <string name="premium_restore">Ripristina acquisti</string>
+    <string name="premium_restored">Acquisti verificati</string>
+    <string name="premium_thanks">Grazie! La pubblicità è stata rimossa.</string>
+    <string name="premium_pending">Pagamento in sospeso. Premium si attiverà appena confermato.</string>
+    <string name="premium_error">Si è verificato un problema con Google Play. Riprova.</string>
+    <string name="premium_loading">Caricamento…</string>
+    <string name="premium_unavailable">Al momento non è possibile caricare gli abbonamenti. Controlla la connessione e Google Play.</string>
+    <string name="premium_terms">Si rinnova automaticamente finché non lo annulli. Annulla quando vuoi in Google Play &gt; Abbonamenti. Durante la prova gratuita non paghi nulla; annulla prima della fine per evitare l\'addebito.</string>
+    <string name="premium_close">Non ora</string>
+</resources>

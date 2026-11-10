@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="premium_title">Premium : sans pub</string>
+    <string name="premium_row">Supprimer les pubs</string>
+    <string name="premium_active">Premium actif</string>
+    <string name="premium_b1">Pas de pub entre les jeux</string>
+    <string name="premium_b2">Pas de bannière publicitaire</string>
+    <string name="premium_b3">Les vidéos récompensées restent disponibles si tu veux un bonus</string>
+    <string name="premium_b4">Soutiens un développeur indépendant</string>
+    <string name="premium_monthly">Mensuel</string>
+    <string name="premium_yearly">Annuel</string>
+    <string name="premium_per_month">%1$s / mois</string>
+    <string name="premium_per_year">%1$s / an</string>
+    <string name="premium_save">−%1$s</string>
+    <string name="premium_trial">%1$d jours gratuits</string>
+    <string name="premium_then">%1$d jours gratuits, puis %2$s</string>
+    <string name="premium_subscribe">S\'abonner</string>
+    <string name="premium_start_trial">Commencer l\'essai gratuit</string>
+    <string name="premium_manage">Gérer l\'abonnement</string>
+    <string name="premium_restore">Restaurer les achats</string>
+    <string name="premium_restored">Achats vérifiés</string>
+    <string name="premium_thanks">Merci ! Les pubs sont supprimées.</string>
+    <string name="premium_pending">Paiement en attente. Premium s\'activera une fois confirmé.</string>
+    <string name="premium_error">Un problème est survenu avec Google Play. Réessaie.</string>
+    <string name="premium_loading">Chargement…</string>
+    <string name="premium_unavailable">Impossible de charger les abonnements pour le moment. Vérifie ta connexion et Google Play.</string>
+    <string name="premium_terms">Renouvellement automatique jusqu\'à résiliation. Résilie à tout moment dans Google Play &gt; Abonnements. Aucun paiement pendant l\'essai gratuit ; résilie avant la fin pour ne pas être facturé.</string>
+    <string name="premium_close">Pas maintenant</string>
+</resources>

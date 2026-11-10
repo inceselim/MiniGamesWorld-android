@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="premium_title">Premium: uden reklamer</string>
+    <string name="premium_row">Fjern reklamer</string>
+    <string name="premium_active">Premium aktiv</string>
+    <string name="premium_b1">Ingen reklamer mellem spil</string>
+    <string name="premium_b2">Ingen bannerreklamer</string>
+    <string name="premium_b3">Valgfrie belønningsvideoer er der stadig, når du vil have en bonus</string>
+    <string name="premium_b4">Støt en uafhængig udvikler</string>
+    <string name="premium_monthly">Månedligt</string>
+    <string name="premium_yearly">Årligt</string>
+    <string name="premium_per_month">%1$s / md.</string>
+    <string name="premium_per_year">%1$s / år</string>
+    <string name="premium_save">Spar %1$s</string>
+    <string name="premium_trial">%1$d dage gratis</string>
+    <string name="premium_then">%1$d dage gratis, derefter %2$s</string>
+    <string name="premium_subscribe">Abonnér</string>
+    <string name="premium_start_trial">Start gratis prøveperiode</string>
+    <string name="premium_manage">Administrer abonnement</string>
+    <string name="premium_restore">Gendan køb</string>
+    <string name="premium_restored">Køb er tjekket</string>
+    <string name="premium_thanks">Tak! Reklamerne er fjernet.</string>
+    <string name="premium_pending">Betaling afventer. Premium slås til, når den er bekræftet.</string>
+    <string name="premium_error">Der opstod et problem med Google Play. Prøv igen.</string>
+    <string name="premium_loading">Indlæser…</string>
+    <string name="premium_unavailable">Abonnementer kan ikke indlæses lige nu. Tjek din forbindelse og Google Play.</string>
+    <string name="premium_terms">Fornyes automatisk, indtil du opsiger. Opsig når som helst under Google Play &gt; Abonnementer. Du betaler ikke i den gratis prøveperiode; opsig før den slutter for at undgå betaling.</string>
+    <string name="premium_close">Ikke nu</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="premium_title">Prémium: reklám nélkül</string>
+    <string name="premium_row">Reklámok eltávolítása</string>
+    <string name="premium_active">Prémium aktív</string>
+    <string name="premium_b1">Nincs reklám a játékok között</string>
+    <string name="premium_b2">Nincs bannerreklám</string>
+    <string name="premium_b3">Ha bónuszt szeretnél, a jutalomvideók továbbra is elérhetők</string>
+    <string name="premium_b4">Támogass egy független fejlesztőt</string>
+    <string name="premium_monthly">Havi</string>
+    <string name="premium_yearly">Éves</string>
+    <string name="premium_per_month">%1$s / hó</string>
+    <string name="premium_per_year">%1$s / év</string>
+    <string name="premium_save">%1$s megtakarítás</string>
+    <string name="premium_trial">%1$d nap ingyen</string>
+    <string name="premium_then">%1$d nap ingyen, utána %2$s</string>
+    <string name="premium_subscribe">Előfizetés</string>
+    <string name="premium_start_trial">Ingyenes próba indítása</string>
+    <string name="premium_manage">Előfizetés kezelése</string>
+    <string name="premium_restore">Vásárlások visszaállítása</string>
+    <string name="premium_restored">Vásárlások ellenőrizve</string>
+    <string name="premium_thanks">Köszönjük! A reklámok eltűntek.</string>
+    <string name="premium_pending">Fizetés folyamatban. A Prémium a megerősítés után aktiválódik.</string>
+    <string name="premium_error">Hiba történt a Google Playjel. Próbáld újra.</string>
+    <string name="premium_loading">Betöltés…</string>
+    <string name="premium_unavailable">Az előfizetések most nem tölthetők be. Ellenőrizd a kapcsolatot és a Google Playt.</string>
+    <string name="premium_terms">Lemondásig automatikusan megújul. Bármikor lemondhatod: Google Play &gt; Előfizetések. Az ingyenes próbaidő alatt nem kell fizetni; mondd le a lejárta előtt, ha nem akarsz fizetni.</string>
+    <string name="premium_close">Most nem</string>
+</resources>

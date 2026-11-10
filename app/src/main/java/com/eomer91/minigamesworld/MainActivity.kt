@@ -13,6 +13,9 @@ import com.eomer91.minigamesworld.ads.LocalInterstitialAds
 import com.eomer91.minigamesworld.ads.LocalRewardedAds
 import com.eomer91.minigamesworld.ads.RewardedAdManager
 import com.eomer91.minigamesworld.ads.LocalAdsReady
+import com.eomer91.minigamesworld.ads.LocalPremium
+import com.eomer91.minigamesworld.billing.BillingManager
+import com.eomer91.minigamesworld.billing.LocalBilling
 import com.eomer91.minigamesworld.ui.navigation.MiniGamesAppRoot
 import com.eomer91.minigamesworld.ui.theme.MiniGamesTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,6 +32,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var interstitialAds: InterstitialAdManager
 
     @Inject
+    lateinit var billing: BillingManager
+
+    @Inject
     lateinit var rewardedAds: RewardedAdManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,14 +42,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         adsManager.gatherConsent(this)
+        billing.start()
 
         setContent {
             val adsReady by adsManager.adsReady.collectAsStateWithLifecycle()
             val privacyRequired by adsManager.privacyOptionsRequired.collectAsStateWithLifecycle()
+            val premium by billing.isPremium.collectAsStateWithLifecycle()
 
             MiniGamesTheme {
                 CompositionLocalProvider(
                     LocalAdsReady provides adsReady,
+                    LocalPremium provides premium,
+                    LocalBilling provides billing,
                     LocalInterstitialAds provides interstitialAds,
                     LocalRewardedAds provides rewardedAds,
                 ) {
@@ -54,5 +64,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Abonelik iptal/yenileme durumunu Play'den dogrula
+        billing.refresh()
     }
 }
