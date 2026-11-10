@@ -5,6 +5,7 @@ New game: Island Tycoon! – now 33 games
 • Price wars, ad campaigns and dirty tricks against up to 5 rivals
 • Bank loans, bankruptcy and auctions of your rivals' buildings
 • Smooth zoomable isometric map, new tropical music
+• Club Boss: watch an ad to finish facilities 30 days sooner
 </en-US>
 <tr-TR>
 Yeni oyun: Ada Patronu! Toplam 33 oyun
@@ -13,6 +14,7 @@ Yeni oyun: Ada Patronu! Toplam 33 oyun
 • 5 rakibe kadar fiyat savaşı, reklam kampanyaları ve kirli işler
 • Banka kredisi, iflas ve batan rakiplerin binaları için açık artırma
 • Akıcı, yakınlaştırılabilir izometrik harita ve yeni tropik müzik
+• Kulüp Patronu: reklam izle, tesis inşaatı 30 gün kısalsın
 </tr-TR>
 <de-DE>
 Neues Spiel: Inselboss! – jetzt 33 Spiele
@@ -21,30 +23,34 @@ Neues Spiel: Inselboss! – jetzt 33 Spiele
 • Preiskämpfe, Werbekampagnen und schmutzige Tricks gegen bis zu 5 Rivalen
 • Bankkredite, Bankrott und Versteigerungen der Gebäude deiner Rivalen
 • Flüssige, zoombare Isometrie-Karte, neue tropische Musik
+• Klubboss: Werbung ansehen, Ausbau 30 Tage früher fertig
 </de-DE>
 <es-ES>
 Nuevo juego: ¡Magnate de la Isla! Ya son 33 juegos
-• Construye hoteles, bungalós, discotecas, casinos, parques acuáticos y centros comerciales en una isla tropical
+• Construye hoteles, discotecas, casinos, parques acuáticos y centros comerciales en una isla tropical
 • Turistas económicos, de clase media y de lujo, temporadas y una isla que crece
 • Guerras de precios, campañas publicitarias y juego sucio contra hasta 5 rivales
 • Préstamos, quiebras y subastas de los edificios rivales
 • Mapa isométrico fluido con zoom y nueva música tropical
+• Jefe del Club: mira un anuncio y acaba obras 30 días antes
 </es-ES>
 <fr-FR>
 Nouveau jeu : Magnat de l'Île ! – 33 jeux
-• Construis hôtels, bungalows, discothèques, casinos, parcs aquatiques et centres commerciaux sur une île tropicale
+• Construis hôtels, discothèques, casinos, parcs aquatiques et centres commerciaux sur une île tropicale
 • Touristes petit budget, classe moyenne et luxe, saisons et île qui grandit
 • Guerre des prix, publicité et coups bas contre jusqu'à 5 rivaux
 • Prêts bancaires, faillites et enchères des bâtiments rivaux
 • Carte isométrique fluide avec zoom, nouvelle musique tropicale
+• Patron du Club : une pub, et les travaux finissent 30 jours plus tôt
 </fr-FR>
 <it-IT>
 Nuovo gioco: Magnate dell'Isola! Ora 33 giochi
-• Costruisci hotel, bungalow, discoteche, casinò, parchi acquatici e centri commerciali su un'isola tropicale
+• Costruisci hotel, discoteche, casinò, parchi acquatici e centri commerciali su un'isola tropicale
 • Turisti economici, di ceto medio e di lusso, stagioni e un'isola che cresce
 • Guerre dei prezzi, campagne pubblicitarie e colpi bassi contro fino a 5 rivali
 • Prestiti, fallimenti e aste degli edifici rivali
 • Mappa isometrica fluida con zoom e nuova musica tropicale
+• Boss del Club: guarda una pubblicità, lavori finiti 30 giorni prima
 </it-IT>
 <ja-JP>
 新ゲーム「アイランド・タイクーン」登場！全33ゲーム
@@ -53,6 +59,7 @@ Nuovo gioco: Magnate dell'Isola! Ora 33 giochi
 • 最大5社のライバルと価格競争、広告、裏工作
 • 銀行融資、破産、ライバルの物件の競売
 • なめらかに拡大できるアイソメトリックマップ、新しいトロピカル音楽
+• クラブボス：広告を見ると施設工事が30日短縮
 </ja-JP>
 <ru-RU>
 Новая игра: Остров-магнат! Теперь 33 игры
@@ -61,6 +68,7 @@ Nuovo gioco: Magnate dell'Isola! Ora 33 giochi
 • Ценовые войны, реклама и грязные дела против 5 конкурентов
 • Кредиты, банкротства и аукционы зданий конкурентов
 • Плавная изометрическая карта с зумом, новая тропическая музыка
+• Босс клуба: реклама сокращает стройку на 30 дней
 </ru-RU>
 <da-DK>
 Nyt spil: Ø-magnat! – nu 33 spil
@@ -69,12 +77,14 @@ Nyt spil: Ø-magnat! – nu 33 spil
 • Priskrig, reklamekampagner og beskidte tricks mod op til 5 rivaler
 • Banklån, konkurser og auktioner over rivalernes bygninger
 • Flydende isometrisk kort med zoom og ny tropisk musik
+• Klubboss: se en reklame, byggeriet bliver færdigt 30 dage før
 </da-DK>
 <hu-HU>
 Új játék: Szigetmogul! Már 33 játék
-• Építs szállodákat, bungalókat, diszkókat, kaszinókat, élményfürdőket és bevásárlóközpontokat egy trópusi szigeten
+• Építs szállodákat, diszkókat, kaszinókat, élményfürdőket és bevásárlóközpontokat egy trópusi szigeten
 • Olcsó, középosztálybeli és luxusturisták, szezonok és fejlődő sziget
 • Árháború, reklámkampányok és piszkos trükkök legfeljebb 5 rivális ellen
 • Bankhitel, csőd és a riválisok épületeinek árverése
 • Gördülékeny, nagyítható izometrikus térkép és új trópusi zene
+• Klubfőnök: reklámnézéssel 30 nappal hamarabb kész a fejlesztés
 </hu-HU>

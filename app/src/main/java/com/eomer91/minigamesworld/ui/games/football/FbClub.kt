@@ -44,6 +44,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.eomer91.minigamesworld.R
+import com.eomer91.minigamesworld.ads.rememberRewardedLauncher
 import com.eomer91.minigamesworld.ui.games.football.engine.FbBanking
 import com.eomer91.minigamesworld.ui.games.football.engine.Facility
 import com.eomer91.minigamesworld.ui.games.football.engine.FbClub
@@ -284,6 +285,14 @@ private fun Facilities(world: FbWorld, vm: FootballViewModel) {
             FbPanel(Modifier.fillMaxWidth()) {
                 Text(stringResource(R.string.fb_under_construction, stringResource(facilityName(f)), FbFormat.shortDate(world, c.upgradeDay) +
                     (if (c.upgradeSeason > world.season) " ${FbFormat.season(c.upgradeSeason)}" else "")), color = FbColors.Yellow, fontSize = 14.sp, fontWeight = FontWeight.Bold)
+                val left = FbClubLife.upgradeDaysLeft(world, c)
+                if (left > 1) {
+                    val showRewarded = rememberRewardedLauncher()
+                    Spacer(Modifier.height(8.dp))
+                    FbButton(stringResource(R.string.fb_rush_ad, minOf(FbClubLife.RUSH_DAYS, left - 1), left),
+                        { showRewarded({ vm.rushFacility() }, { vm.toast(R.string.ad_not_ready) }) },
+                        color = FbColors.Yellow, textColor = Color.Black)
+                }
             }
         }
         for (f in Facility.entries) {

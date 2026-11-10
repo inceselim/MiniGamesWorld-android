@@ -33,6 +33,8 @@
     <string name="fb_form_w">勝</string>
     <string name="fb_form_d">分</string>
     <string name="fb_form_l">敗</string>
+    <string name="fb_rush_ad">📺 広告で%1$d日短縮（残り%2$d日）</string>
+    <string name="fb_rushed">工事が%1$s日短縮されました</string>
     <string name="game_football_manager_name">クラブボス</string>
     <string name="game_football_manager_desc">思い通りにサッカークラブを運営しよう：ヨーロッパ全リーグ、リアルな日程、欧州カップとワールドカップ、詳細な戦術、トレーニング、ユースアカデミー、財政、活気ある移籍市場。</string>
     <string name="fb_tagline">王朝を築け。すべての決断はあなた次第。</string>

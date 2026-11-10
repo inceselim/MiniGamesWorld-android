@@ -33,6 +33,8 @@
     <string name="fb_form_w">V</string>
     <string name="fb_form_d">P</string>
     <string name="fb_form_l">S</string>
+    <string name="fb_rush_ad">📺 Pubblicità: −%1$d giorni (mancano %2$d)</string>
+    <string name="fb_rushed">Lavori anticipati di %1$s giorni</string>
     <string name="game_football_manager_name">Boss del Club</string>
     <string name="game_football_manager_desc">Gestisci un club di calcio a modo tuo: tutti i campionati d\'Europa, calendario realistico, coppe europee e Mondiali, tattiche dettagliate, allenamento, settore giovanile, finanze e un mercato vivo.</string>
     <string name="fb_tagline">Costruisci una dinastia. Ogni decisione è tua.</string>

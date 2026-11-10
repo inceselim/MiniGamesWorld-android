@@ -33,6 +33,8 @@
     <string name="fb_form_w">W</string>
     <string name="fb_form_d">D</string>
     <string name="fb_form_l">L</string>
+    <string name="fb_rush_ad">📺 Watch ad: −%1$d days (%2$d days left)</string>
+    <string name="fb_rushed">Construction sped up by %1$s days</string>
     <string name="game_football_manager_name">Club Boss</string>
     <string name="game_football_manager_desc">Run a football club your way: every league in Europe, real-style calendar, European cups and World Cups, detailed tactics, training, youth academy, finances and a living transfer market.</string>
     <string name="fb_tagline">Build a dynasty. Every decision is yours.</string>

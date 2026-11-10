@@ -33,6 +33,8 @@
     <string name="fb_form_w">G</string>
     <string name="fb_form_d">B</string>
     <string name="fb_form_l">M</string>
+    <string name="fb_rush_ad">📺 Reklam izle: −%1$d gün (%2$d gün kaldı)</string>
+    <string name="fb_rushed">İnşaat %1$s gün kısaldı</string>
     <string name="game_football_manager_name">Kulüp Patronu</string>
     <string name="game_football_manager_desc">Futbol kulübünü dilediğin gibi yönet: Avrupa\'nın tüm ligleri, gerçekçi takvim, Avrupa kupaları ve Dünya Kupası, detaylı taktik, antrenman, altyapı, finans ve canlı transfer pazarı.</string>
     <string name="fb_tagline">Bir hanedan kur. Her karar senin.</string>

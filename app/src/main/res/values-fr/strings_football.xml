@@ -33,6 +33,8 @@
     <string name="fb_form_w">V</string>
     <string name="fb_form_d">N</string>
     <string name="fb_form_l">D</string>
+    <string name="fb_rush_ad">📺 Pub : −%1$d jours (encore %2$d jours)</string>
+    <string name="fb_rushed">Travaux avancés de %1$s jours</string>
     <string name="game_football_manager_name">Patron du Club</string>
     <string name="game_football_manager_desc">Dirige un club de football à ta façon : tous les championnats d\'Europe, calendrier réaliste, coupes d\'Europe et Coupes du monde, tactiques détaillées, entraînement, centre de formation, finances et un marché des transferts vivant.</string>
     <string name="fb_tagline">Bâtis une dynastie. Chaque décision t\'appartient.</string>

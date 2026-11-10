@@ -33,6 +33,8 @@
     <string name="fb_form_w">Gy</string>
     <string name="fb_form_d">D</string>
     <string name="fb_form_l">V</string>
+    <string name="fb_rush_ad">📺 Reklám: −%1$d nap (még %2$d nap)</string>
+    <string name="fb_rushed">Az építkezés %1$s nappal rövidült</string>
     <string name="game_football_manager_name">Klubfőnök</string>
     <string name="game_football_manager_desc">Irányítsd a futballklubot a saját elképzelésed szerint: Európa összes bajnoksága, valósághű naptár, európai kupák és világbajnokságok, részletes taktika, edzés, utánpótlás, pénzügyek és élő átigazolási piac.</string>
     <string name="fb_tagline">Építs dinasztiát. Minden döntés a tiéd.</string>

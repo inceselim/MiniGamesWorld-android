@@ -107,7 +107,12 @@ class FbClubLifeTest {
         assertEquals("BUSY", FbClubLife.startUpgrade(w, c, Facility.YOUTH))
         assertEquals(cost, c.ledger[Fin.UPGRADES.ordinal])
         val days = FbClubLife.upgradeDays(c, Facility.TRAINING)
-        repeat(days + 8) { FbSeason.advanceDay(w, autoUser = true) }
+        // Reklamla hizlandirma: kalan sure 30 gun kisalir
+        val left0 = FbClubLife.upgradeDaysLeft(w, c)
+        assertEquals(days, left0)
+        assertEquals(FbClubLife.RUSH_DAYS, FbClubLife.rushUpgrade(w, c))
+        assertEquals(days - FbClubLife.RUSH_DAYS, FbClubLife.upgradeDaysLeft(w, c))
+        repeat(days - FbClubLife.RUSH_DAYS + 8) { FbSeason.advanceDay(w, autoUser = true) }
         assertEquals(lvl + 1, c.trainingFacilities)
         assertEquals(-1, c.upgradeType)
         // Personel

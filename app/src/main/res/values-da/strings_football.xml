@@ -33,6 +33,8 @@
     <string name="fb_form_w">V</string>
     <string name="fb_form_d">U</string>
     <string name="fb_form_l">T</string>
+    <string name="fb_rush_ad">📺 Reklame: −%1$d dage (%2$d dage tilbage)</string>
+    <string name="fb_rushed">Byggeriet er rykket %1$s dage frem</string>
     <string name="game_football_manager_name">Klubboss</string>
     <string name="game_football_manager_desc">Styr en fodboldklub på din måde: alle Europas ligaer, realistisk kalender, europæiske turneringer og VM, detaljeret taktik, træning, akademi, økonomi og et levende transfermarked.</string>
     <string name="fb_tagline">Byg et dynasti. Hver beslutning er din.</string>

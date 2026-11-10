@@ -354,6 +354,19 @@ class FootballViewModel @Inject constructor(
         }
     }
 
+    /** Odullu reklam izlendi: tesis insaatini 30 gun kisalt (motor is parcaciginda). */
+    fun rushFacility() {
+        val w = world ?: return
+        viewModelScope.launch {
+            val d = withContext(engine) { FbClubLife.rushUpgrade(w, w.clubs[w.userClub]) }
+            bump()
+            if (d > 0) {
+                toast(R.string.fb_rushed, d.toString())
+                withContext(engine) { runCatching { repo.save(w) } }
+            }
+        }
+    }
+
     /** Odullu reklam izlendi: parayi motor is parcaciginda ekle (simulasyonla cakismasin). */
     fun claimAdBonus() {
         val w = world ?: return

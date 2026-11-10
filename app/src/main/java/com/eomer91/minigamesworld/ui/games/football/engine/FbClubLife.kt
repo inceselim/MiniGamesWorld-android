@@ -541,6 +541,23 @@ object FbClubLife {
         return null
     }
 
+    /** Suren insaatin bitmesine kalan gun (insaat yoksa 0) */
+    fun upgradeDaysLeft(world: FbWorld, c: FbClub): Int =
+        if (c.upgradeType < 0) 0 else max(0, (c.upgradeSeason - world.season) * 365 + c.upgradeDay - world.day)
+
+    const val RUSH_DAYS = 30
+
+    /** Odullu reklam: insaati RUSH_DAYS gun kisalt (en az 1 gun kalir). Kisaltilan gun sayisi; 0 ise olmadi. */
+    fun rushUpgrade(world: FbWorld, c: FbClub): Int {
+        val left = upgradeDaysLeft(world, c)
+        if (left <= 1) return 0
+        val newLeft = max(1, left - RUSH_DAYS)
+        val end = world.day + newLeft
+        c.upgradeSeason = world.season + end / 365
+        c.upgradeDay = end % 365
+        return left - newLeft
+    }
+
     private fun upgradeCheck(world: FbWorld, c: FbClub) {
         if (c.upgradeType < 0) return
         if (world.season < c.upgradeSeason || (world.season == c.upgradeSeason && world.day < c.upgradeDay)) return

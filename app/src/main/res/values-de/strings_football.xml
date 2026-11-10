@@ -33,6 +33,8 @@
     <string name="fb_form_w">S</string>
     <string name="fb_form_d">U</string>
     <string name="fb_form_l">N</string>
+    <string name="fb_rush_ad">📺 Werbung: −%1$d Tage (noch %2$d Tage)</string>
+    <string name="fb_rushed">Bau um %1$s Tage beschleunigt</string>
     <string name="game_football_manager_name">Klubboss</string>
     <string name="game_football_manager_desc">Führe einen Fußballklub nach deinen Vorstellungen: alle Ligen Europas, realistischer Kalender, Europapokale und Weltmeisterschaften, detaillierte Taktik, Training, Jugendakademie, Finanzen und ein lebendiger Transfermarkt.</string>
     <string name="fb_tagline">Baue eine Dynastie auf. Jede Entscheidung liegt bei dir.</string>
