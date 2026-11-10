@@ -1,36 +1,39 @@
 package com.eomer91.minigamesworld.ads
 
 import android.app.Activity
+import android.content.Context
 import android.util.Log
 import com.eomer91.minigamesworld.BuildConfig
-import com.unity3d.ads.IUnityAdsLoadListener
-import com.unity3d.ads.IUnityAdsShowListener
-import com.unity3d.ads.UnityAds
-import com.unity3d.ads.UnityAdsShowOptions
+import com.google.android.gms.ads.AdError
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.rewarded.RewardedAd
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * Odullu reklam (Unity Ads): oyuncu kendi istegiyle izler, sonuna kadar izlerse reklam kapaninca odul alir
- * (ornek: Block Puzzle'da parcalari degistirme, Kulup Patronu'nda yatirimci destegi).
+ * Odullu reklam: oyuncu kendi istegiyle izler, sonunda bir odul alir
+ * (ornek: Block Puzzle'da parcalari degistirme, hamle geri alma).
  */
 @Singleton
 class RewardedAdManager @Inject constructor(
+    @ApplicationContext private val context: Context,
     adsManager: AdsManager,
     private val interstitialAds: InterstitialAdManager,
 ) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
-    private val placementId = BuildConfig.UNITY_REWARDED_ID
+    private val unitId = BuildConfig.ADMOB_REWARDED_ID
 
-    private var loaded = false
+    private var ad: RewardedAd? = null
     private var isLoading = false
     private var adsReady = false
-    private var retries = 0
 
     init {
         scope.launch {
@@ -42,21 +45,24 @@ class RewardedAdManager @Inject constructor(
     }
 
     fun preload() {
-        if (!adsReady || placementId.isBlank() || loaded || isLoading) return
+        if (!adsReady || unitId.isBlank() || ad != null || isLoading) return
         isLoading = true
-        UnityAds.load(placementId, object : IUnityAdsLoadListener {
-            override fun onUnityAdsAdLoaded(id: String?) {
-                scope.launch { loaded = true; isLoading = false; retries = 0 }
-            }
-
-            override fun onUnityAdsFailedToLoad(id: String?, error: UnityAds.UnityAdsLoadError?, message: String?) {
-                Log.w(TAG, "Rewarded yuklenemedi: $error $message")
-                scope.launch {
+        RewardedAd.load(
+            context,
+            unitId,
+            AdRequest.Builder().build(),
+            object : RewardedAdLoadCallback() {
+                override fun onAdLoaded(loaded: RewardedAd) {
+                    ad = loaded
                     isLoading = false
-                    if (retries < 6) { delay(30_000L * (1 shl retries.coerceAtMost(3)).coerceAtMost(10)); retries++; preload() }
                 }
-            }
-        })
+
+                override fun onAdFailedToLoad(error: LoadAdError) {
+                    Log.w(TAG, "Rewarded failed to load: ${error.message}")
+                    isLoading = false
+                }
+            },
+        )
     }
 
     /**
@@ -64,31 +70,31 @@ class RewardedAdManager @Inject constructor(
      * reklam kapaninca [onReward] cagrilir. Reklam hazir degilse false doner.
      */
     fun show(activity: Activity, onReward: () -> Unit): Boolean {
-        if (!loaded) {
+        val current = ad
+        if (current == null) {
             preload()
             return false
         }
-        loaded = false
-        UnityAds.show(activity, placementId, UnityAdsShowOptions(), object : IUnityAdsShowListener {
-            override fun onUnityAdsShowStart(id: String?) {
+        ad = null
+
+        var earned = false
+        current.fullScreenContentCallback = object : FullScreenContentCallback() {
+            override fun onAdShowedFullScreenContent() {
                 // Odullu reklamdan hemen sonra bir de gecis reklami cikmasin.
-                scope.launch { interstitialAds.markFullScreenAdShown() }
+                interstitialAds.markFullScreenAdShown()
             }
 
-            override fun onUnityAdsShowClick(id: String?) {}
-
-            override fun onUnityAdsShowComplete(id: String?, state: UnityAds.UnityAdsShowCompletionState?) {
-                scope.launch {
-                    if (state == UnityAds.UnityAdsShowCompletionState.COMPLETED) onReward()
-                    preload()
-                }
+            override fun onAdDismissedFullScreenContent() {
+                if (earned) onReward()
+                preload()
             }
 
-            override fun onUnityAdsShowFailure(id: String?, error: UnityAds.UnityAdsShowError?, message: String?) {
-                Log.w(TAG, "Rewarded gosterilemedi: $error $message")
-                scope.launch { preload() }
+            override fun onAdFailedToShowFullScreenContent(error: AdError) {
+                Log.w(TAG, "Rewarded failed to show: ${error.message}")
+                preload()
             }
-        })
+        }
+        current.show(activity) { earned = true }
         return true
     }
 

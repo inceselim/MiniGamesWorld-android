@@ -48,6 +48,8 @@ private val SUPPORTED_LANGUAGES = listOf("en", "tr", "de", "es", "fr", "it", "ja
 
 @Composable
 fun SettingsScreen(
+    privacyOptionsRequired: Boolean,
+    onShowPrivacyOptions: () -> Unit,
     viewModel: SettingsViewModel = hiltViewModel(),
 ) {
     val sound by viewModel.soundEnabled.collectAsStateWithLifecycle()
@@ -84,6 +86,9 @@ fun SettingsScreen(
         }
         SettingRow(stringResource(R.string.rate_app), onClick = { activity?.let(AppActions::rateApp) ?: AppActions.openStorePage(context) }) {
             Text("★★★★★", color = AppColors.Gold, fontWeight = FontWeight.Black)
+        }
+        if (privacyOptionsRequired) {
+            SettingRow(stringResource(R.string.settings_privacy), onClick = onShowPrivacyOptions) {}
         }
 
         Text(

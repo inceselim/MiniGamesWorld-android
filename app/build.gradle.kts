@@ -30,10 +30,7 @@ android {
         versionCode = 12
         versionName = "2.6.0"
 
-        // Unity Ads: Game ID ve reklam birimleri gradle.properties'ten (gizli degil).
-        buildConfigField("String", "UNITY_GAME_ID", "\"${adId("UNITY_GAME_ID")}\"")
-        buildConfigField("String", "UNITY_INTERSTITIAL_ID", "\"${adId("UNITY_INTERSTITIAL_ID").ifEmpty { "Interstitial_Android" }}\"")
-        buildConfigField("String", "UNITY_REWARDED_ID", "\"${adId("UNITY_REWARDED_ID").ifEmpty { "Rewarded_Android" }}\"")
+        manifestPlaceholders["admobAppId"] = "ca-app-pub-1017432203303316~7837238391"
     }
 
     signingConfigs {
@@ -51,8 +48,10 @@ android {
         debug {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
-            // Debug derlemede Unity yalnizca test reklami gosterir
-            buildConfigField("boolean", "UNITY_TEST_MODE", "true")
+            // Google'in resmi test reklam birimleri
+            buildConfigField("String", "ADMOB_BANNER_ID", "\"ca-app-pub-3940256099942544/9214589741\"")
+            buildConfigField("String", "ADMOB_INTERSTITIAL_ID", "\"ca-app-pub-3940256099942544/1033173712\"")
+            buildConfigField("String", "ADMOB_REWARDED_ID", "\"ca-app-pub-3940256099942544/5224354917\"")
         }
         release {
             isMinifyEnabled = true
@@ -61,7 +60,9 @@ android {
             if (keystoreProps.isNotEmpty()) {
                 signingConfig = signingConfigs.getByName("release")
             }
-            buildConfigField("boolean", "UNITY_TEST_MODE", "false")
+            buildConfigField("String", "ADMOB_BANNER_ID", "\"${adId("ADMOB_BANNER_ID")}\"")
+            buildConfigField("String", "ADMOB_INTERSTITIAL_ID", "\"${adId("ADMOB_INTERSTITIAL_ID")}\"")
+            buildConfigField("String", "ADMOB_REWARDED_ID", "\"${adId("ADMOB_REWARDED_ID")}\"")
         }
     }
 
@@ -111,7 +112,8 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
 
-    implementation(libs.unity.ads)
+    implementation(libs.play.services.ads)
+    implementation(libs.ump)
     implementation(libs.play.review)
     implementation(libs.androidx.work.runtime)
 
