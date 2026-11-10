@@ -82,36 +82,45 @@ class BillingManager @Inject constructor(
         .build()
 
     /** Uygulama acilisinda ve on plana donuste cagrilir */
-    private var connecting = false
+    /**
+     * startConnection yalnizca bir kez cagrilir. enableAutoServiceReconnection acik oldugu icin
+     * baglanti koptugunda kutuphane bir sonraki istekte kendisi yeniden baglanir; ikinci bir
+     * startConnection cagrisi onunla catisir ("already in the process of connecting", sonuc 5).
+     * Ilk kurulum basarisiz olursa bayrak sifirlanir ve sonraki start() yeniden dener.
+     */
+    private var started = false
 
     fun start() {
-        if (client.isReady) { refresh(); return }
-        if (connecting) return
-        connecting = true
+        if (started) return
+        started = true
         _status.value = Status.CONNECTING
         client.startConnection(object : BillingClientStateListener {
             override fun onBillingSetupFinished(result: BillingResult) {
-                connecting = false
                 if (result.responseCode == BillingClient.BillingResponseCode.OK) {
                     _status.value = Status.READY
-                    refresh()
+                    _lastError.value = ""
+                    queryProducts()
+                    queryPurchases(userInitiated = false)
                 } else {
                     Log.w(TAG, "Billing setup failed: ${result.debugMessage}")
                     _lastError.value = "setup ${result.responseCode} ${result.debugMessage}"
                     _status.value = Status.UNAVAILABLE
+                    started = false
                 }
             }
 
             override fun onBillingServiceDisconnected() {
-                connecting = false
-                // enableAutoServiceReconnection: bir sonraki istekte kendiliginden yeniden baglanir
+                // Bilerek bos: otomatik yeniden baglanma bir sonraki istekte devreye girer
             }
         })
     }
 
     /** Urunleri ve mevcut abonelikleri yeniden sorgula ("satin alimlari geri yukle") */
     fun refresh(userInitiated: Boolean = false) {
-        if (!client.isReady) { start(); return }
+        // Henuz baslatilmadiysa (ya da ilk kurulum basarisizsa) baslat; sorgular kurulum bitince yapilir
+        if (!started) { start(); return }
+        // Kurulum hala suruyorsa bekle: sorgular onBillingSetupFinished'ta yapilacak
+        if (_status.value == Status.CONNECTING) return
         queryProducts()
         queryPurchases(userInitiated)
     }
@@ -180,7 +189,7 @@ class BillingManager @Inject constructor(
 
     /** Abonelik ekranini ac */
     fun launch(activity: Activity, plan: Plan): Boolean {
-        if (!client.isReady) { start(); return false }
+        if (!started) { start(); return false }
         val params = BillingFlowParams.newBuilder()
             .setProductDetailsParamsList(
                 listOf(
