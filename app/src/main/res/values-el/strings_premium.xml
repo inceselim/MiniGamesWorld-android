@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="premium_title">Premium: χωρίς διαφημίσεις</string>
+    <string name="premium_row">Κατάργηση διαφημίσεων</string>
+    <string name="premium_active">Το Premium είναι ενεργό</string>
+    <string name="premium_b1">Χωρίς διαφημίσεις ανάμεσα στα παιχνίδια</string>
+    <string name="premium_b2">Χωρίς διαφημιστικά banner</string>
+    <string name="premium_b3">Τα προαιρετικά βίντεο ανταμοιβής παραμένουν όταν θέλεις μπόνους</string>
+    <string name="premium_b4">Στήριξε έναν ανεξάρτητο προγραμματιστή</string>
+    <string name="premium_monthly">Μηνιαία</string>
+    <string name="premium_yearly">Ετήσια</string>
+    <string name="premium_per_month">%1$s / μήνα</string>
+    <string name="premium_per_year">%1$s / έτος</string>
+    <string name="premium_save">Εξοικονόμηση %1$s</string>
+    <string name="premium_trial">%1$d ημέρες δωρεάν</string>
+    <string name="premium_then">%1$d ημέρες δωρεάν, μετά %2$s</string>
+    <string name="premium_subscribe">Συνδρομή</string>
+    <string name="premium_start_trial">Ξεκίνα τη δωρεάν δοκιμή</string>
+    <string name="premium_manage">Διαχείριση συνδρομής</string>
+    <string name="premium_restore">Επαναφορά αγορών</string>
+    <string name="premium_restored">Οι αγορές ελέγχθηκαν</string>
+    <string name="premium_thanks">Ευχαριστούμε! Οι διαφημίσεις αφαιρέθηκαν.</string>
+    <string name="premium_pending">Η πληρωμή εκκρεμεί. Το Premium ενεργοποιείται μόλις επιβεβαιωθεί.</string>
+    <string name="premium_error">Κάτι πήγε στραβά με το Google Play. Δοκίμασε ξανά.</string>
+    <string name="premium_loading">Φόρτωση…</string>
+    <string name="premium_unavailable">Οι συνδρομές δεν φορτώνουν αυτή τη στιγμή. Έλεγξε τη σύνδεσή σου και το Google Play.</string>
+    <string name="premium_terms">Ανανεώνεται αυτόματα μέχρι να ακυρωθεί. Ακύρωσε οποιαδήποτε στιγμή στο Google Play &gt; Συνδρομές.</string>
+    <string name="premium_close">Όχι τώρα</string>
+</resources>

@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fb_monthly">Μηνιαία</string>
+    <string name="fb_this_month">Αυτόν τον μήνα</string>
+    <string name="fb_last_month">Προηγούμενος μήνας</string>
+    <string name="fb_month_income">Συνολικά έσοδα</string>
+    <string name="fb_month_expense">Συνολικά έξοδα</string>
+    <string name="fb_bank">Τράπεζα</string>
+    <string name="fb_bank_loan">Τραπεζικό δάνειο</string>
+    <string name="fb_credit_limit">Πιστωτικό όριο</string>
+    <string name="fb_loan_amount">Ποσό</string>
+    <string name="fb_loan_term">Διάρκεια</string>
+    <string name="fb_years_short">%1$d έτ.</string>
+    <string name="fb_interest_rate">Επιτόκιο</string>
+    <string name="fb_rate_year">%1$s ετησίως</string>
+    <string name="fb_weekly_payment">Εβδομαδιαία δόση</string>
+    <string name="fb_total_repay">Σύνολο αποπληρωμής</string>
+    <string name="fb_take_loan">Πάρε το δάνειο</string>
+    <string name="fb_loan_taken_ok">Το δάνειο εγκρίθηκε: %1$s</string>
+    <string name="fb_loan_left">Υπόλοιπο χρέους</string>
+    <string name="fb_loan_original">Δανεισμένο ποσό</string>
+    <string name="fb_weeks_left">Εβδομάδες που απομένουν</string>
+    <string name="fb_repay_loan">Εξόφληση τώρα (%1$s)</string>
+    <string name="fb_loan_repaid">Το δάνειο εξοφλήθηκε</string>
+    <string name="fb_bank_tip" formatted="false">Οι δόσεις πληρώνονται κάθε Δευτέρα. Οι σύλλογοι με υψηλή φήμη έχουν φθηνότερο επιτόκιο· ανεβαίνει όσο το υπόλοιπό σου είναι αρνητικό. Η πρόωρη εξόφληση κοστίζει 1% επιπλέον. Μόνο ένα δάνειο κάθε φορά.</string>
+    <string name="fb_deposit">Κατάθεση ταμιευτηρίου</string>
+    <string name="fb_deposit_balance">Υπόλοιπο κατάθεσης</string>
+    <string name="fb_deposit_earned">Τόκοι που κερδήθηκαν</string>
+    <string name="fb_weekly_return">Εβδομαδιαίος τόκος</string>
+    <string name="fb_deposit_x">Κατάθεση %1$s</string>
+    <string name="fb_withdraw_x">Ανάληψη %1$s</string>
+    <string name="fb_deposit_tip" formatted="false">Τα χρήματα στην κατάθεση αποδίδουν 2% τον χρόνο, αλλά δεν μπορούν να χρησιμοποιηθούν για μεταγραφές ή μισθούς μέχρι να τα αποσύρεις.</string>
+    <string name="fb_form_w">Ν</string>
+    <string name="fb_form_d">Ι</string>
+    <string name="fb_form_l">Η</string>
+    <string name="fb_rush_ad">📺 Δες διαφήμιση: −%1$d ημέρες (απομένουν %2$d ημέρες)</string>
+    <string name="fb_rushed">Η κατασκευή επιταχύνθηκε κατά %1$s ημέρες</string>
+    <string name="game_football_manager_name">Αφεντικό συλλόγου</string>
+    <string name="game_football_manager_desc">Διοίκησε έναν ποδοσφαιρικό σύλλογο με τον δικό σου τρόπο: κάθε πρωτάθλημα της Ευρώπης, ρεαλιστικό πρόγραμμα, ευρωπαϊκά κύπελλα και Μουντιάλ, λεπτομερής τακτική, προπόνηση, ακαδημία νέων, οικονομικά και ζωντανή αγορά μεταγραφών.</string>
+    <string name="fb_tagline">Χτίσε μια δυναστεία. Κάθε απόφαση είναι δική σου.</string>
+    <string name="fb_continue_career">Συνέχεια καριέρας</string>
+    <string name="fb_new_career">Νέα καριέρα</string>
+    <string name="fb_new_career_warning">Η τωρινή σου καριέρα θα διαγραφεί. Είσαι σίγουρος;</string>
+    <string name="fb_yes">Ναι</string>
+    <string name="fb_no">Όχι</string>
+    <string name="fb_generating">Δημιουργία του ποδοσφαιρικού κόσμου…</string>
+    <string name="fb_please_wait">Περίμενε…</string>
+    <string name="fb_load_failed">Η αποθήκευση δεν φορτώθηκε</string>
+    <string name="fb_choose_country">Χώρα</string>
+    <string name="fb_choose_club">Διάλεξε τον σύλλογό σου</string>
+    <string name="fb_tier_n">Κατηγορία %1$d</string>
+    <string name="fb_league_name">%1$s Λίγκα %2$d</string>
+    <string name="fb_reputation">Φήμη</string>
+    <string name="fb_balance">Υπόλοιπο</string>
+    <string name="fb_transfer_budget">Μπάτζετ μεταγραφών</string>
+    <string name="fb_stadium">Γήπεδο</string>
+    <string name="fb_squad_size">Μέγεθος ρόστερ</string>
+    <string name="fb_best_player">Καλύτερος παίκτης</string>
+    <string name="fb_manager_name">Όνομα προπονητή</string>
+    <string name="fb_start_career">Έναρξη καριέρας</string>
+    <string name="fb_cancel">Άκυρο</string>
+    <string name="fb_close">Κλείσιμο</string>
+    <string name="fb_tab_home">Αρχική</string>
+    <string name="fb_tab_squad">Ρόστερ</string>
+    <string name="fb_tab_tactics">Τακτική</string>
+    <string name="fb_tab_fixtures">Πρόγραμμα</string>
+    <string name="fb_tab_competitions">Βαθμολογίες</string>
+    <string name="fb_tab_transfers">Μεταγραφές</string>
+    <string name="fb_tab_club">Σύλλογος</string>
+    <string name="fb_tab_inbox">Εισερχόμενα</string>
+    <string name="fb_tab_guide">Οδηγός</string>
+    <string name="fb_continue">Συνέχεια</string>
+    <string name="fb_go_to_match">Στον αγώνα</string>
+    <string name="fb_next_matches">Επόμενοι αγώνες</string>
+    <string name="fb_no_matches">Δεν υπάρχουν προγραμματισμένοι αγώνες</string>
+    <string name="fb_recent_results">Πρόσφατα αποτελέσματα</string>
+    <string name="fb_latest_news">Τελευταία νέα</string>
+    <string name="fb_no_news">Δεν υπάρχουν νέα ακόμα</string>
+    <string name="fb_club_summary">Σύλλογος</string>
+    <string name="fb_weekly_wages">Εβδομαδιαίοι μισθοί</string>
+    <string name="fb_season_income">Έσοδα σεζόν</string>
+    <string name="fb_season_expense">Έξοδα σεζόν</string>
+    <string name="fb_ad_bonus_title">Μπόνους επενδυτή</string>
+    <string name="fb_ad_bonus_desc">Δες ένα σύντομο βίντεο και ένας επενδυτής προσθέτει %1$s στο ταμείο του συλλόγου.</string>
+    <string name="fb_ad_bonus_left">Απομένουν %1$d αυτή την εβδομάδα</string>
+    <string name="fb_ad_bonus_got">Προστέθηκαν %1$s στο ταμείο του συλλόγου!</string>
+    <string name="fb_watch_ad">Δες διαφήμιση</string>
+    <string name="fb_table_cols">Α,Ν,Ι,Η,ΔΤ,Β</string>
+    <string name="fb_vs">εναντίον</string>
+    <string name="fb_first_leg">Πρώτος αγώνας: %1$s</string>
+    <string name="fb_play_match">Παίξε τον αγώνα</string>
+    <string name="fb_quick_result">Γρήγορο αποτέλεσμα</string>
+    <string name="fb_edit_tactics">Τακτική</string>
+    <string name="fb_squad">Ρόστερ</string>
+    <string name="fb_penalties">Πέναλτι %1$s</string>
+    <string name="fb_match_stats">Στατιστικά αγώνα</string>
+    <string name="fb_possession">Κατοχή</string>
+    <string name="fb_shots">Σουτ (εντός εστίας)</string>
+    <string name="fb_corners">Κόρνερ</string>
+    <string name="fb_fouls">Φάουλ</string>
+    <string name="fb_cards">Κάρτες Κ/Κόκ</string>
+    <string name="fb_player_ratings">Βαθμολογίες παικτών</string>
+    <string name="fb_season_over">Η σεζόν %1$s τελείωσε</string>
+    <string name="fb_final_position">Τελική θέση στο πρωτάθλημα: %1$d</string>
+    <string name="fb_promoted">Άνοδος!</string>
+    <string name="fb_relegated">Υποβιβασμός</string>
+    <string name="fb_honours_this_season">Πρωταθλητές</string>
+    <string name="fb_new_season">Έναρξη %1$s</string>
+    <string name="fb_accept">Αποδοχή</string>
+    <string name="fb_reject">Απόρριψη</string>
+    <string name="fb_accept_counter">Αποδοχή %1$s</string>
+    <string name="fb_withdraw">Απόσυρση</string>
+    <string name="fb_negotiate_contract">Διαπραγμάτευση συμβολαίου</string>
+    <string name="fb_no_funds">Δεν υπάρχουν αρκετά χρήματα</string>
+    <string name="fb_free">ελεύθερος</string>
+    <string name="fb_free_agent">Ελεύθερος παίκτης</string>
+    <string name="fb_n_offer_received">Η %1$s προσφέρει %2$s για τον %3$s</string>
+    <string name="fb_n_offer_accepted">Η %1$s αποδέχτηκε την προσφορά για τον %2$s (%3$s)</string>
+    <string name="fb_n_offer_rejected">Η %1$s απέρριψε την προσφορά για τον %2$s</string>
+    <string name="fb_n_offer_counter">Η %1$s ζητά %3$s για τον %2$s</string>
+    <string name="fb_n_player_refused">Ο %1$s δεν θέλει να πάει στην %2$s</string>
+    <string name="fb_n_signed_free">Ο %1$s υπέγραψε ελεύθερος στην %2$s</string>
+    <string name="fb_n_transfer">Ο %1$s πηγαίνει από την %2$s στην %3$s (%4$s)</string>
+    <string name="fb_n_rumour">Φήμη: η %1$s παρακολουθεί τον %2$s της %3$s (%4$d%%)</string>
+    <string name="fb_n_contract_expiring">Το συμβόλαιο του %1$s λήγει αυτό το καλοκαίρι</string>
+    <string name="fb_n_unhappy">Ο %1$s είναι δυσαρεστημένος και θέλει να φύγει</string>
+    <string name="fb_n_auction_bid">Η %1$s πρόσφερε %2$s για τον %3$s</string>
+    <string name="fb_n_auction_sold">Δημοπρασία: ο %1$s πουλήθηκε στην %2$s για %3$s</string>
+    <string name="fb_n_auction_unsold">Δημοπρασία: δεν βρέθηκε αγοραστής για τον %1$s</string>
+    <string name="fb_n_loan_return">Ο %1$s επιστρέφει στην %2$s μετά τον δανεισμό του</string>
+    <string name="fb_n_precontract">Ο %1$s συμφώνησε προσύμφωνο με την %2$s</string>
+    <string name="fb_n_youth">%1$d νέοι ήρθαν από την ακαδημία</string>
+    <string name="fb_n_released">Ο %1$s αποχώρησε από τον σύλλογο</string>
+    <string name="fb_col_name">Όνομα</string>
+    <string name="fb_col_pos">Θέση</string>
+    <string name="fb_col_age">Ηλικία</string>
+    <string name="fb_col_ability">Ικανότητα</string>
+    <string name="fb_col_potential">Δυναμική</string>
+    <string name="fb_col_condition">Φυσ.</string>
+    <string name="fb_col_morale">Ηθικό</string>
+    <string name="fb_col_form">Φόρμα</string>
+    <string name="fb_col_value">Αξία</string>
+    <string name="fb_col_wage">Μισθός</string>
+    <string name="fb_col_contract">Συμβόλαιο</string>
+    <string name="fb_per_week">/εβδ</string>
+    <string name="fb_release_clause">Ρήτρα αποδέσμευσης</string>
+    <string name="fb_injured">Τραυματίας</string>
+    <string name="fb_days">%1$d ημέρες</string>
+    <string name="fb_height_foot">Ύψος · πόδι</string>
+    <string name="fb_foot_right">Δεξί</string>
+    <string name="fb_foot_left">Αριστερό</string>
+    <string name="fb_foot_both">Και τα δύο</string>
+    <string name="fb_caps">Συμμετοχές / γκολ</string>
+    <string name="fb_season_stats">Σεζόν</string>
+    <string name="fb_stats_line">%1$d συμμετοχές, %2$d γκολ, %3$d ασίστ, μ.ό. %4$s</string>
+    <string name="fb_positions">Θέσεις</string>
+    <string name="fb_hidden_attributes">Κρυφά χαρακτηριστικά &amp; πραγματική δυναμική</string>
+    <string name="fb_hidden_locked">Το επιτελείο σου μπορεί μόνο να εκτιμήσει. Δες ένα βίντεο για να αποκαλύψεις την ακριβή δυναμική και την κρυφή προσωπικότητα.</string>
+    <string name="fb_reveal_with_ad">Αποκάλυψη (βίντεο)</string>
+    <string name="fb_exact_ability">Τρέχουσα ικανότητα</string>
+    <string name="fb_exact_potential">Δυνητική ικανότητα</string>
+    <string name="fb_g_technical">Τεχνικά</string>
+    <string name="fb_g_mental">Πνευματικά</string>
+    <string name="fb_g_physical">Σωματικά</string>
+    <string name="fb_g_goalkeeping">Τερματοφύλαξη</string>
+    <string name="fb_training">Προπόνηση</string>
+    <string name="fb_individual_focus">Ατομική έμφαση</string>
+    <string name="fb_position_training">Εκμάθηση νέας θέσης</string>
+    <string name="fb_none">Καμία</string>
+    <string name="fb_contract_transfer">Συμβόλαιο &amp; μεταγραφή</string>
+    <string name="fb_renew_contract">Ανανέωση συμβολαίου</string>
+    <string name="fb_list_for_transfer">Λίστα μεταγραφών (%1$s)</string>
+    <string name="fb_unlist">Αφαίρεση από τη λίστα (%1$s)</string>
+    <string name="fb_list_for_loan">Προσφορά για δανεισμό</string>
+    <string name="fb_unlist_loan">Αφαίρεση από τη λίστα δανεισμού</string>
+    <string name="fb_auction">Δημοπρασία (3 ημέρες)</string>
+    <string name="fb_auction_started">Η δημοπρασία ξεκίνησε</string>
+    <string name="fb_release">Αποδέσμευση παίκτη</string>
+    <string name="fb_release_confirm">Επιβεβαίωση αποδέσμευσης (%1$s)</string>
+    <string name="fb_transfer">Μεταγραφή</string>
+    <string name="fb_shortlist_add">Προσθήκη στη λίστα στόχων</string>
+    <string name="fb_shortlist_remove">Αφαίρεση από τη λίστα στόχων</string>
+    <string name="fb_offer_fee">Προσφορά: %1$s</string>
+    <string name="fb_asking_price">Ζητούμενη τιμή: %1$s</string>
+    <string name="fb_not_interested">Ο παίκτης δεν ενδιαφέρεται για τον σύλλογό σου</string>
+    <string name="fb_make_offer">Κάνε προσφορά</string>
+    <string name="fb_request_loan" formatted="false">Ζήτα δανεισμό (70% μισθού)</string>
+    <string name="fb_offer_sent">Η προσφορά στάλθηκε. Απάντηση αύριο.</string>
+    <string name="fb_err_window">Η μεταγραφική περίοδος έκλεισε</string>
+    <string name="fb_err_duplicate">Έχεις ήδη προσφορά για αυτόν τον παίκτη</string>
+    <string name="fb_err_on_loan">Ο παίκτης είναι δανεικός</string>
+    <string name="fb_err_generic">Δεν είναι δυνατό αυτή τη στιγμή</string>
+    <string name="fb_t_attacking">Επίθεση</string>
+    <string name="fb_t_defending">Άμυνα</string>
+    <string name="fb_t_technical">Τεχνική</string>
+    <string name="fb_t_tactical">Τακτική</string>
+    <string name="fb_t_physical">Φυσική κατάσταση</string>
+    <string name="fb_t_mental">Πνευματικά</string>
+    <string name="fb_t_set_pieces">Στημένες φάσεις</string>
+    <string name="fb_t_goalkeeping">Τερματοφύλαξη</string>
+    <string name="fb_contract_talks">Διαπραγματεύσεις συμβολαίου: %1$s</string>
+    <string name="fb_fee_agreed">Συμφωνήθηκε το τίμημα μεταγραφής: %1$s</string>
+    <string name="fb_wage_demand">Απαίτηση μισθού</string>
+    <string name="fb_years_wanted">Επιθυμητή διάρκεια συμβολαίου</string>
+    <string name="fb_signing_fee">Μπόνους υπογραφής</string>
+    <string name="fb_offered_wage">Η πρόταση μισθού σου: %1$s/εβδ</string>
+    <string name="fb_contract_years">Έτη</string>
+    <string name="fb_propose">Πρόταση</string>
+    <string name="fb_reply_accept">Συμφωνία! Το συμβόλαιο υπογράφηκε.</string>
+    <string name="fb_reply_wage_low">Ο μισθός είναι πολύ χαμηλός.</string>
+    <string name="fb_reply_years">Θέλει διαφορετική διάρκεια συμβολαίου.</string>
+    <string name="fb_reply_not_interested">Δεν ενδιαφέρεται.</string>
+    <string name="fb_reply_walked">Αποχώρησε από τις διαπραγματεύσεις.</string>
+    <string name="fb_soon">Έρχεται στην επόμενη ενημέρωση</string>
+    <string name="fb_c_league">Πρωτάθλημα</string>
+    <string name="fb_c_playoff">Πλέι-οφ</string>
+    <string name="fb_c_playoff_of">Πλέι-οφ %1$s</string>
+    <string name="fb_c_cup">Κύπελλο</string>
+    <string name="fb_c_super_cup">Σούπερ Καπ</string>
+    <string name="fb_c_champions">Κύπελλο Πρωταθλητριών</string>
+    <string name="fb_c_europa">Κύπελλο Ευρώπης</string>
+    <string name="fb_c_conference">Κύπελλο Conference</string>
+    <string name="fb_c_uefa_super">Ευρωπαϊκό Σούπερ Καπ</string>
+    <string name="fb_c_friendly">Φιλικό</string>
+    <string name="fb_c_nations">Nations League</string>
+    <string name="fb_c_qualifiers">Προκριματικά</string>
+    <string name="fb_c_world_cup">Παγκόσμιο Κύπελλο</string>
+    <string name="fb_c_euro">Ευρωπαϊκό Πρωτάθλημα</string>
+    <string name="fb_c_nat_friendly">Διεθνές φιλικό</string>
+    <string name="fb_s_league">Πρωτάθλημα</string>
+    <string name="fb_s_groups">Φάση ομίλων</string>
+    <string name="fb_s_league_phase">Φάση πρωταθλήματος</string>
+    <string name="fb_s_q1">1ος προκριματικός γύρος</string>
+    <string name="fb_s_q2">2ος προκριματικός γύρος</string>
+    <string name="fb_s_q3">3ος προκριματικός γύρος</string>
+    <string name="fb_s_qpo">Προκριματικά πλέι-οφ</string>
+    <string name="fb_s_kpo">Πλέι-οφ νοκ άουτ</string>
+    <string name="fb_s_r128">Φάση των 128</string>
+    <string name="fb_s_r64">Φάση των 64</string>
+    <string name="fb_s_r32">Φάση των 32</string>
+    <string name="fb_s_r16">Φάση των 16</string>
+    <string name="fb_s_qf">Προημιτελικός</string>
+    <string name="fb_s_sf">Ημιτελικός</string>
+    <string name="fb_s_final">Τελικός</string>
+    <string name="fb_s_prelim">Προκαταρκτικός γύρος</string>
+    <string name="fb_s_match">Αγώνας</string>
+    <string name="fb_a_corners">Κόρνερ</string>
+    <string name="fb_a_crossing">Σέντρες</string>
+    <string name="fb_a_dribbling">Ντρίμπλα</string>
+    <string name="fb_a_finishing">Τελείωμα</string>
+    <string name="fb_a_first_touch">Πρώτη επαφή</string>
+    <string name="fb_a_free_kick">Φάουλ</string>
+    <string name="fb_a_heading">Κεφαλιές</string>
+    <string name="fb_a_long_shots">Μακρινά σουτ</string>
+    <string name="fb_a_marking">Μαρκάρισμα</string>
+    <string name="fb_a_passing">Πάσες</string>
+    <string name="fb_a_penalty">Εκτέλεση πέναλτι</string>
+    <string name="fb_a_tackling">Τάκλιν</string>
+    <string name="fb_a_technique">Τεχνική</string>
+    <string name="fb_a_aggression">Επιθετικότητα</string>
+    <string name="fb_a_anticipation">Πρόβλεψη</string>
+    <string name="fb_a_bravery">Θάρρος</string>
+    <string name="fb_a_composure">Ψυχραιμία</string>
+    <string name="fb_a_concentration">Συγκέντρωση</string>
+    <string name="fb_a_decisions">Αποφάσεις</string>
+    <string name="fb_a_determination">Αποφασιστικότητα</string>
+    <string name="fb_a_flair">Έμπνευση</string>
+    <string name="fb_a_leadership">Ηγεσία</string>
+    <string name="fb_a_off_the_ball">Κινήσεις χωρίς μπάλα</string>
+    <string name="fb_a_positioning">Τοποθέτηση</string>
+    <string name="fb_a_teamwork">Ομαδικότητα</string>
+    <string name="fb_a_vision">Όραση</string>
+    <string name="fb_a_work_rate">Εργατικότητα</string>
+    <string name="fb_a_acceleration">Επιτάχυνση</string>
+    <string name="fb_a_agility">Ευκινησία</string>
+    <string name="fb_a_balance">Ισορροπία</string>
+    <string name="fb_a_jumping">Άλμα</string>
+    <string name="fb_a_natural_fitness">Φυσική αντοχή</string>
+    <string name="fb_a_pace">Ταχύτητα</string>
+    <string name="fb_a_stamina">Αντοχή</string>
+    <string name="fb_a_strength">Δύναμη</string>
+    <string name="fb_a_aerial_reach">Εναέρια εμβέλεια</string>
+    <string name="fb_a_command_of_area">Έλεγχος περιοχής</string>
+    <string name="fb_a_handling">Πιασίματα</string>
+    <string name="fb_a_kicking">Λακτίσματα</string>
+    <string name="fb_a_one_on_ones">Ένας εναντίον ενός</string>
+    <string name="fb_a_reflexes">Αντανακλαστικά</string>
+    <string name="fb_h_consistency">Σταθερότητα</string>
+    <string name="fb_h_important_matches">Σημαντικοί αγώνες</string>
+    <string name="fb_h_injury_proneness">Τάση για τραυματισμούς</string>
+    <string name="fb_h_professionalism">Επαγγελματισμός</string>
+    <string name="fb_h_ambition">Φιλοδοξία</string>
+    <string name="fb_h_loyalty">Αφοσίωση</string>
+    <string name="fb_h_adaptability">Προσαρμοστικότητα</string>
+    <string name="fb_h_pressure">Πίεση</string>
+    <string name="fb_h_versatility">Πολυπραγμοσύνη</string>
+    <string name="fb_all">Όλα</string>
+    <string name="fb_cups">Κύπελλα</string>
+    <string name="fb_europe">Ευρώπη</string>
+    <string name="fb_national_teams">Εθνικές ομάδες</string>
+    <string name="fb_no_competitions">Δεν υπάρχουν διοργανώσεις</string>
+    <string name="fb_not_started">Δεν έχει ξεκινήσει ακόμα</string>
+    <string name="fb_winner">Νικητής: %1$s</string>
+    <string name="fb_group_n">Όμιλος %1$s</string>
+    <string name="fb_byes">%1$d ομάδες προκρίθηκαν χωρίς αγώνα</string>
+    <string name="fb_top_scorers">Σκόρερ</string>
+    <string name="fb_lineup">Ενδεκάδα</string>
+    <string name="fb_instructions">Οδηγίες</string>
+    <string name="fb_team_training">Προπόνηση</string>
+    <string name="fb_auto_pick">Αυτόματη επιλογή</string>
+    <string name="fb_best_formation">Καλύτερο σύστημα</string>
+    <string name="fb_team_strength">Δύναμη ομάδας</string>
+    <string name="fb_pick_for">Διάλεξε παίκτη για %1$s</string>
+    <string name="fb_tap_position">Πάτα μια θέση στο γήπεδο</string>
+    <string name="fb_starting">11</string>
+    <string name="fb_bench">Πάγκος</string>
+    <string name="fb_suspended">Τιμωρημένος</string>
+    <string name="fb_on">Ναι</string>
+    <string name="fb_off">Όχι</string>
+    <string name="fb_open_guide">Άνοιξε τον οδηγό τακτικής</string>
+    <string name="fb_tac_mentality">Νοοτροπία</string>
+    <string name="fb_tac_passing">Στυλ πάσας</string>
+    <string name="fb_tac_tempo">Ρυθμός</string>
+    <string name="fb_tac_width">Πλάτος</string>
+    <string name="fb_tac_focus">Επιθετική έμφαση</string>
+    <string name="fb_tac_pressing">Πρέσινγκ</string>
+    <string name="fb_tac_defline">Αμυντική γραμμή</string>
+    <string name="fb_tac_marking">Μαρκάρισμα</string>
+    <string name="fb_tac_counter">Αντεπίθεση</string>
+    <string name="fb_tac_offside">Παγίδα οφσάιντ</string>
+    <string name="fb_tac_time_wasting">Καθυστέρηση</string>
+    <string name="fb_tac_hard_tackling">Σκληρά τάκλιν</string>
+    <string name="fb_o_very_defensive">Πολύ αμυντική</string>
+    <string name="fb_o_defensive">Αμυντική</string>
+    <string name="fb_o_balanced">Ισορροπημένη</string>
+    <string name="fb_o_attacking">Επιθετική</string>
+    <string name="fb_o_very_attacking">Πολύ επιθετική</string>
+    <string name="fb_o_short">Κοντές</string>
+    <string name="fb_o_mixed">Μικτές</string>
+    <string name="fb_o_direct">Κάθετες</string>
+    <string name="fb_o_slow">Αργός</string>
+    <string name="fb_o_normal">Κανονικός</string>
+    <string name="fb_o_fast">Γρήγορος</string>
+    <string name="fb_o_narrow">Στενό</string>
+    <string name="fb_o_wide">Φαρδύ</string>
+    <string name="fb_o_center">Από τον άξονα</string>
+    <string name="fb_o_flanks">Από τα άκρα</string>
+    <string name="fb_o_low">Χαμηλό</string>
+    <string name="fb_o_medium">Μεσαίο</string>
+    <string name="fb_o_high">Ψηλό</string>
+    <string name="fb_o_deep">Βαθιά</string>
+    <string name="fb_o_zonal">Ζώνη</string>
+    <string name="fb_o_man">Ατομικό</string>
+    <string name="fb_o_light">Ελαφριά</string>
+    <string name="fb_o_intense">Έντονη</string>
+    <string name="fb_tip_mentality">Πιο επιθετικά = περισσότερα σουτ και γκολ, αλλά περισσότερος χώρος πίσω από την άμυνά σου.</string>
+    <string name="fb_tip_passing">Οι κοντές πάσες κρατούν την μπάλα και είναι πιο ασφαλείς· οι κάθετες φτάνουν πιο γρήγορα στην περιοχή με περισσότερο ρίσκο.</string>
+    <string name="fb_tip_tempo">Ο γρήγορος ρυθμός δημιουργεί ευκαιρίες πιο γρήγορα αλλά φέρνει περισσότερα λάθη και κούραση.</string>
+    <string name="fb_tip_width">Το φαρδύ παιχνίδι φέρνει περισσότερες σέντρες· το στενό γεμίζει τον άξονα.</string>
+    <string name="fb_tip_focus">Άξονας = κάθετες πάσες (όραση, πάσες)· άκρα = σέντρες (σέντρες, κεφαλιές).</string>
+    <string name="fb_tip_pressing">Το ψηλό πρέσινγκ κερδίζει την μπάλα πιο ψηλά αλλά κουράζει τους παίκτες σου.</string>
+    <string name="fb_tip_defline">Μια ψηλή γραμμή στενεύει το κέντρο αλλά είναι εκτεθειμένη σε μπαλιές πίσω της.</string>
+    <string name="fb_tip_marking">Το ατομικό μαρκάρισμα εξουδετερώνει τους επιθετικούς· όσοι κινούνται έξυπνα μπορούν να ξεφύγουν.</string>
+    <string name="fb_tip_counter">Βγες γρήγορα μπροστά αφού κερδίσεις την μπάλα στο δικό σου μισό.</string>
+    <string name="fb_tip_offside">Πιάνει συχνότερα όσους κάνουν κινήσεις· θέλει καλά δουλεμένους αμυντικούς.</string>
+    <string name="fb_tip_time_wasting">Όταν προηγείσαι μετά την πρώτη ώρα, η ομάδα ρίχνει τον ρυθμό.</string>
+    <string name="fb_tip_hard_tackling">Κερδίζεις περισσότερες μονομαχίες, αλλά με περισσότερα φάουλ, κάρτες και πέναλτι.</string>
+    <string name="fb_training_focus">Έμφαση προπόνησης</string>
+    <string name="fb_training_intensity">Ένταση</string>
+    <string name="fb_coaching_quality">Ποιότητα προπονητών</string>
+    <string name="fb_f_training">Προπονητικές εγκαταστάσεις</string>
+    <string name="fb_f_youth">Εγκαταστάσεις νέων</string>
+    <string name="fb_youth_coaching">Προπόνηση νέων</string>
+    <string name="fb_physio">Φυσικοθεραπεία</string>
+    <string name="fb_tip_training_focus" formatted="false">Τα χαρακτηριστικά του επιλεγμένου τομέα βελτιώνονται περίπου 50% γρηγορότερα για όλο το ρόστερ.</string>
+    <string name="fb_tip_intensity" formatted="false">Ελαφριά: πιο αργή εξέλιξη, λιγότεροι τραυματισμοί, πιο ξεκούραστα πόδια. Έντονη: +15% εξέλιξη, σχεδόν διπλάσιοι τραυματισμοί στην προπόνηση, χαμηλότερη αγωνιστική φρεσκάδα.</string>
+    <string name="fb_tip_coaches">Καλύτεροι προπονητές και εγκαταστάσεις επιταχύνουν την εξέλιξη. Πρόσλαβε προπονητές στην ενότητα Σύλλογος.</string>
+    <string name="fb_gt_basics">Πρώτα βήματα</string>
+    <string name="fb_gt_formations">Συστήματα &amp; ενδεκάδα</string>
+    <string name="fb_gt_training">Προπόνηση &amp; εξέλιξη</string>
+    <string name="fb_gt_coaches">Προπονητές &amp; επιτελείο</string>
+    <string name="fb_gt_morale">Ηθικό &amp; φόρμα</string>
+    <string name="fb_gt_youth">Ακαδημία νέων</string>
+    <string name="fb_gt_finance">Οικονομικά</string>
+    <string name="fb_gt_transfers">Μεταγραφές</string>
+    <string name="fb_gt_contracts">Συμβόλαια</string>
+    <string name="fb_gt_competitions">Διοργανώσεις</string>
+    <string name="fb_gt_hidden">Κρυφά χαρακτηριστικά &amp; δυναμική</string>
+    <string name="fb_gb_basics">Είσαι το αφεντικό του συλλόγου: διαλέγεις ομάδα και τακτική, αγοράζεις και πουλάς παίκτες, ορίζεις την προπόνηση, χτίζεις εγκαταστάσεις και διαχειρίζεσαι τα χρήματα.
+
+Πάτα Συνέχεια για να προχωρήσεις στο ημερολόγιο. Το παιχνίδι σταματά στις ημέρες των αγώνων σου και όταν κάτι χρειάζεται την προσοχή σου (προσφορές, νέα συμβολαίων, νέοι παίκτες από την ακαδημία).
+
+Την ημέρα του αγώνα μπορείς να παίξεις τον αγώνα ή να πάρεις γρήγορο αποτέλεσμα. Όλα αποθηκεύονται αυτόματα.</string>
+    <string name="fb_gb_mentality" formatted="false">Η νοοτροπία καθορίζει πόσα ρίσκα παίρνει η ομάδα σου.
+
+• Πολύ αμυντική / αμυντική: λιγότεροι παίκτες συμμετέχουν στις επιθέσεις, λιγότερα σουτ και για τις δύο ομάδες. Καλή όταν προστατεύεις προβάδισμα ή παίζεις με πολύ πιο δυνατή ομάδα.
+• Ισορροπημένη: η προεπιλογή.
+• Επιθετική / πολύ επιθετική: περισσότερα σουτ και γκολ, αλλά ο αντίπαλος βρίσκει περισσότερο χώρο. Στις δοκιμές μας μια δυνατή ομάδα σκόραρε περίπου 18% περισσότερο αλλά δέχτηκε και περισσότερα.
+
+Συνδύασε αμυντική νοοτροπία με αντεπίθεση για να τιμωρείς αντιπάλους που ανεβαίνουν.</string>
+    <string name="fb_gb_passing" formatted="false">• Κοντές: πολλές ασφαλείς πάσες, υψηλή κατοχή (περίπου 60%+), λιγότερες αλλά πιο καθαρές επιθέσεις. Θέλει καλές πάσες και πρώτη επαφή.
+• Μικτές: ισορροπία.
+• Κάθετες: μακριές μπαλιές προς τους επιθετικούς. Η κατοχή πέφτει γύρω στο 40%, η μπάλα φτάνει πιο γρήγορα στην περιοχή, τα παιχνίδια γίνονται πιο ανοιχτά. Ταιριάζει με ψηλούς, δυνατούς επιθετικούς και καλούς στις μακριές πάσες.</string>
+    <string name="fb_gb_tempo">Ο γρήγορος ρυθμός κινεί την μπάλα γρήγορα: περισσότερες ευκαιρίες και σουτ, αλλά περισσότερες λάθος πάσες και περισσότερη κούραση.
+
+Ο αργός ρυθμός κρατά την μπάλα και ελέγχει το παιχνίδι· ταιριάζει με κοντές πάσες και με την προστασία προβαδίσματος.</string>
+    <string name="fb_gb_width">Φαρδύ: οι παίκτες των άκρων μένουν κοντά στην πλάγια γραμμή, κάτι που φέρνει περισσότερες σέντρες. Θέλει καλούς στις σέντρες και δυνατούς στις κεφαλιές στην περιοχή.
+
+Στενό: η ομάδα παίζει από τον άξονα και μένει συμπαγής· καλό με έναν οργανωτή και κάθετες πάσες.</string>
+    <string name="fb_gb_focus">Από τον άξονα: περισσότερες κάθετες πάσες. Η επιτυχία εξαρτάται από την όραση και τις πάσες των δημιουργών σου απέναντι στο μαρκάρισμα των αμυντικών, και από την ταχύτητα των επιθετικών σου. Το ένας εναντίον ενός είναι η καλύτερη ευκαιρία στο ποδόσφαιρο.
+
+Από τα άκρα: περισσότερες σέντρες. Μια σέντρα γίνεται ευκαιρία για κεφαλιά αν ο φορ σου κερδίσει τον κεντρικό αμυντικό στον αέρα.</string>
+    <string name="fb_gb_pressing">Το ψηλό πρέσινγκ κυνηγά την μπάλα στο μισό του αντιπάλου. Λειτουργεί καλύτερα απέναντι σε παίκτες με χαμηλή ψυχραιμία και κερδίζει την μπάλα κοντά στο τέρμα, αλλά οι παίκτες κουράζονται πιο γρήγορα στη διάρκεια του αγώνα.
+
+Το χαμηλό πρέσινγκ εξοικονομεί ενέργεια και κρατά τη διάταξη· ο αντίπαλος έχει χρόνο με την μπάλα στο δικό του μισό.</string>
+    <string name="fb_gb_defline">Ψηλή γραμμή: οι αμυντικοί ανεβαίνουν, το κέντρο στενεύει και δύσκολα περνάει πάσα. Όμως οι μπαλιές πάνω από την άμυνα και οι κάθετες πάσες σε γρήγορους επιθετικούς γίνονται επικίνδυνες – στις δοκιμές η ψηλή γραμμή δέχτηκε πάνω από διπλάσια γκολ απέναντι σε γρήγορους φορ.
+
+Βαθιά γραμμή: η περιοχή προστατεύεται, οι κάθετες πάσες σπάνια πετυχαίνουν, αλλά ο αντίπαλος ελέγχει το παιχνίδι. Ιδανική με αντεπίθεση.</string>
+    <string name="fb_gb_marking">Ζώνη: κάθε παίκτης φυλάει μια περιοχή. Ασφαλής προεπιλογή.
+
+Ατομικό: οι αμυντικοί σου ακολουθούν τον άμεσο αντίπαλό τους. Εξαιρετικό αν οι αμυντικοί σου μαρκάρουν καλά· όμως επιθετικοί με εξαιρετικές κινήσεις χωρίς μπάλα μπορούν ακόμα να ξεφύγουν.</string>
+    <string name="fb_gb_counter">Όταν η μπάλα κερδίζεται στο δικό σου μισό, η ομάδα βγαίνει γρήγορα με λιγότερες πάσες και περισσότερες κάθετες μπαλιές.
+
+Είναι θανατηφόρα απέναντι σε αντιπάλους που επιτίθενται με πολλούς παίκτες ή παίζουν με ψηλή γραμμή (στις δοκιμές: πάνω από 3 γκολ ανά αγώνα απέναντι σε πολύ επιθετική ομάδα). Το τίμημα: λιγότεροι παίκτες συμμετέχουν στις κανονικές επιθέσεις.</string>
+    <string name="fb_gb_offside">Η άμυνά σου ανεβαίνει μαζί για να πιάσει τους επιθετικούς οφσάιντ. Αμυντικοί με καλή ομαδικότητα την κάνουν να πετυχαίνει πολύ συχνότερα. Όταν αποτυγχάνει, ο επιθετικός βγαίνει μόνος του απέναντι στον τερματοφύλακα.</string>
+    <string name="fb_gb_time_wasting">Όταν προηγείσαι μετά το 60ό λεπτό, οι παίκτες σου τα κάνουν όλα πιο αργά: περισσότερες πάσες προς τα πίσω, μεγαλύτερες διακοπές. Ο διαιτητής μπορεί να δείξει κίτρινες κάρτες γι\' αυτό.</string>
+    <string name="fb_gb_hard_tackling">Τα τάκλιν γίνονται πιο σκληρά: οι παίκτες σου κερδίζουν περισσότερες μονομαχίες, αλλά κάνουν περισσότερα φάουλ, παίρνουν περισσότερες κάρτες και προκαλούν περισσότερα πέναλτι. Οι αντίπαλοι τραυματίζονται συχνότερα.</string>
+    <string name="fb_gb_formations">Διάλεξε σύστημα που ταιριάζει στους καλύτερους παίκτες σου. Πάτα μια θέση στο γήπεδο και μετά έναν παίκτη από τη λίστα για να τον βάλεις εκεί (οι παίκτες που είναι ήδη στην ενδεκάδα αλλάζουν θέσεις).
+
+Ο αριθμός κάτω από κάθε παίκτη είναι η βαθμολογία του σε εκείνη τη θέση· ο κόκκινος κύκλος σημαίνει ότι δεν είναι εξοικειωμένος με αυτήν. Οι παίκτες μπορούν να μάθουν νέες θέσεις στην προπόνηση.
+
+Η Αυτόματη επιλογή αφήνει τον βοηθό να διαλέξει· το Καλύτερο σύστημα διαλέγει τη διάταξη με τη μεγαλύτερη συνολική βαθμολογία. Οι τραυματίες και οι τιμωρημένοι αντικαθίστανται αυτόματα.</string>
+    <string name="fb_gb_training">Οι παίκτες εξελίσσονται προς τη δυναμική τους κάθε εβδομάδα. Η ταχύτητα εξαρτάται από:
+• Ηλικία: γρηγορότερα από 16 ως 21, επιβραδύνεται μετά τα 24, σταματά γύρω στα 29.
+• Απόσταση ανάμεσα σε τρέχουσα ικανότητα και δυναμική.
+• Προπονητές και προπονητικές εγκαταστάσεις (προπονητής νέων και εγκαταστάσεις νέων για τους κάτω των 19).
+• Προσωπικότητα: επαγγελματισμός και αποφασιστικότητα.
+• Χρόνος συμμετοχής (πολύ σημαντικός κάτω από 23) και ηθικό.
+• Ένταση: ελαφριά, κανονική ή έντονη.
+
+Η ομαδική έμφαση επιταχύνει έναν τομέα για όλους· η ατομική έμφαση επιταχύνει πολύ έναν τομέα για έναν παίκτη. Μετά τα 30 (τερματοφύλακες 32) οι παίκτες πέφτουν, πρώτα στα σωματικά, ενώ αποφάσεις και τοποθέτηση μπορούν ακόμα να βελτιωθούν.</string>
+    <string name="fb_gb_coaches">• Προπονητές: κάθε τομέας προπόνησης χρησιμοποιεί το αντίστοιχο χαρακτηριστικό του προπονητή (επίθεση, άμυνα, τεχνική, τακτική, πνευματικά, φυσική κατάσταση, τερματοφύλαξη). Περίπου πέντε προπονητές καλύπτουν όλους τους τομείς· με λιγότερους η ποιότητα πέφτει.
+• Προπονητής νέων: εξελίσσει τους κάτω των 19 και βελτιώνει τη χρονιάτικη φουρνιά νέων.
+• Φυσικοθεραπευτής: μικραίνει τους τραυματισμούς και μειώνει τους τραυματισμούς στην προπόνηση.
+• Γυμναστής: επιβραδύνει την πτώση των μεγαλύτερων παικτών.
+• Βοηθός: η διαχείριση ανθρώπων ανεβάζει το ηθικό· κρίνει τη δυναμική των δικών σου παικτών.
+• Σκάουτερ: όσο καλύτεροι είναι, τόσο πιο ακριβείς οι εκτιμήσεις ικανότητας και δυναμικής για παίκτες άλλων συλλόγων.</string>
+    <string name="fb_gb_morale">Το ηθικό αλλάζει κάθε εβδομάδα. Ανεβαίνει με καλά αποτελέσματα, αρκετό χρόνο συμμετοχής για τη θέση του παίκτη στην ομάδα (οι βασικοί περιμένουν να ξεκινούν στους περισσότερους αγώνες), δίκαιο μισθό, καλές εγκαταστάσεις αναψυχής και καλό βοηθό. Οι πολύ δυσαρεστημένοι φιλόδοξοι παίκτες ζητούν να φύγουν.
+
+Η φόρμα είναι ο μέσος όρος των πρόσφατων βαθμολογιών αγώνων. Το ηθικό και η φόρμα αλλάζουν λίγο τη δύναμη ενός παίκτη την ημέρα του αγώνα και την εξέλιξή του.</string>
+    <string name="fb_gb_youth">Κάθε χρόνο στις 15 Μαρτίου 2–8 νεαροί (15–16 ετών) έρχονται στην ακαδημία σου. Η στρατολόγηση νέων καθορίζει πόσοι και πόσο καλοί, οι εγκαταστάσεις νέων και ο προπονητής νέων προσθέτουν ποιότητα, και μετράει και το ποδοσφαιρικό επίπεδο της χώρας σου. Πού και πού εμφανίζεται ένα χρυσό ταλέντο.
+
+Δώσε λεπτά και καλή προπόνηση στους νέους: η εξέλιξη είναι γρηγορότερη πριν τα 21.</string>
+    <string name="fb_gb_finance" formatted="false">Έσοδα: εισιτήρια (εντός έδρας αγώνες· ακριβότερο εισιτήριο φέρνει περισσότερα ανά φίλαθλο αλλά γεμίζει λιγότερες θέσεις), τηλεοπτικά (τα μισά μοιράζονται εξίσου, τα μισά ανάλογα με τη θέση στο πρωτάθλημα), προϊόντα (αυξάνονται με τη φήμη και τους σταρ), χορηγός φανέλας, διαφημίσεις στο γήπεδο, χρηματικά έπαθλα (κύπελλα και ιδίως ευρωπαϊκές διοργανώσεις) και πωλήσεις παικτών.
+
+Έξοδα: μισθοί παικτών και επιτελείου, συντήρηση εγκαταστάσεων, ακαδημία νέων, έξοδα ημέρας αγώνα, μεταγραφές και κατασκευές. Ένα αρνητικό υπόλοιπο κοστίζει 0,12% τόκο την εβδομάδα.
+
+Μπόνους επενδυτή: δες ένα βίντεο για να προσθέσεις χρήματα στον σύλλογο, 3 φορές την εβδομάδα.
+
+Τράπεζα (Σύλλογος › Τράπεζα): πάρε ένα δάνειο κάθε φορά για 1–3 χρόνια. Το πιστωτικό όριο μεγαλώνει με τα έσοδα και τη φήμη σου· οι σύλλογοι με υψηλή φήμη πληρώνουν λιγότερο τόκο, και είναι υψηλότερος όσο το υπόλοιπό σου είναι αρνητικό. Η δόση πληρώνεται κάθε Δευτέρα και η πρόωρη εξόφληση κοστίζει 1% επιπλέον. Η κατάθεση ταμιευτηρίου αποδίδει 2% τον χρόνο, αλλά τα χρήματα σε αυτήν δεν ξοδεύονται μέχρι να τα αποσύρεις. Η σελίδα Οικονομικά δείχνει τα συνολικά έσοδα και έξοδα αυτού και του προηγούμενου μήνα.</string>
+    <string name="fb_gb_transfers">Μεταγραφικές περίοδοι: 1 Ιουλίου – 1 Σεπτεμβρίου και Ιανουάριος. Οι ελεύθεροι παίκτες υπογράφουν οποιαδήποτε στιγμή.
+
+Η τιμή του πωλητή εξαρτάται από το πόσο σημαντικός είναι ο παίκτης γι\' αυτόν, την ηλικία και τη δυναμική του, τη διάρκεια του συμβολαίου του (φθηνός στον τελευταίο χρόνο), αν είναι στη λίστα μεταγραφών και τα οικονομικά του πωλητή. Μια ρήτρα αποδέσμευσης δεν μπορεί να απορριφθεί.
+
+Αφού συμφωνηθεί το τίμημα, διαπραγματεύσου μισθό και χρόνια με τον παίκτη – αν είναι πολύ χαμηλά, φεύγει μετά από τρεις προσπάθειες. Δανεισμοί: πληρώνεις μέρος του μισθού και ο παίκτης επιστρέφει στο τέλος της σεζόν.
+
+Μπορείς να βάλεις δικούς σου παίκτες στη λίστα, να τους προσφέρεις για δανεισμό ή να ξεκινήσεις δημοπρασία 3 ημερών όπου οι σύλλογοι πλειοδοτούν. Βάλε στη λίστα στόχων τους παίκτες που σου αρέσουν και παρακολούθα τις φήμες.</string>
+    <string name="fb_gb_contracts" formatted="false">Ανανέωσε έγκαιρα τα συμβόλαια των σημαντικών παικτών. Την 1η Ιανουαρίου ειδοποιείσαι για συμβόλαια που λήγουν αυτή τη σεζόν· από τα μέσα Ιανουαρίου άλλοι σύλλογοι μπορούν να τους δεσμεύσουν με προσύμφωνο και φεύγουν δωρεάν το καλοκαίρι.
+
+Οι παίκτες ζητούν αύξηση όταν βελτιώνονται. Η αποδέσμευση ενός παίκτη κοστίζει το 60% των υπόλοιπων μισθών του.</string>
+    <string name="fb_gb_competitions">Κάθε ευρωπαϊκή χώρα έχει τα πρωταθλήματά της με άνοδο και υποβιβασμό (κάποιες δεύτερες κατηγορίες έχουν πλέι-οφ), ένα εθνικό κύπελλο και ένα σούπερ καπ.
+
+Οι ευρωπαϊκές θέσεις εξαρτώνται από τη θέση σου στο πρωτάθλημα και την κατάταξη της χώρας, που αλλάζει κάθε σεζόν με τα ευρωπαϊκά αποτελέσματα: Κύπελλο Πρωταθλητριών, Κύπελλο Ευρώπης και Κύπελλο Conference έχουν το καθένα προκριματικούς γύρους, φάση πρωταθλήματος 36 ομάδων και νοκ άουτ.
+
+Οι εθνικές ομάδες παίζουν Nations League, προκριματικά, Ευρωπαϊκό Πρωτάθλημα και Παγκόσμιο Κύπελλο.</string>
+    <string name="fb_gb_hidden">Η ικανότητα και η δυναμική φαίνονται ως αστέρια που εκτιμά το επιτελείο σου, άρα μπορεί να είναι λάθος – ειδικά με αδύναμους σκάουτερ.
+
+Δες ένα σύντομο βίντεο στην κάρτα ενός παίκτη για να αποκαλύψεις την ακριβή τρέχουσα ικανότητα, την ακριβή δυναμική και την κρυφή προσωπικότητά του: σταθερότητα, συμπεριφορά σε μεγάλους αγώνες, τάση για τραυματισμούς, επαγγελματισμό, φιλοδοξία, αφοσίωση, προσαρμοστικότητα, διαχείριση πίεσης και πολυπραγμοσύνη. Ο παίκτης μένει αποκαλυμμένος για πάντα (πράσινα αστέρια).</string>
+    <string name="fb_search">Αναζήτηση</string>
+    <string name="fb_shortlist">Λίστα στόχων</string>
+    <string name="fb_scout_reports">Αναφορές σκάουτερ</string>
+    <string name="fb_offers">Προσφορές</string>
+    <string name="fb_auctions">Δημοπρασίες</string>
+    <string name="fb_history">Ιστορικό &amp; φήμες</string>
+    <string name="fb_window_open">Περίοδος ανοιχτή</string>
+    <string name="fb_window_closed">Περίοδος κλειστή</string>
+    <string name="fb_line_gk">Τερματοφύλακες</string>
+    <string name="fb_line_def">Αμυντικοί</string>
+    <string name="fb_line_mid">Μέσοι</string>
+    <string name="fb_line_att">Επιθετικοί</string>
+    <string name="fb_any_age">Όλες οι ηλικίες</string>
+    <string name="fb_age_young">≤ 21</string>
+    <string name="fb_age_prime">22–29</string>
+    <string name="fb_any_value">Οποιαδήποτε αξία</string>
+    <string name="fb_listed_only">Μόνο στη λίστα</string>
+    <string name="fb_free_agents">Ελεύθεροι παίκτες</string>
+    <string name="fb_player_name">Όνομα παίκτη</string>
+    <string name="fb_no_results">Δεν βρέθηκαν παίκτες</string>
+    <string name="fb_loan">Δανεισμός</string>
+    <string name="fb_scout_desc">Οι σκάουτερ σου προτείνουν παίκτες που θα βελτίωναν τις πιο αδύναμες θέσεις σου, χωρούν στο μπάτζετ και θα ήθελαν να έρθουν.</string>
+    <string name="fb_get_reports">Λήψη αναφορών</string>
+    <string name="fb_no_offers">Δεν υπάρχουν προσφορές αυτή τη σεζόν</string>
+    <string name="fb_incoming">Εισερχόμενες</string>
+    <string name="fb_outgoing">Εξερχόμενες</string>
+    <string name="fb_os_waiting_you">Περιμένει την απάντησή σου</string>
+    <string name="fb_os_pending">Αναμονή απάντησης του συλλόγου</string>
+    <string name="fb_os_counter">Αντιπροσφορά: %1$s</string>
+    <string name="fb_os_agreed">Συμφωνήθηκε το τίμημα – διαπραγματεύσου το συμβόλαιο</string>
+    <string name="fb_os_agreed_in">Έγινε δεκτή – ο αγοραστής μιλά με τον παίκτη</string>
+    <string name="fb_os_completed">Ολοκληρώθηκε</string>
+    <string name="fb_os_rejected">Απορρίφθηκε</string>
+    <string name="fb_os_withdrawn">Αποσύρθηκε</string>
+    <string name="fb_os_refused">Ο παίκτης αρνήθηκε</string>
+    <string name="fb_os_expired">Έληξε</string>
+    <string name="fb_counter_x">Ζήτα %1$s</string>
+    <string name="fb_offer_x">Πρόσφερε %1$s</string>
+    <string name="fb_auction_desc">Οι σύλλογοι πλειοδοτούν μέχρι να τελειώσει η δημοπρασία. Βάλε δικούς σου παίκτες σε δημοπρασία από την κάρτα τους.</string>
+    <string name="fb_no_auctions">Δεν τρέχουν δημοπρασίες</string>
+    <string name="fb_reserve">Ελάχιστη τιμή %1$s</string>
+    <string name="fb_ended">έληξε</string>
+    <string name="fb_ends">λήγει %1$s</string>
+    <string name="fb_bid_x">Πλειοδότησε %1$s</string>
+    <string name="fb_latest_transfers">Τελευταίες μεταγραφές</string>
+    <string name="fb_rumours">Φήμες</string>
+    <string name="fb_finance">Οικονομικά</string>
+    <string name="fb_facilities">Εγκαταστάσεις</string>
+    <string name="fb_staff">Επιτελείο</string>
+    <string name="fb_sponsor_tickets">Χορηγός &amp; εισιτήρια</string>
+    <string name="fb_friendlies">Φιλικά</string>
+    <string name="fb_editor">Επεξεργαστής</string>
+    <string name="fb_this_season">Αυτή η σεζόν</string>
+    <string name="fb_last_season">Προηγούμενη σεζόν</string>
+    <string name="fb_income">Έσοδα</string>
+    <string name="fb_expenses">Έξοδα</string>
+    <string name="fb_net">Καθαρά</string>
+    <string name="fb_fin_tickets">Εισιτήρια</string>
+    <string name="fb_fin_tv">Τηλεοπτικά δικαιώματα</string>
+    <string name="fb_fin_merch">Προϊόντα</string>
+    <string name="fb_fin_sponsor">Χορηγίες</string>
+    <string name="fb_fin_ads">Διαφημίσεις γηπέδου</string>
+    <string name="fb_fin_prize">Χρηματικά έπαθλα</string>
+    <string name="fb_fin_transfer_in">Πωλήσεις παικτών</string>
+    <string name="fb_fin_other_in">Επενδυτές &amp; λοιπά</string>
+    <string name="fb_fin_wages">Μισθοί παικτών</string>
+    <string name="fb_fin_staff_wages">Μισθοί επιτελείου</string>
+    <string name="fb_fin_facilities">Συντήρηση εγκαταστάσεων</string>
+    <string name="fb_fin_youth">Ακαδημία νέων</string>
+    <string name="fb_fin_matchday">Έξοδα ημέρας αγώνα</string>
+    <string name="fb_fin_transfer_out">Αγορές παικτών</string>
+    <string name="fb_fin_upgrades">Κατασκευές</string>
+    <string name="fb_fin_interest">Τόκοι</string>
+    <string name="fb_fin_other_out">Αποζημιώσεις &amp; λοιπά</string>
+    <string name="fb_balance_history">Υπόλοιπο (τελευταίες εβδομάδες)</string>
+    <string name="fb_staff_wages_week">Μισθοί επιτελείου ανά εβδομάδα</string>
+    <string name="fb_fan_base">Φίλαθλοι</string>
+    <string name="fb_f_recruitment">Στρατολόγηση νέων</string>
+    <string name="fb_f_stadium">Ποιότητα γηπέδου</string>
+    <string name="fb_f_social">Εγκαταστάσεις αναψυχής</string>
+    <string name="fb_f_capacity">Χωρητικότητα γηπέδου</string>
+    <string name="fb_fd_training">Γρηγορότερη εξέλιξη για όλους τους παίκτες.</string>
+    <string name="fb_fd_youth">Καλύτερη εξέλιξη για τους κάτω των 19 και καλύτερες φουρνιές νέων.</string>
+    <string name="fb_fd_recruitment">Περισσότεροι και καλύτεροι νέοι κάθε Μάρτιο.</string>
+    <string name="fb_fd_stadium">Έρχονται περισσότεροι φίλαθλοι και δέχονται υψηλότερες τιμές.</string>
+    <string name="fb_fd_social">Υψηλότερο ηθικό και περισσότερες πωλήσεις προϊόντων.</string>
+    <string name="fb_fd_capacity" formatted="false">+10% θέσεις για μεγαλύτερα έσοδα αγώνων.</string>
+    <string name="fb_seats">%1$d θέσεις</string>
+    <string name="fb_upgrade_x">Χτίσε %1$s · %2$d ημέρες</string>
+    <string name="fb_upgrade_started">Η κατασκευή ξεκίνησε</string>
+    <string name="fb_under_construction">Υπό κατασκευή: %1$s (έτοιμο %2$s)</string>
+    <string name="fb_your_staff">Το επιτελείο σου (%1$d)</string>
+    <string name="fb_staff_market">Διαθέσιμο επιτελείο</string>
+    <string name="fb_fire">Απόλυση</string>
+    <string name="fb_fire_confirm">Απόλυση (%1$s)</string>
+    <string name="fb_hire">Πρόσληψη</string>
+    <string name="fb_hired">Προσλήφθηκε!</string>
+    <string name="fb_staff_full">Το επιτελείο σου είναι πλήρες (16)</string>
+    <string name="fb_staff_reject">Δεν ενδιαφέρεται για τον σύλλογό σου</string>
+    <string name="fb_r_assistant">Βοηθός</string>
+    <string name="fb_r_coach">Προπονητής</string>
+    <string name="fb_r_gk_coach">Προπονητής τερματοφυλάκων</string>
+    <string name="fb_r_fitness">Γυμναστής</string>
+    <string name="fb_r_scout">Σκάουτερ</string>
+    <string name="fb_r_physio">Φυσικοθεραπευτής</string>
+    <string name="fb_r_youth">Προπονητής νέων</string>
+    <string name="fb_sa_attack">Επίθεση</string>
+    <string name="fb_sa_defence">Άμυνα</string>
+    <string name="fb_sa_technical">Τεχνική</string>
+    <string name="fb_sa_tactical">Τακτική</string>
+    <string name="fb_sa_mental">Πνευματικά</string>
+    <string name="fb_sa_fitness">Φυσική κατάσταση</string>
+    <string name="fb_sa_gk">Τερματοφύλακες</string>
+    <string name="fb_sa_youth">Δουλειά με νέους</string>
+    <string name="fb_sa_judge_ability">Εκτίμηση ικανότητας</string>
+    <string name="fb_sa_judge_potential">Εκτίμηση δυναμικής</string>
+    <string name="fb_sa_physio">Φυσικοθεραπεία</string>
+    <string name="fb_sa_motivating">Παρακίνηση</string>
+    <string name="fb_sa_discipline">Πειθαρχία</string>
+    <string name="fb_sa_man_management">Διαχείριση ανθρώπων</string>
+    <string name="fb_shirt_sponsor">Χορηγός φανέλας</string>
+    <string name="fb_current_sponsor">Χορηγός</string>
+    <string name="fb_per_year">Ανά έτος</string>
+    <string name="fb_until">Έως</string>
+    <string name="fb_sponsor_offers">Νέες προσφορές</string>
+    <string name="fb_sponsor_line">%1$s ανά έτος · %2$d έτη</string>
+    <string name="fb_sign">Υπογραφή</string>
+    <string name="fb_sponsor_locked">Μπορείς να υπογράψεις νέο χορηγό όταν λήξει η τωρινή συμφωνία.</string>
+    <string name="fb_ticket_prices">Τιμές εισιτηρίων</string>
+    <string name="fb_tp_very_low">Πολύ χαμηλές</string>
+    <string name="fb_tp_low">Χαμηλές</string>
+    <string name="fb_tp_high">Υψηλές</string>
+    <string name="fb_tp_very_high">Πολύ υψηλές</string>
+    <string name="fb_ticket_price">Μέσο εισιτήριο</string>
+    <string name="fb_expected_attendance">Αναμενόμενη προσέλευση</string>
+    <string name="fb_matchday_income">Έσοδα ανά εντός έδρας αγώνα</string>
+    <string name="fb_tip_tickets" formatted="false">Κάθε σκαλοπάτι πάνω ανεβάζει την τιμή κατά 25% αλλά χάνεις περίπου 18% των φιλάθλων. Όταν το γήπεδο γεμίζει ούτως ή άλλως, οι υψηλότερες τιμές φέρνουν περισσότερα.</string>
+    <string name="fb_choose_opponent">Αντίπαλος</string>
+    <string name="fb_choose_date">Ημερομηνία</string>
+    <string name="fb_friendly_desc">Τα φιλικά κρατούν τους παίκτες σου σε φόρμα και φέρνουν μικρά έσοδα εντός έδρας. Οι μεγάλοι σύλλογοι μπορεί να αρνηθούν.</string>
+    <string name="fb_arrange">Κανόνισε</string>
+    <string name="fb_friendly_ok">Το φιλικό κανονίστηκε</string>
+    <string name="fb_friendly_declined">Ο σύλλογος αρνήθηκε</string>
+    <string name="fb_friendly_busy">Ο αντίπαλος έχει αγώνα γύρω από αυτή την ημερομηνία</string>
+    <string name="fb_edit_club">Επεξεργασία συλλόγου</string>
+    <string name="fb_club_name">Όνομα συλλόγου</string>
+    <string name="fb_short_name">Συντομογραφία</string>
+    <string name="fb_color_main">Κύριο χρώμα</string>
+    <string name="fb_color_second">Δεύτερο χρώμα</string>
+    <string name="fb_save">Αποθήκευση</string>
+    <string name="fb_saved">Αποθηκεύτηκε</string>
+    <string name="fb_edit_players">Ονόματα παικτών (πάτα για επεξεργασία)</string>
+    <string name="fb_back_to_match">Πίσω στον αγώνα</string>
+    <string name="fb_choose_sub">Διάλεξε ποιος μπαίνει</string>
+    <string name="fb_on_pitch">Στο γήπεδο (πάτα για αλλαγή)</string>
+    <string name="fb_subs_left">Αλλαγές που απομένουν: %1$d</string>
+    <string name="fb_tactics_subs">Τακτική &amp; αλλαγές</string>
+    <string name="fb_pause">Παύση</string>
+    <string name="fb_resume">Συνέχεια</string>
+    <string name="fb_skip_to_end">Μετάβαση στο τέλος</string>
+    <string name="fb_finish_match">Τέλος</string>
+    <string name="fb_full_time">Τελικό σφύριγμα</string>
+    <string name="fb_goal_flash">ΓΚΟΛ!</string>
+    <string name="fb_shots_short">Σουτ</string>
+    <string name="fb_ev_goal_1">ΓΚΟΛ! Ο %1$s σκοράρει για την %2$s!</string>
+    <string name="fb_ev_goal_2">ΓΚΟΛ! Τι τελείωμα από τον %1$s! (%2$s)</string>
+    <string name="fb_ev_goal_3">ΓΚΟΛ! Ο %1$s δεν κάνει λάθος – πανηγύρια για την %2$s!</string>
+    <string name="fb_ev_assist">Ασίστ: %1$s.</string>
+    <string name="fb_ev_save_1">Σπουδαία απόκρουση του %1$s στο σουτ του %2$s!</string>
+    <string name="fb_ev_save_2">Ο %2$s σουτάρει – ο %1$s μπλοκάρει.</string>
+    <string name="fb_ev_miss_1">Ο %1$s σουτάρει… λίγο άουτ!</string>
+    <string name="fb_ev_miss_2">Ο %1$s σουτάρει πάνω από το δοκάρι.</string>
+    <string name="fb_ev_block">Ο %1$s μπλοκάρει το σουτ του %2$s.</string>
+    <string name="fb_ev_yellow">Κίτρινη κάρτα στον %1$s.</string>
+    <string name="fb_ev_red">ΚΟΚΚΙΝΗ ΚΑΡΤΑ! Ο %1$s αποβάλλεται!</string>
+    <string name="fb_ev_injury">Ο %1$s τραυματίστηκε και δεν μπορεί να συνεχίσει.</string>
+    <string name="fb_ev_sub">Αλλαγή %1$s: μπαίνει ο %2$s, βγαίνει ο %3$s.</string>
+    <string name="fb_ev_corner">Κόρνερ για την %1$s.</string>
+    <string name="fb_ev_free_kick">Φάουλ για την %1$s, ο %2$s ετοιμάζεται να το εκτελέσει.</string>
+    <string name="fb_ev_penalty">ΠΕΝΑΛΤΙ για την %1$s! Ο %2$s παίρνει την μπάλα…</string>
+    <string name="fb_ev_offside">Ο %1$s πιάνεται οφσάιντ.</string>
+    <string name="fb_ev_foul">Φάουλ του %1$s στον %2$s.</string>
+    <string name="fb_ev_through">Ο %1$s δίνει υπέροχη κάθετη πάσα στον %2$s!</string>
+    <string name="fb_ev_half_time">Ημίχρονο.</string>
+    <string name="fb_ev_full_time">Τελικό σφύριγμα!</string>
+    <string name="fb_ev_extra_time">Παράταση!</string>
+    <string name="fb_ev_so_goal">Ο %1$s σκοράρει το πέναλτι για την %2$s.</string>
+    <string name="fb_ev_so_miss">Ο %1$s αστοχεί για την %2$s!</string>
+    <string name="fb_first_team">Πρώτη ομάδα</string>
+    <string name="fb_youth_team">Ακαδημία νέων</string>
+    <string name="fb_youth_info">Εγκαταστάσεις νέων %1$d/20 · στρατολόγηση %2$d/20 · προπονητής νέων %3$d/20 · επόμενη φουρνιά %4$s</string>
+    <string name="fb_youth_empty">Δεν υπάρχουν ακόμα νέοι στην ακαδημία. Νέα ταλέντα έρχονται κάθε χρόνο στις 15 Μαρτίου.</string>
+    <string name="fb_promote">Ανέβασμα στην πρώτη ομάδα</string>
+    <string name="fb_to_youth">Αποστολή στην ακαδημία</string>
+    <string name="fb_ng_club">Σύλλογος</string>
+    <string name="fb_ng_matches">Αγώνες</string>
+    <string name="fb_ng_transfers">Μεταγραφές</string>
+    <string name="fb_ng_world">Κόσμος</string>
+    <string name="fb_mark_all_read">Όλα ως αναγνωσμένα</string>
+    <string name="fb_nt_offer_received">Προσφορά μεταγραφής</string>
+    <string name="fb_nt_offer_accepted">Η προσφορά έγινε δεκτή</string>
+    <string name="fb_nt_offer_rejected">Η προσφορά απορρίφθηκε</string>
+    <string name="fb_nt_offer_counter">Αντιπροσφορά</string>
+    <string name="fb_nt_player_refused">Ο παίκτης αρνήθηκε</string>
+    <string name="fb_nt_transfer_done">Η μεταγραφή ολοκληρώθηκε</string>
+    <string name="fb_nt_transfer_world">Μεγάλη μεταγραφή</string>
+    <string name="fb_nt_rumour">Φήμη</string>
+    <string name="fb_nt_contract">Συμβόλαιο</string>
+    <string name="fb_nt_unhappy">Δυσαρεστημένος παίκτης</string>
+    <string name="fb_nt_auction">Δημοπρασία</string>
+    <string name="fb_nt_loan_return">Επιστροφή από δανεισμό</string>
+    <string name="fb_nt_precontract">Προσύμφωνο</string>
+    <string name="fb_nt_youth">Φουρνιά νέων</string>
+    <string name="fb_nt_released">Ο παίκτης έφυγε</string>
+    <string name="fb_nt_preview">Προεπισκόπηση αγώνα</string>
+    <string name="fb_nt_report">Αναφορά αγώνα</string>
+    <string name="fb_nt_injury">Τραυματισμός</string>
+    <string name="fb_nt_suspension">Τιμωρία</string>
+    <string name="fb_nt_leader">Νέος πρωτοπόρος</string>
+    <string name="fb_nt_potm">Παίκτης του μήνα</string>
+    <string name="fb_nt_window_open">Μεταγραφική περίοδος</string>
+    <string name="fb_nt_window_close">Μεταγραφική περίοδος</string>
+    <string name="fb_nt_draw">Κλήρωση</string>
+    <string name="fb_nt_europe">Ευρώπη</string>
+    <string name="fb_nt_facility">Εγκαταστάσεις</string>
+    <string name="fb_nt_finance">Οικονομικά</string>
+    <string name="fb_nt_retirement">Αποχώρηση</string>
+    <string name="fb_nt_top_scorer">Χρυσό παπούτσι</string>
+    <string name="fb_nt_player_season">Παίκτης της σεζόν</string>
+    <string name="fb_nt_fans_happy">Φίλαθλοι</string>
+    <string name="fb_nt_fans_angry">Φίλαθλοι</string>
+    <string name="fb_nt_trophy">Πρωταθλητές</string>
+    <string name="fb_nt_callup">Εθνική ομάδα</string>
+    <string name="fb_nt_graduate">Απόφοιτος ακαδημίας</string>
+    <string name="fb_n_youth_best">%1$d νέοι ήρθαν στην ακαδημία. Οι σκάουτερ θεωρούν τον %2$s το μεγαλύτερο ταλέντο.</string>
+    <string name="fb_n_preview">Επόμενος: %1$s (%2$s). Τα τελευταία τους πέντε: %3$s</string>
+    <string name="fb_n_report_win">Νίκη επί της %1$s: %2$s.</string>
+    <string name="fb_n_report_loss">Ήττα από την %1$s: %2$s.</string>
+    <string name="fb_n_report_draw">Ισοπαλία με την %1$s: %2$s.</string>
+    <string name="fb_n_report_motm">Παίκτης του αγώνα: %1$s.</string>
+    <string name="fb_n_injury">Ο %1$s τραυματίστηκε στον αγώνα και θα λείψει περίπου %2$d ημέρες.</string>
+    <string name="fb_n_injury_training">Ο %1$s τραυματίστηκε στην προπόνηση (περίπου %2$d ημέρες).</string>
+    <string name="fb_n_suspension">Ο %1$s τιμωρήθηκε για %2$d αγώνα(ες).</string>
+    <string name="fb_n_leader">Η %1$s είναι η νέα πρωτοπόρος της %2$s με %3$d βαθμούς.</string>
+    <string name="fb_n_potm">Ο %1$s (%2$s) είναι ο παίκτης του μήνα.</string>
+    <string name="fb_n_window_open">Η μεταγραφική περίοδος άνοιξε.</string>
+    <string name="fb_n_window_close">Η μεταγραφική περίοδος έκλεισε.</string>
+    <string name="fb_n_draw">%1$s, %2$s: θα αντιμετωπίσεις την %3$s.</string>
+    <string name="fb_n_europe_direct">Ο σύλλογος παίζει στο %1$s αυτή τη σεζόν!</string>
+    <string name="fb_n_europe_qual">Ο σύλλογος μπαίνει στους προκριματικούς του %1$s.</string>
+    <string name="fb_n_facility">Η κατασκευή τελείωσε: %1$s βελτιώθηκε.</string>
+    <string name="fb_n_finance">Ο σύλλογος έχει χρέη (%1$s). Τόκοι χρεώνονται κάθε εβδομάδα – πούλησε παίκτες ή μείωσε μισθούς.</string>
+    <string name="fb_n_retirement">Ο %1$s αποσύρθηκε σε ηλικία %2$d ετών.</string>
+    <string name="fb_n_top_scorer">Ο %1$s είναι ο πρώτος σκόρερ της %3$s με %2$d γκολ.</string>
+    <string name="fb_n_player_season">Ο %1$s είναι ο παίκτης της σεζόν στην %2$s (μέσος όρος %3$s).</string>
+    <string name="fb_n_fans_happy">Οι φίλαθλοι είναι ενθουσιασμένοι με το σερί νικών!</string>
+    <string name="fb_n_fans_angry">Τρεις ήττες στη σειρά – οι φίλαθλοι είναι θυμωμένοι.</string>
+    <string name="fb_n_trophy_us">ΠΡΩΤΑΘΛΗΤΕΣ! Η %1$s κατακτά το %2$s!</string>
+    <string name="fb_n_trophy">Η %1$s κατακτά το %2$s.</string>
+    <string name="fb_n_callup">Ο %1$s κλήθηκε από την %2$s.</string>
+    <string name="fb_n_graduate">Ο %1$s ανεβαίνει από την ακαδημία στην πρώτη ομάδα.</string>
+    <string name="fb_settings">Ρυθμίσεις</string>
+    <string name="fb_currency">Νόμισμα</string>
+    <string name="fb_currency_desc">Τα ποσά εμφανίζονται στο επιλεγμένο νόμισμα με σταθερές ισοτιμίες (παράδειγμα: 1M ευρώ = %1$s).</string>
+    <string name="fb_career">Καριέρα</string>
+    <string name="fb_manager_line">Προπονητής: %1$s · σεζόν %2$s</string>
+    <string name="fb_quit_career">Διαγραφή καριέρας και νέα αρχή</string>
+    <string name="fb_new">ΝΕΟ</string>
+    <string name="fb_read_mark">Διαβάστηκε</string>
+    <string name="fb_unread_n">Αδιάβαστα (%1$d)</string>
+    <string name="fb_player_card">Κάρτα παίκτη</string>
+    <string name="fb_cred_strong">Αξιόπιστη πηγή</string>
+    <string name="fb_cred_medium">Πιθανό</string>
+    <string name="fb_cred_weak">Κουτσομπολιό</string>
+    <string name="fb_rumour_interest">Ενδιαφερόμενος σύλλογος: %1$s</string>
+    <string name="fb_rumour_yours">Δικός σου παίκτης</string>
+    <string name="fb_rumour_open">Ακόμα φήμη</string>
+    <string name="fb_rumour_true">Επιβεβαιώθηκε ✓</string>
+    <string name="fb_rumour_elsewhere">Πήγε τελικά στην %1$s</string>
+    <string name="fb_au_running">Σε εξέλιξη – λήγει %1$s</string>
+    <string name="fb_au_leading">Έχεις την υψηλότερη προσφορά</string>
+    <string name="fb_au_yours">Η δημοπρασία σου</string>
+    <string name="fb_au_sold">ΠΟΥΛΗΘΗΚΕ στην %1$s για %2$s</string>
+    <string name="fb_au_unsold">ΔΕΝ ΠΟΥΛΗΘΗΚΕ – καμία προσφορά δεν έφτασε την ελάχιστη τιμή</string>
+    <string name="fb_au_refused">Καμία συμφωνία – ο παίκτης δεν ήθελε να πάει στην %1$s</string>
+    <string name="fb_au_won">Κέρδισες! Συμφώνησε το συμβόλαιο με τον παίκτη</string>
+    <string name="fb_au_bought">Αγοράστηκε ✓</string>
+    <string name="fb_au_bids">%1$d προσφορές</string>
+</resources>
