@@ -371,7 +371,6 @@ class MahjongViewModel @Inject constructor(
         game = null
         _state.update { it.copy(phase = MahjongPhase.WON, stars = stars, goldEarned = gold, stuck = false) }
         feedback.play(Sfx.COMBO)
-        prefs.addGold(gold)
         prefs.submitScore(GAME_ID, level)
         save()
     }

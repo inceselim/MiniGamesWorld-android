@@ -16,9 +16,6 @@ class CatalogViewModel @Inject constructor(
     private val prefs: UserPrefsRepository,
 ) : ViewModel() {
 
-    val gold: StateFlow<Int> = prefs.gold
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), UserPrefsRepository.STARTING_GOLD)
-
     val favorites: StateFlow<Set<String>> = prefs.favorites
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptySet())
 

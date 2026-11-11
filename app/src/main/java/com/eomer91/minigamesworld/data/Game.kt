@@ -20,7 +20,6 @@ data class Game(
     @StringRes val descriptionRes: Int,
     val category: GameCategory,
     @DrawableRes val imageRes: Int,
-    val entryCost: Int,
     val isFeatured: Boolean = false,
     /** Oyun native olarak tasindiginda true yapilir; false ise "Cok yakinda" ekrani acilir. */
     val isPlayable: Boolean = false,

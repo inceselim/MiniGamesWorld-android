@@ -223,7 +223,6 @@ class FoxViewModel @Inject constructor(
         _state.update { it.copy(phase = FoxPhase.WON, profile = profile, result = r, score = r.score, goldEarned = gold, newBestStars = newStars) }
         viewModelScope.launch {
             prefs.saveGame(PROFILE_KEY, profile.toJson())
-            if (gold > 0) prefs.addGold(gold)
             prefs.submitScore(GAME_ID, r.score)
         }
     }

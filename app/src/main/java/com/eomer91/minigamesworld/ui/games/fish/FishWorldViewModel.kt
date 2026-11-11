@@ -191,7 +191,6 @@ class FishWorldViewModel @Inject constructor(
         val castsLeft = s.castsLeft - 1
         val sessionScore = s.sessionScore + value * SCORE_PER_PEARL
         val delta = goldTracker.onScore(sessionScore)
-        if (delta > 0) viewModelScope.launch { prefs.addGold(delta) }
 
         val over = castsLeft <= 0
         _state.value = s.copy(

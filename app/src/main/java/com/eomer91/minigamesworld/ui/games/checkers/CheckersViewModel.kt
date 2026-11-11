@@ -276,7 +276,6 @@ class CheckersViewModel @Inject constructor(
         if (score > 0) {
             sessionScore += score
             val delta = goldTracker.onScore(sessionScore)
-            if (delta > 0) viewModelScope.launch { prefs.addGold(delta) }
             viewModelScope.launch { prefs.submitScore(GAME_ID, score) }
         }
         _state.update {

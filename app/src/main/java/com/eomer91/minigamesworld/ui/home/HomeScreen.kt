@@ -35,7 +35,6 @@ import com.eomer91.minigamesworld.data.GameCategory
 import com.eomer91.minigamesworld.ui.components.CategoryChips
 import com.eomer91.minigamesworld.ui.components.FeaturedBanner
 import com.eomer91.minigamesworld.ui.components.GameRow
-import com.eomer91.minigamesworld.ui.components.GoldBadge
 import com.eomer91.minigamesworld.ui.components.ScreenTitle
 
 @Composable
@@ -43,7 +42,6 @@ fun HomeScreen(
     onGameClick: (String) -> Unit,
     viewModel: CatalogViewModel = hiltViewModel(),
 ) {
-    val gold by viewModel.gold.collectAsStateWithLifecycle()
     var category by rememberSaveable { mutableStateOf<GameCategory?>(null) }
     val featured = GameCatalog.featured
     var showPremium by remember { mutableStateOf(false) }
@@ -66,7 +64,6 @@ fun HomeScreen(
                 IconButton(onClick = { AppActions.inviteFriend(context) }) {
                     Icon(Icons.Rounded.PersonAdd, contentDescription = stringResource(R.string.invite_friend), tint = AppColors.Primary)
                 }
-                GoldBadge(gold)
             }
         }
         item {

@@ -1,0 +1,66 @@
+<en-US>
+• All games are now completely free – no gold needed to play
+• 14 new languages: Greek, Portuguese, Polish, Dutch, Swedish, Norwegian, Finnish, Czech, Slovak, Romanian, Ukrainian, Bulgarian, Croatian and Slovenian (24 in total)
+• Solitaire has been removed
+• Small fixes and improvements
+</en-US>
+<tr-TR>
+• Tüm oyunlar artık tamamen ücretsiz – oynamak için altın gerekmiyor
+• 14 yeni dil: Yunanca, Portekizce, Lehçe, Felemenkçe, İsveççe, Norveççe, Fince, Çekçe, Slovakça, Romence, Ukraynaca, Bulgarca, Hırvatça ve Slovence (toplam 24 dil)
+• Solitaire kaldırıldı
+• Küçük düzeltmeler ve iyileştirmeler
+</tr-TR>
+<de-DE>
+• Alle Spiele sind jetzt komplett kostenlos – kein Gold mehr zum Spielen nötig
+• 14 neue Sprachen: Griechisch, Portugiesisch, Polnisch, Niederländisch, Schwedisch, Norwegisch, Finnisch, Tschechisch, Slowakisch, Rumänisch, Ukrainisch, Bulgarisch, Kroatisch und Slowenisch (insgesamt 24)
+• Solitär wurde entfernt
+• Kleine Korrekturen und Verbesserungen
+</de-DE>
+<es-ES>
+• Todos los juegos son ahora totalmente gratis: ya no necesitas oro para jugar
+• 14 idiomas nuevos: griego, portugués, polaco, neerlandés, sueco, noruego, finés, checo, eslovaco, rumano, ucraniano, búlgaro, croata y esloveno (24 en total)
+• Se ha eliminado el Solitario
+• Pequeñas correcciones y mejoras
+</es-ES>
+<fr-FR>
+• Tous les jeux sont désormais entièrement gratuits : plus besoin d'or pour jouer
+• 14 nouvelles langues : grec, portugais, polonais, néerlandais, suédois, norvégien, finnois, tchèque, slovaque, roumain, ukrainien, bulgare, croate et slovène (24 au total)
+• Le Solitaire a été retiré
+• Petites corrections et améliorations
+</fr-FR>
+<it-IT>
+• Tutti i giochi ora sono completamente gratuiti: non serve più oro per giocare
+• 14 nuove lingue: greco, portoghese, polacco, olandese, svedese, norvegese, finlandese, ceco, slovacco, rumeno, ucraino, bulgaro, croato e sloveno (24 in totale)
+• Il Solitario è stato rimosso
+• Piccole correzioni e miglioramenti
+</it-IT>
+<ja-JP>
+• すべてのゲームが完全無料に – プレイにゴールドは不要になりました
+• 14 の新しい言語を追加：ギリシャ語、ポルトガル語、ポーランド語、オランダ語、スウェーデン語、ノルウェー語、フィンランド語、チェコ語、スロバキア語、ルーマニア語、ウクライナ語、ブルガリア語、クロアチア語、スロベニア語（合計 24 言語）
+• ソリティアを削除しました
+• 細かな修正と改善
+</ja-JP>
+<ru-RU>
+• Все игры теперь полностью бесплатны – золото для игры больше не нужно
+• 14 новых языков: греческий, португальский, польский, нидерландский, шведский, норвежский, финский, чешский, словацкий, румынский, украинский, болгарский, хорватский и словенский (всего 24)
+• Пасьянс удалён
+• Небольшие исправления и улучшения
+</ru-RU>
+<da-DK>
+• Alle spil er nu helt gratis – der skal ikke længere bruges guld for at spille
+• 14 nye sprog: græsk, portugisisk, polsk, nederlandsk, svensk, norsk, finsk, tjekkisk, slovakisk, rumænsk, ukrainsk, bulgarsk, kroatisk og slovensk (24 i alt)
+• Kabale er fjernet
+• Små rettelser og forbedringer
+</da-DK>
+<hu-HU>
+• Minden játék teljesen ingyenes – a játékhoz már nem kell arany
+• 14 új nyelv: görög, portugál, lengyel, holland, svéd, norvég, finn, cseh, szlovák, román, ukrán, bolgár, horvát és szlovén (összesen 24)
+• A Pasziánsz kikerült
+• Apró javítások és fejlesztések
+</hu-HU>
+<el-GR>
+• Όλα τα παιχνίδια είναι πλέον εντελώς δωρεάν – δεν χρειάζεται χρυσός για να παίξεις
+• 14 νέες γλώσσες, ανάμεσά τους τα ελληνικά (24 συνολικά)
+• Η Πασιέντζα αφαιρέθηκε
+• Μικρές διορθώσεις και βελτιώσεις
+</el-GR>

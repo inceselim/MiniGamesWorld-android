@@ -60,7 +60,6 @@ class RocketViewModel @Inject constructor(
         var goldEarned = s.goldEarned
         if (ev.passed > 0 || ev.star) {
             val delta = goldTracker.onScore(next.score)
-            if (delta > 0) viewModelScope.launch { prefs.addGold(delta) }
             goldEarned = goldTracker.awarded
         }
         _state.value = s.copy(game = next, goldEarned = goldEarned)

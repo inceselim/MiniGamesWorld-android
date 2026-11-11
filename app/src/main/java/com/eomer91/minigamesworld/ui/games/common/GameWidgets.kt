@@ -86,14 +86,6 @@ fun GameOverPanel(
     ) {
         Text(title, color = titleColor, fontSize = 26.sp, fontWeight = FontWeight.Black)
         Text(detail, color = AppColors.TextMuted, modifier = Modifier.padding(top = 6.dp))
-        if (goldEarned > 0) {
-            Text(
-                stringResource(R.string.game_gold_earned, goldEarned),
-                color = AppColors.Gold,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(top = 4.dp),
-            )
-        }
         if (isNewRecord) {
             Text(stringResource(R.string.game_new_record), color = AppColors.Gold, fontWeight = FontWeight.Black, modifier = Modifier.padding(top = 4.dp))
         }

@@ -604,9 +604,6 @@ private fun ServeStep(state: CookingUiState, onNext: () -> Unit) {
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
         )
-        if (state.goldEarned > 0) {
-            Text(stringResource(R.string.game_gold_earned, state.goldEarned), color = Color(0xFFB45309), fontSize = 12.sp, fontWeight = FontWeight.Bold)
-        }
         Button(
             onClick = onNext,
             shape = RoundedCornerShape(12.dp),

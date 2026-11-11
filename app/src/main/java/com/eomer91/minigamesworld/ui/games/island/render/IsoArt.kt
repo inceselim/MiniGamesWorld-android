@@ -444,10 +444,10 @@ object IsoArt {
             }
             "casino" -> {
                 s.flat(0f, 0f, W, D, 0.2f, 0xFF424242.toInt())
-                s.box(0.3f, 0.3f, 2.4f, 2.1f, 0f, 60f, 0xFFB71C1C.toInt())
+                s.box(0.3f, 0.3f, 2.4f, 2.1f, 0f, 60f, 0xFF00838F.toInt())
                 s.windowsR(2.7f, 0.3f, 2.4f, 0f, 3, 20f, 0xFFFFD54F.toInt(), 3)
                 s.windowsL(2.4f, 0.3f, 2.7f, 0f, 3, 20f, 0xFFFFD54F.toInt(), 3)
-                s.box(0.25f, 0.25f, 2.5f, 2.2f, 60f, 6f, 0xFFFFC107.toInt())
+                s.box(0.25f, 0.25f, 2.5f, 2.2f, 60f, 6f, 0xFF7E57C2.toInt())
                 val dx = s.sx(1.5f, 1.35f); val dy = s.sy(1.5f, 1.35f, 66f)
                 p.oval(dx - 30 * s.zs, dy - 34 * s.zs, dx + 30 * s.zs, dy + 8 * s.zs, 0xFFFFD54F.toInt())
                 p.oval(dx - 22 * s.zs, dy - 30 * s.zs, dx + 6 * s.zs, dy - 10 * s.zs, 0xFFFFECB3.toInt())

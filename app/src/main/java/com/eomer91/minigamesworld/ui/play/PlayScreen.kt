@@ -56,7 +56,6 @@ import com.eomer91.minigamesworld.ui.games.runner.RunnerScreen
 import com.eomer91.minigamesworld.ui.games.countries.CountriesScreen
 import com.eomer91.minigamesworld.ui.games.stocks.StockMarketScreen
 import com.eomer91.minigamesworld.ui.games.snake.SnakeScreen
-import com.eomer91.minigamesworld.ui.games.solitaire.SolitaireScreen
 import com.eomer91.minigamesworld.ui.games.stack.StackScreen
 import com.eomer91.minigamesworld.ui.games.sudoku.SudokuScreen
 import com.eomer91.minigamesworld.ui.games.tower.TowerScreen
@@ -127,7 +126,6 @@ fun PlayScreen(gameId: String, onBack: () -> Unit) {
                 "bubble-shooter" -> BubbleScreen()
                 "tower-defense" -> TowerScreen()
                 "minesweeper" -> MinesScreen()
-                "solitaire" -> SolitaireScreen()
                 "connect-four" -> Connect4Screen()
                 "rocket-hop" -> RocketScreen()
                 "fish-world" -> FishWorldScreen()

@@ -787,9 +787,6 @@ private fun WonOverlay(state: FoxUiState, onNext: () -> Unit, onRetry: () -> Uni
             fontWeight = FontWeight.Black,
             modifier = Modifier.padding(top = 4.dp),
         )
-        if (state.goldEarned > 0) {
-            Text(stringResource(R.string.game_gold_earned, state.goldEarned), color = Gold, fontSize = 13.sp)
-        }
         Row(Modifier.padding(top = 14.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
             if (state.hasNext) {
                 Button(onClick = onNext, shape = RoundedCornerShape(12.dp), colors = ButtonDefaults.buttonColors(containerColor = Green, contentColor = AppColors.OnPrimary)) {

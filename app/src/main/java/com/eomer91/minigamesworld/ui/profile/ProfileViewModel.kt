@@ -13,9 +13,6 @@ import javax.inject.Inject
 class ProfileViewModel @Inject constructor(
     prefs: UserPrefsRepository,
 ) : ViewModel() {
-    val gold: StateFlow<Int> = prefs.gold
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), UserPrefsRepository.STARTING_GOLD)
-
     val highScores: StateFlow<Map<String, Int>> = prefs.highScores
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyMap())
 }

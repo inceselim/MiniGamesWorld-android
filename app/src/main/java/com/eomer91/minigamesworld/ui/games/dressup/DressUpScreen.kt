@@ -286,9 +286,6 @@ private fun JudgePanel(state: DressUiState, onNext: () -> Unit, modifier: Modifi
                 textAlign = TextAlign.Center,
                 fontSize = 13.sp,
             )
-            if (state.goldEarned > 0) {
-                Text(stringResource(R.string.game_gold_earned, state.goldEarned), color = AppColors.Gold, fontSize = 12.sp, fontWeight = FontWeight.Bold)
-            }
             Button(
                 onClick = onNext,
                 shape = RoundedCornerShape(12.dp),

@@ -257,7 +257,6 @@ class CountriesViewModel @Inject constructor(
     private fun finish(g: CwGame) {
         val score = g.score
         val delta = goldTracker.onScore(score)
-        if (delta > 0) viewModelScope.launch { prefs.addGold(delta) }
         _state.update { it.copy(goldEarned = goldTracker.awarded) }
         viewModelScope.launch {
             prefs.submitScore(GAME_ID, score)

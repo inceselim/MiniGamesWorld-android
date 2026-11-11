@@ -5,9 +5,6 @@ object GameEconomy {
     /** Her bu kadar puan icin 1 altin. */
     const val POINTS_PER_GOLD = 200
 
-    /** Altin yetmediginde odullu reklam izleyince verilen altin. */
-    const val AD_REWARD_GOLD = 50
-
     fun goldFor(score: Int): Int = (score / POINTS_PER_GOLD).coerceAtLeast(0)
 }
 

@@ -20,7 +20,6 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.MonetizationOn
 import androidx.compose.material.icons.rounded.Search
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
@@ -53,21 +52,6 @@ fun ScreenTitle(title: String, subtitle: String? = null, modifier: Modifier = Mo
         if (subtitle != null) {
             Text(subtitle, color = AppColors.TextSecondary, fontSize = 15.sp, modifier = Modifier.padding(top = 4.dp))
         }
-    }
-}
-
-@Composable
-fun GoldBadge(gold: Int, modifier: Modifier = Modifier) {
-    Row(
-        modifier = modifier
-            .clip(RoundedCornerShape(50))
-            .background(AppColors.SurfaceHigh)
-            .padding(horizontal = 12.dp, vertical = 6.dp),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Icon(Icons.Rounded.MonetizationOn, contentDescription = null, tint = AppColors.Gold, modifier = Modifier.size(18.dp))
-        Spacer(Modifier.width(6.dp))
-        Text(gold.toString(), color = AppColors.Gold, fontWeight = FontWeight.Black)
     }
 }
 

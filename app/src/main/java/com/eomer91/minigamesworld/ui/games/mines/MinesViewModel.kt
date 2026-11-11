@@ -114,7 +114,6 @@ class MinesViewModel @Inject constructor(
         if (engine.isWon(result.board)) {
             val score = minesScore(s.difficulty, s.elapsedSeconds, s.secondChanceUsed)
             val delta = goldTracker.onScore(score)
-            if (delta > 0) viewModelScope.launch { prefs.addGold(delta) }
             _state.value = s.copy(board = result.board, phase = MinesPhase.WON, finalScore = score, goldEarned = goldTracker.awarded)
             viewModelScope.launch { prefs.submitScore(GAME_ID, score) }
             feedback.play(Sfx.COMBO)

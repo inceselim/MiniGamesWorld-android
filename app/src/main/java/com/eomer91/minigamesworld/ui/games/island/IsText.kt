@@ -75,7 +75,7 @@ fun catName(c: Cat): Int = when (c) {
 }
 
 fun catIcon(c: Cat): String = when (c) {
-    Cat.STAY -> "🏨"; Cat.FOOD -> "🍔"; Cat.NIGHT -> "🪩"; Cat.FUN -> "🎡"; Cat.GAMBLE -> "🎰"
+    Cat.STAY -> "🏨"; Cat.FOOD -> "🍔"; Cat.NIGHT -> "🪩"; Cat.FUN -> "🎡"; Cat.GAMBLE -> "🎳"
     Cat.SHOP -> "🛍️"; Cat.BEACH -> "🏖️"; Cat.NATURE -> "🌴"; Cat.ROAD -> "🛣️"; Cat.PUBLIC -> "✈️"
 }
 

@@ -199,7 +199,6 @@ class BlockRainViewModel @Inject constructor(
         val s = _state.value
         if (e.score != s.score || e.lines != s.lines || e.gameOver) {
             val delta = goldTracker.onScore(e.score)
-            if (delta > 0) viewModelScope.launch { prefs.addGold(delta) }
             _state.update {
                 it.copy(
                     score = e.score, lines = e.lines, level = e.level, goldEarned = goldTracker.awarded,

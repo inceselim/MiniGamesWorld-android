@@ -143,7 +143,6 @@ class ColoringViewModel @Inject constructor(
             if (changed) {
                 fills++
                 val delta = goldTracker.onScore(fills * 10)
-                if (delta > 0) prefs.addGold(delta)
                 _state.update { it.copy(canUndo = e.canUndo, version = it.version + 1, goldEarned = goldTracker.awarded) }
                 feedback.play(Sfx.DROP, volume = 0.5f)
                 if (fills % 5 == 0) save()

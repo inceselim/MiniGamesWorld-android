@@ -295,7 +295,6 @@ private fun QuizDone(state: AnimalsUiState, onAgain: () -> Unit, onMenu: () -> U
     Column(Modifier.fillMaxSize().padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
         Text("★".repeat(state.stars) + "☆".repeat(3 - state.stars), color = Color(0xFFF59E0B), fontSize = 54.sp)
         Text(stringResource(R.string.an_result, state.correct, state.questions.size), color = Color(0xFF5A3A2A), fontSize = 22.sp, fontWeight = FontWeight.Black, textAlign = TextAlign.Center)
-        if (state.goldEarned > 0) Text(stringResource(R.string.game_gold_earned, state.goldEarned), color = Color(0xFFB45309), fontWeight = FontWeight.Bold)
         Row(Modifier.padding(top = 16.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
             listOf(Animal.PIG, Animal.CHICKEN, Animal.SHEEP).forEach { AnimalImage(it, Modifier.size(80.dp).clip(CircleShape)) }
         }

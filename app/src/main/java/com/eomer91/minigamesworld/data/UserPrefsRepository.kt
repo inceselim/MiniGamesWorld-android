@@ -51,16 +51,6 @@ class UserPrefsRepository @Inject constructor(
     fun highScore(gameId: String): Flow<Int> = prefs.map { it[Keys.highScore(gameId)] ?: 0 }
 
     /** Yeterli altin varsa duser ve true dondurur. */
-    suspend fun spendGold(amount: Int): Boolean {
-        var spent = false
-        dataStore.edit { p ->
-            val current = p[Keys.GOLD] ?: STARTING_GOLD
-            spent = current >= amount
-            if (spent) p[Keys.GOLD] = current - amount
-        }
-        return spent
-    }
-
     suspend fun addGold(amount: Int) {
         dataStore.edit { p -> p[Keys.GOLD] = (p[Keys.GOLD] ?: STARTING_GOLD) + amount }
     }

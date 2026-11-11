@@ -162,7 +162,6 @@ class JigsawViewModel @Inject constructor(
         sessionScore += score
         val delta = goldTracker.onScore(sessionScore)
         viewModelScope.launch {
-            if (delta > 0) prefs.addGold(delta)
             prefs.submitScore(GAME_ID, score)
             prefs.saveGame(PROFILE_KEY, profile.toJson())
         }

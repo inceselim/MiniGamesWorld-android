@@ -2,10 +2,10 @@
 Mini Games Hub: offline játék
 
 === SHORT DESCRIPTION (max 80) ===
-33 játék egy appban: logikai, ügyességi, kártya, stratégia. Játssz offline!
+32 játék egy appban: logikai, ügyességi, kártya, stratégia. Játssz offline!
 
 === FULL DESCRIPTION (max 4000) ===
-A Mini Games Hub 33 szórakoztató játékot gyűjt egyetlen kis alkalmazásba. Nem kell fiók, a legtöbb játék internet nélkül is működik, és minden játék elmenti a rekordodat.
+A Mini Games Hub 32 szórakoztató játékot gyűjt egyetlen kis alkalmazásba. Nem kell fiók, a legtöbb játék internet nélkül is működik, és minden játék elmenti a rekordodat.
 
 🧩 LOGIKAI
 • Mahjong – nagy, jól látható kövek, 4 helyes tálca és végtelen pályák, minden fejezetben új kövekkel
@@ -28,7 +28,6 @@ A Mini Games Hub 33 szórakoztató játékot gyűjt egyetlen kis alkalmazásba. 
 • Bányafutam – száguldj csillében három sávon, térj ki és gyűjts
 
 🃏 KÁRTYA ÉS KLASSZIKUSOK
-• Pasziánsz – Klondike 1 vagy 3 lap húzással, visszavonás, automatikus befejezés
 • Memória – fordítsd fel a kártyákat, és találd meg a párokat
 • Négy a sorban – a gép ellen (három szint) vagy egy barátoddal
 • Sakk – teljes szabályok, három gépi szint vagy barát ellen
@@ -51,7 +50,6 @@ A Mini Games Hub 33 szórakoztató játékot gyűjt egyetlen kis alkalmazásba. 
 • Állatbarátok – állatképek, nevek és hangok a legkisebbeknek
 
 ⭐ FUNKCIÓK
-• Minden játékban aranyat gyűjtesz, amivel játszhatsz
 • A félbehagyott játékokat ott folytatod, ahol abbahagytad
 • Hangeffektek és rezgés (kikapcsolható)
 • Háttérzene (kikapcsolható)

@@ -193,7 +193,6 @@ class BubbleViewModel @Inject constructor(
     private fun awardProgress() {
         val score = _state.value.score
         val delta = goldTracker.onScore(score)
-        if (delta > 0) viewModelScope.launch { prefs.addGold(delta) }
         _state.update { it.copy(goldEarned = goldTracker.awarded) }
         if (score > _state.value.best) viewModelScope.launch { prefs.submitScore(GAME_ID, score) }
     }

@@ -586,7 +586,7 @@ private fun Won(state: MahjongUiState, theme: MjTheme, onNext: () -> Unit, onHom
             Spacer(Modifier.height(12.dp))
             Row { repeat(3) { i -> Text(if (i < state.stars) "⭐" else "☆", fontSize = 44.sp, color = if (i < state.stars) Color.Unspecified else Color.White.copy(alpha = 0.35f)) } }
             Spacer(Modifier.height(6.dp))
-            Text("⏱ %d:%02d".format(state.seconds / 60, state.seconds % 60) + "    🪙 +${state.goldEarned}", color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+            Text("⏱ %d:%02d".format(state.seconds / 60, state.seconds % 60), color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.Bold)
             Spacer(Modifier.height(18.dp))
             Button(
                 onClick = onNext,

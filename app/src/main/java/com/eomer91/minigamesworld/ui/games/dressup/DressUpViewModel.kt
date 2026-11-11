@@ -124,7 +124,6 @@ class DressUpViewModel @Inject constructor(
             val score = (judges.average() * 100).toInt()
             sessionScore += score
             val delta = goldTracker.onScore(sessionScore)
-            if (delta > 0) prefs.addGold(delta)
             prefs.submitScore(GAME_ID, score)
             _state.update {
                 it.copy(

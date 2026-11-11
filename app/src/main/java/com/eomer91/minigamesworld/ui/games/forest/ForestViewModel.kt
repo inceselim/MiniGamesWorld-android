@@ -303,7 +303,6 @@ class ForestViewModel @Inject constructor(
         _state.update { it.copy(profile = profile, goldEarned = goldTracker.awarded + questGold) }
         viewModelScope.launch {
             prefs.saveGame(PROFILE_KEY, profile.toJson())
-            if (delta + questGold > 0) prefs.addGold(delta + questGold)
             prefs.submitScore(GAME_ID, e.score)
         }
     }

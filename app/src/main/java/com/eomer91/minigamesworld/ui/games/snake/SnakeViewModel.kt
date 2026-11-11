@@ -39,7 +39,6 @@ class SnakeViewModel @Inject constructor(
     /** Puan 200'un katlarini gectikce altin verir; bu oyunda toplam kazanilan altini dondurur. */
     private fun awardGold(score: Int): Int {
         val delta = goldTracker.onScore(score)
-        if (delta > 0) viewModelScope.launch { prefs.addGold(delta) }
         return goldTracker.awarded
     }
     val gridSize: Int get() = engine.gridSize

@@ -32,13 +32,11 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.eomer91.minigamesworld.R
 import com.eomer91.minigamesworld.data.GameCatalog
-import com.eomer91.minigamesworld.ui.components.GoldBadge
 import com.eomer91.minigamesworld.ui.components.ScreenTitle
 import com.eomer91.minigamesworld.ui.theme.AppColors
 
 @Composable
 fun ProfileScreen(viewModel: ProfileViewModel = hiltViewModel()) {
-    val gold by viewModel.gold.collectAsStateWithLifecycle()
     val scores by viewModel.highScores.collectAsStateWithLifecycle()
 
     Column(
@@ -63,7 +61,6 @@ fun ProfileScreen(viewModel: ProfileViewModel = hiltViewModel()) {
                     fontWeight = FontWeight.ExtraBold,
                     modifier = Modifier.weight(1f),
                 )
-                GoldBadge(gold)
             }
             Text(
                 stringResource(R.string.profile_guest_body),

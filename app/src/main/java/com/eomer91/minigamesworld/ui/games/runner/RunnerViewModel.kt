@@ -109,7 +109,6 @@ class RunnerViewModel @Inject constructor(
         }
         if (e.jumpEvents > lastJumps) lastJumps = e.jumpEvents
         val delta = goldTracker.onScore(e.score)
-        if (delta > 0) viewModelScope.launch { prefs.addGold(delta) }
         if (e.dead) {
             feedback.play(Sfx.GAME_OVER)
             feedback.vibrate(Haptic.HEAVY)

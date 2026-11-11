@@ -144,7 +144,6 @@ class FactoryViewModel @Inject constructor(
     private fun award() {
         val score = ((engine.totalEarned - startEarned) / 10).toInt().coerceAtLeast(0)
         val delta = goldTracker.onScore(score)
-        if (delta > 0) viewModelScope.launch { prefs.addGold(delta) }
         _state.update { it.copy(goldEarned = goldTracker.awarded) }
     }
 

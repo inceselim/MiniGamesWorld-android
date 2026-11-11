@@ -2,10 +2,10 @@
 Mini Games Hub: giochi offline
 
 === SHORT DESCRIPTION (max 80) ===
-33 giochi in un'app: rompicapo, arcade, carte, strategia. Gioca offline!
+32 giochi in un'app: rompicapo, arcade, carte, strategia. Gioca offline!
 
 === FULL DESCRIPTION (max 4000) ===
-Mini Games Hub riunisce 33 giochi divertenti in un'unica app leggera. Nessun account richiesto, la maggior parte dei giochi funziona offline e ogni gioco salva il tuo record.
+Mini Games Hub riunisce 32 giochi divertenti in un'unica app leggera. Nessun account richiesto, la maggior parte dei giochi funziona offline e ogni gioco salva il tuo record.
 
 🧩 ROMPICAPO
 • Mahjong – tessere grandi e chiare, vassoio da 4 spazi e livelli infiniti con nuove tessere a ogni capitolo
@@ -28,7 +28,6 @@ Mini Games Hub riunisce 33 giochi divertenti in un'unica app leggera. Nessun acc
 • Corsa in Miniera – sfreccia sul carrello in tre corsie, schiva e raccogli
 
 🃏 CARTE E CLASSICI
-• Solitario – Klondike pescando 1 o 3 carte, annulla e completamento automatico
 • Memory – gira le carte e trova tutte le coppie
 • Forza Quattro – contro il computer (tre livelli) o un amico
 • Scacchi – regole complete, tre livelli contro il computer o con un amico
@@ -51,7 +50,6 @@ Mini Games Hub riunisce 33 giochi divertenti in un'unica app leggera. Nessun acc
 • Amici Animali – immagini, nomi e versi degli animali per i più piccoli
 
 ⭐ CARATTERISTICHE
-• Guadagna oro in ogni gioco e usalo per giocare
 • Riprendi le partite da dove le avevi lasciate
 • Effetti sonori e vibrazione (disattivabili)
 • Musica di sottofondo (disattivabile)

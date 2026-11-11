@@ -36,7 +36,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -46,18 +45,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.eomer91.minigamesworld.R
 import com.eomer91.minigamesworld.ads.rememberInterstitialLauncher
-import com.eomer91.minigamesworld.ads.rememberRewardedLauncher
-import com.eomer91.minigamesworld.data.GameEconomy
-import androidx.compose.material.icons.rounded.OndemandVideo
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.TextButton
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
-import kotlinx.coroutines.launch
 import com.eomer91.minigamesworld.ui.components.EmptyState
-import com.eomer91.minigamesworld.ui.components.GoldBadge
 import com.eomer91.minigamesworld.ui.theme.AppColors
 
 @Composable
@@ -68,21 +57,13 @@ fun GameDetailScreen(
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val snackbar = remember { SnackbarHostState() }
-    val context = LocalContext.current
     val showInterstitial = rememberInterstitialLauncher()
-    val showRewarded = rememberRewardedLauncher()
-    val scope = rememberCoroutineScope()
-    /** Altin yetmediginde gosterilen "reklam izle" penceresi; gereken altin miktari. */
-    var goldOffer by remember { mutableStateOf<Int?>(null) }
 
     LaunchedEffect(Unit) {
         viewModel.events.collect { event ->
             when (event) {
                 is GameDetailEvent.StartGame ->
                     if (event.showAd) showInterstitial { onPlay(event.gameId) } else onPlay(event.gameId)
-                is GameDetailEvent.NotEnoughGold -> goldOffer = event.required
-                is GameDetailEvent.GoldRewarded ->
-                    snackbar.showSnackbar(context.getString(R.string.gold_rewarded, event.amount))
             }
         }
     }
@@ -122,8 +103,6 @@ fun GameDetailScreen(
             Column(Modifier.padding(20.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(stringResource(game.category.labelRes), color = AppColors.Primary, fontSize = 14.sp, fontWeight = FontWeight.ExtraBold)
-                    Spacer(Modifier.weight(1f))
-                    GoldBadge(state.gold)
                 }
                 Text(
                     stringResource(game.nameRes),
@@ -143,7 +122,7 @@ fun GameDetailScreen(
                     modifier = Modifier.padding(top = 16.dp),
                 )
                 if (state.hasSavedGame) {
-                    // Yarim kalan oyun: once "Devam et" (ucretsiz), altinda "Yeni oyun".
+                    // Yarim kalan oyun: once "Devam et", altinda "Yeni oyun".
                     Button(
                         onClick = viewModel::continueGame,
                         modifier = Modifier.fillMaxWidth().padding(top = 28.dp).height(58.dp),
@@ -159,7 +138,7 @@ fun GameDetailScreen(
                         modifier = Modifier.fillMaxWidth().padding(top = 12.dp).height(52.dp),
                         shape = RoundedCornerShape(20.dp),
                     ) {
-                        Text(stringResource(R.string.new_game, game.entryCost), fontWeight = FontWeight.Bold)
+                        Text(stringResource(R.string.is_new_game), fontWeight = FontWeight.Bold)
                     }
                 } else {
                     Button(
@@ -170,7 +149,7 @@ fun GameDetailScreen(
                     ) {
                         Icon(Icons.Rounded.PlayArrow, contentDescription = null)
                         Spacer(Modifier.width(8.dp))
-                        Text(stringResource(R.string.play_now, game.entryCost), fontWeight = FontWeight.Black, fontSize = 15.sp)
+                        Text(stringResource(R.string.mj_play), fontWeight = FontWeight.Black, fontSize = 15.sp)
                     }
                 }
             }
@@ -178,33 +157,6 @@ fun GameDetailScreen(
         SnackbarHost(snackbar, Modifier.align(Alignment.BottomCenter))
     }
 
-    goldOffer?.let { required ->
-        AlertDialog(
-            onDismissRequest = { goldOffer = null },
-            icon = { Icon(Icons.Rounded.OndemandVideo, contentDescription = null, tint = AppColors.Gold) },
-            title = { Text(stringResource(R.string.not_enough_gold)) },
-            text = {
-                Text(stringResource(R.string.gold_offer_body, required, state.gold, GameEconomy.AD_REWARD_GOLD))
-            },
-            confirmButton = {
-                Button(
-                    onClick = {
-                        goldOffer = null
-                        showRewarded(
-                            { viewModel.grantAdReward() },
-                            { scope.launch { snackbar.showSnackbar(context.getString(R.string.ad_not_ready)) } },
-                        )
-                    },
-                    colors = ButtonDefaults.buttonColors(containerColor = AppColors.Gold, contentColor = AppColors.OnPrimary),
-                ) {
-                    Text(stringResource(R.string.gold_offer_watch, GameEconomy.AD_REWARD_GOLD), fontWeight = FontWeight.Bold)
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { goldOffer = null }) { Text(stringResource(android.R.string.cancel)) }
-            },
-        )
-    }
 }
 
 @Composable

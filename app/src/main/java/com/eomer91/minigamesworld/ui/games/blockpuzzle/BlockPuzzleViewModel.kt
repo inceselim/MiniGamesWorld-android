@@ -51,7 +51,6 @@ class BlockPuzzleViewModel @Inject constructor(
 
     private fun awardGold(score: Int): Int {
         val delta = goldTracker.onScore(score)
-        if (delta > 0) viewModelScope.launch { prefs.addGold(delta) }
         return goldTracker.awarded
     }
 

@@ -165,7 +165,6 @@ class CookingViewModel @Inject constructor(
         val delta = goldTracker.onScore(sessionScore)
         val total = s.totalStars + stars
         viewModelScope.launch {
-            if (delta > 0) prefs.addGold(delta)
             prefs.submitScore(GAME_ID, score)
             prefs.saveGame(PROFILE_KEY, total.toString())
         }

@@ -2,10 +2,10 @@
 Mini Games Hub: Juegos offline
 
 === SHORT DESCRIPTION (max 80) ===
-33 juegos en una app: puzles, arcade, cartas y estrategia. ¡Juega sin conexión!
+32 juegos en una app: puzles, arcade, cartas y estrategia. ¡Juega sin conexión!
 
 === FULL DESCRIPTION (max 4000) ===
-Mini Games Hub reúne 33 juegos divertidos en una sola app ligera. No necesitas cuenta, la mayoría de los juegos funcionan sin conexión y cada uno guarda tu récord.
+Mini Games Hub reúne 32 juegos divertidos en una sola app ligera. No necesitas cuenta, la mayoría de los juegos funcionan sin conexión y cada uno guarda tu récord.
 
 🧩 PUZLES
 • Mahjong – fichas grandes y claras, bandeja de 4 casillas y niveles infinitos con fichas nuevas en cada capítulo
@@ -28,7 +28,6 @@ Mini Games Hub reúne 33 juegos divertidos en una sola app ligera. No necesitas 
 • Carrera en la Mina – corre en vagoneta por tres carriles, esquiva y recoge
 
 🃏 CARTAS Y CLÁSICOS
-• Solitario – Klondike robando 1 o 3 cartas, deshacer y final automático
 • Memoria – voltea cartas y encuentra todas las parejas
 • Cuatro en raya – contra la máquina (tres niveles) o con un amigo
 • Ajedrez – reglas completas, tres niveles contra la máquina o con un amigo
@@ -51,7 +50,6 @@ Mini Games Hub reúne 33 juegos divertidos en una sola app ligera. No necesitas 
 • Amigos Animales – imágenes, nombres y sonidos de animales para peques
 
 ⭐ CARACTERÍSTICAS
-• Gana oro en cada juego y úsalo para jugar
 • Continúa las partidas sin terminar donde las dejaste
 • Efectos de sonido y vibración (se pueden desactivar)
 • Música de fondo (se puede desactivar)

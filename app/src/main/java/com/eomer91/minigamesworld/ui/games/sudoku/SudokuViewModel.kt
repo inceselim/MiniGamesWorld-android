@@ -169,7 +169,6 @@ class SudokuViewModel @Inject constructor(
         if (solved) {
             val score = sudokuScore(next.difficulty, next.mistakes, next.hintsUsed, next.elapsedSeconds)
             val delta = goldTracker.onScore(score)
-            if (delta > 0) viewModelScope.launch { prefs.addGold(delta) }
             next = next.copy(phase = SudokuPhase.WON, finalScore = score, goldEarned = goldTracker.awarded, selected = null)
             _state.value = next
             viewModelScope.launch { prefs.submitScore(GAME_ID, score) }

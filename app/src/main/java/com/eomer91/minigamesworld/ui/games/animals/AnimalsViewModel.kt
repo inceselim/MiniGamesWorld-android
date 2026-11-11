@@ -97,7 +97,6 @@ class AnimalsViewModel @Inject constructor(
             sessionScore += score
             val delta = goldTracker.onScore(sessionScore)
             viewModelScope.launch {
-                if (delta > 0) prefs.addGold(delta)
                 prefs.submitScore(GAME_ID, score)
             }
             _state.update { it.copy(mode = AnimalsMode.QUIZ_DONE, stars = stars, goldEarned = goldTracker.awarded) }

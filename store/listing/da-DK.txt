@@ -2,10 +2,10 @@
 Mini Games Hub: Offlinespil
 
 === SHORT DESCRIPTION (max 80) ===
-33 sjove spil i én app: puslespil, arkade, kort og strategi. Spil offline!
+32 sjove spil i én app: puslespil, arkade, kort og strategi. Spil offline!
 
 === FULL DESCRIPTION (max 4000) ===
-Mini Games Hub samler 33 sjove spil i én lille app. Ingen konto nødvendig, de fleste spil kan spilles offline, og hvert spil gemmer din rekord.
+Mini Games Hub samler 32 sjove spil i én lille app. Ingen konto nødvendig, de fleste spil kan spilles offline, og hvert spil gemmer din rekord.
 
 🧩 PUSLESPIL
 • Mahjong – store, tydelige brikker, bakke med 4 felter og uendelige baner med nye brikker i hvert kapitel
@@ -28,7 +28,6 @@ Mini Games Hub samler 33 sjove spil i én lille app. Ingen konto nødvendig, de 
 • Mineløb – kør i minevogn på tre spor, undvig og saml
 
 🃏 KORT OG KLASSIKERE
-• Kabale – Klondike med 1 eller 3 kort, fortryd og automatisk afslutning
 • Vendespil – vend kortene og find alle par
 • Fire på stribe – mod computeren (tre niveauer) eller en ven
 • Skak – alle regler, tre computerniveauer eller mod en ven
@@ -51,7 +50,6 @@ Mini Games Hub samler 33 sjove spil i én lille app. Ingen konto nødvendig, de 
 • Dyrevenner – dyrebilleder, navne og lyde for de mindste
 
 ⭐ FUNKTIONER
-• Tjen guld i hvert spil, og brug det til at spille
 • Fortsæt ufærdige spil, hvor du slap
 • Lydeffekter og vibration (kan slås fra)
 • Baggrundsmusik (kan slås fra)

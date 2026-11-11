@@ -65,7 +65,6 @@ class StackViewModel @Inject constructor(
 
         val (next, result) = engine.drop(s.game)
         val delta = goldTracker.onScore(next.score)
-        if (delta > 0) viewModelScope.launch { prefs.addGold(delta) }
 
         _state.value = s.copy(
             game = next,

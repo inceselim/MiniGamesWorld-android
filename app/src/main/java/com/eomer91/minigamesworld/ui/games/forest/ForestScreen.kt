@@ -179,7 +179,7 @@ fun ForestScreen(onBack: () -> Unit, viewModel: ForestViewModel = hiltViewModel(
                 if (state.questToastTime > 0f && state.questToast != null) {
                     val q = state.questToast!!
                     Text(
-                        "✔ " + stringResource(R.string.fg_quest_done, q.reward),
+                        "✔ " + questText(q, q.target),
                         color = Color(0xFF4ADE80),
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Black,
@@ -260,8 +260,7 @@ private fun HubContent(state: ForestUiState, viewModel: ForestViewModel, onBack:
                 Row(Modifier.padding(top = 3.dp), verticalAlignment = Alignment.CenterVertically) {
                     Text(if (done) "✔" else "•", color = if (done) Color(0xFF4ADE80) else AppColors.TextSecondary, fontWeight = FontWeight.Black, modifier = Modifier.width(16.dp))
                     Text(
-                        questText(q, if (done) q.target else 0) +
-                            "  +" + q.reward + " 💰",
+                        questText(q, if (done) q.target else 0),
                         color = if (done) AppColors.TextSecondary else AppColors.TextPrimary,
                         fontSize = 12.sp,
                     )
@@ -1083,9 +1082,6 @@ private fun ResultOverlay(
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(top = 6.dp),
             )
-            if (state.runQuestGold > 0) {
-                Text("✔ " + stringResource(R.string.fg_quest_done, state.runQuestGold), color = Color(0xFF4ADE80), fontSize = 13.sp, fontWeight = FontWeight.Bold)
-            }
             if (state.canRevive) {
                 Button(
                     onClick = onRevive,
@@ -1107,9 +1103,6 @@ private fun ResultOverlay(
                     fontWeight = FontWeight.Black,
                     modifier = Modifier.padding(top = 6.dp),
                 )
-                if (state.goldEarned > 0) {
-                    Text(stringResource(R.string.game_gold_earned, state.goldEarned), color = Gold, fontSize = 13.sp)
-                }
                 Row(Modifier.padding(top = 14.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                     val hasNext = state.victory && state.selectedMap.ordinal < ForestMap.entries.lastIndex
                     if (hasNext) {
