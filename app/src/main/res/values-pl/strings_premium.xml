@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="premium_title">Premium: bez reklam</string>
+    <string name="premium_row">Usuń reklamy</string>
+    <string name="premium_active">Premium aktywne</string>
+    <string name="premium_b1">Bez reklam między grami</string>
+    <string name="premium_b2">Bez banerów</string>
+    <string name="premium_b3">Opcjonalne filmy z nagrodą wciąż są dostępne, gdy chcesz bonus</string>
+    <string name="premium_b4">Wesprzyj niezależnego twórcę</string>
+    <string name="premium_monthly">Miesięcznie</string>
+    <string name="premium_yearly">Rocznie</string>
+    <string name="premium_per_month">%1$s / mies.</string>
+    <string name="premium_per_year">%1$s / rok</string>
+    <string name="premium_save">Oszczędzasz %1$s</string>
+    <string name="premium_trial">%1$d dni za darmo</string>
+    <string name="premium_then">%1$d dni za darmo, potem %2$s</string>
+    <string name="premium_subscribe">Subskrybuj</string>
+    <string name="premium_start_trial">Rozpocznij bezpłatny okres próbny</string>
+    <string name="premium_manage">Zarządzaj subskrypcją</string>
+    <string name="premium_restore">Przywróć zakupy</string>
+    <string name="premium_restored">Zakupy sprawdzone</string>
+    <string name="premium_thanks">Dziękujemy! Reklamy zostały usunięte.</string>
+    <string name="premium_pending">Płatność oczekuje. Premium włączy się po potwierdzeniu.</string>
+    <string name="premium_error">Coś poszło nie tak z Google Play. Spróbuj ponownie.</string>
+    <string name="premium_loading">Ładowanie…</string>
+    <string name="premium_unavailable">Nie można teraz wczytać subskrypcji. Sprawdź połączenie i Google Play.</string>
+    <string name="premium_terms">Odnawia się automatycznie do anulowania. Anuluj w dowolnym momencie w Google Play &gt; Subskrypcje.</string>
+    <string name="premium_close">Nie teraz</string>
+</resources>
