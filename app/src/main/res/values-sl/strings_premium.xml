@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="premium_title">Premium: brez oglasov</string>
+    <string name="premium_row">Odstrani oglase</string>
+    <string name="premium_active">Premium je aktiven</string>
+    <string name="premium_b1">Brez oglasov med igrami</string>
+    <string name="premium_b2">Brez pasic</string>
+    <string name="premium_b3">Neobvezni videi z nagrado ostanejo, ko želiš bonus</string>
+    <string name="premium_b4">Podpri neodvisnega razvijalca</string>
+    <string name="premium_monthly">Mesečno</string>
+    <string name="premium_yearly">Letno</string>
+    <string name="premium_per_month">%1$s / mesec</string>
+    <string name="premium_per_year">%1$s / leto</string>
+    <string name="premium_save">Prihrani %1$s</string>
+    <string name="premium_trial">%1$d dni brezplačno</string>
+    <string name="premium_then">%1$d dni brezplačno, nato %2$s</string>
+    <string name="premium_subscribe">Naroči se</string>
+    <string name="premium_start_trial">Začni brezplačni preizkus</string>
+    <string name="premium_manage">Upravljaj naročnino</string>
+    <string name="premium_restore">Obnovi nakupe</string>
+    <string name="premium_restored">Nakupi preverjeni</string>
+    <string name="premium_thanks">Hvala! Oglasi so odstranjeni.</string>
+    <string name="premium_pending">Plačilo je v obdelavi. Premium se vklopi po potrditvi.</string>
+    <string name="premium_error">Pri Google Play je šlo nekaj narobe. Poskusi znova.</string>
+    <string name="premium_loading">Nalaganje…</string>
+    <string name="premium_unavailable">Naročnin trenutno ni mogoče naložiti. Preveri povezavo in Google Play.</string>
+    <string name="premium_terms">Samodejno se podaljšuje do preklica. Prekliči kadar koli v Google Play &gt; Naročnine.</string>
+    <string name="premium_close">Ne zdaj</string>
+</resources>
