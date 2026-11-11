@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="premium_title">Premium: ei mainoksia</string>
+    <string name="premium_row">Poista mainokset</string>
+    <string name="premium_active">Premium on käytössä</string>
+    <string name="premium_b1">Ei mainoksia pelien välissä</string>
+    <string name="premium_b2">Ei bannereita</string>
+    <string name="premium_b3">Vapaaehtoiset palkintovideot ovat yhä käytettävissä, kun haluat bonuksen</string>
+    <string name="premium_b4">Tue itsenäistä kehittäjää</string>
+    <string name="premium_monthly">Kuukausittain</string>
+    <string name="premium_yearly">Vuosittain</string>
+    <string name="premium_per_month">%1$s / kk</string>
+    <string name="premium_per_year">%1$s / vuosi</string>
+    <string name="premium_save">Säästä %1$s</string>
+    <string name="premium_trial">%1$d päivää ilmaiseksi</string>
+    <string name="premium_then">%1$d päivää ilmaiseksi, sitten %2$s</string>
+    <string name="premium_subscribe">Tilaa</string>
+    <string name="premium_start_trial">Aloita ilmainen kokeilu</string>
+    <string name="premium_manage">Hallinnoi tilausta</string>
+    <string name="premium_restore">Palauta ostot</string>
+    <string name="premium_restored">Ostot tarkistettu</string>
+    <string name="premium_thanks">Kiitos! Mainokset on poistettu.</string>
+    <string name="premium_pending">Maksu odottaa. Premium aktivoituu heti, kun se on vahvistettu.</string>
+    <string name="premium_error">Google Playssa tapahtui virhe. Yritä uudelleen.</string>
+    <string name="premium_loading">Ladataan…</string>
+    <string name="premium_unavailable">Tilauksia ei voi ladata juuri nyt. Tarkista yhteys ja Google Play.</string>
+    <string name="premium_terms">Uusiutuu automaattisesti, kunnes peruutat. Peruuta milloin tahansa: Google Play &gt; Tilaukset.</string>
+    <string name="premium_close">Ei nyt</string>
+</resources>

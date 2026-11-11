@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fb_monthly">Kuukausittain</string>
+    <string name="fb_this_month">Tämä kuukausi</string>
+    <string name="fb_last_month">Viime kuukausi</string>
+    <string name="fb_month_income">Tulot yhteensä</string>
+    <string name="fb_month_expense">Menot yhteensä</string>
+    <string name="fb_bank">Pankki</string>
+    <string name="fb_bank_loan">Pankkilaina</string>
+    <string name="fb_credit_limit">Luottoraja</string>
+    <string name="fb_loan_amount">Summa</string>
+    <string name="fb_loan_term">Laina-aika</string>
+    <string name="fb_years_short">%1$d v</string>
+    <string name="fb_interest_rate">Korko</string>
+    <string name="fb_rate_year">%1$s vuodessa</string>
+    <string name="fb_weekly_payment">Viikkoerä</string>
+    <string name="fb_total_repay">Takaisinmaksu yhteensä</string>
+    <string name="fb_take_loan">Ota laina</string>
+    <string name="fb_loan_taken_ok">Laina myönnetty: %1$s</string>
+    <string name="fb_loan_left">Jäljellä oleva velka</string>
+    <string name="fb_loan_original">Lainattu summa</string>
+    <string name="fb_weeks_left">Viikkoja jäljellä</string>
+    <string name="fb_repay_loan">Maksa takaisin nyt (%1$s)</string>
+    <string name="fb_loan_repaid">Laina maksettu</string>
+    <string name="fb_bank_tip" formatted="false">Erät maksetaan joka maanantai. Hyvämaineiset seurat saavat halvemman koron; se nousee niin kauan kuin saldo on miinuksella. Ennenaikainen takaisinmaksu maksaa 1% lisää. Vain yksi laina kerrallaan.</string>
+    <string name="fb_deposit">Säästötili</string>
+    <string name="fb_deposit_balance">Säästötilin saldo</string>
+    <string name="fb_deposit_earned">Ansaittu korko</string>
+    <string name="fb_weekly_return">Viikkokorko</string>
+    <string name="fb_deposit_x">Talleta %1$s</string>
+    <string name="fb_withdraw_x">Nosta %1$s</string>
+    <string name="fb_deposit_tip" formatted="false">Säästötilin rahat tuottavat 2% vuodessa, mutta niitä ei voi käyttää siirtoihin tai palkkoihin ennen kuin nostat ne.</string>
+    <string name="fb_form_w">V</string>
+    <string name="fb_form_d">T</string>
+    <string name="fb_form_l">H</string>
+    <string name="fb_rush_ad">📺 Katso mainos: −%1$d päivää (jäljellä %2$d päivää)</string>
+    <string name="fb_rushed">Rakentamista nopeutettiin %1$s päivällä</string>
+    <string name="game_football_manager_name">Seurapomo</string>
+    <string name="game_football_manager_desc">Johda jalkapalloseuraa omalla tavallasi: kaikki Euroopan sarjat, realistinen otteluohjelma, eurocupit ja MM-kisat, yksityiskohtainen taktiikka, harjoittelu, junioriakatemia, talous ja elävät siirtomarkkinat.</string>
+    <string name="fb_tagline">Rakenna dynastia. Jokainen päätös on sinun.</string>
+    <string name="fb_continue_career">Jatka uraa</string>
+    <string name="fb_new_career">Uusi ura</string>
+    <string name="fb_new_career_warning">Nykyinen urasi poistetaan. Oletko varma?</string>
+    <string name="fb_yes">Kyllä</string>
+    <string name="fb_no">Ei</string>
+    <string name="fb_generating">Luodaan jalkapallomaailmaa…</string>
+    <string name="fb_please_wait">Odota…</string>
+    <string name="fb_load_failed">Tallennusta ei voitu ladata</string>
+    <string name="fb_choose_country">Maa</string>
+    <string name="fb_choose_club">Valitse seurasi</string>
+    <string name="fb_tier_n">Taso %1$d</string>
+    <string name="fb_league_name">%1$s sarja %2$d</string>
+    <string name="fb_reputation">Maine</string>
+    <string name="fb_balance">Saldo</string>
+    <string name="fb_transfer_budget">Siirtobudjetti</string>
+    <string name="fb_stadium">Stadion</string>
+    <string name="fb_squad_size">Joukkueen koko</string>
+    <string name="fb_best_player">Paras pelaaja</string>
+    <string name="fb_manager_name">Managerin nimi</string>
+    <string name="fb_start_career">Aloita ura</string>
+    <string name="fb_cancel">Peruuta</string>
+    <string name="fb_close">Sulje</string>
+    <string name="fb_tab_home">Koti</string>
+    <string name="fb_tab_squad">Joukkue</string>
+    <string name="fb_tab_tactics">Taktiikka</string>
+    <string name="fb_tab_fixtures">Otteluohjelma</string>
+    <string name="fb_tab_competitions">Sarjataulukot</string>
+    <string name="fb_tab_transfers">Siirrot</string>
+    <string name="fb_tab_club">Seura</string>
+    <string name="fb_tab_inbox">Saapuneet</string>
+    <string name="fb_tab_guide">Opas</string>
+    <string name="fb_continue">Jatka</string>
+    <string name="fb_go_to_match">Otteluun</string>
+    <string name="fb_next_matches">Tulevat ottelut</string>
+    <string name="fb_no_matches">Ei suunniteltuja otteluita</string>
+    <string name="fb_recent_results">Viimeisimmät tulokset</string>
+    <string name="fb_latest_news">Tuoreimmat uutiset</string>
+    <string name="fb_no_news">Ei vielä uutisia</string>
+    <string name="fb_club_summary">Seura</string>
+    <string name="fb_weekly_wages">Viikkopalkat</string>
+    <string name="fb_season_income">Kauden tulot</string>
+    <string name="fb_season_expense">Kauden menot</string>
+    <string name="fb_ad_bonus_title">Sijoittajabonus</string>
+    <string name="fb_ad_bonus_desc">Katso lyhyt video, niin sijoittaja tuo seuran kassaan %1$s.</string>
+    <string name="fb_ad_bonus_left">%1$d jäljellä tällä viikolla</string>
+    <string name="fb_ad_bonus_got">%1$s lisätty seuran kassaan!</string>
+    <string name="fb_watch_ad">Katso mainos</string>
+    <string name="fb_table_cols">O,V,T,H,ME,P</string>
+    <string name="fb_vs">vs</string>
+    <string name="fb_first_leg">Ensimmäinen osaottelu: %1$s</string>
+    <string name="fb_play_match">Pelaa ottelu</string>
+    <string name="fb_quick_result">Pikatulos</string>
+    <string name="fb_edit_tactics">Taktiikka</string>
+    <string name="fb_squad">Joukkue</string>
+    <string name="fb_penalties">Rangaistuspotkut %1$s</string>
+    <string name="fb_match_stats">Ottelutilastot</string>
+    <string name="fb_possession">Pallonhallinta</string>
+    <string name="fb_shots">Laukaukset (maalia kohti)</string>
+    <string name="fb_corners">Kulmapotkut</string>
+    <string name="fb_fouls">Rikkeet</string>
+    <string name="fb_cards">Kortit K/P</string>
+    <string name="fb_player_ratings">Pelaajien arvosanat</string>
+    <string name="fb_season_over">Kausi %1$s on päättynyt</string>
+    <string name="fb_final_position">Lopullinen sija sarjassa: %1$d</string>
+    <string name="fb_promoted">Nousu!</string>
+    <string name="fb_relegated">Putoaminen</string>
+    <string name="fb_honours_this_season">Mestarit</string>
+    <string name="fb_new_season">Aloita %1$s</string>
+    <string name="fb_accept">Hyväksy</string>
+    <string name="fb_reject">Hylkää</string>
+    <string name="fb_accept_counter">Hyväksy %1$s</string>
+    <string name="fb_withdraw">Peru</string>
+    <string name="fb_negotiate_contract">Neuvottele sopimus</string>
+    <string name="fb_no_funds">Rahaa ei ole tarpeeksi</string>
+    <string name="fb_free">ilmaiseksi</string>
+    <string name="fb_free_agent">Vapaa pelaaja</string>
+    <string name="fb_n_offer_received">%1$s tarjoaa %2$s pelaajasta %3$s</string>
+    <string name="fb_n_offer_accepted">%1$s hyväksyi tarjouksen pelaajasta %2$s (%3$s)</string>
+    <string name="fb_n_offer_rejected">%1$s hylkäsi tarjouksen pelaajasta %2$s</string>
+    <string name="fb_n_offer_counter">%1$s haluaa %3$s pelaajasta %2$s</string>
+    <string name="fb_n_player_refused">%1$s ei halua siirtyä seuraan %2$s</string>
+    <string name="fb_n_signed_free">%1$s teki sopimuksen seuran %2$s kanssa ilmaiseksi</string>
+    <string name="fb_n_transfer">%1$s siirtyy seurasta %2$s seuraan %3$s (%4$s)</string>
+    <string name="fb_n_rumour">Huhu: %1$s seuraa pelaajaa %2$s seurasta %3$s (%4$d%%)</string>
+    <string name="fb_n_contract_expiring">Pelaajan %1$s sopimus päättyy tänä kesänä</string>
+    <string name="fb_n_unhappy">%1$s on tyytymätön ja haluaa lähteä</string>
+    <string name="fb_n_auction_bid">%1$s tarjosi %2$s pelaajasta %3$s</string>
+    <string name="fb_n_auction_sold">Huutokauppa: %1$s myytiin seuralle %2$s hintaan %3$s</string>
+    <string name="fb_n_auction_unsold">Huutokauppa: pelaajalle %1$s ei löytynyt ostajaa</string>
+    <string name="fb_n_loan_return">%1$s palaa seuraan %2$s lainan jälkeen</string>
+    <string name="fb_n_precontract">%1$s sopi esisopimuksesta seuran %2$s kanssa</string>
+    <string name="fb_n_youth">%1$d nuorta pelaajaa saapui akatemiasta</string>
+    <string name="fb_n_released">%1$s lähti seurasta</string>
+    <string name="fb_col_name">Nimi</string>
+    <string name="fb_col_pos">Pp</string>
+    <string name="fb_col_age">Ikä</string>
+    <string name="fb_col_ability">Taito</string>
+    <string name="fb_col_potential">Potentiaali</string>
+    <string name="fb_col_condition">Kunto</string>
+    <string name="fb_col_morale">Moraali</string>
+    <string name="fb_col_form">Vire</string>
+    <string name="fb_col_value">Arvo</string>
+    <string name="fb_col_wage">Palkka</string>
+    <string name="fb_col_contract">Sopimus</string>
+    <string name="fb_per_week">/vk</string>
+    <string name="fb_release_clause">Irtisanomispykälä</string>
+    <string name="fb_injured">Loukkaantunut</string>
+    <string name="fb_days">%1$d päivää</string>
+    <string name="fb_height_foot">Pituus · jalka</string>
+    <string name="fb_foot_right">Oikea</string>
+    <string name="fb_foot_left">Vasen</string>
+    <string name="fb_foot_both">Molemmat</string>
+    <string name="fb_caps">Maaottelut / maalit</string>
+    <string name="fb_season_stats">Kausi</string>
+    <string name="fb_stats_line">%1$d ottelua, %2$d maalia, %3$d syöttöä, ka %4$s</string>
+    <string name="fb_positions">Pelipaikat</string>
+    <string name="fb_hidden_attributes">Piilotetut ominaisuudet ja todellinen potentiaali</string>
+    <string name="fb_hidden_locked">Valmennustiimisi voi vain arvioida. Katso video paljastaaksesi tarkan potentiaalin ja piilotetun persoonallisuuden.</string>
+    <string name="fb_reveal_with_ad">Paljasta (video)</string>
+    <string name="fb_exact_ability">Nykyinen taito</string>
+    <string name="fb_exact_potential">Potentiaalinen taito</string>
+    <string name="fb_g_technical">Tekniset</string>
+    <string name="fb_g_mental">Henkiset</string>
+    <string name="fb_g_physical">Fyysiset</string>
+    <string name="fb_g_goalkeeping">Maalivahti</string>
+    <string name="fb_training">Harjoittelu</string>
+    <string name="fb_individual_focus">Henkilökohtainen painopiste</string>
+    <string name="fb_position_training">Opettele uusi pelipaikka</string>
+    <string name="fb_none">Ei mitään</string>
+    <string name="fb_contract_transfer">Sopimus ja siirto</string>
+    <string name="fb_renew_contract">Uusi sopimus</string>
+    <string name="fb_list_for_transfer">Siirtolista (%1$s)</string>
+    <string name="fb_unlist">Poista listalta (%1$s)</string>
+    <string name="fb_list_for_loan">Tarjoa lainaksi</string>
+    <string name="fb_unlist_loan">Poista lainalistalta</string>
+    <string name="fb_auction">Huutokauppa (3 päivää)</string>
+    <string name="fb_auction_started">Huutokauppa alkoi</string>
+    <string name="fb_release">Vapauta pelaaja</string>
+    <string name="fb_release_confirm">Vahvista vapautus (%1$s)</string>
+    <string name="fb_transfer">Siirto</string>
+    <string name="fb_shortlist_add">Lisää seurantalistalle</string>
+    <string name="fb_shortlist_remove">Poista seurantalistalta</string>
+    <string name="fb_offer_fee">Tarjous: %1$s</string>
+    <string name="fb_asking_price">Pyyntihinta: %1$s</string>
+    <string name="fb_not_interested">Pelaaja ei ole kiinnostunut seurastasi</string>
+    <string name="fb_make_offer">Tee tarjous</string>
+    <string name="fb_request_loan" formatted="false">Pyydä lainaksi (70% palkasta)</string>
+    <string name="fb_offer_sent">Tarjous lähetetty. Vastaus huomenna.</string>
+    <string name="fb_err_window">Siirtoikkuna on suljettu</string>
+    <string name="fb_err_duplicate">Sinulla on jo tarjous tästä pelaajasta</string>
+    <string name="fb_err_on_loan">Pelaaja on lainalla</string>
+    <string name="fb_err_generic">Ei mahdollista juuri nyt</string>
+    <string name="fb_t_attacking">Hyökkäys</string>
+    <string name="fb_t_defending">Puolustus</string>
+    <string name="fb_t_technical">Tekniikka</string>
+    <string name="fb_t_tactical">Taktiikka</string>
+    <string name="fb_t_physical">Fysiikka</string>
+    <string name="fb_t_mental">Henkiset</string>
+    <string name="fb_t_set_pieces">Erikoistilanteet</string>
+    <string name="fb_t_goalkeeping">Maalivahti</string>
+    <string name="fb_contract_talks">Sopimusneuvottelut: %1$s</string>
+    <string name="fb_fee_agreed">Siirtosummasta sovittu: %1$s</string>
+    <string name="fb_wage_demand">Palkkavaatimus</string>
+    <string name="fb_years_wanted">Toivottu sopimuksen pituus</string>
+    <string name="fb_signing_fee">Allekirjoitusbonus</string>
+    <string name="fb_offered_wage">Palkkatarjouksesi: %1$s/vk</string>
+    <string name="fb_contract_years">Vuodet</string>
+    <string name="fb_propose">Ehdota</string>
+    <string name="fb_reply_accept">Sovittu! Sopimus on allekirjoitettu.</string>
+    <string name="fb_reply_wage_low">Palkka on liian pieni.</string>
+    <string name="fb_reply_years">Hän haluaa eripituisen sopimuksen.</string>
+    <string name="fb_reply_not_interested">Hän ei ole kiinnostunut.</string>
+    <string name="fb_reply_walked">Hän katkaisi neuvottelut.</string>
+    <string name="fb_soon">Tulossa seuraavassa päivityksessä</string>
+    <string name="fb_c_league">Sarja</string>
+    <string name="fb_c_playoff">Karsinta</string>
+    <string name="fb_c_playoff_of">Karsinta: %1$s</string>
+    <string name="fb_c_cup">Cup</string>
+    <string name="fb_c_super_cup">Supercup</string>
+    <string name="fb_c_champions">Mestarien cup</string>
+    <string name="fb_c_europa">Euroopan cup</string>
+    <string name="fb_c_conference">Conference-cup</string>
+    <string name="fb_c_uefa_super">Euroopan supercup</string>
+    <string name="fb_c_friendly">Harjoitusottelu</string>
+    <string name="fb_c_nations">Kansojen liiga</string>
+    <string name="fb_c_qualifiers">Karsinnat</string>
+    <string name="fb_c_world_cup">MM-kisat</string>
+    <string name="fb_c_euro">EM-kisat</string>
+    <string name="fb_c_nat_friendly">Maaottelu</string>
+    <string name="fb_s_league">Sarja</string>
+    <string name="fb_s_groups">Lohkovaihe</string>
+    <string name="fb_s_league_phase">Sarjavaihe</string>
+    <string name="fb_s_q1">1. karsintakierros</string>
+    <string name="fb_s_q2">2. karsintakierros</string>
+    <string name="fb_s_q3">3. karsintakierros</string>
+    <string name="fb_s_qpo">Karsinnan playoff</string>
+    <string name="fb_s_kpo">Pudotuspelien playoff</string>
+    <string name="fb_s_r128">128 parhaan kierros</string>
+    <string name="fb_s_r64">64 parhaan kierros</string>
+    <string name="fb_s_r32">32 parhaan kierros</string>
+    <string name="fb_s_r16">Neljännesvälierät</string>
+    <string name="fb_s_qf">Puolivälierät</string>
+    <string name="fb_s_sf">Välierät</string>
+    <string name="fb_s_final">Finaali</string>
+    <string name="fb_s_prelim">Alkukierros</string>
+    <string name="fb_s_match">Ottelu</string>
+    <string name="fb_a_corners">Kulmapotkut</string>
+    <string name="fb_a_crossing">Keskitykset</string>
+    <string name="fb_a_dribbling">Kuljetus</string>
+    <string name="fb_a_finishing">Viimeistely</string>
+    <string name="fb_a_first_touch">Ensikosketus</string>
+    <string name="fb_a_free_kick">Vapaapotkut</string>
+    <string name="fb_a_heading">Pääpeli</string>
+    <string name="fb_a_long_shots">Kaukolaukaukset</string>
+    <string name="fb_a_marking">Vartiointi</string>
+    <string name="fb_a_passing">Syötöt</string>
+    <string name="fb_a_penalty">Rangaistuspotkut</string>
+    <string name="fb_a_tackling">Taklaukset</string>
+    <string name="fb_a_technique">Tekniikka</string>
+    <string name="fb_a_aggression">Aggressiivisuus</string>
+    <string name="fb_a_anticipation">Ennakointi</string>
+    <string name="fb_a_bravery">Rohkeus</string>
+    <string name="fb_a_composure">Malttikkuus</string>
+    <string name="fb_a_concentration">Keskittyminen</string>
+    <string name="fb_a_decisions">Päätöksenteko</string>
+    <string name="fb_a_determination">Päättäväisyys</string>
+    <string name="fb_a_flair">Luovuus</string>
+    <string name="fb_a_leadership">Johtajuus</string>
+    <string name="fb_a_off_the_ball">Liikkuminen ilman palloa</string>
+    <string name="fb_a_positioning">Sijoittuminen</string>
+    <string name="fb_a_teamwork">Joukkuepeli</string>
+    <string name="fb_a_vision">Pelinäkemys</string>
+    <string name="fb_a_work_rate">Työteho</string>
+    <string name="fb_a_acceleration">Kiihtyvyys</string>
+    <string name="fb_a_agility">Ketteryys</string>
+    <string name="fb_a_balance">Tasapaino</string>
+    <string name="fb_a_jumping">Ponnistusvoima</string>
+    <string name="fb_a_natural_fitness">Luontainen kunto</string>
+    <string name="fb_a_pace">Nopeus</string>
+    <string name="fb_a_stamina">Kestävyys</string>
+    <string name="fb_a_strength">Voima</string>
+    <string name="fb_a_aerial_reach">Ulottuvuus ilmassa</string>
+    <string name="fb_a_command_of_area">Alueen hallinta</string>
+    <string name="fb_a_handling">Kiinniotot</string>
+    <string name="fb_a_kicking">Potkut</string>
+    <string name="fb_a_one_on_ones">Kahdenkeskiset</string>
+    <string name="fb_a_reflexes">Refleksit</string>
+    <string name="fb_h_consistency">Tasaisuus</string>
+    <string name="fb_h_important_matches">Tärkeät ottelut</string>
+    <string name="fb_h_injury_proneness">Loukkaantumisalttius</string>
+    <string name="fb_h_professionalism">Ammattimaisuus</string>
+    <string name="fb_h_ambition">Kunnianhimo</string>
+    <string name="fb_h_loyalty">Uskollisuus</string>
+    <string name="fb_h_adaptability">Sopeutumiskyky</string>
+    <string name="fb_h_pressure">Paineensieto</string>
+    <string name="fb_h_versatility">Monipuolisuus</string>
+    <string name="fb_all">Kaikki</string>
+    <string name="fb_cups">Cupit</string>
+    <string name="fb_europe">Eurooppa</string>
+    <string name="fb_national_teams">Maajoukkueet</string>
+    <string name="fb_no_competitions">Ei kilpailuja</string>
+    <string name="fb_not_started">Ei vielä alkanut</string>
+    <string name="fb_winner">Voittaja: %1$s</string>
+    <string name="fb_group_n">Lohko %1$s</string>
+    <string name="fb_byes">%1$d joukkuetta pääsi suoraan jatkoon</string>
+    <string name="fb_top_scorers">Maalintekijät</string>
+    <string name="fb_lineup">Kokoonpano</string>
+    <string name="fb_instructions">Ohjeet</string>
+    <string name="fb_team_training">Harjoittelu</string>
+    <string name="fb_auto_pick">Valitse automaattisesti</string>
+    <string name="fb_best_formation">Paras muodostelma</string>
+    <string name="fb_team_strength">Joukkueen vahvuus</string>
+    <string name="fb_pick_for">Valitse pelaaja paikalle %1$s</string>
+    <string name="fb_tap_position">Napauta pelipaikkaa kentällä</string>
+    <string name="fb_starting">Avaus</string>
+    <string name="fb_bench">Vaihtopenkki</string>
+    <string name="fb_suspended">Pelikiellossa</string>
+    <string name="fb_on">Päällä</string>
+    <string name="fb_off">Pois</string>
+    <string name="fb_open_guide">Avaa taktiikkaopas</string>
+    <string name="fb_tac_mentality">Mentaliteetti</string>
+    <string name="fb_tac_passing">Syöttötyyli</string>
+    <string name="fb_tac_tempo">Tempo</string>
+    <string name="fb_tac_width">Leveys</string>
+    <string name="fb_tac_focus">Hyökkäyksen painopiste</string>
+    <string name="fb_tac_pressing">Prässi</string>
+    <string name="fb_tac_defline">Puolustuslinja</string>
+    <string name="fb_tac_marking">Vartiointi</string>
+    <string name="fb_tac_counter">Vastahyökkäys</string>
+    <string name="fb_tac_offside">Paitsioansa</string>
+    <string name="fb_tac_time_wasting">Ajan peluu</string>
+    <string name="fb_tac_hard_tackling">Kovat taklaukset</string>
+    <string name="fb_o_very_defensive">Hyvin puolustava</string>
+    <string name="fb_o_defensive">Puolustava</string>
+    <string name="fb_o_balanced">Tasapainoinen</string>
+    <string name="fb_o_attacking">Hyökkäävä</string>
+    <string name="fb_o_very_attacking">Hyvin hyökkäävä</string>
+    <string name="fb_o_short">Lyhyet</string>
+    <string name="fb_o_mixed">Sekoitettu</string>
+    <string name="fb_o_direct">Suorat</string>
+    <string name="fb_o_slow">Hidas</string>
+    <string name="fb_o_normal">Normaali</string>
+    <string name="fb_o_fast">Nopea</string>
+    <string name="fb_o_narrow">Kapea</string>
+    <string name="fb_o_wide">Leveä</string>
+    <string name="fb_o_center">Keskeltä</string>
+    <string name="fb_o_flanks">Laidoilta</string>
+    <string name="fb_o_low">Matala</string>
+    <string name="fb_o_medium">Keskitaso</string>
+    <string name="fb_o_high">Korkea</string>
+    <string name="fb_o_deep">Syvä</string>
+    <string name="fb_o_zonal">Alue</string>
+    <string name="fb_o_man">Mies miestä vastaan</string>
+    <string name="fb_o_light">Kevyt</string>
+    <string name="fb_o_intense">Raskas</string>
+    <string name="fb_tip_mentality">Hyökkäävämpi = enemmän laukauksia ja maaleja, mutta enemmän tilaa puolustuksesi taakse.</string>
+    <string name="fb_tip_passing">Lyhyet syötöt pitävät pallon ja ovat turvallisempia; suora peli vie pallon nopeammin boksiin suuremmalla riskillä.</string>
+    <string name="fb_tip_tempo">Nopea tempo luo maalipaikkoja nopeammin, mutta tuo enemmän virheitä ja väsymystä.</string>
+    <string name="fb_tip_width">Leveä peli tuo enemmän keskityksiä; kapea peli täyttää keskustan.</string>
+    <string name="fb_tip_focus">Keskeltä = läpisyötöt (pelinäkemys, syötöt); laidoilta = keskitykset (keskitykset, pääpeli).</string>
+    <string name="fb_tip_pressing">Korkea prässi voittaa pallon ylempänä, mutta väsyttää pelaajasi.</string>
+    <string name="fb_tip_defline">Korkea linja tiivistää keskikentän, mutta on altis selustaan menevälle pallolle.</string>
+    <string name="fb_tip_marking">Mies miestä vastaan -vartiointi sammuttaa hyökkääjät; fiksusti liikkuvat voivat silti päästä irti.</string>
+    <string name="fb_tip_counter">Lähde nopeasti eteenpäin, kun voitat pallon omalla puoliskolla.</string>
+    <string name="fb_tip_offside">Nappaa juoksijoita useammin; vaatii hyvin harjoitelleet puolustajat.</string>
+    <string name="fb_tip_time_wasting">Kun johdatte tunnin jälkeen, joukkue hidastaa peliä.</string>
+    <string name="fb_tip_hard_tackling">Voittaa enemmän kaksinkamppailuja, mutta tuo enemmän rikkeitä, kortteja ja rangaistuspotkuja.</string>
+    <string name="fb_training_focus">Harjoittelun painopiste</string>
+    <string name="fb_training_intensity">Teho</string>
+    <string name="fb_coaching_quality">Valmennuksen laatu</string>
+    <string name="fb_f_training">Harjoitusolosuhteet</string>
+    <string name="fb_f_youth">Junioriolosuhteet</string>
+    <string name="fb_youth_coaching">Juniorivalmennus</string>
+    <string name="fb_physio">Fysioterapia</string>
+    <string name="fb_tip_training_focus" formatted="false">Valitun alueen ominaisuudet kehittyvät noin 50% nopeammin koko joukkueella.</string>
+    <string name="fb_tip_intensity" formatted="false">Kevyt: hitaampi kehitys, vähemmän loukkaantumisia, tuoreemmat jalat. Raskas: +15% kehitystä, lähes kaksinkertainen määrä harjoitusloukkaantumisia, heikompi otteluvire.</string>
+    <string name="fb_tip_coaches">Paremmat valmentajat ja olosuhteet nopeuttavat kehitystä. Palkkaa valmentajia Seura-osiossa.</string>
+    <string name="fb_gt_basics">Ensiaskeleet</string>
+    <string name="fb_gt_formations">Muodostelmat ja kokoonpano</string>
+    <string name="fb_gt_training">Harjoittelu ja kehitys</string>
+    <string name="fb_gt_coaches">Valmentajat ja henkilökunta</string>
+    <string name="fb_gt_morale">Moraali ja vire</string>
+    <string name="fb_gt_youth">Junioriakatemia</string>
+    <string name="fb_gt_finance">Talous</string>
+    <string name="fb_gt_transfers">Siirrot</string>
+    <string name="fb_gt_contracts">Sopimukset</string>
+    <string name="fb_gt_competitions">Kilpailut</string>
+    <string name="fb_gt_hidden">Piilotetut ominaisuudet ja potentiaali</string>
+    <string name="fb_gb_basics">Olet seuran pomo: valitset joukkueen ja taktiikan, ostat ja myyt pelaajia, päätät harjoittelusta, rakennat olosuhteita ja hoidat rahat.
+
+Etene kalenterissa napauttamalla Jatka. Peli pysähtyy otteluidesi päivinä ja aina, kun jokin vaatii huomiotasi (tarjoukset, sopimusuutiset, uudet junioripelaajat).
+
+Ottelupäivänä voit pelata ottelun tai ottaa pikatuloksen. Kaikki tallentuu automaattisesti.</string>
+    <string name="fb_gb_mentality" formatted="false">Mentaliteetti määrää, kuinka paljon riskiä joukkueesi ottaa.
+
+• Hyvin puolustava / puolustava: vähemmän pelaajia mukana hyökkäyksissä, vähemmän laukauksia kumpaankin suuntaan. Hyvä johdon puolustamiseen tai paljon vahvempaa joukkuetta vastaan.
+• Tasapainoinen: oletus.
+• Hyökkäävä / hyvin hyökkäävä: enemmän laukauksia ja maaleja, mutta vastustaja löytää enemmän tilaa. Testeissämme vahva joukkue teki noin 18% enemmän maaleja, mutta myös päästi enemmän.
+
+Yhdistä puolustava mentaliteetti vastahyökkäyksiin rangaistaksesi eteneviä vastustajia.</string>
+    <string name="fb_gb_passing" formatted="false">• Lyhyet: paljon turvallisia syöttöjä, korkea pallonhallinta (noin 60%+), vähemmän mutta puhtaampia hyökkäyksiä. Vaatii hyviä syöttöjä ja ensikosketusta.
+• Sekoitettu: tasapaino.
+• Suorat: pitkiä palloja hyökkääjille. Pallonhallinta putoaa noin 40%:iin, pallo tulee nopeammin boksiin, ottelut aukeavat. Sopii pitkille, vahvoille hyökkääjille ja hyville pitkien syöttöjen antajille.</string>
+    <string name="fb_gb_tempo">Nopea tempo liikuttaa palloa nopeasti: enemmän maalipaikkoja ja laukauksia, mutta enemmän syöttövirheitä ja väsymystä.
+
+Hidas tempo pitää pallon ja hallitsee peliä; sopii lyhyisiin syöttöihin ja johdon puolustamiseen.</string>
+    <string name="fb_gb_width">Leveä: laitapelaajat pysyvät lähellä sivurajaa, mikä tuo enemmän keskityksiä. Vaatii hyviä keskittäjiä ja vahvoja pääpelaajia boksiin.
+
+Kapea: joukkue pelaa keskustan kautta ja pysyy tiiviinä; hyvä pelintekijän ja läpisyöttöjen kanssa.</string>
+    <string name="fb_gb_focus">Keskeltä: enemmän läpisyöttöjä. Onnistuminen riippuu pelintekijöidesi pelinäkemyksestä ja syötöistä puolustajien vartiointia vastaan sekä hyökkääjiesi nopeudesta. Kahdenkeskinen maalivahdin kanssa on jalkapallon paras maalipaikka.
+
+Laidoilta: enemmän keskityksiä. Keskityksestä tulee puskupaikka, jos keskushyökkääjäsi voittaa toppariin ilmassa.</string>
+    <string name="fb_gb_pressing">Korkea prässi jahtaa palloa vastustajan puoliskolla. Se toimii parhaiten heikon malttikkuuden pelaajia vastaan ja voittaa pallon lähellä maalia, mutta pelaajat väsyvät nopeammin ottelun aikana.
+
+Matala prässi säästää energiaa ja pitää muodon; vastustaja saa aikaa pallon kanssa omalla puoliskollaan.</string>
+    <string name="fb_gb_defline">Korkea linja: puolustajat nousevat ylös, keskikenttä tiivistyy ja on vaikea läpäistä. Mutta puolustuksen yli lyödyt pallot ja läpisyötöt nopeille hyökkääjille muuttuvat vaarallisiksi – testeissä korkea linja päästi yli kaksinkertaisesti maaleja nopeita hyökkääjiä vastaan.
+
+Syvä linja: boksi on suojattu, läpisyötöt onnistuvat harvoin, mutta vastustaja hallitsee peliä. Ihanteellinen vastahyökkäysten kanssa.</string>
+    <string name="fb_gb_marking">Alue: jokainen pelaaja vartioi aluetta. Turvallinen oletus.
+
+Mies miestä vastaan: puolustajasi seuraavat suoraa vastapelaajaansa. Erinomainen, jos puolustajasi vartioivat hyvin; mutta erinomaisesti ilman palloa liikkuvat hyökkääjät voivat silti päästä irti.</string>
+    <string name="fb_gb_counter">Kun pallo voitetaan omalla puoliskolla, joukkue lähtee nopeasti eteenpäin vähemmillä syötöillä ja useammilla läpisyötöillä.
+
+Se on tappava vastustajia vastaan, jotka hyökkäävät monella pelaajalla tai pelaavat korkealla linjalla (testeissä: yli 3 maalia ottelussa hyvin hyökkäävää joukkuetta vastaan). Hinta: harvempi pelaaja osallistuu tavallisiin hyökkäyksiin.</string>
+    <string name="fb_gb_offside">Puolustuksesi nousee yhdessä jättääkseen hyökkääjät paitsioon. Hyvän joukkuepelin puolustajat saavat sen onnistumaan paljon useammin. Kun se epäonnistuu, hyökkääjä pääsee yksin maalivahtia vastaan.</string>
+    <string name="fb_gb_time_wasting">Kun johdatte 60 minuutin jälkeen, pelaajasi tekevät kaiken hitaammin: enemmän taaksepäin syöttöjä, pidempiä taukoja. Tuomari voi antaa siitä keltaisia kortteja.</string>
+    <string name="fb_gb_hard_tackling">Taklaukset kovenevat: pelaajasi voittavat enemmän kaksinkamppailuja, mutta tekevät enemmän rikkeitä, saavat enemmän kortteja ja aiheuttavat enemmän rangaistuspotkuja. Vastustajat loukkaantuvat useammin.</string>
+    <string name="fb_gb_formations">Valitse muodostelma, joka sopii parhaille pelaajillesi. Napauta pelipaikkaa kentällä ja sitten pelaajaa listalta siirtääksesi hänet sinne (avauksessa jo olevat pelaajat vaihtavat paikkaa).
+
+Jokaisen pelaajan alla oleva luku on hänen arvosanansa tällä paikalla; punainen rengas tarkoittaa, ettei paikka ole hänelle tuttu. Pelaajat voivat opetella uusia pelipaikkoja harjoituksissa.
+
+Valitse automaattisesti antaa apuvalmentajan valita; Paras muodostelma valitsee asetelman, jolla on korkein kokonaisarvosana. Loukkaantuneet ja pelikiellossa olevat korvataan automaattisesti.</string>
+    <string name="fb_gb_training">Pelaajat kehittyvät kohti potentiaaliaan joka viikko. Tahti riippuu:
+• Iästä: nopeinta 16–21-vuotiaana, hidastuu 24 jälkeen, pysähtyy noin 29-vuotiaana.
+• Nykyisen taidon ja potentiaalin erosta.
+• Valmentajista ja harjoitusolosuhteista (juniorivalmentaja ja junioriolosuhteet alle 19-vuotiaille).
+• Persoonallisuudesta: ammattimaisuus ja päättäväisyys.
+• Peliajasta (erittäin tärkeää alle 23-vuotiaille) ja moraalista.
+• Tehosta: kevyt, normaali tai raskas.
+
+Joukkueen painopiste nopeuttaa yhtä aluetta kaikille; henkilökohtainen painopiste nopeuttaa yhtä aluetta paljon yhdellä pelaajalla. 30 vuoden jälkeen (maalivahdit 32) pelaajat taantuvat, ensin fyysisesti, kun taas päätöksenteko ja sijoittuminen voivat yhä parantua.</string>
+    <string name="fb_gb_coaches">• Valmentajat: jokainen harjoitusalue käyttää valmentajan vastaavaa ominaisuutta (hyökkäys, puolustus, tekniikka, taktiikka, henkiset, kunto, maalivahdit). Noin viisi valmentajaa kattaa kaikki alueet; vähemmällä laatu heikkenee.
+• Juniorivalmentaja: kehittää alle 19-vuotiaita ja parantaa vuosittaista juniorisatoa.
+• Fysioterapeutti: lyhentää loukkaantumisia ja vähentää harjoitusloukkaantumisia.
+• Kuntovalmentaja: hidastaa vanhempien pelaajien taantumista.
+• Apuvalmentaja: ihmisten johtaminen nostaa moraalia; arvioi omien pelaajiesi potentiaalia.
+• Kykyjenetsijät: mitä parempia he ovat, sitä tarkempia ovat muiden seurojen pelaajien taito- ja potentiaaliarviot.</string>
+    <string name="fb_gb_morale">Moraali muuttuu joka viikko. Se nousee hyvistä tuloksista, pelaajan asemaan sopivasta peliajasta (avainpelaajat odottavat aloittavansa useimmat ottelut), reilusta palkasta, hyvistä sosiaalisista tiloista ja hyvästä apuvalmentajasta. Hyvin tyytymättömät kunnianhimoiset pelaajat pyytävät lähtöä.
+
+Vire on viimeisimpien otteluarvosanojen keskiarvo. Moraali ja vire muuttavat hieman pelaajan vahvuutta ottelupäivänä ja hänen kehitystään.</string>
+    <string name="fb_gb_youth">Joka vuosi 15. maaliskuuta akatemiaasi saapuu 2–8 nuorta (15–16-vuotiaita). Junioreiden rekrytointi ratkaisee, kuinka monta ja kuinka hyviä, junioriolosuhteet ja juniorivalmentaja tuovat laatua, ja maasi jalkapallotaso vaikuttaa myös. Silloin tällöin joukossa on kultainen lahjakkuus.
+
+Anna nuorille peliaikaa ja hyvää valmennusta: kehitys on nopeinta ennen 21 vuoden ikää.</string>
+    <string name="fb_gb_finance" formatted="false">Tulot: liput (kotiottelut; kalliimpi lippu tuo enemmän katsojaa kohden, mutta täyttää vähemmän paikkoja), tv-rahat (puolet jaetaan tasan, puolet sarjasijoituksen mukaan), fanituotteet (kasvavat maineen ja tähtien myötä), paitasponsori, stadionmainonta, palkintorahat (cupit ja erityisesti eurooppalaiset kilpailut) ja pelaajamyynnit.
+
+Menot: pelaajien ja henkilökunnan palkat, olosuhteiden ylläpito, junioriakatemia, ottelupäivän kulut, siirrot ja rakentaminen. Negatiivinen saldo maksaa 0,12% korkoa viikossa.
+
+Sijoittajabonus: katso video tuodaksesi seuraan rahaa, 3 kertaa viikossa.
+
+Pankki (Seura › Pankki): ota yksi laina kerrallaan 1–3 vuodeksi. Luottoraja kasvaa tulojesi ja maineesi myötä; hyvämaineiset seurat maksavat pienempää korkoa, ja se on korkeampi niin kauan kuin saldo on miinuksella. Erä maksetaan joka maanantai ja ennenaikainen takaisinmaksu maksaa 1% lisää. Säästötili tuottaa 2% vuodessa, mutta sen rahoja ei voi käyttää ennen nostoa. Talous-sivu näyttää tämän ja viime kuun tulot ja menot yhteensä.</string>
+    <string name="fb_gb_transfers">Siirtoikkunat: 1. heinäkuuta – 1. syyskuuta sekä tammikuu. Vapaat pelaajat voi hankkia milloin tahansa.
+
+Myyjän hinta riippuu siitä, kuinka tärkeä pelaaja on heille, hänen iästään ja potentiaalistaan, sopimuksen pituudesta (halpa viimeisenä vuonna), siitä onko hän siirtolistalla sekä myyjän taloudesta. Irtisanomispykälää ei voi hylätä.
+
+Kun siirtosummasta on sovittu, neuvottele pelaajan kanssa palkasta ja vuosista – jos tarjous on liian pieni, hän luovuttaa kolmen yrityksen jälkeen. Lainat: maksat osan palkasta ja pelaaja palaa kauden lopussa.
+
+Voit laittaa omia pelaajiasi siirtolistalle, tarjota heitä lainaksi tai aloittaa 3 päivän huutokaupan, jossa seurat ylittävät toistensa tarjouksia. Lisää kiinnostavat pelaajat seurantalistalle ja seuraa huhuja.</string>
+    <string name="fb_gb_contracts" formatted="false">Uusi tärkeiden pelaajien sopimukset ajoissa. 1. tammikuuta saat varoituksen tällä kaudella päättyvistä sopimuksista; tammikuun puolivälistä alkaen muut seurat voivat tehdä heidän kanssaan esisopimuksen, ja he lähtevät kesällä ilmaiseksi.
+
+Pelaajat pyytävät palkankorotusta kehittyessään. Pelaajan vapauttaminen maksaa 60% hänen jäljellä olevista palkoistaan.</string>
+    <string name="fb_gb_competitions">Jokaisella Euroopan maalla on omat sarjansa nousuineen ja putoamisineen (joissain toisissa sarjoissa on karsinta), kansallinen cup ja supercup.
+
+Eurooppapaikat riippuvat sarjasijoituksestasi ja maan rankingista, joka muuttuu joka kausi eurooppalaisten tulosten mukaan: Mestarien cupissa, Euroopan cupissa ja Conference-cupissa on kussakin karsintakierrokset, 36 joukkueen sarjavaihe ja pudotuspelit.
+
+Maajoukkueet pelaavat Kansojen liigaa, karsintoja, EM-kisoja ja MM-kisoja.</string>
+    <string name="fb_gb_hidden">Taito ja potentiaali näytetään valmennustiimisi arvioimina tähtinä, joten ne voivat olla vääriä – etenkin heikoilla kykyjenetsijöillä.
+
+Katso lyhyt video pelaajakortissa paljastaaksesi tarkan nykyisen taidon, tarkan potentiaalin ja piilotetun persoonallisuuden: tasaisuus, suoritus isoissa otteluissa, loukkaantumisalttius, ammattimaisuus, kunnianhimo, uskollisuus, sopeutumiskyky, paineensieto ja monipuolisuus. Pelaaja pysyy paljastettuna ikuisesti (vihreät tähdet).</string>
+    <string name="fb_search">Haku</string>
+    <string name="fb_shortlist">Seurantalista</string>
+    <string name="fb_scout_reports">Kykyjenetsijöiden raportit</string>
+    <string name="fb_offers">Tarjoukset</string>
+    <string name="fb_auctions">Huutokaupat</string>
+    <string name="fb_history">Historia ja huhut</string>
+    <string name="fb_window_open">Ikkuna auki</string>
+    <string name="fb_window_closed">Ikkuna kiinni</string>
+    <string name="fb_line_gk">Maalivahdit</string>
+    <string name="fb_line_def">Puolustajat</string>
+    <string name="fb_line_mid">Keskikenttäpelaajat</string>
+    <string name="fb_line_att">Hyökkääjät</string>
+    <string name="fb_any_age">Kaikki iät</string>
+    <string name="fb_age_young">≤ 21</string>
+    <string name="fb_age_prime">22–29</string>
+    <string name="fb_any_value">Mikä tahansa arvo</string>
+    <string name="fb_listed_only">Vain listatut</string>
+    <string name="fb_free_agents">Vapaat pelaajat</string>
+    <string name="fb_player_name">Pelaajan nimi</string>
+    <string name="fb_no_results">Pelaajia ei löytynyt</string>
+    <string name="fb_loan">Laina</string>
+    <string name="fb_scout_desc">Kykyjenetsijäsi ehdottavat pelaajia, jotka vahvistaisivat heikoimpia pelipaikkojasi, mahtuvat budjettiin ja tulisivat mielellään.</string>
+    <string name="fb_get_reports">Hae raportit</string>
+    <string name="fb_no_offers">Ei tarjouksia tällä kaudella</string>
+    <string name="fb_incoming">Saapuneet</string>
+    <string name="fb_outgoing">Lähetetyt</string>
+    <string name="fb_os_waiting_you">Odottaa vastaustasi</string>
+    <string name="fb_os_pending">Odottaa seuran vastausta</string>
+    <string name="fb_os_counter">Vastatarjous: %1$s</string>
+    <string name="fb_os_agreed">Summasta sovittu – neuvottele sopimus</string>
+    <string name="fb_os_agreed_in">Hyväksytty – ostaja neuvottelee pelaajan kanssa</string>
+    <string name="fb_os_completed">Valmis</string>
+    <string name="fb_os_rejected">Hylätty</string>
+    <string name="fb_os_withdrawn">Peruttu</string>
+    <string name="fb_os_refused">Pelaaja kieltäytyi</string>
+    <string name="fb_os_expired">Vanhentunut</string>
+    <string name="fb_counter_x">Vaadi %1$s</string>
+    <string name="fb_offer_x">Tarjoa %1$s</string>
+    <string name="fb_auction_desc">Seurat ylittävät toistensa tarjouksia huutokaupan loppuun asti. Laita omia pelaajiasi huutokauppaan pelaajakortista.</string>
+    <string name="fb_no_auctions">Ei käynnissä olevia huutokauppoja</string>
+    <string name="fb_reserve">Vähimmäishinta %1$s</string>
+    <string name="fb_ended">päättynyt</string>
+    <string name="fb_ends">päättyy %1$s</string>
+    <string name="fb_bid_x">Tarjoa %1$s</string>
+    <string name="fb_latest_transfers">Viimeisimmät siirrot</string>
+    <string name="fb_rumours">Huhut</string>
+    <string name="fb_finance">Talous</string>
+    <string name="fb_facilities">Olosuhteet</string>
+    <string name="fb_staff">Henkilökunta</string>
+    <string name="fb_sponsor_tickets">Sponsori ja liput</string>
+    <string name="fb_friendlies">Harjoitusottelut</string>
+    <string name="fb_editor">Muokkain</string>
+    <string name="fb_this_season">Tämä kausi</string>
+    <string name="fb_last_season">Viime kausi</string>
+    <string name="fb_income">Tulot</string>
+    <string name="fb_expenses">Menot</string>
+    <string name="fb_net">Netto</string>
+    <string name="fb_fin_tickets">Liput</string>
+    <string name="fb_fin_tv">Tv-oikeudet</string>
+    <string name="fb_fin_merch">Fanituotteet</string>
+    <string name="fb_fin_sponsor">Sponsorointi</string>
+    <string name="fb_fin_ads">Stadionmainonta</string>
+    <string name="fb_fin_prize">Palkintorahat</string>
+    <string name="fb_fin_transfer_in">Pelaajamyynnit</string>
+    <string name="fb_fin_other_in">Sijoittajat ja muut</string>
+    <string name="fb_fin_wages">Pelaajien palkat</string>
+    <string name="fb_fin_staff_wages">Henkilökunnan palkat</string>
+    <string name="fb_fin_facilities">Olosuhteiden ylläpito</string>
+    <string name="fb_fin_youth">Junioriakatemia</string>
+    <string name="fb_fin_matchday">Ottelupäivän kulut</string>
+    <string name="fb_fin_transfer_out">Pelaajaostot</string>
+    <string name="fb_fin_upgrades">Rakentaminen</string>
+    <string name="fb_fin_interest">Korot</string>
+    <string name="fb_fin_other_out">Korvaukset ja muut</string>
+    <string name="fb_balance_history">Saldo (viime viikot)</string>
+    <string name="fb_staff_wages_week">Henkilökunnan palkat viikossa</string>
+    <string name="fb_fan_base">Kannattajat</string>
+    <string name="fb_f_recruitment">Junioreiden rekrytointi</string>
+    <string name="fb_f_stadium">Stadionin laatu</string>
+    <string name="fb_f_social">Sosiaaliset tilat</string>
+    <string name="fb_f_capacity">Stadionin kapasiteetti</string>
+    <string name="fb_fd_training">Nopeampi kehitys kaikille pelaajille.</string>
+    <string name="fb_fd_youth">Parempi kehitys alle 19-vuotiaille ja paremmat juniorisadot.</string>
+    <string name="fb_fd_recruitment">Enemmän ja parempia nuoria joka maaliskuu.</string>
+    <string name="fb_fd_stadium">Kannattajia tulee enemmän ja he hyväksyvät korkeammat hinnat.</string>
+    <string name="fb_fd_social">Parempi moraali ja enemmän fanituotemyyntiä.</string>
+    <string name="fb_fd_capacity" formatted="false">+10% paikkoja suurempiin ottelutuloihin.</string>
+    <string name="fb_seats">%1$d paikkaa</string>
+    <string name="fb_upgrade_x">Rakenna %1$s · %2$d päivää</string>
+    <string name="fb_upgrade_started">Rakentaminen alkoi</string>
+    <string name="fb_under_construction">Rakenteilla: %1$s (valmis %2$s)</string>
+    <string name="fb_your_staff">Henkilökuntasi (%1$d)</string>
+    <string name="fb_staff_market">Vapaat työntekijät</string>
+    <string name="fb_fire">Erota</string>
+    <string name="fb_fire_confirm">Erota (%1$s)</string>
+    <string name="fb_hire">Palkkaa</string>
+    <string name="fb_hired">Palkattu!</string>
+    <string name="fb_staff_full">Henkilökuntasi on täynnä (16)</string>
+    <string name="fb_staff_reject">Ei ole kiinnostunut seurastasi</string>
+    <string name="fb_r_assistant">Apuvalmentaja</string>
+    <string name="fb_r_coach">Valmentaja</string>
+    <string name="fb_r_gk_coach">Maalivahtivalmentaja</string>
+    <string name="fb_r_fitness">Kuntovalmentaja</string>
+    <string name="fb_r_scout">Kykyjenetsijä</string>
+    <string name="fb_r_physio">Fysioterapeutti</string>
+    <string name="fb_r_youth">Juniorivalmentaja</string>
+    <string name="fb_sa_attack">Hyökkäys</string>
+    <string name="fb_sa_defence">Puolustus</string>
+    <string name="fb_sa_technical">Tekniikka</string>
+    <string name="fb_sa_tactical">Taktiikka</string>
+    <string name="fb_sa_mental">Henkiset</string>
+    <string name="fb_sa_fitness">Kunto</string>
+    <string name="fb_sa_gk">Maalivahdit</string>
+    <string name="fb_sa_youth">Työ nuorten kanssa</string>
+    <string name="fb_sa_judge_ability">Taidon arviointi</string>
+    <string name="fb_sa_judge_potential">Potentiaalin arviointi</string>
+    <string name="fb_sa_physio">Fysioterapia</string>
+    <string name="fb_sa_motivating">Motivointi</string>
+    <string name="fb_sa_discipline">Kuri</string>
+    <string name="fb_sa_man_management">Ihmisten johtaminen</string>
+    <string name="fb_shirt_sponsor">Paitasponsori</string>
+    <string name="fb_current_sponsor">Sponsori</string>
+    <string name="fb_per_year">Vuodessa</string>
+    <string name="fb_until">Asti</string>
+    <string name="fb_sponsor_offers">Uudet tarjoukset</string>
+    <string name="fb_sponsor_line">%1$s vuodessa · %2$d vuotta</string>
+    <string name="fb_sign">Allekirjoita</string>
+    <string name="fb_sponsor_locked">Voit tehdä sopimuksen uuden sponsorin kanssa, kun nykyinen sopimus päättyy.</string>
+    <string name="fb_ticket_prices">Lippujen hinnat</string>
+    <string name="fb_tp_very_low">Hyvin matalat</string>
+    <string name="fb_tp_low">Matalat</string>
+    <string name="fb_tp_high">Korkeat</string>
+    <string name="fb_tp_very_high">Hyvin korkeat</string>
+    <string name="fb_ticket_price">Keskimääräinen lippu</string>
+    <string name="fb_expected_attendance">Odotettu yleisömäärä</string>
+    <string name="fb_matchday_income">Tulot kotiottelua kohden</string>
+    <string name="fb_tip_tickets" formatted="false">Jokainen porras ylöspäin nostaa hintaa 25%, mutta karkottaa noin 18% kannattajista. Jos stadion täyttyy joka tapauksessa, korkeammat hinnat tuovat enemmän.</string>
+    <string name="fb_choose_opponent">Vastustaja</string>
+    <string name="fb_choose_date">Päivämäärä</string>
+    <string name="fb_friendly_desc">Harjoitusottelut pitävät pelaajasi kunnossa ja tuovat vähän tuloja kotona. Suuret seurat voivat kieltäytyä.</string>
+    <string name="fb_arrange">Sovi</string>
+    <string name="fb_friendly_ok">Harjoitusottelu sovittu</string>
+    <string name="fb_friendly_declined">Seura kieltäytyi</string>
+    <string name="fb_friendly_busy">Vastustajalla on ottelu tuon päivän tienoilla</string>
+    <string name="fb_edit_club">Muokkaa seuraa</string>
+    <string name="fb_club_name">Seuran nimi</string>
+    <string name="fb_short_name">Lyhenne</string>
+    <string name="fb_color_main">Pääväri</string>
+    <string name="fb_color_second">Toinen väri</string>
+    <string name="fb_save">Tallenna</string>
+    <string name="fb_saved">Tallennettu</string>
+    <string name="fb_edit_players">Pelaajien nimet (muokkaa napauttamalla)</string>
+    <string name="fb_back_to_match">Takaisin otteluun</string>
+    <string name="fb_choose_sub">Valitse, kuka tulee kentälle</string>
+    <string name="fb_on_pitch">Kentällä (vaihda napauttamalla)</string>
+    <string name="fb_subs_left">Vaihtoja jäljellä: %1$d</string>
+    <string name="fb_tactics_subs">Taktiikka ja vaihdot</string>
+    <string name="fb_pause">Tauko</string>
+    <string name="fb_resume">Jatka</string>
+    <string name="fb_skip_to_end">Siirry loppuun</string>
+    <string name="fb_finish_match">Lopeta</string>
+    <string name="fb_full_time">Loppuvihellys</string>
+    <string name="fb_goal_flash">MAALI!</string>
+    <string name="fb_shots_short">Laukaukset</string>
+    <string name="fb_ev_goal_1">MAALI! %1$s tekee maalin joukkueelle %2$s!</string>
+    <string name="fb_ev_goal_2">MAALI! Mikä viimeistely pelaajalta %1$s! (%2$s)</string>
+    <string name="fb_ev_goal_3">MAALI! %1$s ei erehdy – %2$s juhlii!</string>
+    <string name="fb_ev_assist">Syöttö: %1$s.</string>
+    <string name="fb_ev_save_1">Upea torjunta pelaajalta %1$s, kun %2$s laukoi!</string>
+    <string name="fb_ev_save_2">%2$s laukoo – %1$s ottaa kiinni.</string>
+    <string name="fb_ev_miss_1">%1$s laukoo… niukasti ohi!</string>
+    <string name="fb_ev_miss_2">%1$s laukoo yli.</string>
+    <string name="fb_ev_block">%1$s blokkaa pelaajan %2$s laukauksen.</string>
+    <string name="fb_ev_yellow">Keltainen kortti: %1$s.</string>
+    <string name="fb_ev_red">PUNAINEN KORTTI! %1$s ajetaan ulos!</string>
+    <string name="fb_ev_injury">%1$s loukkaantuu eikä voi jatkaa.</string>
+    <string name="fb_ev_sub">Vaihto, %1$s: %2$s sisään, %3$s ulos.</string>
+    <string name="fb_ev_corner">Kulmapotku joukkueelle %1$s.</string>
+    <string name="fb_ev_free_kick">Vapaapotku joukkueelle %1$s, %2$s valmistautuu.</string>
+    <string name="fb_ev_penalty">RANGAISTUSPOTKU joukkueelle %1$s! %2$s ottaa pallon…</string>
+    <string name="fb_ev_offside">%1$s on paitsiossa.</string>
+    <string name="fb_ev_foul">Rike: %1$s kaataa pelaajan %2$s.</string>
+    <string name="fb_ev_through">%1$s antaa upean läpisyötön pelaajalle %2$s!</string>
+    <string name="fb_ev_half_time">Puoliaika.</string>
+    <string name="fb_ev_full_time">Loppuvihellys!</string>
+    <string name="fb_ev_extra_time">Jatkoaika!</string>
+    <string name="fb_ev_so_goal">%1$s onnistuu rangaistuspotkussa joukkueelle %2$s.</string>
+    <string name="fb_ev_so_miss">%1$s epäonnistuu joukkueelle %2$s!</string>
+    <string name="fb_first_team">Edustusjoukkue</string>
+    <string name="fb_youth_team">Junioriakatemia</string>
+    <string name="fb_youth_info">Junioriolosuhteet %1$d/20 · rekrytointi %2$d/20 · juniorivalmentaja %3$d/20 · seuraava sato %4$s</string>
+    <string name="fb_youth_empty">Akatemiassa ei vielä ole junioreita. Uusia lahjakkuuksia saapuu joka vuosi 15. maaliskuuta.</string>
+    <string name="fb_promote">Nosta edustusjoukkueeseen</string>
+    <string name="fb_to_youth">Lähetä akatemiaan</string>
+    <string name="fb_ng_club">Seura</string>
+    <string name="fb_ng_matches">Ottelut</string>
+    <string name="fb_ng_transfers">Siirrot</string>
+    <string name="fb_ng_world">Maailma</string>
+    <string name="fb_mark_all_read">Merkitse kaikki luetuiksi</string>
+    <string name="fb_nt_offer_received">Siirtotarjous</string>
+    <string name="fb_nt_offer_accepted">Tarjous hyväksytty</string>
+    <string name="fb_nt_offer_rejected">Tarjous hylätty</string>
+    <string name="fb_nt_offer_counter">Vastatarjous</string>
+    <string name="fb_nt_player_refused">Pelaaja kieltäytyi</string>
+    <string name="fb_nt_transfer_done">Siirto valmis</string>
+    <string name="fb_nt_transfer_world">Iso siirto</string>
+    <string name="fb_nt_rumour">Huhu</string>
+    <string name="fb_nt_contract">Sopimus</string>
+    <string name="fb_nt_unhappy">Tyytymätön pelaaja</string>
+    <string name="fb_nt_auction">Huutokauppa</string>
+    <string name="fb_nt_loan_return">Paluu lainalta</string>
+    <string name="fb_nt_precontract">Esisopimus</string>
+    <string name="fb_nt_youth">Juniorisato</string>
+    <string name="fb_nt_released">Pelaaja lähti</string>
+    <string name="fb_nt_preview">Otteluennakko</string>
+    <string name="fb_nt_report">Otteluraportti</string>
+    <string name="fb_nt_injury">Loukkaantuminen</string>
+    <string name="fb_nt_suspension">Pelikielto</string>
+    <string name="fb_nt_leader">Uusi kärki</string>
+    <string name="fb_nt_potm">Kuukauden pelaaja</string>
+    <string name="fb_nt_window_open">Siirtoikkuna</string>
+    <string name="fb_nt_window_close">Siirtoikkuna</string>
+    <string name="fb_nt_draw">Arvonta</string>
+    <string name="fb_nt_europe">Eurooppa</string>
+    <string name="fb_nt_facility">Olosuhteet</string>
+    <string name="fb_nt_finance">Talous</string>
+    <string name="fb_nt_retirement">Uran päätös</string>
+    <string name="fb_nt_top_scorer">Kultakenkä</string>
+    <string name="fb_nt_player_season">Kauden pelaaja</string>
+    <string name="fb_nt_fans_happy">Kannattajat</string>
+    <string name="fb_nt_fans_angry">Kannattajat</string>
+    <string name="fb_nt_trophy">Mestarit</string>
+    <string name="fb_nt_callup">Maajoukkue</string>
+    <string name="fb_nt_graduate">Oma kasvatti</string>
+    <string name="fb_n_youth_best">Akatemiaan saapui %1$d nuorta. Kykyjenetsijät pitävät pelaajaa %2$s suurimpana lahjakkuutena.</string>
+    <string name="fb_n_preview">Seuraavaksi: %1$s (%2$s). Heidän viisi viimeistä: %3$s</string>
+    <string name="fb_n_report_win">Voitto joukkueesta %1$s: %2$s.</string>
+    <string name="fb_n_report_loss">Tappio joukkueelle %1$s: %2$s.</string>
+    <string name="fb_n_report_draw">Tasapeli joukkueen %1$s kanssa: %2$s.</string>
+    <string name="fb_n_report_motm">Ottelun pelaaja: %1$s.</string>
+    <string name="fb_n_injury">%1$s loukkaantui ottelussa ja on sivussa noin %2$d päivää.</string>
+    <string name="fb_n_injury_training">%1$s loukkaantui harjoituksissa (noin %2$d päivää).</string>
+    <string name="fb_n_suspension">%1$s on pelikiellossa %2$d ottelua.</string>
+    <string name="fb_n_leader">%1$s on sarjan %2$s uusi kärki %3$d pisteellä.</string>
+    <string name="fb_n_potm">%1$s (%2$s) on kuukauden pelaaja.</string>
+    <string name="fb_n_window_open">Siirtoikkuna on avautunut.</string>
+    <string name="fb_n_window_close">Siirtoikkuna on sulkeutunut.</string>
+    <string name="fb_n_draw">%1$s, %2$s: vastaan tulee %3$s.</string>
+    <string name="fb_n_europe_direct">Seura pelaa tällä kaudella kilpailussa %1$s!</string>
+    <string name="fb_n_europe_qual">Seura aloittaa kilpailun %1$s karsinnoista.</string>
+    <string name="fb_n_facility">Rakentaminen valmis: %1$s parani.</string>
+    <string name="fb_n_finance">Seura on velkaa (%1$s). Korkoa veloitetaan joka viikko – myy pelaajia tai leikkaa palkkoja.</string>
+    <string name="fb_n_retirement">%1$s lopetti uransa %2$d-vuotiaana.</string>
+    <string name="fb_n_top_scorer">%1$s on sarjan %3$s maalikuningas %2$d maalilla.</string>
+    <string name="fb_n_player_season">%1$s on kauden pelaaja sarjassa %2$s (keskiarvo %3$s).</string>
+    <string name="fb_n_fans_happy">Kannattajat ovat haltioissaan voittoputkesta!</string>
+    <string name="fb_n_fans_angry">Kolme tappiota peräkkäin – kannattajat ovat vihaisia.</string>
+    <string name="fb_n_trophy_us">MESTARIT! %1$s voittaa kilpailun %2$s!</string>
+    <string name="fb_n_trophy">%1$s voittaa kilpailun %2$s.</string>
+    <string name="fb_n_callup">%1$s on valittu joukkueeseen %2$s.</string>
+    <string name="fb_n_graduate">%1$s nousee akatemiasta edustusjoukkueeseen.</string>
+    <string name="fb_settings">Asetukset</string>
+    <string name="fb_currency">Valuutta</string>
+    <string name="fb_currency_desc">Summat näytetään valitussa valuutassa kiinteillä kursseilla (esimerkki: 1 milj. euroa = %1$s).</string>
+    <string name="fb_career">Ura</string>
+    <string name="fb_manager_line">Manageri: %1$s · kausi %2$s</string>
+    <string name="fb_quit_career">Poista ura ja aloita alusta</string>
+    <string name="fb_new">UUSI</string>
+    <string name="fb_read_mark">Luettu</string>
+    <string name="fb_unread_n">Lukemattomat (%1$d)</string>
+    <string name="fb_player_card">Pelaajakortti</string>
+    <string name="fb_cred_strong">Luotettava lähde</string>
+    <string name="fb_cred_medium">Mahdollinen</string>
+    <string name="fb_cred_weak">Juoru</string>
+    <string name="fb_rumour_interest">Kiinnostunut seura: %1$s</string>
+    <string name="fb_rumour_yours">Oma pelaajasi</string>
+    <string name="fb_rumour_open">Vielä huhu</string>
+    <string name="fb_rumour_true">Toteutui ✓</string>
+    <string name="fb_rumour_elsewhere">Päätyi lopulta seuraan %1$s</string>
+    <string name="fb_au_running">Käynnissä – päättyy %1$s</string>
+    <string name="fb_au_leading">Sinulla on korkein tarjous</string>
+    <string name="fb_au_yours">Oma huutokauppasi</string>
+    <string name="fb_au_sold">MYYTY seuralle %1$s hintaan %2$s</string>
+    <string name="fb_au_unsold">EI MYYTY – yksikään tarjous ei yltänyt vähimmäishintaan</string>
+    <string name="fb_au_refused">Ei kauppaa – pelaaja ei halunnut seuraan %1$s</string>
+    <string name="fb_au_won">Voitit! Sovi sopimuksesta pelaajan kanssa</string>
+    <string name="fb_au_bought">Ostettu ✓</string>
+    <string name="fb_au_bids">%1$d tarjousta</string>
+</resources>
