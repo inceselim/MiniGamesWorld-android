@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fb_monthly">Mjesečno</string>
+    <string name="fb_this_month">Ovaj mjesec</string>
+    <string name="fb_last_month">Prošli mjesec</string>
+    <string name="fb_month_income">Ukupni prihodi</string>
+    <string name="fb_month_expense">Ukupni rashodi</string>
+    <string name="fb_bank">Banka</string>
+    <string name="fb_bank_loan">Bankovni kredit</string>
+    <string name="fb_credit_limit">Kreditni limit</string>
+    <string name="fb_loan_amount">Iznos</string>
+    <string name="fb_loan_term">Rok</string>
+    <string name="fb_years_short">%1$d god.</string>
+    <string name="fb_interest_rate">Kamatna stopa</string>
+    <string name="fb_rate_year">%1$s godišnje</string>
+    <string name="fb_weekly_payment">Tjedna rata</string>
+    <string name="fb_total_repay">Ukupno za vratiti</string>
+    <string name="fb_take_loan">Uzmi kredit</string>
+    <string name="fb_loan_taken_ok">Kredit primljen: %1$s</string>
+    <string name="fb_loan_left">Preostali dug</string>
+    <string name="fb_loan_original">Posuđeno</string>
+    <string name="fb_weeks_left">Preostalo tjedana</string>
+    <string name="fb_repay_loan">Otplati sada (%1$s)</string>
+    <string name="fb_loan_repaid">Kredit otplaćen</string>
+    <string name="fb_bank_tip" formatted="false">Rate se plaćaju svakog ponedjeljka. Klubovi s visokim ugledom dobivaju nižu kamatu; ona raste dok je stanje negativno. Prijevremena otplata stoji 1% više. Samo jedan kredit odjednom.</string>
+    <string name="fb_deposit">Štedni depozit</string>
+    <string name="fb_deposit_balance">Stanje depozita</string>
+    <string name="fb_deposit_earned">Zarađena kamata</string>
+    <string name="fb_weekly_return">Tjedna kamata</string>
+    <string name="fb_deposit_x">Uplati %1$s</string>
+    <string name="fb_withdraw_x">Podigni %1$s</string>
+    <string name="fb_deposit_tip" formatted="false">Novac u depozitu donosi 2% godišnje, ali se ne može koristiti za transfere ili plaće dok ga ne podigneš.</string>
+    <string name="fb_form_w">P</string>
+    <string name="fb_form_d">N</string>
+    <string name="fb_form_l">I</string>
+    <string name="fb_rush_ad">📺 Pogledaj oglas: −%1$d dana (još %2$d dana)</string>
+    <string name="fb_rushed">Gradnja ubrzana za %1$s dana</string>
+    <string name="game_football_manager_name">Šef kluba</string>
+    <string name="game_football_manager_desc">Vodi nogometni klub na svoj način: sve lige u Europi, realističan kalendar, europski kupovi i svjetska prvenstva, detaljna taktika, treninzi, omladinska škola, financije i živo tržište transfera.</string>
+    <string name="fb_tagline">Izgradi dinastiju. Svaka odluka je tvoja.</string>
+    <string name="fb_continue_career">Nastavi karijeru</string>
+    <string name="fb_new_career">Nova karijera</string>
+    <string name="fb_new_career_warning">Tvoja trenutna karijera bit će izbrisana. Jesi li siguran?</string>
+    <string name="fb_yes">Da</string>
+    <string name="fb_no">Ne</string>
+    <string name="fb_generating">Stvaram nogometni svijet…</string>
+    <string name="fb_please_wait">Molimo pričekaj…</string>
+    <string name="fb_load_failed">Spremljena igra nije se mogla učitati</string>
+    <string name="fb_choose_country">Država</string>
+    <string name="fb_choose_club">Odaberi svoj klub</string>
+    <string name="fb_tier_n">Rang %1$d</string>
+    <string name="fb_league_name">%1$s, liga %2$d</string>
+    <string name="fb_reputation">Ugled</string>
+    <string name="fb_balance">Stanje</string>
+    <string name="fb_transfer_budget">Budžet za transfere</string>
+    <string name="fb_stadium">Stadion</string>
+    <string name="fb_squad_size">Veličina momčadi</string>
+    <string name="fb_best_player">Najbolji igrač</string>
+    <string name="fb_manager_name">Ime menadžera</string>
+    <string name="fb_start_career">Započni karijeru</string>
+    <string name="fb_cancel">Odustani</string>
+    <string name="fb_close">Zatvori</string>
+    <string name="fb_tab_home">Početna</string>
+    <string name="fb_tab_squad">Momčad</string>
+    <string name="fb_tab_tactics">Taktika</string>
+    <string name="fb_tab_fixtures">Raspored</string>
+    <string name="fb_tab_competitions">Tablice</string>
+    <string name="fb_tab_transfers">Transferi</string>
+    <string name="fb_tab_club">Klub</string>
+    <string name="fb_tab_inbox">Pošta</string>
+    <string name="fb_tab_guide">Vodič</string>
+    <string name="fb_continue">Nastavi</string>
+    <string name="fb_go_to_match">Na utakmicu</string>
+    <string name="fb_next_matches">Sljedeće utakmice</string>
+    <string name="fb_no_matches">Nema zakazanih utakmica</string>
+    <string name="fb_recent_results">Nedavni rezultati</string>
+    <string name="fb_latest_news">Najnovije vijesti</string>
+    <string name="fb_no_news">Još nema vijesti</string>
+    <string name="fb_club_summary">Klub</string>
+    <string name="fb_weekly_wages">Tjedne plaće</string>
+    <string name="fb_season_income">Prihodi sezone</string>
+    <string name="fb_season_expense">Rashodi sezone</string>
+    <string name="fb_ad_bonus_title">Bonus investitora</string>
+    <string name="fb_ad_bonus_desc">Pogledaj kratki video i investitor će dodati %1$s na stanje kluba.</string>
+    <string name="fb_ad_bonus_left">Još %1$d ovaj tjedan</string>
+    <string name="fb_ad_bonus_got">%1$s dodano na stanje kluba!</string>
+    <string name="fb_watch_ad">Pogledaj oglas</string>
+    <string name="fb_table_cols">U,P,N,I,GR,B</string>
+    <string name="fb_vs">protiv</string>
+    <string name="fb_first_leg">Prva utakmica: %1$s</string>
+    <string name="fb_play_match">Odigraj utakmicu</string>
+    <string name="fb_quick_result">Brzi rezultat</string>
+    <string name="fb_edit_tactics">Taktika</string>
+    <string name="fb_squad">Momčad</string>
+    <string name="fb_penalties">Jedanaesterci %1$s</string>
+    <string name="fb_match_stats">Statistika utakmice</string>
+    <string name="fb_possession">Posjed</string>
+    <string name="fb_shots">Udarci (u okvir)</string>
+    <string name="fb_corners">Kornera</string>
+    <string name="fb_fouls">Prekršaji</string>
+    <string name="fb_cards">Kartoni Ž/C</string>
+    <string name="fb_player_ratings">Ocjene igrača</string>
+    <string name="fb_season_over">Sezona %1$s je završila</string>
+    <string name="fb_final_position">Konačno mjesto u ligi: %1$d</string>
+    <string name="fb_promoted">Plasman u viši rang!</string>
+    <string name="fb_relegated">Ispadanje</string>
+    <string name="fb_honours_this_season">Prvaci</string>
+    <string name="fb_new_season">Započni %1$s</string>
+    <string name="fb_accept">Prihvati</string>
+    <string name="fb_reject">Odbij</string>
+    <string name="fb_accept_counter">Prihvati %1$s</string>
+    <string name="fb_withdraw">Povuci</string>
+    <string name="fb_negotiate_contract">Pregovaraj o ugovoru</string>
+    <string name="fb_no_funds">Nemaš dovoljno novca</string>
+    <string name="fb_free">besplatno</string>
+    <string name="fb_free_agent">Slobodan igrač</string>
+    <string name="fb_n_offer_received">%1$s nude %2$s za %3$s</string>
+    <string name="fb_n_offer_accepted">%1$s su prihvatili ponudu za %2$s (%3$s)</string>
+    <string name="fb_n_offer_rejected">%1$s su odbili ponudu za %2$s</string>
+    <string name="fb_n_offer_counter">%1$s traže %3$s za %2$s</string>
+    <string name="fb_n_player_refused">%1$s ne želi prijeći u %2$s</string>
+    <string name="fb_n_signed_free">%1$s je besplatno potpisao za %2$s</string>
+    <string name="fb_n_transfer">%1$s prelazi iz %2$s u %3$s (%4$s)</string>
+    <string name="fb_n_rumour">Glasina: %1$s prate igrača %2$s iz %3$s (%4$d%%)</string>
+    <string name="fb_n_contract_expiring">Ugovor igrača %1$s istječe ovog ljeta</string>
+    <string name="fb_n_unhappy">%1$s je nezadovoljan i želi otići</string>
+    <string name="fb_n_auction_bid">%1$s su ponudili %2$s za %3$s</string>
+    <string name="fb_n_auction_sold">Dražba: %1$s prodan klubu %2$s za %3$s</string>
+    <string name="fb_n_auction_unsold">Dražba: nema kupca za %1$s</string>
+    <string name="fb_n_loan_return">%1$s se vraća u %2$s nakon posudbe</string>
+    <string name="fb_n_precontract">%1$s je potpisao predugovor s %2$s</string>
+    <string name="fb_n_youth">Iz omladinske škole stiglo je %1$d mladih igrača</string>
+    <string name="fb_n_released">%1$s je napustio klub</string>
+    <string name="fb_col_name">Ime</string>
+    <string name="fb_col_pos">Poz</string>
+    <string name="fb_col_age">Dob</string>
+    <string name="fb_col_ability">Sposobnost</string>
+    <string name="fb_col_potential">Potencijal</string>
+    <string name="fb_col_condition">Kond.</string>
+    <string name="fb_col_morale">Moral</string>
+    <string name="fb_col_form">Forma</string>
+    <string name="fb_col_value">Vrijednost</string>
+    <string name="fb_col_wage">Plaća</string>
+    <string name="fb_col_contract">Ugovor</string>
+    <string name="fb_per_week">/tj.</string>
+    <string name="fb_release_clause">Otkupna klauzula</string>
+    <string name="fb_injured">Ozlijeđen</string>
+    <string name="fb_days">%1$d dana</string>
+    <string name="fb_height_foot">Visina · noga</string>
+    <string name="fb_foot_right">Desna</string>
+    <string name="fb_foot_left">Lijeva</string>
+    <string name="fb_foot_both">Obje</string>
+    <string name="fb_caps">Nastupi / golovi za reprezentaciju</string>
+    <string name="fb_season_stats">Sezona</string>
+    <string name="fb_stats_line">%1$d nastupa, %2$d golova, %3$d asistencija, prosjek %4$s</string>
+    <string name="fb_positions">Pozicije</string>
+    <string name="fb_hidden_attributes">Skrivene osobine i pravi potencijal</string>
+    <string name="fb_hidden_locked">Tvoje osoblje može samo procijeniti. Pogledaj video da otkriješ točan potencijal i skrivenu osobnost.</string>
+    <string name="fb_reveal_with_ad">Otkrij (video)</string>
+    <string name="fb_exact_ability">Trenutna sposobnost</string>
+    <string name="fb_exact_potential">Potencijalna sposobnost</string>
+    <string name="fb_g_technical">Tehnika</string>
+    <string name="fb_g_mental">Mentalno</string>
+    <string name="fb_g_physical">Fizički</string>
+    <string name="fb_g_goalkeeping">Vratarske</string>
+    <string name="fb_training">Trening</string>
+    <string name="fb_individual_focus">Individualni fokus</string>
+    <string name="fb_position_training">Nauči novu poziciju</string>
+    <string name="fb_none">Ništa</string>
+    <string name="fb_contract_transfer">Ugovor i transfer</string>
+    <string name="fb_renew_contract">Produlji ugovor</string>
+    <string name="fb_list_for_transfer">Lista za transfer (%1$s)</string>
+    <string name="fb_unlist">Ukloni s liste (%1$s)</string>
+    <string name="fb_list_for_loan">Ponudi na posudbu</string>
+    <string name="fb_unlist_loan">Ukloni s liste za posudbu</string>
+    <string name="fb_auction">Dražba (3 dana)</string>
+    <string name="fb_auction_started">Dražba je počela</string>
+    <string name="fb_release">Otpusti igrača</string>
+    <string name="fb_release_confirm">Potvrdi otpuštanje (%1$s)</string>
+    <string name="fb_transfer">Transfer</string>
+    <string name="fb_shortlist_add">Dodaj na užu listu</string>
+    <string name="fb_shortlist_remove">Ukloni s uže liste</string>
+    <string name="fb_offer_fee">Ponuda: %1$s</string>
+    <string name="fb_asking_price">Tražena cijena: %1$s</string>
+    <string name="fb_not_interested">Igrač nije zainteresiran za tvoj klub</string>
+    <string name="fb_make_offer">Daj ponudu</string>
+    <string name="fb_request_loan" formatted="false">Zatraži posudbu (70% plaće)</string>
+    <string name="fb_offer_sent">Ponuda poslana. Odgovor sutra.</string>
+    <string name="fb_err_window">Prijelazni rok je zatvoren</string>
+    <string name="fb_err_duplicate">Već imaš ponudu za ovog igrača</string>
+    <string name="fb_err_on_loan">Igrač je na posudbi</string>
+    <string name="fb_err_generic">Trenutno nije moguće</string>
+    <string name="fb_t_attacking">Napad</string>
+    <string name="fb_t_defending">Obrana</string>
+    <string name="fb_t_technical">Tehnika</string>
+    <string name="fb_t_tactical">Taktika</string>
+    <string name="fb_t_physical">Fizički</string>
+    <string name="fb_t_mental">Mentalno</string>
+    <string name="fb_t_set_pieces">Prekidi</string>
+    <string name="fb_t_goalkeeping">Vratari</string>
+    <string name="fb_contract_talks">Pregovori o ugovoru: %1$s</string>
+    <string name="fb_fee_agreed">Dogovorena odšteta: %1$s</string>
+    <string name="fb_wage_demand">Tražena plaća</string>
+    <string name="fb_years_wanted">Željeno trajanje ugovora</string>
+    <string name="fb_signing_fee">Bonus za potpis</string>
+    <string name="fb_offered_wage">Tvoja ponuda plaće: %1$s/tj.</string>
+    <string name="fb_contract_years">Godine</string>
+    <string name="fb_propose">Predloži</string>
+    <string name="fb_reply_accept">Dogovoreno! Ugovor je potpisan.</string>
+    <string name="fb_reply_wage_low">Plaća je preniska.</string>
+    <string name="fb_reply_years">Želi drugačije trajanje ugovora.</string>
+    <string name="fb_reply_not_interested">Nije zainteresiran.</string>
+    <string name="fb_reply_walked">Prekinuo je pregovore.</string>
+    <string name="fb_soon">Dolazi u sljedećem ažuriranju</string>
+    <string name="fb_c_league">Liga</string>
+    <string name="fb_c_playoff">Doigravanje</string>
+    <string name="fb_c_playoff_of">Doigravanje: %1$s</string>
+    <string name="fb_c_cup">Kup</string>
+    <string name="fb_c_super_cup">Superkup</string>
+    <string name="fb_c_champions">Kup prvaka</string>
+    <string name="fb_c_europa">Europski kup</string>
+    <string name="fb_c_conference">Konferencijski kup</string>
+    <string name="fb_c_uefa_super">Europski superkup</string>
+    <string name="fb_c_friendly">Prijateljska</string>
+    <string name="fb_c_nations">Liga nacija</string>
+    <string name="fb_c_qualifiers">Kvalifikacije</string>
+    <string name="fb_c_world_cup">Svjetsko prvenstvo</string>
+    <string name="fb_c_euro">Europsko prvenstvo</string>
+    <string name="fb_c_nat_friendly">Međunarodna prijateljska</string>
+    <string name="fb_s_league">Liga</string>
+    <string name="fb_s_groups">Grupna faza</string>
+    <string name="fb_s_league_phase">Ligaška faza</string>
+    <string name="fb_s_q1">1. pretkolo</string>
+    <string name="fb_s_q2">2. pretkolo</string>
+    <string name="fb_s_q3">3. pretkolo</string>
+    <string name="fb_s_qpo">Kvalifikacijsko doigravanje</string>
+    <string name="fb_s_kpo">Doigravanje za nokaut fazu</string>
+    <string name="fb_s_r128">1/64 finala</string>
+    <string name="fb_s_r64">1/32 finala</string>
+    <string name="fb_s_r32">1/16 finala</string>
+    <string name="fb_s_r16">Osmina finala</string>
+    <string name="fb_s_qf">Četvrtfinale</string>
+    <string name="fb_s_sf">Polufinale</string>
+    <string name="fb_s_final">Finale</string>
+    <string name="fb_s_prelim">Pretkolo</string>
+    <string name="fb_s_match">Utakmica</string>
+    <string name="fb_a_corners">Kornera</string>
+    <string name="fb_a_crossing">Centaršuti</string>
+    <string name="fb_a_dribbling">Driblanje</string>
+    <string name="fb_a_finishing">Završnica</string>
+    <string name="fb_a_first_touch">Prvi dodir</string>
+    <string name="fb_a_free_kick">Slobodni udarci</string>
+    <string name="fb_a_heading">Igra glavom</string>
+    <string name="fb_a_long_shots">Udarci izdaleka</string>
+    <string name="fb_a_marking">Čuvanje</string>
+    <string name="fb_a_passing">Dodavanje</string>
+    <string name="fb_a_penalty">Izvođenje jedanaesteraca</string>
+    <string name="fb_a_tackling">Oduzimanje</string>
+    <string name="fb_a_technique">Tehnika</string>
+    <string name="fb_a_aggression">Agresivnost</string>
+    <string name="fb_a_anticipation">Anticipacija</string>
+    <string name="fb_a_bravery">Hrabrost</string>
+    <string name="fb_a_composure">Smirenost</string>
+    <string name="fb_a_concentration">Koncentracija</string>
+    <string name="fb_a_decisions">Odluke</string>
+    <string name="fb_a_determination">Odlučnost</string>
+    <string name="fb_a_flair">Kreativnost</string>
+    <string name="fb_a_leadership">Vodstvo</string>
+    <string name="fb_a_off_the_ball">Kretanje bez lopte</string>
+    <string name="fb_a_positioning">Postavljanje</string>
+    <string name="fb_a_teamwork">Timski rad</string>
+    <string name="fb_a_vision">Pregled igre</string>
+    <string name="fb_a_work_rate">Radni elan</string>
+    <string name="fb_a_acceleration">Ubrzanje</string>
+    <string name="fb_a_agility">Okretnost</string>
+    <string name="fb_a_balance">Ravnoteža</string>
+    <string name="fb_a_jumping">Skok</string>
+    <string name="fb_a_natural_fitness">Prirodna kondicija</string>
+    <string name="fb_a_pace">Brzina</string>
+    <string name="fb_a_stamina">Izdržljivost</string>
+    <string name="fb_a_strength">Snaga</string>
+    <string name="fb_a_aerial_reach">Igra u zraku</string>
+    <string name="fb_a_command_of_area">Kontrola šesnaesterca</string>
+    <string name="fb_a_handling">Hvatanje</string>
+    <string name="fb_a_kicking">Izbijanje</string>
+    <string name="fb_a_one_on_ones">Jedan na jedan</string>
+    <string name="fb_a_reflexes">Refleksi</string>
+    <string name="fb_h_consistency">Dosljednost</string>
+    <string name="fb_h_important_matches">Važne utakmice</string>
+    <string name="fb_h_injury_proneness">Sklonost ozljedama</string>
+    <string name="fb_h_professionalism">Profesionalnost</string>
+    <string name="fb_h_ambition">Ambicija</string>
+    <string name="fb_h_loyalty">Odanost</string>
+    <string name="fb_h_adaptability">Prilagodljivost</string>
+    <string name="fb_h_pressure">Pritisak</string>
+    <string name="fb_h_versatility">Svestranost</string>
+    <string name="fb_all">Sve</string>
+    <string name="fb_cups">Kupovi</string>
+    <string name="fb_europe">Europa</string>
+    <string name="fb_national_teams">Reprezentacije</string>
+    <string name="fb_no_competitions">Nema natjecanja</string>
+    <string name="fb_not_started">Još nije počelo</string>
+    <string name="fb_winner">Pobjednik: %1$s</string>
+    <string name="fb_group_n">Skupina %1$s</string>
+    <string name="fb_byes">%1$d momčadi prošlo je bez igranja</string>
+    <string name="fb_top_scorers">Najbolji strijelci</string>
+    <string name="fb_lineup">Postava</string>
+    <string name="fb_instructions">Upute</string>
+    <string name="fb_team_training">Trening</string>
+    <string name="fb_auto_pick">Automatski odabir</string>
+    <string name="fb_best_formation">Najbolja formacija</string>
+    <string name="fb_team_strength">Snaga momčadi</string>
+    <string name="fb_pick_for">Odaberi igrača za %1$s</string>
+    <string name="fb_tap_position">Dodirni poziciju na terenu</string>
+    <string name="fb_starting">Prvih 11</string>
+    <string name="fb_bench">Klupa</string>
+    <string name="fb_suspended">Suspendiran</string>
+    <string name="fb_on">Uklj.</string>
+    <string name="fb_off">Isklj.</string>
+    <string name="fb_open_guide">Otvori taktički vodič</string>
+    <string name="fb_tac_mentality">Mentalitet</string>
+    <string name="fb_tac_passing">Stil dodavanja</string>
+    <string name="fb_tac_tempo">Tempo</string>
+    <string name="fb_tac_width">Širina</string>
+    <string name="fb_tac_focus">Smjer napada</string>
+    <string name="fb_tac_pressing">Presing</string>
+    <string name="fb_tac_defline">Obrambena linija</string>
+    <string name="fb_tac_marking">Čuvanje</string>
+    <string name="fb_tac_counter">Protunapad</string>
+    <string name="fb_tac_offside">Zamka zaleđa</string>
+    <string name="fb_tac_time_wasting">Gubljenje vremena</string>
+    <string name="fb_tac_hard_tackling">Grubi start</string>
+    <string name="fb_o_very_defensive">Vrlo obrambeni</string>
+    <string name="fb_o_defensive">Obrambeni</string>
+    <string name="fb_o_balanced">Uravnotežen</string>
+    <string name="fb_o_attacking">Napadački</string>
+    <string name="fb_o_very_attacking">Vrlo napadački</string>
+    <string name="fb_o_short">Kratka</string>
+    <string name="fb_o_mixed">Mješovita</string>
+    <string name="fb_o_direct">Izravna</string>
+    <string name="fb_o_slow">Spor</string>
+    <string name="fb_o_normal">Normalan</string>
+    <string name="fb_o_fast">Brz</string>
+    <string name="fb_o_narrow">Uska</string>
+    <string name="fb_o_wide">Široka</string>
+    <string name="fb_o_center">Kroz sredinu</string>
+    <string name="fb_o_flanks">Po krilima</string>
+    <string name="fb_o_low">Nizak</string>
+    <string name="fb_o_medium">Srednji</string>
+    <string name="fb_o_high">Visok</string>
+    <string name="fb_o_deep">Duboka</string>
+    <string name="fb_o_zonal">Zonsko</string>
+    <string name="fb_o_man">Čovjek na čovjeka</string>
+    <string name="fb_o_light">Lagan</string>
+    <string name="fb_o_intense">Intenzivan</string>
+    <string name="fb_tip_mentality">Napadačkije = više udaraca i golova, ali više prostora iza obrane.</string>
+    <string name="fb_tip_passing">Kratka dodavanja čuvaju loptu i sigurnija su; izravna brže stižu u kazneni prostor uz veći rizik.</string>
+    <string name="fb_tip_tempo">Brz tempo brže stvara prilike, ali donosi više pogrešaka i umora.</string>
+    <string name="fb_tip_width">Široka igra donosi više centaršuteva; uska zagušuje sredinu.</string>
+    <string name="fb_tip_focus">Sredina = prodorne lopte (pregled igre, dodavanje); krila = centaršuti (centaršuti, igra glavom).</string>
+    <string name="fb_tip_pressing">Visok presing osvaja loptu više, ali umara igrače.</string>
+    <string name="fb_tip_defline">Visoka linija sužava sredinu, ali je ranjiva na lopte iza leđa.</string>
+    <string name="fb_tip_marking">Čuvanje čovjek na čovjeka gasi napadače; pametni u kretanju mogu pobjeći.</string>
+    <string name="fb_tip_counter">Brzo kreni naprijed nakon osvajanja lopte na svojoj polovici.</string>
+    <string name="fb_tip_offside">Češće hvata napadače u zaleđu; traži uigrane braniče.</string>
+    <string name="fb_tip_time_wasting">Kad vodi nakon sat vremena igre, momčad usporava igru.</string>
+    <string name="fb_tip_hard_tackling">Osvaja više duela, ali donosi više prekršaja, kartona i jedanaesteraca.</string>
+    <string name="fb_training_focus">Fokus treninga</string>
+    <string name="fb_training_intensity">Intenzitet</string>
+    <string name="fb_coaching_quality">Kvaliteta trenera</string>
+    <string name="fb_f_training">Trening kamp</string>
+    <string name="fb_f_youth">Omladinski kamp</string>
+    <string name="fb_youth_coaching">Omladinski treneri</string>
+    <string name="fb_physio">Fizioterapija</string>
+    <string name="fb_tip_training_focus" formatted="false">Osobine odabranog područja napreduju oko 50% brže za cijelu momčad.</string>
+    <string name="fb_tip_intensity" formatted="false">Lagan: sporiji razvoj, manje ozljeda, svježije noge. Intenzivan: +15% razvoja, gotovo dvostruko više ozljeda na treningu, slabija kondicija za utakmicu.</string>
+    <string name="fb_tip_coaches">Bolji treneri i kampovi ubrzavaju razvoj. Zaposli trenere u odjeljku Klub.</string>
+    <string name="fb_gt_basics">Prvi koraci</string>
+    <string name="fb_gt_formations">Formacije i postava</string>
+    <string name="fb_gt_training">Trening i razvoj</string>
+    <string name="fb_gt_coaches">Treneri i osoblje</string>
+    <string name="fb_gt_morale">Moral i forma</string>
+    <string name="fb_gt_youth">Omladinska škola</string>
+    <string name="fb_gt_finance">Financije</string>
+    <string name="fb_gt_transfers">Transferi</string>
+    <string name="fb_gt_contracts">Ugovori</string>
+    <string name="fb_gt_competitions">Natjecanja</string>
+    <string name="fb_gt_hidden">Skrivene osobine i potencijal</string>
+    <string name="fb_gb_basics">Ti si šef kluba: biraš momčad i taktiku, kupuješ i prodaješ igrače, određuješ treninge, gradiš objekte i upravljaš novcem.
+
+Pritisni Nastavi za kretanje kroz kalendar. Igra staje na dane tvojih utakmica i kad nešto treba tvoju pažnju (ponude, vijesti o ugovorima, novi juniori).
+
+Na dan utakmice možeš odigrati utakmicu ili dobiti brzi rezultat. Sve se sprema automatski.</string>
+    <string name="fb_gb_mentality" formatted="false">Mentalitet određuje koliko momčad riskira.
+
+• Vrlo obrambeni / obrambeni: manje igrača ide u napad, manje udaraca za obje momčadi. Dobro kad čuvaš prednost ili igraš protiv mnogo jače momčadi.
+• Uravnotežen: zadano.
+• Napadački / vrlo napadački: više udaraca i golova, ali protivnik nalazi više prostora. U našim testovima jaka momčad zabijala je oko 18% više, ali je i primala više.
+
+Kombiniraj obrambeni mentalitet s protunapadom da kazniš protivnike koji navaljuju.</string>
+    <string name="fb_gb_passing" formatted="false">• Kratka: puno sigurnih dodavanja, visok posjed (oko 60%+), manje, ali čišćih napada. Traži dobro dodavanje i prvi dodir.
+• Mješovita: ravnoteža.
+• Izravna: duge lopte prema napadačima. Posjed pada na oko 40%, lopta brže stiže u kazneni prostor, utakmice postaju otvorenije. Pogodno za visoke, snažne napadače i dobre dugačke dodavače.</string>
+    <string name="fb_gb_tempo">Brz tempo brzo premješta loptu: više prilika i udaraca, ali više netočnih dodavanja i više umora.
+
+Spor tempo čuva loptu i kontrolira igru; odgovara kratkim dodavanjima i čuvanju prednosti.</string>
+    <string name="fb_gb_width">Široka: krilni igrači ostaju uz aut liniju, što donosi više centaršuteva. Traži dobre centaršutere i snažne u igri glavom u kaznenom prostoru.
+
+Uska: momčad igra kroz sredinu i ostaje zbijena; dobro uz playmakera i prodorne lopte.</string>
+    <string name="fb_gb_focus">Kroz sredinu: više prodornih lopti. Uspjeh ovisi o pregledu igre i dodavanju tvojih kreatora protiv čuvanja braniča te o brzini napadača. Jedan na jedan je najbolja prilika u nogometu.
+
+Po krilima: više centaršuteva. Centaršut postaje prilika za udarac glavom ako tvoj špic nadvisi stopera u zraku.</string>
+    <string name="fb_gb_pressing">Visok presing lovi loptu na protivničkoj polovici. Najbolje djeluje protiv igrača slabe smirenosti i osvaja loptu blizu gola, ali igrači tijekom utakmice brže gube snagu.
+
+Nizak presing štedi energiju i čuva formu; protivnik ima vremena s loptom na svojoj polovici.</string>
+    <string name="fb_gb_defline">Visoka linija: braniči izlaze, sredina postaje uska i teško prohodna. Ali lopte iza leđa i prodorne lopte prema brzim napadačima postaju opasne – u testovima je visoka linija primala više nego dvostruko golova protiv brzih napadača.
+
+Duboka linija: kazneni prostor je zaštićen, prodorne lopte rijetko uspijevaju, ali protivnik kontrolira igru. Idealno uz protunapad.</string>
+    <string name="fb_gb_marking">Zonsko: svaki igrač čuva svoje područje. Siguran zadani izbor.
+
+Čovjek na čovjeka: braniči prate izravnog protivnika. Odlično ako tvoji braniči dobro čuvaju; ali napadači s izvrsnim kretanjem bez lopte ipak mogu pobjeći.</string>
+    <string name="fb_gb_counter">Kad se lopta osvoji na vlastitoj polovici, momčad brzo kreće s manje dodavanja i više prodornih lopti.
+
+Smrtonosno je protiv protivnika koji napadaju s mnogo igrača ili igraju visokom linijom (u testovima: više od 3 gola po utakmici protiv vrlo napadačke momčadi). Cijena: manje igrača sudjeluje u običnim napadima.</string>
+    <string name="fb_gb_offside">Tvoja obrana zajedno izlazi da uhvati napadače u zaleđu. Braniči s dobrim timskim radom uspijevaju mnogo češće. Kad ne uspije, napadač je sam pred vratarom.</string>
+    <string name="fb_gb_time_wasting">Kad vodiš nakon 60. minute, tvoji igrači sve usporavaju: više dodavanja unatrag, duže pauze. Sudac zbog toga može dijeliti žute kartone.</string>
+    <string name="fb_gb_hard_tackling">Startovi postaju grublji: tvoji igrači osvajaju više duela, ali rade više prekršaja, dobivaju više kartona i skrivljuju više jedanaesteraca. Protivnici se češće ozljeđuju.</string>
+    <string name="fb_gb_formations">Odaberi formaciju koja odgovara tvojim najboljim igračima. Dodirni poziciju na terenu, zatim igrača s popisa da ga postaviš tamo (igrači koji su već u prvih 11 zamijene mjesta).
+
+Broj ispod svakog igrača je njegova ocjena na toj poziciji; crveni krug znači da mu pozicija nije poznata. Igrači mogu učiti nove pozicije na treningu.
+
+Automatski odabir prepušta izbor pomoćniku; Najbolja formacija bira raspored s najvećom ukupnom ocjenom. Ozlijeđeni i suspendirani igrači zamjenjuju se automatski.</string>
+    <string name="fb_gb_training">Igrači svaki tjedan rastu prema svom potencijalu. Brzina ovisi o:
+• Dobi: najbrže između 16 i 21, usporava nakon 24, staje oko 29.
+• Razlici između trenutne sposobnosti i potencijala.
+• Trenerima i trening kampu (omladinski trener i omladinski kamp za igrače do 19).
+• Osobnosti: profesionalnost i odlučnost.
+• Minutaži (vrlo važno do 23) i moralu.
+• Intenzitetu: lagan, normalan ili intenzivan.
+
+Timski fokus ubrzava jedno područje za sve; individualni fokus jako ubrzava jedno područje za jednog igrača. Nakon 30 (vratari nakon 32) igrači slabe, prvo fizički, dok se odluke i postavljanje još mogu poboljšati.</string>
+    <string name="fb_gb_coaches">• Treneri: svako područje treninga koristi odgovarajuću trenersku osobinu (napad, obrana, tehnika, taktika, mentalno, kondicija, vratari). Oko pet trenera pokriva sva područja; s manje kvaliteta pada.
+• Omladinski trener: razvija igrače do 19 i poboljšava godišnji dolazak juniora.
+• Fizioterapeut: skraćuje ozljede i smanjuje ozljede na treningu.
+• Kondicijski trener: usporava pad starijih igrača.
+• Pomoćnik: rad s ljudima podiže moral; procjenjuje potencijal vlastitih igrača.
+• Skauti: što su bolji, to su točnije procjene sposobnosti i potencijala igrača drugih klubova.</string>
+    <string name="fb_gb_morale">Moral se mijenja svaki tjedan. Raste s dobrim rezultatima, dovoljnom minutažom prema statusu igrača (ključni igrači očekuju da počinju većinu utakmica), poštenom plaćom, dobrim društvenim sadržajima i dobrim pomoćnikom. Vrlo nezadovoljni ambiciozni igrači traže odlazak.
+
+Forma je prosjek ocjena iz posljednjih utakmica. I moral i forma malo mijenjaju snagu igrača na dan utakmice i njegov razvoj.</string>
+    <string name="fb_gb_youth">Svake godine 15. ožujka u tvoju školu dolazi 2–8 mladih (15–16 godina). Omladinsko regrutiranje određuje koliko ih je i koliko su dobri, omladinski kamp i omladinski trener dodaju kvalitetu, a važna je i razina nogometa u tvojoj zemlji. S vremena na vrijeme pojavi se zlatni talent.
+
+Daj mladima minutažu i dobre trenere: razvoj je najbrži prije 21.</string>
+    <string name="fb_gb_finance" formatted="false">Prihodi: ulaznice (domaće utakmice; viša cijena donosi više po navijaču, ali puni manje mjesta), TV novac (pola se dijeli jednako, pola prema mjestu u ligi), klupski proizvodi (rastu s ugledom i zvijezdama), sponzor na dresu, reklame na stadionu, nagradni fond (kupovi i osobito europska natjecanja) i prodaja igrača.
+
+Rashodi: plaće igrača i osoblja, održavanje objekata, omladinska škola, troškovi utakmica, transferi i gradnja. Negativno stanje stoji 0,12% kamate tjedno.
+
+Bonus investitora: pogledaj video da klubu dodaš novac, 3 puta tjedno.
+
+Banka (Klub › Banka): uzimaj jedan kredit odjednom na 1–3 godine. Kreditni limit raste s prihodima i ugledom; klubovi s visokim ugledom plaćaju nižu kamatu, a ona je viša dok je stanje negativno. Rata se plaća svakog ponedjeljka, a prijevremena otplata stoji 1% više. Štedni depozit donosi 2% godišnje, ali novac u njemu ne može se trošiti dok ga ne podigneš. Stranica Financije prikazuje ukupne prihode i rashode za ovaj i prošli mjesec.</string>
+    <string name="fb_gb_transfers">Prijelazni rokovi: 1. srpnja – 1. rujna i siječanj. Slobodni igrači mogu se potpisati bilo kada.
+
+Cijena kluba prodavatelja ovisi o tome koliko je igrač važan za njih, o njegovoj dobi i potencijalu, trajanju ugovora (jeftino u zadnjoj godini), je li na listi i o financijama prodavatelja. Otkupna klauzula ne može se odbiti.
+
+Nakon dogovora o odšteti pregovaraj s igračem o plaći i godinama – premalo i on odlazi nakon tri pokušaja. Posudbe: plaćaš dio plaće, a igrač se vraća na kraju sezone.
+
+Svoje igrače možeš staviti na listu, ponuditi na posudbu ili pokrenuti trodnevnu dražbu na kojoj se klubovi nadmeću. Stavi igrače koji ti se sviđaju na užu listu i prati glasine.</string>
+    <string name="fb_gb_contracts" formatted="false">Na vrijeme produlji ugovore važnih igrača. 1. siječnja upozoren si na ugovore koji istječu ove sezone; od sredine siječnja drugi klubovi mogu ih potpisati predugovorom i oni ljeti odlaze besplatno.
+
+Igrači traže povišicu kad napreduju. Otpuštanje igrača stoji 60% preostalih plaća.</string>
+    <string name="fb_gb_competitions">Svaka europska država ima svoje lige s ulaskom i ispadanjem (neki drugi rangovi imaju doigravanje), nacionalni kup i superkup.
+
+Europska mjesta ovise o plasmanu u ligi i koeficijentu države, koji se svake sezone mijenja prema europskim rezultatima: Kup prvaka, Europski kup i Konferencijski kup imaju pretkola, ligašku fazu s 36 momčadi i nokaut faze.
+
+Reprezentacije igraju Ligu nacija, kvalifikacije, Europsko i Svjetsko prvenstvo.</string>
+    <string name="fb_gb_hidden">Sposobnost i potencijal prikazani su zvjezdicama koje procjenjuje tvoje osoblje, pa mogu biti netočni – osobito sa slabim skautima.
+
+Pogledaj kratki video na kartici igrača da otkriješ njegovu točnu trenutnu sposobnost, točan potencijal i skrivenu osobnost: dosljednost, nastup u velikim utakmicama, sklonost ozljedama, profesionalnost, ambiciju, odanost, prilagodljivost, nošenje s pritiskom i svestranost. Igrač ostaje otkriven zauvijek (zelene zvjezdice).</string>
+    <string name="fb_search">Traži</string>
+    <string name="fb_shortlist">Uža lista</string>
+    <string name="fb_scout_reports">Skautska izvješća</string>
+    <string name="fb_offers">Ponude</string>
+    <string name="fb_auctions">Dražbe</string>
+    <string name="fb_history">Povijest i glasine</string>
+    <string name="fb_window_open">Rok otvoren</string>
+    <string name="fb_window_closed">Rok zatvoren</string>
+    <string name="fb_line_gk">Vratari</string>
+    <string name="fb_line_def">Braniči</string>
+    <string name="fb_line_mid">Vezni</string>
+    <string name="fb_line_att">Napadači</string>
+    <string name="fb_any_age">Bilo koja dob</string>
+    <string name="fb_age_young">≤ 21</string>
+    <string name="fb_age_prime">22–29</string>
+    <string name="fb_age_veteran">30+</string>
+    <string name="fb_any_value">Bilo koja vrijednost</string>
+    <string name="fb_listed_only">Samo na listi</string>
+    <string name="fb_free_agents">Slobodni igrači</string>
+    <string name="fb_player_name">Ime igrača</string>
+    <string name="fb_no_results">Nema pronađenih igrača</string>
+    <string name="fb_loan">Posudba</string>
+    <string name="fb_scout_desc">Tvoji skauti predlažu igrače koji bi ojačali tvoje najslabije pozicije, uklapaju se u budžet i bili bi spremni doći.</string>
+    <string name="fb_get_reports">Dohvati izvješća</string>
+    <string name="fb_no_offers">Nema ponuda ove sezone</string>
+    <string name="fb_incoming">Dolazne</string>
+    <string name="fb_outgoing">Odlazne</string>
+    <string name="fb_os_waiting_you">Čeka tvoj odgovor</string>
+    <string name="fb_os_pending">Čeka odgovor kluba</string>
+    <string name="fb_os_counter">Protuponuda: %1$s</string>
+    <string name="fb_os_agreed">Odšteta dogovorena – pregovaraj o ugovoru</string>
+    <string name="fb_os_agreed_in">Prihvaćeno – kupac pregovara s igračem</string>
+    <string name="fb_os_completed">Završeno</string>
+    <string name="fb_os_rejected">Odbijeno</string>
+    <string name="fb_os_withdrawn">Povučeno</string>
+    <string name="fb_os_refused">Igrač je odbio</string>
+    <string name="fb_os_expired">Isteklo</string>
+    <string name="fb_counter_x">Traži %1$s</string>
+    <string name="fb_offer_x">Ponudi %1$s</string>
+    <string name="fb_auction_desc">Klubovi se nadmeću dok dražba ne završi. Stavi svoje igrače na dražbu s njihove kartice.</string>
+    <string name="fb_no_auctions">Nema aktivnih dražbi</string>
+    <string name="fb_reserve">Najniža cijena %1$s</string>
+    <string name="fb_ended">završeno</string>
+    <string name="fb_ends">završava %1$s</string>
+    <string name="fb_bid_x">Ponudi %1$s</string>
+    <string name="fb_latest_transfers">Najnoviji transferi</string>
+    <string name="fb_rumours">Glasine</string>
+    <string name="fb_finance">Financije</string>
+    <string name="fb_facilities">Objekti</string>
+    <string name="fb_staff">Osoblje</string>
+    <string name="fb_sponsor_tickets">Sponzor i ulaznice</string>
+    <string name="fb_friendlies">Prijateljske</string>
+    <string name="fb_editor">Uređivač</string>
+    <string name="fb_this_season">Ova sezona</string>
+    <string name="fb_last_season">Prošla sezona</string>
+    <string name="fb_income">Prihodi</string>
+    <string name="fb_expenses">Rashodi</string>
+    <string name="fb_net">Neto</string>
+    <string name="fb_fin_tickets">Prodaja ulaznica</string>
+    <string name="fb_fin_tv">TV prava</string>
+    <string name="fb_fin_merch">Klupski proizvodi</string>
+    <string name="fb_fin_sponsor">Sponzorstvo</string>
+    <string name="fb_fin_ads">Reklame na stadionu</string>
+    <string name="fb_fin_prize">Nagradni fond</string>
+    <string name="fb_fin_transfer_in">Prodaja igrača</string>
+    <string name="fb_fin_other_in">Investitori i ostalo</string>
+    <string name="fb_fin_wages">Plaće igrača</string>
+    <string name="fb_fin_staff_wages">Plaće osoblja</string>
+    <string name="fb_fin_facilities">Održavanje objekata</string>
+    <string name="fb_fin_youth">Omladinska škola</string>
+    <string name="fb_fin_matchday">Troškovi utakmica</string>
+    <string name="fb_fin_transfer_out">Kupnja igrača</string>
+    <string name="fb_fin_upgrades">Gradnja</string>
+    <string name="fb_fin_interest">Kamata</string>
+    <string name="fb_fin_other_out">Odštete i ostalo</string>
+    <string name="fb_balance_history">Stanje (posljednji tjedni)</string>
+    <string name="fb_staff_wages_week">Plaće osoblja tjedno</string>
+    <string name="fb_fan_base">Navijači</string>
+    <string name="fb_f_recruitment">Omladinsko regrutiranje</string>
+    <string name="fb_f_stadium">Kvaliteta stadiona</string>
+    <string name="fb_f_social">Društveni sadržaji</string>
+    <string name="fb_f_capacity">Kapacitet stadiona</string>
+    <string name="fb_fd_training">Brži razvoj svih igrača.</string>
+    <string name="fb_fd_youth">Bolji razvoj igrača do 19 i bolji naraštaji juniora.</string>
+    <string name="fb_fd_recruitment">Više i boljih mladih svakog ožujka.</string>
+    <string name="fb_fd_stadium">Dolazi više navijača i prihvaćaju više cijene.</string>
+    <string name="fb_fd_social">Viši moral i veća prodaja klupskih proizvoda.</string>
+    <string name="fb_fd_capacity" formatted="false">+10% mjesta za veći prihod od utakmica.</string>
+    <string name="fb_seats">%1$d mjesta</string>
+    <string name="fb_upgrade_x">Izgradi %1$s · %2$d dana</string>
+    <string name="fb_upgrade_started">Gradnja je počela</string>
+    <string name="fb_under_construction">U izgradnji: %1$s (gotovo %2$s)</string>
+    <string name="fb_your_staff">Tvoje osoblje (%1$d)</string>
+    <string name="fb_staff_market">Dostupno osoblje</string>
+    <string name="fb_fire">Otpusti</string>
+    <string name="fb_fire_confirm">Otpusti (%1$s)</string>
+    <string name="fb_hire">Zaposli</string>
+    <string name="fb_hired">Zaposlen!</string>
+    <string name="fb_staff_full">Osoblje je popunjeno (16)</string>
+    <string name="fb_staff_reject">Nije zainteresiran za tvoj klub</string>
+    <string name="fb_r_assistant">Pomoćnik</string>
+    <string name="fb_r_coach">Trener</string>
+    <string name="fb_r_gk_coach">Trener vratara</string>
+    <string name="fb_r_fitness">Kondicijski trener</string>
+    <string name="fb_r_scout">Skaut</string>
+    <string name="fb_r_physio">Fizioterapeut</string>
+    <string name="fb_r_youth">Omladinski trener</string>
+    <string name="fb_sa_attack">Napad</string>
+    <string name="fb_sa_defence">Obrana</string>
+    <string name="fb_sa_technical">Tehnika</string>
+    <string name="fb_sa_tactical">Taktika</string>
+    <string name="fb_sa_mental">Mentalno</string>
+    <string name="fb_sa_fitness">Kondicija</string>
+    <string name="fb_sa_gk">Vratari</string>
+    <string name="fb_sa_youth">Rad s mladima</string>
+    <string name="fb_sa_judge_ability">Procjena sposobnosti</string>
+    <string name="fb_sa_judge_potential">Procjena potencijala</string>
+    <string name="fb_sa_physio">Fizioterapija</string>
+    <string name="fb_sa_motivating">Motiviranje</string>
+    <string name="fb_sa_discipline">Disciplina</string>
+    <string name="fb_sa_man_management">Rad s ljudima</string>
+    <string name="fb_shirt_sponsor">Sponzor na dresu</string>
+    <string name="fb_current_sponsor">Sponzor</string>
+    <string name="fb_per_year">Godišnje</string>
+    <string name="fb_until">Do</string>
+    <string name="fb_sponsor_offers">Nove ponude</string>
+    <string name="fb_sponsor_line">%1$s godišnje · %2$d god.</string>
+    <string name="fb_sign">Potpiši</string>
+    <string name="fb_sponsor_locked">Novog sponzora možeš potpisati kad istekne trenutni ugovor.</string>
+    <string name="fb_ticket_prices">Cijene ulaznica</string>
+    <string name="fb_tp_very_low">Vrlo niske</string>
+    <string name="fb_tp_low">Niske</string>
+    <string name="fb_tp_high">Visoke</string>
+    <string name="fb_tp_very_high">Vrlo visoke</string>
+    <string name="fb_ticket_price">Prosječna ulaznica</string>
+    <string name="fb_expected_attendance">Očekivana posjećenost</string>
+    <string name="fb_matchday_income">Prihod po domaćoj utakmici</string>
+    <string name="fb_tip_tickets" formatted="false">Svaki korak gore diže cijenu za 25%, ali odbija oko 18% navijača. Kad je stadion ionako pun, više cijene donose više.</string>
+    <string name="fb_choose_opponent">Protivnik</string>
+    <string name="fb_choose_date">Datum</string>
+    <string name="fb_friendly_desc">Prijateljske utakmice drže igrače u formi i donose mali domaći prihod. Veliki klubovi mogu odbiti.</string>
+    <string name="fb_arrange">Dogovori</string>
+    <string name="fb_friendly_ok">Prijateljska utakmica dogovorena</string>
+    <string name="fb_friendly_declined">Klub je odbio</string>
+    <string name="fb_friendly_busy">Protivnik ima utakmicu oko tog datuma</string>
+    <string name="fb_edit_club">Uredi klub</string>
+    <string name="fb_club_name">Ime kluba</string>
+    <string name="fb_short_name">Kratko</string>
+    <string name="fb_color_main">Glavna boja</string>
+    <string name="fb_color_second">Druga boja</string>
+    <string name="fb_save">Spremi</string>
+    <string name="fb_saved">Spremljeno</string>
+    <string name="fb_edit_players">Imena igrača (dodirni za uređivanje)</string>
+    <string name="fb_back_to_match">Natrag na utakmicu</string>
+    <string name="fb_choose_sub">Odaberi tko ulazi</string>
+    <string name="fb_on_pitch">Na terenu (dodirni za izmjenu)</string>
+    <string name="fb_subs_left">Preostalo izmjena: %1$d</string>
+    <string name="fb_tactics_subs">Taktika i izmjene</string>
+    <string name="fb_pause">Pauza</string>
+    <string name="fb_resume">Nastavi</string>
+    <string name="fb_skip_to_end">Preskoči do kraja</string>
+    <string name="fb_finish_match">Završi</string>
+    <string name="fb_full_time">Kraj utakmice</string>
+    <string name="fb_goal_flash">GOL!</string>
+    <string name="fb_shots_short">Udarci</string>
+    <string name="fb_ev_goal_1">GOL! %1$s zabija za %2$s!</string>
+    <string name="fb_ev_goal_2">GOL! Kakva završnica igrača %1$s! (%2$s)</string>
+    <string name="fb_ev_goal_3">GOL! %1$s ne griješi – %2$s slave!</string>
+    <string name="fb_ev_assist">Asistencija: %1$s.</string>
+    <string name="fb_ev_save_1">Sjajna obrana igrača %1$s protiv %2$s!</string>
+    <string name="fb_ev_save_2">%2$s puca – %1$s hvata.</string>
+    <string name="fb_ev_miss_1">%1$s puca… tik pokraj!</string>
+    <string name="fb_ev_miss_2">%1$s puca preko grede.</string>
+    <string name="fb_ev_block">%1$s blokira udarac igrača %2$s.</string>
+    <string name="fb_ev_yellow">Žuti karton za %1$s.</string>
+    <string name="fb_ev_red">CRVENI KARTON! %1$s je isključen!</string>
+    <string name="fb_ev_injury">%1$s je ozlijeđen i ne može nastaviti.</string>
+    <string name="fb_ev_sub">Izmjena %1$s: ulazi %2$s, izlazi %3$s.</string>
+    <string name="fb_ev_corner">Korner za %1$s.</string>
+    <string name="fb_ev_free_kick">Slobodni udarac za %1$s, %2$s stoji iznad lopte.</string>
+    <string name="fb_ev_penalty">JEDANAESTERAC za %1$s! %2$s pristupa izvođenju…</string>
+    <string name="fb_ev_offside">%1$s je u zaleđu.</string>
+    <string name="fb_ev_foul">Prekršaj igrača %1$s nad %2$s.</string>
+    <string name="fb_ev_through">%1$s šalje prekrasnu prodornu loptu za %2$s!</string>
+    <string name="fb_ev_half_time">Poluvrijeme.</string>
+    <string name="fb_ev_full_time">Kraj utakmice!</string>
+    <string name="fb_ev_extra_time">Produžeci!</string>
+    <string name="fb_ev_so_goal">%1$s pretvara jedanaesterac za %2$s.</string>
+    <string name="fb_ev_so_miss">%1$s promašuje za %2$s!</string>
+    <string name="fb_first_team">Prva momčad</string>
+    <string name="fb_youth_team">Omladinska škola</string>
+    <string name="fb_youth_info">Omladinski kamp %1$d/20 · regrutiranje %2$d/20 · omladinski trener %3$d/20 · sljedeći naraštaj %4$s</string>
+    <string name="fb_youth_empty">U školi još nema mladih. Novi talenti stižu svake godine 15. ožujka.</string>
+    <string name="fb_promote">Prebaci u prvu momčad</string>
+    <string name="fb_to_youth">Pošalji u omladinsku školu</string>
+    <string name="fb_ng_club">Klub</string>
+    <string name="fb_ng_matches">Utakmice</string>
+    <string name="fb_ng_transfers">Transferi</string>
+    <string name="fb_ng_world">Svijet</string>
+    <string name="fb_mark_all_read">Označi sve kao pročitano</string>
+    <string name="fb_nt_offer_received">Ponuda za transfer</string>
+    <string name="fb_nt_offer_accepted">Ponuda prihvaćena</string>
+    <string name="fb_nt_offer_rejected">Ponuda odbijena</string>
+    <string name="fb_nt_offer_counter">Protuponuda</string>
+    <string name="fb_nt_player_refused">Igrač je odbio</string>
+    <string name="fb_nt_transfer_done">Transfer završen</string>
+    <string name="fb_nt_transfer_world">Veliki transfer</string>
+    <string name="fb_nt_rumour">Glasina</string>
+    <string name="fb_nt_contract">Ugovor</string>
+    <string name="fb_nt_unhappy">Nezadovoljan igrač</string>
+    <string name="fb_nt_auction">Dražba</string>
+    <string name="fb_nt_loan_return">Povratak s posudbe</string>
+    <string name="fb_nt_precontract">Predugovor</string>
+    <string name="fb_nt_youth">Novi juniori</string>
+    <string name="fb_nt_released">Igrač je otišao</string>
+    <string name="fb_nt_preview">Najava utakmice</string>
+    <string name="fb_nt_report">Izvješće s utakmice</string>
+    <string name="fb_nt_injury">Ozljeda</string>
+    <string name="fb_nt_suspension">Suspenzija</string>
+    <string name="fb_nt_leader">Novi vodeći</string>
+    <string name="fb_nt_potm">Igrač mjeseca</string>
+    <string name="fb_nt_window_open">Prijelazni rok</string>
+    <string name="fb_nt_window_close">Prijelazni rok</string>
+    <string name="fb_nt_draw">Ždrijeb</string>
+    <string name="fb_nt_europe">Europa</string>
+    <string name="fb_nt_facility">Objekti</string>
+    <string name="fb_nt_finance">Financije</string>
+    <string name="fb_nt_retirement">Kraj karijere</string>
+    <string name="fb_nt_top_scorer">Zlatna kopačka</string>
+    <string name="fb_nt_player_season">Igrač sezone</string>
+    <string name="fb_nt_fans_happy">Navijači</string>
+    <string name="fb_nt_fans_angry">Navijači</string>
+    <string name="fb_nt_trophy">Prvaci</string>
+    <string name="fb_nt_callup">Reprezentacija</string>
+    <string name="fb_nt_graduate">Polaznik škole</string>
+    <string name="fb_n_youth_best">U školu je stiglo %1$d mladih. Skauti smatraju da je %2$s najveći talent.</string>
+    <string name="fb_n_preview">Sljedeći: %1$s (%2$s). Njihovih zadnjih pet: %3$s</string>
+    <string name="fb_n_report_win">Pobjeda protiv %1$s: %2$s.</string>
+    <string name="fb_n_report_loss">Poraz od %1$s: %2$s.</string>
+    <string name="fb_n_report_draw">Neriješeno s %1$s: %2$s.</string>
+    <string name="fb_n_report_motm">Igrač utakmice: %1$s.</string>
+    <string name="fb_n_injury">%1$s se ozlijedio na utakmici i izostat će oko %2$d dana.</string>
+    <string name="fb_n_injury_training">%1$s se ozlijedio na treningu (oko %2$d dana).</string>
+    <string name="fb_n_suspension">%1$s je suspendiran na %2$d utakmicu/e.</string>
+    <string name="fb_n_leader">%1$s su novi vodeći u %2$s s %3$d bodova.</string>
+    <string name="fb_n_potm">%1$s (%2$s) je igrač mjeseca.</string>
+    <string name="fb_n_window_open">Prijelazni rok je otvoren.</string>
+    <string name="fb_n_window_close">Prijelazni rok je zatvoren.</string>
+    <string name="fb_n_draw">%1$s, %2$s: tvoj protivnik je %3$s.</string>
+    <string name="fb_n_europe_direct">Klub ove sezone igra u natjecanju %1$s!</string>
+    <string name="fb_n_europe_qual">Klub ulazi u kvalifikacije za %1$s.</string>
+    <string name="fb_n_facility">Gradnja završena: %1$s poboljšano.</string>
+    <string name="fb_n_finance">Klub je u dugu (%1$s). Kamata se naplaćuje svaki tjedan – prodaj igrače ili smanji plaće.</string>
+    <string name="fb_n_retirement">%1$s je završio karijeru u dobi od %2$d godina.</string>
+    <string name="fb_n_top_scorer">%1$s je najbolji strijelac natjecanja %3$s s %2$d golova.</string>
+    <string name="fb_n_player_season">%1$s je igrač sezone u %2$s (prosjek %3$s).</string>
+    <string name="fb_n_fans_happy">Navijači su oduševljeni pobjedničkim nizom!</string>
+    <string name="fb_n_fans_angry">Tri poraza zaredom – navijači su ljuti.</string>
+    <string name="fb_n_trophy_us">PRVACI! %1$s osvajaju %2$s!</string>
+    <string name="fb_n_trophy">%1$s osvajaju %2$s.</string>
+    <string name="fb_n_callup">%1$s je pozvan u %2$s.</string>
+    <string name="fb_n_graduate">%1$s iz omladinske škole prelazi u prvu momčad.</string>
+    <string name="fb_settings">Postavke</string>
+    <string name="fb_currency">Valuta</string>
+    <string name="fb_currency_desc">Iznosi se prikazuju u odabranoj valuti po fiksnim tečajevima (primjer: 1 mil. eura = %1$s).</string>
+    <string name="fb_career">Karijera</string>
+    <string name="fb_manager_line">Menadžer: %1$s · sezona %2$s</string>
+    <string name="fb_quit_career">Izbriši karijeru i počni ispočetka</string>
+    <string name="fb_new">NOVO</string>
+    <string name="fb_read_mark">Pročitano</string>
+    <string name="fb_unread_n">Nepročitano (%1$d)</string>
+    <string name="fb_player_card">Kartica igrača</string>
+    <string name="fb_cred_strong">Pouzdan izvor</string>
+    <string name="fb_cred_medium">Moguće</string>
+    <string name="fb_cred_weak">Trač</string>
+    <string name="fb_rumour_interest">Zainteresirani klub: %1$s</string>
+    <string name="fb_rumour_yours">Tvoj igrač</string>
+    <string name="fb_rumour_open">Još je glasina</string>
+    <string name="fb_rumour_true">Ostvarilo se ✓</string>
+    <string name="fb_rumour_elsewhere">Umjesto toga prešao je u %1$s</string>
+    <string name="fb_au_running">U tijeku – završava %1$s</string>
+    <string name="fb_au_leading">Imaš najvišu ponudu</string>
+    <string name="fb_au_yours">Tvoja dražba</string>
+    <string name="fb_au_sold">PRODANO klubu %1$s za %2$s</string>
+    <string name="fb_au_unsold">NIJE PRODANO – nijedna ponuda nije dosegnula najnižu cijenu</string>
+    <string name="fb_au_refused">Nema dogovora – igrač ne želi prijeći u %1$s</string>
+    <string name="fb_au_won">Pobijedio si! Dogovori ugovor s igračem</string>
+    <string name="fb_au_bought">Kupljen ✓</string>
+    <string name="fb_au_bids">%1$d ponuda</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="premium_title">Premium: bez oglasa</string>
+    <string name="premium_row">Ukloni oglase</string>
+    <string name="premium_active">Premium aktivan</string>
+    <string name="premium_b1">Bez oglasa između igara</string>
+    <string name="premium_b2">Bez banner oglasa</string>
+    <string name="premium_b3">Neobavezni videi s nagradom ostaju kad želiš bonus</string>
+    <string name="premium_b4">Podrži neovisnog developera</string>
+    <string name="premium_monthly">Mjesečno</string>
+    <string name="premium_yearly">Godišnje</string>
+    <string name="premium_per_month">%1$s / mjesec</string>
+    <string name="premium_per_year">%1$s / godina</string>
+    <string name="premium_save">Uštedi %1$s</string>
+    <string name="premium_trial">%1$d dana besplatno</string>
+    <string name="premium_then">%1$d dana besplatno, zatim %2$s</string>
+    <string name="premium_subscribe">Pretplati se</string>
+    <string name="premium_start_trial">Započni besplatno razdoblje</string>
+    <string name="premium_manage">Upravljaj pretplatom</string>
+    <string name="premium_restore">Vrati kupnje</string>
+    <string name="premium_restored">Kupnje provjerene</string>
+    <string name="premium_thanks">Hvala! Oglasi su uklonjeni.</string>
+    <string name="premium_pending">Plaćanje je na čekanju. Premium se uključuje nakon potvrde.</string>
+    <string name="premium_error">Nešto je pošlo po zlu s Google Playem. Pokušaj ponovno.</string>
+    <string name="premium_loading">Učitavanje…</string>
+    <string name="premium_unavailable">Pretplate se trenutno ne mogu učitati. Provjeri vezu i Google Play.</string>
+    <string name="premium_terms">Automatski se obnavlja do otkazivanja. Otkaži bilo kada u Google Play &gt; Pretplate.</string>
+    <string name="premium_close">Ne sada</string>
+</resources>
