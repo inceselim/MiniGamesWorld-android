@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="game_island_name">Magnate de la Isla</string>
-    <string name="game_island_desc">Construye hoteles, discotecas y casinos en una isla tropical y lleva a tus rivales a la quiebra.</string>
+    <string name="game_island_desc">Construye hoteles, discotecas y parques acuáticos en una isla tropical y lleva a tus rivales a la quiebra.</string>
     <string name="is_tagline">Convierte una isla tranquila en un imperio vacacional. Cada turista que ganas lo pierde tu rival.</string>
     <string name="is_continue">Continuar</string>
     <string name="is_new_game">Nueva partida</string>

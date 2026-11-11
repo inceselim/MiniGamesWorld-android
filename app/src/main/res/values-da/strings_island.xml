@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="game_island_name">Ø-magnat</string>
-    <string name="game_island_desc">Byg hoteller, diskoteker og kasinoer på en tropeø, og driv dine rivaler konkurs.</string>
+    <string name="game_island_desc">Byg hoteller, diskoteker og vandlande på en tropeø, og driv dine rivaler konkurs.</string>
     <string name="is_tagline">Gør en stille ø til et ferieimperium. Hver turist, du vinder, mister dine rivaler.</string>
     <string name="is_continue">Fortsæt</string>
     <string name="is_new_game">Nyt spil</string>

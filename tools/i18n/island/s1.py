@@ -1,8 +1,8 @@
 # Ada Patronu: arayuz metinleri (EN, TR)
 S = {
 "game_island_name": ("Island Tycoon", "Ada Patronu"),
-"game_island_desc": ("Build hotels, discos and casinos on a tropical island and drive your rivals into bankruptcy.",
-                     "Tropik bir adada otel, disko ve kumarhane kur, rakiplerini iflasa sürükle."),
+"game_island_desc": ("Build hotels, discos and water parks on a tropical island and drive your rivals into bankruptcy.",
+                     "Tropik bir adada otel, disko ve su parkı kur, rakiplerini iflasa sürükle."),
 "is_tagline": ("Turn a quiet island into a holiday empire. Every tourist you win is one your rivals lose.",
                "Sakin bir adayı tatil imparatorluğuna çevir. Kazandığın her turist, rakibinin kaybıdır."),
 "is_continue": ("Continue", "Devam et"),

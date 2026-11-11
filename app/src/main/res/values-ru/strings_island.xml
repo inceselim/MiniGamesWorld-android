@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="game_island_name">Остров-магнат</string>
-    <string name="game_island_desc">Стройте отели, дискотеки и казино на тропическом острове и доведите конкурентов до банкротства.</string>
+    <string name="game_island_desc">Стройте отели, дискотеки и аквапарки на тропическом острове и доведите конкурентов до банкротства.</string>
     <string name="is_tagline">Превратите тихий остров в курортную империю. Каждый ваш турист — потерянный клиент конкурента.</string>
     <string name="is_continue">Продолжить</string>
     <string name="is_new_game">Новая игра</string>

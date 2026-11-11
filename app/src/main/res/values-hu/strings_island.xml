@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="game_island_name">Szigetmogul</string>
-    <string name="game_island_desc">Építs szállodákat, diszkókat és kaszinókat egy trópusi szigeten, és juttasd csődbe a riválisaidat.</string>
+    <string name="game_island_desc">Építs szállodákat, diszkókat és élményfürdőket egy trópusi szigeten, és juttasd csődbe a riválisaidat.</string>
     <string name="is_tagline">Változtass egy csendes szigetet üdülőbirodalommá. Minden turista, akit megnyersz, a riválisodtól hiányzik.</string>
     <string name="is_continue">Folytatás</string>
     <string name="is_new_game">Új játék</string>

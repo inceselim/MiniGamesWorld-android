@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="game_island_name">Island Tycoon</string>
-    <string name="game_island_desc">Build hotels, discos and casinos on a tropical island and drive your rivals into bankruptcy.</string>
+    <string name="game_island_desc">Build hotels, discos and water parks on a tropical island and drive your rivals into bankruptcy.</string>
     <string name="is_tagline">Turn a quiet island into a holiday empire. Every tourist you win is one your rivals lose.</string>
     <string name="is_continue">Continue</string>
     <string name="is_new_game">New game</string>

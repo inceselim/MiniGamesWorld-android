@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="game_island_name">Ada Patronu</string>
-    <string name="game_island_desc">Tropik bir adada otel, disko ve kumarhane kur, rakiplerini iflasa sürükle.</string>
+    <string name="game_island_desc">Tropik bir adada otel, disko ve su parkı kur, rakiplerini iflasa sürükle.</string>
     <string name="is_tagline">Sakin bir adayı tatil imparatorluğuna çevir. Kazandığın her turist, rakibinin kaybıdır.</string>
     <string name="is_continue">Devam et</string>
     <string name="is_new_game">Yeni oyun</string>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="game_island_name">アイランド・タイクーン</string>
-    <string name="game_island_desc">南の島にホテルやディスコ、カジノを建て、ライバルを破産に追い込もう。</string>
+    <string name="game_island_desc">南の島にホテルやディスコ、ウォーターパークを建て、ライバルを破産に追い込もう。</string>
     <string name="is_tagline">静かな島をリゾート帝国に変えよう。あなたが獲得した観光客は、ライバルが失った客だ。</string>
     <string name="is_continue">続ける</string>
     <string name="is_new_game">新しいゲーム</string>

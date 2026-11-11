@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="game_island_name">Inselboss</string>
-    <string name="game_island_desc">Baue Hotels, Discos und Casinos auf einer Tropeninsel und treibe deine Rivalen in den Bankrott.</string>
+    <string name="game_island_desc">Baue Hotels, Discos und Wasserparks auf einer Tropeninsel und treibe deine Rivalen in den Bankrott.</string>
     <string name="is_tagline">Mach aus einer ruhigen Insel ein Urlaubsimperium. Jeder Tourist, den du gewinnst, fehlt deinen Rivalen.</string>
     <string name="is_continue">Weiter</string>
     <string name="is_new_game">Neues Spiel</string>

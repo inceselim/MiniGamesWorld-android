@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="game_island_name">Magnat de l\'Île</string>
-    <string name="game_island_desc">Construis hôtels, discothèques et casinos sur une île tropicale et pousse tes rivaux à la faillite.</string>
+    <string name="game_island_desc">Construis hôtels, discothèques et parcs aquatiques sur une île tropicale et pousse tes rivaux à la faillite.</string>
     <string name="is_tagline">Transforme une île paisible en empire des vacances. Chaque touriste gagné est perdu pour tes rivaux.</string>
     <string name="is_continue">Continuer</string>
     <string name="is_new_game">Nouvelle partie</string>

@@ -45,7 +45,7 @@ Nouveau jeu : Magnat de l'Île ! – 33 jeux
 </fr-FR>
 <it-IT>
 Nuovo gioco: Magnate dell'Isola! Ora 33 giochi
-• Costruisci hotel, discoteche, casinò, parchi acquatici e centri commerciali su un'isola tropicale
+• Costruisci hotel, discoteche, parchi acquatici e centri commerciali su un'isola tropicale
 • Turisti economici, di ceto medio e di lusso, stagioni e un'isola che cresce
 • Guerre dei prezzi, campagne pubblicitarie e colpi bassi contro fino a 5 rivali
 • Prestiti, fallimenti e aste degli edifici rivali
@@ -54,7 +54,7 @@ Nuovo gioco: Magnate dell'Isola! Ora 33 giochi
 </it-IT>
 <ja-JP>
 新ゲーム「アイランド・タイクーン」登場！全33ゲーム
-• 南の島にホテル、バンガロー、ディスコ、カジノ、ウォーターパーク、ショッピングモールを建設
+• 南の島にホテル、バンガロー、ディスコ、ウォーターパーク、ショッピングモールを建設
 • 低予算・中流・富裕層の観光客、シーズン、成長する島
 • 最大5社のライバルと価格競争、広告、裏工作
 • 銀行融資、破産、ライバルの物件の競売
@@ -63,7 +63,7 @@ Nuovo gioco: Magnate dell'Isola! Ora 33 giochi
 </ja-JP>
 <ru-RU>
 Новая игра: Остров-магнат! Теперь 33 игры
-• Стройте отели, бунгало, дискотеки, казино, аквапарки и торговые центры на тропическом острове
+• Стройте отели, бунгало, дискотеки, аквапарки и торговые центры на тропическом острове
 • Туристы эконом, среднего класса и люкс, сезоны и растущий остров
 • Ценовые войны, реклама и грязные дела против 5 конкурентов
 • Кредиты, банкротства и аукционы зданий конкурентов
@@ -72,7 +72,7 @@ Nuovo gioco: Magnate dell'Isola! Ora 33 giochi
 </ru-RU>
 <da-DK>
 Nyt spil: Ø-magnat! – nu 33 spil
-• Byg hoteller, bungalows, diskoteker, kasinoer, vandlande og indkøbscentre på en tropeø
+• Byg hoteller, bungalows, diskoteker, vandlande og indkøbscentre på en tropeø
 • Budget-, middelklasse- og luksusturister, sæsoner og en ø i vækst
 • Priskrig, reklamekampagner og beskidte tricks mod op til 5 rivaler
 • Banklån, konkurser og auktioner over rivalernes bygninger
@@ -81,7 +81,7 @@ Nyt spil: Ø-magnat! – nu 33 spil
 </da-DK>
 <hu-HU>
 Új játék: Szigetmogul! Már 33 játék
-• Építs szállodákat, diszkókat, kaszinókat, élményfürdőket és bevásárlóközpontokat egy trópusi szigeten
+• Építs szállodákat, diszkókat, élményfürdőket és bevásárlóközpontokat egy trópusi szigeten
 • Olcsó, középosztálybeli és luxusturisták, szezonok és fejlődő sziget
 • Árháború, reklámkampányok és piszkos trükkök legfeljebb 5 rivális ellen
 • Bankhitel, csőd és a riválisok épületeinek árverése
