@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fb_monthly">Mesačne</string>
+    <string name="fb_this_month">Tento mesiac</string>
+    <string name="fb_last_month">Minulý mesiac</string>
+    <string name="fb_month_income">Celkové príjmy</string>
+    <string name="fb_month_expense">Celkové výdavky</string>
+    <string name="fb_bank">Banka</string>
+    <string name="fb_bank_loan">Bankový úver</string>
+    <string name="fb_credit_limit">Úverový limit</string>
+    <string name="fb_loan_amount">Suma</string>
+    <string name="fb_loan_term">Doba splatnosti</string>
+    <string name="fb_years_short">%1$d r.</string>
+    <string name="fb_interest_rate">Úroková sadzba</string>
+    <string name="fb_rate_year">%1$s ročne</string>
+    <string name="fb_weekly_payment">Týždenná splátka</string>
+    <string name="fb_total_repay">Celkom na splatenie</string>
+    <string name="fb_take_loan">Vziať úver</string>
+    <string name="fb_loan_taken_ok">Úver poskytnutý: %1$s</string>
+    <string name="fb_loan_left">Zostávajúci dlh</string>
+    <string name="fb_loan_original">Požičaná suma</string>
+    <string name="fb_weeks_left">Zostávajúce týždne</string>
+    <string name="fb_repay_loan">Splatiť hneď (%1$s)</string>
+    <string name="fb_loan_repaid">Úver splatený</string>
+    <string name="fb_bank_tip" formatted="false">Splátky sa platia každý pondelok. Kluby s vysokou reputáciou majú nižší úrok; rastie, kým je zostatok záporný. Predčasné splatenie stojí 1% navyše. Len jeden úver naraz.</string>
+    <string name="fb_deposit">Sporiaci účet</string>
+    <string name="fb_deposit_balance">Zostatok na sporiacom účte</string>
+    <string name="fb_deposit_earned">Zarobené úroky</string>
+    <string name="fb_weekly_return">Týždenný úrok</string>
+    <string name="fb_deposit_x">Vložiť %1$s</string>
+    <string name="fb_withdraw_x">Vybrať %1$s</string>
+    <string name="fb_deposit_tip" formatted="false">Peniaze na sporiacom účte zarábajú 2% ročne, ale nedajú sa použiť na prestupy ani platy, kým ich nevyberieš.</string>
+    <string name="fb_form_w">V</string>
+    <string name="fb_form_d">R</string>
+    <string name="fb_form_l">P</string>
+    <string name="fb_rush_ad">📺 Pozrieť reklamu: −%1$d dní (zostáva %2$d dní)</string>
+    <string name="fb_rushed">Stavba urýchlená o %1$s dní</string>
+    <string name="game_football_manager_name">Šéf klubu</string>
+    <string name="game_football_manager_desc">Riaď futbalový klub po svojom: všetky európske ligy, realistický rozpis, európske poháre a majstrovstvá sveta, detailná taktika, tréning, mládežnícka akadémia, financie a živý prestupový trh.</string>
+    <string name="fb_tagline">Vybuduj dynastiu. Každé rozhodnutie je tvoje.</string>
+    <string name="fb_continue_career">Pokračovať v kariére</string>
+    <string name="fb_new_career">Nová kariéra</string>
+    <string name="fb_new_career_warning">Tvoja súčasná kariéra bude zmazaná. Si si istý?</string>
+    <string name="fb_yes">Áno</string>
+    <string name="fb_no">Nie</string>
+    <string name="fb_generating">Vytváram futbalový svet…</string>
+    <string name="fb_please_wait">Čakaj, prosím…</string>
+    <string name="fb_load_failed">Uloženú hru sa nepodarilo načítať</string>
+    <string name="fb_choose_country">Krajina</string>
+    <string name="fb_choose_club">Vyber svoj klub</string>
+    <string name="fb_tier_n">Úroveň %1$d</string>
+    <string name="fb_league_name">%1$s – liga %2$d</string>
+    <string name="fb_reputation">Reputácia</string>
+    <string name="fb_balance">Zostatok</string>
+    <string name="fb_transfer_budget">Prestupový rozpočet</string>
+    <string name="fb_stadium">Štadión</string>
+    <string name="fb_squad_size">Veľkosť kádra</string>
+    <string name="fb_best_player">Najlepší hráč</string>
+    <string name="fb_manager_name">Meno trénera</string>
+    <string name="fb_start_career">Začať kariéru</string>
+    <string name="fb_cancel">Zrušiť</string>
+    <string name="fb_close">Zavrieť</string>
+    <string name="fb_tab_home">Domov</string>
+    <string name="fb_tab_squad">Káder</string>
+    <string name="fb_tab_tactics">Taktika</string>
+    <string name="fb_tab_fixtures">Rozpis</string>
+    <string name="fb_tab_competitions">Tabuľky</string>
+    <string name="fb_tab_transfers">Prestupy</string>
+    <string name="fb_tab_club">Klub</string>
+    <string name="fb_tab_inbox">Pošta</string>
+    <string name="fb_tab_guide">Sprievodca</string>
+    <string name="fb_continue">Pokračovať</string>
+    <string name="fb_go_to_match">K zápasu</string>
+    <string name="fb_next_matches">Najbližšie zápasy</string>
+    <string name="fb_no_matches">Žiadne naplánované zápasy</string>
+    <string name="fb_recent_results">Posledné výsledky</string>
+    <string name="fb_latest_news">Najnovšie správy</string>
+    <string name="fb_no_news">Zatiaľ žiadne správy</string>
+    <string name="fb_club_summary">Klub</string>
+    <string name="fb_weekly_wages">Týždenné platy</string>
+    <string name="fb_season_income">Príjmy sezóny</string>
+    <string name="fb_season_expense">Výdavky sezóny</string>
+    <string name="fb_ad_bonus_title">Bonus od investora</string>
+    <string name="fb_ad_bonus_desc">Pozri si krátke video a investor vloží do klubovej pokladnice %1$s.</string>
+    <string name="fb_ad_bonus_left">Tento týždeň zostáva: %1$d</string>
+    <string name="fb_ad_bonus_got">Do klubovej pokladnice pridané %1$s!</string>
+    <string name="fb_watch_ad">Pozrieť reklamu</string>
+    <string name="fb_table_cols">Z,V,R,P,S,B</string>
+    <string name="fb_vs">–</string>
+    <string name="fb_first_leg">Prvý zápas: %1$s</string>
+    <string name="fb_play_match">Odohrať zápas</string>
+    <string name="fb_quick_result">Rýchly výsledok</string>
+    <string name="fb_edit_tactics">Taktika</string>
+    <string name="fb_squad">Káder</string>
+    <string name="fb_penalties">Penalty %1$s</string>
+    <string name="fb_match_stats">Štatistiky zápasu</string>
+    <string name="fb_possession">Držanie lopty</string>
+    <string name="fb_shots">Strely (na bránu)</string>
+    <string name="fb_corners">Rohy</string>
+    <string name="fb_fouls">Fauly</string>
+    <string name="fb_cards">Karty Ž/Č</string>
+    <string name="fb_player_ratings">Hodnotenie hráčov</string>
+    <string name="fb_season_over">Sezóna %1$s sa skončila</string>
+    <string name="fb_final_position">Konečné umiestnenie v lige: %1$d</string>
+    <string name="fb_promoted">Postup!</string>
+    <string name="fb_relegated">Zostup</string>
+    <string name="fb_honours_this_season">Majstri</string>
+    <string name="fb_new_season">Začať %1$s</string>
+    <string name="fb_accept">Prijať</string>
+    <string name="fb_reject">Odmietnuť</string>
+    <string name="fb_accept_counter">Prijať %1$s</string>
+    <string name="fb_withdraw">Stiahnuť</string>
+    <string name="fb_negotiate_contract">Vyjednať zmluvu</string>
+    <string name="fb_no_funds">Nedostatok peňazí</string>
+    <string name="fb_free">zadarmo</string>
+    <string name="fb_free_agent">Voľný hráč</string>
+    <string name="fb_n_offer_received">%1$s ponúka %2$s za hráča %3$s</string>
+    <string name="fb_n_offer_accepted">%1$s prijal ponuku za hráča %2$s (%3$s)</string>
+    <string name="fb_n_offer_rejected">%1$s odmietol ponuku za hráča %2$s</string>
+    <string name="fb_n_offer_counter">%1$s chce za hráča %2$s sumu %3$s</string>
+    <string name="fb_n_player_refused">%1$s nechce prestúpiť do klubu %2$s</string>
+    <string name="fb_n_signed_free">%1$s podpísal zadarmo s klubom %2$s</string>
+    <string name="fb_n_transfer">%1$s prestupuje z klubu %2$s do klubu %3$s (%4$s)</string>
+    <string name="fb_n_rumour">Fáma: %1$s sleduje hráča %2$s z klubu %3$s (%4$d%%)</string>
+    <string name="fb_n_contract_expiring">Zmluva hráča %1$s v lete končí</string>
+    <string name="fb_n_unhappy">%1$s je nespokojný a chce odísť</string>
+    <string name="fb_n_auction_bid">%1$s ponúkol %2$s za hráča %3$s</string>
+    <string name="fb_n_auction_sold">Aukcia: %1$s predaný do klubu %2$s za %3$s</string>
+    <string name="fb_n_auction_unsold">Aukcia: pre hráča %1$s sa nenašiel kupec</string>
+    <string name="fb_n_loan_return">%1$s sa po hosťovaní vracia do klubu %2$s</string>
+    <string name="fb_n_precontract">%1$s sa dohodol na predzmluve s klubom %2$s</string>
+    <string name="fb_n_youth">Z akadémie prišlo mladých hráčov: %1$d</string>
+    <string name="fb_n_released">%1$s opustil klub</string>
+    <string name="fb_col_name">Meno</string>
+    <string name="fb_col_pos">Post</string>
+    <string name="fb_col_age">Vek</string>
+    <string name="fb_col_ability">Schopnosti</string>
+    <string name="fb_col_potential">Potenciál</string>
+    <string name="fb_col_condition">Kond.</string>
+    <string name="fb_col_morale">Morálka</string>
+    <string name="fb_col_form">Forma</string>
+    <string name="fb_col_value">Hodnota</string>
+    <string name="fb_col_wage">Plat</string>
+    <string name="fb_col_contract">Zmluva</string>
+    <string name="fb_per_week">/týž.</string>
+    <string name="fb_release_clause">Výstupná klauzula</string>
+    <string name="fb_injured">Zranený</string>
+    <string name="fb_days">Dní: %1$d</string>
+    <string name="fb_height_foot">Výška · noha</string>
+    <string name="fb_foot_right">Pravá</string>
+    <string name="fb_foot_left">Ľavá</string>
+    <string name="fb_foot_both">Obe</string>
+    <string name="fb_caps">Reprezentačné štarty / góly</string>
+    <string name="fb_season_stats">Sezóna</string>
+    <string name="fb_stats_line">Zápasy %1$d, góly %2$d, asistencie %3$d, priem. %4$s</string>
+    <string name="fb_positions">Posty</string>
+    <string name="fb_hidden_attributes">Skryté atribúty a skutočný potenciál</string>
+    <string name="fb_hidden_locked">Tvoj tím môže len odhadovať. Pozri si video a odhaľ presný potenciál a skrytú osobnosť.</string>
+    <string name="fb_reveal_with_ad">Odhaliť (video)</string>
+    <string name="fb_exact_ability">Súčasné schopnosti</string>
+    <string name="fb_exact_potential">Potenciálne schopnosti</string>
+    <string name="fb_g_technical">Technické</string>
+    <string name="fb_g_mental">Mentálne</string>
+    <string name="fb_g_physical">Fyzické</string>
+    <string name="fb_g_goalkeeping">Brankárske</string>
+    <string name="fb_training">Tréning</string>
+    <string name="fb_individual_focus">Individuálne zameranie</string>
+    <string name="fb_position_training">Naučiť sa nový post</string>
+    <string name="fb_none">Žiadne</string>
+    <string name="fb_contract_transfer">Zmluva a prestup</string>
+    <string name="fb_renew_contract">Predĺžiť zmluvu</string>
+    <string name="fb_list_for_transfer">Prestupová listina (%1$s)</string>
+    <string name="fb_unlist">Stiahnuť z listiny (%1$s)</string>
+    <string name="fb_list_for_loan">Ponúknuť na hosťovanie</string>
+    <string name="fb_unlist_loan">Stiahnuť z hosťovania</string>
+    <string name="fb_auction">Aukcia (3 dni)</string>
+    <string name="fb_auction_started">Aukcia začatá</string>
+    <string name="fb_release">Prepustiť hráča</string>
+    <string name="fb_release_confirm">Potvrdiť prepustenie (%1$s)</string>
+    <string name="fb_transfer">Prestup</string>
+    <string name="fb_shortlist_add">Pridať medzi sledovaných</string>
+    <string name="fb_shortlist_remove">Odstrániť zo sledovaných</string>
+    <string name="fb_offer_fee">Ponuka: %1$s</string>
+    <string name="fb_asking_price">Požadovaná cena: %1$s</string>
+    <string name="fb_not_interested">Hráč nemá o tvoj klub záujem</string>
+    <string name="fb_make_offer">Podať ponuku</string>
+    <string name="fb_request_loan" formatted="false">Požiadať o hosťovanie (70% platu)</string>
+    <string name="fb_offer_sent">Ponuka odoslaná. Odpoveď zajtra.</string>
+    <string name="fb_err_window">Prestupové okno je zatvorené</string>
+    <string name="fb_err_duplicate">Na tohto hráča už máš ponuku</string>
+    <string name="fb_err_on_loan">Hráč je na hosťovaní</string>
+    <string name="fb_err_generic">Teraz to nejde</string>
+    <string name="fb_t_attacking">Útok</string>
+    <string name="fb_t_defending">Obrana</string>
+    <string name="fb_t_technical">Technika</string>
+    <string name="fb_t_tactical">Taktika</string>
+    <string name="fb_t_physical">Fyzička</string>
+    <string name="fb_t_mental">Psychika</string>
+    <string name="fb_t_set_pieces">Štandardné situácie</string>
+    <string name="fb_t_goalkeeping">Brankári</string>
+    <string name="fb_contract_talks">Vyjednávanie zmluvy: %1$s</string>
+    <string name="fb_fee_agreed">Dohodnutá prestupová suma: %1$s</string>
+    <string name="fb_wage_demand">Požadovaný plat</string>
+    <string name="fb_years_wanted">Požadovaná dĺžka zmluvy</string>
+    <string name="fb_signing_fee">Podpisový bonus</string>
+    <string name="fb_offered_wage">Tvoja ponuka platu: %1$s/týž.</string>
+    <string name="fb_contract_years">Roky</string>
+    <string name="fb_propose">Navrhnúť</string>
+    <string name="fb_reply_accept">Dohodnuté! Zmluva je podpísaná.</string>
+    <string name="fb_reply_wage_low">Plat je príliš nízky.</string>
+    <string name="fb_reply_years">Chce inú dĺžku zmluvy.</string>
+    <string name="fb_reply_not_interested">Nemá záujem.</string>
+    <string name="fb_reply_walked">Ukončil vyjednávanie.</string>
+    <string name="fb_soon">V ďalšej aktualizácii</string>
+    <string name="fb_c_league">Liga</string>
+    <string name="fb_c_playoff">Baráž</string>
+    <string name="fb_c_playoff_of">Baráž: %1$s</string>
+    <string name="fb_c_cup">Pohár</string>
+    <string name="fb_c_super_cup">Superpohár</string>
+    <string name="fb_c_champions">Pohár majstrov</string>
+    <string name="fb_c_europa">Európsky pohár</string>
+    <string name="fb_c_conference">Pohár Konferencie</string>
+    <string name="fb_c_uefa_super">Európsky superpohár</string>
+    <string name="fb_c_friendly">Priateľský zápas</string>
+    <string name="fb_c_nations">Liga národov</string>
+    <string name="fb_c_qualifiers">Kvalifikácia</string>
+    <string name="fb_c_world_cup">Majstrovstvá sveta</string>
+    <string name="fb_c_euro">Majstrovstvá Európy</string>
+    <string name="fb_c_nat_friendly">Priateľský medzištátny zápas</string>
+    <string name="fb_s_league">Liga</string>
+    <string name="fb_s_groups">Skupinová fáza</string>
+    <string name="fb_s_league_phase">Ligová fáza</string>
+    <string name="fb_s_q1">1. predkolo</string>
+    <string name="fb_s_q2">2. predkolo</string>
+    <string name="fb_s_q3">3. predkolo</string>
+    <string name="fb_s_qpo">Play-off kvalifikácie</string>
+    <string name="fb_s_kpo">Play-off vyraďovacej fázy</string>
+    <string name="fb_s_r128">1/64 finále</string>
+    <string name="fb_s_r64">1/32 finále</string>
+    <string name="fb_s_r32">1/16 finále</string>
+    <string name="fb_s_r16">Osemfinále</string>
+    <string name="fb_s_qf">Štvrťfinále</string>
+    <string name="fb_s_sf">Semifinále</string>
+    <string name="fb_s_final">Finále</string>
+    <string name="fb_s_prelim">Predkolo</string>
+    <string name="fb_s_match">Zápas</string>
+    <string name="fb_a_corners">Rohy</string>
+    <string name="fb_a_crossing">Centre</string>
+    <string name="fb_a_dribbling">Driblovanie</string>
+    <string name="fb_a_finishing">Zakončenie</string>
+    <string name="fb_a_first_touch">Spracovanie lopty</string>
+    <string name="fb_a_free_kick">Priame kopy</string>
+    <string name="fb_a_heading">Hlavičky</string>
+    <string name="fb_a_long_shots">Strely z diaľky</string>
+    <string name="fb_a_marking">Obsadzovanie</string>
+    <string name="fb_a_passing">Prihrávky</string>
+    <string name="fb_a_penalty">Penalty</string>
+    <string name="fb_a_tackling">Odoberanie lopty</string>
+    <string name="fb_a_technique">Technika</string>
+    <string name="fb_a_aggression">Agresivita</string>
+    <string name="fb_a_anticipation">Predvídavosť</string>
+    <string name="fb_a_bravery">Odvaha</string>
+    <string name="fb_a_composure">Pokoj</string>
+    <string name="fb_a_concentration">Koncentrácia</string>
+    <string name="fb_a_decisions">Rozhodovanie</string>
+    <string name="fb_a_determination">Odhodlanie</string>
+    <string name="fb_a_flair">Kreativita</string>
+    <string name="fb_a_leadership">Vodcovstvo</string>
+    <string name="fb_a_off_the_ball">Pohyb bez lopty</string>
+    <string name="fb_a_positioning">Postavenie</string>
+    <string name="fb_a_teamwork">Tímová hra</string>
+    <string name="fb_a_vision">Prehľad</string>
+    <string name="fb_a_work_rate">Pracovitosť</string>
+    <string name="fb_a_acceleration">Zrýchlenie</string>
+    <string name="fb_a_agility">Obratnosť</string>
+    <string name="fb_a_balance">Rovnováha</string>
+    <string name="fb_a_jumping">Výskok</string>
+    <string name="fb_a_natural_fitness">Prirodzená kondícia</string>
+    <string name="fb_a_pace">Rýchlosť</string>
+    <string name="fb_a_stamina">Výdrž</string>
+    <string name="fb_a_strength">Sila</string>
+    <string name="fb_a_aerial_reach">Dosah vo vzduchu</string>
+    <string name="fb_a_command_of_area">Velenie v šestnástke</string>
+    <string name="fb_a_handling">Chytanie</string>
+    <string name="fb_a_kicking">Výkopy</string>
+    <string name="fb_a_one_on_ones">Jeden na jedného</string>
+    <string name="fb_a_reflexes">Reflexy</string>
+    <string name="fb_h_consistency">Stálosť</string>
+    <string name="fb_h_important_matches">Dôležité zápasy</string>
+    <string name="fb_h_injury_proneness">Náchylnosť na zranenia</string>
+    <string name="fb_h_professionalism">Profesionalita</string>
+    <string name="fb_h_ambition">Ambície</string>
+    <string name="fb_h_loyalty">Lojalita</string>
+    <string name="fb_h_adaptability">Prispôsobivosť</string>
+    <string name="fb_h_pressure">Tlak</string>
+    <string name="fb_h_versatility">Všestrannosť</string>
+    <string name="fb_all">Všetko</string>
+    <string name="fb_cups">Poháre</string>
+    <string name="fb_europe">Európa</string>
+    <string name="fb_national_teams">Reprezentácie</string>
+    <string name="fb_no_competitions">Žiadne súťaže</string>
+    <string name="fb_not_started">Ešte sa nezačalo</string>
+    <string name="fb_winner">Víťaz: %1$s</string>
+    <string name="fb_group_n">Skupina %1$s</string>
+    <string name="fb_byes">Tímy postupujúce bez boja: %1$d</string>
+    <string name="fb_top_scorers">Strelci</string>
+    <string name="fb_lineup">Zostava</string>
+    <string name="fb_instructions">Pokyny</string>
+    <string name="fb_team_training">Tréning</string>
+    <string name="fb_auto_pick">Vybrať automaticky</string>
+    <string name="fb_best_formation">Najlepšie rozostavenie</string>
+    <string name="fb_team_strength">Sila tímu</string>
+    <string name="fb_pick_for">Vyber hráča na post %1$s</string>
+    <string name="fb_tap_position">Ťukni na post na ihrisku</string>
+    <string name="fb_starting">Základ</string>
+    <string name="fb_bench">Lavička</string>
+    <string name="fb_suspended">Vylúčený</string>
+    <string name="fb_on">Zap.</string>
+    <string name="fb_off">Vyp.</string>
+    <string name="fb_open_guide">Otvoriť taktického sprievodcu</string>
+    <string name="fb_tac_mentality">Mentalita</string>
+    <string name="fb_tac_passing">Štýl prihrávok</string>
+    <string name="fb_tac_tempo">Tempo</string>
+    <string name="fb_tac_width">Šírka</string>
+    <string name="fb_tac_focus">Zameranie útoku</string>
+    <string name="fb_tac_pressing">Presing</string>
+    <string name="fb_tac_defline">Obranná línia</string>
+    <string name="fb_tac_marking">Obsadzovanie</string>
+    <string name="fb_tac_counter">Protiútok</string>
+    <string name="fb_tac_offside">Ofsajdová pasca</string>
+    <string name="fb_tac_time_wasting">Zdržiavanie</string>
+    <string name="fb_tac_hard_tackling">Tvrdé zákroky</string>
+    <string name="fb_o_very_defensive">Veľmi defenzívna</string>
+    <string name="fb_o_defensive">Defenzívna</string>
+    <string name="fb_o_balanced">Vyvážená</string>
+    <string name="fb_o_attacking">Útočná</string>
+    <string name="fb_o_very_attacking">Veľmi útočná</string>
+    <string name="fb_o_short">Krátke</string>
+    <string name="fb_o_mixed">Zmiešané</string>
+    <string name="fb_o_direct">Priame</string>
+    <string name="fb_o_slow">Pomalé</string>
+    <string name="fb_o_normal">Normálne</string>
+    <string name="fb_o_fast">Rýchle</string>
+    <string name="fb_o_narrow">Úzka</string>
+    <string name="fb_o_wide">Široká</string>
+    <string name="fb_o_center">Stredom</string>
+    <string name="fb_o_flanks">Po krídlach</string>
+    <string name="fb_o_low">Nízky</string>
+    <string name="fb_o_medium">Stredný</string>
+    <string name="fb_o_high">Vysoký</string>
+    <string name="fb_o_deep">Hlboká</string>
+    <string name="fb_o_zonal">Zónové</string>
+    <string name="fb_o_man">Osobné</string>
+    <string name="fb_o_light">Ľahký</string>
+    <string name="fb_o_intense">Intenzívny</string>
+    <string name="fb_tip_mentality">Útočnejšie = viac striel a gólov, ale viac priestoru za tvojou obranou.</string>
+    <string name="fb_tip_passing">Krátke prihrávky držia loptu a sú bezpečnejšie; priama hra sa rýchlejšie dostane do šestnástky s väčším rizikom.</string>
+    <string name="fb_tip_tempo">Rýchle tempo vytvára šance rýchlejšie, ale prináša viac chýb a únavy.</string>
+    <string name="fb_tip_width">Široká hra prináša viac centrov; úzka hra zahusťuje stred.</string>
+    <string name="fb_tip_focus">Stred = prenikavé prihrávky (prehľad, prihrávky); krídla = centre (centre, hlavičky).</string>
+    <string name="fb_tip_pressing">Vysoký presing získava loptu vyššie, ale unavuje hráčov.</string>
+    <string name="fb_tip_defline">Vysoká línia zužuje stred ihriska, ale je zraniteľná loptami za obranu.</string>
+    <string name="fb_tip_marking">Osobné obsadzovanie vypne útočníkov; tí, čo sa šikovne pohybujú, sa aj tak môžu uvoľniť.</string>
+    <string name="fb_tip_counter">Po zisku lopty na vlastnej polovici vyraz rýchlo dopredu.</string>
+    <string name="fb_tip_offside">Častejšie chytá nabiehajúcich hráčov; vyžaduje zohratých obrancov.</string>
+    <string name="fb_tip_time_wasting">Keď po hodine hry vediete, tím spomalí hru.</string>
+    <string name="fb_tip_hard_tackling">Vyhráva viac súbojov, ale prináša viac faulov, kariet a penált.</string>
+    <string name="fb_training_focus">Zameranie tréningu</string>
+    <string name="fb_training_intensity">Intenzita</string>
+    <string name="fb_coaching_quality">Kvalita trénerov</string>
+    <string name="fb_f_training">Tréningové zázemie</string>
+    <string name="fb_f_youth">Mládežnícke zázemie</string>
+    <string name="fb_youth_coaching">Tréning mládeže</string>
+    <string name="fb_physio">Fyzioterapia</string>
+    <string name="fb_tip_training_focus" formatted="false">Atribúty zvolenej oblasti sa celému kádru zlepšujú zhruba o 50% rýchlejšie.</string>
+    <string name="fb_tip_intensity" formatted="false">Ľahký: pomalší rozvoj, menej zranení, sviežejšie nohy. Intenzívny: +15% rozvoja, takmer dvojnásobok tréningových zranení, nižšia zápasová sviežosť.</string>
+    <string name="fb_tip_coaches">Lepší tréneri a zázemie urýchľujú rozvoj. Trénerov najímaj v sekcii Klub.</string>
+    <string name="fb_gt_basics">Prvé kroky</string>
+    <string name="fb_gt_formations">Rozostavenie a zostava</string>
+    <string name="fb_gt_training">Tréning a rozvoj</string>
+    <string name="fb_gt_coaches">Tréneri a realizačný tím</string>
+    <string name="fb_gt_morale">Morálka a forma</string>
+    <string name="fb_gt_youth">Mládežnícka akadémia</string>
+    <string name="fb_gt_finance">Financie</string>
+    <string name="fb_gt_transfers">Prestupy</string>
+    <string name="fb_gt_contracts">Zmluvy</string>
+    <string name="fb_gt_competitions">Súťaže</string>
+    <string name="fb_gt_hidden">Skryté atribúty a potenciál</string>
+    <string name="fb_gb_basics">Si šéf klubu: vyberáš zostavu a taktiku, kupuješ a predávaš hráčov, určuješ tréning, staviaš zázemie a spravuješ peniaze.
+
+Ťuknutím na Pokračovať sa posunieš v kalendári. Hra sa zastaví v dňoch tvojich zápasov a keď niečo vyžaduje tvoju pozornosť (ponuky, správy o zmluvách, noví hráči z akadémie).
+
+V deň zápasu môžeš zápas odohrať, alebo si nechať ukázať rýchly výsledok. Všetko sa ukladá automaticky.</string>
+    <string name="fb_gb_mentality" formatted="false">Mentalita určuje, aké veľké riziko tvoj tím podstupuje.
+
+• Veľmi defenzívna / defenzívna: do útokov sa zapája menej hráčov, menej striel na oboch stranách. Dobré na udržanie vedenia alebo proti oveľa silnejšiemu súperovi.
+• Vyvážená: predvolené nastavenie.
+• Útočná / veľmi útočná: viac striel a gólov, ale súper nájde viac priestoru. V našich testoch dal silný tím asi o 18% viac gólov, ale aj viac inkasoval.
+
+Kombinuj defenzívnu mentalitu s protiútokmi a tresci súperov, ktorí idú dopredu.</string>
+    <string name="fb_gb_passing" formatted="false">• Krátke: veľa bezpečných prihrávok, vysoké držanie lopty (asi 60%+), menej, ale čistejších útokov. Vyžaduje dobré prihrávky a spracovanie.
+• Zmiešané: rovnováha.
+• Priame: dlhé lopty na útočníkov. Držanie lopty klesne asi na 40%, lopta sa rýchlejšie dostane do šestnástky, zápasy sú otvorenejšie. Hodí sa k vysokým, silným útočníkom a dobrým dlhým prihrávkam.</string>
+    <string name="fb_gb_tempo">Rýchle tempo posúva loptu rýchlo: viac šancí a striel, ale viac nepresných prihrávok a únavy.
+
+Pomalé tempo drží loptu a kontroluje hru; hodí sa ku krátkym prihrávkam a k udržaniu vedenia.</string>
+    <string name="fb_gb_width">Široká: krajní hráči sa držia pri postrannej čiare, čo prináša viac centrov. Vyžaduje dobrých centrujúcich hráčov a silných hlavičkárov v šestnástke.
+
+Úzka: tím hrá stredom a zostáva kompaktný; dobré s tvorcom hry a prenikavými prihrávkami.</string>
+    <string name="fb_gb_focus">Stredom: viac prenikavých prihrávok. Úspech závisí od prehľadu a prihrávok tvojich tvorcov proti obsadzovaniu obrancov a od rýchlosti tvojich útočníkov. Sólo na brankára je najlepšia šanca vo futbale.
+
+Po krídlach: viac centrov. Z centra sa stane šanca hlavou, keď tvoj hrotový útočník vyhrá vzdušný súboj so stopérom.</string>
+    <string name="fb_gb_pressing">Vysoký presing naháňa loptu na polovici súpera. Najlepšie funguje proti hráčom so slabým pokojom a získava loptu blízko brány, ale hráči počas zápasu rýchlejšie strácajú sily.
+
+Nízky presing šetrí energiu a drží formáciu; súper má na svojej polovici čas s loptou.</string>
+    <string name="fb_gb_defline">Vysoká línia: obrancovia postupujú vyššie, stred ihriska je úzky a ťažko priechodný. Ale lopty za obranu a prenikavé prihrávky na rýchlych útočníkov sú nebezpečné – v testoch vysoká línia inkasovala proti rýchlym útočníkom viac ako dvojnásobok gólov.
+
+Hlboká línia: šestnástka je chránená, prenikavé prihrávky sa málokedy podaria, ale súper kontroluje hru. Ideálne s protiútokmi.</string>
+    <string name="fb_gb_marking">Zónové: každý hráč stráži priestor. Bezpečná voľba.
+
+Osobné: tvoji obrancovia idú za svojím priamym protihráčom. Skvelé, ak tvoji obrancovia dobre obsadzujú; útočníci s výborným pohybom bez lopty sa však aj tak môžu uvoľniť.</string>
+    <string name="fb_gb_counter">Keď tím získa loptu na vlastnej polovici, vyrazí rýchlo dopredu s menším počtom prihrávok a viac prenikavými loptami.
+
+Je to smrtiace proti súperom, ktorí útočia mnohými hráčmi alebo hrajú s vysokou líniou (v testoch: cez 3 góly na zápas proti veľmi útočnému tímu). Cena: do bežných útokov sa zapája menej hráčov.</string>
+    <string name="fb_gb_offside">Tvoja obrana spoločne vystúpi, aby nechala útočníkov v ofsajde. Obrancovia s dobrou tímovou hrou to zvládnu oveľa častejšie. Keď to zlyhá, útočník ide sám na brankára.</string>
+    <string name="fb_gb_time_wasting">Keď po 60. minúte vediete, tvoji hráči robia všetko pomalšie: viac prihrávok dozadu, dlhšie prerušenia. Rozhodca za to môže udeľovať žlté karty.</string>
+    <string name="fb_gb_hard_tackling">Zákroky sú tvrdšie: tvoji hráči vyhrávajú viac súbojov, ale robia viac faulov, dostávajú viac kariet a zavinia viac penált. Súperi sa zraňujú častejšie.</string>
+    <string name="fb_gb_formations">Vyber rozostavenie, ktoré sedí tvojim najlepším hráčom. Ťukni na post na ihrisku a potom na hráča v zozname (hráči, ktorí už sú v základe, si miesta vymenia).
+
+Číslo pod každým hráčom je jeho hodnotenie na danom poste; červený krúžok znamená, že ho nepozná. Hráči sa môžu nové posty naučiť v tréningu.
+
+Vybrať automaticky nechá voľbu na asistentovi; Najlepšie rozostavenie vyberie formáciu s najvyšším celkovým hodnotením. Zranení a vylúčení hráči sa nahradia automaticky.</string>
+    <string name="fb_gb_training">Hráči sa každý týždeň posúvajú k svojmu potenciálu. Rýchlosť závisí od:
+• Veku: najrýchlejšie medzi 16 a 21 rokmi, po 24 spomaľuje, okolo 29 sa zastaví.
+• Rozdielu medzi súčasnými schopnosťami a potenciálom.
+• Trénerov a tréningového zázemia (tréner mládeže a mládežnícke zázemie pre hráčov do 19 rokov).
+• Osobnosti: profesionality a odhodlania.
+• Herného času (veľmi dôležitý do 23 rokov) a morálky.
+• Intenzity: ľahká, normálna alebo intenzívna.
+
+Zameranie tímu urýchli jednu oblasť všetkým; individuálne zameranie výrazne urýchli jednu oblasť jednému hráčovi. Po tridsiatke (brankári po 32) hráči slabnú, najprv fyzicky, zatiaľ čo rozhodovanie a postavenie sa môžu ešte zlepšovať.</string>
+    <string name="fb_gb_coaches">• Tréneri: každá oblasť tréningu využíva zodpovedajúci atribút trénera (útok, obrana, technika, taktika, psychika, kondícia, brankári). Asi päť trénerov pokryje všetky oblasti; s menším počtom kvalita klesá.
+• Tréner mládeže: rozvíja hráčov do 19 rokov a zlepšuje každoročný ročník mládeže.
+• Fyzioterapeut: skracuje zranenia a znižuje počet tréningových zranení.
+• Kondičný tréner: spomaľuje úpadok starších hráčov.
+• Asistent: práca s ľuďmi zdvíha morálku; posudzuje potenciál tvojich vlastných hráčov.
+• Skauti: čím lepší, tým presnejšie odhady schopností a potenciálu hráčov iných klubov.</string>
+    <string name="fb_gb_morale">Morálka sa mení každý týždeň. Rastie s dobrými výsledkami, herným časom zodpovedajúcim postaveniu hráča (kľúčoví hráči očakávajú, že nastúpia vo väčšine zápasov), spravodlivým platom, dobrým sociálnym zázemím a dobrým asistentom. Veľmi nespokojní ambiciózni hráči žiadajú o odchod.
+
+Forma je priemer hodnotení z posledných zápasov. Morálka a forma trochu menia silu hráča v deň zápasu a jeho rozvoj.</string>
+    <string name="fb_gb_youth">Každý rok 15. marca príde do tvojej akadémie 2–8 mladých hráčov (15–16 rokov). Nábor mládeže určuje, koľko ich bude a akí dobrí, mládežnícke zázemie a tréner mládeže pridávajú kvalitu a rolu hrá aj futbalová úroveň tvojej krajiny. Občas sa objaví zlatý talent.
+
+Dávaj mladým minúty a dobrý tréning: najrýchlejšie sa rozvíjajú pred 21. rokom.</string>
+    <string name="fb_gb_finance" formatted="false">Príjmy: vstupenky (domáce zápasy; drahšia vstupenka vynesie viac na diváka, ale zaplní menej miest), televízne práva (polovica rovným dielom, polovica podľa umiestnenia v lige), predaj suvenírov (rastie s reputáciou a hviezdami), sponzor na drese, reklama na štadióne, prémie (poháre a hlavne európske súťaže) a predaje hráčov.
+
+Výdavky: platy hráčov a realizačného tímu, údržba zázemia, mládežnícka akadémia, náklady na deň zápasu, prestupy a stavby. Záporný zostatok stojí 0,12% úroku týždenne.
+
+Bonus od investora: pozri si video a pridaj klubu peniaze, 3× týždenne.
+
+Banka (Klub › Banka): ber vždy jeden úver na 1–3 roky. Úverový limit rastie s tvojimi príjmami a reputáciou; kluby s vysokou reputáciou platia nižší úrok a je vyšší, kým je zostatok záporný. Splátka sa platí každý pondelok a predčasné splatenie stojí 1% navyše. Sporiaci účet zarába 2% ročne, ale peniaze na ňom nemôžeš minúť, kým ich nevyberieš. Stránka Financie ukazuje celkové príjmy a výdavky za tento a minulý mesiac.</string>
+    <string name="fb_gb_transfers">Prestupové okná: 1. júl – 1. september a január. Voľných hráčov môžeš podpísať kedykoľvek.
+
+Cena predávajúceho závisí od toho, aký dôležitý je pre neho hráč, od jeho veku a potenciálu, dĺžky zmluvy (lacný v poslednom roku), od toho, či je na prestupovej listine, a od financií predávajúceho. Výstupnú klauzulu nemožno odmietnuť.
+
+Keď sa dohodne prestupová suma, vyjednaj s hráčom plat a roky – ak je ponuka príliš nízka, po troch pokusoch odíde. Hosťovanie: platíš časť platu a hráč sa na konci sezóny vráti.
+
+Svojich hráčov môžeš dať na prestupovú listinu, ponúknuť na hosťovanie alebo spustiť trojdňovú aukciu, v ktorej sa kluby preťahujú. Pridávaj zaujímavých hráčov medzi sledovaných a sleduj fámy.</string>
+    <string name="fb_gb_contracts" formatted="false">Predlžuj zmluvy dôležitých hráčov včas. 1. januára dostaneš upozornenie na zmluvy, ktoré končia v tejto sezóne; od polovice januára s nimi môžu iné kluby podpísať predzmluvu a v lete odídu zadarmo.
+
+Hráči žiadajú pridať, keď sa zlepšujú. Prepustenie hráča stojí 60% jeho zostávajúcich platov.</string>
+    <string name="fb_gb_competitions">Každá európska krajina má svoje ligy s postupmi a zostupmi (niektoré druhé ligy majú baráž), národný pohár a superpohár.
+
+Európske miesta závisia od tvojho umiestnenia v lige a rebríčka krajiny, ktorý sa každú sezónu mení podľa európskych výsledkov: Pohár majstrov, Európsky pohár a Pohár Konferencie majú každý predkolá, ligovú fázu s 36 tímami a vyraďovaciu fázu.
+
+Reprezentácie hrajú Ligu národov, kvalifikácie, majstrovstvá Európy a majstrovstvá sveta.</string>
+    <string name="fb_gb_hidden">Schopnosti a potenciál sa zobrazujú ako hviezdičky odhadnuté tvojím tímom, takže môžu byť chybné – najmä so slabými skautmi.
+
+Pozri si krátke video na karte hráča a odhaľ jeho presné súčasné schopnosti, presný potenciál a skrytú osobnosť: stálosť, výkony vo veľkých zápasoch, náchylnosť na zranenia, profesionalitu, ambície, lojalitu, prispôsobivosť, odolnosť voči tlaku a všestrannosť. Hráč zostane odhalený navždy (zelené hviezdičky).</string>
+    <string name="fb_search">Hľadať</string>
+    <string name="fb_shortlist">Sledovaní</string>
+    <string name="fb_scout_reports">Správy skautov</string>
+    <string name="fb_offers">Ponuky</string>
+    <string name="fb_auctions">Aukcie</string>
+    <string name="fb_history">História a fámy</string>
+    <string name="fb_window_open">Okno otvorené</string>
+    <string name="fb_window_closed">Okno zatvorené</string>
+    <string name="fb_line_gk">Brankári</string>
+    <string name="fb_line_def">Obrancovia</string>
+    <string name="fb_line_mid">Záložníci</string>
+    <string name="fb_line_att">Útočníci</string>
+    <string name="fb_any_age">Akýkoľvek vek</string>
+    <string name="fb_age_young">≤ 21</string>
+    <string name="fb_age_prime">22–29</string>
+    <string name="fb_any_value">Akákoľvek hodnota</string>
+    <string name="fb_listed_only">Len na listine</string>
+    <string name="fb_free_agents">Voľní hráči</string>
+    <string name="fb_player_name">Meno hráča</string>
+    <string name="fb_no_results">Nenašli sa žiadni hráči</string>
+    <string name="fb_loan">Hosťovanie</string>
+    <string name="fb_scout_desc">Tvoji skauti navrhujú hráčov, ktorí by posilnili tvoje najslabšie posty, zmestia sa do rozpočtu a radi by prišli.</string>
+    <string name="fb_get_reports">Získať správy</string>
+    <string name="fb_no_offers">V tejto sezóne žiadne ponuky</string>
+    <string name="fb_incoming">Prichádzajúce</string>
+    <string name="fb_outgoing">Odchádzajúce</string>
+    <string name="fb_os_waiting_you">Čaká na tvoju odpoveď</string>
+    <string name="fb_os_pending">Čaká na odpoveď klubu</string>
+    <string name="fb_os_counter">Protiponuka: %1$s</string>
+    <string name="fb_os_agreed">Suma dohodnutá – vyjednaj zmluvu</string>
+    <string name="fb_os_agreed_in">Prijaté – kupec rokuje s hráčom</string>
+    <string name="fb_os_completed">Dokončené</string>
+    <string name="fb_os_rejected">Odmietnuté</string>
+    <string name="fb_os_withdrawn">Stiahnuté</string>
+    <string name="fb_os_refused">Hráč odmietol</string>
+    <string name="fb_os_expired">Vypršalo</string>
+    <string name="fb_counter_x">Žiadať %1$s</string>
+    <string name="fb_offer_x">Ponúknuť %1$s</string>
+    <string name="fb_auction_desc">Kluby sa preťahujú, kým aukcia neskončí. Svojich hráčov dáš do aukcie z ich karty.</string>
+    <string name="fb_no_auctions">Žiadne prebiehajúce aukcie</string>
+    <string name="fb_reserve">Minimálna cena %1$s</string>
+    <string name="fb_ended">skončená</string>
+    <string name="fb_ends">končí %1$s</string>
+    <string name="fb_bid_x">Prihodiť %1$s</string>
+    <string name="fb_latest_transfers">Najnovšie prestupy</string>
+    <string name="fb_rumours">Fámy</string>
+    <string name="fb_finance">Financie</string>
+    <string name="fb_facilities">Zázemie</string>
+    <string name="fb_staff">Realizačný tím</string>
+    <string name="fb_sponsor_tickets">Sponzor a vstupenky</string>
+    <string name="fb_friendlies">Priateľské zápasy</string>
+    <string name="fb_editor">Editor</string>
+    <string name="fb_this_season">Táto sezóna</string>
+    <string name="fb_last_season">Minulá sezóna</string>
+    <string name="fb_income">Príjmy</string>
+    <string name="fb_expenses">Výdavky</string>
+    <string name="fb_net">Čistý výsledok</string>
+    <string name="fb_fin_tickets">Vstupenky</string>
+    <string name="fb_fin_tv">Televízne práva</string>
+    <string name="fb_fin_merch">Suveníry</string>
+    <string name="fb_fin_sponsor">Sponzorstvo</string>
+    <string name="fb_fin_ads">Reklama na štadióne</string>
+    <string name="fb_fin_prize">Prémie</string>
+    <string name="fb_fin_transfer_in">Predaje hráčov</string>
+    <string name="fb_fin_other_in">Investori a ostatné</string>
+    <string name="fb_fin_wages">Platy hráčov</string>
+    <string name="fb_fin_staff_wages">Platy realizačného tímu</string>
+    <string name="fb_fin_facilities">Údržba zázemia</string>
+    <string name="fb_fin_youth">Mládežnícka akadémia</string>
+    <string name="fb_fin_matchday">Náklady na deň zápasu</string>
+    <string name="fb_fin_transfer_out">Nákupy hráčov</string>
+    <string name="fb_fin_upgrades">Stavby</string>
+    <string name="fb_fin_interest">Úroky</string>
+    <string name="fb_fin_other_out">Odstupné a ostatné</string>
+    <string name="fb_balance_history">Zostatok (posledné týždne)</string>
+    <string name="fb_staff_wages_week">Platy realizačného tímu za týždeň</string>
+    <string name="fb_fan_base">Fanúšikovia</string>
+    <string name="fb_f_recruitment">Nábor mládeže</string>
+    <string name="fb_f_stadium">Kvalita štadióna</string>
+    <string name="fb_f_social">Sociálne zázemie</string>
+    <string name="fb_f_capacity">Kapacita štadióna</string>
+    <string name="fb_fd_training">Rýchlejší rozvoj všetkých hráčov.</string>
+    <string name="fb_fd_youth">Lepší rozvoj hráčov do 19 rokov a lepšie ročníky mládeže.</string>
+    <string name="fb_fd_recruitment">Každý marec viac a lepších mladých hráčov.</string>
+    <string name="fb_fd_stadium">Príde viac fanúšikov a prijmú vyššie ceny.</string>
+    <string name="fb_fd_social">Vyššia morálka a väčší predaj suvenírov.</string>
+    <string name="fb_fd_capacity" formatted="false">+10% miest pre vyššie príjmy zo zápasov.</string>
+    <string name="fb_seats">Miest: %1$d</string>
+    <string name="fb_upgrade_x">Postaviť %1$s · %2$d dní</string>
+    <string name="fb_upgrade_started">Stavba začatá</string>
+    <string name="fb_under_construction">Vo výstavbe: %1$s (hotové %2$s)</string>
+    <string name="fb_your_staff">Tvoj realizačný tím (%1$d)</string>
+    <string name="fb_staff_market">Dostupní pracovníci</string>
+    <string name="fb_fire">Prepustiť</string>
+    <string name="fb_fire_confirm">Prepustiť (%1$s)</string>
+    <string name="fb_hire">Najať</string>
+    <string name="fb_hired">Najatý!</string>
+    <string name="fb_staff_full">Tvoj tím je plný (16)</string>
+    <string name="fb_staff_reject">Nemá o tvoj klub záujem</string>
+    <string name="fb_r_assistant">Asistent trénera</string>
+    <string name="fb_r_coach">Tréner</string>
+    <string name="fb_r_gk_coach">Tréner brankárov</string>
+    <string name="fb_r_fitness">Kondičný tréner</string>
+    <string name="fb_r_scout">Skaut</string>
+    <string name="fb_r_physio">Fyzioterapeut</string>
+    <string name="fb_r_youth">Tréner mládeže</string>
+    <string name="fb_sa_attack">Útok</string>
+    <string name="fb_sa_defence">Obrana</string>
+    <string name="fb_sa_technical">Technika</string>
+    <string name="fb_sa_tactical">Taktika</string>
+    <string name="fb_sa_mental">Psychika</string>
+    <string name="fb_sa_fitness">Kondícia</string>
+    <string name="fb_sa_gk">Brankári</string>
+    <string name="fb_sa_youth">Práca s mládežou</string>
+    <string name="fb_sa_judge_ability">Posúdenie schopností</string>
+    <string name="fb_sa_judge_potential">Posúdenie potenciálu</string>
+    <string name="fb_sa_physio">Fyzioterapia</string>
+    <string name="fb_sa_motivating">Motivácia</string>
+    <string name="fb_sa_discipline">Disciplína</string>
+    <string name="fb_sa_man_management">Práca s ľuďmi</string>
+    <string name="fb_shirt_sponsor">Sponzor na drese</string>
+    <string name="fb_current_sponsor">Sponzor</string>
+    <string name="fb_per_year">Ročne</string>
+    <string name="fb_until">Do</string>
+    <string name="fb_sponsor_offers">Nové ponuky</string>
+    <string name="fb_sponsor_line">%1$s ročne · roky: %2$d</string>
+    <string name="fb_sign">Podpísať</string>
+    <string name="fb_sponsor_locked">Nového sponzora môžeš podpísať, keď skončí súčasná zmluva.</string>
+    <string name="fb_ticket_prices">Ceny vstupeniek</string>
+    <string name="fb_tp_very_low">Veľmi nízke</string>
+    <string name="fb_tp_low">Nízke</string>
+    <string name="fb_tp_high">Vysoké</string>
+    <string name="fb_tp_very_high">Veľmi vysoké</string>
+    <string name="fb_ticket_price">Priemerná vstupenka</string>
+    <string name="fb_expected_attendance">Očakávaná návštevnosť</string>
+    <string name="fb_matchday_income">Príjem z domáceho zápasu</string>
+    <string name="fb_tip_tickets" formatted="false">Každý stupeň vyššie zvýši cenu o 25%, ale odradí asi 18% fanúšikov. Keď je štadión aj tak plný, vyššie ceny vynesú viac.</string>
+    <string name="fb_choose_opponent">Súper</string>
+    <string name="fb_choose_date">Dátum</string>
+    <string name="fb_friendly_desc">Priateľské zápasy udržia hráčov vo forme a doma prinesú malý príjem. Veľké kluby môžu odmietnuť.</string>
+    <string name="fb_arrange">Dohodnúť</string>
+    <string name="fb_friendly_ok">Priateľský zápas dohodnutý</string>
+    <string name="fb_friendly_declined">Klub odmietol</string>
+    <string name="fb_friendly_busy">Súper má okolo tohto dátumu zápas</string>
+    <string name="fb_edit_club">Upraviť klub</string>
+    <string name="fb_club_name">Názov klubu</string>
+    <string name="fb_short_name">Skratka</string>
+    <string name="fb_color_main">Hlavná farba</string>
+    <string name="fb_color_second">Vedľajšia farba</string>
+    <string name="fb_save">Uložiť</string>
+    <string name="fb_saved">Uložené</string>
+    <string name="fb_edit_players">Mená hráčov (ťuknutím upravíš)</string>
+    <string name="fb_back_to_match">Späť k zápasu</string>
+    <string name="fb_choose_sub">Vyber, kto ide na ihrisko</string>
+    <string name="fb_on_pitch">Na ihrisku (ťuknutím vystriedaš)</string>
+    <string name="fb_subs_left">Zostávajúce striedania: %1$d</string>
+    <string name="fb_tactics_subs">Taktika a striedania</string>
+    <string name="fb_pause">Pauza</string>
+    <string name="fb_resume">Pokračovať</string>
+    <string name="fb_skip_to_end">Preskočiť na koniec</string>
+    <string name="fb_finish_match">Dokončiť</string>
+    <string name="fb_full_time">Koniec zápasu</string>
+    <string name="fb_goal_flash">GÓL!</string>
+    <string name="fb_shots_short">Strely</string>
+    <string name="fb_ev_goal_1">GÓL! %1$s skóruje za %2$s!</string>
+    <string name="fb_ev_goal_2">GÓL! Aké zakončenie, %1$s! (%2$s)</string>
+    <string name="fb_ev_goal_3">GÓL! %1$s nezaváha – %2$s oslavuje!</string>
+    <string name="fb_ev_assist">Asistencia: %1$s.</string>
+    <string name="fb_ev_save_1">Skvelý zákrok, %1$s chytá strelu, ktorú vyslal %2$s!</string>
+    <string name="fb_ev_save_2">%2$s strieľa – %1$s chytá.</string>
+    <string name="fb_ev_miss_1">%1$s strieľa… tesne vedľa!</string>
+    <string name="fb_ev_miss_2">%1$s strieľa nad brvno.</string>
+    <string name="fb_ev_block">%1$s blokuje strelu, ktorú vyslal %2$s.</string>
+    <string name="fb_ev_yellow">Žltá karta: %1$s.</string>
+    <string name="fb_ev_red">ČERVENÁ KARTA! %1$s je vylúčený!</string>
+    <string name="fb_ev_injury">%1$s sa zranil a nemôže pokračovať.</string>
+    <string name="fb_ev_sub">Striedanie (%1$s): prichádza %2$s, odchádza %3$s.</string>
+    <string name="fb_ev_corner">Roh pre %1$s.</string>
+    <string name="fb_ev_free_kick">Priamy kop pre %1$s, k lopte sa chystá %2$s.</string>
+    <string name="fb_ev_penalty">PENALTA pre %1$s! K lopte ide %2$s…</string>
+    <string name="fb_ev_offside">%1$s je v ofsajde.</string>
+    <string name="fb_ev_foul">Faul: %1$s na hráča %2$s.</string>
+    <string name="fb_ev_through">%1$s posiela skvelú prenikavú prihrávku na hráča %2$s!</string>
+    <string name="fb_ev_half_time">Polčas.</string>
+    <string name="fb_ev_full_time">Koniec zápasu!</string>
+    <string name="fb_ev_extra_time">Predĺženie!</string>
+    <string name="fb_ev_so_goal">%1$s premieňa penaltu za %2$s.</string>
+    <string name="fb_ev_so_miss">%1$s nepremieňa za %2$s!</string>
+    <string name="fb_first_team">A-tím</string>
+    <string name="fb_youth_team">Mládežnícka akadémia</string>
+    <string name="fb_youth_info">Mládežnícke zázemie %1$d/20 · nábor %2$d/20 · tréner mládeže %3$d/20 · ďalší ročník %4$s</string>
+    <string name="fb_youth_empty">V akadémii zatiaľ nie sú žiadni mladí hráči. Nové talenty prichádzajú každý rok 15. marca.</string>
+    <string name="fb_promote">Povýšiť do A-tímu</string>
+    <string name="fb_to_youth">Poslať do akadémie</string>
+    <string name="fb_ng_club">Klub</string>
+    <string name="fb_ng_matches">Zápasy</string>
+    <string name="fb_ng_transfers">Prestupy</string>
+    <string name="fb_ng_world">Svet</string>
+    <string name="fb_mark_all_read">Označiť všetko ako prečítané</string>
+    <string name="fb_nt_offer_received">Prestupová ponuka</string>
+    <string name="fb_nt_offer_accepted">Ponuka prijatá</string>
+    <string name="fb_nt_offer_rejected">Ponuka odmietnutá</string>
+    <string name="fb_nt_offer_counter">Protiponuka</string>
+    <string name="fb_nt_player_refused">Hráč odmietol</string>
+    <string name="fb_nt_transfer_done">Prestup dokončený</string>
+    <string name="fb_nt_transfer_world">Veľký prestup</string>
+    <string name="fb_nt_rumour">Fáma</string>
+    <string name="fb_nt_contract">Zmluva</string>
+    <string name="fb_nt_unhappy">Nespokojný hráč</string>
+    <string name="fb_nt_auction">Aukcia</string>
+    <string name="fb_nt_loan_return">Návrat z hosťovania</string>
+    <string name="fb_nt_precontract">Predzmluva</string>
+    <string name="fb_nt_youth">Ročník mládeže</string>
+    <string name="fb_nt_released">Hráč odišiel</string>
+    <string name="fb_nt_preview">Pred zápasom</string>
+    <string name="fb_nt_report">Správa zo zápasu</string>
+    <string name="fb_nt_injury">Zranenie</string>
+    <string name="fb_nt_suspension">Trest</string>
+    <string name="fb_nt_leader">Nový líder</string>
+    <string name="fb_nt_potm">Hráč mesiaca</string>
+    <string name="fb_nt_window_open">Prestupové okno</string>
+    <string name="fb_nt_window_close">Prestupové okno</string>
+    <string name="fb_nt_draw">Žreb</string>
+    <string name="fb_nt_europe">Európa</string>
+    <string name="fb_nt_facility">Zázemie</string>
+    <string name="fb_nt_finance">Financie</string>
+    <string name="fb_nt_retirement">Koniec kariéry</string>
+    <string name="fb_nt_top_scorer">Zlatá kopačka</string>
+    <string name="fb_nt_player_season">Hráč sezóny</string>
+    <string name="fb_nt_fans_happy">Fanúšikovia</string>
+    <string name="fb_nt_fans_angry">Fanúšikovia</string>
+    <string name="fb_nt_trophy">Majstri</string>
+    <string name="fb_nt_callup">Reprezentácia</string>
+    <string name="fb_nt_graduate">Odchovanec</string>
+    <string name="fb_n_youth_best">Do akadémie prišlo mladých hráčov: %1$d. Skauti považujú za najväčší talent hráča %2$s.</string>
+    <string name="fb_n_preview">Ďalší súper: %1$s (%2$s). Ich posledných päť: %3$s</string>
+    <string name="fb_n_report_win">Výhra nad %1$s: %2$s.</string>
+    <string name="fb_n_report_loss">Prehra s %1$s: %2$s.</string>
+    <string name="fb_n_report_draw">Remíza s %1$s: %2$s.</string>
+    <string name="fb_n_report_motm">Hráč zápasu: %1$s.</string>
+    <string name="fb_n_injury">%1$s sa zranil v zápase a bude chýbať asi %2$d dní.</string>
+    <string name="fb_n_injury_training">%1$s sa zranil na tréningu (asi %2$d dní).</string>
+    <string name="fb_n_suspension">%1$s má trest na %2$d zápas(y).</string>
+    <string name="fb_n_leader">%1$s je novým lídrom súťaže %2$s s %3$d bodmi.</string>
+    <string name="fb_n_potm">%1$s (%2$s) je hráčom mesiaca.</string>
+    <string name="fb_n_window_open">Prestupové okno je otvorené.</string>
+    <string name="fb_n_window_close">Prestupové okno sa zatvorilo.</string>
+    <string name="fb_n_draw">%1$s, %2$s: tvoj súper je %3$s.</string>
+    <string name="fb_n_europe_direct">Klub hrá v tejto sezóne %1$s!</string>
+    <string name="fb_n_europe_qual">Klub vstupuje do kvalifikácie súťaže %1$s.</string>
+    <string name="fb_n_facility">Stavba dokončená: %1$s vylepšené.</string>
+    <string name="fb_n_finance">Klub je zadlžený (%1$s). Úroky sa strhávajú každý týždeň – predaj hráčov alebo zníž platy.</string>
+    <string name="fb_n_retirement">%1$s ukončil kariéru vo veku %2$d rokov.</string>
+    <string name="fb_n_top_scorer">%1$s je najlepším strelcom súťaže %3$s s %2$d gólmi.</string>
+    <string name="fb_n_player_season">%1$s je hráčom sezóny v súťaži %2$s (priemer %3$s).</string>
+    <string name="fb_n_fans_happy">Fanúšikovia sú z víťaznej série nadšení!</string>
+    <string name="fb_n_fans_angry">Tri prehry za sebou – fanúšikovia zúria.</string>
+    <string name="fb_n_trophy_us">MAJSTRI! %1$s vyhráva %2$s!</string>
+    <string name="fb_n_trophy">%1$s vyhráva %2$s.</string>
+    <string name="fb_n_callup">%1$s dostal pozvánku do tímu %2$s.</string>
+    <string name="fb_n_graduate">%1$s postupuje z akadémie do A-tímu.</string>
+    <string name="fb_settings">Nastavenia</string>
+    <string name="fb_currency">Mena</string>
+    <string name="fb_currency_desc">Sumy sa zobrazujú vo zvolenej mene podľa pevných kurzov (príklad: 1 mil. eur = %1$s).</string>
+    <string name="fb_career">Kariéra</string>
+    <string name="fb_manager_line">Tréner: %1$s · sezóna %2$s</string>
+    <string name="fb_quit_career">Zmazať kariéru a začať znova</string>
+    <string name="fb_new">NOVÉ</string>
+    <string name="fb_read_mark">Prečítané</string>
+    <string name="fb_unread_n">Neprečítané (%1$d)</string>
+    <string name="fb_player_card">Karta hráča</string>
+    <string name="fb_cred_strong">Spoľahlivý zdroj</string>
+    <string name="fb_cred_medium">Možné</string>
+    <string name="fb_cred_weak">Klebety</string>
+    <string name="fb_rumour_interest">Záujem prejavil: %1$s</string>
+    <string name="fb_rumour_yours">Tvoj hráč</string>
+    <string name="fb_rumour_open">Stále fáma</string>
+    <string name="fb_rumour_true">Potvrdené ✓</string>
+    <string name="fb_rumour_elsewhere">Napokon prestúpil do klubu %1$s</string>
+    <string name="fb_au_running">Prebieha – končí %1$s</string>
+    <string name="fb_au_leading">Máš najvyššiu ponuku</string>
+    <string name="fb_au_yours">Tvoja aukcia</string>
+    <string name="fb_au_sold">PREDANÝ do klubu %1$s za %2$s</string>
+    <string name="fb_au_unsold">NEPREDANÝ – žiadna ponuka nedosiahla minimálnu cenu</string>
+    <string name="fb_au_refused">Bez dohody – hráč nechcel ísť do klubu %1$s</string>
+    <string name="fb_au_won">Vyhral si! Dohodni sa s hráčom na zmluve</string>
+    <string name="fb_au_bought">Kúpené ✓</string>
+    <string name="fb_au_bids">Ponuky: %1$d</string>
+</resources>

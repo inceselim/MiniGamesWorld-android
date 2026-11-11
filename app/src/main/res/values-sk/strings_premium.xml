@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="premium_title">Premium: bez reklám</string>
+    <string name="premium_row">Odstrániť reklamy</string>
+    <string name="premium_active">Premium je aktívne</string>
+    <string name="premium_b1">Žiadne reklamy medzi hrami</string>
+    <string name="premium_b2">Žiadne bannery</string>
+    <string name="premium_b3">Voliteľné videá s odmenou zostávajú, keď chceš bonus</string>
+    <string name="premium_b4">Podpor nezávislého vývojára</string>
+    <string name="premium_monthly">Mesačne</string>
+    <string name="premium_yearly">Ročne</string>
+    <string name="premium_per_month">%1$s / mesiac</string>
+    <string name="premium_per_year">%1$s / rok</string>
+    <string name="premium_save">Ušetríš %1$s</string>
+    <string name="premium_trial">%1$d dní zadarmo</string>
+    <string name="premium_then">%1$d dní zadarmo, potom %2$s</string>
+    <string name="premium_subscribe">Predplatiť</string>
+    <string name="premium_start_trial">Začať skúšobnú verziu zadarmo</string>
+    <string name="premium_manage">Spravovať predplatné</string>
+    <string name="premium_restore">Obnoviť nákupy</string>
+    <string name="premium_restored">Nákupy skontrolované</string>
+    <string name="premium_thanks">Ďakujeme! Reklamy boli odstránené.</string>
+    <string name="premium_pending">Platba čaká na spracovanie. Premium sa aktivuje po jej potvrdení.</string>
+    <string name="premium_error">S Google Play sa niečo pokazilo. Skús to znova.</string>
+    <string name="premium_loading">Načítava sa…</string>
+    <string name="premium_unavailable">Predplatné sa teraz nedá načítať. Skontroluj pripojenie a Google Play.</string>
+    <string name="premium_terms">Automaticky sa obnovuje, kým ho nezrušíš. Zrušiť môžeš kedykoľvek v Google Play &gt; Predplatné.</string>
+    <string name="premium_close">Teraz nie</string>
+</resources>
