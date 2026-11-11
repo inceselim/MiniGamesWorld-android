@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="premium_title">Premium: fără reclame</string>
+    <string name="premium_row">Elimină reclamele</string>
+    <string name="premium_active">Premium activ</string>
+    <string name="premium_b1">Fără reclame între jocuri</string>
+    <string name="premium_b2">Fără bannere publicitare</string>
+    <string name="premium_b3">Videoclipurile opționale cu recompensă rămân disponibile când vrei un bonus</string>
+    <string name="premium_b4">Susține un dezvoltator independent</string>
+    <string name="premium_monthly">Lunar</string>
+    <string name="premium_yearly">Anual</string>
+    <string name="premium_per_month">%1$s / lună</string>
+    <string name="premium_per_year">%1$s / an</string>
+    <string name="premium_save">Economisești %1$s</string>
+    <string name="premium_trial">%1$d zile gratuit</string>
+    <string name="premium_then">%1$d zile gratuit, apoi %2$s</string>
+    <string name="premium_subscribe">Abonează-te</string>
+    <string name="premium_start_trial">Începe perioada gratuită</string>
+    <string name="premium_manage">Gestionează abonamentul</string>
+    <string name="premium_restore">Restabilește achizițiile</string>
+    <string name="premium_restored">Achiziții verificate</string>
+    <string name="premium_thanks">Mulțumim! Reclamele au fost eliminate.</string>
+    <string name="premium_pending">Plată în așteptare. Premium se activează după confirmare.</string>
+    <string name="premium_error">Ceva n-a mers cu Google Play. Te rugăm să încerci din nou.</string>
+    <string name="premium_loading">Se încarcă…</string>
+    <string name="premium_unavailable">Abonamentele nu pot fi încărcate acum. Verifică conexiunea și Google Play.</string>
+    <string name="premium_terms">Se reînnoiește automat până la anulare. Anulează oricând în Google Play &gt; Abonamente.</string>
+    <string name="premium_close">Nu acum</string>
+</resources>

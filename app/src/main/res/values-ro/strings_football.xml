@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fb_monthly">Lunar</string>
+    <string name="fb_this_month">Luna aceasta</string>
+    <string name="fb_last_month">Luna trecută</string>
+    <string name="fb_month_income">Venituri totale</string>
+    <string name="fb_month_expense">Cheltuieli totale</string>
+    <string name="fb_bank">Bancă</string>
+    <string name="fb_bank_loan">Credit bancar</string>
+    <string name="fb_credit_limit">Limită de credit</string>
+    <string name="fb_loan_amount">Sumă</string>
+    <string name="fb_loan_term">Durată</string>
+    <string name="fb_years_short">%1$d ani</string>
+    <string name="fb_interest_rate">Dobândă</string>
+    <string name="fb_rate_year">%1$s pe an</string>
+    <string name="fb_weekly_payment">Rată săptămânală</string>
+    <string name="fb_total_repay">Total de rambursat</string>
+    <string name="fb_take_loan">Ia creditul</string>
+    <string name="fb_loan_taken_ok">Credit primit: %1$s</string>
+    <string name="fb_loan_left">Datorie rămasă</string>
+    <string name="fb_loan_original">Împrumutat</string>
+    <string name="fb_weeks_left">Săptămâni rămase</string>
+    <string name="fb_repay_loan">Achită acum (%1$s)</string>
+    <string name="fb_loan_repaid">Credit achitat</string>
+    <string name="fb_bank_tip" formatted="false">Ratele se plătesc în fiecare luni. Cluburile cu reputație mare primesc dobândă mai mică; aceasta crește cât timp soldul e negativ. Achitarea anticipată costă 1% în plus. Doar un credit odată.</string>
+    <string name="fb_deposit">Depozit de economii</string>
+    <string name="fb_deposit_balance">Sold depozit</string>
+    <string name="fb_deposit_earned">Dobândă câștigată</string>
+    <string name="fb_weekly_return">Dobândă săptămânală</string>
+    <string name="fb_deposit_x">Depune %1$s</string>
+    <string name="fb_withdraw_x">Retrage %1$s</string>
+    <string name="fb_deposit_tip" formatted="false">Banii din depozit aduc 2% pe an, dar nu pot fi folosiți pentru transferuri sau salarii până nu îi retragi.</string>
+    <string name="fb_form_w">V</string>
+    <string name="fb_form_d">E</string>
+    <string name="fb_form_l">Î</string>
+    <string name="fb_rush_ad">📺 Urmărește reclama: −%1$d zile (încă %2$d zile)</string>
+    <string name="fb_rushed">Construcția a fost accelerată cu %1$s zile</string>
+    <string name="game_football_manager_name">Șeful clubului</string>
+    <string name="game_football_manager_desc">Conduce un club de fotbal în stilul tău: toate ligile din Europa, calendar realist, cupe europene și Cupe Mondiale, tactici detaliate, antrenamente, academie de juniori, finanțe și o piață de transferuri vie.</string>
+    <string name="fb_tagline">Construiește o dinastie. Fiecare decizie e a ta.</string>
+    <string name="fb_continue_career">Continuă cariera</string>
+    <string name="fb_new_career">Carieră nouă</string>
+    <string name="fb_new_career_warning">Cariera ta actuală va fi ștearsă. Ești sigur?</string>
+    <string name="fb_yes">Da</string>
+    <string name="fb_no">Nu</string>
+    <string name="fb_generating">Se creează lumea fotbalului…</string>
+    <string name="fb_please_wait">Te rugăm să aștepți…</string>
+    <string name="fb_load_failed">Salvarea nu a putut fi încărcată</string>
+    <string name="fb_choose_country">Țară</string>
+    <string name="fb_choose_club">Alege clubul</string>
+    <string name="fb_tier_n">Eșalonul %1$d</string>
+    <string name="fb_league_name">%1$s Liga %2$d</string>
+    <string name="fb_reputation">Reputație</string>
+    <string name="fb_balance">Sold</string>
+    <string name="fb_transfer_budget">Buget de transferuri</string>
+    <string name="fb_stadium">Stadion</string>
+    <string name="fb_squad_size">Mărimea lotului</string>
+    <string name="fb_best_player">Cel mai bun jucător</string>
+    <string name="fb_manager_name">Numele antrenorului</string>
+    <string name="fb_start_career">Începe cariera</string>
+    <string name="fb_cancel">Anulează</string>
+    <string name="fb_close">Închide</string>
+    <string name="fb_tab_home">Acasă</string>
+    <string name="fb_tab_squad">Lot</string>
+    <string name="fb_tab_tactics">Tactică</string>
+    <string name="fb_tab_fixtures">Program</string>
+    <string name="fb_tab_competitions">Clasamente</string>
+    <string name="fb_tab_transfers">Transferuri</string>
+    <string name="fb_tab_club">Club</string>
+    <string name="fb_tab_inbox">Mesaje</string>
+    <string name="fb_tab_guide">Ghid</string>
+    <string name="fb_continue">Continuă</string>
+    <string name="fb_go_to_match">La meci</string>
+    <string name="fb_next_matches">Meciurile următoare</string>
+    <string name="fb_no_matches">Niciun meci programat</string>
+    <string name="fb_recent_results">Rezultate recente</string>
+    <string name="fb_latest_news">Ultimele știri</string>
+    <string name="fb_no_news">Încă nu sunt știri</string>
+    <string name="fb_club_summary">Club</string>
+    <string name="fb_weekly_wages">Salarii săptămânale</string>
+    <string name="fb_season_income">Venituri sezon</string>
+    <string name="fb_season_expense">Cheltuieli sezon</string>
+    <string name="fb_ad_bonus_title">Bonus de la investitor</string>
+    <string name="fb_ad_bonus_desc">Urmărește un videoclip scurt și un investitor adaugă %1$s în contul clubului.</string>
+    <string name="fb_ad_bonus_left">Încă %1$d săptămâna aceasta</string>
+    <string name="fb_ad_bonus_got">%1$s adăugați în contul clubului!</string>
+    <string name="fb_watch_ad">Urmărește reclama</string>
+    <string name="fb_table_cols">M,V,E,Î,Dif,P</string>
+    <string name="fb_vs">vs</string>
+    <string name="fb_first_leg">Tur: %1$s</string>
+    <string name="fb_play_match">Joacă meciul</string>
+    <string name="fb_quick_result">Rezultat rapid</string>
+    <string name="fb_edit_tactics">Tactică</string>
+    <string name="fb_squad">Lot</string>
+    <string name="fb_penalties">Penalty-uri %1$s</string>
+    <string name="fb_match_stats">Statistici meci</string>
+    <string name="fb_possession">Posesie</string>
+    <string name="fb_shots">Șuturi (pe poartă)</string>
+    <string name="fb_corners">Cornere</string>
+    <string name="fb_fouls">Faulturi</string>
+    <string name="fb_cards">Cartonașe G/R</string>
+    <string name="fb_player_ratings">Note jucători</string>
+    <string name="fb_season_over">Sezonul %1$s s-a încheiat</string>
+    <string name="fb_final_position">Locul final în campionat: %1$d</string>
+    <string name="fb_promoted">Promovat!</string>
+    <string name="fb_relegated">Retrogradat</string>
+    <string name="fb_honours_this_season">Campioni</string>
+    <string name="fb_new_season">Începe %1$s</string>
+    <string name="fb_accept">Acceptă</string>
+    <string name="fb_reject">Respinge</string>
+    <string name="fb_accept_counter">Acceptă %1$s</string>
+    <string name="fb_withdraw">Retrage</string>
+    <string name="fb_negotiate_contract">Negociază contractul</string>
+    <string name="fb_no_funds">Nu ai destui bani</string>
+    <string name="fb_free">gratuit</string>
+    <string name="fb_free_agent">Jucător liber</string>
+    <string name="fb_n_offer_received">%1$s oferă %2$s pentru %3$s</string>
+    <string name="fb_n_offer_accepted">%1$s a acceptat oferta pentru %2$s (%3$s)</string>
+    <string name="fb_n_offer_rejected">%1$s a respins oferta pentru %2$s</string>
+    <string name="fb_n_offer_counter">%1$s vor %3$s pentru %2$s</string>
+    <string name="fb_n_player_refused">%1$s nu vrea să vină la %2$s</string>
+    <string name="fb_n_signed_free">%1$s a semnat gratuit cu %2$s</string>
+    <string name="fb_n_transfer">%1$s se mută de la %2$s la %3$s (%4$s)</string>
+    <string name="fb_n_rumour">Zvon: %1$s îl urmăresc pe %2$s de la %3$s (%4$d%%)</string>
+    <string name="fb_n_contract_expiring">Contractul lui %1$s expiră în această vară</string>
+    <string name="fb_n_unhappy">%1$s este nemulțumit și vrea să plece</string>
+    <string name="fb_n_auction_bid">%1$s a licitat %2$s pentru %3$s</string>
+    <string name="fb_n_auction_sold">Licitație: %1$s vândut la %2$s pentru %3$s</string>
+    <string name="fb_n_auction_unsold">Licitație: niciun cumpărător pentru %1$s</string>
+    <string name="fb_n_loan_return">%1$s se întoarce la %2$s după împrumut</string>
+    <string name="fb_n_precontract">%1$s a semnat un precontract cu %2$s</string>
+    <string name="fb_n_youth">%1$d tineri au venit de la academie</string>
+    <string name="fb_n_released">%1$s a părăsit clubul</string>
+    <string name="fb_col_name">Nume</string>
+    <string name="fb_col_pos">Poz</string>
+    <string name="fb_col_age">Vârstă</string>
+    <string name="fb_col_ability">Abilitate</string>
+    <string name="fb_col_potential">Potențial</string>
+    <string name="fb_col_condition">Cond.</string>
+    <string name="fb_col_morale">Moral</string>
+    <string name="fb_col_form">Formă</string>
+    <string name="fb_col_value">Valoare</string>
+    <string name="fb_col_wage">Salariu</string>
+    <string name="fb_col_contract">Contract</string>
+    <string name="fb_per_week">/săpt</string>
+    <string name="fb_release_clause">Clauză de reziliere</string>
+    <string name="fb_injured">Accidentat</string>
+    <string name="fb_days">%1$d zile</string>
+    <string name="fb_height_foot">Înălțime · picior</string>
+    <string name="fb_foot_right">Drept</string>
+    <string name="fb_foot_left">Stâng</string>
+    <string name="fb_foot_both">Ambele</string>
+    <string name="fb_caps">Selecții / goluri</string>
+    <string name="fb_season_stats">Sezon</string>
+    <string name="fb_stats_line">%1$d meciuri, %2$d goluri, %3$d pase decisive, medie %4$s</string>
+    <string name="fb_positions">Posturi</string>
+    <string name="fb_hidden_attributes">Atribute ascunse și potențial real</string>
+    <string name="fb_hidden_locked">Staff-ul tău poate doar estima. Urmărește un videoclip ca să afli potențialul exact și personalitatea ascunsă.</string>
+    <string name="fb_reveal_with_ad">Dezvăluie (video)</string>
+    <string name="fb_exact_ability">Abilitate actuală</string>
+    <string name="fb_exact_potential">Abilitate potențială</string>
+    <string name="fb_g_technical">Tehnică</string>
+    <string name="fb_g_mental">Mental</string>
+    <string name="fb_g_physical">Fizic</string>
+    <string name="fb_g_goalkeeping">Portar</string>
+    <string name="fb_training">Antrenament</string>
+    <string name="fb_individual_focus">Accent individual</string>
+    <string name="fb_position_training">Învață un post nou</string>
+    <string name="fb_none">Niciunul</string>
+    <string name="fb_contract_transfer">Contract și transfer</string>
+    <string name="fb_renew_contract">Prelungește contractul</string>
+    <string name="fb_list_for_transfer">Listă de transferuri (%1$s)</string>
+    <string name="fb_unlist">Scoate de pe listă (%1$s)</string>
+    <string name="fb_list_for_loan">Oferă spre împrumut</string>
+    <string name="fb_unlist_loan">Scoate de pe lista de împrumut</string>
+    <string name="fb_auction">Licitație (3 zile)</string>
+    <string name="fb_auction_started">Licitația a început</string>
+    <string name="fb_release">Eliberează jucătorul</string>
+    <string name="fb_release_confirm">Confirmă eliberarea (%1$s)</string>
+    <string name="fb_transfer">Transfer</string>
+    <string name="fb_shortlist_add">Adaugă la lista scurtă</string>
+    <string name="fb_shortlist_remove">Scoate din lista scurtă</string>
+    <string name="fb_offer_fee">Ofertă: %1$s</string>
+    <string name="fb_asking_price">Preț cerut: %1$s</string>
+    <string name="fb_not_interested">Jucătorul nu este interesat de clubul tău</string>
+    <string name="fb_make_offer">Fă o ofertă</string>
+    <string name="fb_request_loan" formatted="false">Cere împrumut (70% din salariu)</string>
+    <string name="fb_offer_sent">Ofertă trimisă. Răspuns mâine.</string>
+    <string name="fb_err_window">Perioada de transferuri este închisă</string>
+    <string name="fb_err_duplicate">Ai deja o ofertă pentru acest jucător</string>
+    <string name="fb_err_on_loan">Jucătorul este împrumutat</string>
+    <string name="fb_err_generic">Nu este posibil acum</string>
+    <string name="fb_t_attacking">Atac</string>
+    <string name="fb_t_defending">Apărare</string>
+    <string name="fb_t_technical">Tehnică</string>
+    <string name="fb_t_tactical">Tactică</string>
+    <string name="fb_t_physical">Fizic</string>
+    <string name="fb_t_mental">Mental</string>
+    <string name="fb_t_set_pieces">Faze fixe</string>
+    <string name="fb_t_goalkeeping">Portar</string>
+    <string name="fb_contract_talks">Negocieri contract: %1$s</string>
+    <string name="fb_fee_agreed">Sumă de transfer convenită: %1$s</string>
+    <string name="fb_wage_demand">Salariu cerut</string>
+    <string name="fb_years_wanted">Durata dorită a contractului</string>
+    <string name="fb_signing_fee">Primă de semnare</string>
+    <string name="fb_offered_wage">Oferta ta salarială: %1$s/săpt</string>
+    <string name="fb_contract_years">Ani</string>
+    <string name="fb_propose">Propune</string>
+    <string name="fb_reply_accept">S-a făcut! Contractul e semnat.</string>
+    <string name="fb_reply_wage_low">Salariul e prea mic.</string>
+    <string name="fb_reply_years">Vrea altă durată a contractului.</string>
+    <string name="fb_reply_not_interested">Nu este interesat.</string>
+    <string name="fb_reply_walked">A părăsit negocierile.</string>
+    <string name="fb_soon">Vine în următoarea actualizare</string>
+    <string name="fb_c_league">Campionat</string>
+    <string name="fb_c_playoff">Play-off</string>
+    <string name="fb_c_playoff_of">Play-off %1$s</string>
+    <string name="fb_c_cup">Cupă</string>
+    <string name="fb_c_super_cup">Supercupă</string>
+    <string name="fb_c_champions">Cupa Campionilor</string>
+    <string name="fb_c_europa">Cupa Europa</string>
+    <string name="fb_c_conference">Cupa Conferinței</string>
+    <string name="fb_c_uefa_super">Supercupa Europei</string>
+    <string name="fb_c_friendly">Amical</string>
+    <string name="fb_c_nations">Liga Națiunilor</string>
+    <string name="fb_c_qualifiers">Preliminarii</string>
+    <string name="fb_c_world_cup">Cupa Mondială</string>
+    <string name="fb_c_euro">Campionatul European</string>
+    <string name="fb_c_nat_friendly">Amical internațional</string>
+    <string name="fb_s_league">Campionat</string>
+    <string name="fb_s_groups">Faza grupelor</string>
+    <string name="fb_s_league_phase">Faza ligii</string>
+    <string name="fb_s_q1">Turul 1 preliminar</string>
+    <string name="fb_s_q2">Turul 2 preliminar</string>
+    <string name="fb_s_q3">Turul 3 preliminar</string>
+    <string name="fb_s_qpo">Play-off de calificare</string>
+    <string name="fb_s_kpo">Play-off eliminatoriu</string>
+    <string name="fb_s_r128">Șaisprezecimi de 128</string>
+    <string name="fb_s_r64">Runda de 64</string>
+    <string name="fb_s_r32">Șaisprezecimi</string>
+    <string name="fb_s_r16">Optimi</string>
+    <string name="fb_s_qf">Sferturi de finală</string>
+    <string name="fb_s_sf">Semifinală</string>
+    <string name="fb_s_final">Finală</string>
+    <string name="fb_s_prelim">Tur preliminar</string>
+    <string name="fb_s_match">Meci</string>
+    <string name="fb_a_corners">Cornere</string>
+    <string name="fb_a_crossing">Centrări</string>
+    <string name="fb_a_dribbling">Dribling</string>
+    <string name="fb_a_finishing">Finalizare</string>
+    <string name="fb_a_first_touch">Preluare</string>
+    <string name="fb_a_free_kick">Lovituri libere</string>
+    <string name="fb_a_heading">Joc cu capul</string>
+    <string name="fb_a_long_shots">Șuturi de la distanță</string>
+    <string name="fb_a_marking">Marcaj</string>
+    <string name="fb_a_passing">Pase</string>
+    <string name="fb_a_penalty">Executare penalty</string>
+    <string name="fb_a_tackling">Deposedare</string>
+    <string name="fb_a_technique">Tehnică</string>
+    <string name="fb_a_aggression">Agresivitate</string>
+    <string name="fb_a_anticipation">Anticipare</string>
+    <string name="fb_a_bravery">Curaj</string>
+    <string name="fb_a_composure">Calm</string>
+    <string name="fb_a_concentration">Concentrare</string>
+    <string name="fb_a_decisions">Decizii</string>
+    <string name="fb_a_determination">Determinare</string>
+    <string name="fb_a_flair">Fantezie</string>
+    <string name="fb_a_leadership">Spirit de lider</string>
+    <string name="fb_a_off_the_ball">Mișcare fără minge</string>
+    <string name="fb_a_positioning">Poziționare</string>
+    <string name="fb_a_teamwork">Joc de echipă</string>
+    <string name="fb_a_vision">Viziune</string>
+    <string name="fb_a_work_rate">Efort</string>
+    <string name="fb_a_acceleration">Accelerare</string>
+    <string name="fb_a_agility">Agilitate</string>
+    <string name="fb_a_balance">Echilibru</string>
+    <string name="fb_a_jumping">Detentă</string>
+    <string name="fb_a_natural_fitness">Condiție naturală</string>
+    <string name="fb_a_pace">Viteză</string>
+    <string name="fb_a_stamina">Rezistență</string>
+    <string name="fb_a_strength">Forță</string>
+    <string name="fb_a_aerial_reach">Joc aerian</string>
+    <string name="fb_a_command_of_area">Controlul careului</string>
+    <string name="fb_a_handling">Prindere</string>
+    <string name="fb_a_kicking">Degajare</string>
+    <string name="fb_a_one_on_ones">Unu la unu</string>
+    <string name="fb_a_reflexes">Reflexe</string>
+    <string name="fb_h_consistency">Constanță</string>
+    <string name="fb_h_important_matches">Meciuri importante</string>
+    <string name="fb_h_injury_proneness">Predispoziție la accidentări</string>
+    <string name="fb_h_professionalism">Profesionalism</string>
+    <string name="fb_h_ambition">Ambiție</string>
+    <string name="fb_h_loyalty">Loialitate</string>
+    <string name="fb_h_adaptability">Adaptabilitate</string>
+    <string name="fb_h_pressure">Presiune</string>
+    <string name="fb_h_versatility">Versatilitate</string>
+    <string name="fb_all">Toate</string>
+    <string name="fb_cups">Cupe</string>
+    <string name="fb_europe">Europa</string>
+    <string name="fb_national_teams">Echipe naționale</string>
+    <string name="fb_no_competitions">Nicio competiție</string>
+    <string name="fb_not_started">Încă nu a început</string>
+    <string name="fb_winner">Câștigător: %1$s</string>
+    <string name="fb_group_n">Grupa %1$s</string>
+    <string name="fb_byes">%1$d echipe au trecut direct în turul următor</string>
+    <string name="fb_top_scorers">Golgheteri</string>
+    <string name="fb_lineup">Echipa de start</string>
+    <string name="fb_instructions">Instrucțiuni</string>
+    <string name="fb_team_training">Antrenament</string>
+    <string name="fb_auto_pick">Alegere automată</string>
+    <string name="fb_best_formation">Cea mai bună formație</string>
+    <string name="fb_team_strength">Forța echipei</string>
+    <string name="fb_pick_for">Alege un jucător pentru %1$s</string>
+    <string name="fb_tap_position">Atinge un post pe teren</string>
+    <string name="fb_starting">XI</string>
+    <string name="fb_bench">Rezerve</string>
+    <string name="fb_suspended">Suspendat</string>
+    <string name="fb_on">Pornit</string>
+    <string name="fb_off">Oprit</string>
+    <string name="fb_open_guide">Deschide ghidul tactic</string>
+    <string name="fb_tac_mentality">Mentalitate</string>
+    <string name="fb_tac_passing">Stil de pase</string>
+    <string name="fb_tac_tempo">Tempo</string>
+    <string name="fb_tac_width">Lățime</string>
+    <string name="fb_tac_focus">Direcția atacului</string>
+    <string name="fb_tac_pressing">Pressing</string>
+    <string name="fb_tac_defline">Linia defensivă</string>
+    <string name="fb_tac_marking">Marcaj</string>
+    <string name="fb_tac_counter">Contraatac</string>
+    <string name="fb_tac_offside">Capcana de ofsaid</string>
+    <string name="fb_tac_time_wasting">Trăgând de timp</string>
+    <string name="fb_tac_hard_tackling">Intrări dure</string>
+    <string name="fb_o_very_defensive">Foarte defensiv</string>
+    <string name="fb_o_defensive">Defensiv</string>
+    <string name="fb_o_balanced">Echilibrat</string>
+    <string name="fb_o_attacking">Ofensiv</string>
+    <string name="fb_o_very_attacking">Foarte ofensiv</string>
+    <string name="fb_o_short">Scurte</string>
+    <string name="fb_o_mixed">Mixte</string>
+    <string name="fb_o_direct">Directe</string>
+    <string name="fb_o_slow">Lent</string>
+    <string name="fb_o_normal">Normal</string>
+    <string name="fb_o_fast">Rapid</string>
+    <string name="fb_o_narrow">Îngust</string>
+    <string name="fb_o_wide">Larg</string>
+    <string name="fb_o_center">Prin centru</string>
+    <string name="fb_o_flanks">Pe flancuri</string>
+    <string name="fb_o_low">Scăzut</string>
+    <string name="fb_o_medium">Mediu</string>
+    <string name="fb_o_high">Ridicat</string>
+    <string name="fb_o_deep">Retrasă</string>
+    <string name="fb_o_zonal">Zonal</string>
+    <string name="fb_o_man">Om la om</string>
+    <string name="fb_o_light">Ușor</string>
+    <string name="fb_o_intense">Intens</string>
+    <string name="fb_tip_mentality">Mai ofensiv = mai multe șuturi și goluri, dar mai mult spațiu în spatele apărării.</string>
+    <string name="fb_tip_passing">Pasele scurte păstrează mingea și sunt mai sigure; cele directe ajung mai repede în careu, cu risc mai mare.</string>
+    <string name="fb_tip_tempo">Tempoul rapid creează ocazii mai repede, dar aduce mai multe greșeli și oboseală.</string>
+    <string name="fb_tip_width">Jocul larg aduce mai multe centrări; jocul îngust aglomerează centrul.</string>
+    <string name="fb_tip_focus">Centru = pase în adâncime (viziune, pase); flancuri = centrări (centrări, joc cu capul).</string>
+    <string name="fb_tip_pressing">Pressingul sus recuperează mingea mai în față, dar îți obosește jucătorii.</string>
+    <string name="fb_tip_defline">O linie înaltă strânge mijlocul terenului, dar e vulnerabilă la mingile în spate.</string>
+    <string name="fb_tip_marking">Marcajul om la om oprește atacanții; cei care se mișcă inteligent pot scăpa.</string>
+    <string name="fb_tip_counter">Pornește rapid în atac după ce recuperezi mingea în propria jumătate.</string>
+    <string name="fb_tip_offside">Prinde mai des atacanții în ofsaid; are nevoie de fundași bine pregătiți.</string>
+    <string name="fb_tip_time_wasting">Când conduce după ora de joc, echipa încetinește meciul.</string>
+    <string name="fb_tip_hard_tackling">Câștigă mai multe dueluri, dar aduce mai multe faulturi, cartonașe și penalty-uri.</string>
+    <string name="fb_training_focus">Accentul antrenamentului</string>
+    <string name="fb_training_intensity">Intensitate</string>
+    <string name="fb_coaching_quality">Calitatea antrenorilor</string>
+    <string name="fb_f_training">Baza de antrenament</string>
+    <string name="fb_f_youth">Baza pentru juniori</string>
+    <string name="fb_youth_coaching">Antrenori de juniori</string>
+    <string name="fb_physio">Fizioterapie</string>
+    <string name="fb_tip_training_focus" formatted="false">Atributele domeniului ales se îmbunătățesc cu aproximativ 50% mai repede pentru tot lotul.</string>
+    <string name="fb_tip_intensity" formatted="false">Ușor: dezvoltare mai lentă, mai puține accidentări, jucători mai odihniți. Intens: +15% dezvoltare, aproape dublu accidentări la antrenament, condiție de meci mai slabă.</string>
+    <string name="fb_tip_coaches">Antrenorii și bazele mai bune grăbesc dezvoltarea. Angajează antrenori în secțiunea Club.</string>
+    <string name="fb_gt_basics">Primii pași</string>
+    <string name="fb_gt_formations">Formații și echipa de start</string>
+    <string name="fb_gt_training">Antrenament și dezvoltare</string>
+    <string name="fb_gt_coaches">Antrenori și staff</string>
+    <string name="fb_gt_morale">Moral și formă</string>
+    <string name="fb_gt_youth">Academia de juniori</string>
+    <string name="fb_gt_finance">Finanțe</string>
+    <string name="fb_gt_transfers">Transferuri</string>
+    <string name="fb_gt_contracts">Contracte</string>
+    <string name="fb_gt_competitions">Competiții</string>
+    <string name="fb_gt_hidden">Atribute ascunse și potențial</string>
+    <string name="fb_gb_basics">Tu ești șeful clubului: alegi echipa și tactica, cumperi și vinzi jucători, stabilești antrenamentele, construiești baze și administrezi banii.
+
+Apasă Continuă ca să avansezi în calendar. Jocul se oprește în zilele de meci și când ceva are nevoie de atenția ta (oferte, vești despre contracte, juniori noi).
+
+În ziua meciului poți juca meciul sau poți obține un rezultat rapid. Totul se salvează automat.</string>
+    <string name="fb_gb_mentality" formatted="false">Mentalitatea stabilește câte riscuri își asumă echipa.
+
+• Foarte defensiv / defensiv: mai puțini jucători urcă în atac, mai puține șuturi pentru ambele echipe. Bun când aperi un avantaj sau joci contra unei echipe mult mai puternice.
+• Echilibrat: implicit.
+• Ofensiv / foarte ofensiv: mai multe șuturi și goluri, dar adversarul găsește mai mult spațiu. În testele noastre, o echipă puternică a marcat cu aproximativ 18% mai mult, dar a și primit mai multe goluri.
+
+Combină mentalitatea defensivă cu contraatacul ca să pedepsești adversarii care urcă.</string>
+    <string name="fb_gb_passing" formatted="false">• Scurte: multe pase sigure, posesie mare (aproximativ 60%+), atacuri mai puține, dar mai curate. Necesită pase și preluare bune.
+• Mixte: echilibrat.
+• Directe: mingi lungi spre atacanți. Posesia scade la circa 40%, mingea ajunge mai repede în careu, meciurile devin mai deschise. Merge cu atacanți înalți și puternici și cu pasatori lungi buni.</string>
+    <string name="fb_gb_tempo">Tempoul rapid mută mingea repede: mai multe ocazii și șuturi, dar mai multe pase greșite și mai multă oboseală.
+
+Tempoul lent păstrează mingea și controlează jocul; se potrivește cu pasele scurte și cu apărarea unui avantaj.</string>
+    <string name="fb_gb_width">Larg: jucătorii de bandă rămân lângă tușă, ceea ce aduce mai multe centrări. Necesită centrări bune și jucători buni la cap în careu.
+
+Îngust: echipa joacă prin centru și rămâne compactă; bun cu un playmaker și pase în adâncime.</string>
+    <string name="fb_gb_focus">Prin centru: mai multe pase în adâncime. Succesul depinde de viziunea și pasele mijlocașilor tăi contra marcajului fundașilor și de viteza atacanților. Unu la unu e cea mai bună ocazie din fotbal.
+
+Pe flancuri: mai multe centrări. O centrare devine ocazie cu capul dacă vârful tău îl bate pe fundașul central în aer.</string>
+    <string name="fb_gb_pressing">Pressingul sus vânează mingea în jumătatea adversarului. Funcționează cel mai bine contra jucătorilor cu calm scăzut și recuperează mingea aproape de poartă, dar jucătorii obosesc mai repede în timpul meciului.
+
+Pressingul jos economisește energie și păstrează forma; adversarul are timp cu mingea în propria jumătate.</string>
+    <string name="fb_gb_defline">Linie înaltă: fundașii urcă, mijlocul devine îngust și greu de străbătut. Dar mingile peste apărare și pasele în adâncime spre atacanți rapizi devin periculoase – în teste, o linie înaltă a primit de peste două ori mai multe goluri contra atacanților rapizi.
+
+Linie retrasă: careul e protejat, pasele în adâncime merg rar, dar adversarul controlează jocul. Ideal cu contraatac.</string>
+    <string name="fb_gb_marking">Zonal: fiecare jucător păzește o zonă. Alegere sigură implicită.
+
+Om la om: fundașii își urmăresc adversarul direct. Excelent dacă fundașii marchează bine; dar atacanții cu mișcare foarte bună fără minge pot scăpa totuși.</string>
+    <string name="fb_gb_counter">Când mingea e recuperată în propria jumătate, echipa pornește rapid cu mai puține pase și mai multe pase în adâncime.
+
+Este mortal contra adversarilor care atacă cu mulți jucători sau joacă cu linie înaltă (în teste: peste 3 goluri pe meci contra unei echipe foarte ofensive). Prețul: mai puțini jucători participă la atacurile normale.</string>
+    <string name="fb_gb_offside">Apărarea urcă împreună ca să prindă atacanții în ofsaid. Fundașii cu joc de echipă bun reușesc mult mai des. Când eșuează, atacantul scapă singur spre poartă.</string>
+    <string name="fb_gb_time_wasting">Când conduci după minutul 60, jucătorii tăi încetinesc totul: mai multe pase înapoi, pauze mai lungi. Arbitrul poate da cartonașe galbene pentru asta.</string>
+    <string name="fb_gb_hard_tackling">Intrările devin mai dure: jucătorii tăi câștigă mai multe dueluri, dar fac mai multe faulturi, primesc mai multe cartonașe și provoacă mai multe penalty-uri. Adversarii se accidentează mai des.</string>
+    <string name="fb_gb_formations">Alege o formație potrivită pentru cei mai buni jucători ai tăi. Atinge un post pe teren, apoi un jucător din listă ca să-l pui acolo (jucătorii deja titulari își schimbă locurile).
+
+Numărul de sub fiecare jucător este nota lui pe acel post; un cerc roșu înseamnă că nu e obișnuit cu el. Jucătorii pot învăța posturi noi la antrenament.
+
+Alegerea automată lasă asistentul să aleagă; Cea mai bună formație alege așezarea cu cea mai mare notă totală. Jucătorii accidentați și suspendați sunt înlocuiți automat.</string>
+    <string name="fb_gb_training">Jucătorii cresc spre potențialul lor în fiecare săptămână. Viteza depinde de:
+• Vârstă: cel mai rapid între 16 și 21 de ani, încetinește după 24, se oprește pe la 29.
+• Diferența dintre abilitatea actuală și potențial.
+• Antrenori și baza de antrenament (antrenorul de juniori și baza pentru juniori pentru sub 19 ani).
+• Personalitate: profesionalism și determinare.
+• Minute jucate (foarte important sub 23 de ani) și moral.
+• Intensitate: ușoară, normală sau intensă.
+
+Accentul de echipă grăbește un domeniu pentru toți; accentul individual grăbește mult un domeniu pentru un singur jucător. După 30 de ani (portarii după 32) jucătorii declină, întâi atributele fizice, în timp ce deciziile și poziționarea se pot încă îmbunătăți.</string>
+    <string name="fb_gb_coaches">• Antrenori: fiecare domeniu de antrenament folosește atributul de antrenor corespunzător (atac, apărare, tehnică, tactică, mental, fizic, portari). Aproximativ cinci antrenori acoperă toate domeniile; cu mai puțini, calitatea scade.
+• Antrenor de juniori: dezvoltă jucătorii sub 19 ani și îmbunătățește generația anuală de juniori.
+• Fizioterapeut: scurtează accidentările și reduce accidentările de la antrenament.
+• Preparator fizic: încetinește declinul jucătorilor mai în vârstă.
+• Asistent: gestionarea oamenilor ridică moralul; evaluează potențialul propriilor jucători.
+• Scouteri: cu cât sunt mai buni, cu atât estimările abilității și potențialului jucătorilor altor cluburi sunt mai precise.</string>
+    <string name="fb_gb_morale">Moralul se schimbă în fiecare săptămână. Crește cu rezultate bune, suficiente minute pentru statutul jucătorului (jucătorii cheie se așteaptă să fie titulari în majoritatea meciurilor), un salariu corect, facilități sociale bune și un asistent bun. Jucătorii ambițioși foarte nemulțumiți cer să plece.
+
+Forma este media notelor din ultimele meciuri. Atât moralul, cât și forma schimbă ușor forța unui jucător în ziua meciului și dezvoltarea lui.</string>
+    <string name="fb_gb_youth">În fiecare an, pe 15 martie, 2–8 tineri (15–16 ani) intră în academia ta. Recrutarea de juniori decide câți și cât de buni, baza pentru juniori și antrenorul de juniori adaugă calitate, iar nivelul fotbalului din țara ta contează și el. Din când în când apare un talent de aur.
+
+Dă-le tinerilor minute și antrenori buni: dezvoltarea e cea mai rapidă înainte de 21 de ani.</string>
+    <string name="fb_gb_finance" formatted="false">Venituri: bilete (meciuri pe teren propriu; un preț mai mare aduce mai mult pe spectator, dar umple mai puține locuri), bani din TV (jumătate împărțiți egal, jumătate după locul în campionat), produse de club (cresc cu reputația și vedetele), sponsorul de pe tricou, reclama pe stadion, premii (cupe și mai ales competiții europene) și vânzări de jucători.
+
+Cheltuieli: salariile jucătorilor și ale staff-ului, întreținerea bazelor, academia de juniori, costuri de meci, transferuri și construcții. Un sold negativ costă 0,12% dobândă pe săptămână.
+
+Bonus de la investitor: urmărește un videoclip ca să adaugi bani clubului, de 3 ori pe săptămână.
+
+Bancă (Club › Bancă): ia câte un credit odată, pe 1–3 ani. Limita de credit crește cu veniturile și reputația; cluburile cu reputație mare plătesc dobândă mai mică, iar aceasta e mai mare cât timp soldul e negativ. Rata se plătește în fiecare luni, iar achitarea anticipată costă 1% în plus. Un depozit de economii aduce 2% pe an, dar banii din el nu pot fi cheltuiți până nu îi retragi. Pagina Finanțe arată veniturile și cheltuielile totale din luna aceasta și din luna trecută.</string>
+    <string name="fb_gb_transfers">Perioade: 1 iulie – 1 septembrie și ianuarie. Jucătorii liberi pot fi semnați oricând.
+
+Prețul clubului vânzător depinde de cât de important e jucătorul pentru ei, de vârsta și potențialul lui, de durata contractului (ieftin în ultimul an), dacă e pe listă și de finanțele vânzătorului. O clauză de reziliere nu poate fi refuzată.
+
+După ce suma e convenită, negociază salariul și anii cu jucătorul – prea puțin și pleacă după trei încercări. Împrumuturi: plătești o parte din salariu, iar jucătorul se întoarce la finalul sezonului.
+
+Îți poți pune jucătorii pe listă, îi poți oferi spre împrumut sau poți începe o licitație de 3 zile în care cluburile supralicitează. Adaugă la lista scurtă jucătorii care îți plac și urmărește zvonurile.</string>
+    <string name="fb_gb_contracts" formatted="false">Prelungește la timp contractele jucătorilor importanți. Pe 1 ianuarie ești avertizat despre contractele care expiră în acest sezon; de la mijlocul lui ianuarie alte cluburi îi pot semna cu precontract și pleacă gratuit în vară.
+
+Jucătorii cer mărire de salariu când progresează. Eliberarea unui jucător costă 60% din salariile rămase.</string>
+    <string name="fb_gb_competitions">Fiecare țară europeană are ligile ei cu promovare și retrogradare (unele eșaloane secunde au play-off), o cupă națională și o supercupă.
+
+Locurile europene depind de poziția în campionat și de clasamentul țării, care se schimbă în fiecare sezon după rezultatele europene: Cupa Campionilor, Cupa Europa și Cupa Conferinței au fiecare tururi preliminare, o fază a ligii cu 36 de echipe și faze eliminatorii.
+
+Echipele naționale joacă Liga Națiunilor, preliminarii, Campionatul European și Cupa Mondială.</string>
+    <string name="fb_gb_hidden">Abilitatea și potențialul sunt afișate ca stele estimate de staff-ul tău, așa că pot fi greșite – mai ales cu scouteri slabi.
+
+Urmărește un videoclip scurt pe fișa unui jucător ca să afli abilitatea lui exactă, potențialul exact și personalitatea ascunsă: constanță, temperament în meciuri mari, predispoziție la accidentări, profesionalism, ambiție, loialitate, adaptabilitate, gestionarea presiunii și versatilitate. Jucătorul rămâne dezvăluit pentru totdeauna (stele verzi).</string>
+    <string name="fb_search">Căutare</string>
+    <string name="fb_shortlist">Listă scurtă</string>
+    <string name="fb_scout_reports">Rapoarte de scouting</string>
+    <string name="fb_offers">Oferte</string>
+    <string name="fb_auctions">Licitații</string>
+    <string name="fb_history">Istoric și zvonuri</string>
+    <string name="fb_window_open">Perioadă deschisă</string>
+    <string name="fb_window_closed">Perioadă închisă</string>
+    <string name="fb_line_gk">Portari</string>
+    <string name="fb_line_def">Fundași</string>
+    <string name="fb_line_mid">Mijlocași</string>
+    <string name="fb_line_att">Atacanți</string>
+    <string name="fb_any_age">Orice vârstă</string>
+    <string name="fb_age_young">≤ 21</string>
+    <string name="fb_age_prime">22–29</string>
+    <string name="fb_age_veteran">30+</string>
+    <string name="fb_any_value">Orice valoare</string>
+    <string name="fb_listed_only">Doar cei pe listă</string>
+    <string name="fb_free_agents">Jucători liberi</string>
+    <string name="fb_player_name">Numele jucătorului</string>
+    <string name="fb_no_results">Niciun jucător găsit</string>
+    <string name="fb_loan">Împrumut</string>
+    <string name="fb_scout_desc">Scouterii tăi sugerează jucători care ți-ar întări cele mai slabe posturi, se încadrează în buget și ar fi dispuși să vină.</string>
+    <string name="fb_get_reports">Cere rapoarte</string>
+    <string name="fb_no_offers">Nicio ofertă în acest sezon</string>
+    <string name="fb_incoming">Primite</string>
+    <string name="fb_outgoing">Trimise</string>
+    <string name="fb_os_waiting_you">Așteaptă răspunsul tău</string>
+    <string name="fb_os_pending">Așteaptă răspunsul clubului</string>
+    <string name="fb_os_counter">Contraofertă: %1$s</string>
+    <string name="fb_os_agreed">Sumă convenită – negociază contractul</string>
+    <string name="fb_os_agreed_in">Acceptată – cumpărătorul negociază cu jucătorul</string>
+    <string name="fb_os_completed">Finalizată</string>
+    <string name="fb_os_rejected">Respinsă</string>
+    <string name="fb_os_withdrawn">Retrasă</string>
+    <string name="fb_os_refused">Jucătorul a refuzat</string>
+    <string name="fb_os_expired">Expirată</string>
+    <string name="fb_counter_x">Cere %1$s</string>
+    <string name="fb_offer_x">Oferă %1$s</string>
+    <string name="fb_auction_desc">Cluburile supralicitează până se termină licitația. Scoate-ți propriii jucători la licitație din fișa lor.</string>
+    <string name="fb_no_auctions">Nicio licitație în desfășurare</string>
+    <string name="fb_reserve">Preț minim %1$s</string>
+    <string name="fb_ended">încheiată</string>
+    <string name="fb_ends">se încheie %1$s</string>
+    <string name="fb_bid_x">Licitează %1$s</string>
+    <string name="fb_latest_transfers">Ultimele transferuri</string>
+    <string name="fb_rumours">Zvonuri</string>
+    <string name="fb_finance">Finanțe</string>
+    <string name="fb_facilities">Baze</string>
+    <string name="fb_staff">Staff</string>
+    <string name="fb_sponsor_tickets">Sponsor și bilete</string>
+    <string name="fb_friendlies">Amicale</string>
+    <string name="fb_editor">Editor</string>
+    <string name="fb_this_season">Sezonul acesta</string>
+    <string name="fb_last_season">Sezonul trecut</string>
+    <string name="fb_income">Venituri</string>
+    <string name="fb_expenses">Cheltuieli</string>
+    <string name="fb_net">Net</string>
+    <string name="fb_fin_tickets">Vânzări de bilete</string>
+    <string name="fb_fin_tv">Drepturi TV</string>
+    <string name="fb_fin_merch">Produse de club</string>
+    <string name="fb_fin_sponsor">Sponsorizare</string>
+    <string name="fb_fin_ads">Reclamă pe stadion</string>
+    <string name="fb_fin_prize">Premii</string>
+    <string name="fb_fin_transfer_in">Vânzări de jucători</string>
+    <string name="fb_fin_other_in">Investitori și altele</string>
+    <string name="fb_fin_wages">Salarii jucători</string>
+    <string name="fb_fin_staff_wages">Salarii staff</string>
+    <string name="fb_fin_facilities">Întreținerea bazelor</string>
+    <string name="fb_fin_youth">Academia de juniori</string>
+    <string name="fb_fin_matchday">Costuri de meci</string>
+    <string name="fb_fin_transfer_out">Achiziții de jucători</string>
+    <string name="fb_fin_upgrades">Construcții</string>
+    <string name="fb_fin_interest">Dobândă</string>
+    <string name="fb_fin_other_out">Despăgubiri și altele</string>
+    <string name="fb_balance_history">Sold (ultimele săptămâni)</string>
+    <string name="fb_staff_wages_week">Salarii staff pe săptămână</string>
+    <string name="fb_fan_base">Suporteri</string>
+    <string name="fb_f_recruitment">Recrutarea juniorilor</string>
+    <string name="fb_f_stadium">Calitatea stadionului</string>
+    <string name="fb_f_social">Facilități sociale</string>
+    <string name="fb_f_capacity">Capacitatea stadionului</string>
+    <string name="fb_fd_training">Dezvoltare mai rapidă pentru toți jucătorii.</string>
+    <string name="fb_fd_youth">Dezvoltare mai bună pentru cei sub 19 ani și generații de juniori mai bune.</string>
+    <string name="fb_fd_recruitment">Mai mulți și mai buni tineri în fiecare martie.</string>
+    <string name="fb_fd_stadium">Vin mai mulți suporteri și acceptă prețuri mai mari.</string>
+    <string name="fb_fd_social">Moral mai ridicat și mai multe vânzări de produse de club.</string>
+    <string name="fb_fd_capacity" formatted="false">+10% locuri pentru venituri mai mari din meciuri.</string>
+    <string name="fb_seats">%1$d locuri</string>
+    <string name="fb_upgrade_x">Construiește %1$s · %2$d zile</string>
+    <string name="fb_upgrade_started">Construcția a început</string>
+    <string name="fb_under_construction">În construcție: %1$s (gata pe %2$s)</string>
+    <string name="fb_your_staff">Staff-ul tău (%1$d)</string>
+    <string name="fb_staff_market">Staff disponibil</string>
+    <string name="fb_fire">Concediază</string>
+    <string name="fb_fire_confirm">Concediază (%1$s)</string>
+    <string name="fb_hire">Angajează</string>
+    <string name="fb_hired">Angajat!</string>
+    <string name="fb_staff_full">Staff-ul tău e complet (16)</string>
+    <string name="fb_staff_reject">Nu este interesat de clubul tău</string>
+    <string name="fb_r_assistant">Asistent</string>
+    <string name="fb_r_coach">Antrenor</string>
+    <string name="fb_r_gk_coach">Antrenor de portari</string>
+    <string name="fb_r_fitness">Preparator fizic</string>
+    <string name="fb_r_scout">Scouter</string>
+    <string name="fb_r_physio">Fizioterapeut</string>
+    <string name="fb_r_youth">Antrenor de juniori</string>
+    <string name="fb_sa_attack">Atac</string>
+    <string name="fb_sa_defence">Apărare</string>
+    <string name="fb_sa_technical">Tehnică</string>
+    <string name="fb_sa_tactical">Tactică</string>
+    <string name="fb_sa_mental">Mental</string>
+    <string name="fb_sa_fitness">Pregătire fizică</string>
+    <string name="fb_sa_gk">Portari</string>
+    <string name="fb_sa_youth">Lucrul cu tinerii</string>
+    <string name="fb_sa_judge_ability">Evaluarea abilității</string>
+    <string name="fb_sa_judge_potential">Evaluarea potențialului</string>
+    <string name="fb_sa_physio">Fizioterapie</string>
+    <string name="fb_sa_motivating">Motivare</string>
+    <string name="fb_sa_discipline">Disciplină</string>
+    <string name="fb_sa_man_management">Gestionarea oamenilor</string>
+    <string name="fb_shirt_sponsor">Sponsor pe tricou</string>
+    <string name="fb_current_sponsor">Sponsor</string>
+    <string name="fb_per_year">Pe an</string>
+    <string name="fb_until">Până la</string>
+    <string name="fb_sponsor_offers">Oferte noi</string>
+    <string name="fb_sponsor_line">%1$s pe an · %2$d ani</string>
+    <string name="fb_sign">Semnează</string>
+    <string name="fb_sponsor_locked">Poți semna un sponsor nou când se încheie contractul actual.</string>
+    <string name="fb_ticket_prices">Prețuri bilete</string>
+    <string name="fb_tp_very_low">Foarte mici</string>
+    <string name="fb_tp_low">Mici</string>
+    <string name="fb_tp_high">Mari</string>
+    <string name="fb_tp_very_high">Foarte mari</string>
+    <string name="fb_ticket_price">Bilet mediu</string>
+    <string name="fb_expected_attendance">Spectatori așteptați</string>
+    <string name="fb_matchday_income">Venit pe meci acasă</string>
+    <string name="fb_tip_tickets" formatted="false">Fiecare treaptă în sus crește prețul cu 25%, dar costă circa 18% din suporteri. Când stadionul e plin oricum, prețurile mai mari aduc mai mult.</string>
+    <string name="fb_choose_opponent">Adversar</string>
+    <string name="fb_choose_date">Dată</string>
+    <string name="fb_friendly_desc">Amicalele îți țin jucătorii în formă și aduc un mic venit acasă. Cluburile mari pot refuza.</string>
+    <string name="fb_arrange">Organizează</string>
+    <string name="fb_friendly_ok">Amical programat</string>
+    <string name="fb_friendly_declined">Clubul a refuzat</string>
+    <string name="fb_friendly_busy">Adversarul are un meci în jurul acelei date</string>
+    <string name="fb_edit_club">Editează clubul</string>
+    <string name="fb_club_name">Numele clubului</string>
+    <string name="fb_short_name">Scurt</string>
+    <string name="fb_color_main">Culoare principală</string>
+    <string name="fb_color_second">Culoare secundară</string>
+    <string name="fb_save">Salvează</string>
+    <string name="fb_saved">Salvat</string>
+    <string name="fb_edit_players">Numele jucătorilor (atinge ca să editezi)</string>
+    <string name="fb_back_to_match">Înapoi la meci</string>
+    <string name="fb_choose_sub">Alege cine intră</string>
+    <string name="fb_on_pitch">Pe teren (atinge ca să scoți)</string>
+    <string name="fb_subs_left">Schimbări rămase: %1$d</string>
+    <string name="fb_tactics_subs">Tactică și schimbări</string>
+    <string name="fb_pause">Pauză</string>
+    <string name="fb_resume">Continuă</string>
+    <string name="fb_skip_to_end">Sari la final</string>
+    <string name="fb_finish_match">Termină</string>
+    <string name="fb_full_time">Final de meci</string>
+    <string name="fb_goal_flash">GOL!</string>
+    <string name="fb_shots_short">Șuturi</string>
+    <string name="fb_ev_goal_1">GOL! %1$s marchează pentru %2$s!</string>
+    <string name="fb_ev_goal_2">GOL! Ce execuție a lui %1$s! (%2$s)</string>
+    <string name="fb_ev_goal_3">GOL! %1$s nu greșește – %2$s sărbătoresc!</string>
+    <string name="fb_ev_assist">Pasă decisivă: %1$s.</string>
+    <string name="fb_ev_save_1">Paradă superbă a lui %1$s, care îl oprește pe %2$s!</string>
+    <string name="fb_ev_save_2">%2$s șutează – %1$s reține.</string>
+    <string name="fb_ev_miss_1">%1$s șutează… pe lângă!</string>
+    <string name="fb_ev_miss_2">%1$s trimite peste bară.</string>
+    <string name="fb_ev_block">%1$s blochează șutul lui %2$s.</string>
+    <string name="fb_ev_yellow">Cartonaș galben pentru %1$s.</string>
+    <string name="fb_ev_red">CARTONAȘ ROȘU! %1$s este eliminat!</string>
+    <string name="fb_ev_injury">%1$s s-a accidentat și nu poate continua.</string>
+    <string name="fb_ev_sub">Schimbare %1$s: intră %2$s, iese %3$s.</string>
+    <string name="fb_ev_corner">Corner pentru %1$s.</string>
+    <string name="fb_ev_free_kick">Lovitură liberă pentru %1$s, %2$s se pregătește s-o execute.</string>
+    <string name="fb_ev_penalty">PENALTY pentru %1$s! %2$s vine la execuție…</string>
+    <string name="fb_ev_offside">%1$s este prins în ofsaid.</string>
+    <string name="fb_ev_foul">Fault al lui %1$s asupra lui %2$s.</string>
+    <string name="fb_ev_through">%1$s îl lansează superb pe %2$s!</string>
+    <string name="fb_ev_half_time">Pauză.</string>
+    <string name="fb_ev_full_time">Final de meci!</string>
+    <string name="fb_ev_extra_time">Prelungiri!</string>
+    <string name="fb_ev_so_goal">%1$s transformă penalty-ul pentru %2$s.</string>
+    <string name="fb_ev_so_miss">%1$s ratează pentru %2$s!</string>
+    <string name="fb_first_team">Prima echipă</string>
+    <string name="fb_youth_team">Academia de juniori</string>
+    <string name="fb_youth_info">Baza pentru juniori %1$d/20 · recrutare %2$d/20 · antrenor de juniori %3$d/20 · următoarea generație %4$s</string>
+    <string name="fb_youth_empty">Încă nu sunt tineri în academie. Talente noi sosesc în fiecare an pe 15 martie.</string>
+    <string name="fb_promote">Promovează în prima echipă</string>
+    <string name="fb_to_youth">Trimite la academia de juniori</string>
+    <string name="fb_ng_club">Club</string>
+    <string name="fb_ng_matches">Meciuri</string>
+    <string name="fb_ng_transfers">Transferuri</string>
+    <string name="fb_ng_world">Lume</string>
+    <string name="fb_mark_all_read">Marchează toate ca citite</string>
+    <string name="fb_nt_offer_received">Ofertă de transfer</string>
+    <string name="fb_nt_offer_accepted">Ofertă acceptată</string>
+    <string name="fb_nt_offer_rejected">Ofertă respinsă</string>
+    <string name="fb_nt_offer_counter">Contraofertă</string>
+    <string name="fb_nt_player_refused">Jucătorul a refuzat</string>
+    <string name="fb_nt_transfer_done">Transfer finalizat</string>
+    <string name="fb_nt_transfer_world">Transfer important</string>
+    <string name="fb_nt_rumour">Zvon</string>
+    <string name="fb_nt_contract">Contract</string>
+    <string name="fb_nt_unhappy">Jucător nemulțumit</string>
+    <string name="fb_nt_auction">Licitație</string>
+    <string name="fb_nt_loan_return">Întoarcere din împrumut</string>
+    <string name="fb_nt_precontract">Precontract</string>
+    <string name="fb_nt_youth">Juniori noi</string>
+    <string name="fb_nt_released">Jucătorul a plecat</string>
+    <string name="fb_nt_preview">Prezentarea meciului</string>
+    <string name="fb_nt_report">Raportul meciului</string>
+    <string name="fb_nt_injury">Accidentare</string>
+    <string name="fb_nt_suspension">Suspendare</string>
+    <string name="fb_nt_leader">Lider nou</string>
+    <string name="fb_nt_potm">Jucătorul lunii</string>
+    <string name="fb_nt_window_open">Perioada de transferuri</string>
+    <string name="fb_nt_window_close">Perioada de transferuri</string>
+    <string name="fb_nt_draw">Tragere la sorți</string>
+    <string name="fb_nt_europe">Europa</string>
+    <string name="fb_nt_facility">Baze</string>
+    <string name="fb_nt_finance">Finanțe</string>
+    <string name="fb_nt_retirement">Retragere</string>
+    <string name="fb_nt_top_scorer">Gheata de aur</string>
+    <string name="fb_nt_player_season">Jucătorul sezonului</string>
+    <string name="fb_nt_fans_happy">Suporteri</string>
+    <string name="fb_nt_fans_angry">Suporteri</string>
+    <string name="fb_nt_trophy">Campioni</string>
+    <string name="fb_nt_callup">Echipa națională</string>
+    <string name="fb_nt_graduate">Absolvent al academiei</string>
+    <string name="fb_n_youth_best">%1$d tineri au intrat în academie. Scouterii îl consideră pe %2$s cel mai mare talent.</string>
+    <string name="fb_n_preview">Următorul: %1$s (%2$s). Ultimele lor cinci: %3$s</string>
+    <string name="fb_n_report_win">Victorie contra %1$s: %2$s.</string>
+    <string name="fb_n_report_loss">Înfrângere contra %1$s: %2$s.</string>
+    <string name="fb_n_report_draw">Egal cu %1$s: %2$s.</string>
+    <string name="fb_n_report_motm">Omul meciului: %1$s.</string>
+    <string name="fb_n_injury">%1$s s-a accidentat în meci și va lipsi circa %2$d zile.</string>
+    <string name="fb_n_injury_training">%1$s s-a accidentat la antrenament (circa %2$d zile).</string>
+    <string name="fb_n_suspension">%1$s este suspendat pentru %2$d meci(uri).</string>
+    <string name="fb_n_leader">%1$s sunt noii lideri din %2$s cu %3$d puncte.</string>
+    <string name="fb_n_potm">%1$s (%2$s) este jucătorul lunii.</string>
+    <string name="fb_n_window_open">Perioada de transferuri s-a deschis.</string>
+    <string name="fb_n_window_close">Perioada de transferuri s-a închis.</string>
+    <string name="fb_n_draw">%1$s, %2$s: vei întâlni %3$s.</string>
+    <string name="fb_n_europe_direct">Clubul joacă în %1$s în acest sezon!</string>
+    <string name="fb_n_europe_qual">Clubul intră în preliminariile %1$s.</string>
+    <string name="fb_n_facility">Construcție finalizată: %1$s îmbunătățit.</string>
+    <string name="fb_n_finance">Clubul are datorii (%1$s). Dobânda se plătește în fiecare săptămână – vinde jucători sau redu salariile.</string>
+    <string name="fb_n_retirement">%1$s s-a retras la vârsta de %2$d ani.</string>
+    <string name="fb_n_top_scorer">%1$s este golgheterul din %3$s cu %2$d goluri.</string>
+    <string name="fb_n_player_season">%1$s este jucătorul sezonului în %2$s (medie %3$s).</string>
+    <string name="fb_n_fans_happy">Suporterii sunt încântați de seria de victorii!</string>
+    <string name="fb_n_fans_angry">Trei înfrângeri la rând – suporterii sunt furioși.</string>
+    <string name="fb_n_trophy_us">CAMPIONI! %1$s câștigă %2$s!</string>
+    <string name="fb_n_trophy">%1$s câștigă %2$s.</string>
+    <string name="fb_n_callup">%1$s a fost convocat de %2$s.</string>
+    <string name="fb_n_graduate">%1$s trece din academie în prima echipă.</string>
+    <string name="fb_settings">Setări</string>
+    <string name="fb_currency">Monedă</string>
+    <string name="fb_currency_desc">Sumele sunt afișate în moneda aleasă, cu cursuri fixe (exemplu: 1 mil. euro = %1$s).</string>
+    <string name="fb_career">Carieră</string>
+    <string name="fb_manager_line">Antrenor: %1$s · sezonul %2$s</string>
+    <string name="fb_quit_career">Șterge cariera și ia-o de la capăt</string>
+    <string name="fb_new">NOU</string>
+    <string name="fb_read_mark">Citit</string>
+    <string name="fb_unread_n">Necitite (%1$d)</string>
+    <string name="fb_player_card">Fișa jucătorului</string>
+    <string name="fb_cred_strong">Sursă de încredere</string>
+    <string name="fb_cred_medium">Posibil</string>
+    <string name="fb_cred_weak">Bârfă</string>
+    <string name="fb_rumour_interest">Club interesat: %1$s</string>
+    <string name="fb_rumour_yours">Jucătorul tău</string>
+    <string name="fb_rumour_open">Încă un zvon</string>
+    <string name="fb_rumour_true">S-a confirmat ✓</string>
+    <string name="fb_rumour_elsewhere">A ajuns în schimb la %1$s</string>
+    <string name="fb_au_running">În desfășurare – se încheie %1$s</string>
+    <string name="fb_au_leading">Ai cea mai mare ofertă</string>
+    <string name="fb_au_yours">Licitația ta</string>
+    <string name="fb_au_sold">VÂNDUT la %1$s pentru %2$s</string>
+    <string name="fb_au_unsold">NEVÂNDUT – nicio ofertă nu a atins prețul minim</string>
+    <string name="fb_au_refused">Fără acord – jucătorul nu vrea să vină la %1$s</string>
+    <string name="fb_au_won">Ai câștigat! Convine contractul cu jucătorul</string>
+    <string name="fb_au_bought">Cumpărat ✓</string>
+    <string name="fb_au_bids">%1$d oferte</string>
+</resources>
