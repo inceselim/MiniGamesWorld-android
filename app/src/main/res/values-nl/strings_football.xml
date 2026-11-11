@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fb_monthly">Maandelijks</string>
+    <string name="fb_this_month">Deze maand</string>
+    <string name="fb_last_month">Vorige maand</string>
+    <string name="fb_month_income">Totale inkomsten</string>
+    <string name="fb_month_expense">Totale uitgaven</string>
+    <string name="fb_bank">Bank</string>
+    <string name="fb_bank_loan">Banklening</string>
+    <string name="fb_credit_limit">Kredietlimiet</string>
+    <string name="fb_loan_amount">Bedrag</string>
+    <string name="fb_loan_term">Looptijd</string>
+    <string name="fb_years_short">%1$d jr</string>
+    <string name="fb_interest_rate">Rente</string>
+    <string name="fb_rate_year">%1$s per jaar</string>
+    <string name="fb_weekly_payment">Wekelijkse aflossing</string>
+    <string name="fb_total_repay">Totaal terug te betalen</string>
+    <string name="fb_take_loan">Lening afsluiten</string>
+    <string name="fb_loan_taken_ok">Lening ontvangen: %1$s</string>
+    <string name="fb_loan_left">Resterende schuld</string>
+    <string name="fb_loan_original">Geleend</string>
+    <string name="fb_weeks_left">Resterende weken</string>
+    <string name="fb_repay_loan">Nu aflossen (%1$s)</string>
+    <string name="fb_loan_repaid">Lening afgelost</string>
+    <string name="fb_bank_tip" formatted="false">Aflossingen worden elke maandag betaald. Clubs met een hoge reputatie krijgen lagere rente; die stijgt zolang je saldo negatief is. Vervroegd aflossen kost 1% extra. Maar één lening tegelijk.</string>
+    <string name="fb_deposit">Spaardeposito</string>
+    <string name="fb_deposit_balance">Saldo deposito</string>
+    <string name="fb_deposit_earned">Verdiende rente</string>
+    <string name="fb_weekly_return">Wekelijkse rente</string>
+    <string name="fb_deposit_x">Storten %1$s</string>
+    <string name="fb_withdraw_x">Opnemen %1$s</string>
+    <string name="fb_deposit_tip" formatted="false">Geld op het deposito levert 2% per jaar op, maar kan niet voor transfers of salarissen worden gebruikt tot je het opneemt.</string>
+    <string name="fb_form_w">W</string>
+    <string name="fb_form_d">G</string>
+    <string name="fb_form_l">V</string>
+    <string name="fb_rush_ad">📺 Advertentie bekijken: −%1$d dagen (nog %2$d dagen)</string>
+    <string name="fb_rushed">Bouw %1$s dagen versneld</string>
+    <string name="game_football_manager_name">Clubbaas</string>
+    <string name="game_football_manager_desc">Leid een voetbalclub op jouw manier: elke competitie in Europa, een realistische kalender, Europese bekers en WK\'s, gedetailleerde tactiek, training, jeugdacademie, financiën en een levendige transfermarkt.</string>
+    <string name="fb_tagline">Bouw een dynastie. Elke beslissing is aan jou.</string>
+    <string name="fb_continue_career">Carrière voortzetten</string>
+    <string name="fb_new_career">Nieuwe carrière</string>
+    <string name="fb_new_career_warning">Je huidige carrière wordt verwijderd. Weet je het zeker?</string>
+    <string name="fb_yes">Ja</string>
+    <string name="fb_no">Nee</string>
+    <string name="fb_generating">De voetbalwereld wordt gemaakt…</string>
+    <string name="fb_please_wait">Even geduld…</string>
+    <string name="fb_load_failed">Opslag kon niet worden geladen</string>
+    <string name="fb_choose_country">Land</string>
+    <string name="fb_choose_club">Kies je club</string>
+    <string name="fb_tier_n">Niveau %1$d</string>
+    <string name="fb_league_name">%1$s Divisie %2$d</string>
+    <string name="fb_reputation">Reputatie</string>
+    <string name="fb_balance">Saldo</string>
+    <string name="fb_transfer_budget">Transferbudget</string>
+    <string name="fb_stadium">Stadion</string>
+    <string name="fb_squad_size">Selectiegrootte</string>
+    <string name="fb_best_player">Beste speler</string>
+    <string name="fb_manager_name">Naam manager</string>
+    <string name="fb_start_career">Carrière starten</string>
+    <string name="fb_cancel">Annuleren</string>
+    <string name="fb_close">Sluiten</string>
+    <string name="fb_tab_home">Start</string>
+    <string name="fb_tab_squad">Selectie</string>
+    <string name="fb_tab_tactics">Tactiek</string>
+    <string name="fb_tab_fixtures">Programma</string>
+    <string name="fb_tab_competitions">Standen</string>
+    <string name="fb_tab_transfers">Transfers</string>
+    <string name="fb_tab_club">Club</string>
+    <string name="fb_tab_inbox">Inbox</string>
+    <string name="fb_tab_guide">Gids</string>
+    <string name="fb_continue">Doorgaan</string>
+    <string name="fb_go_to_match">Naar de wedstrijd</string>
+    <string name="fb_next_matches">Volgende wedstrijden</string>
+    <string name="fb_no_matches">Geen wedstrijden gepland</string>
+    <string name="fb_recent_results">Recente uitslagen</string>
+    <string name="fb_latest_news">Laatste nieuws</string>
+    <string name="fb_no_news">Nog geen nieuws</string>
+    <string name="fb_club_summary">Club</string>
+    <string name="fb_weekly_wages">Weeksalarissen</string>
+    <string name="fb_season_income">Inkomsten seizoen</string>
+    <string name="fb_season_expense">Uitgaven seizoen</string>
+    <string name="fb_ad_bonus_title">Investeerdersbonus</string>
+    <string name="fb_ad_bonus_desc">Bekijk een korte video en een investeerder stort %1$s op de clubrekening.</string>
+    <string name="fb_ad_bonus_left">Nog %1$d deze week</string>
+    <string name="fb_ad_bonus_got">%1$s op de clubrekening gestort!</string>
+    <string name="fb_watch_ad">Advertentie bekijken</string>
+    <string name="fb_table_cols">G,W,GL,V,DS,P</string>
+    <string name="fb_vs">tegen</string>
+    <string name="fb_first_leg">Heenwedstrijd: %1$s</string>
+    <string name="fb_play_match">Wedstrijd spelen</string>
+    <string name="fb_quick_result">Snelle uitslag</string>
+    <string name="fb_edit_tactics">Tactiek</string>
+    <string name="fb_squad">Selectie</string>
+    <string name="fb_penalties">Strafschoppen %1$s</string>
+    <string name="fb_match_stats">Wedstrijdstatistieken</string>
+    <string name="fb_possession">Balbezit</string>
+    <string name="fb_shots">Schoten (op doel)</string>
+    <string name="fb_corners">Hoekschoppen</string>
+    <string name="fb_fouls">Overtredingen</string>
+    <string name="fb_cards">Kaarten G/R</string>
+    <string name="fb_player_ratings">Spelerscijfers</string>
+    <string name="fb_season_over">Seizoen %1$s is voorbij</string>
+    <string name="fb_final_position">Eindpositie in de competitie: %1$d</string>
+    <string name="fb_promoted">Gepromoveerd!</string>
+    <string name="fb_relegated">Gedegradeerd</string>
+    <string name="fb_honours_this_season">Kampioenen</string>
+    <string name="fb_new_season">Start %1$s</string>
+    <string name="fb_accept">Accepteren</string>
+    <string name="fb_reject">Afwijzen</string>
+    <string name="fb_accept_counter">%1$s accepteren</string>
+    <string name="fb_withdraw">Intrekken</string>
+    <string name="fb_negotiate_contract">Contract onderhandelen</string>
+    <string name="fb_no_funds">Niet genoeg geld</string>
+    <string name="fb_free">transfervrij</string>
+    <string name="fb_free_agent">Clubloze speler</string>
+    <string name="fb_n_offer_received">%1$s biedt %2$s voor %3$s</string>
+    <string name="fb_n_offer_accepted">%1$s accepteert het bod op %2$s (%3$s)</string>
+    <string name="fb_n_offer_rejected">%1$s wijst het bod op %2$s af</string>
+    <string name="fb_n_offer_counter">%1$s wil %3$s voor %2$s</string>
+    <string name="fb_n_player_refused">%1$s wil niet naar %2$s</string>
+    <string name="fb_n_signed_free">%1$s tekent transfervrij bij %2$s</string>
+    <string name="fb_n_transfer">%1$s gaat van %2$s naar %3$s (%4$s)</string>
+    <string name="fb_n_rumour">Gerucht: %1$s volgt %2$s van %3$s (%4$d%%)</string>
+    <string name="fb_n_contract_expiring">Het contract van %1$s loopt deze zomer af</string>
+    <string name="fb_n_unhappy">%1$s is ontevreden en wil vertrekken</string>
+    <string name="fb_n_auction_bid">%1$s bood %2$s op %3$s</string>
+    <string name="fb_n_auction_sold">Veiling: %1$s verkocht aan %2$s voor %3$s</string>
+    <string name="fb_n_auction_unsold">Veiling: geen koper voor %1$s</string>
+    <string name="fb_n_loan_return">%1$s keert na zijn verhuur terug bij %2$s</string>
+    <string name="fb_n_precontract">%1$s is een voorcontract overeengekomen met %2$s</string>
+    <string name="fb_n_youth">%1$d jeugdspelers zijn uit de academie gekomen</string>
+    <string name="fb_n_released">%1$s heeft de club verlaten</string>
+    <string name="fb_col_name">Naam</string>
+    <string name="fb_col_pos">Pos</string>
+    <string name="fb_col_age">Leeftijd</string>
+    <string name="fb_col_ability">Kwaliteit</string>
+    <string name="fb_col_potential">Potentie</string>
+    <string name="fb_col_condition">Conditie</string>
+    <string name="fb_col_morale">Moraal</string>
+    <string name="fb_col_form">Vorm</string>
+    <string name="fb_col_value">Waarde</string>
+    <string name="fb_col_wage">Salaris</string>
+    <string name="fb_col_contract">Contract</string>
+    <string name="fb_per_week">/wk</string>
+    <string name="fb_release_clause">Afkoopclausule</string>
+    <string name="fb_injured">Geblesseerd</string>
+    <string name="fb_days">%1$d dagen</string>
+    <string name="fb_height_foot">Lengte · voet</string>
+    <string name="fb_foot_right">Rechts</string>
+    <string name="fb_foot_left">Links</string>
+    <string name="fb_foot_both">Beide</string>
+    <string name="fb_caps">Interlands / goals</string>
+    <string name="fb_season_stats">Seizoen</string>
+    <string name="fb_stats_line">%1$d wedstrijden, %2$d goals, %3$d assists, gem. %4$s</string>
+    <string name="fb_positions">Posities</string>
+    <string name="fb_hidden_attributes">Verborgen eigenschappen &amp; echte potentie</string>
+    <string name="fb_hidden_locked">Je staf kan alleen schatten. Bekijk een video om de exacte potentie en verborgen persoonlijkheid te onthullen.</string>
+    <string name="fb_reveal_with_ad">Onthullen (video)</string>
+    <string name="fb_exact_ability">Huidige kwaliteit</string>
+    <string name="fb_exact_potential">Potentiële kwaliteit</string>
+    <string name="fb_g_technical">Technisch</string>
+    <string name="fb_g_mental">Mentaal</string>
+    <string name="fb_g_physical">Fysiek</string>
+    <string name="fb_g_goalkeeping">Keepen</string>
+    <string name="fb_training">Training</string>
+    <string name="fb_individual_focus">Individuele focus</string>
+    <string name="fb_position_training">Nieuwe positie leren</string>
+    <string name="fb_none">Geen</string>
+    <string name="fb_contract_transfer">Contract &amp; transfer</string>
+    <string name="fb_renew_contract">Contract verlengen</string>
+    <string name="fb_list_for_transfer">Transferlijst (%1$s)</string>
+    <string name="fb_unlist">Van de lijst halen (%1$s)</string>
+    <string name="fb_list_for_loan">Aanbieden voor verhuur</string>
+    <string name="fb_unlist_loan">Van de verhuurlijst halen</string>
+    <string name="fb_auction">Veiling (3 dagen)</string>
+    <string name="fb_auction_started">Veiling gestart</string>
+    <string name="fb_release">Speler laten gaan</string>
+    <string name="fb_release_confirm">Vertrek bevestigen (%1$s)</string>
+    <string name="fb_transfer">Transfer</string>
+    <string name="fb_shortlist_add">Op de shortlist zetten</string>
+    <string name="fb_shortlist_remove">Van de shortlist halen</string>
+    <string name="fb_offer_fee">Bod: %1$s</string>
+    <string name="fb_asking_price">Vraagprijs: %1$s</string>
+    <string name="fb_not_interested">De speler heeft geen interesse in je club</string>
+    <string name="fb_make_offer">Bod doen</string>
+    <string name="fb_request_loan" formatted="false">Huren (70% salaris)</string>
+    <string name="fb_offer_sent">Bod verstuurd. Antwoord morgen.</string>
+    <string name="fb_err_window">De transferperiode is gesloten</string>
+    <string name="fb_err_duplicate">Je hebt al een bod op deze speler</string>
+    <string name="fb_err_on_loan">De speler is verhuurd</string>
+    <string name="fb_err_generic">Nu niet mogelijk</string>
+    <string name="fb_t_attacking">Aanvallen</string>
+    <string name="fb_t_defending">Verdedigen</string>
+    <string name="fb_t_technical">Techniek</string>
+    <string name="fb_t_tactical">Tactiek</string>
+    <string name="fb_t_physical">Fysiek</string>
+    <string name="fb_t_mental">Mentaal</string>
+    <string name="fb_t_set_pieces">Standaardsituaties</string>
+    <string name="fb_t_goalkeeping">Keepen</string>
+    <string name="fb_contract_talks">Contractbesprekingen: %1$s</string>
+    <string name="fb_fee_agreed">Transfersom overeengekomen: %1$s</string>
+    <string name="fb_wage_demand">Salariseis</string>
+    <string name="fb_years_wanted">Gewenste contractduur</string>
+    <string name="fb_signing_fee">Tekengeld</string>
+    <string name="fb_offered_wage">Jouw salarisbod: %1$s/wk</string>
+    <string name="fb_contract_years">Jaren</string>
+    <string name="fb_propose">Voorstellen</string>
+    <string name="fb_reply_accept">Akkoord! Het contract is getekend.</string>
+    <string name="fb_reply_wage_low">Het salaris is te laag.</string>
+    <string name="fb_reply_years">Hij wil een andere contractduur.</string>
+    <string name="fb_reply_not_interested">Hij heeft geen interesse.</string>
+    <string name="fb_reply_walked">Hij is weggelopen uit de onderhandelingen.</string>
+    <string name="fb_soon">Komt in de volgende update</string>
+    <string name="fb_c_league">Competitie</string>
+    <string name="fb_c_playoff">Play-offs</string>
+    <string name="fb_c_playoff_of">Play-offs %1$s</string>
+    <string name="fb_c_cup">Beker</string>
+    <string name="fb_c_super_cup">Supercup</string>
+    <string name="fb_c_champions">Kampioensbeker</string>
+    <string name="fb_c_europa">Europa Beker</string>
+    <string name="fb_c_conference">Conference Beker</string>
+    <string name="fb_c_uefa_super">Europese Supercup</string>
+    <string name="fb_c_friendly">Oefenwedstrijd</string>
+    <string name="fb_c_nations">Nations League</string>
+    <string name="fb_c_qualifiers">Kwalificatie</string>
+    <string name="fb_c_world_cup">Wereldkampioenschap</string>
+    <string name="fb_c_euro">Europees kampioenschap</string>
+    <string name="fb_c_nat_friendly">Interland (oefen)</string>
+    <string name="fb_s_league">Competitie</string>
+    <string name="fb_s_groups">Groepsfase</string>
+    <string name="fb_s_league_phase">Competitiefase</string>
+    <string name="fb_s_q1">1e voorronde</string>
+    <string name="fb_s_q2">2e voorronde</string>
+    <string name="fb_s_q3">3e voorronde</string>
+    <string name="fb_s_qpo">Play-off kwalificatie</string>
+    <string name="fb_s_kpo">Tussenronde</string>
+    <string name="fb_s_r128">Laatste 128</string>
+    <string name="fb_s_r64">Laatste 64</string>
+    <string name="fb_s_r32">Laatste 32</string>
+    <string name="fb_s_r16">Achtste finale</string>
+    <string name="fb_s_qf">Kwartfinale</string>
+    <string name="fb_s_sf">Halve finale</string>
+    <string name="fb_s_final">Finale</string>
+    <string name="fb_s_prelim">Voorronde</string>
+    <string name="fb_s_match">Wedstrijd</string>
+    <string name="fb_a_corners">Hoekschoppen</string>
+    <string name="fb_a_crossing">Voorzetten</string>
+    <string name="fb_a_dribbling">Dribbelen</string>
+    <string name="fb_a_finishing">Afwerken</string>
+    <string name="fb_a_first_touch">Eerste aanname</string>
+    <string name="fb_a_free_kick">Vrije trappen</string>
+    <string name="fb_a_heading">Koppen</string>
+    <string name="fb_a_long_shots">Afstandsschoten</string>
+    <string name="fb_a_marking">Dekken</string>
+    <string name="fb_a_passing">Passen</string>
+    <string name="fb_a_penalty">Strafschoppen</string>
+    <string name="fb_a_tackling">Tackelen</string>
+    <string name="fb_a_technique">Techniek</string>
+    <string name="fb_a_aggression">Agressie</string>
+    <string name="fb_a_anticipation">Anticipatie</string>
+    <string name="fb_a_bravery">Moed</string>
+    <string name="fb_a_composure">Kalmte</string>
+    <string name="fb_a_concentration">Concentratie</string>
+    <string name="fb_a_decisions">Beslissingen</string>
+    <string name="fb_a_determination">Vastberadenheid</string>
+    <string name="fb_a_flair">Flair</string>
+    <string name="fb_a_leadership">Leiderschap</string>
+    <string name="fb_a_off_the_ball">Loopacties</string>
+    <string name="fb_a_positioning">Positiespel</string>
+    <string name="fb_a_teamwork">Teamspel</string>
+    <string name="fb_a_vision">Spelinzicht</string>
+    <string name="fb_a_work_rate">Werklust</string>
+    <string name="fb_a_acceleration">Acceleratie</string>
+    <string name="fb_a_agility">Wendbaarheid</string>
+    <string name="fb_a_balance">Balans</string>
+    <string name="fb_a_jumping">Sprongkracht</string>
+    <string name="fb_a_natural_fitness">Natuurlijke fitheid</string>
+    <string name="fb_a_pace">Snelheid</string>
+    <string name="fb_a_stamina">Uithoudingsvermogen</string>
+    <string name="fb_a_strength">Kracht</string>
+    <string name="fb_a_aerial_reach">Bereik in de lucht</string>
+    <string name="fb_a_command_of_area">Beheersing strafschopgebied</string>
+    <string name="fb_a_handling">Vangen</string>
+    <string name="fb_a_kicking">Uittrappen</string>
+    <string name="fb_a_one_on_ones">Een-tegen-een</string>
+    <string name="fb_a_reflexes">Reflexen</string>
+    <string name="fb_h_consistency">Constantheid</string>
+    <string name="fb_h_important_matches">Belangrijke wedstrijden</string>
+    <string name="fb_h_injury_proneness">Blessuregevoeligheid</string>
+    <string name="fb_h_professionalism">Professionaliteit</string>
+    <string name="fb_h_ambition">Ambitie</string>
+    <string name="fb_h_loyalty">Loyaliteit</string>
+    <string name="fb_h_adaptability">Aanpassingsvermogen</string>
+    <string name="fb_h_pressure">Druk</string>
+    <string name="fb_h_versatility">Veelzijdigheid</string>
+    <string name="fb_all">Alle</string>
+    <string name="fb_cups">Bekers</string>
+    <string name="fb_europe">Europa</string>
+    <string name="fb_national_teams">Nationale teams</string>
+    <string name="fb_no_competitions">Geen competities</string>
+    <string name="fb_not_started">Nog niet begonnen</string>
+    <string name="fb_winner">Winnaar: %1$s</string>
+    <string name="fb_group_n">Groep %1$s</string>
+    <string name="fb_byes">%1$d teams kregen een vrije doorgang</string>
+    <string name="fb_top_scorers">Topscorers</string>
+    <string name="fb_lineup">Opstelling</string>
+    <string name="fb_instructions">Instructies</string>
+    <string name="fb_team_training">Training</string>
+    <string name="fb_auto_pick">Automatisch kiezen</string>
+    <string name="fb_best_formation">Beste formatie</string>
+    <string name="fb_team_strength">Teamsterkte</string>
+    <string name="fb_pick_for">Kies een speler voor %1$s</string>
+    <string name="fb_tap_position">Tik op een positie op het veld</string>
+    <string name="fb_starting">Basis</string>
+    <string name="fb_bench">Bank</string>
+    <string name="fb_suspended">Geschorst</string>
+    <string name="fb_on">Aan</string>
+    <string name="fb_off">Uit</string>
+    <string name="fb_open_guide">Tactiekgids openen</string>
+    <string name="fb_tac_mentality">Mentaliteit</string>
+    <string name="fb_tac_passing">Passpel</string>
+    <string name="fb_tac_tempo">Tempo</string>
+    <string name="fb_tac_width">Breedte</string>
+    <string name="fb_tac_focus">Aanvalsfocus</string>
+    <string name="fb_tac_pressing">Druk zetten</string>
+    <string name="fb_tac_defline">Verdedigingslinie</string>
+    <string name="fb_tac_marking">Dekking</string>
+    <string name="fb_tac_counter">Counteraanval</string>
+    <string name="fb_tac_offside">Buitenspelval</string>
+    <string name="fb_tac_time_wasting">Tijdrekken</string>
+    <string name="fb_tac_hard_tackling">Harde tackles</string>
+    <string name="fb_o_very_defensive">Zeer verdedigend</string>
+    <string name="fb_o_defensive">Verdedigend</string>
+    <string name="fb_o_balanced">Gebalanceerd</string>
+    <string name="fb_o_attacking">Aanvallend</string>
+    <string name="fb_o_very_attacking">Zeer aanvallend</string>
+    <string name="fb_o_short">Kort</string>
+    <string name="fb_o_mixed">Gemengd</string>
+    <string name="fb_o_direct">Direct</string>
+    <string name="fb_o_slow">Langzaam</string>
+    <string name="fb_o_normal">Normaal</string>
+    <string name="fb_o_fast">Snel</string>
+    <string name="fb_o_narrow">Smal</string>
+    <string name="fb_o_wide">Breed</string>
+    <string name="fb_o_center">Door het midden</string>
+    <string name="fb_o_flanks">Over de flanken</string>
+    <string name="fb_o_low">Laag</string>
+    <string name="fb_o_medium">Gemiddeld</string>
+    <string name="fb_o_high">Hoog</string>
+    <string name="fb_o_deep">Diep</string>
+    <string name="fb_o_zonal">Zonedekking</string>
+    <string name="fb_o_man">Mandekking</string>
+    <string name="fb_o_light">Licht</string>
+    <string name="fb_o_intense">Intensief</string>
+    <string name="fb_tip_mentality">Aanvallender = meer schoten en goals, maar meer ruimte achter je verdediging.</string>
+    <string name="fb_tip_passing">Kort houdt de bal en is veiliger; direct komt sneller in de zestien met meer risico.</string>
+    <string name="fb_tip_tempo">Een hoog tempo creëert sneller kansen, maar geeft meer fouten en vermoeidheid.</string>
+    <string name="fb_tip_width">Breed spel geeft meer voorzetten; smal spel maakt het midden vol.</string>
+    <string name="fb_tip_focus">Midden = steekballen (spelinzicht, passen); flanken = voorzetten (voorzetten, koppen).</string>
+    <string name="fb_tip_pressing">Hoge druk wint de bal hoger op het veld, maar vermoeit je spelers.</string>
+    <string name="fb_tip_defline">Een hoge linie knijpt het middenveld samen, maar is kwetsbaar voor ballen in de rug.</string>
+    <string name="fb_tip_marking">Mandekking zet spitsen vast; slimme lopers kunnen eraan ontsnappen.</string>
+    <string name="fb_tip_counter">Schakel snel om na balverovering op eigen helft.</string>
+    <string name="fb_tip_offside">Zet lopers vaker buitenspel; vraagt goed ingespeelde verdedigers.</string>
+    <string name="fb_tip_time_wasting">Bij een voorsprong na het eerste uur haalt het team het tempo eruit.</string>
+    <string name="fb_tip_hard_tackling">Wint meer duels, maar geeft meer overtredingen, kaarten en strafschoppen.</string>
+    <string name="fb_training_focus">Trainingsfocus</string>
+    <string name="fb_training_intensity">Intensiteit</string>
+    <string name="fb_coaching_quality">Kwaliteit trainers</string>
+    <string name="fb_f_training">Trainingsfaciliteiten</string>
+    <string name="fb_f_youth">Jeugdfaciliteiten</string>
+    <string name="fb_youth_coaching">Jeugdtraining</string>
+    <string name="fb_physio">Fysiotherapie</string>
+    <string name="fb_tip_training_focus" formatted="false">De eigenschappen van het gekozen gebied verbeteren voor de hele selectie zo\'n 50% sneller.</string>
+    <string name="fb_tip_intensity" formatted="false">Licht: tragere ontwikkeling, minder blessures, frissere benen. Intensief: +15% ontwikkeling, bijna twee keer zoveel trainingsblessures, lagere wedstrijdfitheid.</string>
+    <string name="fb_tip_coaches">Betere trainers en faciliteiten versnellen de ontwikkeling. Neem trainers aan in het onderdeel Club.</string>
+    <string name="fb_gt_basics">Aan de slag</string>
+    <string name="fb_gt_formations">Formaties &amp; opstelling</string>
+    <string name="fb_gt_training">Training &amp; ontwikkeling</string>
+    <string name="fb_gt_coaches">Trainers &amp; staf</string>
+    <string name="fb_gt_morale">Moraal &amp; vorm</string>
+    <string name="fb_gt_youth">Jeugdacademie</string>
+    <string name="fb_gt_finance">Financiën</string>
+    <string name="fb_gt_transfers">Transfers</string>
+    <string name="fb_gt_contracts">Contracten</string>
+    <string name="fb_gt_competitions">Competities</string>
+    <string name="fb_gt_hidden">Verborgen eigenschappen &amp; potentie</string>
+    <string name="fb_gb_basics">Jij bent de baas van de club: je kiest het team en de tactiek, koopt en verkoopt spelers, bepaalt de training, bouwt faciliteiten en beheert het geld.
+
+Druk op Doorgaan om door de kalender te gaan. Het spel stopt op je wedstrijddagen en wanneer iets je aandacht nodig heeft (biedingen, contractnieuws, nieuwe jeugdspelers).
+
+Op de wedstrijddag kun je de wedstrijd spelen of een snelle uitslag krijgen. Alles wordt automatisch opgeslagen.</string>
+    <string name="fb_gb_mentality" formatted="false">De mentaliteit bepaalt hoeveel risico je team neemt.
+
+• Zeer verdedigend / verdedigend: minder spelers sluiten aan bij aanvallen, minder schoten voor beide ploegen. Goed om een voorsprong vast te houden of tegen een veel sterkere ploeg.
+• Gebalanceerd: de standaard.
+• Aanvallend / zeer aanvallend: meer schoten en goals, maar de tegenstander vindt meer ruimte. In onze tests scoorde een sterk team zo\'n 18% meer, maar kreeg het er ook meer tegen.
+
+Combineer een verdedigende mentaliteit met counteraanvallen om tegenstanders die naar voren komen af te straffen.</string>
+    <string name="fb_gb_passing" formatted="false">• Kort: veel veilige passes, veel balbezit (zo\'n 60%+), minder maar zuiverdere aanvallen. Vraagt goed passen en een goede eerste aanname.
+• Gemengd: gebalanceerd.
+• Direct: lange ballen naar de aanvallers. Het balbezit zakt naar zo\'n 40%, de bal komt sneller in de zestien, wedstrijden worden opener. Werkt met lange, sterke spitsen en goede lange passers.</string>
+    <string name="fb_gb_tempo">Een hoog tempo brengt de bal snel rond: meer kansen en schoten, maar meer misplaatste passes en meer vermoeidheid.
+
+Een laag tempo houdt de bal en controleert de wedstrijd; past bij kort passpel en het vasthouden van een voorsprong.</string>
+    <string name="fb_gb_width">Breed: je buitenspelers blijven langs de zijlijn, wat meer voorzetten oplevert. Vraagt goede voorzetters en sterke koppers in de zestien.
+
+Smal: het team speelt door het midden en blijft compact; goed met een spelmaker en steekballen.</string>
+    <string name="fb_gb_focus">Door het midden: meer steekballen. Het succes hangt af van het spelinzicht en passen van je spelmakers tegenover de dekking van de verdedigers, en van de snelheid van je aanvallers. Een een-tegen-een is de beste kans in het voetbal.
+
+Over de flanken: meer voorzetten. Een voorzet wordt een kopkans als je targetspits het luchtduel van de centrale verdediger wint.</string>
+    <string name="fb_gb_pressing">Hoge druk jaagt op de bal op de helft van de tegenstander. Het werkt het best tegen spelers met weinig kalmte en wint de bal dicht bij het doel, maar spelers verliezen tijdens de wedstrijd sneller conditie.
+
+Lage druk spaart energie en houdt de vorm; de tegenstander heeft tijd aan de bal op eigen helft.</string>
+    <string name="fb_gb_defline">Hoge linie: verdedigers schuiven op, het middenveld wordt smal en moeilijk te bespelen. Maar ballen over de verdediging en steekballen op snelle aanvallers worden gevaarlijk – in tests kreeg een hoge linie tegen snelle spitsen meer dan twee keer zoveel goals tegen.
+
+Diepe linie: de zestien is beschermd, steekballen lukken zelden, maar de tegenstander controleert het spel. Ideaal met counteraanvallen.</string>
+    <string name="fb_gb_marking">Zonedekking: elke speler bewaakt een gebied. Veilige standaard.
+
+Mandekking: je verdedigers volgen hun directe tegenstander. Geweldig als je verdedigers goed dekken; maar aanvallers met uitstekende loopacties kunnen nog steeds ontsnappen.</string>
+    <string name="fb_gb_counter">Wanneer de bal op eigen helft wordt veroverd, schakelt het team snel om met minder passes en meer steekballen.
+
+Dodelijk tegen tegenstanders die met veel spelers aanvallen of een hoge linie spelen (in tests: meer dan 3 goals per wedstrijd tegen een zeer aanvallende ploeg). De prijs: minder spelers doen mee aan gewone aanvallen.</string>
+    <string name="fb_gb_offside">Je verdediging stapt samen uit om aanvallers buitenspel te zetten. Verdedigers met goed teamspel laten dit veel vaker slagen. Als het misgaat, staat de aanvaller alleen voor de keeper.</string>
+    <string name="fb_gb_time_wasting">Als je na de 60e minuut voorstaat, doen je spelers alles langzamer: meer terugspeelballen, langere onderbrekingen. De scheidsrechter kan daar gele kaarten voor geven.</string>
+    <string name="fb_gb_hard_tackling">Tackles worden harder: je spelers winnen meer duels, maar maken meer overtredingen, krijgen meer kaarten en veroorzaken meer strafschoppen. Tegenstanders raken vaker geblesseerd.</string>
+    <string name="fb_gb_formations">Kies een formatie die bij je beste spelers past. Tik op een positie op het veld en daarna op een speler uit de lijst om hem daar te zetten (spelers die al in de basis staan wisselen van plek).
+
+Het getal onder elke speler is zijn waardering op die positie; een rode ring betekent dat hij de positie niet kent. Spelers kunnen op de training nieuwe posities leren.
+
+Automatisch kiezen laat de assistent beslissen; Beste formatie kiest de opstelling met de hoogste totale waardering. Geblesseerde en geschorste spelers worden automatisch vervangen.</string>
+    <string name="fb_gb_training">Spelers groeien elke week richting hun potentie. Het tempo hangt af van:
+• Leeftijd: het snelst tussen 16 en 21, trager na 24, stopt rond 29.
+• Het verschil tussen huidige kwaliteit en potentie.
+• Trainers en trainingsfaciliteiten (jeugdtrainer en jeugdfaciliteiten voor onder-19).
+• Persoonlijkheid: professionaliteit en vastberadenheid.
+• Speeltijd (heel belangrijk onder 23) en moraal.
+• Intensiteit: licht, normaal of intensief.
+
+Teamfocus versnelt één gebied voor iedereen; individuele focus versnelt een gebied flink voor één speler. Na 30 (keepers 32) gaan spelers achteruit, eerst fysiek, terwijl beslissingen en positiespel nog kunnen verbeteren.</string>
+    <string name="fb_gb_coaches">• Trainers: elk trainingsgebied gebruikt de bijbehorende trainerseigenschap (aanvallen, verdedigen, techniek, tactiek, mentaal, fitheid, keepen). Zo\'n vijf trainers dekken alle gebieden; met minder daalt de kwaliteit.
+• Jeugdtrainer: ontwikkelt de onder-19 en verbetert de jaarlijkse jeugdlichting.
+• Fysiotherapeut: verkort blessures en vermindert trainingsblessures.
+• Conditietrainer: remt de achteruitgang van oudere spelers.
+• Assistent: mensenmanagement verhoogt het moraal; beoordeelt de potentie van je eigen spelers.
+• Scouts: hoe beter ze zijn, hoe nauwkeuriger de schattingen van kwaliteit en potentie van spelers van andere clubs.</string>
+    <string name="fb_gb_morale">Het moraal verandert elke week. Het stijgt door goede resultaten, genoeg speeltijd voor de status van de speler (sleutelspelers verwachten de meeste wedstrijden te starten), een eerlijk salaris, goede sociale faciliteiten en een goede assistent. Zeer ontevreden ambitieuze spelers vragen om te vertrekken.
+
+Vorm is het gemiddelde van de recente wedstrijdcijfers. Moraal en vorm veranderen de sterkte van een speler op de wedstrijddag en zijn ontwikkeling een beetje.</string>
+    <string name="fb_gb_youth">Elk jaar op 15 maart komen er 2–8 jongeren (15–16 jaar) bij je academie. Jeugdscouting bepaalt hoeveel en hoe goed, jeugdfaciliteiten en de jeugdtrainer voegen kwaliteit toe, en het voetbalniveau van je land telt ook mee. Af en toe verschijnt er een gouden talent.
+
+Geef jonge spelers minuten en goede training: de ontwikkeling is het snelst vóór 21.</string>
+    <string name="fb_gb_finance" formatted="false">Inkomsten: kaartverkoop (thuiswedstrijden; een hogere prijs levert meer per fan op maar vult minder stoelen), tv-geld (de helft gelijk verdeeld, de helft naar eindklassering), merchandise (groeit met reputatie en sterren), shirtsponsor, stadionreclame, prijzengeld (bekers en vooral Europese toernooien) en spelersverkopen.
+
+Uitgaven: salarissen van spelers en staf, onderhoud van faciliteiten, jeugdacademie, wedstrijdkosten, transfers en bouwwerk. Een negatief saldo kost 0,12% rente per week.
+
+Investeerdersbonus: bekijk een video om geld aan de club toe te voegen, 3 keer per week.
+
+Bank (Club › Bank): sluit één lening tegelijk af voor 1–3 jaar. De kredietlimiet groeit met je inkomsten en reputatie; clubs met een hoge reputatie betalen minder rente, en die is hoger zolang je saldo negatief is. De aflossing gaat elke maandag en vervroegd aflossen kost 1% extra. Een spaardeposito levert 2% per jaar op, maar het geld erop kan niet worden uitgegeven tot je het opneemt. De pagina Financiën toont de totale inkomsten en uitgaven van deze en vorige maand.</string>
+    <string name="fb_gb_transfers">Transferperiodes: 1 juli – 1 september en januari. Clubloze spelers kun je altijd vastleggen.
+
+De prijs van de verkopende club hangt af van hoe belangrijk de speler voor hen is, zijn leeftijd en potentie, de duur van zijn contract (goedkoop in het laatste jaar), of hij op de transferlijst staat en de financiën van de verkoper. Een afkoopclausule kan niet worden geweigerd.
+
+Na overeenstemming over de transfersom onderhandel je met de speler over salaris en jaren – te laag en hij loopt na drie pogingen weg. Verhuur: je betaalt een deel van het salaris en de speler keert aan het eind van het seizoen terug.
+
+Je kunt eigen spelers op de transferlijst zetten, aanbieden voor verhuur of een veiling van 3 dagen starten waarbij clubs tegen elkaar opbieden. Zet interessante spelers op je shortlist en volg de geruchten.</string>
+    <string name="fb_gb_contracts" formatted="false">Verleng de contracten van belangrijke spelers op tijd. Op 1 januari word je gewaarschuwd voor contracten die dit seizoen aflopen; vanaf half januari kunnen andere clubs ze een voorcontract geven en vertrekken ze in de zomer transfervrij.
+
+Spelers vragen opslag als ze beter worden. Een speler laten gaan kost 60% van zijn resterende salaris.</string>
+    <string name="fb_gb_competitions">Elk Europees land heeft zijn competities met promotie en degradatie (sommige tweede niveaus hebben play-offs), een nationale beker en een supercup.
+
+Europese plaatsen hangen af van je eindklassering en de landenranking, die elk seizoen verandert door Europese resultaten: Kampioensbeker, Europa Beker en Conference Beker hebben elk voorrondes, een competitiefase met 36 teams en knock-outrondes.
+
+Nationale teams spelen de Nations League, kwalificatiewedstrijden, het Europees kampioenschap en het wereldkampioenschap.</string>
+    <string name="fb_gb_hidden">Kwaliteit en potentie worden getoond als sterren die je staf schat, dus ze kunnen fout zijn – vooral met zwakke scouts.
+
+Bekijk een korte video op de spelerskaart om zijn exacte huidige kwaliteit, exacte potentie en verborgen persoonlijkheid te onthullen: constantheid, gedrag in grote wedstrijden, blessuregevoeligheid, professionaliteit, ambitie, loyaliteit, aanpassingsvermogen, omgaan met druk en veelzijdigheid. De speler blijft voorgoed onthuld (groene sterren).</string>
+    <string name="fb_search">Zoeken</string>
+    <string name="fb_shortlist">Shortlist</string>
+    <string name="fb_scout_reports">Scoutingrapporten</string>
+    <string name="fb_offers">Biedingen</string>
+    <string name="fb_auctions">Veilingen</string>
+    <string name="fb_history">Geschiedenis &amp; geruchten</string>
+    <string name="fb_window_open">Transferperiode open</string>
+    <string name="fb_window_closed">Transferperiode gesloten</string>
+    <string name="fb_line_gk">Keepers</string>
+    <string name="fb_line_def">Verdedigers</string>
+    <string name="fb_line_mid">Middenvelders</string>
+    <string name="fb_line_att">Aanvallers</string>
+    <string name="fb_any_age">Elke leeftijd</string>
+    <string name="fb_age_young">≤ 21</string>
+    <string name="fb_age_prime">22–29</string>
+    <string name="fb_any_value">Elke waarde</string>
+    <string name="fb_listed_only">Alleen op de lijst</string>
+    <string name="fb_free_agents">Transfervrije spelers</string>
+    <string name="fb_player_name">Naam speler</string>
+    <string name="fb_no_results">Geen spelers gevonden</string>
+    <string name="fb_loan">Huur</string>
+    <string name="fb_scout_desc">Je scouts stellen spelers voor die je zwakste posities versterken, binnen je budget passen en graag willen komen.</string>
+    <string name="fb_get_reports">Rapporten opvragen</string>
+    <string name="fb_no_offers">Geen biedingen dit seizoen</string>
+    <string name="fb_incoming">Inkomend</string>
+    <string name="fb_outgoing">Uitgaand</string>
+    <string name="fb_os_waiting_you">Wacht op jouw antwoord</string>
+    <string name="fb_os_pending">Wacht op antwoord van de club</string>
+    <string name="fb_os_counter">Tegenbod: %1$s</string>
+    <string name="fb_os_agreed">Transfersom akkoord – onderhandel over het contract</string>
+    <string name="fb_os_agreed_in">Geaccepteerd – de koper praat met de speler</string>
+    <string name="fb_os_completed">Afgerond</string>
+    <string name="fb_os_rejected">Afgewezen</string>
+    <string name="fb_os_withdrawn">Ingetrokken</string>
+    <string name="fb_os_refused">Speler weigerde</string>
+    <string name="fb_os_expired">Verlopen</string>
+    <string name="fb_counter_x">Vraag %1$s</string>
+    <string name="fb_offer_x">Bied %1$s</string>
+    <string name="fb_auction_desc">Clubs overbieden elkaar tot de veiling afloopt. Zet je eigen spelers in de veiling via hun spelerskaart.</string>
+    <string name="fb_no_auctions">Geen lopende veilingen</string>
+    <string name="fb_reserve">Minimumprijs %1$s</string>
+    <string name="fb_ended">afgelopen</string>
+    <string name="fb_ends">eindigt %1$s</string>
+    <string name="fb_bid_x">Bied %1$s</string>
+    <string name="fb_latest_transfers">Laatste transfers</string>
+    <string name="fb_rumours">Geruchten</string>
+    <string name="fb_finance">Financiën</string>
+    <string name="fb_facilities">Faciliteiten</string>
+    <string name="fb_staff">Staf</string>
+    <string name="fb_sponsor_tickets">Sponsor en kaartjes</string>
+    <string name="fb_friendlies">Oefenwedstrijden</string>
+    <string name="fb_editor">Editor</string>
+    <string name="fb_this_season">Dit seizoen</string>
+    <string name="fb_last_season">Vorig seizoen</string>
+    <string name="fb_income">Inkomsten</string>
+    <string name="fb_expenses">Uitgaven</string>
+    <string name="fb_net">Netto</string>
+    <string name="fb_fin_tickets">Kaartverkoop</string>
+    <string name="fb_fin_tv">Tv-rechten</string>
+    <string name="fb_fin_merch">Merchandise</string>
+    <string name="fb_fin_sponsor">Sponsoring</string>
+    <string name="fb_fin_ads">Stadionreclame</string>
+    <string name="fb_fin_prize">Prijzengeld</string>
+    <string name="fb_fin_transfer_in">Spelersverkopen</string>
+    <string name="fb_fin_other_in">Investeerders en overig</string>
+    <string name="fb_fin_wages">Spelerssalarissen</string>
+    <string name="fb_fin_staff_wages">Salarissen staf</string>
+    <string name="fb_fin_facilities">Onderhoud faciliteiten</string>
+    <string name="fb_fin_youth">Jeugdopleiding</string>
+    <string name="fb_fin_matchday">Kosten wedstrijddag</string>
+    <string name="fb_fin_transfer_out">Spelersaankopen</string>
+    <string name="fb_fin_upgrades">Bouwprojecten</string>
+    <string name="fb_fin_interest">Rente</string>
+    <string name="fb_fin_other_out">Afkopen en overig</string>
+    <string name="fb_balance_history">Saldo (afgelopen weken)</string>
+    <string name="fb_staff_wages_week">Salarissen staf per week</string>
+    <string name="fb_fan_base">Supporters</string>
+    <string name="fb_f_recruitment">Jeugdscouting</string>
+    <string name="fb_f_stadium">Stadionkwaliteit</string>
+    <string name="fb_f_social">Sociale voorzieningen</string>
+    <string name="fb_f_capacity">Stadioncapaciteit</string>
+    <string name="fb_fd_training">Snellere ontwikkeling voor alle spelers.</string>
+    <string name="fb_fd_youth">Betere ontwikkeling voor onder-19 en betere jeugdlichtingen.</string>
+    <string name="fb_fd_recruitment">Meer en betere jeugdspelers elke maart.</string>
+    <string name="fb_fd_stadium">Er komen meer supporters en ze accepteren hogere prijzen.</string>
+    <string name="fb_fd_social">Hoger moreel en meer merchandiseverkoop.</string>
+    <string name="fb_fd_capacity" formatted="false">+10% plaatsen voor hogere wedstrijdinkomsten.</string>
+    <string name="fb_seats">%1$d plaatsen</string>
+    <string name="fb_upgrade_x">Bouw %1$s · %2$d dagen</string>
+    <string name="fb_upgrade_started">Bouw gestart</string>
+    <string name="fb_under_construction">In aanbouw: %1$s (klaar %2$s)</string>
+    <string name="fb_your_staff">Jouw staf (%1$d)</string>
+    <string name="fb_staff_market">Beschikbare staf</string>
+    <string name="fb_fire">Ontslaan</string>
+    <string name="fb_fire_confirm">Ontslaan (%1$s)</string>
+    <string name="fb_hire">Aannemen</string>
+    <string name="fb_hired">Aangenomen!</string>
+    <string name="fb_staff_full">Je staf is vol (16)</string>
+    <string name="fb_staff_reject">Heeft geen interesse in je club</string>
+    <string name="fb_r_assistant">Assistent-trainer</string>
+    <string name="fb_r_coach">Trainer</string>
+    <string name="fb_r_gk_coach">Keeperstrainer</string>
+    <string name="fb_r_fitness">Conditietrainer</string>
+    <string name="fb_r_scout">Scout</string>
+    <string name="fb_r_physio">Fysiotherapeut</string>
+    <string name="fb_r_youth">Jeugdtrainer</string>
+    <string name="fb_sa_attack">Aanval</string>
+    <string name="fb_sa_defence">Verdediging</string>
+    <string name="fb_sa_technical">Techniek</string>
+    <string name="fb_sa_tactical">Tactiek</string>
+    <string name="fb_sa_mental">Mentaal</string>
+    <string name="fb_sa_fitness">Conditie</string>
+    <string name="fb_sa_gk">Keepers</string>
+    <string name="fb_sa_youth">Werken met jeugd</string>
+    <string name="fb_sa_judge_ability">Kwaliteit inschatten</string>
+    <string name="fb_sa_judge_potential">Potentie inschatten</string>
+    <string name="fb_sa_physio">Fysiotherapie</string>
+    <string name="fb_sa_motivating">Motiveren</string>
+    <string name="fb_sa_discipline">Discipline</string>
+    <string name="fb_sa_man_management">Mensenmanagement</string>
+    <string name="fb_shirt_sponsor">Shirtsponsor</string>
+    <string name="fb_current_sponsor">Sponsor</string>
+    <string name="fb_per_year">Per jaar</string>
+    <string name="fb_until">Tot</string>
+    <string name="fb_sponsor_offers">Nieuwe aanbiedingen</string>
+    <string name="fb_sponsor_line">%1$s per jaar · %2$d jaar</string>
+    <string name="fb_sign">Tekenen</string>
+    <string name="fb_sponsor_locked">Je kunt een nieuwe sponsor tekenen als de huidige deal afloopt.</string>
+    <string name="fb_ticket_prices">Kaartprijzen</string>
+    <string name="fb_tp_very_low">Zeer laag</string>
+    <string name="fb_tp_low">Laag</string>
+    <string name="fb_tp_high">Hoog</string>
+    <string name="fb_tp_very_high">Zeer hoog</string>
+    <string name="fb_ticket_price">Gemiddeld kaartje</string>
+    <string name="fb_expected_attendance">Verwachte opkomst</string>
+    <string name="fb_matchday_income">Inkomsten per thuiswedstrijd</string>
+    <string name="fb_tip_tickets" formatted="false">Elke stap omhoog verhoogt de prijs met 25%, maar schrikt ongeveer 18% van de supporters af. Zit het stadion toch al vol, dan leveren hogere prijzen meer op.</string>
+    <string name="fb_choose_opponent">Tegenstander</string>
+    <string name="fb_choose_date">Datum</string>
+    <string name="fb_friendly_desc">Oefenwedstrijden houden je spelers fit en leveren thuis wat inkomsten op. Grote clubs kunnen weigeren.</string>
+    <string name="fb_arrange">Plannen</string>
+    <string name="fb_friendly_ok">Oefenwedstrijd gepland</string>
+    <string name="fb_friendly_declined">De club weigerde</string>
+    <string name="fb_friendly_busy">De tegenstander speelt rond die datum al</string>
+    <string name="fb_edit_club">Club bewerken</string>
+    <string name="fb_club_name">Clubnaam</string>
+    <string name="fb_short_name">Afkorting</string>
+    <string name="fb_color_main">Hoofdkleur</string>
+    <string name="fb_color_second">Tweede kleur</string>
+    <string name="fb_save">Opslaan</string>
+    <string name="fb_saved">Opgeslagen</string>
+    <string name="fb_edit_players">Spelersnamen (tik om te bewerken)</string>
+    <string name="fb_back_to_match">Terug naar de wedstrijd</string>
+    <string name="fb_choose_sub">Kies wie erin komt</string>
+    <string name="fb_on_pitch">Op het veld (tik om te wisselen)</string>
+    <string name="fb_subs_left">Wissels over: %1$d</string>
+    <string name="fb_tactics_subs">Tactiek en wissels</string>
+    <string name="fb_pause">Pauze</string>
+    <string name="fb_resume">Hervatten</string>
+    <string name="fb_skip_to_end">Naar het einde</string>
+    <string name="fb_finish_match">Afronden</string>
+    <string name="fb_full_time">Eindstand</string>
+    <string name="fb_goal_flash">GOAL!</string>
+    <string name="fb_shots_short">Schoten</string>
+    <string name="fb_ev_goal_1">GOAL! %1$s scoort voor %2$s!</string>
+    <string name="fb_ev_goal_2">GOAL! Wat een afronding van %1$s! (%2$s)</string>
+    <string name="fb_ev_goal_3">GOAL! %1$s faalt niet – feest bij %2$s!</string>
+    <string name="fb_ev_assist">Assist: %1$s.</string>
+    <string name="fb_ev_save_1">Geweldige redding van %1$s op het schot van %2$s!</string>
+    <string name="fb_ev_save_2">%2$s schiet – %1$s pakt hem.</string>
+    <string name="fb_ev_miss_1">%1$s schiet… net naast!</string>
+    <string name="fb_ev_miss_2">%1$s schiet over de lat.</string>
+    <string name="fb_ev_block">%1$s blokt het schot van %2$s.</string>
+    <string name="fb_ev_yellow">Gele kaart voor %1$s.</string>
+    <string name="fb_ev_red">RODE KAART! %1$s wordt van het veld gestuurd!</string>
+    <string name="fb_ev_injury">%1$s raakt geblesseerd en kan niet verder.</string>
+    <string name="fb_ev_sub">Wissel bij %1$s: %2$s erin, %3$s eruit.</string>
+    <string name="fb_ev_corner">Hoekschop voor %1$s.</string>
+    <string name="fb_ev_free_kick">Vrije trap voor %1$s, %2$s staat klaar.</string>
+    <string name="fb_ev_penalty">PENALTY voor %1$s! %2$s legt de bal klaar…</string>
+    <string name="fb_ev_offside">%1$s staat buitenspel.</string>
+    <string name="fb_ev_foul">Overtreding van %1$s op %2$s.</string>
+    <string name="fb_ev_through">%1$s geeft een prachtige steekpass op %2$s!</string>
+    <string name="fb_ev_half_time">Rust.</string>
+    <string name="fb_ev_full_time">Einde wedstrijd!</string>
+    <string name="fb_ev_extra_time">Verlenging!</string>
+    <string name="fb_ev_so_goal">%1$s benut de penalty voor %2$s.</string>
+    <string name="fb_ev_so_miss">%1$s mist voor %2$s!</string>
+    <string name="fb_first_team">Eerste elftal</string>
+    <string name="fb_youth_team">Jeugdopleiding</string>
+    <string name="fb_youth_info">Jeugdfaciliteiten %1$d/20 · scouting %2$d/20 · jeugdtrainer %3$d/20 · volgende lichting %4$s</string>
+    <string name="fb_youth_empty">Nog geen jeugdspelers in de opleiding. Nieuwe talenten komen elk jaar op 15 maart.</string>
+    <string name="fb_promote">Naar het eerste elftal</string>
+    <string name="fb_to_youth">Naar de jeugdopleiding</string>
+    <string name="fb_ng_club">Club</string>
+    <string name="fb_ng_matches">Wedstrijden</string>
+    <string name="fb_ng_transfers">Transfers</string>
+    <string name="fb_ng_world">Wereld</string>
+    <string name="fb_mark_all_read">Alles als gelezen markeren</string>
+    <string name="fb_nt_offer_received">Transferbod</string>
+    <string name="fb_nt_offer_accepted">Bod geaccepteerd</string>
+    <string name="fb_nt_offer_rejected">Bod afgewezen</string>
+    <string name="fb_nt_offer_counter">Tegenbod</string>
+    <string name="fb_nt_player_refused">Speler weigerde</string>
+    <string name="fb_nt_transfer_done">Transfer rond</string>
+    <string name="fb_nt_transfer_world">Grote transfer</string>
+    <string name="fb_nt_rumour">Gerucht</string>
+    <string name="fb_nt_contract">Contract</string>
+    <string name="fb_nt_unhappy">Ontevreden speler</string>
+    <string name="fb_nt_auction">Veiling</string>
+    <string name="fb_nt_loan_return">Terug van huur</string>
+    <string name="fb_nt_precontract">Voorcontract</string>
+    <string name="fb_nt_youth">Jeugdlichting</string>
+    <string name="fb_nt_released">Speler vertrokken</string>
+    <string name="fb_nt_preview">Wedstrijdvoorbeschouwing</string>
+    <string name="fb_nt_report">Wedstrijdverslag</string>
+    <string name="fb_nt_injury">Blessure</string>
+    <string name="fb_nt_suspension">Schorsing</string>
+    <string name="fb_nt_leader">Nieuwe koploper</string>
+    <string name="fb_nt_potm">Speler van de maand</string>
+    <string name="fb_nt_window_open">Transferperiode</string>
+    <string name="fb_nt_window_close">Transferperiode</string>
+    <string name="fb_nt_draw">Loting</string>
+    <string name="fb_nt_europe">Europa</string>
+    <string name="fb_nt_facility">Faciliteiten</string>
+    <string name="fb_nt_finance">Financiën</string>
+    <string name="fb_nt_retirement">Afscheid</string>
+    <string name="fb_nt_top_scorer">Gouden schoen</string>
+    <string name="fb_nt_player_season">Speler van het seizoen</string>
+    <string name="fb_nt_fans_happy">Supporters</string>
+    <string name="fb_nt_fans_angry">Supporters</string>
+    <string name="fb_nt_trophy">Kampioen</string>
+    <string name="fb_nt_callup">Nationaal elftal</string>
+    <string name="fb_nt_graduate">Jeugdproduct</string>
+    <string name="fb_n_youth_best">%1$d jeugdspelers zijn de opleiding binnengekomen. De scouts zien %2$s als het grootste talent.</string>
+    <string name="fb_n_preview">Volgende: %1$s (%2$s). Hun laatste vijf: %3$s</string>
+    <string name="fb_n_report_win">Winst tegen %1$s: %2$s.</string>
+    <string name="fb_n_report_loss">Verlies tegen %1$s: %2$s.</string>
+    <string name="fb_n_report_draw">Gelijkspel tegen %1$s: %2$s.</string>
+    <string name="fb_n_report_motm">Man van de wedstrijd: %1$s.</string>
+    <string name="fb_n_injury">%1$s raakte geblesseerd in de wedstrijd en is ongeveer %2$d dagen uit de roulatie.</string>
+    <string name="fb_n_injury_training">%1$s raakte geblesseerd op de training (ongeveer %2$d dagen).</string>
+    <string name="fb_n_suspension">%1$s is geschorst voor %2$d wedstrijd(en).</string>
+    <string name="fb_n_leader">%1$s is de nieuwe koploper van de %2$s met %3$d punten.</string>
+    <string name="fb_n_potm">%1$s (%2$s) is speler van de maand.</string>
+    <string name="fb_n_window_open">De transferperiode is geopend.</string>
+    <string name="fb_n_window_close">De transferperiode is gesloten.</string>
+    <string name="fb_n_draw">%1$s, %2$s: je speelt tegen %3$s.</string>
+    <string name="fb_n_europe_direct">De club speelt dit seizoen in de %1$s!</string>
+    <string name="fb_n_europe_qual">De club begint in de voorrondes van de %1$s.</string>
+    <string name="fb_n_facility">Bouw klaar: %1$s verbeterd.</string>
+    <string name="fb_n_finance">De club staat in het rood (%1$s). Er wordt elke week rente berekend – verkoop spelers of verlaag de salarissen.</string>
+    <string name="fb_n_retirement">%1$s stopt op %2$d-jarige leeftijd.</string>
+    <string name="fb_n_top_scorer">%1$s is topscorer van de %3$s met %2$d goals.</string>
+    <string name="fb_n_player_season">%1$s is speler van het seizoen in de %2$s (gemiddeld %3$s).</string>
+    <string name="fb_n_fans_happy">De supporters zijn laaiend enthousiast over de zegereeks!</string>
+    <string name="fb_n_fans_angry">Drie nederlagen op rij – de supporters zijn boos.</string>
+    <string name="fb_n_trophy_us">KAMPIOEN! %1$s wint de %2$s!</string>
+    <string name="fb_n_trophy">%1$s wint de %2$s.</string>
+    <string name="fb_n_callup">%1$s is opgeroepen voor %2$s.</string>
+    <string name="fb_n_graduate">%1$s stroomt door van de jeugd naar het eerste elftal.</string>
+    <string name="fb_settings">Instellingen</string>
+    <string name="fb_currency">Valuta</string>
+    <string name="fb_currency_desc">Bedragen worden getoond in de gekozen valuta met vaste wisselkoersen (voorbeeld: 1 mln euro = %1$s).</string>
+    <string name="fb_career">Carrière</string>
+    <string name="fb_manager_line">Manager: %1$s · seizoen %2$s</string>
+    <string name="fb_quit_career">Carrière wissen en opnieuw beginnen</string>
+    <string name="fb_new">NIEUW</string>
+    <string name="fb_read_mark">Gelezen</string>
+    <string name="fb_unread_n">Ongelezen (%1$d)</string>
+    <string name="fb_player_card">Spelerskaart</string>
+    <string name="fb_cred_strong">Betrouwbare bron</string>
+    <string name="fb_cred_medium">Mogelijk</string>
+    <string name="fb_cred_weak">Roddel</string>
+    <string name="fb_rumour_interest">Geïnteresseerde club: %1$s</string>
+    <string name="fb_rumour_yours">Jouw speler</string>
+    <string name="fb_rumour_open">Nog een gerucht</string>
+    <string name="fb_rumour_true">Uitgekomen ✓</string>
+    <string name="fb_rumour_elsewhere">Ging uiteindelijk naar %1$s</string>
+    <string name="fb_au_running">Loopt – eindigt %1$s</string>
+    <string name="fb_au_leading">Jij hebt het hoogste bod</string>
+    <string name="fb_au_yours">Jouw veiling</string>
+    <string name="fb_au_sold">VERKOCHT aan %1$s voor %2$s</string>
+    <string name="fb_au_unsold">NIET VERKOCHT – geen bod haalde de minimumprijs</string>
+    <string name="fb_au_refused">Geen deal – de speler wilde niet naar %1$s</string>
+    <string name="fb_au_won">Gewonnen! Spreek het contract af met de speler</string>
+    <string name="fb_au_bought">Gekocht ✓</string>
+    <string name="fb_au_bids">%1$d biedingen</string>
+</resources>
