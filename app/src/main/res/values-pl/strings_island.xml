@@ -56,7 +56,7 @@
     <string name="is_cat_food">Jedzenie</string>
     <string name="is_cat_night">Życie nocne</string>
     <string name="is_cat_fun">Rozrywka</string>
-    <string name="is_cat_gamble">Kasyno</string>
+    <string name="is_cat_gamble">Centrum rozrywki</string>
     <string name="is_cat_shop">Zakupy</string>
     <string name="is_cat_beach">Plaża</string>
     <string name="is_cat_nature">Parki i dekoracje</string>
@@ -77,7 +77,7 @@
     <string name="is_b_arcade">Salon gier</string>
     <string name="is_b_funfair">Wesołe miasteczko</string>
     <string name="is_b_waterpark">Park wodny</string>
-    <string name="is_b_casino">Kasyno</string>
+    <string name="is_b_casino">Centrum rozrywki</string>
     <string name="is_b_souvenir">Sklep z pamiątkami</string>
     <string name="is_b_market">Supermarket</string>
     <string name="is_b_mall">Centrum handlowe</string>
@@ -150,7 +150,7 @@
     <string name="is_fin_food">Jedzenie</string>
     <string name="is_fin_night">Życie nocne</string>
     <string name="is_fin_fun">Rozrywka</string>
-    <string name="is_fin_gamble">Kasyno</string>
+    <string name="is_fin_gamble">Centrum rozrywki</string>
     <string name="is_fin_shop">Zakupy</string>
     <string name="is_fin_beach">Plaża</string>
     <string name="is_fin_sales">Sprzedaż</string>

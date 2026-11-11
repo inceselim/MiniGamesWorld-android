@@ -56,7 +56,7 @@
     <string name="is_cat_food">Еда</string>
     <string name="is_cat_night">Ночная жизнь</string>
     <string name="is_cat_fun">Развлечения</string>
-    <string name="is_cat_gamble">Казино</string>
+    <string name="is_cat_gamble">Развлекательный центр</string>
     <string name="is_cat_shop">Магазины</string>
     <string name="is_cat_beach">Пляж</string>
     <string name="is_cat_nature">Парки и декор</string>
@@ -77,7 +77,7 @@
     <string name="is_b_arcade">Игровой зал</string>
     <string name="is_b_funfair">Луна-парк</string>
     <string name="is_b_waterpark">Аквапарк</string>
-    <string name="is_b_casino">Казино</string>
+    <string name="is_b_casino">Развлекательный центр</string>
     <string name="is_b_souvenir">Сувенирная лавка</string>
     <string name="is_b_market">Супермаркет</string>
     <string name="is_b_mall">Торговый центр</string>
@@ -150,7 +150,7 @@
     <string name="is_fin_food">Еда</string>
     <string name="is_fin_night">Ночная жизнь</string>
     <string name="is_fin_fun">Развлечения</string>
-    <string name="is_fin_gamble">Казино</string>
+    <string name="is_fin_gamble">Развлекательный центр</string>
     <string name="is_fin_shop">Магазины</string>
     <string name="is_fin_beach">Пляж</string>
     <string name="is_fin_sales">Продажи</string>

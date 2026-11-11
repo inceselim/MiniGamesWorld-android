@@ -94,7 +94,7 @@ S = {
 "is_fin_food": ("Essen", "Comida", "Restauration", "Ristorazione", "飲食", "Еда", "Mad", "Étkezés"),
 "is_fin_night": ("Nachtleben", "Vida nocturna", "Vie nocturne", "Vita notturna", "ナイトライフ", "Ночная жизнь", "Natteliv", "Éjszakai élet"),
 "is_fin_fun": ("Unterhaltung", "Ocio", "Loisirs", "Divertimento", "エンタメ", "Развлечения", "Underholdning", "Szórakozás"),
-"is_fin_gamble": ("Casino", "Casino", "Casino", "Casinò", "カジノ", "Казино", "Kasino", "Kaszinó"),
+"is_fin_gamble": ("Freizeitzentrum", "Centro de ocio", "Centre de loisirs", "Centro svago", "エンタメセンター", "Развлекательный центр", "Underholdningscenter", "Szórakoztató központ"),
 "is_fin_shop": ("Einkaufen", "Compras", "Shopping", "Shopping", "ショッピング", "Магазины", "Shopping", "Vásárlás"),
 "is_fin_beach": ("Strand", "Playa", "Plage", "Spiaggia", "ビーチ", "Пляж", "Strand", "Strand"),
 "is_fin_sales": ("Verkäufe", "Ventas", "Ventes", "Vendite", "売却", "Продажи", "Salg", "Eladások"),

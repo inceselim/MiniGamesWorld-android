@@ -56,7 +56,7 @@
     <string name="is_cat_food">Φαγητό</string>
     <string name="is_cat_night">Νυχτερινή ζωή</string>
     <string name="is_cat_fun">Ψυχαγωγία</string>
-    <string name="is_cat_gamble">Καζίνο</string>
+    <string name="is_cat_gamble">Κέντρο διασκέδασης</string>
     <string name="is_cat_shop">Αγορές</string>
     <string name="is_cat_beach">Παραλία</string>
     <string name="is_cat_nature">Πάρκα &amp; διακόσμηση</string>
@@ -77,7 +77,7 @@
     <string name="is_b_arcade">Αίθουσα ηλεκτρονικών</string>
     <string name="is_b_funfair">Λούνα παρκ</string>
     <string name="is_b_waterpark">Υδάτινο πάρκο</string>
-    <string name="is_b_casino">Καζίνο</string>
+    <string name="is_b_casino">Κέντρο διασκέδασης</string>
     <string name="is_b_souvenir">Κατάστημα σουβενίρ</string>
     <string name="is_b_market">Σούπερ μάρκετ</string>
     <string name="is_b_mall">Εμπορικό κέντρο</string>
@@ -150,7 +150,7 @@
     <string name="is_fin_food">Φαγητό</string>
     <string name="is_fin_night">Νυχτερινή ζωή</string>
     <string name="is_fin_fun">Ψυχαγωγία</string>
-    <string name="is_fin_gamble">Καζίνο</string>
+    <string name="is_fin_gamble">Κέντρο διασκέδασης</string>
     <string name="is_fin_shop">Αγορές</string>
     <string name="is_fin_beach">Παραλία</string>
     <string name="is_fin_sales">Πωλήσεις</string>

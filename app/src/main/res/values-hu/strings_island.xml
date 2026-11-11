@@ -56,7 +56,7 @@
     <string name="is_cat_food">Étkezés</string>
     <string name="is_cat_night">Éjszakai élet</string>
     <string name="is_cat_fun">Szórakozás</string>
-    <string name="is_cat_gamble">Kaszinó</string>
+    <string name="is_cat_gamble">Szórakoztató központ</string>
     <string name="is_cat_shop">Vásárlás</string>
     <string name="is_cat_beach">Strand</string>
     <string name="is_cat_nature">Parkok és díszek</string>
@@ -77,7 +77,7 @@
     <string name="is_b_arcade">Játékterem</string>
     <string name="is_b_funfair">Vidámpark</string>
     <string name="is_b_waterpark">Élményfürdő</string>
-    <string name="is_b_casino">Kaszinó</string>
+    <string name="is_b_casino">Szórakoztató központ</string>
     <string name="is_b_souvenir">Ajándékbolt</string>
     <string name="is_b_market">Szupermarket</string>
     <string name="is_b_mall">Bevásárlóközpont</string>
@@ -150,7 +150,7 @@
     <string name="is_fin_food">Étkezés</string>
     <string name="is_fin_night">Éjszakai élet</string>
     <string name="is_fin_fun">Szórakozás</string>
-    <string name="is_fin_gamble">Kaszinó</string>
+    <string name="is_fin_gamble">Szórakoztató központ</string>
     <string name="is_fin_shop">Vásárlás</string>
     <string name="is_fin_beach">Strand</string>
     <string name="is_fin_sales">Eladások</string>

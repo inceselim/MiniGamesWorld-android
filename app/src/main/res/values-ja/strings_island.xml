@@ -56,7 +56,7 @@
     <string name="is_cat_food">飲食</string>
     <string name="is_cat_night">ナイトライフ</string>
     <string name="is_cat_fun">エンタメ</string>
-    <string name="is_cat_gamble">カジノ</string>
+    <string name="is_cat_gamble">エンタメセンター</string>
     <string name="is_cat_shop">ショッピング</string>
     <string name="is_cat_beach">ビーチ</string>
     <string name="is_cat_nature">公園・装飾</string>
@@ -77,7 +77,7 @@
     <string name="is_b_arcade">ゲームセンター</string>
     <string name="is_b_funfair">遊園地</string>
     <string name="is_b_waterpark">ウォーターパーク</string>
-    <string name="is_b_casino">カジノ</string>
+    <string name="is_b_casino">エンタメセンター</string>
     <string name="is_b_souvenir">土産物店</string>
     <string name="is_b_market">スーパー</string>
     <string name="is_b_mall">ショッピングモール</string>
@@ -150,7 +150,7 @@
     <string name="is_fin_food">飲食</string>
     <string name="is_fin_night">ナイトライフ</string>
     <string name="is_fin_fun">エンタメ</string>
-    <string name="is_fin_gamble">カジノ</string>
+    <string name="is_fin_gamble">エンタメセンター</string>
     <string name="is_fin_shop">ショッピング</string>
     <string name="is_fin_beach">ビーチ</string>
     <string name="is_fin_sales">売却</string>
