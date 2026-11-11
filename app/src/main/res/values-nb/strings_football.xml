@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fb_monthly">Månedlig</string>
+    <string name="fb_this_month">Denne måneden</string>
+    <string name="fb_last_month">Forrige måned</string>
+    <string name="fb_month_income">Samlede inntekter</string>
+    <string name="fb_month_expense">Samlede utgifter</string>
+    <string name="fb_bank">Bank</string>
+    <string name="fb_bank_loan">Banklån</string>
+    <string name="fb_credit_limit">Kredittgrense</string>
+    <string name="fb_loan_amount">Beløp</string>
+    <string name="fb_loan_term">Løpetid</string>
+    <string name="fb_years_short">%1$d år</string>
+    <string name="fb_interest_rate">Rente</string>
+    <string name="fb_rate_year">%1$s per år</string>
+    <string name="fb_weekly_payment">Ukentlig avdrag</string>
+    <string name="fb_total_repay">Totalt å betale tilbake</string>
+    <string name="fb_take_loan">Ta opp lånet</string>
+    <string name="fb_loan_taken_ok">Lån innvilget: %1$s</string>
+    <string name="fb_loan_left">Gjenstående gjeld</string>
+    <string name="fb_loan_original">Lånt beløp</string>
+    <string name="fb_weeks_left">Uker igjen</string>
+    <string name="fb_repay_loan">Betal tilbake nå (%1$s)</string>
+    <string name="fb_loan_repaid">Lånet er nedbetalt</string>
+    <string name="fb_bank_tip" formatted="false">Avdragene trekkes hver mandag. Klubber med godt omdømme får lavere rente; den stiger så lenge saldoen er negativ. Tidlig nedbetaling koster 1% ekstra. Bare ett lån om gangen.</string>
+    <string name="fb_deposit">Sparekonto</string>
+    <string name="fb_deposit_balance">Saldo på sparekonto</string>
+    <string name="fb_deposit_earned">Opptjent rente</string>
+    <string name="fb_weekly_return">Ukentlig rente</string>
+    <string name="fb_deposit_x">Sett inn %1$s</string>
+    <string name="fb_withdraw_x">Ta ut %1$s</string>
+    <string name="fb_deposit_tip" formatted="false">Penger på sparekontoen gir 2% i året, men kan ikke brukes på overganger eller lønninger før du tar dem ut.</string>
+    <string name="fb_form_w">S</string>
+    <string name="fb_form_d">U</string>
+    <string name="fb_form_l">T</string>
+    <string name="fb_rush_ad">📺 Se annonse: −%1$d dager (%2$d dager igjen)</string>
+    <string name="fb_rushed">Byggingen ble fremskyndet med %1$s dager</string>
+    <string name="game_football_manager_name">Klubbsjefen</string>
+    <string name="game_football_manager_desc">Led en fotballklubb på din måte: alle ligaer i Europa, realistisk terminliste, europacuper og VM, detaljert taktikk, trening, ungdomsakademi, økonomi og et levende overgangsmarked.</string>
+    <string name="fb_tagline">Bygg et dynasti. Hver avgjørelse er din.</string>
+    <string name="fb_continue_career">Fortsett karrieren</string>
+    <string name="fb_new_career">Ny karriere</string>
+    <string name="fb_new_career_warning">Den nåværende karrieren din blir slettet. Er du sikker?</string>
+    <string name="fb_yes">Ja</string>
+    <string name="fb_no">Nei</string>
+    <string name="fb_generating">Lager fotballverdenen…</string>
+    <string name="fb_please_wait">Vent litt…</string>
+    <string name="fb_load_failed">Lagringen kunne ikke lastes</string>
+    <string name="fb_choose_country">Land</string>
+    <string name="fb_choose_club">Velg klubben din</string>
+    <string name="fb_tier_n">Divisjon %1$d</string>
+    <string name="fb_league_name">%1$s liga %2$d</string>
+    <string name="fb_reputation">Omdømme</string>
+    <string name="fb_balance">Saldo</string>
+    <string name="fb_transfer_budget">Overgangsbudsjett</string>
+    <string name="fb_stadium">Stadion</string>
+    <string name="fb_squad_size">Troppsstørrelse</string>
+    <string name="fb_best_player">Beste spiller</string>
+    <string name="fb_manager_name">Managerens navn</string>
+    <string name="fb_start_career">Start karrieren</string>
+    <string name="fb_cancel">Avbryt</string>
+    <string name="fb_close">Lukk</string>
+    <string name="fb_tab_home">Hjem</string>
+    <string name="fb_tab_squad">Tropp</string>
+    <string name="fb_tab_tactics">Taktikk</string>
+    <string name="fb_tab_fixtures">Terminliste</string>
+    <string name="fb_tab_competitions">Tabeller</string>
+    <string name="fb_tab_transfers">Overganger</string>
+    <string name="fb_tab_club">Klubb</string>
+    <string name="fb_tab_inbox">Innboks</string>
+    <string name="fb_tab_guide">Guide</string>
+    <string name="fb_continue">Fortsett</string>
+    <string name="fb_go_to_match">Til kampen</string>
+    <string name="fb_next_matches">Neste kamper</string>
+    <string name="fb_no_matches">Ingen kamper planlagt</string>
+    <string name="fb_recent_results">Siste resultater</string>
+    <string name="fb_latest_news">Siste nytt</string>
+    <string name="fb_no_news">Ingen nyheter ennå</string>
+    <string name="fb_club_summary">Klubb</string>
+    <string name="fb_weekly_wages">Ukelønninger</string>
+    <string name="fb_season_income">Sesongens inntekter</string>
+    <string name="fb_season_expense">Sesongens utgifter</string>
+    <string name="fb_ad_bonus_title">Investorbonus</string>
+    <string name="fb_ad_bonus_desc">Se en kort video, så skyter en investor inn %1$s i klubbkassen.</string>
+    <string name="fb_ad_bonus_left">%1$d igjen denne uken</string>
+    <string name="fb_ad_bonus_got">%1$s lagt til i klubbkassen!</string>
+    <string name="fb_watch_ad">Se annonse</string>
+    <string name="fb_table_cols">K,S,U,T,MF,P</string>
+    <string name="fb_vs">mot</string>
+    <string name="fb_first_leg">Første kamp: %1$s</string>
+    <string name="fb_play_match">Spill kampen</string>
+    <string name="fb_quick_result">Hurtigresultat</string>
+    <string name="fb_edit_tactics">Taktikk</string>
+    <string name="fb_squad">Tropp</string>
+    <string name="fb_penalties">Straffer %1$s</string>
+    <string name="fb_match_stats">Kampstatistikk</string>
+    <string name="fb_possession">Ballinnehav</string>
+    <string name="fb_shots">Skudd (på mål)</string>
+    <string name="fb_corners">Cornere</string>
+    <string name="fb_fouls">Frispark</string>
+    <string name="fb_cards">Kort G/R</string>
+    <string name="fb_player_ratings">Spillerkarakterer</string>
+    <string name="fb_season_over">Sesongen %1$s er over</string>
+    <string name="fb_final_position">Endelig plassering i ligaen: %1$d</string>
+    <string name="fb_promoted">Rykket opp!</string>
+    <string name="fb_relegated">Rykket ned</string>
+    <string name="fb_honours_this_season">Mestere</string>
+    <string name="fb_new_season">Start %1$s</string>
+    <string name="fb_accept">Godta</string>
+    <string name="fb_reject">Avslå</string>
+    <string name="fb_accept_counter">Godta %1$s</string>
+    <string name="fb_withdraw">Trekk tilbake</string>
+    <string name="fb_negotiate_contract">Forhandle kontrakt</string>
+    <string name="fb_no_funds">Ikke nok penger</string>
+    <string name="fb_free">gratis</string>
+    <string name="fb_free_agent">Kontraktsløs</string>
+    <string name="fb_n_offer_received">%1$s byr %2$s for %3$s</string>
+    <string name="fb_n_offer_accepted">%1$s godtok budet på %2$s (%3$s)</string>
+    <string name="fb_n_offer_rejected">%1$s avslo budet på %2$s</string>
+    <string name="fb_n_offer_counter">%1$s vil ha %3$s for %2$s</string>
+    <string name="fb_n_player_refused">%1$s vil ikke gå til %2$s</string>
+    <string name="fb_n_signed_free">%1$s signerte gratis for %2$s</string>
+    <string name="fb_n_transfer">%1$s går fra %2$s til %3$s (%4$s)</string>
+    <string name="fb_n_rumour">Rykte: %1$s følger med på %2$s fra %3$s (%4$d%%)</string>
+    <string name="fb_n_contract_expiring">Kontrakten til %1$s går ut i sommer</string>
+    <string name="fb_n_unhappy">%1$s er misfornøyd og vil forlate klubben</string>
+    <string name="fb_n_auction_bid">%1$s bød %2$s for %3$s</string>
+    <string name="fb_n_auction_sold">Auksjon: %1$s solgt til %2$s for %3$s</string>
+    <string name="fb_n_auction_unsold">Auksjon: ingen kjøper for %1$s</string>
+    <string name="fb_n_loan_return">%1$s vender tilbake til %2$s etter lånet</string>
+    <string name="fb_n_precontract">%1$s er enig om en forhåndskontrakt med %2$s</string>
+    <string name="fb_n_youth">%1$d unge spillere har kommet fra akademiet</string>
+    <string name="fb_n_released">%1$s har forlatt klubben</string>
+    <string name="fb_col_name">Navn</string>
+    <string name="fb_col_pos">Pos</string>
+    <string name="fb_col_age">Alder</string>
+    <string name="fb_col_ability">Ferdighet</string>
+    <string name="fb_col_potential">Potensial</string>
+    <string name="fb_col_condition">Form.</string>
+    <string name="fb_col_morale">Moral</string>
+    <string name="fb_col_form">Form</string>
+    <string name="fb_col_value">Verdi</string>
+    <string name="fb_col_wage">Lønn</string>
+    <string name="fb_col_contract">Kontrakt</string>
+    <string name="fb_per_week">/uke</string>
+    <string name="fb_release_clause">Utkjøpsklausul</string>
+    <string name="fb_injured">Skadet</string>
+    <string name="fb_days">%1$d dager</string>
+    <string name="fb_height_foot">Høyde · fot</string>
+    <string name="fb_foot_right">Høyre</string>
+    <string name="fb_foot_left">Venstre</string>
+    <string name="fb_foot_both">Begge</string>
+    <string name="fb_caps">Landskamper / mål</string>
+    <string name="fb_season_stats">Sesong</string>
+    <string name="fb_stats_line">%1$d kamper, %2$d mål, %3$d målgivende, snitt %4$s</string>
+    <string name="fb_positions">Posisjoner</string>
+    <string name="fb_hidden_attributes">Skjulte egenskaper og ekte potensial</string>
+    <string name="fb_hidden_locked">Staben din kan bare anslå. Se en video for å avsløre nøyaktig potensial og skjult personlighet.</string>
+    <string name="fb_reveal_with_ad">Avslør (video)</string>
+    <string name="fb_exact_ability">Nåværende ferdighet</string>
+    <string name="fb_exact_potential">Potensiell ferdighet</string>
+    <string name="fb_g_technical">Teknisk</string>
+    <string name="fb_g_mental">Mentalt</string>
+    <string name="fb_g_physical">Fysisk</string>
+    <string name="fb_g_goalkeeping">Keeper</string>
+    <string name="fb_training">Trening</string>
+    <string name="fb_individual_focus">Individuelt fokus</string>
+    <string name="fb_position_training">Lær en ny posisjon</string>
+    <string name="fb_none">Ingen</string>
+    <string name="fb_contract_transfer">Kontrakt og overgang</string>
+    <string name="fb_renew_contract">Forleng kontrakten</string>
+    <string name="fb_list_for_transfer">Overgangsliste (%1$s)</string>
+    <string name="fb_unlist">Fjern fra listen (%1$s)</string>
+    <string name="fb_list_for_loan">Tilby på lån</string>
+    <string name="fb_unlist_loan">Fjern fra lånelisten</string>
+    <string name="fb_auction">Auksjon (3 dager)</string>
+    <string name="fb_auction_started">Auksjonen har startet</string>
+    <string name="fb_release">Løs spilleren fra kontrakten</string>
+    <string name="fb_release_confirm">Bekreft (%1$s)</string>
+    <string name="fb_transfer">Overgang</string>
+    <string name="fb_shortlist_add">Legg til på ønskelisten</string>
+    <string name="fb_shortlist_remove">Fjern fra ønskelisten</string>
+    <string name="fb_offer_fee">Bud: %1$s</string>
+    <string name="fb_asking_price">Prisantydning: %1$s</string>
+    <string name="fb_not_interested">Spilleren er ikke interessert i klubben din</string>
+    <string name="fb_make_offer">Legg inn bud</string>
+    <string name="fb_request_loan" formatted="false">Be om lån (70% av lønnen)</string>
+    <string name="fb_offer_sent">Bud sendt. Svar i morgen.</string>
+    <string name="fb_err_window">Overgangsvinduet er stengt</string>
+    <string name="fb_err_duplicate">Du har allerede et bud på denne spilleren</string>
+    <string name="fb_err_on_loan">Spilleren er utlånt</string>
+    <string name="fb_err_generic">Ikke mulig akkurat nå</string>
+    <string name="fb_t_attacking">Angrep</string>
+    <string name="fb_t_defending">Forsvar</string>
+    <string name="fb_t_technical">Teknikk</string>
+    <string name="fb_t_tactical">Taktikk</string>
+    <string name="fb_t_physical">Fysisk</string>
+    <string name="fb_t_mental">Mentalt</string>
+    <string name="fb_t_set_pieces">Dødballer</string>
+    <string name="fb_t_goalkeeping">Keeper</string>
+    <string name="fb_contract_talks">Kontraktsforhandling: %1$s</string>
+    <string name="fb_fee_agreed">Overgangssum avtalt: %1$s</string>
+    <string name="fb_wage_demand">Lønnskrav</string>
+    <string name="fb_years_wanted">Ønsket kontraktslengde</string>
+    <string name="fb_signing_fee">Signeringsbonus</string>
+    <string name="fb_offered_wage">Ditt lønnstilbud: %1$s/uke</string>
+    <string name="fb_contract_years">År</string>
+    <string name="fb_propose">Foreslå</string>
+    <string name="fb_reply_accept">Avtale! Kontrakten er signert.</string>
+    <string name="fb_reply_wage_low">Lønnen er for lav.</string>
+    <string name="fb_reply_years">Han vil ha en annen kontraktslengde.</string>
+    <string name="fb_reply_not_interested">Han er ikke interessert.</string>
+    <string name="fb_reply_walked">Han brøt forhandlingene.</string>
+    <string name="fb_soon">Kommer i neste oppdatering</string>
+    <string name="fb_c_league">Liga</string>
+    <string name="fb_c_playoff">Kvalifisering</string>
+    <string name="fb_c_playoff_of">Kvalifisering i %1$s</string>
+    <string name="fb_c_cup">Cup</string>
+    <string name="fb_c_super_cup">Supercup</string>
+    <string name="fb_c_champions">Mestercupen</string>
+    <string name="fb_c_europa">Europacupen</string>
+    <string name="fb_c_conference">Conferencecupen</string>
+    <string name="fb_c_uefa_super">Den europeiske supercupen</string>
+    <string name="fb_c_friendly">Treningskamp</string>
+    <string name="fb_c_nations">Nations League</string>
+    <string name="fb_c_qualifiers">Kvalifisering</string>
+    <string name="fb_c_world_cup">VM</string>
+    <string name="fb_c_euro">EM</string>
+    <string name="fb_c_nat_friendly">Landskamp</string>
+    <string name="fb_s_league">Liga</string>
+    <string name="fb_s_groups">Gruppespill</string>
+    <string name="fb_s_league_phase">Ligaspill</string>
+    <string name="fb_s_q1">1. kvalifiseringsrunde</string>
+    <string name="fb_s_q2">2. kvalifiseringsrunde</string>
+    <string name="fb_s_q3">3. kvalifiseringsrunde</string>
+    <string name="fb_s_qpo">Kvalifiseringens playoff</string>
+    <string name="fb_s_kpo">Utslagsspillets playoff</string>
+    <string name="fb_s_r128">128-delsfinale</string>
+    <string name="fb_s_r64">64-delsfinale</string>
+    <string name="fb_s_r32">32-delsfinale</string>
+    <string name="fb_s_r16">Åttedelsfinale</string>
+    <string name="fb_s_qf">Kvartfinale</string>
+    <string name="fb_s_sf">Semifinale</string>
+    <string name="fb_s_final">Finale</string>
+    <string name="fb_s_prelim">Innledende runde</string>
+    <string name="fb_s_match">Kamp</string>
+    <string name="fb_a_corners">Cornere</string>
+    <string name="fb_a_crossing">Innlegg</string>
+    <string name="fb_a_dribbling">Driblinger</string>
+    <string name="fb_a_finishing">Avslutninger</string>
+    <string name="fb_a_first_touch">Førsteberøring</string>
+    <string name="fb_a_free_kick">Frispark</string>
+    <string name="fb_a_heading">Hodespill</string>
+    <string name="fb_a_long_shots">Langskudd</string>
+    <string name="fb_a_marking">Markering</string>
+    <string name="fb_a_passing">Pasninger</string>
+    <string name="fb_a_penalty">Straffespark</string>
+    <string name="fb_a_tackling">Taklinger</string>
+    <string name="fb_a_technique">Teknikk</string>
+    <string name="fb_a_aggression">Aggressivitet</string>
+    <string name="fb_a_anticipation">Forutseenhet</string>
+    <string name="fb_a_bravery">Mot</string>
+    <string name="fb_a_composure">Ro</string>
+    <string name="fb_a_concentration">Konsentrasjon</string>
+    <string name="fb_a_decisions">Beslutninger</string>
+    <string name="fb_a_determination">Besluttsomhet</string>
+    <string name="fb_a_flair">Kreativitet</string>
+    <string name="fb_a_leadership">Lederskap</string>
+    <string name="fb_a_off_the_ball">Spill uten ball</string>
+    <string name="fb_a_positioning">Posisjonering</string>
+    <string name="fb_a_teamwork">Lagspill</string>
+    <string name="fb_a_vision">Spilleforståelse</string>
+    <string name="fb_a_work_rate">Arbeidsinnsats</string>
+    <string name="fb_a_acceleration">Akselerasjon</string>
+    <string name="fb_a_agility">Smidighet</string>
+    <string name="fb_a_balance">Balanse</string>
+    <string name="fb_a_jumping">Spenst</string>
+    <string name="fb_a_natural_fitness">Naturlig form</string>
+    <string name="fb_a_pace">Fart</string>
+    <string name="fb_a_stamina">Utholdenhet</string>
+    <string name="fb_a_strength">Styrke</string>
+    <string name="fb_a_aerial_reach">Rekkevidde i luften</string>
+    <string name="fb_a_command_of_area">Kontroll i feltet</string>
+    <string name="fb_a_handling">Ballsikkerhet</string>
+    <string name="fb_a_kicking">Utspark</string>
+    <string name="fb_a_one_on_ones">Én mot én</string>
+    <string name="fb_a_reflexes">Reflekser</string>
+    <string name="fb_h_consistency">Stabilitet</string>
+    <string name="fb_h_important_matches">Viktige kamper</string>
+    <string name="fb_h_injury_proneness">Skadeutsatthet</string>
+    <string name="fb_h_professionalism">Profesjonalitet</string>
+    <string name="fb_h_ambition">Ambisjon</string>
+    <string name="fb_h_loyalty">Lojalitet</string>
+    <string name="fb_h_adaptability">Tilpasningsevne</string>
+    <string name="fb_h_pressure">Press</string>
+    <string name="fb_h_versatility">Allsidighet</string>
+    <string name="fb_all">Alle</string>
+    <string name="fb_cups">Cuper</string>
+    <string name="fb_europe">Europa</string>
+    <string name="fb_national_teams">Landslag</string>
+    <string name="fb_no_competitions">Ingen turneringer</string>
+    <string name="fb_not_started">Ikke startet ennå</string>
+    <string name="fb_winner">Vinner: %1$s</string>
+    <string name="fb_group_n">Gruppe %1$s</string>
+    <string name="fb_byes">%1$d lag gikk rett videre</string>
+    <string name="fb_top_scorers">Toppscorere</string>
+    <string name="fb_lineup">Lagoppstilling</string>
+    <string name="fb_instructions">Instruksjoner</string>
+    <string name="fb_team_training">Trening</string>
+    <string name="fb_auto_pick">Velg automatisk</string>
+    <string name="fb_best_formation">Beste formasjon</string>
+    <string name="fb_team_strength">Lagets styrke</string>
+    <string name="fb_pick_for">Velg en spiller til %1$s</string>
+    <string name="fb_tap_position">Trykk på en posisjon på banen</string>
+    <string name="fb_starting">Startellever</string>
+    <string name="fb_bench">Benk</string>
+    <string name="fb_suspended">Utestengt</string>
+    <string name="fb_on">På</string>
+    <string name="fb_off">Av</string>
+    <string name="fb_open_guide">Åpne taktikkguiden</string>
+    <string name="fb_tac_mentality">Mentalitet</string>
+    <string name="fb_tac_passing">Pasningsspill</string>
+    <string name="fb_tac_tempo">Tempo</string>
+    <string name="fb_tac_width">Bredde</string>
+    <string name="fb_tac_focus">Angrepsfokus</string>
+    <string name="fb_tac_pressing">Press</string>
+    <string name="fb_tac_defline">Forsvarslinje</string>
+    <string name="fb_tac_marking">Markering</string>
+    <string name="fb_tac_counter">Kontring</string>
+    <string name="fb_tac_offside">Offsidefelle</string>
+    <string name="fb_tac_time_wasting">Somle bort tid</string>
+    <string name="fb_tac_hard_tackling">Harde taklinger</string>
+    <string name="fb_o_very_defensive">Svært defensiv</string>
+    <string name="fb_o_defensive">Defensiv</string>
+    <string name="fb_o_balanced">Balansert</string>
+    <string name="fb_o_attacking">Offensiv</string>
+    <string name="fb_o_very_attacking">Svært offensiv</string>
+    <string name="fb_o_short">Korte</string>
+    <string name="fb_o_mixed">Blandet</string>
+    <string name="fb_o_direct">Direkte</string>
+    <string name="fb_o_slow">Lavt</string>
+    <string name="fb_o_normal">Normalt</string>
+    <string name="fb_o_fast">Høyt</string>
+    <string name="fb_o_narrow">Smalt</string>
+    <string name="fb_o_wide">Bredt</string>
+    <string name="fb_o_center">Gjennom midten</string>
+    <string name="fb_o_flanks">Kantene</string>
+    <string name="fb_o_low">Lavt</string>
+    <string name="fb_o_medium">Middels</string>
+    <string name="fb_o_high">Høyt</string>
+    <string name="fb_o_deep">Dyp</string>
+    <string name="fb_o_zonal">Sone</string>
+    <string name="fb_o_man">Mann-mot-mann</string>
+    <string name="fb_o_light">Lett</string>
+    <string name="fb_o_intense">Intens</string>
+    <string name="fb_tip_mentality">Mer offensivt = flere skudd og mål, men mer rom bak forsvaret ditt.</string>
+    <string name="fb_tip_passing">Korte pasninger holder ballen og er tryggere; direkte spill når feltet raskere med mer risiko.</string>
+    <string name="fb_tip_tempo">Høyt tempo skaper sjanser raskere, men gir flere feil og mer slitasje.</string>
+    <string name="fb_tip_width">Bredt spill gir flere innlegg; smalt spill fyller midtbanen.</string>
+    <string name="fb_tip_focus">Midten = gjennombruddspasninger (spilleforståelse, pasninger); kantene = innlegg (innlegg, hodespill).</string>
+    <string name="fb_tip_pressing">Høyt press vinner ballen høyere opp, men sliter ut spillerne dine.</string>
+    <string name="fb_tip_defline">En høy linje gjør midtbanen trang, men er sårbar for baller i bakrom.</string>
+    <string name="fb_tip_marking">Mann-mot-mann-markering slukker angripere; de som beveger seg smart kan likevel komme seg løs.</string>
+    <string name="fb_tip_counter">Gå raskt fremover etter å ha vunnet ballen på egen halvdel.</string>
+    <string name="fb_tip_offside">Fanger løpende angripere oftere; krever samkjørte forsvarere.</string>
+    <string name="fb_tip_time_wasting">Når dere leder etter en time, senker laget tempoet.</string>
+    <string name="fb_tip_hard_tackling">Vinner flere dueller, men gir flere frispark, kort og straffer.</string>
+    <string name="fb_training_focus">Treningsfokus</string>
+    <string name="fb_training_intensity">Intensitet</string>
+    <string name="fb_coaching_quality">Trenerkvalitet</string>
+    <string name="fb_f_training">Treningsanlegg</string>
+    <string name="fb_f_youth">Ungdomsanlegg</string>
+    <string name="fb_youth_coaching">Ungdomstrening</string>
+    <string name="fb_physio">Fysioterapi</string>
+    <string name="fb_tip_training_focus" formatted="false">Egenskapene i valgt område utvikles omtrent 50% raskere for hele troppen.</string>
+    <string name="fb_tip_intensity" formatted="false">Lett: langsommere utvikling, færre skader, friskere bein. Intens: +15% utvikling, nesten dobbelt så mange treningsskader, lavere kampskarphet.</string>
+    <string name="fb_tip_coaches">Bedre trenere og anlegg gir raskere utvikling. Ansett trenere under Klubb.</string>
+    <string name="fb_gt_basics">Første steg</string>
+    <string name="fb_gt_formations">Formasjoner og lagoppstilling</string>
+    <string name="fb_gt_training">Trening og utvikling</string>
+    <string name="fb_gt_coaches">Trenere og stab</string>
+    <string name="fb_gt_morale">Moral og form</string>
+    <string name="fb_gt_youth">Ungdomsakademi</string>
+    <string name="fb_gt_finance">Økonomi</string>
+    <string name="fb_gt_transfers">Overganger</string>
+    <string name="fb_gt_contracts">Kontrakter</string>
+    <string name="fb_gt_competitions">Turneringer</string>
+    <string name="fb_gt_hidden">Skjulte egenskaper og potensial</string>
+    <string name="fb_gb_basics">Du er sjefen i klubben: du velger lag og taktikk, kjøper og selger spillere, bestemmer treningen, bygger anlegg og styrer pengene.
+
+Trykk på Fortsett for å gå videre i kalenderen. Spillet stopper på kampdagene dine og når noe trenger oppmerksomheten din (bud, kontraktsnyheter, nye ungdomsspillere).
+
+På kampdagen kan du spille kampen eller ta et hurtigresultat. Alt lagres automatisk.</string>
+    <string name="fb_gb_mentality" formatted="false">Mentaliteten bestemmer hvor stor risiko laget ditt tar.
+
+• Svært defensiv / defensiv: færre spillere går med i angrepene, færre skudd begge veier. Bra for å forsvare en ledelse eller mot et mye sterkere lag.
+• Balansert: standardvalget.
+• Offensiv / svært offensiv: flere skudd og mål, men motstanderen finner mer rom. I testene våre scoret et sterkt lag omtrent 18% mer, men slapp også inn mer.
+
+Kombiner defensiv mentalitet med kontringer for å straffe motstandere som går fremover.</string>
+    <string name="fb_gb_passing" formatted="false">• Korte: mange trygge pasninger, mye ballinnehav (rundt 60%+), færre men renere angrep. Krever gode pasninger og førsteberøring.
+• Blandet: en balanse.
+• Direkte: lange baller til angriperne. Ballinnehavet synker til rundt 40%, ballen når feltet raskere, kampene blir mer åpne. Passer med høye, sterke spisser og gode langpasnere.</string>
+    <string name="fb_gb_tempo">Høyt tempo flytter ballen raskt: flere sjanser og skudd, men flere feilpasninger og mer slitasje.
+
+Lavt tempo holder ballen og kontrollerer kampen; passer med korte pasninger og når man forsvarer en ledelse.</string>
+    <string name="fb_gb_width">Bredt: kantspillerne holder seg nær sidelinjen, noe som gir flere innlegg. Krever gode innleggsspillere og sterke hodespillere i feltet.
+
+Smalt: laget spiller gjennom midten og holder seg kompakt; bra med en playmaker og gjennombruddspasninger.</string>
+    <string name="fb_gb_focus">Gjennom midten: flere gjennombruddspasninger. Suksessen avhenger av spilleforståelsen og pasningene til playmakerne dine mot markeringen til forsvarerne, og av farten til angriperne dine. Alene med keeperen er den beste sjansen i fotball.
+
+Kantene: flere innlegg. Et innlegg blir en hodestøtsjanse hvis spissen din vinner luftduellen mot midtstopperen.</string>
+    <string name="fb_gb_pressing">Høyt press jager ballen på motstanderens halvdel. Det fungerer best mot spillere med lite ro og vinner ballen nær mål, men spillerne blir raskere slitne i løpet av kampen.
+
+Lavt press sparer energi og holder formen; motstanderen får tid med ballen på egen halvdel.</string>
+    <string name="fb_gb_defline">Høy linje: forsvarerne flytter seg opp, midtbanen blir trang og vanskelig å spille gjennom. Men baller over forsvaret og gjennombruddspasninger til raske angripere blir farlige – i testene slapp den høye linjen inn mer enn dobbelt så mange mål mot raske spisser.
+
+Dyp linje: feltet er beskyttet, gjennombruddspasninger lykkes sjelden, men motstanderen styrer kampen. Ideelt med kontringer.</string>
+    <string name="fb_gb_marking">Sone: hver spiller passer på et område. Trygt standardvalg.
+
+Mann-mot-mann: forsvarerne dine følger sin direkte motspiller. Utmerket hvis forsvarerne dine markerer godt; men angripere med utmerket spill uten ball kan likevel komme seg løs.</string>
+    <string name="fb_gb_counter">Når ballen vinnes på egen halvdel, går laget raskt fremover med færre pasninger og flere gjennombruddsballer.
+
+Det er dødelig mot motstandere som angriper med mange spillere eller har høy linje (i testene: over 3 mål per kamp mot et svært offensivt lag). Prisen: færre spillere deltar i de vanlige angrepene.</string>
+    <string name="fb_gb_offside">Forsvaret ditt går opp sammen for å sette angriperne offside. Forsvarere med godt lagspill får det til å lykkes mye oftere. Når det mislykkes, kommer angriperen alene mot keeperen.</string>
+    <string name="fb_gb_time_wasting">Når dere leder etter 60 minutter, gjør spillerne dine alt saktere: flere tilbakepasninger, lengre pauser. Dommeren kan gi gule kort for det.</string>
+    <string name="fb_gb_hard_tackling">Taklingene blir hardere: spillerne dine vinner flere dueller, men begår flere frispark, får flere kort og forårsaker flere straffer. Motstanderne skader seg oftere.</string>
+    <string name="fb_gb_formations">Velg en formasjon som passer de beste spillerne dine. Trykk på en posisjon på banen og deretter på en spiller i listen for å sette ham der (spillere som allerede er i startelleveren bytter plass).
+
+Tallet under hver spiller er karakteren hans i den posisjonen; en rød ring betyr at han ikke er vant med den. Spillere kan lære nye posisjoner på trening.
+
+Velg automatisk lar assistenten velge; Beste formasjon velger oppstillingen med høyest samlet karakter. Skadde og utestengte byttes ut automatisk.</string>
+    <string name="fb_gb_training">Spillerne utvikler seg mot potensialet sitt hver uke. Farten avhenger av:
+• Alder: raskest mellom 16 og 21, avtar etter 24, stopper rundt 29.
+• Forskjellen mellom nåværende ferdighet og potensial.
+• Trenere og treningsanlegg (ungdomstrener og ungdomsanlegg for U19).
+• Personlighet: profesjonalitet og besluttsomhet.
+• Spilletid (svært viktig under 23) og moral.
+• Intensitet: lett, normal eller intens.
+
+Lagets fokus gir raskere utvikling i ett område for alle; individuelt fokus gir mye raskere utvikling i ett område for én spiller. Etter 30 (keepere 32) går spillerne tilbake, først fysisk, mens beslutninger og posisjonering fortsatt kan bli bedre.</string>
+    <string name="fb_gb_coaches">• Trenere: hvert treningsområde bruker tilsvarende trenerferdighet (angrep, forsvar, teknikk, taktikk, mentalt, kondisjon, keepere). Omtrent fem trenere dekker alle områder; med færre faller kvaliteten.
+• Ungdomstrener: utvikler U19-spillere og forbedrer det årlige ungdomskullet.
+• Fysioterapeut: forkorter skader og reduserer treningsskader.
+• Kondisjonstrener: bremser tilbakegangen for eldre spillere.
+• Assistenttrener: personalledelse hever moralen; vurderer potensialet til dine egne spillere.
+• Speidere: jo bedre de er, desto sikrere blir vurderingene av ferdighet og potensial for spillere i andre klubber.</string>
+    <string name="fb_gb_morale">Moralen endrer seg hver uke. Den stiger med gode resultater, spilletid som passer spillerens status (nøkkelspillere forventer å starte de fleste kampene), rettferdig lønn, gode sosiale fasiliteter og en god assistent. Svært misfornøyde ambisiøse spillere ber om å få gå.
+
+Formen er snittet av de siste kampkarakterene. Moral og form påvirker spillerens styrke på kampdagen og utviklingen hans litt.</string>
+    <string name="fb_gb_youth">Hvert år den 15. mars kommer 2–8 unge spillere (15–16 år) til akademiet ditt. Ungdomsrekrutteringen avgjør hvor mange og hvor gode, ungdomsanlegget og ungdomstreneren tilfører kvalitet, og fotballnivået i landet ditt spiller også inn. Av og til dukker det opp et gulltalent.
+
+Gi de unge spilletid og god trening: utviklingen går raskest før 21.</string>
+    <string name="fb_gb_finance" formatted="false">Inntekter: billetter (hjemmekamper; dyrere billetter gir mer per supporter, men fyller færre plasser), TV-penger (halvparten deles likt, halvparten etter ligaplassering), suvenirer (øker med omdømme og stjerner), draktsponsor, stadionreklame, premiepenger (cuper og særlig europeiske turneringer) og spillersalg.
+
+Utgifter: lønn til spillere og stab, vedlikehold av anlegg, ungdomsakademi, kampdagskostnader, overganger og bygging. En negativ saldo koster 0,12% rente per uke.
+
+Investorbonus: se en video for å tilføre klubben penger, 3 ganger i uken.
+
+Bank (Klubb › Bank): ta opp ett lån om gangen på 1–3 år. Kredittgrensen vokser med inntektene og omdømmet ditt; klubber med godt omdømme betaler lavere rente, og den er høyere så lenge saldoen er negativ. Avdraget trekkes hver mandag, og tidlig nedbetaling koster 1% ekstra. Sparekontoen gir 2% i året, men pengene der kan ikke brukes før du tar dem ut. Økonomisiden viser samlede inntekter og utgifter denne og forrige måned.</string>
+    <string name="fb_gb_transfers">Overgangsvinduer: 1. juli – 1. september og januar. Kontraktsløse spillere kan signeres når som helst.
+
+Selgerens pris avhenger av hvor viktig spilleren er for dem, alderen og potensialet hans, kontraktslengden (billig det siste året), om han står på overgangslisten og selgerens økonomi. En utkjøpsklausul kan ikke avslås.
+
+Når overgangssummen er avtalt, forhandler du lønn og år med spilleren – er det for lavt, går han fra forhandlingene etter tre forsøk. Lån: du betaler en del av lønnen, og spilleren vender tilbake ved sesongslutt.
+
+Du kan sette egne spillere på overgangslisten, tilby dem på lån eller starte en 3-dagers auksjon der klubber overbyr hverandre. Sett interessante spillere på ønskelisten og følg med på ryktene.</string>
+    <string name="fb_gb_contracts" formatted="false">Forleng kontraktene til viktige spillere i tide. Den 1. januar blir du varslet om kontrakter som går ut denne sesongen; fra midten av januar kan andre klubber signere forhåndskontrakter med dem, og de forsvinner gratis i sommer.
+
+Spillere ber om lønnsøkning når de blir bedre. Å løse en spiller fra kontrakten koster 60% av de gjenstående lønningene hans.</string>
+    <string name="fb_gb_competitions">Hvert europeisk land har sine ligaer med opp- og nedrykk (noen andredivisjoner har kvalifisering), en nasjonal cup og en supercup.
+
+Europaplassene avhenger av ligaplasseringen din og landets rangering, som endres hver sesong etter de europeiske resultatene: Mestercupen, Europacupen og Conferencecupen har hver sine kvalifiseringsrunder, et ligaspill med 36 lag og utslagsrunder.
+
+Landslagene spiller Nations League, kvalifisering, EM og VM.</string>
+    <string name="fb_gb_hidden">Ferdighet og potensial vises som stjerner anslått av staben din, så de kan være feil – særlig med svake speidere.
+
+Se en kort video på spillerkortet for å avsløre nøyaktig nåværende ferdighet, nøyaktig potensial og den skjulte personligheten: stabilitet, prestasjon i store kamper, skadeutsatthet, profesjonalitet, ambisjon, lojalitet, tilpasningsevne, evne til å takle press og allsidighet. Spilleren forblir avslørt for alltid (grønne stjerner).</string>
+    <string name="fb_search">Søk</string>
+    <string name="fb_shortlist">Ønskeliste</string>
+    <string name="fb_scout_reports">Speiderrapporter</string>
+    <string name="fb_offers">Bud</string>
+    <string name="fb_auctions">Auksjoner</string>
+    <string name="fb_history">Historikk og rykter</string>
+    <string name="fb_window_open">Vinduet er åpent</string>
+    <string name="fb_window_closed">Vinduet er stengt</string>
+    <string name="fb_line_gk">Keepere</string>
+    <string name="fb_line_def">Forsvarere</string>
+    <string name="fb_line_mid">Midtbanespillere</string>
+    <string name="fb_line_att">Angripere</string>
+    <string name="fb_any_age">Alle aldre</string>
+    <string name="fb_age_young">≤ 21</string>
+    <string name="fb_age_prime">22–29</string>
+    <string name="fb_any_value">Alle verdier</string>
+    <string name="fb_listed_only">Bare listede</string>
+    <string name="fb_free_agents">Kontraktsløse</string>
+    <string name="fb_player_name">Spillerens navn</string>
+    <string name="fb_no_results">Fant ingen spillere</string>
+    <string name="fb_loan">Lån</string>
+    <string name="fb_scout_desc">Speiderne dine foreslår spillere som ville styrket de svakeste posisjonene dine, passer i budsjettet og gjerne vil komme.</string>
+    <string name="fb_get_reports">Hent rapporter</string>
+    <string name="fb_no_offers">Ingen bud denne sesongen</string>
+    <string name="fb_incoming">Innkommende</string>
+    <string name="fb_outgoing">Utgående</string>
+    <string name="fb_os_waiting_you">Venter på svaret ditt</string>
+    <string name="fb_os_pending">Venter på klubbens svar</string>
+    <string name="fb_os_counter">Motbud: %1$s</string>
+    <string name="fb_os_agreed">Sum avtalt – forhandle kontrakten</string>
+    <string name="fb_os_agreed_in">Godtatt – kjøperen snakker med spilleren</string>
+    <string name="fb_os_completed">Fullført</string>
+    <string name="fb_os_rejected">Avslått</string>
+    <string name="fb_os_withdrawn">Trukket tilbake</string>
+    <string name="fb_os_refused">Spilleren takket nei</string>
+    <string name="fb_os_expired">Utløpt</string>
+    <string name="fb_counter_x">Krev %1$s</string>
+    <string name="fb_offer_x">By %1$s</string>
+    <string name="fb_auction_desc">Klubbene overbyr hverandre til auksjonen er over. Sett egne spillere på auksjon fra spillerkortet.</string>
+    <string name="fb_no_auctions">Ingen pågående auksjoner</string>
+    <string name="fb_reserve">Minstepris %1$s</string>
+    <string name="fb_ended">avsluttet</string>
+    <string name="fb_ends">slutter %1$s</string>
+    <string name="fb_bid_x">By %1$s</string>
+    <string name="fb_latest_transfers">Siste overganger</string>
+    <string name="fb_rumours">Rykter</string>
+    <string name="fb_finance">Økonomi</string>
+    <string name="fb_facilities">Anlegg</string>
+    <string name="fb_staff">Stab</string>
+    <string name="fb_sponsor_tickets">Sponsor og billetter</string>
+    <string name="fb_friendlies">Treningskamper</string>
+    <string name="fb_editor">Redigering</string>
+    <string name="fb_this_season">Denne sesongen</string>
+    <string name="fb_last_season">Forrige sesong</string>
+    <string name="fb_income">Inntekter</string>
+    <string name="fb_expenses">Utgifter</string>
+    <string name="fb_net">Netto</string>
+    <string name="fb_fin_tickets">Billetter</string>
+    <string name="fb_fin_tv">TV-rettigheter</string>
+    <string name="fb_fin_merch">Suvenirer</string>
+    <string name="fb_fin_sponsor">Sponsing</string>
+    <string name="fb_fin_ads">Stadionreklame</string>
+    <string name="fb_fin_prize">Premiepenger</string>
+    <string name="fb_fin_transfer_in">Spillersalg</string>
+    <string name="fb_fin_other_in">Investorer og annet</string>
+    <string name="fb_fin_wages">Spillerlønninger</string>
+    <string name="fb_fin_staff_wages">Stablønninger</string>
+    <string name="fb_fin_facilities">Vedlikehold av anlegg</string>
+    <string name="fb_fin_youth">Ungdomsakademi</string>
+    <string name="fb_fin_matchday">Kampdagskostnader</string>
+    <string name="fb_fin_transfer_out">Spillerkjøp</string>
+    <string name="fb_fin_upgrades">Bygging</string>
+    <string name="fb_fin_interest">Rente</string>
+    <string name="fb_fin_other_out">Sluttpakker og annet</string>
+    <string name="fb_balance_history">Saldo (siste uker)</string>
+    <string name="fb_staff_wages_week">Stablønninger per uke</string>
+    <string name="fb_fan_base">Supportere</string>
+    <string name="fb_f_recruitment">Ungdomsrekruttering</string>
+    <string name="fb_f_stadium">Stadionkvalitet</string>
+    <string name="fb_f_social">Sosiale fasiliteter</string>
+    <string name="fb_f_capacity">Stadionkapasitet</string>
+    <string name="fb_fd_training">Raskere utvikling for alle spillere.</string>
+    <string name="fb_fd_youth">Bedre utvikling for U19 og bedre ungdomskull.</string>
+    <string name="fb_fd_recruitment">Flere og bedre unge spillere hver mars.</string>
+    <string name="fb_fd_stadium">Flere supportere kommer, og de godtar høyere priser.</string>
+    <string name="fb_fd_social">Høyere moral og mer suvenirsalg.</string>
+    <string name="fb_fd_capacity" formatted="false">+10% plasser for høyere kampinntekter.</string>
+    <string name="fb_seats">%1$d plasser</string>
+    <string name="fb_upgrade_x">Bygg %1$s · %2$d dager</string>
+    <string name="fb_upgrade_started">Byggingen har startet</string>
+    <string name="fb_under_construction">Under bygging: %1$s (ferdig %2$s)</string>
+    <string name="fb_your_staff">Staben din (%1$d)</string>
+    <string name="fb_staff_market">Tilgjengelig stab</string>
+    <string name="fb_fire">Si opp</string>
+    <string name="fb_fire_confirm">Si opp (%1$s)</string>
+    <string name="fb_hire">Ansett</string>
+    <string name="fb_hired">Ansatt!</string>
+    <string name="fb_staff_full">Staben din er full (16)</string>
+    <string name="fb_staff_reject">Er ikke interessert i klubben din</string>
+    <string name="fb_r_assistant">Assistenttrener</string>
+    <string name="fb_r_coach">Trener</string>
+    <string name="fb_r_gk_coach">Keepertrener</string>
+    <string name="fb_r_fitness">Kondisjonstrener</string>
+    <string name="fb_r_scout">Speider</string>
+    <string name="fb_r_physio">Fysioterapeut</string>
+    <string name="fb_r_youth">Ungdomstrener</string>
+    <string name="fb_sa_attack">Angrep</string>
+    <string name="fb_sa_defence">Forsvar</string>
+    <string name="fb_sa_technical">Teknikk</string>
+    <string name="fb_sa_tactical">Taktikk</string>
+    <string name="fb_sa_mental">Mentalt</string>
+    <string name="fb_sa_fitness">Kondisjon</string>
+    <string name="fb_sa_gk">Keepere</string>
+    <string name="fb_sa_youth">Arbeid med unge</string>
+    <string name="fb_sa_judge_ability">Vurdere ferdighet</string>
+    <string name="fb_sa_judge_potential">Vurdere potensial</string>
+    <string name="fb_sa_physio">Fysioterapi</string>
+    <string name="fb_sa_motivating">Motivering</string>
+    <string name="fb_sa_discipline">Disiplin</string>
+    <string name="fb_sa_man_management">Personalledelse</string>
+    <string name="fb_shirt_sponsor">Draktsponsor</string>
+    <string name="fb_current_sponsor">Sponsor</string>
+    <string name="fb_per_year">Per år</string>
+    <string name="fb_until">Til</string>
+    <string name="fb_sponsor_offers">Nye tilbud</string>
+    <string name="fb_sponsor_line">%1$s per år · %2$d år</string>
+    <string name="fb_sign">Signer</string>
+    <string name="fb_sponsor_locked">Du kan signere en ny sponsor når den nåværende avtalen går ut.</string>
+    <string name="fb_ticket_prices">Billettpriser</string>
+    <string name="fb_tp_very_low">Svært lave</string>
+    <string name="fb_tp_low">Lave</string>
+    <string name="fb_tp_high">Høye</string>
+    <string name="fb_tp_very_high">Svært høye</string>
+    <string name="fb_ticket_price">Snittbillett</string>
+    <string name="fb_expected_attendance">Forventet publikum</string>
+    <string name="fb_matchday_income">Inntekt per hjemmekamp</string>
+    <string name="fb_tip_tickets" formatted="false">Hvert trinn opp øker prisen med 25%, men skremmer bort omtrent 18% av supporterne. Blir stadion fullt uansett, gir høyere priser mer.</string>
+    <string name="fb_choose_opponent">Motstander</string>
+    <string name="fb_choose_date">Dato</string>
+    <string name="fb_friendly_desc">Treningskamper holder spillerne i form og gir litt inntekter hjemme. Store klubber kan takke nei.</string>
+    <string name="fb_arrange">Avtal</string>
+    <string name="fb_friendly_ok">Treningskamp avtalt</string>
+    <string name="fb_friendly_declined">Klubben takket nei</string>
+    <string name="fb_friendly_busy">Motstanderen har kamp rundt den datoen</string>
+    <string name="fb_edit_club">Rediger klubb</string>
+    <string name="fb_club_name">Klubbnavn</string>
+    <string name="fb_short_name">Forkortelse</string>
+    <string name="fb_color_main">Hovedfarge</string>
+    <string name="fb_color_second">Andre farge</string>
+    <string name="fb_save">Lagre</string>
+    <string name="fb_saved">Lagret</string>
+    <string name="fb_edit_players">Spillernavn (trykk for å redigere)</string>
+    <string name="fb_back_to_match">Tilbake til kampen</string>
+    <string name="fb_choose_sub">Velg hvem som skal inn</string>
+    <string name="fb_on_pitch">På banen (trykk for å bytte ut)</string>
+    <string name="fb_subs_left">Bytter igjen: %1$d</string>
+    <string name="fb_tactics_subs">Taktikk og bytter</string>
+    <string name="fb_pause">Pause</string>
+    <string name="fb_resume">Fortsett</string>
+    <string name="fb_skip_to_end">Hopp til slutten</string>
+    <string name="fb_finish_match">Avslutt</string>
+    <string name="fb_full_time">Slutt</string>
+    <string name="fb_goal_flash">MÅL!</string>
+    <string name="fb_shots_short">Skudd</string>
+    <string name="fb_ev_goal_1">MÅL! %1$s scorer for %2$s!</string>
+    <string name="fb_ev_goal_2">MÅL! For en avslutning av %1$s! (%2$s)</string>
+    <string name="fb_ev_goal_3">MÅL! %1$s bommer ikke – jubel hos %2$s!</string>
+    <string name="fb_ev_assist">Målgivende: %1$s.</string>
+    <string name="fb_ev_save_1">Fantastisk redning av %1$s på skuddet fra %2$s!</string>
+    <string name="fb_ev_save_2">%2$s skyter – %1$s tar ballen.</string>
+    <string name="fb_ev_miss_1">%1$s skyter… like utenfor!</string>
+    <string name="fb_ev_miss_2">%1$s skyter over tverrliggeren.</string>
+    <string name="fb_ev_block">%1$s blokkerer skuddet fra %2$s.</string>
+    <string name="fb_ev_yellow">Gult kort til %1$s.</string>
+    <string name="fb_ev_red">RØDT KORT! %1$s blir utvist!</string>
+    <string name="fb_ev_injury">%1$s skader seg og kan ikke fortsette.</string>
+    <string name="fb_ev_sub">Bytte hos %1$s: %2$s inn, %3$s ut.</string>
+    <string name="fb_ev_corner">Corner til %1$s.</string>
+    <string name="fb_ev_free_kick">Frispark til %1$s, %2$s gjør seg klar.</string>
+    <string name="fb_ev_penalty">STRAFFE til %1$s! %2$s tar ballen…</string>
+    <string name="fb_ev_offside">%1$s er offside.</string>
+    <string name="fb_ev_foul">Frispark: %1$s felte %2$s.</string>
+    <string name="fb_ev_through">%1$s slår en nydelig gjennombruddspasning til %2$s!</string>
+    <string name="fb_ev_half_time">Pause.</string>
+    <string name="fb_ev_full_time">Kampen er slutt!</string>
+    <string name="fb_ev_extra_time">Ekstraomganger!</string>
+    <string name="fb_ev_so_goal">%1$s scorer på straffe for %2$s.</string>
+    <string name="fb_ev_so_miss">%1$s bommer for %2$s!</string>
+    <string name="fb_first_team">A-lag</string>
+    <string name="fb_youth_team">Ungdomsakademi</string>
+    <string name="fb_youth_info">Ungdomsanlegg %1$d/20 · rekruttering %2$d/20 · ungdomstrener %3$d/20 · neste kull %4$s</string>
+    <string name="fb_youth_empty">Ingen ungdomsspillere i akademiet ennå. Nye talenter kommer hvert år den 15. mars.</string>
+    <string name="fb_promote">Flytt opp til A-laget</string>
+    <string name="fb_to_youth">Send til akademiet</string>
+    <string name="fb_ng_club">Klubb</string>
+    <string name="fb_ng_matches">Kamper</string>
+    <string name="fb_ng_transfers">Overganger</string>
+    <string name="fb_ng_world">Verden</string>
+    <string name="fb_mark_all_read">Merk alle som lest</string>
+    <string name="fb_nt_offer_received">Overgangsbud</string>
+    <string name="fb_nt_offer_accepted">Bud godtatt</string>
+    <string name="fb_nt_offer_rejected">Bud avslått</string>
+    <string name="fb_nt_offer_counter">Motbud</string>
+    <string name="fb_nt_player_refused">Spilleren takket nei</string>
+    <string name="fb_nt_transfer_done">Overgang fullført</string>
+    <string name="fb_nt_transfer_world">Stor overgang</string>
+    <string name="fb_nt_rumour">Rykte</string>
+    <string name="fb_nt_contract">Kontrakt</string>
+    <string name="fb_nt_unhappy">Misfornøyd spiller</string>
+    <string name="fb_nt_auction">Auksjon</string>
+    <string name="fb_nt_loan_return">Tilbake fra lån</string>
+    <string name="fb_nt_precontract">Forhåndskontrakt</string>
+    <string name="fb_nt_youth">Ungdomskull</string>
+    <string name="fb_nt_released">Spiller har dratt</string>
+    <string name="fb_nt_preview">Kampforhåndsomtale</string>
+    <string name="fb_nt_report">Kamprapport</string>
+    <string name="fb_nt_injury">Skade</string>
+    <string name="fb_nt_suspension">Karantene</string>
+    <string name="fb_nt_leader">Ny serieleder</string>
+    <string name="fb_nt_potm">Månedens spiller</string>
+    <string name="fb_nt_window_open">Overgangsvindu</string>
+    <string name="fb_nt_window_close">Overgangsvindu</string>
+    <string name="fb_nt_draw">Trekning</string>
+    <string name="fb_nt_europe">Europa</string>
+    <string name="fb_nt_facility">Anlegg</string>
+    <string name="fb_nt_finance">Økonomi</string>
+    <string name="fb_nt_retirement">Karriereslutt</string>
+    <string name="fb_nt_top_scorer">Toppscorer</string>
+    <string name="fb_nt_player_season">Sesongens spiller</string>
+    <string name="fb_nt_fans_happy">Supportere</string>
+    <string name="fb_nt_fans_angry">Supportere</string>
+    <string name="fb_nt_trophy">Mestere</string>
+    <string name="fb_nt_callup">Landslaget</string>
+    <string name="fb_nt_graduate">Egen produkt</string>
+    <string name="fb_n_youth_best">%1$d unge spillere har kommet til akademiet. Speiderne ser på %2$s som det største talentet.</string>
+    <string name="fb_n_preview">Neste: %1$s (%2$s). Deres siste fem: %3$s</string>
+    <string name="fb_n_report_win">Seier mot %1$s: %2$s.</string>
+    <string name="fb_n_report_loss">Tap mot %1$s: %2$s.</string>
+    <string name="fb_n_report_draw">Uavgjort mot %1$s: %2$s.</string>
+    <string name="fb_n_report_motm">Banens beste: %1$s.</string>
+    <string name="fb_n_injury">%1$s skadet seg i kampen og er ute i omtrent %2$d dager.</string>
+    <string name="fb_n_injury_training">%1$s skadet seg på trening (omtrent %2$d dager).</string>
+    <string name="fb_n_suspension">%1$s har karantene i %2$d kamp(er).</string>
+    <string name="fb_n_leader">%1$s er ny serieleder i %2$s med %3$d poeng.</string>
+    <string name="fb_n_potm">%1$s (%2$s) er månedens spiller.</string>
+    <string name="fb_n_window_open">Overgangsvinduet har åpnet.</string>
+    <string name="fb_n_window_close">Overgangsvinduet har stengt.</string>
+    <string name="fb_n_draw">%1$s, %2$s: du møter %3$s.</string>
+    <string name="fb_n_europe_direct">Klubben spiller i %1$s denne sesongen!</string>
+    <string name="fb_n_europe_qual">Klubben går inn i kvalifiseringen til %1$s.</string>
+    <string name="fb_n_facility">Byggingen er ferdig: %1$s ble forbedret.</string>
+    <string name="fb_n_finance">Klubben er i gjeld (%1$s). Det trekkes rente hver uke – selg spillere eller kutt lønninger.</string>
+    <string name="fb_n_retirement">%1$s legger opp i en alder av %2$d år.</string>
+    <string name="fb_n_top_scorer">%1$s er toppscorer i %3$s med %2$d mål.</string>
+    <string name="fb_n_player_season">%1$s er sesongens spiller i %2$s (snitt %3$s).</string>
+    <string name="fb_n_fans_happy">Supporterne er i ekstase over seiersrekken!</string>
+    <string name="fb_n_fans_angry">Tre tap på rad – supporterne er sinte.</string>
+    <string name="fb_n_trophy_us">MESTERE! %1$s vinner %2$s!</string>
+    <string name="fb_n_trophy">%1$s vinner %2$s.</string>
+    <string name="fb_n_callup">%1$s er tatt ut til %2$s.</string>
+    <string name="fb_n_graduate">%1$s flyttes opp fra akademiet til A-laget.</string>
+    <string name="fb_settings">Innstillinger</string>
+    <string name="fb_currency">Valuta</string>
+    <string name="fb_currency_desc">Beløp vises i valgt valuta med faste vekslingskurser (eksempel: 1 mill. euro = %1$s).</string>
+    <string name="fb_career">Karriere</string>
+    <string name="fb_manager_line">Manager: %1$s · sesong %2$s</string>
+    <string name="fb_quit_career">Slett karrieren og start på nytt</string>
+    <string name="fb_new">NY</string>
+    <string name="fb_read_mark">Lest</string>
+    <string name="fb_unread_n">Uleste (%1$d)</string>
+    <string name="fb_player_card">Spillerkort</string>
+    <string name="fb_cred_strong">Pålitelig kilde</string>
+    <string name="fb_cred_medium">Mulig</string>
+    <string name="fb_cred_weak">Sladder</string>
+    <string name="fb_rumour_interest">Interessert klubb: %1$s</string>
+    <string name="fb_rumour_yours">Din spiller</string>
+    <string name="fb_rumour_open">Fortsatt et rykte</string>
+    <string name="fb_rumour_true">Slo til ✓</string>
+    <string name="fb_rumour_elsewhere">Havnet til slutt i %1$s</string>
+    <string name="fb_au_running">Pågår – slutter %1$s</string>
+    <string name="fb_au_leading">Du har det høyeste budet</string>
+    <string name="fb_au_yours">Din auksjon</string>
+    <string name="fb_au_sold">SOLGT til %1$s for %2$s</string>
+    <string name="fb_au_unsold">IKKE SOLGT – ingen bud nådde minsteprisen</string>
+    <string name="fb_au_refused">Ingen avtale – spilleren ville ikke til %1$s</string>
+    <string name="fb_au_won">Du vant! Bli enig om kontrakten med spilleren</string>
+    <string name="fb_au_bought">Kjøpt ✓</string>
+    <string name="fb_au_bids">%1$d bud</string>
+</resources>
