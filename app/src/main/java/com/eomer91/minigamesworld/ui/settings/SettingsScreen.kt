@@ -46,7 +46,7 @@ import com.eomer91.minigamesworld.ui.theme.AppColors
 import java.util.Locale
 
 /** Uygulamanin destekledigi diller. Yeni dil eklerken res/xml/locales_config.xml'i de guncelle. */
-private val SUPPORTED_LANGUAGES = listOf("en", "tr", "de", "es", "fr", "it", "ja", "ru", "da", "hu")
+private val SUPPORTED_LANGUAGES = listOf("en", "tr", "de", "es", "fr", "it", "ja", "ru", "da", "hu", "el", "pt", "pl")
 
 @Composable
 fun SettingsScreen(
