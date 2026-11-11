@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="premium_title">Premium: utan annonser</string>
+    <string name="premium_row">Ta bort annonser</string>
+    <string name="premium_active">Premium är aktivt</string>
+    <string name="premium_b1">Inga annonser mellan spelen</string>
+    <string name="premium_b2">Inga banners</string>
+    <string name="premium_b3">Frivilliga belöningsvideor finns kvar när du vill ha en bonus</string>
+    <string name="premium_b4">Stöd en oberoende utvecklare</string>
+    <string name="premium_monthly">Månadsvis</string>
+    <string name="premium_yearly">Årsvis</string>
+    <string name="premium_per_month">%1$s / månad</string>
+    <string name="premium_per_year">%1$s / år</string>
+    <string name="premium_save">Spara %1$s</string>
+    <string name="premium_trial">%1$d dagar gratis</string>
+    <string name="premium_then">%1$d dagar gratis, sedan %2$s</string>
+    <string name="premium_subscribe">Prenumerera</string>
+    <string name="premium_start_trial">Starta gratis provperiod</string>
+    <string name="premium_manage">Hantera prenumeration</string>
+    <string name="premium_restore">Återställ köp</string>
+    <string name="premium_restored">Köpen har kontrollerats</string>
+    <string name="premium_thanks">Tack! Annonserna har tagits bort.</string>
+    <string name="premium_pending">Betalningen väntar. Premium aktiveras så snart den bekräftats.</string>
+    <string name="premium_error">Något gick fel med Google Play. Försök igen.</string>
+    <string name="premium_loading">Laddar…</string>
+    <string name="premium_unavailable">Prenumerationerna kan inte laddas just nu. Kontrollera din anslutning och Google Play.</string>
+    <string name="premium_terms">Förnyas automatiskt tills du säger upp. Säg upp när som helst i Google Play &gt; Prenumerationer.</string>
+    <string name="premium_close">Inte nu</string>
+</resources>
