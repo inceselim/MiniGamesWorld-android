@@ -2,13 +2,12 @@
 Mini Games Hub: Offlinespil
 
 === SHORT DESCRIPTION (max 80) ===
-32 sjove spil i én app: puslespil, arkade, kort og strategi. Spil offline!
+30 sjove spil i én app: puslespil, arkade, kort og strategi. Spil offline!
 
 === FULL DESCRIPTION (max 4000) ===
-Mini Games Hub samler 32 sjove spil i én lille app. Ingen konto nødvendig, de fleste spil kan spilles offline, og hvert spil gemmer din rekord.
+Mini Games Hub samler 30 sjove spil i én lille app. Ingen konto nødvendig, de fleste spil kan spilles offline, og hvert spil gemmer din rekord.
 
 🧩 PUSLESPIL
-• Mahjong – store, tydelige brikker, bakke med 4 felter og uendelige baner med nye brikker i hvert kapitel
 • Block Puzzle – placér blokke, ryd rækker og kolonner
 • 2048 – saml brikkerne og nå 2048
 • Sudoku – Let, Normal og Svær, en ny opgave hver gang, noter og hjælp
@@ -39,7 +38,6 @@ Mini Games Hub samler 32 sjove spil i én lille app. Ingen konto nødvendig, de 
 • Aktiehandler – handl med fire aktier i 60 dage og følg nyhederne
 • Landenes Krig – byg dit land, opstil hære og erobr dine rivaler
 • Fabriksmagnat – byg produktionskæder, sælg på markedet og lever ordrer
-• Klubboss – styr en europæisk fodboldklub: taktik, transfers, ungdomsakademi, økonomi og europæiske turneringer
 • Ø-magnat – byg hoteller, diskoteker og vandlande på en tropeø, vind priskrigen og driv dine rivaler konkurs
 
 🎨 KREATIVT & BØRN

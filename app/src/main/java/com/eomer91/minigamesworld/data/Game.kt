@@ -23,4 +23,6 @@ data class Game(
     val isFeatured: Boolean = false,
     /** Oyun native olarak tasindiginda true yapilir; false ise "Cok yakinda" ekrani acilir. */
     val isPlayable: Boolean = false,
+    /** true ise oyun kodda kalir ama ana sayfa, arama, favoriler ve profilde listelenmez. */
+    val isHidden: Boolean = false,
 )

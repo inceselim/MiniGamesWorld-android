@@ -4,9 +4,10 @@ import com.eomer91.minigamesworld.R
 
 object GameCatalog {
 
-    val games: List<Game> = listOf(
+    /** Tum oyunlar (gizliler dahil). Listeleme icin [games] kullan. */
+    val allGames: List<Game> = listOf(
         Game("block-puzzle", R.string.game_block_puzzle_name, R.string.game_block_puzzle_desc, GameCategory.PUZZLE, R.drawable.game_block_puzzle, isFeatured = true, isPlayable = true),
-        Game("mahjong", R.string.game_mahjong_name, R.string.game_mahjong_desc, GameCategory.PUZZLE, R.drawable.game_mahjong, isPlayable = true),
+        Game("mahjong", R.string.game_mahjong_name, R.string.game_mahjong_desc, GameCategory.PUZZLE, R.drawable.game_mahjong, isPlayable = true, isHidden = true),
         Game("block-rain", R.string.game_block_rain_name, R.string.game_block_rain_desc, GameCategory.PUZZLE, R.drawable.game_block_rain, isPlayable = true),
         Game("jigsaw", R.string.game_jigsaw_name, R.string.game_jigsaw_desc, GameCategory.PUZZLE, R.drawable.game_jigsaw, isPlayable = true),
         Game("match-3", R.string.game_match_3_name, R.string.game_match_3_desc, GameCategory.PUZZLE, R.drawable.game_match_3, isPlayable = true),
@@ -18,7 +19,7 @@ object GameCatalog {
         Game("fish-world", R.string.game_fish_world_name, R.string.game_fish_world_desc, GameCategory.ARCADE, R.drawable.game_fish_world, isPlayable = true),
         Game("factory", R.string.game_factory_name, R.string.game_factory_desc, GameCategory.STRATEGY, R.drawable.game_factory, isPlayable = true),
         Game("island-tycoon", R.string.game_island_name, R.string.game_island_desc, GameCategory.STRATEGY, R.drawable.game_island, isPlayable = true),
-        Game("football-manager", R.string.game_football_manager_name, R.string.game_football_manager_desc, GameCategory.STRATEGY, R.drawable.game_football_manager, isPlayable = true),
+        Game("football-manager", R.string.game_football_manager_name, R.string.game_football_manager_desc, GameCategory.STRATEGY, R.drawable.game_football_manager, isPlayable = true, isHidden = true),
         Game("stock-market", R.string.game_stock_market_name, R.string.game_stock_market_desc, GameCategory.STRATEGY, R.drawable.game_stock_market, isPlayable = true),
         Game("fox-adventure", R.string.game_fox_name, R.string.game_fox_desc, GameCategory.ARCADE, R.drawable.game_fox_adventure, isPlayable = true),
         Game("mine-run", R.string.game_mine_run_name, R.string.game_mine_run_desc, GameCategory.ARCADE, R.drawable.game_mine_run, isPlayable = true),
@@ -39,7 +40,10 @@ object GameCatalog {
         Game("snake", R.string.game_snake_name, R.string.game_snake_desc, GameCategory.ARCADE, R.drawable.game_snake, isPlayable = true),
     )
 
-    fun find(id: String): Game? = games.firstOrNull { it.id == id }
+    /** Kullaniciya listelenen oyunlar: gizli olanlar haric. */
+    val games: List<Game> = allGames.filter { !it.isHidden }
+
+    fun find(id: String): Game? = allGames.firstOrNull { it.id == id }
 
     val featured: Game? get() = games.firstOrNull { it.isFeatured }
 }
