@@ -1,0 +1,57 @@
+=== TITLE (max 30) ===
+Mini Games Hub: Jogos Offline
+
+=== SHORT DESCRIPTION (max 80) ===
+30 jogos em um só app: quebra-cabeça, arcade e estratégia. Jogue offline!
+
+=== FULL DESCRIPTION (max 4000) ===
+O Mini Games Hub reúne 30 jogos divertidos em um app pequeno e leve. Não precisa criar conta, a maioria dos jogos funciona sem internet e cada jogo salva o seu recorde. Todos os jogos são grátis.
+
+🧩 QUEBRA-CABEÇA
+• Quebra-Cabeça de Blocos – encaixe blocos e limpe linhas e colunas
+• 2048 – junte as peças e chegue ao 2048
+• Sudoku – Fácil, Normal e Difícil, um desafio novo a cada partida, com anotações e dicas
+• Combine 3 – combine joias coloridas e faça combos em cadeia
+• Campo Minado – três tamanhos de tabuleiro, modo bandeira e primeiro toque seguro
+• Chuva de Blocos – gire os blocos que caem, complete linhas, guarde peças e veja a peça fantasma
+• Quebra-Cabeça de Imagens – 12, 24 ou 40 peças com figuras coloridas
+
+🕹 ARCADE
+• Cobrinha – o clássico, suave e rápido
+• Torre – solte os blocos na hora certa e construa a torre mais alta
+• Bolhas Coloridas – mire, ricocheteie e estoure as bolhas
+• Foguete Saltitante – voe com o foguete entre os asteroides
+• Mundo dos Peixes – vá pescar, melhore sua vara e crie peixes no seu próprio aquário
+• Guardião da Floresta – sobreviva a ondas de monstros, suba de nível e evolua suas armas
+• Aventura da Raposa – corra, pule e derrote inimigos em 15 fases, colete todas as estrelas
+• Corrida na Mina – corra em um carrinho de mina por três trilhos, desvie e colete
+
+♟ CLÁSSICOS
+• Jogo da Memória – vire as cartas e encontre todos os pares
+• Lig 4 – jogue contra o computador (três níveis) ou com um amigo
+• Xadrez – regras completas, três níveis de computador ou contra um amigo
+• Damas – damas turcas contra o computador ou um amigo
+• Sinuca 8 Bolas – física realista contra o computador
+
+🏰 ESTRATÉGIA
+• Defesa da Torre – uma torre, ondas sem fim e melhorias permanentes
+• Guerra de Países – construa seu país, forme exércitos e conquiste os rivais
+• Magnata das Fábricas – monte cadeias de produção, venda no mercado e atenda pedidos
+• Magnata da Ilha – construa hotéis, discotecas e parques aquáticos em uma ilha tropical e supere seus rivais
+
+🎨 CRIATIVOS E INFANTIS
+• Desfile de Moda – vista a modelo de acordo com o tema
+• Salão de Maquiagem – faça a maquiagem que cada cliente pede
+• Confeitaria – asse e decore bolos sob encomenda
+• Livro de Colorir – toque para pintar, dê zoom e salve seus desenhos
+• Amigos Animais – figuras, nomes e sons de animais para os pequenos
+
+⭐ RECURSOS
+• Continue os jogos de onde parou
+• Efeitos sonoros e vibração (podem ser desligados)
+• Música de fundo (pode ser desligada)
+• Favoritos, busca e categorias
+• 24 idiomas, incluindo português
+• Download pequeno, abre rapidinho
+
+Novos jogos chegam a cada atualização. Divirta-se!
