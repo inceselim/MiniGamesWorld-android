@@ -1,11 +1,11 @@
-=== TITLE (max 30) ===
+=== TITLE (max 31) ===
 Mini Games Hub: Offline Games
 
 === SHORT DESCRIPTION (max 80) ===
-30 fun games in one app: puzzles, arcade, cards, strategy. Play offline!
+31 fun games in one app: puzzles, arcade, cards, strategy. Play offline!
 
 === FULL DESCRIPTION (max 4000) ===
-Mini Games Hub brings 30 fun games together in one small app. No account needed, most games play offline, and every game saves your best score.
+Mini Games Hub brings 31 fun games together in one small app. No account needed, most games play offline, and every game saves your best score.
 
 🧩 PUZZLE
 • Block Puzzle – place blocks, clear rows and columns
@@ -37,6 +37,7 @@ Mini Games Hub brings 30 fun games together in one small app. No account needed,
 • Tower Defense – one tower, endless waves, permanent upgrades
 • Stock Trader – trade four stocks for 60 days, read the news and grow your fortune
 • Countries War – build your country, raise armies and conquer your rivals
+• Kingdom Wars – rebuild your fallen kingdom: resources keep coming while you are offline, train an army, unlock heroes and conquer 15 regions
 • Factory Tycoon – build production chains, sell on the market, fill orders
 • Island Tycoon – build hotels, discos and water parks on a tropical island, win price wars and bankrupt your rivals
 

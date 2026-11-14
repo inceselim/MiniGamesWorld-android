@@ -1,0 +1,72 @@
+<en-US>
+• New game: Kingdom Wars – build your kingdom, it keeps producing while you are offline, train an army and conquer 15 regions
+• All games are now completely free – no gold needed to play
+• 14 new languages (24 in total)
+• Small fixes and improvements
+</en-US>
+<tr-TR>
+• Yeni oyun: Krallık Savaşları – krallığını kur, oyun kapalıyken bile üretim sürsün, ordu yetiştir ve 15 bölgeyi fethet
+• Tüm oyunlar artık tamamen ücretsiz – oynamak için altın gerekmiyor
+• 14 yeni dil (toplam 24 dil)
+• Küçük düzeltmeler ve iyileştirmeler
+</tr-TR>
+<de-DE>
+• Neues Spiel: Kingdom Wars – baue dein Königreich, das auch offline weiter produziert, stelle eine Armee auf und erobere 15 Regionen
+• Alle Spiele sind jetzt komplett kostenlos – kein Gold mehr zum Spielen nötig
+• 14 neue Sprachen (insgesamt 24)
+• Kleine Korrekturen und Verbesserungen
+</de-DE>
+<es-ES>
+• Nuevo juego: Kingdom Wars – construye tu reino, que sigue produciendo sin conexión, entrena un ejército y conquista 15 regiones
+• Todos los juegos son ahora totalmente gratis: ya no necesitas oro para jugar
+• 14 idiomas nuevos (24 en total)
+• Pequeñas correcciones y mejoras
+</es-ES>
+<fr-FR>
+• Nouveau jeu : Kingdom Wars – bâtis ton royaume, qui continue de produire hors ligne, entraîne une armée et conquiers 15 régions
+• Tous les jeux sont désormais entièrement gratuits : plus besoin d'or pour jouer
+• 14 nouvelles langues (24 au total)
+• Petites corrections et améliorations
+</fr-FR>
+<it-IT>
+• Nuovo gioco: Kingdom Wars – costruisci il tuo regno, che continua a produrre anche offline, addestra un esercito e conquista 15 regioni
+• Tutti i giochi ora sono completamente gratuiti: non serve più oro per giocare
+• 14 nuove lingue (24 in totale)
+• Piccole correzioni e miglioramenti
+</it-IT>
+<ja-JP>
+• 新ゲーム：Kingdom Wars – 王国を築こう。オフライン中も生産が続き、軍を育てて15の地域を征服
+• すべてのゲームが完全無料に – プレイにゴールドは不要になりました
+• 14 の新しい言語を追加（合計 24 言語）
+• 細かな修正と改善
+</ja-JP>
+<ru-RU>
+• Новая игра: Kingdom Wars – стройте королевство, которое производит ресурсы даже офлайн, собирайте армию и завоюйте 15 регионов
+• Все игры теперь полностью бесплатны – золото для игры больше не нужно
+• 14 новых языков (всего 24)
+• Небольшие исправления и улучшения
+</ru-RU>
+<da-DK>
+• Nyt spil: Kingdom Wars – byg dit kongerige, der producerer videre offline, træn en hær og erobr 15 regioner
+• Alle spil er nu helt gratis – der skal ikke længere bruges guld for at spille
+• 14 nye sprog (24 i alt)
+• Små rettelser og forbedringer
+</da-DK>
+<hu-HU>
+• Új játék: Kingdom Wars – építsd fel a királyságod, amely offline is termel, képezz sereget és hódíts meg 15 régiót
+• Minden játék teljesen ingyenes – a játékhoz már nem kell arany
+• 14 új nyelv (összesen 24)
+• Apró javítások és fejlesztések
+</hu-HU>
+<el-GR>
+• Νέο παιχνίδι: Kingdom Wars – χτίσε το βασίλειό σου, που παράγει ακόμα και offline, εκπαίδευσε στρατό και κατέκτησε 15 περιοχές
+• Όλα τα παιχνίδια είναι πλέον εντελώς δωρεάν
+• 14 νέες γλώσσες (24 συνολικά)
+• Μικρές διορθώσεις και βελτιώσεις
+</el-GR>
+<pt-BR>
+• Novo jogo: Kingdom Wars – construa seu reino, que continua produzindo offline, treine um exército e conquiste 15 regiões
+• Todos os jogos agora são totalmente grátis
+• 14 novos idiomas (24 no total)
+• Pequenas correções e melhorias
+</pt-BR>

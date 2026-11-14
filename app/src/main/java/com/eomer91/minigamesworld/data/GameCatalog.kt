@@ -18,6 +18,7 @@ object GameCatalog {
         Game("rocket-hop", R.string.game_rocket_hop_name, R.string.game_rocket_hop_desc, GameCategory.ARCADE, R.drawable.game_rocket_hop, isPlayable = true),
         Game("fish-world", R.string.game_fish_world_name, R.string.game_fish_world_desc, GameCategory.ARCADE, R.drawable.game_fish_world, isPlayable = true),
         Game("factory", R.string.game_factory_name, R.string.game_factory_desc, GameCategory.STRATEGY, R.drawable.game_factory, isPlayable = true),
+        Game("idle-kingdom", R.string.game_idle_kingdom_name, R.string.game_idle_kingdom_desc, GameCategory.STRATEGY, R.drawable.game_idle_kingdom, isPlayable = true),
         Game("island-tycoon", R.string.game_island_name, R.string.game_island_desc, GameCategory.STRATEGY, R.drawable.game_island, isPlayable = true),
         Game("football-manager", R.string.game_football_manager_name, R.string.game_football_manager_desc, GameCategory.STRATEGY, R.drawable.game_football_manager, isPlayable = true, isHidden = true),
         Game("stock-market", R.string.game_stock_market_name, R.string.game_stock_market_desc, GameCategory.STRATEGY, R.drawable.game_stock_market, isPlayable = true),

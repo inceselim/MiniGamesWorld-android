@@ -1,11 +1,11 @@
-=== TITLE (max 30) ===
+=== TITLE (max 31) ===
 Mini Games Hub - Offline Oyun
 
 === SHORT DESCRIPTION (max 80) ===
-Tek uygulamada 30 eğlenceli oyun: bulmaca, arcade, kart, strateji. İnternetsiz!
+Tek uygulamada 31 eğlenceli oyun: bulmaca, arcade, kart, strateji. İnternetsiz!
 
 === FULL DESCRIPTION (max 4000) ===
-Mini Games Hub, 30 eğlenceli oyunu tek ve küçük bir uygulamada topluyor. Hesap gerekmez, oyunların çoğu internetsiz oynanır ve her oyun en iyi skorunu kaydeder.
+Mini Games Hub, 31 eğlenceli oyunu tek ve küçük bir uygulamada topluyor. Hesap gerekmez, oyunların çoğu internetsiz oynanır ve her oyun en iyi skorunu kaydeder.
 
 🧩 BULMACA
 • Block Puzzle – blokları yerleştir, satır ve sütunları temizle
@@ -37,6 +37,7 @@ Mini Games Hub, 30 eğlenceli oyunu tek ve küçük bir uygulamada topluyor. Hes
 • Tower Defense – tek kule, bitmeyen dalgalar, kalıcı geliştirmeler
 • Borsa Ustası – 60 gün boyunca 4 hissede al-sat yap, haberleri takip et
 • Ülkeler Savaşı – ülkeni kur, ordu topla, rakiplerini fethet
+• Krallık Savaşları – yıkılan krallığını yeniden kur: oyun kapalıyken bile kaynak üret, ordu yetiştir, kahramanları aç ve 15 bölgeyi fethet
 • Fabrika Patronu – üretim zinciri kur, pazarda sat, siparişleri tamamla
 • Ada Patronu – tropik adada otel, disko ve su parkı kur, fiyat savaşını kazan, rakiplerini iflas ettir
 

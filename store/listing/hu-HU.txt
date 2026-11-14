@@ -1,11 +1,11 @@
-=== TITLE (max 30) ===
+=== TITLE (max 31) ===
 Mini Games Hub: offline játék
 
 === SHORT DESCRIPTION (max 80) ===
-30 játék egy appban: logikai, ügyességi, kártya, stratégia. Játssz offline!
+31 játék egy appban: logikai, ügyességi, kártya, stratégia. Játssz offline!
 
 === FULL DESCRIPTION (max 4000) ===
-A Mini Games Hub 30 szórakoztató játékot gyűjt egyetlen kis alkalmazásba. Nem kell fiók, a legtöbb játék internet nélkül is működik, és minden játék elmenti a rekordodat.
+A Mini Games Hub 31 szórakoztató játékot gyűjt egyetlen kis alkalmazásba. Nem kell fiók, a legtöbb játék internet nélkül is működik, és minden játék elmenti a rekordodat.
 
 🧩 LOGIKAI
 • Block Puzzle – rakd le a blokkokat, töröld a sorokat és oszlopokat
