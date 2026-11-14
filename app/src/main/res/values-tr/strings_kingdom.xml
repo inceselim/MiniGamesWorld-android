@@ -118,4 +118,6 @@
     <string name="ik_offline_body">Sen yokken krallığın %1$s boyunca çalıştı (en fazla %2$d saat).</string>
     <string name="ik_double">İki katına çıkar (reklam)</string>
     <string name="ik_collect">Topla</string>
+    <string name="ik_storage">Depo: her kaynaktan %1$s</string>
+    <string name="ik_map_locked">Buraya ulaşmak için önceki bölgeleri fethet.</string>
 </resources>

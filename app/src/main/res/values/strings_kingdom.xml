@@ -118,4 +118,6 @@
     <string name="ik_offline_body">Your kingdom kept working for %1$s while you were away (up to %2$d hours).</string>
     <string name="ik_double">Double it (ad)</string>
     <string name="ik_collect">Collect</string>
+    <string name="ik_storage">Storage: %1$s of each resource</string>
+    <string name="ik_map_locked">Conquer the previous regions to reach this one.</string>
 </resources>

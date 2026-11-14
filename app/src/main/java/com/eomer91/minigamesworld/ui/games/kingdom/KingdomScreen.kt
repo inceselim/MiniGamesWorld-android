@@ -1,5 +1,23 @@
 package com.eomer91.minigamesworld.ui.games.kingdom
 
+import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.FilterQuality
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
+import androidx.compose.ui.graphics.nativeCanvas
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -62,6 +80,9 @@ import java.util.Locale
 private val Green = Color(0xFF22C55E)
 private val Royal = Color(0xFF7C3AED)
 private val Crimson = Color(0xFFDC2626)
+private val Panel = Color(0xFF262B44)
+private val PanelLight = Color(0xFF333C57)
+private val Frame = Color(0xFF3A4466)
 
 private fun num(d: Double): String = when {
     d >= 1e6 -> String.format(Locale.US, "%.2fM", d / 1e6)
@@ -203,7 +224,7 @@ fun KingdomScreen(viewModel: KingdomViewModel = hiltViewModel()) {
     ) {
         if (!state.loading) {
             Column(Modifier.fillMaxSize().padding(12.dp)) {
-                Header(viewModel)
+                Header(viewModel, showScene = state.tab == KingdomTab.KINGDOM)
                 Tabs(state.tab, viewModel)
                 Box(Modifier.weight(1f).fillMaxWidth().padding(top = 6.dp)) {
                     when (state.tab) {
@@ -218,7 +239,7 @@ fun KingdomScreen(viewModel: KingdomViewModel = hiltViewModel()) {
         }
         if (state.offline.isNotEmpty()) {
             Overlay {
-                Text("🏰", fontSize = 44.sp)
+                Sprite(buildingSprite(KBuilding.CASTLE, viewModel.engine.castleLevel), 72.dp)
                 Text(stringResource(R.string.ik_offline_title), color = AppColors.TextPrimary, fontSize = 20.sp, fontWeight = FontWeight.Black, textAlign = TextAlign.Center)
                 Text(
                     stringResource(R.string.ik_offline_body, formatDuration(state.offlineSeconds), viewModel.engine.offlineCapHours),
@@ -265,11 +286,14 @@ private fun Overlay(content: @Composable () -> Unit) {
 
 @Composable
 private fun ResourceLine(amounts: Map<Res, Int>, modifier: Modifier = Modifier, color: Color = AppColors.TextPrimary) {
-    Row(modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+    Row(modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.CenterVertically) {
         for (r in Res.entries) {
             val v = amounts[r] ?: continue
             if (v <= 0) continue
-            Text("${r.emoji} ${num(v)}", color = color, fontWeight = FontWeight.Bold, fontSize = 14.sp)
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Sprite(resSprite(r), 18.dp)
+                Text(" " + num(v), color = color, fontWeight = FontWeight.Bold, fontSize = 14.sp)
+            }
         }
     }
 }
@@ -277,16 +301,19 @@ private fun ResourceLine(amounts: Map<Res, Int>, modifier: Modifier = Modifier, 
 /** Maliyet satiri: yetmeyen kaynak kirmizi. */
 @Composable
 private fun CostLine(cost: Map<Res, Int>, e: KingdomEngine) {
-    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+    Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
         for ((r, v) in cost) {
             val enough = (e.res[r] ?: 0.0) >= v
-            Text("${r.emoji}${num(v)}", color = if (enough) AppColors.TextMuted else AppColors.Danger, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Sprite(resSprite(r), 14.dp)
+                Text(num(v), color = if (enough) AppColors.TextMuted else AppColors.Danger, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+            }
         }
     }
 }
 
 @Composable
-private fun Header(vm: KingdomViewModel) {
+private fun Header(vm: KingdomViewModel, showScene: Boolean) {
     @Suppress("UNUSED_VARIABLE")
     val f = vm.frame
     val e = vm.engine
@@ -299,31 +326,58 @@ private fun Header(vm: KingdomViewModel) {
         Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(16.dp))
-            .background(Brush.horizontalGradient(listOf(Color(0xFF312E81), Color(0xFF4C1D95))))
-            .padding(horizontal = 12.dp, vertical = 8.dp),
+            .border(2.dp, Frame, RoundedCornerShape(16.dp))
+            .background(Panel),
     ) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(KBuilding.CASTLE.emoji, fontSize = 26.sp)
-            Column(Modifier.weight(1f).padding(start = 8.dp)) {
-                Text(stringResource(ageName), color = Color.White, fontWeight = FontWeight.Black, fontSize = 16.sp)
+        if (showScene) Box {
+            KingdomScene(e.levels)
+            Row(
+                Modifier
+                    .padding(6.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(Color(0xCC1A1C2C))
+                    .padding(horizontal = 8.dp, vertical = 3.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(stringResource(ageName), color = AppColors.Gold, fontWeight = FontWeight.Black, fontSize = 12.sp)
                 Text(
-                    stringResource(R.string.ik_castle_level, e.castleLevel) + " · " + stringResource(R.string.ik_army_size, e.armySize(), e.armyCapacity()),
-                    color = Color(0xFFDDD6FE),
-                    fontSize = 12.sp,
+                    "  " + stringResource(R.string.ik_castle_level, e.castleLevel),
+                    color = Color.White,
                     fontWeight = FontWeight.Bold,
+                    fontSize = 11.sp,
                 )
             }
-            Text("📦 " + num(e.capacity()), color = Color(0xFFDDD6FE), fontSize = 12.sp, fontWeight = FontWeight.Bold)
+            Row(
+                Modifier
+                    .align(Alignment.TopEnd)
+                    .padding(6.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(Color(0xCC1A1C2C))
+                    .padding(horizontal = 8.dp, vertical = 3.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Sprite(R.drawable.ik_unit_sword, 16.dp)
+                Text(" ${e.armySize()}/${e.armyCapacity()}", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 11.sp)
+            }
         }
-        Row(Modifier.fillMaxWidth().padding(top = 6.dp), horizontalArrangement = Arrangement.SpaceBetween) {
+        Row(Modifier.fillMaxWidth().padding(horizontal = 8.dp, vertical = 6.dp), horizontalArrangement = Arrangement.SpaceBetween) {
             for (r in Res.entries) {
                 val full = (e.res[r] ?: 0.0) >= e.capacity()
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text("${r.emoji} ${num(e.res[r] ?: 0.0)}", color = if (full) AppColors.Gold else Color.White, fontWeight = FontWeight.Black, fontSize = 14.sp)
-                    Text("+" + num(e.perMinute(r)) + "/" + stringResource(R.string.ik_min), color = Color(0xFFC4B5FD), fontSize = 10.sp)
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Sprite(resSprite(r), 22.dp)
+                    Column(Modifier.padding(start = 3.dp)) {
+                        Text(num(e.res[r] ?: 0.0), color = if (full) AppColors.Danger else Color.White, fontWeight = FontWeight.Black, fontSize = 13.sp)
+                        Text("+" + num(e.perMinute(r)) + "/" + stringResource(R.string.ik_min), color = Green, fontSize = 9.sp, fontWeight = FontWeight.Bold)
+                    }
                 }
             }
         }
+        Text(
+            stringResource(R.string.ik_storage, num(e.capacity())),
+            color = AppColors.TextSecondary,
+            fontSize = 10.sp,
+            modifier = Modifier.padding(start = 10.dp, bottom = 6.dp),
+        )
     }
 }
 
@@ -334,24 +388,30 @@ private fun Tabs(current: KingdomTab, vm: KingdomViewModel) {
     val questReady = vm.engine.questDone()
     Row(Modifier.fillMaxWidth().padding(top = 8.dp), horizontalArrangement = Arrangement.spacedBy(4.dp)) {
         for (t in KingdomTab.entries) {
-            val (emoji, label) = when (t) {
-                KingdomTab.KINGDOM -> "🏰" to R.string.ik_tab_kingdom
-                KingdomTab.ARMY -> "⚔️" to R.string.ik_tab_army
-                KingdomTab.MAP -> "🗺️" to R.string.ik_tab_map
-                KingdomTab.RESEARCH -> "📜" to R.string.ik_tab_research
-                KingdomTab.QUESTS -> "🎯" to R.string.ik_tab_quests
+            val (icon, label) = when (t) {
+                KingdomTab.KINGDOM -> R.drawable.ik_castle_1 to R.string.ik_tab_kingdom
+                KingdomTab.ARMY -> R.drawable.ik_unit_sword to R.string.ik_tab_army
+                KingdomTab.MAP -> R.drawable.ik_icon_map to R.string.ik_tab_map
+                KingdomTab.RESEARCH -> R.drawable.ik_icon_book to R.string.ik_tab_research
+                KingdomTab.QUESTS -> R.drawable.ik_res_gold to R.string.ik_tab_quests
             }
             val sel = t == current
             Column(
                 Modifier
                     .weight(1f)
                     .clip(RoundedCornerShape(12.dp))
-                    .background(if (sel) Royal else AppColors.SurfaceHigh)
+                    .background(if (sel) Royal else Panel)
+                    .border(2.dp, if (sel) AppColors.Gold else Frame, RoundedCornerShape(12.dp))
                     .clickable { vm.selectTab(t) }
                     .padding(vertical = 6.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                Text(emoji + if (t == KingdomTab.QUESTS && questReady) "❗" else "", fontSize = 16.sp)
+                Box {
+                    Sprite(icon, 26.dp)
+                    if (t == KingdomTab.QUESTS && questReady) {
+                        Box(Modifier.align(Alignment.TopEnd).size(9.dp).clip(RoundedCornerShape(5.dp)).background(Crimson))
+                    }
+                }
                 Text(stringResource(label), color = if (sel) Color.White else AppColors.TextSecondary, fontSize = 10.sp, fontWeight = FontWeight.Bold, maxLines = 1)
             }
         }
@@ -364,8 +424,8 @@ private fun Card(modifier: Modifier = Modifier, highlight: Boolean = false, cont
         modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(14.dp))
-            .background(AppColors.SurfaceHigh)
-            .then(if (highlight) Modifier.border(2.dp, AppColors.Gold, RoundedCornerShape(14.dp)) else Modifier)
+            .background(Brush.verticalGradient(listOf(PanelLight, Panel)))
+            .border(2.dp, if (highlight) AppColors.Gold else Frame, RoundedCornerShape(14.dp))
             .padding(10.dp),
     ) { content() }
 }
@@ -394,7 +454,7 @@ private fun Buildings(vm: KingdomViewModel) {
             val lv = e.level(b)
             Card {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(b.emoji, fontSize = 28.sp)
+                    Sprite(buildingSprite(b, lv.coerceAtLeast(1)), 56.dp, locked = lv == 0)
                     Column(Modifier.weight(1f).padding(start = 8.dp)) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Text(stringResource(buildingName(b)), color = AppColors.TextPrimary, fontWeight = FontWeight.Black)
@@ -412,7 +472,11 @@ private fun Buildings(vm: KingdomViewModel) {
                         }
                         Text(desc, color = AppColors.TextSecondary, fontSize = 11.sp)
                         if (b.produces != null && lv > 0) {
-                            Text("+" + num(e.perMinute(b.produces)) + " ${b.produces.emoji}/" + stringResource(R.string.ik_min), color = Green, fontSize = 11.sp, fontWeight = FontWeight.Bold)
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Text("+" + num(e.perMinute(b.produces)) + " ", color = Green, fontSize = 11.sp, fontWeight = FontWeight.Bold)
+                                Sprite(resSprite(b.produces), 12.dp)
+                                Text("/" + stringResource(R.string.ik_min), color = Green, fontSize = 11.sp, fontWeight = FontWeight.Bold)
+                            }
                         }
                         when {
                             !e.isUnlocked(b) -> Text(
@@ -459,7 +523,7 @@ private fun Army(vm: KingdomViewModel) {
         items(UnitType.entries) { u ->
             Card {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(u.emoji, fontSize = 28.sp)
+                    Sprite(unitSprite(u), 48.dp, locked = !e.canTrainType(u))
                     Column(Modifier.weight(1f).padding(start = 8.dp)) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Text(stringResource(unitName(u)), color = AppColors.TextPrimary, fontWeight = FontWeight.Black)
@@ -506,7 +570,7 @@ private fun HeroCard(h: Hero, vm: KingdomViewModel) {
     val active = owned && e.activeHero == h
     Card(highlight = active) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(if (owned) h.emoji else "🔒", fontSize = 28.sp)
+            Sprite(heroSprite(h), 52.dp, modifier = Modifier.clip(RoundedCornerShape(8.dp)), locked = !owned)
             Column(Modifier.weight(1f).padding(start = 8.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(stringResource(heroName(h)), color = if (owned) AppColors.TextPrimary else AppColors.TextSecondary, fontWeight = FontWeight.Black)
@@ -544,67 +608,102 @@ private fun WorldMap(vm: KingdomViewModel) {
     @Suppress("UNUSED_VARIABLE")
     val f = vm.frame
     val e = vm.engine
-    LazyColumn(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-        val next = e.nextRegion
-        if (next == null) {
-            item {
-                Card(highlight = true) {
-                    Text("👑 " + stringResource(R.string.ik_all_conquered), color = AppColors.Gold, fontWeight = FontWeight.Black, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
-                }
-            }
+    val last = KingdomEngine.REGIONS.lastIndex
+    var selected by remember { mutableIntStateOf(e.conquered.coerceAtMost(last)) }
+    LaunchedEffect(e.conquered) { selected = e.conquered.coerceAtMost(last) }
+    Column(Modifier.fillMaxSize()) {
+        RegionCard(KingdomEngine.REGIONS[selected], vm)
+        MapView(e, selected, onSelect = { selected = it }, modifier = Modifier.weight(1f).padding(top = 6.dp))
+    }
+}
+
+@Composable
+private fun MapView(e: KingdomEngine, selected: Int, onSelect: (Int) -> Unit, modifier: Modifier = Modifier) {
+    val mapImg = ImageBitmap.imageResource(R.drawable.ik_world_map)
+    val pulse = rememberClash()
+    val scroll = rememberScrollState()
+    val density = LocalDensity.current
+    val paint = remember {
+        android.graphics.Paint().apply {
+            textAlign = android.graphics.Paint.Align.CENTER
+            isFakeBoldText = true
+            isAntiAlias = true
         }
-        items(KingdomEngine.REGIONS) { r ->
-            val done = r.index < e.conquered
-            val isNext = r.index == e.conquered
-            Card(highlight = isNext) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(if (done || isNext) r.emoji else "❔", fontSize = 28.sp)
-                    Column(Modifier.weight(1f).padding(start = 8.dp)) {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text(
-                                (r.index + 1).toString() + ". " + if (done || isNext) stringResource(regionName(r)) else "???",
-                                color = if (done || isNext) AppColors.TextPrimary else AppColors.TextSecondary,
-                                fontWeight = FontWeight.Black,
-                            )
-                            if (r.isBoss) Text("  " + stringResource(R.string.ik_boss), color = Crimson, fontWeight = FontWeight.Black, fontSize = 12.sp)
+    }
+    BoxWithConstraints(
+        modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(14.dp))
+            .border(2.dp, Frame, RoundedCornerShape(14.dp)),
+    ) {
+        val widthPx = constraints.maxWidth.toFloat()
+        val viewH = constraints.maxHeight.toFloat()
+        val scale = widthPx / MAP_W
+        val mapHeight = with(density) { (MAP_H * scale).toDp() }
+        LaunchedEffect(e.conquered, widthPx) {
+            val node = MAP_NODES[e.conquered.coerceAtMost(MAP_NODES.lastIndex)]
+            scroll.animateScrollTo((node.second * scale - viewH / 2f).toInt().coerceAtLeast(0))
+        }
+        Box(Modifier.fillMaxSize().verticalScroll(scroll)) {
+            Canvas(
+                Modifier
+                    .fillMaxWidth()
+                    .height(mapHeight)
+                    .pointerInput(scale) {
+                        detectTapGestures { o ->
+                            val mx = o.x / scale
+                            val my = o.y / scale
+                            val best = MAP_NODES.indices.minByOrNull { i ->
+                                val dx = MAP_NODES[i].first - mx
+                                val dy = MAP_NODES[i].second - my
+                                dx * dx + dy * dy
+                            } ?: return@detectTapGestures
+                            val dx = MAP_NODES[best].first - mx
+                            val dy = MAP_NODES[best].second - my
+                            if (dx * dx + dy * dy < 16 * 16) onSelect(best)
                         }
-                        if (done) {
-                            Text("✅ " + stringResource(R.string.ik_conquered), color = Green, fontSize = 11.sp, fontWeight = FontWeight.Bold)
-                        }
-                        if (done || isNext) {
-                            val minLabel = stringResource(R.string.ik_min)
-                            val heroLabel = r.unlocksHero?.let { it.emoji + " " + stringResource(heroName(it)) }
-                            val perks = buildList {
-                                if (r.bonusRes != null) add("+${r.bonusPct}% " + r.bonusRes.emoji)
-                                add("+" + num(r.taxPerMin) + " 🪙/" + minLabel)
-                                if (heroLabel != null) add(heroLabel)
-                            }
-                            Text(perks.joinToString(" · "), color = AppColors.TextMuted, fontSize = 11.sp)
-                        }
-                        if (isNext) {
-                            Text(
-                                r.enemy.entries.joinToString("  ") { "${it.key.emoji}${it.value}" },
-                                color = AppColors.TextSecondary,
-                                fontSize = 12.sp,
-                            )
-                            val mine = e.myPowerVs(r.enemy)
-                            val theirs = e.enemyPower(r)
-                            Text(
-                                stringResource(R.string.ik_your_power, num(mine)) + "  ·  " + stringResource(R.string.ik_enemy_power, num(theirs)),
-                                color = if (mine > theirs * 1.1) Green else if (mine > theirs * 0.9) AppColors.Gold else AppColors.Danger,
-                                fontSize = 12.sp,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Text(stringResource(R.string.ik_reward) + ":", color = AppColors.TextSecondary, fontSize = 11.sp)
-                            ResourceLine(r.reward, color = AppColors.TextMuted)
-                        }
+                    },
+            ) {
+                drawImage(
+                    image = mapImg,
+                    srcOffset = IntOffset.Zero,
+                    srcSize = IntSize(mapImg.width, mapImg.height),
+                    dstOffset = IntOffset.Zero,
+                    dstSize = IntSize(size.width.toInt(), size.height.toInt()),
+                    filterQuality = FilterQuality.None,
+                )
+                paint.textSize = 6f * scale
+                for (i in MAP_NODES.indices) {
+                    val (nx, ny) = MAP_NODES[i]
+                    val c = Offset(nx * scale, ny * scale)
+                    val r = 6f * scale
+                    val region = KingdomEngine.REGIONS[i]
+                    val done = i < e.conquered
+                    val next = i == e.conquered
+                    if (next) {
+                        drawCircle(Crimson.copy(alpha = 0.35f * (1f - pulse)), r * (1.3f + 0.7f * pulse), c)
                     }
-                    if (isNext) {
-                        ActionButton(stringResource(R.string.ik_attack), enabled = e.armySize() > 0, color = Crimson) { vm.attack() }
+                    drawCircle(Color(0xFF1A1C2C), r + scale, c)
+                    val fill = when {
+                        done -> Color(0xFFFFCD75)
+                        next -> if (region.isBoss) Crimson else Color(0xFFEF7D57)
+                        region.isBoss -> Color(0xFF6E263E)
+                        else -> Color(0xFF566C86)
                     }
-                }
-                if (isNext && e.armySize() == 0) {
-                    Text(stringResource(R.string.ik_no_army), color = AppColors.Danger, fontSize = 11.sp)
+                    drawCircle(fill, r, c)
+                    drawCircle(Color.White.copy(alpha = 0.35f), r * 0.55f, Offset(c.x - r * 0.25f, c.y - r * 0.3f))
+                    if (done) {
+                        // sancak
+                        val px = c.x + r * 0.2f
+                        drawRect(Color(0xFF603828), Offset(px, c.y - r * 2.1f), Size(scale, r * 2f))
+                        drawRect(Color(0xFF6E3CA0), Offset(px + scale, c.y - r * 2.1f), Size(r * 1.1f, r * 0.7f))
+                        drawRect(Color(0xFFFFCD75), Offset(px + scale * 2, c.y - r * 1.9f), Size(scale, scale))
+                    }
+                    if (i == selected) {
+                        drawCircle(Color.White, r + scale * 2.5f, c, style = Stroke(width = scale))
+                    }
+                    paint.color = if (done) android.graphics.Color.rgb(26, 28, 44) else android.graphics.Color.WHITE
+                    drawIntoCanvas { cv -> cv.nativeCanvas.drawText((i + 1).toString(), c.x, c.y + paint.textSize * 0.35f, paint) }
                 }
             }
         }
@@ -612,14 +711,108 @@ private fun WorldMap(vm: KingdomViewModel) {
 }
 
 @Composable
+private fun RegionCard(r: Region, vm: KingdomViewModel) {
+    val e = vm.engine
+    val done = r.index < e.conquered
+    val isNext = r.index == e.conquered
+    Card(highlight = isNext) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Column(Modifier.weight(1f)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        (r.index + 1).toString() + ". " + if (done || isNext) stringResource(regionName(r)) else "???",
+                        color = if (done || isNext) AppColors.TextPrimary else AppColors.TextSecondary,
+                        fontWeight = FontWeight.Black,
+                        fontSize = 16.sp,
+                    )
+                    if (r.isBoss) Text("  " + stringResource(R.string.ik_boss), color = Crimson, fontWeight = FontWeight.Black, fontSize = 12.sp)
+                }
+                if (done) Text(stringResource(R.string.ik_conquered), color = Green, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                if (done || isNext) {
+                    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        if (r.bonusRes != null) {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Text("+${r.bonusPct}% ", color = AppColors.TextMuted, fontSize = 11.sp)
+                                Sprite(resSprite(r.bonusRes), 13.dp)
+                            }
+                        }
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text("+" + num(r.taxPerMin) + " ", color = AppColors.TextMuted, fontSize = 11.sp)
+                            Sprite(R.drawable.ik_res_gold, 13.dp)
+                            Text("/" + stringResource(R.string.ik_min), color = AppColors.TextMuted, fontSize = 11.sp)
+                        }
+                        if (r.unlocksHero != null) {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Sprite(heroSprite(r.unlocksHero), 16.dp, modifier = Modifier.clip(RoundedCornerShape(3.dp)))
+                                Text(" " + stringResource(heroName(r.unlocksHero)), color = AppColors.Gold, fontSize = 11.sp, fontWeight = FontWeight.Bold)
+                            }
+                        }
+                    }
+                }
+            }
+            if (isNext) {
+                ActionButton(stringResource(R.string.ik_attack), enabled = e.armySize() > 0, color = Crimson) { vm.attack() }
+            }
+        }
+        if (isNext) {
+            Row(Modifier.padding(top = 6.dp), horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                for ((u, n) in r.enemy) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Sprite(unitSprite(u), 22.dp, flipX = true)
+                        Text("×$n", color = AppColors.TextMuted, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                    }
+                }
+            }
+            val mine = e.myPowerVs(r.enemy)
+            val theirs = e.enemyPower(r)
+            Text(
+                stringResource(R.string.ik_your_power, num(mine)) + "  ·  " + stringResource(R.string.ik_enemy_power, num(theirs)),
+                color = if (mine > theirs * 1.1) Green else if (mine > theirs * 0.9) AppColors.Gold else AppColors.Danger,
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(top = 4.dp),
+            )
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(stringResource(R.string.ik_reward) + ": ", color = AppColors.TextSecondary, fontSize = 11.sp)
+                ResourceLine(r.reward, color = AppColors.TextMuted)
+            }
+            if (e.armySize() == 0) Text(stringResource(R.string.ik_no_army), color = AppColors.Danger, fontSize = 11.sp)
+        } else if (!done) {
+            Text(stringResource(R.string.ik_map_locked), color = AppColors.TextSecondary, fontSize = 12.sp, modifier = Modifier.padding(top = 4.dp))
+        }
+        if (e.nextRegion == null) {
+            Text(stringResource(R.string.ik_all_conquered), color = AppColors.Gold, fontWeight = FontWeight.Black, modifier = Modifier.padding(top = 6.dp))
+        }
+    }
+}
+
+@Composable
 private fun BattleReportView(r: BattleReport, vm: KingdomViewModel) {
+    val clash = rememberClash()
     Overlay {
-        Text(if (r.won) "🏆" else "💀", fontSize = 44.sp)
+        // Iki ordu karsilasiyor: bizimkiler soldan, dusman sagdan (aynalanmis).
+        val mine = vm.engine.army.filterValues { it > 0 }.keys.ifEmpty { r.myLosses.keys }.take(3)
+        val theirs = r.region.enemy.keys.take(3)
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .height(84.dp)
+                .clip(RoundedCornerShape(12.dp))
+                .background(Brush.verticalGradient(listOf(Color(0xFF41A6F6), Color(0xFF38B764), Color(0xFF257179)))),
+        ) {
+            Row(Modifier.align(Alignment.CenterStart).padding(start = (8 + 14 * clash).dp)) {
+                for (u in mine) Sprite(unitSprite(u), 40.dp)
+            }
+            Row(Modifier.align(Alignment.CenterEnd).padding(end = (8 + 14 * clash).dp)) {
+                for (u in theirs) Sprite(unitSprite(u), 40.dp, flipX = true, locked = r.won && clash > 0.8f)
+            }
+        }
         Text(
             stringResource(if (r.won) R.string.ik_victory else R.string.ik_defeat),
             color = if (r.won) AppColors.Gold else AppColors.Danger,
-            fontSize = 24.sp,
+            fontSize = 26.sp,
             fontWeight = FontWeight.Black,
+            modifier = Modifier.padding(top = 8.dp),
         )
         Text(stringResource(regionName(r.region)), color = AppColors.TextPrimary, fontWeight = FontWeight.Bold)
         Text(
@@ -634,7 +827,10 @@ private fun BattleReportView(r: BattleReport, vm: KingdomViewModel) {
             Text(stringResource(R.string.ik_reward), color = AppColors.TextSecondary, fontSize = 12.sp, modifier = Modifier.padding(top = 8.dp))
             ResourceLine(r.reward, color = AppColors.Gold)
             r.heroUnlocked?.let {
-                Text(stringResource(R.string.ik_hero_unlocked, stringResource(heroName(it))), color = AppColors.Gold, fontWeight = FontWeight.Black, modifier = Modifier.padding(top = 8.dp))
+                Row(Modifier.padding(top = 8.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Sprite(heroSprite(it), 40.dp, modifier = Modifier.clip(RoundedCornerShape(6.dp)))
+                    Text(" " + stringResource(R.string.ik_hero_unlocked, stringResource(heroName(it))), color = AppColors.Gold, fontWeight = FontWeight.Black)
+                }
             }
         } else {
             Text(stringResource(R.string.ik_defeat_tip), color = AppColors.TextSecondary, fontSize = 12.sp, textAlign = TextAlign.Center, modifier = Modifier.padding(top = 8.dp))
@@ -650,12 +846,17 @@ private fun BattleReportView(r: BattleReport, vm: KingdomViewModel) {
 
 @Composable
 private fun LossLine(label: String, losses: Map<UnitType, Int>) {
-    Text(
-        label + ": " + if (losses.isEmpty()) stringResource(R.string.ik_none) else losses.entries.joinToString("  ") { "${it.key.emoji}−${it.value}" },
-        color = AppColors.TextMuted,
-        fontSize = 13.sp,
-        modifier = Modifier.padding(top = 4.dp),
-    )
+    Row(Modifier.padding(top = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+        Text("$label: ", color = AppColors.TextMuted, fontSize = 13.sp)
+        if (losses.isEmpty()) {
+            Text(stringResource(R.string.ik_none), color = AppColors.TextMuted, fontSize = 13.sp)
+        } else {
+            for ((u, n) in losses) {
+                Sprite(unitSprite(u), 18.dp)
+                Text("−$n ", color = AppColors.Danger, fontSize = 13.sp, fontWeight = FontWeight.Bold)
+            }
+        }
+    }
 }
 
 // ---------------- Arastirma ----------------
