@@ -22,7 +22,8 @@ val keystoreProps = Properties().apply {
     if (f.exists()) f.inputStream().use { load(it) }
 }
 
-fun adId(name: String): String = (project.findProperty(name) as String?)?.trim().orEmpty()
+fun adId(name: String, default: String = ""): String =
+    (project.findProperty(name) as String?)?.trim()?.takeIf { it.isNotEmpty() } ?: default
 
 android {
     // Kotlin paket adi / R sinifi. Play Store kimligi asagidaki applicationId'dir.
@@ -35,10 +36,18 @@ android {
         minSdk = 24
         targetSdk = 36
         // Play Store'daki son surum 3 idi. Her yuklemede artir.
-        versionCode = 18
-        versionName = "2.9.0"
+        versionCode = 19
+        versionName = "3.0.0"
 
+        // Reklamlar Unity Ads ile gosterilir. AdMob uygulama kimligi yalnizca Google UMP
+        // (GDPR onay formu) icin manifestte kalir; AdMob SDK'si artik yok.
         manifestPlaceholders["admobAppId"] = "ca-app-pub-1017432203303316~7837238391"
+
+        // Unity Ads kimlikleri gradle.properties dosyasindan okunur.
+        buildConfigField("String", "UNITY_GAME_ID", "\"${adId("UNITY_GAME_ID")}\"")
+        buildConfigField("String", "UNITY_BANNER_ID", "\"${adId("UNITY_BANNER_ID", "Banner_Android")}\"")
+        buildConfigField("String", "UNITY_INTERSTITIAL_ID", "\"${adId("UNITY_INTERSTITIAL_ID", "Interstitial_Android")}\"")
+        buildConfigField("String", "UNITY_REWARDED_ID", "\"${adId("UNITY_REWARDED_ID", "Rewarded_Android")}\"")
     }
 
     signingConfigs {
@@ -56,10 +65,8 @@ android {
         debug {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
-            // Google'in resmi test reklam birimleri
-            buildConfigField("String", "ADMOB_BANNER_ID", "\"ca-app-pub-3940256099942544/9214589741\"")
-            buildConfigField("String", "ADMOB_INTERSTITIAL_ID", "\"ca-app-pub-3940256099942544/1033173712\"")
-            buildConfigField("String", "ADMOB_REWARDED_ID", "\"ca-app-pub-3940256099942544/5224354917\"")
+            // Debug derlemede Unity Ads test reklamlari gosterir (gercek gelir yok).
+            buildConfigField("boolean", "UNITY_TEST_MODE", "true")
         }
         release {
             isMinifyEnabled = true
@@ -68,9 +75,7 @@ android {
             if (keystoreProps.isNotEmpty()) {
                 signingConfig = signingConfigs.getByName("release")
             }
-            buildConfigField("String", "ADMOB_BANNER_ID", "\"${adId("ADMOB_BANNER_ID")}\"")
-            buildConfigField("String", "ADMOB_INTERSTITIAL_ID", "\"${adId("ADMOB_INTERSTITIAL_ID")}\"")
-            buildConfigField("String", "ADMOB_REWARDED_ID", "\"${adId("ADMOB_REWARDED_ID")}\"")
+            buildConfigField("boolean", "UNITY_TEST_MODE", "false")
         }
     }
 
@@ -120,7 +125,7 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
 
-    implementation(libs.play.services.ads)
+    implementation(libs.unity.ads)
     implementation(libs.ump)
     implementation(libs.play.review)
     implementation(libs.billing)

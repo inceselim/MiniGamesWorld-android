@@ -1,18 +1,13 @@
 package com.eomer91.minigamesworld.ads
 
 import android.app.Activity
-import android.content.Context
 import android.os.SystemClock
 import android.util.Log
 import com.eomer91.minigamesworld.BuildConfig
 import com.eomer91.minigamesworld.billing.BillingManager
-import com.google.android.gms.ads.AdError
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.FullScreenContentCallback
-import com.google.android.gms.ads.LoadAdError
-import com.google.android.gms.ads.interstitial.InterstitialAd
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
-import dagger.hilt.android.qualifiers.ApplicationContext
+import com.unity3d.ads.IUnityAdsLoadListener
+import com.unity3d.ads.IUnityAdsShowListener
+import com.unity3d.ads.UnityAds
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -21,23 +16,23 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * Gecis (tam ekran) reklami. Bir reklam onceden yuklenir, gosterilince yenisi yuklenir.
- * Cok sik gosterim kullaniciyi kacirir ve AdMob politikalarina takilabilir;
- * bu yuzden iki gosterim arasinda en az Remote Config `ads_frequency` saniye beklenir.
+ * Gecis (tam ekran) reklami, Unity Ads. Bir reklam onceden yuklenir, gosterilince yenisi yuklenir.
+ * Cok sik gosterim kullaniciyi kacirir; bu yuzden iki gosterim arasinda en az
+ * Remote Config `ads_frequency` saniye beklenir.
  * Remote Config `interstitial_enabled` false ise reklam yuklenmez ve gosterilmez.
  */
 @Singleton
 class InterstitialAdManager @Inject constructor(
-    @ApplicationContext private val context: Context,
     adsManager: AdsManager,
     /** Premium abonede gecis reklami gosterilmez */
     private val billing: BillingManager,
     private val adConfig: AdConfig,
 ) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
-    private val unitId = BuildConfig.ADMOB_INTERSTITIAL_ID
+    private val placementId = BuildConfig.UNITY_INTERSTITIAL_ID
 
-    private var ad: InterstitialAd? = null
+    /** Gosterime hazir bir reklam var mi (Unity Ads reklami kendi icinde tutar). */
+    private var loaded = false
     private var isLoading = false
     private var lastShownAt = 0L
     private var adsReady = false
@@ -51,29 +46,29 @@ class InterstitialAdManager @Inject constructor(
         }
         scope.launch {
             adConfig.settings.collect { s ->
-                if (s.interstitialEnabled) preload() else ad = null
+                if (s.interstitialEnabled) preload() else loaded = false
             }
         }
     }
 
     fun preload() {
         if (billing.isPremium.value || !adConfig.current.interstitialEnabled) return
-        if (!adsReady || unitId.isBlank() || ad != null || isLoading) return
+        if (!adsReady || placementId.isBlank() || loaded || isLoading) return
         isLoading = true
-        InterstitialAd.load(
-            context,
-            unitId,
-            AdRequest.Builder().build(),
-            object : InterstitialAdLoadCallback() {
-                override fun onAdLoaded(loaded: InterstitialAd) {
-                    isLoading = false
-                    // Yukleme surerken Remote Config'ten kapatilmis olabilir.
-                    if (adConfig.current.interstitialEnabled) ad = loaded
+        UnityAds.load(
+            placementId,
+            object : IUnityAdsLoadListener {
+                override fun onUnityAdsAdLoaded(placementId: String?) {
+                    scope.launch {
+                        isLoading = false
+                        // Yukleme surerken Remote Config'ten kapatilmis olabilir.
+                        loaded = adConfig.current.interstitialEnabled
+                    }
                 }
 
-                override fun onAdFailedToLoad(error: LoadAdError) {
-                    Log.w(TAG, "Interstitial failed to load: ${error.message}")
-                    isLoading = false
+                override fun onUnityAdsFailedToLoad(placementId: String?, error: UnityAds.UnityAdsLoadError?, message: String?) {
+                    Log.w(TAG, "Interstitial failed to load: $error $message")
+                    scope.launch { isLoading = false }
                 }
             },
         )
@@ -86,33 +81,45 @@ class InterstitialAdManager @Inject constructor(
     fun showIfReady(activity: Activity, onFinished: () -> Unit) {
         val settings = adConfig.current
         if (billing.isPremium.value || !settings.interstitialEnabled) { onFinished(); return }
-        val current = ad
         val cooledDown = lastShownAt == 0L ||
             SystemClock.elapsedRealtime() - lastShownAt >= settings.interstitialIntervalMs
-        if (current == null || !cooledDown) {
+        if (!loaded || !cooledDown) {
             onFinished()
             preload()
             return
         }
 
-        ad = null
-        current.fullScreenContentCallback = object : FullScreenContentCallback() {
-            override fun onAdShowedFullScreenContent() {
-                lastShownAt = SystemClock.elapsedRealtime()
-            }
-
-            override fun onAdDismissedFullScreenContent() {
-                onFinished()
-                preload()
-            }
-
-            override fun onAdFailedToShowFullScreenContent(error: AdError) {
-                Log.w(TAG, "Interstitial failed to show: ${error.message}")
-                onFinished()
-                preload()
+        loaded = false
+        var finished = false
+        val finish = {
+            scope.launch {
+                if (!finished) {
+                    finished = true
+                    onFinished()
+                    preload()
+                }
             }
         }
-        current.show(activity)
+        UnityAds.show(
+            activity,
+            placementId,
+            object : IUnityAdsShowListener {
+                override fun onUnityAdsShowStart(placementId: String?) {
+                    scope.launch { lastShownAt = SystemClock.elapsedRealtime() }
+                }
+
+                override fun onUnityAdsShowClick(placementId: String?) = Unit
+
+                override fun onUnityAdsShowComplete(placementId: String?, state: UnityAds.UnityAdsShowCompletionState?) {
+                    finish()
+                }
+
+                override fun onUnityAdsShowFailure(placementId: String?, error: UnityAds.UnityAdsShowError?, message: String?) {
+                    Log.w(TAG, "Interstitial failed to show: $error $message")
+                    finish()
+                }
+            },
+        )
     }
 
     /** Baska bir tam ekran reklam (ornek: odullu) gosterildi; bekleme suresi buradan baslar. */

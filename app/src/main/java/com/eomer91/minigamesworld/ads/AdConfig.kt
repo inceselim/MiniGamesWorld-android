@@ -30,7 +30,7 @@ data class AdSettings(
         const val DEFAULT_BANNER_ENABLED = true
         const val DEFAULT_ADS_FREQUENCY_SECONDS = 80L
 
-        /** AdMob politikalarina takilmamak icin Remote Config'ten gelse bile alt sinir. */
+        /** Reklam politikalarina takilmamak icin Remote Config'ten gelse bile alt sinir. */
         const val MIN_FREQUENCY_SECONDS = 30L
         const val MAX_FREQUENCY_SECONDS = 3600L
     }
