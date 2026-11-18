@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "85828551056",
+    "project_id": "minigames-dd618",
+    "storage_bucket": "minigames-dd618.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85828551056:android:95240480c30e4ae139b315",
+        "android_client_info": {
+          "package_name": "com.eomer91.MiniGamesWorldincesoy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC01Qn5tbfQt_llPHQ2QaeFVqaheopNcG8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
