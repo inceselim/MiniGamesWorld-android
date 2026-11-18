@@ -8,6 +8,11 @@
     <!-- Reklam kimligi (Unity Ads, Android 13+) -->
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
 
+    <!-- Uygulama dikey calisir (screenOrientation="portrait"), ama bu donanim ozelligi zorunlu
+         degil: yalnizca yatay ekranli cihazlar (tablet, PC, Android XR) da uygulamayi yukleyebilsin. -->
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="false" />
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false" />
+
     <!-- Hayvan Dostlari: konusma motorunu bulabilmek icin (Android 11+) -->
     <queries>
         <intent>

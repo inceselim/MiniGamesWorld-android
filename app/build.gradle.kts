@@ -43,7 +43,7 @@ android {
         minSdk = 24
         targetSdk = 36
         // Play Store'daki son surum 3 idi. Her yuklemede artir.
-        versionCode = 19
+        versionCode = 20
         versionName = "3.0.0"
 
         // Reklamlar Unity Ads ile gosterilir. AdMob uygulama kimligi yalnizca Google UMP
