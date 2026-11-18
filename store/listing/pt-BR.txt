@@ -2,10 +2,10 @@
 Mini Games Hub: Jogos Offline
 
 === SHORT DESCRIPTION (max 80) ===
-31 jogos em um só app: quebra-cabeça, arcade e estratégia. Jogue offline!
+32 jogos em um só app: quebra-cabeça, arcade e estratégia. Jogue offline!
 
 === FULL DESCRIPTION (max 4000) ===
-O Mini Games Hub reúne 31 jogos divertidos em um app pequeno e leve. Não precisa criar conta, a maioria dos jogos funciona sem internet e cada jogo salva o seu recorde. Todos os jogos são grátis.
+O Mini Games Hub reúne 32 jogos divertidos em um app pequeno e leve. Não precisa criar conta, a maioria dos jogos funciona sem internet e cada jogo salva o seu recorde. Todos os jogos são grátis.
 
 🧩 QUEBRA-CABEÇA
 • Quebra-Cabeça de Blocos – encaixe blocos e limpe linhas e colunas
@@ -36,6 +36,7 @@ O Mini Games Hub reúne 31 jogos divertidos em um app pequeno e leve. Não preci
 🏰 ESTRATÉGIA
 • Defesa da Torre – uma torre, ondas sem fim e melhorias permanentes
 • Guerra de Países – construa seu país, forme exércitos e conquiste os rivais
+• Chefe do Clube – comande um clube de futebol europeu: tática, transferências, categorias de base, finanças e copas europeias
 • Kingdom Wars – reconstrua seu reino: os recursos continuam chegando mesmo offline, treine um exército, libere heróis e conquiste 15 regiões
 • Magnata das Fábricas – monte cadeias de produção, venda no mercado e atenda pedidos
 • Magnata da Ilha – construa hotéis, discotecas e parques aquáticos em uma ilha tropical e supere seus rivais

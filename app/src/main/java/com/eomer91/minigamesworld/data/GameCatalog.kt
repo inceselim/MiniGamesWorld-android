@@ -20,7 +20,7 @@ object GameCatalog {
         Game("factory", R.string.game_factory_name, R.string.game_factory_desc, GameCategory.STRATEGY, R.drawable.game_factory, isPlayable = true),
         Game("idle-kingdom", R.string.game_idle_kingdom_name, R.string.game_idle_kingdom_desc, GameCategory.STRATEGY, R.drawable.game_idle_kingdom, isPlayable = true),
         Game("island-tycoon", R.string.game_island_name, R.string.game_island_desc, GameCategory.STRATEGY, R.drawable.game_island, isPlayable = true),
-        Game("football-manager", R.string.game_football_manager_name, R.string.game_football_manager_desc, GameCategory.STRATEGY, R.drawable.game_football_manager, isPlayable = true, isHidden = true),
+        Game("football-manager", R.string.game_football_manager_name, R.string.game_football_manager_desc, GameCategory.STRATEGY, R.drawable.game_football_manager, isPlayable = true),
         Game("stock-market", R.string.game_stock_market_name, R.string.game_stock_market_desc, GameCategory.STRATEGY, R.drawable.game_stock_market, isPlayable = true),
         Game("fox-adventure", R.string.game_fox_name, R.string.game_fox_desc, GameCategory.ARCADE, R.drawable.game_fox_adventure, isPlayable = true),
         Game("mine-run", R.string.game_mine_run_name, R.string.game_mine_run_desc, GameCategory.ARCADE, R.drawable.game_mine_run, isPlayable = true),

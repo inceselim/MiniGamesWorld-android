@@ -1,59 +1,71 @@
 <en-US>
+• Club Boss is back: run your own European football club
 • New ad system: smoother, less intrusive ads
 • Kingdom Wars: brand-new pixel art graphics, a living kingdom scene and an illustrated world map
 • Performance improvements and fixes
 </en-US>
 <tr-TR>
+• Kulüp Patronu geri döndü: kendi Avrupa futbol kulübünü yönet
 • Yeni reklam sistemi: daha akıcı ve daha az rahatsız eden reklamlar
 • Krallık Savaşları: yepyeni pixel art grafikler, canlı krallık sahnesi ve resimli dünya haritası
 • Performans iyileştirmeleri ve düzeltmeler
 </tr-TR>
 <de-DE>
+• Klubboss ist zurück: führe deinen eigenen europäischen Fußballklub
 • Neues Werbesystem: flüssigere, weniger störende Werbung
 • Kingdom Wars: brandneue Pixel-Art-Grafik, eine lebendige Königreich-Szene und eine illustrierte Weltkarte
 • Leistungsverbesserungen und Fehlerbehebungen
 </de-DE>
 <es-ES>
+• Vuelve Jefe del Club: dirige tu propio club de fútbol europeo
 • Nuevo sistema de anuncios: más fluido y menos intrusivo
 • Kingdom Wars: nuevos gráficos pixel art, una escena viva del reino y un mapa del mundo ilustrado
 • Mejoras de rendimiento y correcciones
 </es-ES>
 <fr-FR>
+• Patron du Club est de retour : dirige ton propre club de football européen
 • Nouveau système publicitaire : plus fluide et moins intrusif
 • Kingdom Wars : nouveaux graphismes pixel art, une scène de royaume animée et une carte du monde illustrée
 • Améliorations des performances et corrections
 </fr-FR>
 <it-IT>
+• Torna Boss del Club: guida il tuo club di calcio europeo
 • Nuovo sistema pubblicitario: più fluido e meno invadente
 • Kingdom Wars: nuova grafica pixel art, una scena del regno animata e una mappa del mondo illustrata
 • Miglioramenti delle prestazioni e correzioni
 </it-IT>
 <ja-JP>
+• クラブボスが復活：自分のヨーロッパのサッカークラブを経営しよう
 • 新しい広告システム：よりスムーズで邪魔になりにくい広告
 • Kingdom Wars：新しいピクセルアート、動く王国の風景、イラストの世界地図
 • パフォーマンスの改善と不具合の修正
 </ja-JP>
 <ru-RU>
+• Босс клуба вернулся: управляйте своим европейским футбольным клубом
 • Новая рекламная система: реклама стала плавнее и менее навязчивой
 • Kingdom Wars: новая пиксельная графика, живая сцена королевства и иллюстрированная карта мира
 • Улучшения производительности и исправления
 </ru-RU>
 <da-DK>
+• Klubboss er tilbage: styr din egen europæiske fodboldklub
 • Nyt reklamesystem: mere glidende og mindre forstyrrende reklamer
 • Kingdom Wars: helt ny pixel art-grafik, en levende kongeriges-scene og et illustreret verdenskort
 • Forbedringer af ydeevne og fejlrettelser
 </da-DK>
 <hu-HU>
+• Visszatért a Klubfőnök: irányítsd a saját európai futballklubodat
 • Új reklámrendszer: gördülékenyebb, kevésbé zavaró hirdetések
 • Kingdom Wars: vadonatúj pixel art grafika, élő királyság-jelenet és illusztrált világtérkép
 • Teljesítményjavítások és hibajavítások
 </hu-HU>
 <el-GR>
+• Το Αφεντικό συλλόγου επιστρέφει: διοίκησε τον δικό σου ευρωπαϊκό σύλλογο
 • Νέο σύστημα διαφημίσεων: πιο ομαλές και λιγότερο ενοχλητικές διαφημίσεις
 • Kingdom Wars: ολοκαίνουργια pixel art γραφικά, ζωντανή σκηνή βασιλείου και εικονογραφημένος παγκόσμιος χάρτης
 • Βελτιώσεις απόδοσης και διορθώσεις
 </el-GR>
 <pt-BR>
+• Chefe do Clube está de volta: comande seu próprio clube de futebol europeu
 • Novo sistema de anúncios: mais fluido e menos invasivo
 • Kingdom Wars: novos gráficos em pixel art, uma cena viva do reino e um mapa-múndi ilustrado
 • Melhorias de desempenho e correções
