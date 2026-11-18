@@ -8,6 +8,14 @@ plugins {
     alias(libs.plugins.hilt)
 }
 
+// Firebase (Remote Config): app/google-services.json varsa eklenir. Dosya yoksa uygulama
+// yine derlenir; Remote Config calismaz ve reklam ayarlari varsayilan degerlerde kalir.
+if (file("google-services.json").exists()) {
+    apply(plugin = "com.google.gms.google-services")
+} else {
+    logger.warn("app/google-services.json bulunamadi: Firebase Remote Config devre disi, varsayilan reklam ayarlari kullanilacak.")
+}
+
 // Imza bilgileri proje kokundeki keystore.properties dosyasindan okunur (git'e girmez).
 val keystoreProps = Properties().apply {
     val f = rootProject.file("keystore.properties")
@@ -27,8 +35,8 @@ android {
         minSdk = 24
         targetSdk = 36
         // Play Store'daki son surum 3 idi. Her yuklemede artir.
-        versionCode = 17
-        versionName = "2.8.0"
+        versionCode = 18
+        versionName = "2.9.0"
 
         manifestPlaceholders["admobAppId"] = "ca-app-pub-1017432203303316~7837238391"
     }
@@ -117,6 +125,9 @@ dependencies {
     implementation(libs.play.review)
     implementation(libs.billing)
     implementation(libs.androidx.work.runtime)
+
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.config)
 
     testImplementation(libs.junit)
 }

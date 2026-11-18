@@ -21,12 +21,15 @@ import javax.inject.Singleton
 /**
  * Odullu reklam: oyuncu kendi istegiyle izler, sonunda bir odul alir
  * (ornek: Block Puzzle'da parcalari degistirme, hamle geri alma).
+ * Remote Config `rewarded_enabled` false ise reklam yuklenmez; [show] false doner
+ * ve cagiran ekran mevcut "reklam hazir degil" davranisini surdurur.
  */
 @Singleton
 class RewardedAdManager @Inject constructor(
     @ApplicationContext private val context: Context,
     adsManager: AdsManager,
     private val interstitialAds: InterstitialAdManager,
+    private val adConfig: AdConfig,
 ) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
     private val unitId = BuildConfig.ADMOB_REWARDED_ID
@@ -42,9 +45,15 @@ class RewardedAdManager @Inject constructor(
                 if (ready) preload()
             }
         }
+        scope.launch {
+            adConfig.settings.collect { s ->
+                if (s.rewardedEnabled) preload() else ad = null
+            }
+        }
     }
 
     fun preload() {
+        if (!adConfig.current.rewardedEnabled) return
         if (!adsReady || unitId.isBlank() || ad != null || isLoading) return
         isLoading = true
         RewardedAd.load(
@@ -53,8 +62,8 @@ class RewardedAdManager @Inject constructor(
             AdRequest.Builder().build(),
             object : RewardedAdLoadCallback() {
                 override fun onAdLoaded(loaded: RewardedAd) {
-                    ad = loaded
                     isLoading = false
+                    if (adConfig.current.rewardedEnabled) ad = loaded
                 }
 
                 override fun onAdFailedToLoad(error: LoadAdError) {
@@ -70,6 +79,7 @@ class RewardedAdManager @Inject constructor(
      * reklam kapaninca [onReward] cagrilir. Reklam hazir degilse false doner.
      */
     fun show(activity: Activity, onReward: () -> Unit): Boolean {
+        if (!adConfig.current.rewardedEnabled) return false
         val current = ad
         if (current == null) {
             preload()

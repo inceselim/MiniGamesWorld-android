@@ -12,7 +12,9 @@ import com.eomer91.minigamesworld.ads.InterstitialAdManager
 import com.eomer91.minigamesworld.ads.LocalInterstitialAds
 import com.eomer91.minigamesworld.ads.LocalRewardedAds
 import com.eomer91.minigamesworld.ads.RewardedAdManager
+import com.eomer91.minigamesworld.ads.AdConfig
 import com.eomer91.minigamesworld.ads.LocalAdsReady
+import com.eomer91.minigamesworld.ads.LocalBannerEnabled
 import com.eomer91.minigamesworld.ads.LocalPremium
 import com.eomer91.minigamesworld.billing.BillingManager
 import com.eomer91.minigamesworld.billing.LocalBilling
@@ -37,6 +39,9 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var rewardedAds: RewardedAdManager
 
+    @Inject
+    lateinit var adConfig: AdConfig
+
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
@@ -48,11 +53,13 @@ class MainActivity : AppCompatActivity() {
             val adsReady by adsManager.adsReady.collectAsStateWithLifecycle()
             val privacyRequired by adsManager.privacyOptionsRequired.collectAsStateWithLifecycle()
             val premium by billing.isPremium.collectAsStateWithLifecycle()
+            val adSettings by adConfig.settings.collectAsStateWithLifecycle()
 
             MiniGamesTheme {
                 CompositionLocalProvider(
                     LocalAdsReady provides adsReady,
                     LocalPremium provides premium,
+                    LocalBannerEnabled provides adSettings.bannerEnabled,
                     LocalBilling provides billing,
                     LocalInterstitialAds provides interstitialAds,
                     LocalRewardedAds provides rewardedAds,

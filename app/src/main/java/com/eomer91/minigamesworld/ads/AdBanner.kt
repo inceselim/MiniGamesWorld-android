@@ -14,13 +14,16 @@ import com.google.android.gms.ads.AdView
 /** AdMob baslatildi ve reklam istenebilir mi? MainActivity saglar. */
 val LocalAdsReady = compositionLocalOf { false }
 
+/** Remote Config `banner_enabled`. MainActivity saglar. */
+val LocalBannerEnabled = compositionLocalOf { AdSettings.DEFAULT_BANNER_ENABLED }
+
 /** Reklamsiz Premium abone mi? MainActivity saglar. */
 val LocalPremium = compositionLocalOf { false }
 
 @Composable
 fun AdBanner(modifier: Modifier = Modifier) {
     val unitId = BuildConfig.ADMOB_BANNER_ID
-    if (!LocalAdsReady.current || unitId.isBlank() || LocalPremium.current) return
+    if (!LocalAdsReady.current || !LocalBannerEnabled.current || unitId.isBlank() || LocalPremium.current) return
 
     val widthDp = LocalConfiguration.current.screenWidthDp
     AndroidView(

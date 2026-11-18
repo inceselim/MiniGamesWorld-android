@@ -23,7 +23,8 @@ import javax.inject.Singleton
 /**
  * Gecis (tam ekran) reklami. Bir reklam onceden yuklenir, gosterilince yenisi yuklenir.
  * Cok sik gosterim kullaniciyi kacirir ve AdMob politikalarina takilabilir;
- * bu yuzden iki gosterim arasinda en az [MIN_INTERVAL_MS] beklenir.
+ * bu yuzden iki gosterim arasinda en az Remote Config `ads_frequency` saniye beklenir.
+ * Remote Config `interstitial_enabled` false ise reklam yuklenmez ve gosterilmez.
  */
 @Singleton
 class InterstitialAdManager @Inject constructor(
@@ -31,6 +32,7 @@ class InterstitialAdManager @Inject constructor(
     adsManager: AdsManager,
     /** Premium abonede gecis reklami gosterilmez */
     private val billing: BillingManager,
+    private val adConfig: AdConfig,
 ) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
     private val unitId = BuildConfig.ADMOB_INTERSTITIAL_ID
@@ -47,10 +49,15 @@ class InterstitialAdManager @Inject constructor(
                 if (ready) preload()
             }
         }
+        scope.launch {
+            adConfig.settings.collect { s ->
+                if (s.interstitialEnabled) preload() else ad = null
+            }
+        }
     }
 
     fun preload() {
-        if (billing.isPremium.value) return
+        if (billing.isPremium.value || !adConfig.current.interstitialEnabled) return
         if (!adsReady || unitId.isBlank() || ad != null || isLoading) return
         isLoading = true
         InterstitialAd.load(
@@ -59,8 +66,9 @@ class InterstitialAdManager @Inject constructor(
             AdRequest.Builder().build(),
             object : InterstitialAdLoadCallback() {
                 override fun onAdLoaded(loaded: InterstitialAd) {
-                    ad = loaded
                     isLoading = false
+                    // Yukleme surerken Remote Config'ten kapatilmis olabilir.
+                    if (adConfig.current.interstitialEnabled) ad = loaded
                 }
 
                 override fun onAdFailedToLoad(error: LoadAdError) {
@@ -76,9 +84,11 @@ class InterstitialAdManager @Inject constructor(
      * [onFinished] reklam kapaninca ya da reklam gosterilmezse hemen cagrilir.
      */
     fun showIfReady(activity: Activity, onFinished: () -> Unit) {
-        if (billing.isPremium.value) { onFinished(); return }
+        val settings = adConfig.current
+        if (billing.isPremium.value || !settings.interstitialEnabled) { onFinished(); return }
         val current = ad
-        val cooledDown = SystemClock.elapsedRealtime() - lastShownAt >= MIN_INTERVAL_MS
+        val cooledDown = lastShownAt == 0L ||
+            SystemClock.elapsedRealtime() - lastShownAt >= settings.interstitialIntervalMs
         if (current == null || !cooledDown) {
             onFinished()
             preload()
@@ -112,8 +122,5 @@ class InterstitialAdManager @Inject constructor(
 
     private companion object {
         const val TAG = "InterstitialAdManager"
-
-        /** Iki gecis reklami arasindaki en kisa sure. */
-        const val MIN_INTERVAL_MS = 60_000L
     }
 }

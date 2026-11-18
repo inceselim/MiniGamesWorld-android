@@ -1,0 +1,60 @@
+<en-US>
+• Kingdom Wars: brand-new pixel art graphics, a living kingdom scene and an illustrated world map
+• Fewer interruptions: smarter ad timing
+• Performance improvements and fixes
+</en-US>
+<tr-TR>
+• Krallık Savaşları: yepyeni pixel art grafikler, canlı krallık sahnesi ve resimli dünya haritası
+• Daha az bölünme: daha akıllı reklam zamanlaması
+• Performans iyileştirmeleri ve düzeltmeler
+</tr-TR>
+<de-DE>
+• Kingdom Wars: brandneue Pixel-Art-Grafik, eine lebendige Königreich-Szene und eine illustrierte Weltkarte
+• Weniger Unterbrechungen: intelligenteres Timing der Werbung
+• Leistungsverbesserungen und Fehlerbehebungen
+</de-DE>
+<es-ES>
+• Kingdom Wars: nuevos gráficos pixel art, una escena viva del reino y un mapa del mundo ilustrado
+• Menos interrupciones: anuncios mejor programados
+• Mejoras de rendimiento y correcciones
+</es-ES>
+<fr-FR>
+• Kingdom Wars : nouveaux graphismes pixel art, une scène de royaume animée et une carte du monde illustrée
+• Moins d’interruptions : des publicités mieux espacées
+• Améliorations des performances et corrections
+</fr-FR>
+<it-IT>
+• Kingdom Wars: nuova grafica pixel art, una scena del regno animata e una mappa del mondo illustrata
+• Meno interruzioni: pubblicità meglio distribuite
+• Miglioramenti delle prestazioni e correzioni
+</it-IT>
+<ja-JP>
+• Kingdom Wars：新しいピクセルアート、動く王国の風景、イラストの世界地図
+• 中断を減らすため広告のタイミングを改善
+• パフォーマンスの改善と不具合の修正
+</ja-JP>
+<ru-RU>
+• Kingdom Wars: новая пиксельная графика, живая сцена королевства и иллюстрированная карта мира
+• Меньше перерывов: более продуманный показ рекламы
+• Улучшения производительности и исправления
+</ru-RU>
+<da-DK>
+• Kingdom Wars: helt ny pixel art-grafik, en levende kongeriges-scene og et illustreret verdenskort
+• Færre afbrydelser: smartere timing af reklamer
+• Forbedringer af ydeevne og fejlrettelser
+</da-DK>
+<hu-HU>
+• Kingdom Wars: vadonatúj pixel art grafika, élő királyság-jelenet és illusztrált világtérkép
+• Kevesebb megszakítás: okosabb reklámidőzítés
+• Teljesítményjavítások és hibajavítások
+</hu-HU>
+<el-GR>
+• Kingdom Wars: ολοκαίνουργια pixel art γραφικά, ζωντανή σκηνή βασιλείου και εικονογραφημένος παγκόσμιος χάρτης
+• Λιγότερες διακοπές: πιο έξυπνος χρονισμός διαφημίσεων
+• Βελτιώσεις απόδοσης και διορθώσεις
+</el-GR>
+<pt-BR>
+• Kingdom Wars: novos gráficos em pixel art, uma cena viva do reino e um mapa-múndi ilustrado
+• Menos interrupções: anúncios com intervalos mais inteligentes
+• Melhorias de desempenho e correções
+</pt-BR>
