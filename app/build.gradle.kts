@@ -10,8 +10,15 @@ plugins {
 
 // Firebase (Remote Config): app/google-services.json varsa eklenir. Dosya yoksa uygulama
 // yine derlenir; Remote Config calismaz ve reklam ayarlari varsayilan degerlerde kalir.
-if (file("google-services.json").exists()) {
+val googleServicesJson = file("google-services.json")
+if (googleServicesJson.exists()) {
     apply(plugin = "com.google.gms.google-services")
+    // Debug derlemenin paket adi ".debug" ile biter. Firebase'de bu paket kayitli degilse
+    // debug derlemede Firebase adimini atla: derleme hata vermez, Remote Config yerine
+    // varsayilan reklam ayarlari kullanilir. Yayin (release) derlemesi etkilenmez.
+    if (!googleServicesJson.readText().contains("\"com.eomer91.MiniGamesWorldincesoy.debug\"")) {
+        tasks.matching { it.name == "processDebugGoogleServices" }.configureEach { enabled = false }
+    }
 } else {
     logger.warn("app/google-services.json bulunamadi: Firebase Remote Config devre disi, varsayilan reklam ayarlari kullanilacak.")
 }
